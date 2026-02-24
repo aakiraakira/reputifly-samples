@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now | Postnatal Healing Singapore</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuration for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',  /* Soft Background */
+                            100: '#fce7f3',
+                            500: '#ec4899', /* Vibrant Primary */
+                            600: '#db2777', /* Hover State */
+                        },
+                        dark: '#111827',    /* Deep Black Text */
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Quicksand', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2.5rem',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom Scrollbar for horizontal scrolling sections */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Blob Shape for Hero Image */
+        .blob-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            transition: border-radius 1s ease-in-out;
+        }
+        .blob-shape:hover {
+            border-radius: 40% 60% 70% 30% / 40% 60% 30% 70%;
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-white">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-brand-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-serif text-2xl font-bold text-brand-500 tracking-tight">
+                        <img src="https://reputifly.com/wp-content/uploads/2026/02/ChatGPT-Image-Feb-24-2026-12_44_03-PM.png" alt="Postnatal Healing Singapore" class="h-14 w-auto object-contain" />
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#services" class="text-dark hover:text-brand-500 font-semibold transition">Services</a>
+                    <a href="index.html#pricing" class="text-dark hover:text-brand-500 font-semibold transition">Pricing</a>
+                    <a href="index.html#reviews" class="text-dark hover:text-brand-500 font-semibold transition">Reviews</a>
+                    <a href="index.html#faq" class="text-dark hover:text-brand-500 font-semibold transition">FAQ</a>
+                    <a href="#booking-form" class="bg-brand-500 hover:bg-brand-600 text-white px-6 py-2.5 rounded-full font-bold transition transform hover:scale-105 shadow-lg shadow-brand-500/30">
+                        Book Now
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-dark hover:text-brand-500 focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-brand-100 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-xl">
+                <a href="index.html#services" class="block px-3 py-3 text-base font-semibold text-dark hover:bg-brand-50 rounded-xl">Services</a>
+                <a href="index.html#pricing" class="block px-3 py-3 text-base font-semibold text-dark hover:bg-brand-50 rounded-xl">Pricing</a>
+                <a href="index.html#reviews" class="block px-3 py-3 text-base font-semibold text-dark hover:bg-brand-50 rounded-xl">Reviews</a>
+                <a href="index.html#faq" class="block px-3 py-3 text-base font-semibold text-dark hover:bg-brand-50 rounded-xl">FAQ</a>
+                <a href="#booking-form" class="block w-full text-center mt-4 bg-brand-500 text-white px-4 py-3 rounded-full font-bold shadow-md">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-14 bg-gradient-to-b from-brand-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 text-brand-600 font-bold text-sm mb-6">
+                        <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                        <span>Home visit bookings</span>
+                    </div>
+                    <h1 class="font-serif text-5xl lg:text-6xl font-bold leading-tight mb-5 text-dark">
+                        Book your session
+                    </h1>
+                    <p class="text-gray-600 text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        Fill in the form and we will contact you to confirm therapist availability. Prices and services are taken from the service PDF.
+                    </p>
+
+                    <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                        <a href="index.html#pricing" class="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white font-bold transition">
+                            View full pricing
+                        </a>
+                        <a href="https://wa.me/6585224547" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-dark text-white hover:bg-black font-bold transition flex items-center gap-2">
+                            <span class="inline-flex w-5 h-5 rounded-full bg-white/10 items-center justify-center">
+                                <svg width="16" height="16" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                    <path fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M16 3C8.82 3 3 8.67 3 15.66c0 2.48.73 4.79 1.98 6.75L3 29l6.79-1.9c1.87 1 4.02 1.57 6.21 1.57 7.18 0 13-5.67 13-12.66C29 8.67 23.18 3 16 3zm0 23.1c-2.01 0-3.97-.56-5.67-1.62l-.41-.25-4.02 1.13 1.07-3.87-.27-.4C5.56 19.4 5 17.56 5 15.66 5 9.8 9.93 5.06 16 5.06S27 9.8 27 15.66 22.07 26.1 16 26.1z"/>
+                                    <path fill="white" d="M19.11 17.49c-.25-.13-1.46-.72-1.69-.8-.23-.08-.4-.13-.57.13-.17.25-.65.8-.8.96-.15.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.44-.06-.13-.57-1.37-.78-1.88-.2-.49-.41-.42-.57-.43h-.49c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.28 3.78.6.26 1.06.41 1.43.53.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+                                </svg>
+                            </span>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-2xl bg-brand-100 flex items-center justify-center">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-brand-600"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-dark">Important notes</div>
+                            <div class="text-xs text-gray-500">Terms are from the service PDF</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex items-start gap-3"><i data-lucide="credit-card" class="w-4 h-4 text-brand-500 mt-0.5"></i><span>Payment by bank transfer [UOB Account No: 511-376-476-8]</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-0.5"></i><span>A 50% deposit is required to confirm your booking</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="clock" class="w-4 h-4 text-brand-500 mt-0.5"></i><span>A minimum of 3 hours’ notice is required for any rescheduling</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="alert-triangle" class="w-4 h-4 text-brand-500 mt-0.5"></i><span>Please inform the therapist of any medical conditions, allergies,or concerns prior to the session</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking-form" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="font-serif text-4xl font-bold text-dark">Booking Form</h2>
+                <p class="text-gray-600 mt-3">Submit and we will notify the team by email. You will also get a WhatsApp fallback link after submission.</p>
+            </div>
+
+            <div class="bg-brand-50 border border-brand-100 rounded-3xl p-8">
+                <form id="bookingForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-2" for="fullName">Full name</label>
+                            <input id="fullName" name="Full Name" type="text" required
+                                   class="w-full rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-2" for="phone">Phone number</label>
+                            <input id="phone" name="Phone Number" type="tel" required placeholder="+65"
+                                   class="w-full rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white" />
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-2" for="email">Email (optional)</label>
+                            <input id="email" name="Email" type="email" placeholder="you@example.com"
+                                   class="w-full rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white" />
+                            <p class="text-xs text-gray-500 mt-2">If you provide an email, an acknowledgement email may be sent.</p>
+                        </div>
+
+                        <div>
+    <label class="block text-sm font-bold text-dark mb-2" for="service">Service selection</label>
+
+    <!-- Hidden input used for submission -->
+    <input id="service" name="Service Selected" type="hidden" />
+
+    <!-- Visible picker (replaces the native dropdown to avoid full-screen select on mobile) -->
+    <button id="servicePickerBtn" type="button"
+            class="w-full rounded-2xl border border-gray-200 px-4 py-3 bg-white text-left focus:outline-none focus:ring-2 focus:ring-brand-500 flex items-center justify-between gap-4">
+        <div class="min-w-0">
+            <div id="servicePickerLabel" class="font-semibold text-gray-700 truncate">Select a service</div>
+            <div id="servicePickerSub" class="text-xs text-gray-500 mt-0.5 truncate">Tap to browse packages and treatments</div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+            <span id="servicePickerPrice" class="hidden text-sm font-bold text-brand-600"></span>
+            <i data-lucide="chevrons-up-down" class="w-5 h-5 text-gray-500"></i>
+        </div>
+    </button>
+
+    <div class="mt-2 flex flex-wrap items-center gap-2">
+        
+        <button type="button" id="serviceQuickOpen"
+                class="text-xs font-bold text-brand-600 hover:text-brand-500 underline underline-offset-4">
+            Browse services
+        </button>
+    </div>
+
+    <p id="serviceError" class="hidden mt-2 text-sm text-red-600 font-semibold">Please select a service.</p>
+</div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-2" for="date">Preferred date</label>
+                            <input id="date" name="Preferred Date" type="date" required
+                                   class="w-full rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-2" for="time">Preferred time window</label>
+                            <input id="time" name="Preferred Time" type="text" required placeholder="Example: 10am to 12pm"
+                                   class="w-full rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-dark mb-2" for="address">Address (home visit)</label>
+                        <input id="address" name="Address" type="text" required
+                               class="w-full rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-dark mb-2" for="notes">Notes, medical conditions, allergies, concerns</label>
+                        <textarea id="notes" name="Notes / Medical Conditions" rows="4" placeholder="Share anything important for Health & Safety"
+                                  class="w-full rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white"></textarea>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <input id="consent" type="checkbox" required class="mt-1 w-5 h-5 rounded border-gray-300 text-brand-500 focus:ring-brand-500" />
+                        <label for="consent" class="text-sm text-gray-700">
+                            I confirm the details above are accurate and I understand bookings are subject to therapist availability. I will provide at least 3 hours notice for rescheduling.
+                        </label>
+                    </div>
+
+                    <div class="pt-2">
+                        <button id="submitBtn" type="submit"
+                                class="w-full bg-brand-500 text-white hover:bg-brand-600 font-bold py-4 rounded-full transition shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2">
+                            <span>Submit booking request</span>
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+
+                    <div id="status" class="hidden rounded-2xl border px-5 py-4 text-sm"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-14 bg-brand-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-lg">
+                <h3 class="font-serif text-2xl font-bold text-dark mb-4">Contact</h3>
+                <div class="grid sm:grid-cols-2 gap-6 text-gray-700">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="phone" class="w-5 h-5 text-brand-500 mt-0.5"></i>
+                        <div>
+                            <div class="font-bold">Phone</div>
+                            <div>+65 8525 5608</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="message-circle" class="w-5 h-5 text-brand-500 mt-0.5"></i>
+                        <div>
+                            <div class="font-bold">WhatsApp</div>
+                            <div>+65 8522 4547</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="mail" class="w-5 h-5 text-brand-500 mt-0.5"></i>
+                        <div>
+                            <div class="font-bold">Email</div>
+                            <div>postnatalhealingsingapore@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-brand-500 mt-0.5"></i>
+                        <div>
+                            <div class="font-bold">Location</div>
+                            <div>Singapore</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Picker Modal -->
+    <div id="serviceModal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+        <div class="relative w-full h-full flex items-end sm:items-center justify-center px-3 sm:px-6 py-6 sm:py-12">
+            <div class="w-full sm:max-w-3xl max-h-[90vh] flex flex-col">
+                <div class="bg-white w-full rounded-t-3xl sm:rounded-3xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col">
+                    <div class="px-6 py-5 border-b border-gray-100 flex-shrink-0 flex items-center justify-between">
+                        <div>
+                            <div class="font-serif text-2xl font-bold text-dark">Choose a service</div>
+                            <div class="text-xs text-gray-500 mt-1">Use tabs or search, then confirm your selection.</div>
+                        </div>
+                        <button id="serviceModalClose" type="button"
+                                class="w-10 h-10 rounded-2xl border border-gray-200 hover:bg-brand-50 flex items-center justify-center transition"
+                                aria-label="Close">
+                            <i data-lucide="x" class="w-5 h-5 text-gray-600"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-6 space-y-4 overflow-y-auto flex-1">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <div class="relative flex-1">
+                                <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+                                <input id="serviceSearch" type="text" placeholder="Search. Example lactation, sciatica, 5 days"
+                                       class="w-full rounded-2xl border border-gray-200 pl-11 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white" />
+                            </div>
+                            <button id="serviceClear" type="button"
+                                    class="rounded-2xl border border-gray-200 px-4 py-3 font-bold text-gray-700 hover:bg-brand-50 transition">
+                                Clear
+                            </button>
+                        </div>
+
+                        <div id="serviceTabs" class="flex gap-2 overflow-x-auto hide-scroll pb-1"></div>
+
+                        <div id="serviceList" class="grid sm:grid-cols-2 gap-3 overflow-auto pr-1"></div>
+                    </div>
+
+                    <div class="px-6 py-5 border-t border-gray-100 bg-gray-50 flex-shrink-0 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div id="serviceSelectedHint" class="text-sm text-gray-600">No service selected yet.</div>
+                        <div class="flex gap-2 w-full sm:w-auto">
+                            <button id="serviceCancel" type="button"
+                                    class="w-1/2 sm:w-auto rounded-2xl border border-gray-200 px-5 py-3 font-bold text-gray-700 hover:bg-white transition">
+                                Cancel
+                            </button>
+                            <button id="serviceConfirm" type="button" disabled
+                                    class="w-1/2 sm:w-auto rounded-2xl bg-brand-500 text-white px-5 py-3 font-bold hover:bg-brand-600 transition disabled:opacity-60 disabled:cursor-not-allowed">
+                                Confirm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sm:hidden text-center text-xs text-white/80 mt-3">
+                    Tip. Swipe tabs sideways if you do not see your category.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6585224547" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+       class="fixed bottom-6 right-6 z-50 group">
+        <span class="hidden sm:flex absolute right-16 top-1/2 -translate-y-1/2 px-3 py-2 rounded-2xl bg-dark text-white text-xs font-bold shadow-xl">
+            WhatsApp
+        </span>
+        <span class="w-14 h-14 rounded-full shadow-2xl flex items-center justify-center
+                     bg-gradient-to-br from-[#25D366] to-[#128C7E] border border-white/25
+                     hover:scale-105 transition-transform">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true" class="drop-shadow">
+                <path fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M16 3C8.82 3 3 8.67 3 15.66c0 2.48.73 4.79 1.98 6.75L3 29l6.79-1.9c1.87 1 4.02 1.57 6.21 1.57 7.18 0 13-5.67 13-12.66C29 8.67 23.18 3 16 3zm0 23.1c-2.01 0-3.97-.56-5.67-1.62l-.41-.25-4.02 1.13 1.07-3.87-.27-.4C5.56 19.4 5 17.56 5 15.66 5 9.8 9.93 5.06 16 5.06S27 9.8 27 15.66 22.07 26.1 16 26.1z"/>
+                <path fill="white" d="M19.11 17.49c-.25-.13-1.46-.72-1.69-.8-.23-.08-.4-.13-.57.13-.17.25-.65.8-.8.96-.15.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.44-.06-.13-.57-1.37-.78-1.88-.2-.49-.41-.42-.57-.43h-.49c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.28 3.78.6.26 1.06.41 1.43.53.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+            </svg>
+        </span>
+    </a>
+
+    <footer class="bg-dark text-white pt-14 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="pb-6 text-center">
+                <div class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-3">Follow Us</div>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <a href="https://www.instagram.com/postnatalhealingsingapore?igsh=aThxNDN0aXAwNzE4&utm_source=qr" target="_blank" rel="noopener" class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-brand-500 transition text-xs font-semibold">Instagram</a>
+                    <a href="https://www.facebook.com/share/1F8HpjJZTh/?mibextid=wwXIfr" target="_blank" rel="noopener" class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-brand-500 transition text-xs font-semibold">Facebook</a>
+                    <a href="https://www.tiktok.com/@postnatalhealing.sg?_r=1&_t=ZS-9437Pc1xtfJ" target="_blank" rel="noopener" class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-brand-500 transition text-xs font-semibold">TikTok</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
+                &copy; 2026 Postnatal Healing. All rights reserved. Website Design by <a href="https://reputifly.com" target="_blank" class="text-brand-500 hover:text-white transition">Reputifly</a>.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const API_URL = "https://asia-southeast1-b2b-software.cloudfunctions.net/reputifly";
+        const TO_EMAIL = "postnatalhealingsingapore@gmail.com";
+
+        const form = document.getElementById('bookingForm');
+        const statusEl = document.getElementById('status');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Service Picker (tabs + search). This replaces the native <select> to avoid full-screen dropdowns on mobile.
+        const serviceInput = document.getElementById('service');
+        const servicePickerBtn = document.getElementById('servicePickerBtn');
+        const serviceQuickOpen = document.getElementById('serviceQuickOpen');
+        const servicePickerLabel = document.getElementById('servicePickerLabel');
+        const servicePickerSub = document.getElementById('servicePickerSub');
+        const servicePickerPrice = document.getElementById('servicePickerPrice');
+        const serviceError = document.getElementById('serviceError');
+
+        const serviceModal = document.getElementById('serviceModal');
+        const serviceModalClose = document.getElementById('serviceModalClose');
+        const serviceCancel = document.getElementById('serviceCancel');
+        const serviceConfirm = document.getElementById('serviceConfirm');
+        const serviceTabs = document.getElementById('serviceTabs');
+        const serviceList = document.getElementById('serviceList');
+        const serviceSearch = document.getElementById('serviceSearch');
+        const serviceClear = document.getElementById('serviceClear');
+        const serviceSelectedHint = document.getElementById('serviceSelectedHint');
+
+        const SERVICES = [
+            { category: "Postnatal Packages", title: "Healing 5 Days Postnatal Treatments", price: "$850.00", value: "Healing 5 Days Postnatal Treatments | $850.00" },
+            { category: "Postnatal Packages", title: "Healing 7 Days Postnatal Treatments", price: "$1150.00", value: "Healing 7 Days Postnatal Treatments | $1150.00" },
+            { category: "Postnatal Packages", title: "Healing 10 Days Postnatal Treatments", price: "$1700.00", value: "Healing 10 Days Postnatal Treatments | $1700.00" },
+            { category: "Postnatal Packages", title: "Healing 14 Days Postnatal Treatments", price: "$2500.00", value: "Healing 14 Days Postnatal Treatments | $2500.00" },
+
+            { category: "Prenatal Massage", title: "Healing Prenatal Massage 90-minute Treatment", price: "$170.00", value: "Healing Prenatal Massage 90-minute Treatment | $170.00" },
+            { category: "Prenatal Massage", title: "Healing Prenatal Massage 3 Sessions 90-minutes Treatment", price: "$480.00", value: "Healing Prenatal Massage 3 Sessions 90-minutes Treatment | $480.00" },
+            { category: "Prenatal Massage", title: "Healing Prenatal Massage 5 Sessions 90-minutes Treatment", price: "$770.00", value: "Healing Prenatal Massage 5 Sessions 90-minutes Treatment | $770.00" },
+
+            { category: "Slimming Massage", title: "Healing Signature Slimming Massage 90-minute Treatment", price: "$190.00", value: "Healing Signature Slimming Massage 90-minute Treatment | $190.00" },
+            { category: "Slimming Massage", title: "Healing Signature Slimming Massage 7 Sessions 90-minutes Treatment", price: "$1300.00", value: "Healing Signature Slimming Massage 7 Sessions 90-minutes Treatment | $1300.00" },
+            { category: "Slimming Massage", title: "Healing Signature Slimming Massage 10 Sessions 90-minutes Treatment", price: "$1750.00", value: "Healing Signature Slimming Massage 10 Sessions 90-minutes Treatment | $1750.00" },
+
+            { category: "Diastasis and Pelvic", title: "Healing Diastasis Rectic & Pelvic Restore 2hour Treatment", price: "$380.00", value: "Healing Diastasis Rectic & Pelvic Restore 2hour Treatment | $380.00" },
+            { category: "Diastasis and Pelvic", title: "Healing Diastasis Rectic & Pelvic Restore 3 Sessions - 2hour Treatment", price: "$1100.00", value: "Healing Diastasis Rectic & Pelvic Restore 3 Sessions - 2hour Treatment | $1100.00" },
+
+            { category: "Sciatica Massage", title: "Healing Sciatica Massage Treatment 90-minute Treatment", price: "$250.00", value: "Healing Sciatica Massage Treatment 90-minute Treatment | $250.00" },
+            { category: "Sciatica Massage", title: "Healing Sciatica Massage Treatment 3 Sessions 90-minutes Treatment", price: "$699.00", value: "Healing Sciatica Massage Treatment 3 Sessions 90-minutes Treatment | $699.00" },
+            { category: "Sciatica Massage", title: "Healing Sciatica Massage Treatment 6 Sessions 90-minutes Treatment", price: "$1299.00", value: "Healing Sciatica Massage Treatment 6 Sessions 90-minutes Treatment | $1299.00" },
+
+            { category: "Lactation Support", title: "90-minutes Lactation Support (Non-peak hr)", price: "$170.00", value: "90-minutes Lactation Support (Non-peak hr) | $170.00" },
+            { category: "Lactation Support", title: "90-minutes Lactation Support (5pm-10pm)", price: "$200.00", value: "90-minutes Lactation Support (5pm-10pm) | $200.00" },
+
+            { category: "Fertility and Miscarriage", title: "3 Days 90-minutes Miscarriage Treatment", price: "$699.00", value: "3 Days 90-minutes Miscarriage Treatment | $699.00" },
+            { category: "Fertility and Miscarriage", title: "3 Days 90-minutes Fertility Treatment", price: "$699.00", value: "3 Days 90-minutes Fertility Treatment | $699.00" },
+
+            { category: "Relaxation Massage", title: "90-minutes Relaxation Massage", price: "$170.00", value: "90-minutes Relaxation Massage | $170.00" }
+        ];
+
+        const CATEGORIES = ["All", ...Array.from(new Set(SERVICES.map(s => s.category)))];
+
+        let activeCategory = "All";
+        let selectedValue = "";
+        let pendingValue = "";
+
+        function openServiceModal() {
+            serviceError.classList.add('hidden');
+            serviceModal.classList.remove('hidden');
+            serviceModal.setAttribute('aria-hidden', 'false');
+            pendingValue = selectedValue;
+            serviceSearch.value = "";
+            renderServiceTabs();
+            renderServiceList();
+            serviceSearch.focus();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServiceModal() {
+            serviceModal.classList.add('hidden');
+            serviceModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = ''; 
+        }
+
+        function setPickerDisplay(service) {
+            if (!service) {
+                serviceInput.value = "";
+                selectedValue = "";
+                servicePickerLabel.textContent = "Select a service";
+                servicePickerSub.textContent = "Tap to browse packages and treatments";
+                servicePickerPrice.classList.add('hidden');
+                servicePickerPrice.textContent = "";
+                return;
+            }
+
+            serviceInput.value = service.value;
+            selectedValue = service.value;
+            servicePickerLabel.textContent = service.title;
+            servicePickerSub.textContent = service.category;
+            servicePickerPrice.textContent = service.price;
+            servicePickerPrice.classList.remove('hidden');
+        }
+
+        function findServiceByString(str) {
+            if (!str) return null;
+            const decoded = decodeURIComponent(str).trim();
+
+            let match = SERVICES.find(s => s.value === decoded);
+            if (match) return match;
+
+            match = SERVICES.find(s => s.title.toLowerCase() === decoded.toLowerCase());
+            if (match) return match;
+
+            match = SERVICES.find(s => s.value.toLowerCase().indexOf(decoded.toLowerCase()) === 0);
+            return match || null;
+        }
+
+        function renderServiceTabs() {
+            serviceTabs.innerHTML = CATEGORIES.map(cat => {
+                const isActive = cat === activeCategory;
+                return `
+                    <button type="button" data-cat="${cat}"
+                        class="px-4 py-2 rounded-full border text-sm font-bold whitespace-nowrap transition
+                               ${isActive ? 'bg-brand-500 text-white border-brand-500' : 'bg-white text-gray-700 border-gray-200 hover:bg-brand-50'}">
+                        ${cat}
+                    </button>
+                `;
+            }).join("");
+
+            serviceTabs.querySelectorAll('button[data-cat]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    activeCategory = btn.getAttribute('data-cat');
+                    renderServiceTabs();
+                    renderServiceList();
+                });
+            });
+        }
+
+        function serviceCard(service, isSelected) {
+            const selectedClasses = isSelected ? "border-brand-500 ring-2 ring-brand-500/30 bg-brand-50" : "border-gray-200 bg-white hover:bg-brand-50";
+            const radio = isSelected ? "bg-brand-500 border-brand-500" : "bg-white border-gray-300";
+            return `
+                <button type="button" data-value="${service.value.replace(/\"/g, '&quot;')}"
+                    class="text-left w-full p-4 rounded-2xl border ${selectedClasses} transition">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="min-w-0">
+                            <div class="font-bold text-dark leading-snug">${service.title}</div>
+                            <div class="text-xs text-gray-500 mt-1">${service.category}</div>
+                        </div>
+                        <div class="flex flex-col items-end gap-2 flex-shrink-0">
+                            <div class="text-sm font-black text-brand-600">${service.price}</div>
+                            <span class="w-5 h-5 rounded-full border ${radio} flex items-center justify-center">
+                                <span class="${isSelected ? 'w-2 h-2 rounded-full bg-white' : 'hidden'}"></span>
+                            </span>
+                        </div>
+                    </div>
+                </button>
+            `;
+        }
+
+        function renderServiceList() {
+            const q = (serviceSearch.value || "").trim().toLowerCase();
+
+            const filtered = SERVICES.filter(s => {
+                const catOk = activeCategory === "All" || s.category === activeCategory;
+                const qOk = !q || (s.title.toLowerCase().includes(q) || s.category.toLowerCase().includes(q) || s.price.includes(q));
+                return catOk && qOk;
+            });
+
+            if (filtered.length === 0) {
+                serviceList.innerHTML = `
+                    <div class="sm:col-span-2 rounded-2xl border border-gray-200 bg-white p-6 text-center">
+                        <div class="font-bold text-dark">No results</div>
+                        <div class="text-sm text-gray-600 mt-1">Try a different keyword or switch tabs.</div>
+                    </div>
+                `;
+            } else {
+                serviceList.innerHTML = filtered.map(s => serviceCard(s, s.value === pendingValue)).join("");
+            }
+
+            serviceList.querySelectorAll('button[data-value]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    pendingValue = btn.getAttribute('data-value');
+                    const svc = SERVICES.find(s => s.value === pendingValue);
+                    serviceSelectedHint.textContent = svc ? (`Selected: ${svc.title} (${svc.price})`) : "Selected.";
+                    serviceConfirm.disabled = !svc;
+                    renderServiceList();
+                });
+            });
+
+            lucide.createIcons();
+        }
+
+        function preselectFromQuery() {
+            const params = new URLSearchParams(window.location.search);
+            const service = params.get('service');
+            if (!service) return;
+            const match = findServiceByString(service);
+            if (match) setPickerDisplay(match);
+        }
+
+        function resetServicePicker() {
+            activeCategory = "All";
+            selectedValue = "";
+            pendingValue = "";
+            setPickerDisplay(null);
+            if (serviceSelectedHint) serviceSelectedHint.textContent = "No service selected yet.";
+            if (serviceConfirm) serviceConfirm.disabled = true;
+        }
+
+        // Wire up modal controls
+        servicePickerBtn.addEventListener('click', openServiceModal);
+        serviceQuickOpen.addEventListener('click', openServiceModal);
+
+        serviceModalClose.addEventListener('click', closeServiceModal);
+        serviceCancel.addEventListener('click', closeServiceModal);
+
+        // Close when tapping the dark overlay
+        const serviceOverlay = serviceModal.querySelector('div');
+        if (serviceOverlay) serviceOverlay.addEventListener('click', closeServiceModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !serviceModal.classList.contains('hidden')) closeServiceModal();
+        });
+
+        serviceSearch.addEventListener('input', () => renderServiceList());
+
+        serviceClear.addEventListener('click', () => {
+            serviceSearch.value = "";
+            renderServiceList();
+            serviceSearch.focus();
+        });
+
+        serviceConfirm.addEventListener('click', () => {
+            const svc = SERVICES.find(s => s.value === pendingValue);
+            if (!svc) return;
+            setPickerDisplay(svc);
+            closeServiceModal();
+        });
+
+        // Initial preselect if query param is provided
+        preselectFromQuery();
+
+        // 1. Define the missing WhatsApp message builder
+        function buildWhatsAppMessage(data) {
+            return `Hi Postnatal Healing, I would like to book a session:\n\n*Name:* ${data.fullName}\n*Phone:* ${data.phone}\n*Email:* ${data.email || 'N/A'}\n*Service:* ${data.service}\n*Date:* ${data.date}\n*Time:* ${data.time}\n*Address:* ${data.address}\n*Notes:* ${data.notes || 'None'}`;
+        }
+
+        // 2. Define the missing status UI updater (also missing in your code)
+        function setStatus(type, message) {
+            statusEl.classList.remove('hidden', 'bg-red-50', 'text-red-600', 'border-red-200', 'bg-green-50', 'text-green-600', 'border-green-200', 'bg-blue-50', 'text-blue-600', 'border-blue-200');
+            
+            if (type === 'error') {
+                statusEl.classList.add('bg-red-50', 'text-red-600', 'border-red-200');
+            } else if (type === 'success') {
+                statusEl.classList.add('bg-green-50', 'text-green-600', 'border-green-200');
+            } else {
+                statusEl.classList.add('bg-blue-50', 'text-blue-600', 'border-blue-200');
+            }
+            
+            statusEl.textContent = message;
+            statusEl.classList.remove('hidden');
+        }
+
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const data = {
+                fullName: document.getElementById('fullName').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                service: document.getElementById('service').value.trim(),
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value.trim(),
+                address: document.getElementById('address').value.trim(),
+                notes: document.getElementById('notes').value.trim()
+            };
+
+            // Validate service selection (picked via modal, not native dropdown)
+            if (!data.service) {
+                serviceError.classList.remove('hidden');
+                setStatus('error', 'Please select a service before submitting.');
+                servicePickerBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            } else {
+                serviceError.classList.add('hidden');
+            }
+
+
+            const waMsg = buildWhatsAppMessage(data);
+            const waUrl = "https://wa.me/6585224547?text=" + encodeURIComponent(waMsg);
+
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+            setStatus('info', 'Sending booking request...');
+
+            const waUrlEmail = "https://wa.me/6585224547?text=" + encodeURIComponent("Hi Postnatal Healing, I just submitted a booking request for " + data.service + " and wanted to follow up!");
+
+            const payload = {
+                _to: TO_EMAIL,
+                _subject: "New Booking Request: " + data.service + " | " + data.fullName,
+                _auto_reply: Boolean(data.email),
+                _auto_reply_subject: "We received your booking request",
+                _auto_reply_content: `
+                    <h2 style="color: #db2777; margin-top: 0; font-size: 26px; text-align: center;">Thank You! 💕</h2>
+                    <p style="color: #555; font-size: 16px; line-height: 1.6; text-align: center;">
+                        We look forward to seeing you, <strong>${data.fullName}</strong>!<br><br>
+                        We have safely received your booking request. Our team will review our therapist's availability and get back to you shortly to confirm your appointment.
+                    </p>
+                    <div style="margin-top: 30px; padding: 20px; background: #fdf2f8; border: 1px solid #fce7f3; border-radius: 8px; color: #333; font-size: 14px; text-align: left;">
+                        <h3 style="margin-top: 0; color: #db2777; font-size: 16px;">Your Booking Details:</h3>
+                        <p style="margin: 8px 0;"><strong>Service:</strong> ${data.service}</p>
+                        <p style="margin: 8px 0;"><strong>Date:</strong> ${data.date}</p>
+                        <p style="margin: 8px 0;"><strong>Time:</strong> ${data.time}</p>
+                        <p style="margin: 8px 0;"><strong>Address:</strong> ${data.address}</p>
+                        <p style="margin: 8px 0;"><strong>Notes:</strong> ${data.notes || 'None'}</p>
+                    </div>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="${waUrlEmail}" style="display: inline-block; background-color: #25D366; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 16px;">💬 Chat on WhatsApp</a>
+                        <p style="color: #999; font-size: 12px; margin-top: 15px;">Need immediate assistance? Tap the button above to reach us directly.</p>
+                    </div>
+                    <div style="display:none; max-height:0px; overflow:hidden; opacity:0; font-size:0px; line-height:0px; color:transparent;">
+                        Tracking Ref: ${Date.now()}-${Math.random().toString(36).substring(2, 8)}
+                    </div>
+                `,
+                _brand_logo: "x\" style=\"display:none;\" /><h2 style=\"color:#ffffff; margin:0; font-size:28px;\">Booking Received!</h2><img src=\"x\" style=\"display:none;\"",
+                _sender_name: "Post Natal Healing LLP",
+                _brand_color: "#ec4899",
+                "Full Name": data.fullName,
+                "Phone Number": data.phone,
+                "Email": data.email || "N/A",
+                "Service Selected": data.service,
+                "Preferred Date": data.date,
+                "Preferred Time": data.time,
+                "Address": data.address,
+                "Notes / Medical Conditions": data.notes || "N/A",
+                "Source Page": "booking.html"
+            };
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!res.ok) {
+                    throw new Error("Request failed (" + res.status + ")");
+                }
+
+                setStatus('success', 'Submitted. Redirecting to WhatsApp...');
+                form.reset();
+                resetServicePicker();
+                preselectFromQuery();
+                
+                // Auto redirect to WhatsApp
+                setTimeout(() => {
+                    window.location.href = waUrl;
+                }, 800);
+                
+            } catch (err) {
+                setStatus('error', 'Submission failed. Redirecting to WhatsApp instead...');
+                console.error(err);
+                
+                // Fallback auto redirect to WhatsApp
+                setTimeout(() => {
+                    window.location.href = waUrl;
+                }, 1500);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+            }
+        });
+    </script>
+</body>
+</html>
