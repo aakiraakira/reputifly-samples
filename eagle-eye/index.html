@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eagle Eye | Trust & Honour | Auction & MC</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* === VARIABLES & RESET === */
+        :root {
+            --obsidian: #0A0A0A;
+            --obsidian-light: #151515;
+            --crimson: #D10000;
+            --crimson-hover: #A00000;
+            --bone: #F5F5F5;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --radius: 12px;
+            --fluid-pad: clamp(3rem, 5vw, 6rem);
+            --max-w: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--obsidian);
+            color: var(--bone);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* === UTILITIES === */
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-pad {
+            padding-top: var(--fluid-pad);
+            padding-bottom: var(--fluid-pad);
+        }
+
+        .text-crimson {
+            color: var(--crimson);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--crimson);
+            color: var(--bone);
+            box-shadow: 0 4px 15px rgba(209, 0, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--crimson-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(209, 0, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--bone);
+            border: 1px solid var(--bone);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bone);
+            color: var(--obsidian);
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+        }
+
+        /* === HEADER === */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 60px;
+            object-fit: contain;
+        }
+
+        /* === 1. THE APEX HERO === */
+        .hero {
+            position: relative;
+            padding-top: calc(var(--fluid-pad) + 80px); /* Account for header */
+            padding-bottom: var(--fluid-pad);
+            min-height: clamp(600px, 80vh, 900px);
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        .hero-visual {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: linear-gradient(45deg, var(--obsidian-light), #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Simulated video background effect */
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, var(--obsidian) 100%);
+            z-index: 1;
+        }
+
+        .hero-visual i {
+            font-size: 5rem;
+            color: rgba(255,255,255,0.1);
+            z-index: 0;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* === 2. THE MISSION PARALLAX === */
+        .mission {
+            position: relative;
+            background-color: var(--obsidian);
+            overflow: hidden;
+        }
+
+        .mission-bg-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.03;
+            width: 80%;
+            max-width: 800px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .mission-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-icon {
+            font-size: 2.5rem;
+            color: var(--crimson);
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-body {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* === 3. SERVICE ECOSYSTEM (BENTO GRID) === */
+        .services {
+            background-color: var(--obsidian-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: minmax(250px, auto);
+            }
+            .bento-card:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+        }
+
+        .bento-card {
+            background: var(--obsidian);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 250px;
+        }
+
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(209,0,0,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .bento-card:hover {
+            border-color: rgba(209,0,0,0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .bento-card:hover::before {
+            opacity: 1;
+        }
+
+        .bento-icon {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: var(--crimson);
+        }
+
+        .bento-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            z-index: 1;
+        }
+
+        .bento-desc {
+            color: rgba(255,255,255,0.6);
+            z-index: 1;
+        }
+        
+        .bento-card:nth-child(1) .bento-title {
+            font-size: 2.5rem;
+        }
+
+        .services-action {
+            text-align: center;
+        }
+
+        /* === 4. IMPACT TRACKER === */
+        .impact {
+            background: linear-gradient(to bottom, var(--obsidian), var(--obsidian-light));
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        @media (min-width: 992px) {
+            .impact-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-item {
+            padding: 2rem 1rem;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            color: rgba(255,255,255,0.2);
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            color: var(--crimson);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* === 5. SOCIAL PROOF GALLERY === */
+        .social-proof {
+            overflow: hidden;
+            background-color: var(--obsidian);
+        }
+
+        .marquee-wrapper {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem 0;
+            width: fit-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        .marquee-wrapper:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .testimonial-card {
+            width: 400px;
+            flex-shrink: 0;
+            background: var(--obsidian-light);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 3rem;
+            color: var(--glass);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--crimson);
+        }
+
+        /* === 6. TRANSPARENCY FAQ === */
+        .faq {
+            background-color: var(--obsidian-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: 1rem;
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--bone);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            padding: 1.5rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .accordion-header:hover {
+            color: var(--crimson);
+        }
+
+        .accordion-header i {
+            transition: transform 0.3s ease;
+            color: var(--crimson);
+        }
+
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .accordion-body.active {
+            padding-bottom: 1.5rem;
+        }
+
+        /* === 7. SECURE YOUR DATE (FOOTER/CONTACT) === */
+        .contact-footer {
+            background-color: var(--obsidian);
+            border-top: 1px solid var(--glass-border);
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        @media (min-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+        }
+
+        .form-container {
+            background: var(--obsidian-light);
+            padding: 3rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            color: var(--bone);
+            padding: 10px 0;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            border-bottom-color: var(--crimson);
+        }
+
+        .form-label {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            color: rgba(255,255,255,0.5);
+            transition: 0.3s ease;
+            pointer-events: none;
+        }
+
+        .form-input:focus ~ .form-label,
+        .form-input:valid ~ .form-label {
+            top: -20px;
+            font-size: 0.8rem;
+            color: var(--crimson);
+            font-weight: 700;
+        }
+
+        .form-submit {
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            width: 200px;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--crimson);
+            border-color: var(--crimson);
+            transform: translateY(-3px);
+        }
+
+        .copyright-bar {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .copyright-bar {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        /* === WHATSAPP FLOAT === */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* === ANIMATIONS (INTERSECTION OBSERVER) === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo-container">
+                <img src="./logo.png" alt="Logo">
+            </a>
+            <a href="#contact" class="btn btn-secondary">Book Now</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content reveal">
+                <h1 class="hero-title">Where Every Bid Becomes a <span class="text-crimson">Legacy.</span></h1>
+                <p class="hero-desc">Professional Live & Online Charity Auctions. We turn high-value assets into life-changing impact through trust and honour.</p>
+                <div class="hero-actions">
+                    <a href="#services" class="btn btn-primary">View Live Auctions</a>
+                    <a href="#contact" class="btn btn-secondary">Book an MC</a>
+                </div>
+            </div>
+            <div class="hero-visual reveal delay-2">
+                <i class="fa-solid fa-gavel"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission section-pad">
+        <img src="./logo.png" alt="Logo" class="mission-bg-logo">
+        <div class="container">
+            <div class="mission-content glass-panel reveal">
+                <i class="fa-solid fa-eye mission-icon"></i>
+                <h2 class="mission-title">A Vision for <span class="text-crimson">Philanthropy.</span></h2>
+                <p class="mission-body">We don't just sell; we advocate. Eagle Eye merges the thrill of the auction floor with a commitment to charitable excellence. Driven by our core values of Trust & Honour, we ensure every event maximizes impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services section-pad">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Service <span class="text-crimson">Ecosystem</span></h2>
+                <p style="color: rgba(255,255,255,0.6);">Comprehensive solutions for high-stakes environments.</p>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-card reveal">
+                    <i class="fa-solid fa-microphone-lines bento-icon"></i>
+                    <h3 class="bento-title">Live Floor Dominance</h3>
+                    <p class="bento-desc">The energy of a world-class auctioneer driving momentum and maximizing returns on the live floor.</p>
+                </div>
+                <div class="bento-card reveal delay-1">
+                    <i class="fa-solid fa-globe bento-icon"></i>
+                    <h3 class="bento-title">Global Digital Reach</h3>
+                    <p class="bento-desc">Seamless, secure online bidding platforms to engage a worldwide audience.</p>
+                </div>
+                <div class="bento-card reveal delay-2">
+                    <i class="fa-solid fa-user-tie bento-icon"></i>
+                    <h3 class="bento-title">Elite MC Services</h3>
+                    <p class="bento-desc">Commanding the room with prestige, maintaining event flow with ultimate professionalism.</p>
+                </div>
+            </div>
+
+            <div class="services-action reveal delay-3">
+                <a href="#contact" class="btn btn-primary">Discover Our Methods</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact section-pad">
+        <div class="container impact-grid">
+            <div class="stat-item reveal">
+                <i class="fa-solid fa-chart-line stat-icon"></i>
+                <div class="stat-number">$<span class="counter" data-target="10">0</span>M+</div>
+                <div class="stat-label">Raised for Charity</div>
+            </div>
+            <div class="stat-item reveal delay-1">
+                <i class="fa-solid fa-handshake-angle stat-icon"></i>
+                <div class="stat-number"><span class="counter" data-target="500">0</span>+</div>
+                <div class="stat-label">Live Events Managed</div>
+            </div>
+            <div class="stat-item reveal delay-2">
+                <i class="fa-solid fa-users stat-icon"></i>
+                <div class="stat-number"><span class="counter" data-target="98">0</span>%</div>
+                <div class="stat-label">Bidder Engagement</div>
+            </div>
+            <div class="stat-item reveal delay-3">
+                <i class="fa-solid fa-shield-halved stat-icon"></i>
+                <div class="stat-number"><span class="counter" data-target="100">0</span>%</div>
+                <div class="stat-label">Commitment to Trust</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-proof section-pad">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Proven at the <span class="text-crimson">Highest Level</span></h2>
+            </div>
+        </div>
+        
+        <div class="marquee-wrapper reveal delay-1">
+            <div style="display: flex; gap: 2rem;">
+                <div class="testimonial-card">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"Eagle Eye transformed our gala. Their auctioneer didn't just call bids; he told our story, doubling our expected donations."</p>
+                    <p class="testimonial-author">— Charity Director, Global Hope</p>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"Absolute professionalism from start to finish. The online integration was flawless and intuitive for our older donors."</p>
+                    <p class="testimonial-author">— Event Coordinator, Foundation Trust</p>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"As an MC, they held the room with authority and grace. Kept the schedule tight without feeling rushed."</p>
+                    <p class="testimonial-author">— Corporate Gala Chair</p>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"Eagle Eye transformed our gala. Their auctioneer didn't just call bids; he told our story, doubling our expected donations."</p>
+                    <p class="testimonial-author">— Charity Director, Global Hope</p>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"Absolute professionalism from start to finish. The online integration was flawless and intuitive for our older donors."</p>
+                    <p class="testimonial-author">— Event Coordinator, Foundation Trust</p>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"As an MC, they held the room with authority and grace. Kept the schedule tight without feeling rushed."</p>
+                    <p class="testimonial-author">— Corporate Gala Chair</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq section-pad">
+        <div class="container faq-container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Your Questions, <span class="text-crimson">Answered.</span></h2>
+                <i class="fa-solid fa-circle-question" style="font-size: 2rem; color: var(--crimson); margin-top: 1rem;"></i>
+            </div>
+
+            <div class="accordion reveal delay-1">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        How far in advance should we book an MC or Auctioneer?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-body">
+                        <p>We recommend booking at least 3-6 months in advance for peak gala seasons (Spring and Autumn). However, feel free to contact us for shorter turnarounds as schedule openings do occur.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Do you handle the online bidding platform setup?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-body">
+                        <p>Yes. We provide end-to-end solutions. Our team sets up the digital catalog, manages bidder registration, and ensures secure payment gateways are fully operational before the event begins.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        How do you align with our charity's specific mission?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-body">
+                        <p>Preparation is key. Before any event, we conduct deep-dive consultations with your team to internalize your mission, beneficiaries, and tone, ensuring our stage presence perfectly reflects your brand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-footer section-pad">
+        <div class="container contact-grid">
+            <div class="form-container reveal">
+                <h2 class="section-title" style="font-size: 2rem; margin-bottom: 2rem;">Let’s Raise the Bar<br><span class="text-crimson">(and the Funds)</span></h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="name" required>
+                        <label for="name" class="form-label">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="org" required>
+                        <label for="org" class="form-label">Organization</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="date" required>
+                        <label for="date" class="form-label">Event Date</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="service" required>
+                        <label for="service" class="form-label">Service Required</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit">Initialize Partnership</button>
+                </form>
+            </div>
+
+            <div class="footer-brand reveal delay-2">
+                <img src="./logo.png" alt="Logo" class="footer-logo">
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 400px;">
+                    Upholding the standard of Trust & Honour in every bid, every stage, and every partnership.
+                </p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright-bar reveal delay-3">
+                <div>&copy; 2026 Eagle Eye Auction & MC. All Rights Reserved.</div>
+                <div>Website Design by <a href='https://reputifly.com/web-development' target='_blank' style='color: inherit; text-decoration: underline;'>Reputifly</a></div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/6580111965" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // 1. Intersection Observer for Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Trigger counter animation if it's a stats section
+                    if(entry.target.classList.contains('stat-item') && !entry.target.classList.contains('counted')) {
+                        const counter = entry.target.querySelector('.counter');
+                        if(counter) {
+                            runCounter(counter);
+                        }
+                        entry.target.classList.add('counted');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // 2. Counter Animation Function
+        function runCounter(counter) {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000; // ms
+            const stepTime = Math.abs(Math.floor(duration / target));
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += 1;
+                counter.innerText = current;
+                if (current >= target) {
+                    counter.innerText = target;
+                    clearInterval(timer);
+                }
+            }, stepTime > 0 ? stepTime : 10);
+        }
+
+        // 3. Accordion Logic for FAQ
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const body = header.nextElementSibling;
+                const isActive = header.classList.contains('active');
+
+                // Close all other accordions
+                document.querySelectorAll('.accordion-header').forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.style.maxHeight = null;
+                    h.nextElementSibling.classList.remove('active');
+                });
+
+                // Toggle current accordion
+                if (!isActive) {
+                    header.classList.add('active');
+                    body.classList.add('active');
+                    body.style.maxHeight = body.scrollHeight + 30 + "px"; // 30px accounts for padding
+                }
+            });
+        });
+    </script>
+</body>
+</html>
