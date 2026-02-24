@@ -1,0 +1,1786 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Reputifly | The AI Workspace</title>
+
+<link rel="icon" type="image/png" href="https://reputifly.com/wp-content/uploads/2026/01/IMG_2123.jpg">    <meta name="theme-color" content="#0B0A14">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        /* --- SCROLL REVEAL ANIMATIONS --- */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered Delays */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+
+        /* PWA Card Hover Effects */
+        .pwa-card {
+            transition: all 0.4s ease;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .pwa-card:hover {
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.6);
+        }
+        .pwa-card:hover .pwa-icon {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 0 8px currentColor);
+        }
+        .pwa-icon { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        
+        /* Background Drift */
+        .bg-drift { animation: bgDrift 60s linear infinite alternate; }
+        @keyframes bgDrift { from { transform: scale(1); } to { transform: scale(1.1); } }
+        :root {
+            --bg-main: #0B0A14;
+            --accent-primary: #E6397F;
+            --accent-secondary: #FF8A00;
+            --text-main: #F0F0F0;
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(20, 20, 30, 0.6);
+            --glass-highlight: rgba(255, 255, 255, 0.03);
+        }
+
+        /* --- STRICT NO-SCROLL FIXES --- */
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; /* Nuclear option for horizontal scroll */
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: pan-x pan-y; 
+        }
+        
+        /* Container to trap background overflow elements */
+        #fixed-bg-container {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0A14; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        h1, h2, h3, .brand-font { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+
+        /* --- 3D Background --- */
+        #hero-canvas {
+            position: absolute; /* Changed from fixed to absolute inside container */
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.6;
+            display: block; /* Prevents inline spacing issues */
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        }
+
+        /* Ambient Blobs */
+        .ambient-glow {
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(230, 57, 127, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -2;
+            filter: blur(60px);
+        }
+        .glow-top { top: -200px; left: 50%; transform: translateX(-50%); }
+        /* Fix: adjusted right positioning to prevent push-out */
+        .glow-bottom { bottom: -200px; right: -100px; background: radial-gradient(circle, rgba(255, 138, 0, 0.1) 0%, transparent 70%); }
+
+        /* --- Dynamic Gradient Text --- */
+        .dynamic-gradient-text {
+            background: linear-gradient(to right, #E6397F, #FF8A00, #E6397F);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: text-shimmer 4s linear infinite;
+            font-weight: 800;
+        }
+        @keyframes text-shimmer { to { background-position: 200% center; } }
+
+        /* --- Polished Glass UI --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-panel:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-glass {
+            background: rgba(11, 10, 20, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .nav-glass.scrolled { background: rgba(5, 5, 10, 0.95); box-shadow: 0 4px 20px rgba(0,0,0,0.6); border-bottom-color: rgba(255, 255, 255, 0.08); }
+        .nav-glass.hidden-nav { transform: translateY(-100%); }
+
+        /* --- Buttons with Shine --- */
+        .btn-primary {
+            background: linear-gradient(90deg, #E6397F, #FF8A00);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(230, 57, 127, 0.4);
+            white-space: nowrap;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        .btn-primary:hover::before { left: 100%; }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 138, 0, 0.5);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.open { max-height: 350px; opacity: 1; }
+        /* --- UPGRADED FLOATING NAVBAR --- */
+/* --- UPGRADED FLOATING NAVBAR (PERFECT CENTER) --- */
+/* --- UPGRADED FLOATING NAVBAR (FIXED CENTER + MOBILE EXPAND) --- */
+.nav-capsule {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1000px;
+    height: 64px; /* Fixed height for animation */
+    background: rgba(15, 14, 24, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    z-index: 100;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Hide menu when closed */
+}
+
+.nav-capsule.scrolled {
+    top: 10px;
+    width: 95%; 
+    background: rgba(10, 10, 15, 0.85);
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.8);
+}
+
+/* MOBILE MENU OPEN STATE */
+.nav-capsule.menu-open {
+    height: 320px; /* Expands to show links */
+    background: #0F0E18 !important; /* Solid background for readability */
+    border-radius: 32px; /* Slightly less round when open */
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* GRID LAYOUT: True Centering */
+.nav-grid {
+    display: grid;
+    /* Left(1fr) - Center(Auto) - Right(1fr) guarantees perfect center */
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center;
+    height: 64px; /* Match capsule height */
+    padding: 0 24px;
+}
+
+/* Mobile Menu Content */
+.mobile-menu-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 20px 20px 20px;
+    pointer-events: none; /* Prevent clicking when closed */
+}
+
+.nav-capsule.menu-open .mobile-menu-content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition-delay: 0.1s; /* Wait for expand */
+}
+
+@media (min-width: 768px) {
+    .nav-capsule { height: 56px; }
+    .nav-grid { height: 56px; }
+}
+
+@media (max-width: 768px) {
+    .nav-capsule { width: 92%; top: 15px; }
+    .nav-grid { display: flex; justify-content: space-between; padding: 0 20px; } /* Flex on mobile is fine */
+}
+
+/* Mobile Menu Container */
+.mobile-menu-dropdown {
+    position: absolute;
+    top: 110%; /* Push below the navbar */
+    left: 0; 
+    width: 100%;
+    background: #1E1E2E;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    overflow: hidden;
+    transform-origin: top center;
+    transform: scaleY(0.9) translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.mobile-menu-dropdown.open {
+    transform: scaleY(1) translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* MOBILE OPTIMIZATION: Remove blur on phones to kill lag */
+@media (max-width: 768px) {
+    .nav-capsule {
+        width: 92%;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: #13121d; /* Solid color fallback */
+    }
+}
+
+        /* Tab Styling */
+        .forge-tab {
+            border-bottom: 2px solid transparent;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+        .forge-tab.active {
+            border-bottom-color: var(--accent-primary);
+            opacity: 1;
+            color: white;
+            background: linear-gradient(to right, rgba(255,255,255,0.05), transparent);
+        }
+        
+        /* Console & Code */
+        .console-line {
+            font-family: 'SFMono-Regular', Consolas, monospace;
+            font-size: 12px;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: slideIn 0.3s forwards;
+            margin-bottom: 4px;
+            padding: 4px 8px;
+            border-left: 2px solid var(--accent-primary);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 0 4px 4px 0;
+            word-break: break-word;
+        }
+        @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+
+        /* --- Cursor & Animation --- */
+        /* --- Cursor & Animation --- */
+        .mouse-pointer {
+            position: absolute;
+            z-index: 50;
+            width: 24px; height: 32px;
+            background-image: url('https://www.freeiconspng.com/uploads/mac-cursor-6.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            /* PERFORMANCE FIX: Added will-change and translateZ to force GPU acceleration */
+            will-change: top, left; 
+            transform: translateZ(0); 
+            backface-visibility: hidden;
+            perspective: 1000px;
+            /* --------------------------------------------------------------- */
+            transition: top 0.8s cubic-bezier(0.25, 1, 0.5, 1), left 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            pointer-events: none;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+        }
+        /* --- LIQUID THEME ENGINE --- */
+.liquid-glow {
+    background: radial-gradient(circle at top, rgba(255,255,255,0.4) 0%, transparent 60%),
+                linear-gradient(90deg, #E6397F, #FF8A00);
+    box-shadow: 
+        0 6px 20px rgba(230, 57, 127, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 9999px; /* Forces Pill Shape */
+}
+.liquid-glow:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+        0 15px 30px rgba(255, 138, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.glass-bubble {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 4px 15px rgba(0,0,0,0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-radius: 9999px; /* Forces Pill Shape */
+    transition: all 0.3s ease;
+}
+.glass-bubble:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 10px 25px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+        .mouse-pointer::after {
+            content: attr(data-label);
+            position: absolute; left: 18px; top: 18px;
+            background: var(--accent-primary);
+            color: white; font-size: 11px; padding: 4px 8px;
+            border-radius: 6px; white-space: nowrap; font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3); opacity: 0.9;
+        }
+        .mouse-pointer.clicking { transform: scale(0.9); }
+
+        .demo-modal {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: #1E1E2E;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px; padding: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            opacity: 0; pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 10; width: 90%; max-width: 350px;
+        }
+        .demo-modal.visible { opacity: 1; transform: translate(-50%, -50%) scale(1); pointer-events: auto; }
+
+        .quiz-option { transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); }
+        .quiz-option:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
+        .quiz-option.correct { background-color: rgba(34, 197, 94, 0.15); border-color: #22c55e; }
+        .quiz-option.wrong { background-color: rgba(239, 68, 68, 0.15); border-color: #ef4444; }
+        
+        .demo-cursor {
+            width: 2px; height: 1.2em;
+            background: var(--accent-secondary);
+            display: inline-block;
+            animation: blink 1s infinite;
+            vertical-align: bottom;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .notification-toast {
+            position: absolute; top: 20px; right: 20px;
+            background: #211F30; border-left: 4px solid var(--accent-primary);
+            padding: 12px 16px; border-radius: 6px; font-size: 13px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: translateX(120%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 30; max-width: 85%; border: 1px solid rgba(255,255,255,0.1);
+        }
+        .notification-toast.visible { transform: translateX(0); }
+
+        #graph-section-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+        .graph-overlay { pointer-events: none; }
+
+        .vis-icon-pulse { animation: iconPulse 2s infinite; }
+        @keyframes iconPulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .quiz-pill-generated {
+            background: linear-gradient(135deg, #10B981, #059669); /* Gradient background */
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2); /* Subtle border */
+            border-radius: 9999px; padding: 0.5rem 1.5rem;
+            font-weight: 800; letter-spacing: 0.02em; /* Better typography */
+            display: flex; align-items: center; gap: 0.5rem;
+            pointer-events: none; 
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.5), inset 0 1px 0 rgba(255,255,255,0.2); /* Inner shine */
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .animate-fade-in-up-smooth { animation: fadeInUpSmooth 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+        @keyframes fadeInUpSmooth { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* HEIGHT FIX: Lock height on mobile to prevent jitter when content changes */
+        .demo-container-fixed {
+            height: 450px;
+            overflow: hidden; /* Essential for containing moving cursors */
+            position: relative;
+        }
+        /* ADD THIS TO YOUR CSS to fix mobile resizing */
+        /* --- FIX MOBILE QUIZ OVERLAP & RESIZING --- */
+        /* --- FIX MOBILE QUIZ: REMOVE BLANK SPACE --- */
+        @media (max-width: 768px) {
+            /* 1. Parent Panel: Allow it to shrink to fit content */
+            #quiz-demo .glass-panel {
+                display: flex !important;
+                flex-direction: column !important;
+                height: auto !important;
+                min-height: 0 !important; /* CRITICAL: Remove the forced huge height */
+                overflow: visible !important;
+            }
+
+            /* 2. Notes Section (Top): Compact but readable */
+            #quiz-demo .glass-panel > div:first-child {
+                flex: 0 0 auto !important;
+                height: auto !important;
+                min-height: 200px !important; /* Just enough for the biology text */
+                border-right: none !important;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                padding-bottom: 20px;
+            }
+
+            /* 3. Quiz Output Area (Bottom): Hug the content */
+            #quiz-output-area {
+                flex: 1 1 auto !important;
+                height: auto !important;
+                /* Reduced from 750px+ to just 500px (enough for card + animation) */
+                min-height: 500px !important; 
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 20px !important;
+                padding-bottom: 30px !important; /* Small buffer at the bottom */
+            }
+            
+            /* 4. Ensure card flows naturally */
+            #quiz-container {
+                margin-top: 10px !important;
+                position: relative !important; 
+            }
+        }
+        /* --- UPGRADED HERO BUTTONS --- */
+.btn-hero-glow {
+    background: radial-gradient(circle at top, rgba(255,255,255,0.2) 0%, transparent 60%),
+                linear-gradient(90deg, #E6397F, #FF8A00);
+    position: relative;
+    z-index: 1;
+    box-shadow: 
+        0 10px 30px -10px rgba(230, 57, 127, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-hero-glow:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 20px 40px -10px rgba(255, 138, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-hero-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.btn-hero-glass:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+        /* --- MOBILE PERFORMANCE OPTIMIZATIONS (NO LAG) --- */
+        @media (max-width: 768px) {
+            /* 1. Kill the blur. It is the #1 cause of mobile lag. */
+            .glass-panel, .nav-glass, #mobile-menu, .pwa-card {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                /* Use a solid dark color with slight transparency instead */
+                background: #0B0A14 !important; 
+                border: 1px solid rgba(255,255,255,0.08) !important;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+            }
+
+            /* 2. Nav specific override to ensure it's readable */
+            .nav-glass {
+                background: rgba(11, 10, 20, 0.98) !important;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            /* 3. Disable the gradient text animation (saves GPU) */
+           
+
+            /* 4. Disable box-shadow hover effects on cards */
+            .pwa-card:hover, .glass-panel:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            
+            /* 5. Simplify the background blobs */
+            .ambient-glow {
+                opacity: 0.3; /* Dim them down so they blend easier */
+                filter: blur(40px); /* Reduce blur radius */
+            }
+        }
+
+        @media (max-width: 768px) { 
+            .glass-panel { min-h: auto !important; } 
+            
+            /* FIX 1: Lock Collab Height */
+            .demo-container-fixed { height: 500px !important; min-height: 500px !important; }
+
+            /* FIX 2: Lock Quiz Section Height to prevent jumping */
+            
+
+            /* Extra safety for mobile */
+            body { overflow-x: hidden; width: 100%; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent-primary selection:text-white">
+
+    <div id="fixed-bg-container">
+        <div class="ambient-glow glow-top"></div>
+        <div class="ambient-glow glow-bottom"></div>
+        <canvas id="hero-canvas"></canvas>
+    </div>
+
+    <nav class="nav-capsule" id="navbar">
+    <div class="nav-grid">
+        
+        <div class="flex justify-start">
+            <a href="#" class="flex items-center group">
+                <img src="https://reputifly.com/wp-content/uploads/2025/05/cropped-reputifly-new-e1746390492876.png" class="h-6 md:h-7 w-auto object-contain group-hover:brightness-125 transition-all" alt="Logo">
+            </a>
+        </div>
+        
+        <div class="hidden md:flex items-center justify-center gap-8 text-sm font-medium text-gray-400">
+            <a href="#forge" class="hover:text-white hover:scale-105 transition-all">Agent Forge</a>
+            <a href="#graph-demo" class="hover:text-white hover:scale-105 transition-all">Neural Graph</a>
+            <a href="#quiz-demo" class="hover:text-white hover:scale-105 transition-all">Study Engine</a>
+        </div>
+        
+        <div class="flex justify-end items-center gap-3">
+            <a href="https://reputifly.org/note" class="text-xs text-gray-400 hover:text-white transition-colors hidden md:block">Login</a>
+            <a href="https://reputifly.org/note" class="liquid-glow px-5 py-2 text-xs font-bold text-white shadow-lg">Get Started</a>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-1" onclick="toggleMobileMenu()">
+                <i data-feather="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="mobile-menu-content md:hidden">
+        <div class="h-px bg-white/10 w-full mb-2"></div> <a href="#forge" class="block p-3 rounded-xl hover:bg-white/5 text-sm text-gray-300 font-medium flex items-center gap-3" onclick="toggleMobileMenu()">
+            <i data-feather="cpu" class="w-4 h-4 text-accent-primary"></i> Agent Forge
+        </a>
+        <a href="#graph-demo" class="block p-3 rounded-xl hover:bg-white/5 text-sm text-gray-300 font-medium flex items-center gap-3" onclick="toggleMobileMenu()">
+            <i data-feather="share-2" class="w-4 h-4 text-orange-400"></i> Neural Graph
+        </a>
+        <a href="#quiz-demo" class="block p-3 rounded-xl hover:bg-white/5 text-sm text-gray-300 font-medium flex items-center gap-3" onclick="toggleMobileMenu()">
+            <i data-feather="book-open" class="w-4 h-4 text-blue-400"></i> Study Engine
+        </a>
+        <a href="https://reputifly.org/note" class="block p-3 rounded-xl hover:bg-white/5 text-sm text-white font-bold flex items-center gap-3 mt-2 bg-white/5">
+            <i data-feather="log-in" class="w-4 h-4"></i> Login / Sign Up
+        </a>
+    </div>
+</nav>
+
+    <main class="w-full overflow-x-hidden">
+        <section class="relative pt-32 md:pt-48 pb-20 md:pb-32 px-6 min-h-screen flex flex-col items-center justify-center text-center z-10">
+<div class="glass-bubble inline-flex items-center gap-3 px-5 py-2 mb-8 cursor-default animate-fade-in-up-smooth">                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <span class="text-[10px] md:text-xs font-bold tracking-widest text-green-400 uppercase">Zero-Latency Editing</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-8 max-w-5xl mx-auto tracking-tight">
+                <span class="text-white">Your Digital Mind.</span><br>
+                <span class="dynamic-gradient-text">Fully Interconnected.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed px-2 font-light">
+                Reputifly is the <strong>free</strong>, AI-first workspace. Build custom Agents, generate quizzes from notes instantly, and collaborate in real-time.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 md:gap-6 w-full justify-center px-4 items-center">
+    <a href="https://reputifly.org/note" class="btn-hero-glow px-10 py-4 rounded-full text-white text-lg font-bold flex items-center justify-center gap-3 group">
+        <span>Launch Workspace</span>
+        <i data-feather="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+    </a>
+
+    <a href="#forge" class="btn-hero-glass px-10 py-4 rounded-full text-gray-200 hover:text-white text-lg font-medium flex items-center justify-center gap-3 group">
+        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+            <i data-feather="play" class="w-3 h-3 text-white fill-current"></i>
+        </div>
+        <span>See Demos</span>
+    </a>
+</div>
+        </section>
+
+        <section id="forge" class="py-16 md:py-24 px-4 md:px-6 relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-10 md:mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">The <span class="dynamic-gradient-text">Agent Forge</span></h2>
+                    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+    Stop losing ideas in folders. Reputifly visualizes your notes as a <strong class="text-white font-bold">living, breathing network</strong>. See connections you didn't know existed.
+</p>
+                </div>
+
+                <div class="glass-panel rounded-2xl border border-white/10 overflow-hidden shadow-2xl flex flex-col md:flex-row min-h-[600px]">
+                    <div class="w-full md:w-1/3 bg-black/20 border-b md:border-b-0 md:border-r border-white/10 p-4 md:p-6 flex flex-col gap-4">
+                        <h3 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 pl-2">Select Persona</h3>
+                        
+                        <button onclick="setForgeMode('business')" id="tab-business" class="forge-tab active text-left p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-all group">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="p-2 rounded-lg bg-blue-500/20 text-blue-400 ring-1 ring-blue-500/30"><i data-feather="briefcase" class="w-5 h-5"></i></div>
+                                <span class="font-bold text-white">Business Analyst</span>
+                            </div>
+                            <p class="text-xs text-gray-400 group-hover:text-gray-300">Scrapes web, researches keywords, drafts high-ranking SEO blogs.</p>
+                        </button>
+
+                        <button onclick="setForgeMode('student')" id="tab-student" class="forge-tab text-left p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-all group">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="p-2 rounded-lg bg-pink-500/20 text-pink-400 ring-1 ring-pink-500/30"><i data-feather="book-open" class="w-5 h-5"></i></div>
+                                <span class="font-bold text-white">Student / Researcher</span>
+                            </div>
+                            <p class="text-xs text-gray-400 group-hover:text-gray-300">Synthesizes lectures, creates study guides, generates interactive quizzes.</p>
+                        </button>
+                    </div>
+
+                    <div class="w-full md:w-2/3 bg-[#0F0E18] relative flex flex-col min-h-[400px]">
+                        <div class="h-14 border-b border-white/5 flex items-center justify-between px-4 md:px-6 bg-black/20">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                            </div>
+                            <div class="text-xs font-mono text-gray-500" id="forge-header-status">AGENT_IDLE</div>
+                        </div>
+
+                        <div class="flex-grow p-4 md:p-8 flex flex-col gap-6 relative overflow-hidden">
+                            <div id="forge-console" class="font-mono text-xs md:text-sm space-y-2 text-gray-400 h-[200px] md:h-2/3 overflow-y-auto custom-scrollbar p-4 rounded-lg bg-black/30 border border-white/5 shadow-inner">
+                                <div class="text-gray-600 italic">// Waiting for input...</div>
+                            </div>
+
+                            <div id="forge-preview" class="flex-grow min-h-[150px] border-t border-white/10 bg-white/5 p-4 md:p-6 relative transition-all duration-500 flex items-center justify-center overflow-hidden rounded-b-xl">
+                                <div class="text-center text-gray-500" id="preview-placeholder">
+                                    <i data-feather="cpu" class="w-8 h-8 mx-auto mb-2 opacity-50"></i>
+                                    <p class="text-xs">Agent Output will appear here...</p>
+                                </div>
+                                <div id="processing-vis" class="hidden absolute inset-0 bg-black/50 flex flex-col items-center justify-center gap-4 backdrop-blur-sm rounded-b-xl">
+                                    <div class="flex gap-6">
+                                        <div id="vis-icon-web" class="w-16 h-16 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center hidden border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]"><i data-feather="globe" class="w-8 h-8 vis-icon-pulse"></i></div>
+                                        <div id="vis-icon-brain" class="w-16 h-16 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center hidden border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)]"><i data-feather="cpu" class="w-8 h-8 vis-icon-pulse"></i></div>
+                                        <div id="vis-icon-write" class="w-16 h-16 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center hidden border border-green-500/30 shadow-[0_0_15px_rgba(34,197,94,0.3)]"><i data-feather="edit-3" class="w-8 h-8 vis-icon-pulse"></i></div>
+                                    </div>
+                                    <span class="text-xs font-mono text-accent-primary animate-pulse tracking-widest" id="process-text">INITIALIZING...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="graph-demo" class="py-24 px-4 md:px-6 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Contextual <span class="dynamic-gradient-text">Knowledge Graph</span></h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+    Stop losing ideas in folders. Reputifly visualizes your notes as a <strong class="text-white font-bold">living, breathing network</strong>. See connections you didn't know existed.
+</p>
+            </div>
+
+            <div class="max-w-6xl mx-auto relative h-[500px] rounded-2xl border border-white/10 overflow-hidden shadow-2xl bg-[#0F0E18]">
+                <canvas id="graph-section-canvas"></canvas>
+                
+                <div class="absolute top-4 left-4 md:top-6 md:left-6 graph-overlay">
+                    <div class="bg-black/60 backdrop-blur-md border border-white/10 p-4 rounded-xl shadow-lg">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-2 h-2 rounded-full bg-accent-primary animate-pulse"></div>
+                            <span class="text-xs font-bold text-white uppercase tracking-wider">Live Physics</span>
+                        </div>
+                        <p class="text-xs text-gray-400">Hover over nodes to see<br>active connections.</p>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-6 right-6 md:right-10 graph-overlay pointer-events-auto">
+                    <button id="shuffle-graph-btn" class="glass-bubble text-white px-6 py-2.5 text-sm font-bold flex items-center gap-2 group">
+    <i data-feather="refresh-cw" class="w-4 h-4 group-hover:rotate-180 transition-transform duration-500"></i> 
+    <span>Reshuffle</span>
+</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="command-demo" class="py-16 md:py-24 px-4 md:px-6 bg-black/30 border-y border-white/5 relative">
+             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none"></div>
+            
+            <div class="max-w-5xl mx-auto text-center relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight"><span class="dynamic-gradient-text">Just Type "/"</span></h2>
+                <p class="text-gray-400 mb-8 md:mb-12">Use the smart <strong class="text-white font-bold">command bar</strong> to trigger AI actions instantly.</p>
+                
+                <div class="glass-panel rounded-xl p-4 md:p-6 relative shadow-2xl min-h-[300px] md:min-h-[350px] text-left overflow-hidden flex flex-col border-t border-white/20">
+                    <div class="h-8 border-b border-white/10 mb-4 flex items-center gap-2">
+                         <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                         <span class="text-xs text-gray-500 ml-2">New Note</span>
+                    </div>
+                    
+                    <div id="cmd-editor-area" class="font-mono text-gray-300 text-xs md:text-sm leading-relaxed relative flex-grow">
+                        <span id="cmd-text-content"></span><span class="demo-cursor" id="cmd-cursor"></span>
+                        
+                        <div id="cmd-inserted-content" class="hidden mt-4 p-4 bg-white/5 rounded-lg border border-white/10 animate-fade-in-up-smooth transition-all duration-500">
+                            <div class="flex gap-2 mb-2">
+                                <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded font-bold border border-green-500/30">AI Research Brief</span>
+                            </div>
+                            <h4 class="font-bold text-white mb-2">Topic: Quantum Computing</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Quantum computing utilizes qubits to perform calculations exponentially faster than classical bits. Key players include IBM, Google, and Rigetti.</p>
+                        </div>
+                    </div>
+
+                    <div id="cmd-menu" class="absolute top-[110px] left-4 md:left-10 bg-[#1E1E2E] border border-white/10 rounded-lg shadow-2xl w-56 md:w-64 overflow-hidden opacity-0 transition-all duration-200 transform scale-95 pointer-events-none z-30">
+                        <div class="px-3 py-2 text-xs font-bold text-gray-500 uppercase bg-black/20">AI Commands</div>
+                        <div class="px-4 py-2 hover:bg-accent-primary/20 cursor-pointer text-xs md:text-sm text-white flex items-center gap-2 transition-colors">
+                            <i data-feather="edit-3" class="w-4 h-4 text-blue-400"></i> Summarize
+                        </div>
+                        <div class="px-4 py-2 bg-accent-primary/20 cursor-pointer text-xs md:text-sm text-white flex items-center gap-2 border-l-2 border-accent-primary">
+                            <i data-feather="globe" class="w-4 h-4 text-green-400"></i> /research
+                        </div>
+                        <div class="px-4 py-2 hover:bg-accent-primary/20 cursor-pointer text-xs md:text-sm text-white flex items-center gap-2 transition-colors">
+                            <i data-feather="image" class="w-4 h-4 text-yellow-400"></i> Generate Image
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz-demo" class="py-16 md:py-24 px-4 md:px-6 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-10 md:mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight"><span class="dynamic-gradient-text">Instant Knowledge</span> Engine</h2>
+<p class="text-gray-400">
+    Turn any note into an <strong class="text-white font-bold">interactive study session</strong>. Watch the AI explain its reasoning.
+</p>                </div>
+
+                <div class="glass-panel rounded-2xl border border-white/10 overflow-hidden shadow-2xl grid grid-cols-1 md:grid-cols-2 min-h-[auto] md:min-h-[550px] relative">
+                    
+                    <div class="p-6 md:p-8 border-b md:border-b-0 md:border-r border-white/10 bg-[#0F0E18] flex flex-col">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-lg md:text-xl font-bold text-white">Biology: Photosynthesis</h3>
+                            <button id="btn-generate-quiz" class="text-[10px] md:text-xs text-white px-3 md:px-4 py-2 rounded-full font-bold bg-accent-primary transition-all duration-300 flex items-center gap-2 pointer-events-none shadow-lg hover:bg-accent-primary/90">
+                                <i data-feather="zap" class="w-3 h-3"></i> Generate Quiz
+                            </button>
+                        </div>
+                        <div class="prose prose-invert prose-sm text-gray-400 flex-grow text-xs md:text-sm">
+                            <p class="mb-4">Photosynthesis is the process used by plants, algae and certain bacteria to harness energy from sunlight and turn it into chemical energy.</p>
+                            <p class="mb-4">The general equation for photosynthesis is: <strong>6CO2 + 6H2O + Light Energy → C6H12O6 (sugar) + 6O2 (oxygen).</strong></p>
+                            <p class="mb-4">It occurs primarily in the <strong>chloroplasts</strong> using the green pigment <strong>chlorophyll</strong>.</p>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Inputs: Carbon Dioxide, Water, Light</li>
+                                <li>Outputs: Glucose, Oxygen</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-8 bg-black/30 flex flex-col items-center justify-start relative min-h-[400px]" id="quiz-output-area">
+                        <div class="text-center text-gray-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300" id="quiz-placeholder">
+                            <i data-feather="book-open" class="w-12 h-12 mx-auto mb-3 opacity-50"></i>
+                            <p>Waiting for generation...</p>
+                        </div>
+
+                        <div id="quiz-container" class="w-full max-w-md space-y-6 opacity-0 transition-opacity duration-500 mt-4">
+                            <div class="bg-[#1E1E2E] border border-white/10 rounded-xl p-4 md:p-6 shadow-xl transform transition-all duration-300 relative" id="q1">
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-xs font-bold text-accent-secondary uppercase tracking-wider">Question 1 of 5</span>
+                                </div>
+                                <h4 class="text-white font-bold text-base md:text-lg mb-6 leading-snug">Where does photosynthesis primarily occur?</h4>
+                                <div class="space-y-3">
+                                    <div class="quiz-option rounded-lg p-3 text-xs md:text-sm text-gray-300 cursor-pointer" id="q1a">A) Mitochondria</div>
+                                    <div class="quiz-option rounded-lg p-3 text-xs md:text-sm text-gray-300 cursor-pointer" id="q1b">B) Nucleus</div>
+                                    <div class="quiz-option rounded-lg p-3 text-xs md:text-sm text-gray-300 cursor-pointer" id="q1c">C) Chloroplasts</div>
+                                </div>
+                                <div class="reasoning mt-4 text-xs text-green-400 hidden p-3 bg-green-500/10 rounded-lg border border-green-500/20 flex gap-2 items-start" id="r1">
+                                    <i data-feather="check-circle" class="w-4 h-4 flex-shrink-0 mt-0.5"></i>
+                                    <div><strong>Correct!</strong> The source note states it occurs primarily in the chloroplasts using chlorophyll.</div>
+                                </div>
+                            </div>
+                            
+                             <div class="bg-[#1E1E2E] border border-white/10 rounded-xl p-4 md:p-6 shadow-xl transform transition-all duration-300 hidden" id="q2">
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-xs font-bold text-accent-secondary uppercase tracking-wider">Question 2 of 5</span>
+                                </div>
+                                <h4 class="text-white font-bold text-base md:text-lg mb-6 leading-snug">Which of these is an OUTPUT of the process?</h4>
+                                <div class="space-y-3">
+                                    <div class="quiz-option rounded-lg p-3 text-xs md:text-sm text-gray-300 cursor-pointer" id="q2a">A) Carbon Dioxide</div>
+                                    <div class="quiz-option rounded-lg p-3 text-xs md:text-sm text-gray-300 cursor-pointer" id="q2b">B) Oxygen</div>
+                                    <div class="quiz-option rounded-lg p-3 text-xs md:text-sm text-gray-300 cursor-pointer" id="q2c">C) Water</div>
+                                </div>
+                                <div class="reasoning mt-4 text-xs text-red-400 hidden p-3 bg-red-500/10 rounded-lg border border-red-500/20 flex gap-2 items-start" id="r2">
+                                    <i data-feather="x-circle" class="w-4 h-4 flex-shrink-0 mt-0.5"></i>
+                                    <div><strong>Incorrect.</strong> CO2 is an input. Oxygen is a primary output.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="cursor-quiz" class="mouse-pointer" style="top: 10px; left: 10px; opacity: 0;" data-label="AI Agent"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="collab-demo" class="py-16 md:py-24 px-4 md:px-6 relative overflow-hidden bg-black/20 border-y border-white/5">
+            <div class="max-w-7xl mx-auto text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Real-Time <span class="dynamic-gradient-text">Collaboration</span></h2>
+                <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
+                    <strong class="text-white font-bold">Work together</strong> without friction. <strong class="text-white font-bold">Share notes</strong>, assign checklists, and watch ideas evolve live.
+                </p>
+            </div>
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-start">
+                
+                <div class="demo-container-fixed glass-panel rounded-2xl border border-white/10 bg-bg-main overflow-hidden group">
+                    <div class="h-12 bg-black/40 border-b border-white/5 flex items-center px-4 md:px-6 justify-between">
+                        <span class="text-xs md:text-sm font-bold text-white">Project_Launch.note</span>
+                        <div class="flex items-center gap-3">
+                            <div class="flex -space-x-2" id="avatar-stack">
+                                <div class="w-8 h-8 rounded-full bg-blue-500 border-2 border-[#1E1E2E] flex items-center justify-center text-xs font-bold text-white ring-2 ring-black">Me</div>
+                            </div>
+                            <button id="share-btn-demo" class="bg-accent-primary text-white px-3 py-1.5 rounded text-xs font-bold shadow-lg hover:bg-accent-primary/80 transition-colors">Share</button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-8 relative h-full">
+                        <h1 class="text-xl md:text-2xl font-bold text-white mb-4">Launch Plan</h1>
+                        <div class="space-y-2 text-gray-300 text-xs md:text-sm h-32 overflow-hidden" id="collab-text-area">
+                            <p>1. Finalize UI assets.</p>
+                            <p>2. Deploy backend API.</p>
+                            <p id="collab-typing-line">3. </p>
+                        </div>
+                        <div id="cursor-me" class="mouse-pointer" style="top: 50px; left: 350px; opacity: 0;" data-label="You"></div>
+                        <div id="cursor-bob" class="mouse-pointer" style="top: 200px; left: 100px; opacity: 0;" data-label="Bob"></div>
+                    </div>
+
+                    <div id="share-modal-demo" class="demo-modal">
+                        <h3 class="text-lg font-bold text-white mb-2">Share Note</h3>
+                        <p class="text-sm text-gray-400 mb-4">Invite via email.</p>
+                        <div class="flex gap-2">
+                            <input type="text" id="share-email-input" value="" class="flex-grow bg-black/30 border border-white/10 rounded p-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-accent-primary" placeholder="email...">
+                            <button class="bg-white text-black px-4 py-2 rounded text-sm font-bold hover:bg-gray-200" id="share-invite-btn">Invite</button>
+                        </div>
+                    </div>
+
+                    <div id="collab-notif" class="notification-toast text-white">
+                        <span class="font-bold text-accent-secondary">Bob</span> joined the document.
+                    </div>
+                </div>
+
+                <div class="demo-container-fixed glass-panel rounded-xl p-6 relative flex flex-col overflow-hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-bold text-xl text-white">Q3 Goals</h3>
+                        <button id="checklist-share-trigger" class="text-xs text-accent-secondary border border-accent-secondary/30 px-3 py-1 rounded hover:bg-accent-secondary/10 transition-colors">
+                            <i data-feather="link" class="inline w-3 h-3 mr-1"></i> Share Link
+                        </button>
+                    </div>
+
+                    <div class="w-full bg-white/10 h-1.5 rounded-full mb-4 overflow-hidden">
+                        <div id="checklist-progress" class="h-full w-0 transition-all duration-500 ease-out" style="background-color: var(--accent-primary)"></div>
+                    </div>
+                    
+                    <div class="space-y-3 flex-grow" id="checklist-items">
+                        <div class="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/5 transition-all hover:bg-white/10" id="item-1">
+                            <div class="w-5 h-5 rounded border border-gray-500 flex items-center justify-center cursor-pointer"></div>
+                            <span class="text-gray-300 text-sm">Hire Frontend Dev</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/5 transition-all hover:bg-white/10" id="item-2">
+                            <div class="w-5 h-5 rounded border border-gray-500 flex items-center justify-center cursor-pointer"></div>
+                            <span class="text-gray-300 text-sm">Finalize Budget</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/5 transition-all hover:bg-white/10" id="item-3">
+                            <div class="w-5 h-5 rounded border border-gray-500 flex items-center justify-center cursor-pointer"></div>
+                            <span class="text-gray-300 text-sm">Launch Beta</span>
+                        </div>
+                    </div>
+
+                    <div id="link-modal-checklist" class="demo-modal text-center">
+                        <h3 class="text-lg font-bold text-white mb-2">Public Link Created</h3>
+                        <div class="bg-black/30 p-2 rounded text-xs text-gray-400 mb-3 truncate border border-white/5">reputifly.org/shared/x8z9...</div>
+                        <button class="w-full bg-accent-primary text-white py-2 rounded text-sm font-bold hover:bg-accent-primary/90">Copy Link</button>
+                    </div>
+
+                    <div id="cursor-check" class="mouse-pointer" style="top: 120%; left: 120%;" data-label="External User"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pwa-section" class="py-20 md:py-32 px-6 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0A14] via-[#0B0A14]/90 to-transparent z-10"></div>
+            <div class="bg-drift absolute inset-0 opacity-30 z-0 mix-blend-overlay" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-position: center;"></div>
+
+            <div class="max-w-4xl mx-auto relative z-20 text-center">
+                <div class="reveal-on-scroll">
+                    <div class="inline-flex items-center justify-center p-4 bg-white/5 backdrop-blur-xl rounded-full mb-8 border border-white/10 shadow-2xl">
+                        <i data-feather="wifi-off" class="w-8 h-8 text-gray-200"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">No Internet? <span class="dynamic-gradient-text">No Problem.</span></h2>
+                </div>
+
+                <p class="reveal-on-scroll delay-100 text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+    Reputifly is built as a Progressive Web App (PWA). Work from a plane at 30,000ft or deep in the mountains. <strong class="text-white font-bold">Your brain doesn't need signal.</strong>
+</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                    
+                    <div class="reveal-on-scroll delay-200 glass-panel pwa-card p-6 rounded-xl border border-white/10">
+                        <div class="pwa-icon text-green-400 mb-4 inline-block">
+                             <i data-feather="download-cloud" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-2">Installable</h4>
+                        <p class="text-sm text-gray-400 leading-snug">Install directly to your dock or home screen. No app store needed.</p>
+                    </div>
+
+                    <div class="reveal-on-scroll delay-300 glass-panel pwa-card p-6 rounded-xl border border-white/10">
+                         <div class="pwa-icon text-blue-400 mb-4 inline-block">
+                            <i data-feather="database" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-2">Local First</h4>
+                        <p class="text-sm text-gray-400 leading-snug">Changes save instantly to your device and sync when you reconnect.</p>
+                    </div>
+
+                    <div class="reveal-on-scroll delay-100 md:delay-400 glass-panel pwa-card p-6 rounded-xl border border-white/10">
+                         <div class="pwa-icon text-yellow-400 mb-4 inline-block">
+                            <i data-feather="zap" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-2">Zero Latency</h4>
+                        <p class="text-sm text-gray-400 leading-snug">Experience instant load times, regardless of network speed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="py-20 md:py-32 px-6 text-center relative overflow-hidden">
+            <div class="ambient-glow" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);"></div>
+            
+            <div class="max-w-3xl mx-auto relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 tracking-tight">Powerful Features. <span class="dynamic-gradient-text">Zero Cost.</span></h2>
+                <div class="glass-panel p-8 rounded-3xl max-w-md mx-auto border border-accent-primary/30 relative overflow-hidden hover:scale-105 transition-transform duration-500 cursor-pointer group">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-accent-primary/20 blur-3xl rounded-full group-hover:bg-accent-primary/40 transition-colors"></div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Early Adopter</h3>
+                    <div class="text-5xl font-bold text-white mb-6 flex justify-center items-baseline gap-2">
+                        $0 <span class="text-sm font-normal text-gray-500">/ forever</span>
+                    </div>
+                    <ul class="text-left space-y-4 mb-8 text-gray-300">
+                        <li class="flex gap-3"><i data-feather="check" class="text-accent-primary w-5 h-5"></i> Unlimited Notes & Folders</li>
+                        <li class="flex gap-3"><i data-feather="check" class="text-accent-primary w-5 h-5"></i> Agent Forge Access</li>
+                        <li class="flex gap-3"><i data-feather="check" class="text-accent-primary w-5 h-5"></i> Real-time Collaboration</li>
+                        <li class="flex gap-3"><i data-feather="check" class="text-accent-primary w-5 h-5"></i> Offline PWA</li>
+                    </ul>
+                    <a href="https://reputifly.org/note" class="block w-full liquid-glow py-4 font-bold text-lg text-white hover:text-white">Start Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-white/5 bg-black/40 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity">
+                <img src="https://reputifly.com/wp-content/uploads/2025/05/cropped-reputifly-new-e1746390492876.png" class="h-8 w-auto object-contain invert brightness-0" alt="Logo">
+            </div>
+            <div class="text-xs text-gray-600">
+                &copy; 2025 Reputifly. Free for everyone.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+
+        // --- ZOOM PREVENTION LOGIC ---
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+        document.addEventListener('dblclick', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+
+        // --- 1. Mobile Menu Toggle ---
+        // --- MORPHING MOBILE MENU ---
+function toggleMobileMenu() {
+    const nav = document.getElementById('navbar');
+    const btnIcon = document.querySelector('#mobile-menu-btn i');
+    
+    // Toggle the class that expands the height
+    nav.classList.toggle('menu-open');
+
+    // Switch Icon (Menu <-> X)
+    if (nav.classList.contains('menu-open')) {
+        btnIcon.setAttribute('data-feather', 'x');
+    } else {
+        btnIcon.setAttribute('data-feather', 'menu');
+    }
+    feather.replace();
+}
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // --- 2. 3D Globe Logic (Optimized for Mobile) ---
+        const initGlobe = () => {
+            const canvas = document.getElementById('hero-canvas');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: window.innerWidth > 768 }); 
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            // PERFORMANCE FIX: Force 1x resolution on mobile, allow 2x on desktop
+renderer.setPixelRatio(window.innerWidth < 768 ? 1 : Math.min(window.devicePixelRatio, 2));
+
+            const group = new THREE.Group();
+            scene.add(group);
+
+            const geometry = new THREE.IcosahedronGeometry(1.8, 1);
+            const wireframeMat = new THREE.MeshBasicMaterial({ color: 0x333344, wireframe: true, transparent: true, opacity: 0.08 });
+            const sphere = new THREE.Mesh(geometry, wireframeMat);
+            group.add(sphere);
+
+            // Reduce particles on mobile
+            const isMobile = window.innerWidth < 768;
+            const count = isMobile ? 80 : 200;
+            const particlesGeo = new THREE.BufferGeometry();
+            const posArray = new Float32Array(count * 3);
+            for(let i = 0; i < count * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 5; 
+            }
+            particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMat = new THREE.PointsMaterial({ size: 0.03, color: 0xE6397F, transparent: true, opacity: 0.6 });
+            const particles = new THREE.Points(particlesGeo, particlesMat);
+            group.add(particles);
+
+            camera.position.z = 5;
+
+            let mouseX = 0;
+            let mouseY = 0;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX - window.innerWidth / 2) * 0.0005;
+                mouseY = (e.clientY - window.innerHeight / 2) * 0.0005;
+            });
+
+            const animate = () => {
+                requestAnimationFrame(animate);
+                group.rotation.y += 0.001;
+                group.rotation.x += 0.0005;
+                group.rotation.y += (mouseX - group.rotation.y) * 0.05;
+                group.rotation.x += (mouseY - group.rotation.x) * 0.05;
+                renderer.render(scene, camera);
+            };
+            animate();
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        };
+
+        // --- 2.1 Neural Knowledge Graph (From V2) ---
+        const initGraphDemo = () => {
+            const canvas = document.getElementById('graph-section-canvas');
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width, height, nodes = [];
+            let mouse = { x: -1000, y: -1000 };
+
+            const resize = () => { width = canvas.width = canvas.parentElement.offsetWidth; height = canvas.height = canvas.parentElement.offsetHeight; };
+            class Node {
+                constructor() {
+                    this.x = Math.random() * width; this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 0.5; this.vy = (Math.random() - 0.5) * 0.5;
+                    this.color = Math.random() > 0.5 ? '#E6397F' : '#FF8A00';
+                }
+                update() {
+                    this.x += this.vx; this.y += this.vy;
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+                }
+                draw() {
+                    ctx.beginPath(); ctx.arc(this.x, this.y, 3, 0, Math.PI*2);
+                    ctx.fillStyle = this.color; ctx.fill();
+                }
+            }
+            const initNodes = () => { nodes = []; for(let i=0; i<(window.innerWidth<768?15:30); i++) nodes.push(new Node()); };
+            const animateGraph = () => {
+                ctx.clearRect(0, 0, width, height);
+                nodes.forEach(node => {
+                    node.update(); node.draw();
+                    nodes.forEach(other => {
+                        const dist = Math.sqrt((node.x-other.x)**2 + (node.y-other.y)**2);
+                        if(dist < 120) {
+                            ctx.beginPath(); ctx.moveTo(node.x, node.y); ctx.lineTo(other.x, other.y);
+                            ctx.strokeStyle = `rgba(255,255,255,${0.15 - dist/800})`; ctx.stroke();
+                        }
+                    });
+                    const distMouse = Math.sqrt((node.x-mouse.x)**2 + (node.y-mouse.y)**2);
+                    if(distMouse < 150) {
+                        ctx.beginPath(); ctx.moveTo(node.x, node.y); ctx.lineTo(mouse.x, mouse.y);
+                        ctx.strokeStyle = 'rgba(230,57,127,0.4)'; ctx.stroke();
+                    }
+                });
+                requestAnimationFrame(animateGraph);
+            };
+            window.addEventListener('resize', () => { resize(); initNodes(); });
+            canvas.addEventListener('mousemove', e => { const r = canvas.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+            document.getElementById('shuffle-graph-btn')?.addEventListener('click', initNodes);
+            resize(); initNodes(); animateGraph();
+        };
+
+        // --- 3. Agent Forge Logic (Updated) ---
+        let currentMode = 'business';
+        let forgeRunId = 0; // Prevents race conditions if user clicks rapidly
+        const consoleEl = document.getElementById('forge-console');
+        const previewEl = document.getElementById('forge-preview');
+        const statusEl = document.getElementById('forge-header-status');
+        let autoRunTimeout;
+
+        function setForgeMode(mode) {
+            currentMode = mode;
+            // 1. Update UI Tabs
+            document.querySelectorAll('.forge-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(`tab-${mode}`).classList.add('active');
+            
+            // 2. RESET UI IMMEDIATELY to prevent ghost text
+            consoleEl.innerHTML = '<div class="text-gray-600 italic">// Waiting for input...</div>';
+            previewEl.innerHTML = `<div class="text-center text-gray-500" id="preview-placeholder"><i data-feather="cpu" class="w-8 h-8 mx-auto mb-2 opacity-50"></i><p class="text-xs">Agent Output will appear here...</p></div><div id="processing-vis" class="hidden absolute inset-0 bg-black/50 flex flex-col items-center justify-center gap-4 backdrop-blur-sm rounded-b-xl"><div class="flex gap-6"><div id="vis-icon-web" class="w-16 h-16 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center hidden border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]"><i data-feather="globe" class="w-8 h-8 vis-icon-pulse"></i></div><div id="vis-icon-brain" class="w-16 h-16 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center hidden border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)]"><i data-feather="cpu" class="w-8 h-8 vis-icon-pulse"></i></div><div id="vis-icon-write" class="w-16 h-16 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center hidden border border-green-500/30 shadow-[0_0_15px_rgba(34,197,94,0.3)]"><i data-feather="edit-3" class="w-8 h-8 vis-icon-pulse"></i></div></div><span class="text-xs font-mono text-accent-primary animate-pulse tracking-widest" id="process-text">INITIALIZING...</span></div>`;
+            feather.replace();
+
+            // 3. Auto Run
+            startForgeDemo(); 
+        }
+
+        function startForgeDemo() {
+            clearTimeout(autoRunTimeout);
+            forgeRunId++; // Increment ID to cancel previous runs
+            runActiveSimulation(forgeRunId);
+        }
+
+        async function runActiveSimulation(runId) {
+            const processingVis = document.getElementById('processing-vis');
+            const processText = document.getElementById('process-text');
+            const placeholder = document.getElementById('preview-placeholder');
+            
+            // Reset UI State
+            statusEl.textContent = 'AGENT_RUNNING';
+            statusEl.classList.add('text-accent-secondary', 'animate-pulse');
+            consoleEl.innerHTML = ''; // Clear console
+            if(placeholder) placeholder.classList.add('hidden');
+            processingVis.classList.remove('hidden');
+            
+            const scenarios = {
+                business: [
+                    { text: "Connecting to Search API...", action: "SCANNING WEB", icon: 'web' },
+                    { text: "Scraping 'Competitor Pricing'...", action: "PARSING DATA", icon: 'web' },
+                    { text: "Identifying Keywords...", action: "ANALYZING", icon: 'brain' },
+                    { text: "Drafting SEO Report...", action: "WRITING", icon: 'write' },
+                    { text: "Complete.", action: "FINISHING", icon: 'write' }
+                ],
+                student: [
+                    { text: "Scanning 'Lecture_4.pdf'...", action: "READING", icon: 'web' },
+                    { text: "Extracting Key Concepts...", action: "EXTRACTING", icon: 'brain' },
+                    { text: "Cross-referencing Wiki...", action: "VERIFYING", icon: 'web' },
+                    { text: "Generating Questions...", action: "THINKING", icon: 'brain' },
+                    { text: "Study Guide Generated.", action: "READY", icon: 'write' }
+                ]
+            };
+
+            const steps = scenarios[currentMode];
+            
+            // Execution Loop
+            for (let step of steps) {
+                if(runId !== forgeRunId) return; // STOP if user switched tabs
+                
+                // Update Visuals
+                const currentProcessText = document.getElementById('process-text');
+                const currentIcons = {
+                    web: document.getElementById('vis-icon-web'),
+                    brain: document.getElementById('vis-icon-brain'),
+                    write: document.getElementById('vis-icon-write')
+                };
+                
+                if(currentProcessText) currentProcessText.innerText = step.action;
+                if(currentIcons.web) {
+                    Object.values(currentIcons).forEach(i => i.classList.add('hidden'));
+                    if(currentIcons[step.icon]) currentIcons[step.icon].classList.remove('hidden');
+                }
+
+                await new Promise(r => setTimeout(r, 800)); 
+                if(runId !== forgeRunId) return;
+
+                const line = document.createElement('div');
+                line.className = 'console-line text-green-400';
+                line.innerHTML = `> ${step.text}`;
+                consoleEl.appendChild(line);
+                consoleEl.scrollTop = consoleEl.scrollHeight;
+            }
+
+            if(runId !== forgeRunId) return;
+
+            if (currentMode === 'business') {
+                previewEl.innerHTML = `
+                    <div class="w-full h-full bg-[#1E1E2E] border border-blue-500/30 p-4 md:p-6 rounded-lg shadow-xl overflow-y-auto text-left font-sans animate-fade-in-up-smooth flex flex-col">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                                <i data-feather="pie-chart" class="w-4 h-4 text-blue-400"></i> Strategy Report
+                            </h2>
+                            <span class="bg-blue-500/20 text-blue-300 text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wider">Final Draft</span>
+                        </div>
+                        <p class="text-xs md:text-sm text-gray-400 mb-4 leading-relaxed">
+                            Competitor analysis indicates a market shift towards AI-driven solutions...
+                        </p>
+                        <div class="space-y-3 flex-grow">
+                            <div class="h-2 bg-white/10 rounded w-3/4"></div>
+                            <div class="h-2 bg-white/10 rounded w-full"></div>
+                            <div class="h-2 bg-white/10 rounded w-5/6"></div>
+                        </div>
+                        <button class="w-full bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/50 py-2 rounded mt-4 text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2">
+                            <i data-feather="download" class="w-3 h-3"></i> Export PDF
+                        </button>
+                    </div>`;
+            } else {
+                previewEl.innerHTML = `
+                    <div class="w-full h-full flex flex-col animate-fade-in-up-smooth">
+                         <div class="w-full bg-[#1E1E2E] border border-pink-500/30 p-4 md:p-5 rounded-lg shadow-xl flex-grow flex flex-col relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-16 h-16 bg-pink-500/10 rounded-bl-full"></div>
+                            <div class="flex justify-between items-center mb-3 relative z-10">
+                                 <h2 class="text-xs md:text-sm font-bold text-white flex items-center gap-2"><i data-feather="book" class="w-4 h-4 text-pink-400"></i> Lecture 4: Neuroscience</h2>
+                                 <span class="bg-pink-500/20 text-pink-300 text-[10px] uppercase font-bold px-2 py-1 rounded-full">Summary</span>
+                            </div>
+                            <p class="text-xs text-gray-400 leading-relaxed mb-3">
+                                <span class="text-white font-bold">Key Concept:</span> Action potentials are rapid, transient changes in membrane potential.
+                            </p>
+                            <div class="mt-3 p-2 bg-green-500/10 border border-green-500/20 rounded flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                     <i data-feather="layers" class="text-green-400 w-3 h-3"></i>
+                                     <span class="text-green-100 text-xs font-bold">15 Cards</span>
+                                </div>
+                                <button class="text-[10px] bg-green-600 text-white px-2 py-1 rounded font-bold hover:bg-green-500 transition-colors">Review</button>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+            feather.replace();
+
+            statusEl.textContent = 'AGENT_IDLE';
+            statusEl.classList.remove('text-accent-secondary', 'animate-pulse');
+        }
+
+        // --- 4. Command Bar Auto-Typing ---
+        const runCommandDemo = () => {
+            const textEl = document.getElementById('cmd-text-content');
+            const menu = document.getElementById('cmd-menu');
+            const inserted = document.getElementById('cmd-inserted-content');
+            const fullText = "Drafting a new plan for ";
+            let i = 0;
+            
+            function typeLoop() {
+                if(i < fullText.length) {
+                    textEl.textContent += fullText.charAt(i);
+                    i++;
+                    setTimeout(typeLoop, 100);
+                } else {
+                    setTimeout(() => {
+                        textEl.textContent += "/";
+                        setTimeout(() => {
+                            menu.classList.remove('opacity-0', 'scale-95');
+                            setTimeout(() => {
+                                textEl.textContent += "re";
+                                setTimeout(() => {
+                                    menu.classList.add('opacity-0', 'scale-95');
+                                    textEl.innerHTML = "Drafting a new plan for <span class='text-accent-primary'>Running Research Agent...</span>";
+                                    setTimeout(() => {
+                                        inserted.classList.remove('hidden');
+                                        inserted.classList.add('animate-fade-in-up-smooth');
+                                        setTimeout(() => {
+                                            inserted.classList.add('hidden');
+                                            inserted.classList.remove('animate-fade-in-up-smooth');
+                                            textEl.textContent = "";
+                                            i = 0;
+                                            setTimeout(typeLoop, 1000);
+                                        }, 5000);
+                                    }, 800);
+                                }, 600);
+                            }, 500);
+                        }, 400);
+                    }, 500);
+                }
+            }
+            typeLoop();
+        };
+
+        // --- 5. Note-to-Quiz Live Demo ---
+        const runQuizDemo = () => {
+            const cursor = document.getElementById('cursor-quiz');
+            const btn = document.getElementById('btn-generate-quiz');
+            const placeholder = document.getElementById('quiz-placeholder');
+            const container = document.getElementById('quiz-container');
+            const q1 = document.getElementById('q1');
+            const q2 = document.getElementById('q2');
+            
+            const loop = async () => {
+                // Reset State
+                cursor.style.opacity = 0;
+                cursor.style.top = "10px"; cursor.style.left = "10px";
+                placeholder.classList.remove('hidden');
+                container.classList.add('opacity-0');
+                q1.classList.remove('hidden');
+                q2.classList.add('hidden');
+                
+                document.querySelectorAll('.quiz-option').forEach(el => {
+                    el.classList.remove('correct', 'wrong');
+                });
+                document.querySelectorAll('.reasoning').forEach(el => el.classList.add('hidden'));
+
+                btn.innerHTML = '<i data-feather="zap" class="w-3 h-3"></i> Generate Quiz';
+                btn.classList.remove('quiz-pill-generated', 'bg-accent-primary');
+                btn.classList.add('bg-accent-primary', 'rounded-lg', 'px-3', 'md:px-4');
+                feather.replace();
+
+                await new Promise(r => setTimeout(r, 1000));
+
+                // 1. Move Cursor to Button (Dynamic Position)
+                cursor.style.transition = "all 1s ease-in-out";
+                cursor.style.opacity = 1;
+                // Calculate precise offset
+                cursor.style.top = (btn.offsetTop + 15) + "px";
+                cursor.style.left = (btn.offsetLeft + 30) + "px";
+
+                await new Promise(r => setTimeout(r, 1000));
+
+                // 2. Click Button
+                cursor.classList.add('clicking');
+                btn.innerHTML = '<i data-feather="loader" class="w-3 h-3 animate-spin"></i> Generating...';
+                await new Promise(r => setTimeout(r, 300));
+                cursor.classList.remove('clicking');
+
+                await new Promise(r => setTimeout(r, 1500)); 
+                
+                // 3. Show Question 1
+                placeholder.classList.add('hidden');
+                container.classList.remove('opacity-0');
+                btn.innerHTML = '<i data-feather="check-circle" class="w-3 h-3"></i> Quiz Generated';
+                btn.classList.remove('bg-accent-primary', 'rounded-lg', 'px-3', 'md:px-4');
+                btn.classList.add('quiz-pill-generated'); 
+                feather.replace();
+
+                await new Promise(r => setTimeout(r, 1000));
+
+                // 4. Click Answer C
+                const optC = document.getElementById('q1c');
+                if(optC) {
+                    cursor.style.top = (container.offsetTop + optC.offsetTop + 15) + "px";
+                    cursor.style.left = (container.offsetLeft + optC.offsetLeft + 50) + "px";
+                }
+
+                await new Promise(r => setTimeout(r, 1000));
+
+                cursor.classList.add('clicking');
+                if(optC) optC.classList.add('correct');
+                document.getElementById('r1')?.classList.remove('hidden');
+                await new Promise(r => setTimeout(r, 300));
+                cursor.classList.remove('clicking');
+
+                await new Promise(r => setTimeout(r, 1500));
+
+                // 6. Transition to Question 2
+                q1.classList.add('hidden');
+                q2.classList.remove('hidden');
+
+                // 7. Click Answer A
+                const opt2A = document.getElementById('q2a');
+                if(opt2A) {
+                    cursor.style.top = (container.offsetTop + opt2A.offsetTop + 15) + "px";
+                    cursor.style.left = (container.offsetLeft + opt2A.offsetLeft + 50) + "px";
+                }
+
+                await new Promise(r => setTimeout(r, 1000));
+
+                cursor.classList.add('clicking');
+                if(opt2A) opt2A.classList.add('wrong');
+                document.getElementById('r2')?.classList.remove('hidden');
+                await new Promise(r => setTimeout(r, 300));
+                cursor.classList.remove('clicking');
+
+                setTimeout(loop, 2000);
+            };
+            loop();
+        };
+
+        // --- 6. Collab & Checklist Demos (Scroll Triggered) ---
+        // --- 6. Simultaneous Collab Demo (True Real-Time) ---
+        // --- 6. Robust Real-Time Collab Demo ---
+        const runCollabDemo = () => {
+            const container = document.querySelector('#collab-demo .demo-container-fixed');
+            const cursorMe = document.getElementById('cursor-me');
+            const cursorBob = document.getElementById('cursor-bob');
+            const modal = document.getElementById('share-modal-demo');
+            const input = document.getElementById('share-email-input');
+            const notif = document.getElementById('collab-notif');
+            const textArea = document.getElementById('collab-text-area');
+            const shareBtn = document.getElementById('share-btn-demo');
+            const avatarStack = document.getElementById('avatar-stack');
+
+            // Helper: Position cursor
+            const moveCursorTo = (cursor, targetEl, offsetX = 0, offsetY = 0) => {
+                if (!targetEl || !container) return;
+                const contRect = container.getBoundingClientRect();
+                const targetRect = targetEl.getBoundingClientRect();
+                const top = (targetRect.top - contRect.top) + offsetY;
+                const left = (targetRect.left - contRect.left) + offsetX;
+                cursor.style.top = `${top}px`;
+                cursor.style.left = `${left}px`;
+            };
+
+            // Helper: Type text with colored border (no floating cursor)
+            const typeText = async (element, text, colorClass) => {
+                element.classList.add('border-r-2', colorClass); 
+                for (let char of text) {
+                    element.textContent += char;
+                    await new Promise(r => setTimeout(r, Math.random() * 30 + 20));
+                }
+                element.classList.remove('border-r-2', colorClass);
+            };
+
+            const loop = async () => {
+                // 1. RESET STATE
+                textArea.innerHTML = '';
+                cursorMe.style.opacity = 0; 
+                cursorBob.style.opacity = 0;
+                
+                // Reset Avatars: Only show "Me" (Blue) initially
+                avatarStack.innerHTML = `
+                    <div class="w-8 h-8 rounded-full bg-blue-600 border-2 border-[#1E1E2E] flex items-center justify-center text-xs font-bold text-white z-10 relative shadow-lg">Me</div>
+                `;
+
+                // 2. SETUP TEXT STRUCTURE (Color Coded)
+                
+                // Blue Section (Me)
+                const header1 = document.createElement('div');
+                header1.className = "flex items-center gap-2 mb-2 mt-1";
+                header1.innerHTML = `<h4 class="text-[10px] uppercase tracking-widest text-blue-400 font-bold">Frontend Tasks (Me)</h4>`;
+                
+                const zoneMe = document.createElement('div');
+                zoneMe.className = "mb-6 pl-4 border-l-2 border-blue-500/30 text-blue-100 text-xs md:text-sm font-medium"; 
+                const textSpanMe = document.createElement('span'); 
+                zoneMe.appendChild(textSpanMe);
+
+                // Pink Section (Bob)
+                const header2 = document.createElement('div');
+                header2.className = "flex items-center gap-2 mb-2";
+                header2.innerHTML = `<h4 class="text-[10px] uppercase tracking-widest text-pink-400 font-bold">Backend (Bob)</h4>`;
+                
+                const zoneBob = document.createElement('div');
+                zoneBob.className = "mb-4 pl-4 border-l-2 border-pink-500/30 text-pink-100 text-xs md:text-sm font-medium";
+                const textSpanBob = document.createElement('span'); 
+                zoneBob.appendChild(textSpanBob);
+
+                textArea.append(header1, zoneMe, header2, zoneBob);
+
+                // 3. TYPING PHASE (No Cursors, just text appearing)
+                await new Promise(r => setTimeout(r, 500));
+
+                const taskMe = "Refactoring the dashboard layout grid.";
+                
+                // I type first
+                await typeText(textSpanMe, taskMe, 'border-blue-500');
+                
+                await new Promise(r => setTimeout(r, 800));
+
+                // 4. SHARE MODAL PHASE
+                
+                // Show My Cursor
+                cursorMe.style.transition = "none";
+                cursorMe.style.top = "150px"; cursorMe.style.left = "200px";
+                cursorMe.dataset.label = "Me";
+                cursorMe.style.opacity = 1;
+                
+                // Move to Share
+                await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+                cursorMe.style.transition = "all 1s ease-in-out";
+                moveCursorTo(cursorMe, shareBtn, 25, 15);
+                
+                await new Promise(r => setTimeout(r, 1000));
+
+                // Open Modal
+                cursorMe.classList.add('clicking');
+                modal.classList.add('visible');
+                await new Promise(r => setTimeout(r, 300));
+                cursorMe.classList.remove('clicking');
+
+                // Type Email
+                input.value = "";
+                let email = "bob@work.com";
+                for(let char of email) {
+                    input.value += char;
+                    await new Promise(r => setTimeout(r, 50));
+                }
+
+                // Move to Invite Button
+                const inviteBtn = document.getElementById('share-invite-btn');
+                moveCursorTo(cursorMe, inviteBtn, 20, 15);
+                await new Promise(r => setTimeout(r, 800));
+
+                // Click Invite
+                cursorMe.classList.add('clicking');
+                modal.classList.remove('visible');
+                await new Promise(r => setTimeout(r, 300));
+                cursorMe.classList.remove('clicking');
+                
+                // 5. "BOB JOINED" EVENT
+                notif.classList.add('visible');
+                
+                // --- AVATAR STACK ANIMATION ---
+                // Add Bob's Avatar (Pink) dynamically
+                const bobAvatar = document.createElement('div');
+                bobAvatar.className = "w-8 h-8 rounded-full bg-pink-600 border-2 border-[#1E1E2E] flex items-center justify-center text-xs font-bold text-white transform scale-0 transition-transform duration-300 z-20 relative shadow-lg";
+                bobAvatar.innerText = "B";
+                avatarStack.appendChild(bobAvatar);
+                
+                // Animate Pop-in
+                requestAnimationFrame(() => {
+                    bobAvatar.classList.remove('scale-0');
+                });
+                
+                // Park my cursor
+                moveCursorTo(cursorMe, textArea, -20, 50);
+                cursorMe.style.opacity = 0;
+
+                await new Promise(r => setTimeout(r, 1000));
+                notif.classList.remove('visible');
+
+                // 6. BOB TYPES
+                const taskBob = "Setting up the WebSocket listeners.";
+                await typeText(textSpanBob, taskBob, 'border-pink-500');
+
+                await new Promise(r => setTimeout(r, 2500));
+                
+                // Restart
+                setTimeout(loop, 500);
+            };
+            
+            loop();
+        };
+        const runChecklistDemo = () => {
+            const cursor = document.getElementById('cursor-check');
+            const shareBtn = document.getElementById('checklist-share-trigger');
+            const modal = document.getElementById('link-modal-checklist');
+            const item2 = document.getElementById('item-2');
+            const progress = document.getElementById('checklist-progress'); // Progress bar
+            
+            const loop = async () => {
+                cursor.style.opacity = 1; 
+                cursor.dataset.label = "You";
+                cursor.style.top = "50px"; cursor.style.left = "50px";
+                item2.querySelector('div').innerHTML = '';
+                item2.classList.remove('opacity-50');
+                progress.style.width = "0%"; // Reset progress
+
+                await new Promise(r => setTimeout(r, 1000));
+
+                cursor.style.transition = "all 1s ease-in-out";
+                cursor.style.top = shareBtn.offsetTop + 15 + "px";
+                cursor.style.left = shareBtn.offsetLeft + 50 + "px";
+                await new Promise(r => setTimeout(r, 1000));
+                
+                cursor.classList.add('clicking');
+                modal.classList.add('visible');
+                await new Promise(r => setTimeout(r, 300));
+                cursor.classList.remove('clicking');
+                
+                await new Promise(r => setTimeout(r, 1000));
+                
+                // Move to 'Copy Link' button approximate location
+                cursor.style.top = (modal.offsetTop + 80) + "px";
+                cursor.style.left = (modal.offsetLeft + 100) + "px";
+                await new Promise(r => setTimeout(r, 800));
+                cursor.classList.add('clicking');
+                modal.classList.remove('visible');
+                cursor.classList.remove('clicking');
+
+                cursor.dataset.label = "External User";
+                cursor.style.top = "120%"; cursor.style.left = "120%"; 
+                await new Promise(r => setTimeout(r, 1000));
+                
+                cursor.style.top = (item2.offsetTop + 20) + "px";
+                cursor.style.left = (item2.offsetLeft + 20) + "px";
+                await new Promise(r => setTimeout(r, 1000));
+                
+                cursor.classList.add('clicking');
+                item2.querySelector('div').innerHTML = '<i data-feather="check" class="w-3 h-3 text-green-400"></i>';
+                item2.classList.add('opacity-50');
+                // Update progress bar logic (simulating 1/3 complete - 33%)
+                progress.style.width = "33%"; 
+                
+                feather.replace();
+                await new Promise(r => setTimeout(r, 300));
+                cursor.classList.remove('clicking');
+                
+                setTimeout(loop, 1000);
+            };
+            loop();
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- SMART TEXT ANIMATION (PERFORMANCE FIX) ---
+        // Only animate gradient text when it is actually on screen
+        const textObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    // Pause it again when it leaves screen to save battery/GPU
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% visible
+
+        document.querySelectorAll('.dynamic-gradient-text').forEach((el) => {
+            textObserver.observe(el);
+        });
+            initGlobe();
+            initGraphDemo();
+            const observerOptions = {
+                threshold: 0.15, // Trigger when 15% of the element is visible
+                rootMargin: "0px 0px -50px 0px" // Offset slightly so it triggers before hitting bottom
+            };
+
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        scrollObserver.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+                scrollObserver.observe(el);
+            });
+            // ----------------------
+            
+            
+            runCommandDemo();
+            runQuizDemo();
+            
+            // Auto-Run Forge on Load (Business Mode)
+            setTimeout(() => startForgeDemo(), 1000);
+
+            // Scroll Trigger for Collab Section
+            const collabSection = document.getElementById('collab-demo');
+            const collabObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        runCollabDemo();
+                        runChecklistDemo();
+                        collabObserver.disconnect(); // Only start triggers once
+                    }
+                });
+            }, { threshold: 0.2 });
+            collabObserver.observe(collabSection);
+
+            // --- OPTIMIZED SCROLL HANDLER (NO LAG) ---
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        const nav = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            lastScrollY = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    // 1. Add 'scrolled' class if moved down slightly
+                    if (lastScrollY > 20) {
+                        nav.classList.add('scrolled');
+                    } else {
+                        nav.classList.remove('scrolled');
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Update Mobile Menu Logic (needed for the new capsule design)
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('open');
+            
+            // Toggle Icon
+            const btnIcon = document.querySelector('#mobile-menu-btn i');
+            if (btnIcon) {
+                if(menu.classList.contains('open')) {
+                    btnIcon.setAttribute('data-feather', 'x');
+                } else {
+                    btnIcon.setAttribute('data-feather', 'menu');
+                }
+                feather.replace();
+            }
+        }
+        // Remove the old event listener if it exists to prevent double-firing
+        const oldBtn = document.getElementById('mobile-menu-btn');
+        if(oldBtn) oldBtn.onclick = toggleMobileMenu;
+        });
+    </script>
+</body>
+</html>
