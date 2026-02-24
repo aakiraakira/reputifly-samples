@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valencia Yachts | Luxury Charters in Singapore</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <style>
+    :root {
+      --primary: #7B47A4;
+      --primary-hover: #633886;
+      --secondary: #0EA5E9;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --bg-light: #F8FAFC;
+      --bg-white: #FFFFFF;
+      --border: #E2E8F0;
+
+      --radius-container: 24px;
+      --radius-card: 18px;
+      --radius-btn: 12px;
+
+      --shadow-heavy: 0 20px 40px rgba(0,0,0,0.08);
+      --shadow-hover: 0 24px 50px rgba(123, 71, 164, 0.16);
+      --shadow-card: 0 10px 25px rgba(15, 23, 42, 0.06);
+      --shadow-input: 0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.04);
+
+      --spacing-fluid: clamp(3rem, 5vw, 6rem);
+      --container-max: 1200px;
+      --transition-smooth: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text-muted);
+      background: var(--bg-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-main);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-smooth);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-padding {
+      padding-top: var(--spacing-fluid);
+      padding-bottom: var(--spacing-fluid);
+    }
+
+    .text-center { text-align: center; }
+
+    .hover-lift {
+      transition: var(--transition-smooth);
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.95rem 1.25rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.97rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--bg-white);
+      box-shadow: 0 10px 20px rgba(123, 71, 164, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(123, 71, 164, 0.28);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: var(--bg-white);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 0.75rem 1rem;
+      font-size: 0.92rem;
+      border-radius: 10px;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(226,232,240,0.85);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 80px;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+      position: relative;
+    }
+
+    .logo img {
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .header-cta {
+      flex-shrink: 0;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-white);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-main);
+      box-shadow: var(--shadow-input);
+      flex-shrink: 0;
+    }
+
+    .mobile-menu-toggle:hover {
+      border-color: rgba(123,71,164,0.3);
+      color: var(--primary);
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: calc(84px + var(--spacing-fluid));
+      background: var(--bg-light);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 560px;
+    }
+
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.95rem;
+      background: var(--bg-white);
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-input);
+      border: 1px solid rgba(123, 71, 164, 0.08);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.2vw, 4rem);
+      margin-bottom: 1rem;
+      letter-spacing: -0.045em;
+    }
+
+    .hero p {
+      font-size: 1.06rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-muted);
+      max-width: 52ch;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      border-radius: var(--radius-container);
+      overflow: hidden;
+      box-shadow: var(--shadow-heavy);
+      background: #e5edf5;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      border-radius: var(--radius-container);
+    }
+
+    /* SERVICES */
+    .services {
+      background: var(--bg-white);
+    }
+
+    .section-header {
+      margin-bottom: 2.4rem;
+      max-width: 700px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.9rem, 3vw, 2.5rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header p {
+      font-size: 1rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .service-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .service-card-img-wrap {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #dfe7ef;
+    }
+
+    .service-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .service-card:hover .service-card-img {
+      transform: scale(1.04);
+    }
+
+    .service-card-body {
+      padding: 1.1rem 1.1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      flex: 1;
+    }
+
+    .service-card h3 {
+      font-size: 1.12rem;
+      line-height: 1.25;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .service-card-cta {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.15rem;
+    }
+
+    .service-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      width: fit-content;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(123, 71, 164, 0.08);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.78rem;
+    }
+
+    /* WHY US / ABOUT */
+    .why-us {
+      background: var(--bg-light);
+    }
+
+    .why-us-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.25rem;
+      align-items: center;
+    }
+
+    .why-us-img {
+      border-radius: var(--radius-container);
+      box-shadow: var(--shadow-heavy);
+      width: 100%;
+      height: 680px;
+      object-fit: cover;
+    }
+
+    .why-us-content > p {
+      font-size: 1.05rem;
+      margin-top: 0.8rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .feature-list {
+      margin-top: 0.5rem;
+      list-style: none;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(226,232,240,0.9);
+      padding: 0.9rem;
+      border-radius: 14px;
+    }
+
+    .feature-icon {
+      background: var(--bg-white);
+      color: var(--primary);
+      padding: 0.7rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-input);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-text h4 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .feature-text p {
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* REVIEWS */
+    .reviews {
+      background: var(--bg-white);
+      overflow: hidden;
+    }
+
+    .marquee-container {
+      display: flex;
+      width: 200vw;
+      animation: marquee 30s linear infinite;
+      will-change: transform;
+    }
+
+    .marquee-container:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 1.25rem;
+      padding: 0.5rem 0;
+      width: 100vw;
+      justify-content: space-around;
+    }
+
+    .review-card {
+      background: var(--bg-light);
+      padding: 1.35rem;
+      border-radius: var(--radius-card);
+      min-width: 330px;
+      max-width: 420px;
+      box-shadow: var(--shadow-input);
+      border: 1px solid var(--border);
+    }
+
+    .stars {
+      color: #F59E0B;
+      margin-bottom: 0.8rem;
+      display: flex;
+      gap: 0.2rem;
+    }
+
+    .review-text {
+      font-size: 0.97rem;
+      color: var(--text-main);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .reviewer-name {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.92rem;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100vw); }
+    }
+
+    /* FAQ */
+    .faq {
+      background: var(--bg-light);
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .accordion-item {
+      background: var(--bg-white);
+      border-radius: var(--radius-card);
+      margin-bottom: 0.85rem;
+      box-shadow: var(--shadow-input);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .accordion-header {
+      width: 100%;
+      text-align: left;
+      padding: 1.1rem 1.15rem;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: inherit;
+    }
+
+    .accordion-icon {
+      transition: transform 0.3s ease;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      padding: 0 1.15rem;
+      background: var(--bg-white);
+    }
+
+    .accordion-content p {
+      padding-top: 0.2rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .accordion-item.active .accordion-content {
+      padding-bottom: 1rem;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--bg-white);
+    }
+
+    .contact-wrapper {
+      background: var(--bg-light);
+      border-radius: var(--radius-container);
+      padding: clamp(1.25rem, 3vw, 3rem);
+      box-shadow: var(--shadow-heavy);
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+      border: 1px solid var(--border);
+    }
+
+    .contact-wrapper h2 {
+      font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+    }
+
+    .contact-wrapper p {
+      margin-top: 0.35rem;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      min-width: 0;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: var(--text-main);
+      font-size: 0.87rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid #CBD5E1;
+      border-radius: 12px;
+      font-family: "Inter", sans-serif;
+      font-size: 0.98rem;
+      transition: var(--transition-smooth);
+      background: var(--bg-white);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(123, 71, 164, 0.1);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--text-main);
+      color: #94A3B8;
+      padding: 3rem 0 1.5rem 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand img {
+      height: 40px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      max-width: 340px;
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .footer-heading {
+      color: var(--bg-white);
+      font-size: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.55rem;
+    }
+
+    .footer-links a {
+      font-size: 0.92rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--bg-white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #1E293B;
+      padding-top: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      font-size: 0.84rem;
+      flex-wrap: wrap;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.1rem;
+      right: 1.1rem;
+      background-color: #25D366;
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      z-index: 1000;
+      transition: var(--transition-smooth);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+      color: white;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .services-grid {
+        gap: 1.15rem;
+      }
+
+      .why-us-grid {
+        gap: 2rem;
+      }
+
+      .why-us-img {
+        height: 580px;
+      }
+
+      .review-card {
+        min-width: 300px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid,
+      .why-us-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 2rem;
+      }
+
+      .hero-content {
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image-wrapper img {
+        height: 460px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .why-us-grid {
+        text-align: center;
+      }
+
+      .feature-item {
+        text-align: left;
+      }
+
+      .why-us-img {
+        height: 520px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* MOBILE HEADER FIX */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      header {
+        position: fixed;
+      }
+
+      .nav-container {
+        min-height: 72px;
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+        gap: 0.75rem;
+      }
+
+      .logo img {
+        height: 34px;
+        max-width: 210px;
+      }
+
+      .mobile-menu-toggle {
+        display: inline-flex;
+      }
+
+      /* Only show top row on mobile */
+      .nav-links,
+      .header-cta {
+        display: none;
+      }
+
+      .nav-container {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+
+      .mobile-menu-panel {
+        grid-column: 1 / -1;
+        display: none;
+        margin-top: 0.25rem;
+        background: rgba(255,255,255,0.98);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: var(--shadow-heavy);
+        padding: 0.75rem;
+      }
+
+      .mobile-menu-panel.open {
+        display: block;
+        animation: menuDrop 0.18s ease-out;
+      }
+
+      .mobile-nav-links {
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .mobile-nav-links a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 0.95rem 0.9rem;
+        background: rgba(123, 71, 164, 0.05);
+        border: 1px solid rgba(123, 71, 164, 0.1);
+        border-radius: 12px;
+        font-weight: 600;
+        color: var(--text-main);
+        font-size: 0.95rem;
+      }
+
+      .mobile-nav-links a:hover {
+        border-color: rgba(123, 71, 164, 0.25);
+        color: var(--primary);
+      }
+
+      .mobile-menu-cta {
+        margin-top: 0.7rem;
+      }
+
+      .mobile-menu-cta .btn {
+        width: 100%;
+      }
+
+      @keyframes menuDrop {
+        from { opacity: 0; transform: translateY(-6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .hero {
+        padding-top: calc(72px + 1.25rem);
+      }
+
+      .trust-badge {
+        font-size: 0.8rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.7rem, 7vw, 2.2rem);
+        line-height: 1.12;
+      }
+
+      .hero p {
+        font-size: 0.98rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .hero-image-wrapper img {
+        height: 320px;
+      }
+
+      .section-header {
+        margin-bottom: 1.3rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.6rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .service-card-body {
+        padding: 0.95rem;
+        gap: 0.7rem;
+      }
+
+      .service-card h3 {
+        font-size: 1.05rem;
+      }
+
+      .service-card p {
+        font-size: 0.92rem;
+      }
+
+      .service-card-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .service-card-cta .btn {
+        width: 100%;
+      }
+
+      .why-us-img {
+        height: 360px;
+      }
+
+      .why-us-content > p {
+        font-size: 0.98rem;
+      }
+
+      .feature-item {
+        padding: 0.8rem;
+      }
+
+      .review-card {
+        min-width: 260px;
+        padding: 1rem;
+      }
+
+      .review-text {
+        font-size: 0.92rem;
+      }
+
+      .accordion-header {
+        padding: 0.95rem 0.95rem;
+        font-size: 0.95rem;
+      }
+
+      .accordion-content {
+        padding: 0 0.95rem;
+      }
+
+      .contact-form {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+      }
+
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+
+      .form-control {
+        font-size: 16px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .marquee-track {
+        width: 220vw;
+        gap: 0.8rem;
+      }
+
+      .whatsapp-float {
+        width: 54px;
+        height: 54px;
+        right: 0.9rem;
+        bottom: 0.9rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-menu-panel {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-image-wrapper img {
+        height: 280px;
+      }
+
+      .service-card-img-wrap {
+        aspect-ratio: 16 / 11;
+      }
+
+      .review-card {
+        min-width: 240px;
+      }
+
+      .logo img {
+        max-width: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <img src="./logo.png" alt="Valencia Yachts Logo" />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Our Fleet</a>
+        <a href="#services">Services</a>
+        <a href="#why-us">About</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="#contact" class="btn btn-primary hover-lift">Book Charter</a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenuPanel" type="button">
+        <i data-feather="menu" style="width:20px;height:20px;"></i>
+      </button>
+
+      <!-- Mobile dropdown panel -->
+      <div class="mobile-menu-panel" id="mobileMenuPanel">
+        <nav class="mobile-nav-links" aria-label="Mobile navigation">
+          <a href="#services">
+            <span>Our Fleet</span>
+            <i data-feather="chevron-right" style="width:16px;height:16px;"></i>
+          </a>
+          <a href="#services">
+            <span>Services</span>
+            <i data-feather="chevron-right" style="width:16px;height:16px;"></i>
+          </a>
+          <a href="#why-us">
+            <span>About</span>
+            <i data-feather="chevron-right" style="width:16px;height:16px;"></i>
+          </a>
+          <a href="#reviews">
+            <span>Reviews</span>
+            <i data-feather="chevron-right" style="width:16px;height:16px;"></i>
+          </a>
+        </nav>
+        <div class="mobile-menu-cta">
+          <a href="#contact" class="btn btn-primary">Book Charter</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero section-padding">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="trust-badge">
+          <i data-feather="anchor" style="width: 14px; height: 14px;"></i>
+          Singapore's Premier Luxury Fleet
+        </div>
+
+        <h1>Experience Ultimate Luxury on Singapore Waters</h1>
+        <p>
+          Private yacht charters for celebrations, corporate events, and unforgettable days at sea. Enjoy a premium experience tailored to your guests from start to finish.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary hover-lift">Explore Fleet</a>
+          <a href="#contact" class="btn btn-secondary hover-lift">Get Quote</a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper hover-lift">
+        <img src="https://valenciayachts.com/wp-content/uploads/2020/05/boat-hire-singapore.jpg" alt="Boat hire in Singapore" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / FLEET -->
+  <section id="services" class="services section-padding">
+    <div class="container">
+      <div class="section-header text-center" style="margin-left:auto; margin-right:auto;">
+        <h2>Our Yacht Charter Services</h2>
+        <p>
+          Choose the perfect charter experience for your occasion with premium vessels, professional crew support, and flexible packages.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card hover-lift">
+          <div class="service-card-img-wrap">
+            <img
+              src="https://valenciayachts.com/wp-content/uploads/2020/05/renting-a-yacht-in-singapore.jpg"
+              alt="Yacht rental in Singapore"
+              class="service-card-img"
+              loading="lazy"
+            />
+          </div>
+          <div class="service-card-body">
+            <span class="service-chip">
+              <i data-feather="sun" style="width:14px;height:14px;"></i>
+              Leisure Charter
+            </span>
+            <h3>Private Yacht Rental in Singapore</h3>
+            <p>
+              Ideal for birthdays, family gatherings, and weekend escapes. Enjoy a smooth, private experience with spacious decks and scenic island routes.
+            </p>
+            <div class="service-card-cta">
+              <a href="#contact" class="btn btn-primary btn-sm">Book This Charter</a>
+              <a href="#contact" class="btn btn-secondary btn-sm">Ask for Pricing</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card hover-lift">
+          <div class="service-card-img-wrap">
+            <img
+              src="https://valenciayachts.com/wp-content/uploads/2020/05/yacht-charter-company-singapore.jpg"
+              alt="Yacht charter company in Singapore"
+              class="service-card-img"
+              loading="lazy"
+            />
+          </div>
+          <div class="service-card-body">
+            <span class="service-chip">
+              <i data-feather="briefcase" style="width:14px;height:14px;"></i>
+              Corporate Event
+            </span>
+            <h3>Corporate Yacht Charter Experiences</h3>
+            <p>
+              Host client entertainment, team events, and executive gatherings on a premium yacht with professional coordination and elevated onboard hospitality.
+            </p>
+            <div class="service-card-cta">
+              <a href="#contact" class="btn btn-primary btn-sm">Plan Corporate Event</a>
+              <a href="#contact" class="btn btn-secondary btn-sm">Speak to Team</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card hover-lift">
+          <div class="service-card-img-wrap">
+            <img
+              src="https://valenciayachts.com/wp-content/uploads/2020/05/private-luxury-yacht-charter-singapore.jpg"
+              alt="Private luxury yacht charter in Singapore"
+              class="service-card-img"
+              loading="lazy"
+            />
+          </div>
+          <div class="service-card-body">
+            <span class="service-chip">
+              <i data-feather="star" style="width:14px;height:14px;"></i>
+              Luxury Charter
+            </span>
+            <h3>Private Luxury Yacht Charter</h3>
+            <p>
+              Premium charter options for upscale celebrations and high-end experiences with privacy, comfort, and a refined setting for your guests.
+            </p>
+            <div class="service-card-cta">
+              <a href="#contact" class="btn btn-primary btn-sm">Reserve Luxury Yacht</a>
+              <a href="#contact" class="btn btn-secondary btn-sm">Customize Package</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / WHY US -->
+  <section id="why-us" class="why-us section-padding">
+    <div class="container why-us-grid">
+      <div class="why-us-image">
+        <img
+          src="https://valenciayachts.com/wp-content/uploads/2020/05/boat-charter-singapore.jpg"
+          alt="Boat charter Singapore"
+          class="why-us-img hover-lift"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="why-us-content">
+        <h2>Why Guests Choose Valencia Yachts</h2>
+        <p>
+          We deliver a seamless yacht charter experience in Singapore from planning to docking. Whether you are organizing a celebration or a premium private outing, our team handles the details so you can enjoy the moment.
+        </p>
+
+        <ul class="feature-list">
+          <li class="feature-item">
+            <div class="feature-icon">
+              <i data-feather="star"></i>
+            </div>
+            <div class="feature-text">
+              <h4>Premium Guest Experience</h4>
+              <p>Professional crew support, smooth coordination, and a polished charter experience from start to finish.</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <div class="feature-icon">
+              <i data-feather="shield"></i>
+            </div>
+            <div class="feature-text">
+              <h4>Private and Comfortable</h4>
+              <p>Enjoy quality time with your guests in a spacious private setting designed for comfort and relaxation.</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <div class="feature-icon">
+              <i data-feather="settings"></i>
+            </div>
+            <div class="feature-text">
+              <h4>Flexible Charter Planning</h4>
+              <p>Packages can be tailored for your group size, event type, and preferred experience on Singapore waters.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="reviews section-padding">
+    <div class="container">
+      <div class="section-header text-center" style="margin: 0 auto 1.5rem auto;">
+        <h2>What Our Guests Say</h2>
+        <p>Luxury service, smooth booking, and memorable moments on the water.</p>
+      </div>
+    </div>
+
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <div class="review-card hover-lift">
+          <div class="stars">
+            <i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i>
+          </div>
+          <p class="review-text">"The crew was excellent and the yacht was spotless. Our guests loved the entire experience."</p>
+          <p class="reviewer-name">- James L.</p>
+        </div>
+
+        <div class="review-card hover-lift">
+          <div class="stars">
+            <i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i>
+          </div>
+          <p class="review-text">"Booking was smooth and the team was responsive. Perfect setup for our celebration."</p>
+          <p class="reviewer-name">- Sarah T.</p>
+        </div>
+
+        <div class="review-card hover-lift">
+          <div class="stars">
+            <i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i>
+          </div>
+          <p class="review-text">"A polished luxury experience for our corporate event. Highly recommended for premium hosting."</p>
+          <p class="reviewer-name">- Michael C.</p>
+        </div>
+      </div>
+
+      <div class="marquee-track">
+        <div class="review-card hover-lift">
+          <div class="stars">
+            <i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i>
+          </div>
+          <p class="review-text">"The crew was excellent and the yacht was spotless. Our guests loved the entire experience."</p>
+          <p class="reviewer-name">- James L.</p>
+        </div>
+
+        <div class="review-card hover-lift">
+          <div class="stars">
+            <i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i>
+          </div>
+          <p class="review-text">"Booking was smooth and the team was responsive. Perfect setup for our celebration."</p>
+          <p class="reviewer-name">- Sarah T.</p>
+        </div>
+
+        <div class="review-card hover-lift">
+          <div class="stars">
+            <i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i><i data-feather="star" fill="currentColor"></i>
+          </div>
+          <p class="review-text">"A polished luxury experience for our corporate event. Highly recommended for premium hosting."</p>
+          <p class="reviewer-name">- Michael C.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq section-padding">
+    <div class="container">
+      <div class="section-header text-center" style="margin-left:auto; margin-right:auto;">
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know before you set sail.</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="accordion-item hover-lift">
+          <button class="accordion-header">
+            How long are typical yacht charters?
+            <i data-feather="chevron-down" class="accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Most private charters are around 4 hours, which gives enough time to cruise Singapore waters, enjoy the scenery, and spend quality time onboard. Longer sessions can be arranged.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item hover-lift">
+          <button class="accordion-header">
+            Can I request food and beverages?
+            <i data-feather="chevron-down" class="accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Yes, catering options can be arranged based on your event type and guest preferences. You can also check with us on package inclusions before booking.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item hover-lift">
+          <button class="accordion-header">
+            Is this suitable for private celebrations and corporate events?
+            <i data-feather="chevron-down" class="accordion-icon"></i>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Absolutely. Our charters are suitable for birthdays, private gatherings, proposals, client hosting, and corporate functions depending on vessel type and guest count.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact section-padding">
+    <div class="container">
+      <div class="contact-wrapper text-center">
+        <h2>Start Your Charter Inquiry</h2>
+        <p>Tell us what you need and our team will get back to you with the best options.</p>
+
+        <form class="contact-form" onsubmit="event.preventDefault();">
+          <div class="form-group" style="text-align:left;">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" placeholder="John Doe" />
+          </div>
+
+          <div class="form-group" style="text-align:left;">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="john@example.com" />
+          </div>
+
+          <div class="form-group" style="text-align:left;">
+            <label for="service">Preferred Service</label>
+            <select id="service" class="form-control">
+              <option value="private-rental">Private Yacht Rental</option>
+              <option value="corporate-charter">Corporate Charter</option>
+              <option value="luxury-charter">Private Luxury Charter</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="text-align:left;">
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" class="form-control" placeholder="e.g. 12" />
+          </div>
+
+          <div class="form-group full-width" style="text-align:left;">
+            <label for="message">Special Requirements</label>
+            <textarea id="message" class="form-control" placeholder="Tell us about your event..."></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <button type="submit" class="btn btn-primary" style="width:100%; padding:1rem; font-size:1rem;">
+              Send Inquiry
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="./logo.png" alt="Valencia Yachts Logo" />
+          <p>
+            Singapore's leading luxury yacht charter company. Premium private experiences for celebrations, leisure cruises, and corporate events.
+          </p>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Our Fleet</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why-us">About</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cancellation Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Valencia Yachts. All rights reserved.</p>
+        <p>
+          Website Design by
+          <a href="https://reputifly.com/web-development" target="_blank" style="text-decoration: underline;">Reputifly</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/6580111965" target="_blank" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+    <i data-feather="message-circle" style="width: 28px; height: 28px;"></i>
+  </a>
+
+  <script>
+    feather.replace();
+
+    // FAQ accordion
+    document.querySelectorAll(".accordion-header").forEach((button) => {
+      button.addEventListener("click", () => {
+        const accordionItem = button.parentElement;
+        const accordionContent = button.nextElementSibling;
+        const isActive = accordionItem.classList.contains("active");
+
+        document.querySelectorAll(".accordion-item").forEach((item) => {
+          item.classList.remove("active");
+          item.querySelector(".accordion-content").style.maxHeight = null;
+        });
+
+        if (!isActive) {
+          accordionItem.classList.add("active");
+          accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+        }
+      });
+    });
+
+    // Mobile dropdown menu
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+    const mobileMenuPanel = document.getElementById("mobileMenuPanel");
+
+    function closeMobileMenu() {
+      mobileMenuPanel.classList.remove("open");
+      mobileMenuToggle.setAttribute("aria-expanded", "false");
+      mobileMenuToggle.innerHTML = '<i data-feather="menu" style="width:20px;height:20px;"></i>';
+      feather.replace();
+    }
+
+    function openMobileMenu() {
+      mobileMenuPanel.classList.add("open");
+      mobileMenuToggle.setAttribute("aria-expanded", "true");
+      mobileMenuToggle.innerHTML = '<i data-feather="x" style="width:20px;height:20px;"></i>';
+      feather.replace();
+    }
+
+    mobileMenuToggle.addEventListener("click", () => {
+      const isOpen = mobileMenuPanel.classList.contains("open");
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+
+    // Close mobile menu after clicking a link
+    document.querySelectorAll(".mobile-nav-links a, .mobile-menu-cta a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
+    });
+
+    // Close on resize to desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        closeMobileMenu();
+      }
+    });
+  </script>
+</body>
+</html>
