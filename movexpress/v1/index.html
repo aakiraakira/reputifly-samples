@@ -9,6 +9,12 @@
         content="Movexpress offers professional, lightning-fast, and secure residential and commercial moving services. Get a free quote for house moving, storage, and furniture delivery today.">
     <meta name="keywords"
         content="moving services, house moving, commercial relocation, storage, furniture delivery, Movexpress">
+    <meta property="og:title" content="Movexpress | Professional Moving Services">
+    <meta property="og:description"
+        content="Seamless Moves, Delivered Express. Experience stress-free local and commercial moving services tailored for speed, reliability, and utmost care.">
+    <meta property="og:image" content="https://reputifly.com/wp-content/uploads/2026/02/IMG_4459-1.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,7 +25,7 @@
             --accent: #0453ba;
             --background: #ffffff;
             --text: #0b0a14;
-            --gradient-accent: linear-gradient(135deg, #8f9092 0%, #000c3f 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, #00183d 100%);
 
             /* Semantic Tokens */
             --surface: #fafafa;
@@ -153,7 +159,7 @@
         }
 
         .logo img {
-            height: 88px;
+            height: 120px;
             transition: var(--transition);
         }
 
@@ -339,11 +345,34 @@
             background-color: var(--surface);
         }
 
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
+        .testimonial-marquee-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
             margin-top: 64px;
+            padding: 24px 0;
+            display: flex;
+        }
+
+        .testimonial-track {
+            display: flex;
+            gap: 32px;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+
+        .testimonial-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-50% - 16px));
+            }
         }
 
         .review-card {
@@ -352,6 +381,9 @@
             border-radius: var(--radius);
             padding: 32px;
             box-shadow: var(--shadow);
+            width: 380px;
+            flex-shrink: 0;
+            white-space: normal;
         }
 
         .reviewer {
@@ -419,12 +451,15 @@
         }
 
         .contact-card {
-            background: var(--background);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             max-width: 600px;
             margin: 40px auto 0;
             padding: 48px;
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .input-group {
@@ -553,11 +588,11 @@
         /* Mobile Optimization */
         @media (max-width: 992px) {
             .logo img {
-                height: 48px;
+                height: 80px;
             }
 
             .footer-grid img[alt="Movexpress Logo"] {
-                height: 48px !important;
+                height: 80px !important;
             }
 
             .hero-grid {
@@ -794,51 +829,96 @@
                 <h2>What Our Customers Say</h2>
                 <p>See why Movexpress is the trusted moving partner for homes and businesses.</p>
             </div>
-            <div class="testimonial-grid">
-                <div class="review-card">
-                    <div class="reviewer">
-                        <div class="avatar">JS</div>
-                        <div class="reviewer-info">
-                            <h4>John Smith</h4>
-                            <div class="tags">
-                                <span class="tag">New</span>
-                                <span class="tag" style="background: #e6f0ff;">Pro</span>
+            <div class="testimonial-marquee-wrapper">
+                <div class="testimonial-track">
+                    <!-- Original -->
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">JS</div>
+                            <div class="reviewer-info">
+                                <h4>John Smith</h4>
+                                <div class="tags">
+                                    <span class="tag">New</span>
+                                    <span class="tag" style="background: #e6f0ff;">Pro</span>
+                                </div>
                             </div>
                         </div>
+                        <div class="stars">★★★★★</div>
+                        <p>"Absolutely phenomenal service. They handled our 4-bedroom house move with incredible speed
+                            and didn't break a single item."</p>
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p>"Absolutely phenomenal service. They handled our 4-bedroom house move with incredible speed and
-                        didn't break a single item."</p>
-                </div>
-
-                <div class="review-card">
-                    <div class="reviewer">
-                        <div class="avatar" style="background: var(--accent);">EM</div>
-                        <div class="reviewer-info">
-                            <h4>Elena Miles</h4>
-                            <div class="tags">
-                                <span class="tag">Verified</span>
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar" style="background: var(--accent);">EM</div>
+                            <div class="reviewer-info">
+                                <h4>Elena Miles</h4>
+                                <div class="tags">
+                                    <span class="tag">Verified</span>
+                                </div>
                             </div>
                         </div>
+                        <div class="stars">★★★★★</div>
+                        <p>"The commercial relocation team minimized our downtime perfectly. Highly professional,
+                            transparent pricing, and great communication."</p>
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p>"The commercial relocation team minimized our downtime perfectly. Highly professional,
-                        transparent pricing, and great communication."</p>
-                </div>
-
-                <div class="review-card">
-                    <div class="reviewer">
-                        <div class="avatar">AB</div>
-                        <div class="reviewer-info">
-                            <h4>Alex Brown</h4>
-                            <div class="tags">
-                                <span class="tag">New</span>
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">AB</div>
+                            <div class="reviewer-info">
+                                <h4>Alex Brown</h4>
+                                <div class="tags">
+                                    <span class="tag">New</span>
+                                </div>
                             </div>
                         </div>
+                        <div class="stars">★★★★★</div>
+                        <p>"Their packing service is a lifesaver. I didn't have to lift a finger. Everything was boxed
+                            up securely in record time."</p>
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p>"Their packing service is a lifesaver. I didn't have to lift a finger. Everything was boxed up
-                        securely in record time."</p>
+                    <!-- Duplicate for Marquee -->
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">JS</div>
+                            <div class="reviewer-info">
+                                <h4>John Smith</h4>
+                                <div class="tags">
+                                    <span class="tag">New</span>
+                                    <span class="tag" style="background: #e6f0ff;">Pro</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <p>"Absolutely phenomenal service. They handled our 4-bedroom house move with incredible speed
+                            and didn't break a single item."</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar" style="background: var(--accent);">EM</div>
+                            <div class="reviewer-info">
+                                <h4>Elena Miles</h4>
+                                <div class="tags">
+                                    <span class="tag">Verified</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <p>"The commercial relocation team minimized our downtime perfectly. Highly professional,
+                            transparent pricing, and great communication."</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">AB</div>
+                            <div class="reviewer-info">
+                                <h4>Alex Brown</h4>
+                                <div class="tags">
+                                    <span class="tag">New</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <p>"Their packing service is a lifesaver. I didn't have to lift a finger. Everything was boxed
+                            up securely in record time."</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -890,7 +970,7 @@
             <div class="footer-grid">
                 <div>
                     <img src="https://reputifly.com/wp-content/uploads/2026/02/IMG_4459-1.png" alt="Movexpress Logo"
-                        style="height: 88px; margin-bottom: 24px; filter: brightness(0) invert(1); transition: var(--transition);">
+                        style="height: 120px; margin-bottom: 24px; filter: brightness(0) invert(1); transition: var(--transition);">
                     <p>Delivering stress-free logistics and moving services tailored for speed and reliability. Your
                         trusted local partner.</p>
                 </div>
