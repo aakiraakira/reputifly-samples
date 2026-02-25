@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | BeSecurity</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#348cb3",
+                        secondary: "#123055",
+                        accent: "#338bb3",
+                        dark: "#0b0a14",
+                        surface: "#fafafa",
+                        border: "#e6e6e6",
+                        muted: "#6b7280",
+                        "dark-surface": "#1a1d2d",
+                        "dark-card": "#24283b",
+                        "dark-border": "#33384d",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        brand: "24px",
+                    },
+                    boxShadow: {
+                        brand: "0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)",
+                        "brand-dark":
+                            "0 20px 25px -5px rgba(0,0,0,0.3), 0 10px 10px -5px rgba(0,0,0,0.2)",
+                    },
+                    backgroundImage: {
+                        "brand-gradient": "linear-gradient(135deg, #348cb3 0%, #123055 100%)",
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #348cb3;
+            border-radius: 4px;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(230, 230, 230, 0.5);
+        }
+
+        .dark .glass-nav {
+            background: rgba(11, 10, 20, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-secondary antialiased bg-surface dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:from-[#1e293b] dark:via-[#0b0a14] dark:to-black transition-colors duration-300">
+
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative h-20 flex items-center justify-between">
+                <a href="/besecurity/" class="flex-shrink-0 flex items-center gap-2 z-10">
+                    <div class="bg-white rounded-md p-1 shadow-sm">
+                        <img
+                            src="https://reputifly.com/wp-content/uploads/2026/02/BeSECURITY_Logo.jpg-removebg-preview.png"
+                            alt="BeSecurity Logo"
+                            class="h-8 w-auto"
+                        />
+                    </div>
+                </a>
+
+                <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-8">
+                    <a href="/besecurity/#about" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary font-medium transition">About</a>
+                    <a href="/besecurity/#services" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary font-medium transition">Services</a>
+                    <a href="/besecurity/#compliance" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary font-medium transition">Compliance</a>
+                    <a href="/besecurity/#success" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary font-medium transition">Success Stories</a>
+                </div>
+
+                <div class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-4 z-10">
+                    <button id="desktop-theme-toggle"
+                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-300"
+                        aria-label="Toggle theme">
+                        <i data-lucide="moon" class="w-6 h-6 hidden dark:block"></i>
+                        <i data-lucide="sun" class="w-6 h-6 block dark:hidden"></i>
+                    </button>
+                    <a href="/besecurity/#contact"
+                        class="px-6 py-2.5 bg-brand-gradient text-white font-medium rounded-full hover:shadow-lg hover:opacity-90 transition transform hover:-translate-y-0.5">
+                        Get Started
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center gap-3 z-10">
+                    <button id="mobile-header-theme-toggle"
+                        class="text-gray-600 dark:text-gray-300 hover:text-primary focus:outline-none"
+                        aria-label="Toggle theme">
+                        <i data-lucide="moon" class="w-6 h-6 hidden dark:block"></i>
+                        <i data-lucide="sun" class="w-6 h-6 block dark:hidden"></i>
+                    </button>
+                    <button id="mobile-menu-btn"
+                        class="text-gray-600 dark:text-gray-300 hover:text-primary focus:outline-none"
+                        aria-label="Open menu">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white dark:bg-dark-card border-t border-gray-100 dark:border-dark-border absolute w-full shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="/besecurity/#about" class="mobile-nav-link block px-3 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-white/5 rounded-md">About</a>
+                <a href="/besecurity/#services" class="mobile-nav-link block px-3 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-white/5 rounded-md">Services</a>
+                <a href="/besecurity/#compliance" class="mobile-nav-link block px-3 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-white/5 rounded-md">Compliance</a>
+                <a href="/besecurity/#success" class="mobile-nav-link block px-3 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-white/5 rounded-md">Success Stories</a>
+                <a href="/besecurity/#contact" class="mobile-nav-link block w-full text-center mt-4 px-6 py-3 bg-brand-gradient text-white font-medium rounded-full">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-12 bg-white dark:bg-dark border-b border-gray-100 dark:border-dark-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-secondary dark:text-white mb-4">Privacy Policy</h1>
+            <p class="text-gray-500 dark:text-gray-400">Last updated: 23 February 2026</p>
+        </div>
+    </section>
+
+    <section class="py-16 bg-surface dark:bg-dark-surface min-h-screen">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-dark-card rounded-brand shadow-sm border border-gray-100 dark:border-dark-border p-8 md:p-12 text-gray-700 dark:text-gray-300 text-lg leading-relaxed space-y-6">
+
+                <p>This Privacy Policy sets out the basis Besecurity Pte Ltd (“we”, “us”, or “our”) may collect, use, disclose or otherwise process personal data of users in accordance with the Personal Data Protection Act (“PDPA”). This Policy applies to personal data in our possession or under our control, including personal data in the possession of organizations where we have engaged to collect, use, disclose or process personal data for our purposes.</p>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">Personal Data</h2>
+                <div class="space-y-4">
+                    <p>1. Personal data collected from you may include, but not limited to, name, residential address, email address and telephone number.</p>
+                    <p>2. Other terms in this Policy, where applicable, shall have the meanings given to them in the PDPA.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">Collection, Use and Disclosure of Personal Data</h2>
+                <div class="space-y-4">
+                    <p>3. Generally, we generally do not collect your personal data unless</p>
+                    <div class="ml-6 space-y-4">
+                        <p>(a) it is provided to us voluntarily by you directly or via a third party who has been duly authorized by you to disclose your personal data to us (your “authorized representative”) after</p>
+                        <div class="ml-6 space-y-2">
+                            <p>i) you (or your authorized representative) have been notified of the purposes for which the data is collected, and</p>
+                            <p>ii) you (or your authorized representative) have provided written consent to the collection and usage of your personal data for those purposes, or</p>
+                        </div>
+                        <p>(b) collection and use of personal data without consent is permitted or required by the PDPA or other laws. We shall seek your consent before collecting any additional personal data and before using your personal data for a purpose which has not been notified to you (except permitted or authorized by law).</p>
+                    </div>
+
+                    <p>4. Your personal data collected may be used for any or all of the following purposes</p>
+                    <div class="ml-6 space-y-2">
+                        <p>(a) operating our website and/or its subdomains (“Website”);</p>
+                        <p>(b) performing our statutory functions and administering our activities;</p>
+                        <p>(c) communicating with our partners, parent, associated companies, and/or customers;</p>
+                        <p>(d) updating your personal and contact information;</p>
+                        <p>(e) performing obligations in the course of or in connection with our provision of the goods and/or services requested by you;</p>
+                        <p>(f) verifying your identity;</p>
+                        <p>(g) responding to, handling, and processing queries, requests, applications, complaints, and feedback from you;</p>
+                        <p>(h) managing your relationship with us;</p>
+                        <p>(i) processing payment or credit transactions;</p>
+                        <p>(j) complying with any applicable laws, regulations, codes of practice, guidelines, or rules, or to assist in law enforcement and investigations conducted by any governmental and/or regulatory authority;</p>
+                        <p>(k) statistical, analysis, planning and reporting;</p>
+                        <p>(l) any other purposes for which you have provided the information; and</p>
+                        <p>(m) any other incidental purposes related to or in connection with the above.</p>
+                    </div>
+
+                    <p>5. We may disclose your personal data:</p>
+                    <div class="ml-6 space-y-4">
+                        <p>(a) where necessary to enforce the Terms of Use;</p>
+                        <p>(b) where such disclosure is required for performing obligations in the course of or in connection with our provision of the goods and services requested by you;</p>
+                        <p>(c) to third party service providers, agents and other organizations we have engaged to perform any of the functions with reference to the above-mentioned purposes;</p>
+                        <p>(d) if required by law or in the good faith belief that such action is necessary to:</p>
+                        <div class="ml-6 space-y-2">
+                            <p>(i) conform to the edicts of the law or comply with legal processes served on us or the Website;</p>
+                            <p>(ii) protect and defend our rights or property; and</p>
+                            <p>(iii) act under exigent circumstances to protect the personal safety of users of the Website and/or our Mobile Apps; or</p>
+                        </div>
+                        <p>(e) where your consent has been obtained for disclosure.</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">Withdrawing Your Consent</h2>
+                <div class="space-y-4">
+                    <p>6. You may withdraw consent and request us to stop collecting, using and/or disclosing your personal data for any or all of the purposes listed above by submitting your request in writing or via email to our Data Protection Officer at the contact details provided below.</p>
+                    <p>7. Upon receipt of your written request to withdraw your consent, we may require reasonable time (depending on the complexity of the request and its impact on our relationship with you) for your request to be processed and for us to notify you of the consequences of us acceding to the same, including any legal consequences which may affect your rights and liabilities to us. In general, we shall seek to process your request within ten (10) business days of receiving it.</p>
+                    <p>8. Please note that whilst we respect your decision to withdraw your consent, depending on the nature and scope of your request, we may not be in a position to continue providing our goods or services to you and we shall, in such circumstances, notify you before completing the processing of your request.</p>
+                    <p>9. Please note that withdrawing consent does not affect our right to continue to collect, use and disclose personal data where such collection, use and disclose without consent is permitted or required under applicable laws.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">Access to and Correction of Personal Data</h2>
+                <div class="space-y-4">
+                    <p>10. If you wish to make</p>
+                    <div class="ml-6 space-y-2">
+                        <p>(a) an access request for access to a copy of the personal data which we hold about you or information about the ways in which we use or disclose your personal data, or</p>
+                        <p>(b) a correction request to correct or update any of your personal data which we hold about you, you may submit your request in writing or via email to our Data Protection Officer at the contact details provided below.</p>
+                    </div>
+                    <p>11. Please note that a reasonable fee may be charged for an access request. If so, we will inform you of the fee before processing your request.</p>
+                    <p>12. We will respond to your request as soon as reasonably possible. In general, our response will be within thirty (30) business days. Should we not be able to respond to your request within thirty (30) days after receiving your request, we will inform you in writing within thirty (30) days of the time by which we will be able to respond to your request. If we are unable to provide you with any personal data or to make a correction requested by you, we shall generally inform you of the reasons why we are unable to do so (except where we are not required to do so under the PDPA).</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">Protection of Personal Data</h2>
+                <div class="space-y-4">
+                    <p>13. To safeguard your personal data from unauthorized access, collection, use, disclosure, copying, modification, disposal or similar risks, we have introduced appropriate administrative, physical and technical measures.</p>
+                    <p>14. You should be aware, however, that no method of transmission over the Internet or method of electronic storage is completely secure. While security cannot be guaranteed, we strive to protect the security of your information and are constantly reviewing and enhancing our information security measures.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">Accuracy of Personal Data</h2>
+                <div class="space-y-4">
+                    <p>15. Generally, we rely on personal data provided by you (or your authorized representative). In order to ensure that your personal data is current, complete and accurate, please update us if there are changes to your personal data by informing our Data Protection Officer in writing or via email at the contact details provided below.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">Retention of Personal Data</h2>
+                <div class="space-y-4">
+                    <p>16. We may retain your personal data for as long as it is necessary to fulfil the purpose for which it was collected, or as required or permitted by applicable laws.</p>
+                    <p>17. We will cease to retain your personal data, or remove the means by which the data can be associated with you, as soon as it is reasonable to assume that such retention no longer serves the purpose for which the personal data was collected, and is no longer necessary for legal or business purposes.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">Transfers of Personal Data Outside of Singapore</h2>
+                <div class="space-y-4">
+                    <p>18. We generally do not transfer your personal data to countries outside of Singapore. However, if we do so, we will obtain your consent for the transfer to be made and we will take steps to ensure that your personal data continues to receive a standard of protection that is at least comparable to that provided under the PDPA.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">Use of Cookies</h2>
+                <div class="space-y-4">
+                    <p>19. Certain cookies may be placed on your computer and/or any other electronic device used to access the Website. We use cookies to improve your experience using the Website and to improve the efficacy of our Services. Steps have been taken to ensure that your privacy is protected and respected at all times.</p>
+                    <p>20. Users of the Website are advised that if they wish to deny the use and saving of cookies from this Website onto their computers and/or other electronic devices, they should take the necessary steps within their internet browsers’ security settings to block all cookies from this Website.</p>
+                    <p>21. You may choose to delete the cookies at any time but this may lose information that enables you to access the Website more quickly and efficiently including but not limited to personalization settings.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">External Websites</h2>
+                <div class="space-y-4">
+                    <p>22. Our Website may contain links to external websites. We make no representations as to the quality, suitability, functionality or legality of the material on external websites that are linked to, or to any goods and services available from, such websites. The material is only provided for your interest and convenience. We do not monitor or investigate such external websites and we accept no responsibility or liability for any loss arising from the content or accuracy of the material and any opinion expressed in the material should not be taken as our endorsement, recommendation or opinion. This Policy does not extend to your use of such external websites. You are advised to read the privacy policy or statement of such external websites before using them.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">European General Data Protection Regulation (GDPR)</h2>
+                <div class="space-y-4">
+                    <p>23. In compliance with certain privacy laws, in particular the European General Data Protection Regulation (GDPR), we provide additional rights for individuals who interact with us such as the right to access, rectification, right to object, to complaint, erasure and blockage. More specifically and under certain circumstances:</p>
+                    <ul class="list-disc ml-8 space-y-2">
+                        <li>the right to request information about whether and which personal data is processed by us, and the right to demand that personal data is rectified or amended.</li>
+                        <li>the right to request that personal data should be deleted.</li>
+                        <li>the right to demand that the processing of personal data should be restricted.</li>
+                        <li>withdraw your consent to the processing and use of your data completely or partially at any time with future application.</li>
+                        <li>have the right to obtain your personal data in a common, structured and mechanically readable format.</li>
+                        <li>contact our data protection officer if there are any questions, comments, complaints or requests in connection with our statement on data protection and the processing of your personal data.</li>
+                        <li>the right to complain to the responsible supervisory authority if believed that the processing of your personal data is in violation of the legislation.</li>
+                    </ul>
+                    <p>In addition to the above, we reference certain rights for European Territory citizens throughout this Privacy Policy. Pursuant to the GDPR, citizens from “European Territories” mean the European Economic Area (EEA), the European Free Trade Area (EFTA) and Switzerland. For the purpose of this Privacy Policy, the term “European Territories” shall include that of the United Kingdom.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">Data Protection Officer</h2>
+                <div class="space-y-4">
+                    <p>24. You may contact our Data Protection Officer if you have any enquiries or feedback on our personal data protection policies and procedures, or if you wish to make any request, in the following manner:</p>
+                    <p>
+                        <strong>DPO Name:</strong> Hazrin Hazis<br>
+                        <strong>Email Address:</strong> <a href="mailto:dpo@besecurity.biz" class="text-primary hover:underline">dpo@besecurity.biz</a>
+                    </p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-secondary dark:text-white pt-6 border-t border-gray-100 dark:border-dark-border">Effect of Policy and Changes to Policy</h2>
+                <div class="space-y-4">
+                    <p>25. This Policy applies in conjunction with any other notices, contractual clauses and consent clauses that apply in relation to the collection, use and disclosure of your personal data by us.</p>
+                    <p>26. We may revise this Policy from time to time without any prior notice. Your continued use of our services constitutes your acknowledgement and acceptance of such changes. You may determine if any such revision has taken place by referring to the date on which this Policy was last updated.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-16 pb-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="bg-white rounded-md p-1">
+                            <img
+                                src="https://reputifly.com/wp-content/uploads/2026/02/BeSECURITY_Logo.jpg-removebg-preview.png"
+                                alt="BeSecurity Logo"
+                                class="h-8 w-auto"
+                            />
+                        </div>
+                    </div>
+                    <p class="text-gray-400 max-w-sm mb-6">
+                        BeSecurity Pte Ltd provides comprehensive cybersecurity solutions to protect your organization's
+                        digital assets against evolving threats.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/company/besecurity-biz/" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-white transition" aria-label="LinkedIn">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-6">Services</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="/besecurity/#services" class="hover:text-primary transition">Vulnerability Assessment</a></li>
+                        <li><a href="/besecurity/#services" class="hover:text-primary transition">Penetration Testing</a></li>
+                        <li><a href="/besecurity/#services" class="hover:text-primary transition">SAST & Web App Security</a></li>
+                        <li><a href="/besecurity/#services" class="hover:text-primary transition">Edge Protection</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="/besecurity/#services" class="hover:text-primary transition">Services</a></li>
+                        <li><a href="/besecurity/#about" class="hover:text-primary transition">About Us</a></li>
+                        <li><a href="/besecurity/#success" class="hover:text-primary transition">Success Stories</a></li>
+                        <li><a href="/besecurity/#contact" class="hover:text-primary transition">Contact</a></li>
+                        <li><a href="/besecurity/legal.html" class="hover:text-primary transition text-primary">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">© 2026 BeSecurity Pte Ltd. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <span class="text-gray-600 text-xs">
+                        Website Design by
+                        <a href="https://reputifly.com/web-development" target="_blank" rel="dofollow noopener noreferrer"
+                            class="text-gray-500 hover:text-white transition">Reputifly</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme logic
+        const html = document.documentElement;
+        const desktopThemeToggle = document.getElementById("desktop-theme-toggle");
+        const mobileThemeToggle = document.getElementById("mobile-header-theme-toggle");
+
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light") {
+            html.classList.remove("dark");
+        } else {
+            html.classList.add("dark");
+        }
+
+        function toggleTheme() {
+            html.classList.toggle("dark");
+            localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+        }
+
+        desktopThemeToggle?.addEventListener("click", toggleTheme);
+        mobileThemeToggle?.addEventListener("click", toggleTheme);
+
+        // Icons
+        lucide.createIcons();
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+        mobileMenuBtn?.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        mobileLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+            });
+        });
+
+        // Navbar shadow on scroll
+        window.addEventListener("scroll", () => {
+            const navbar = document.getElementById("navbar");
+            if (!navbar) return;
+            if (window.scrollY > 50) navbar.classList.add("shadow-md");
+            else navbar.classList.remove("shadow-md");
+        });
+    </script>
+
+    <a href="https://wa.me/6584771877" target="_blank" rel="noopener noreferrer"
+        class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-3 md:p-4 rounded-full shadow-lg transition-transform hover:scale-110 flex items-center justify-center"
+        aria-label="WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white"
+            stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 md:w-8 md:h-8">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+</body>
+</html>
