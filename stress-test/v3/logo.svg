@@ -1,0 +1,11 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NovaFlow logo">
+  <defs>
+    <linearGradient id="g1" x1="16" y1="16" x2="112" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6F8CFF"/>
+      <stop offset="1" stop-color="#5BE0FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="108" height="108" rx="28" fill="#0F1730"/>
+  <path d="M28 84L54 36L70 66L84 48L100 84H84L69 58L54 84H28Z" fill="url(#g1)"/>
+  <circle cx="93" cy="34" r="9" fill="#9CB0FF" opacity="0.95"/>
+</svg>
