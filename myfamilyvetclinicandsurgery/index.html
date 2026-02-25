@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Family Vet Clinic & Surgery | Compassionate Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables based on Brand DNA */
+        :root {
+            --primary: #ebc788;
+            --accent: #56b8be;
+            --background: #fdfdfd;
+            --text: #2c4d6f;
+            --surface: #f8f8f8;
+            --border: #e4e4e4;
+            --muted: #1f364e;
+            --on-primary: #000000;
+            --radius: 24px;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+
+        /* Global Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text);
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            box-shadow: 0 4px 6px -1px rgba(235, 199, 136, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #d6b47a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(235, 199, 136, 0.4);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+
+        .btn-accent:hover {
+            background-color: #4aa2a7;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--on-primary);
+        }
+
+        /* Layout Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--background);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--surface);
+            text-align: center;
+            padding: 6rem 5% 8rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            color: var(--muted);
+        }
+
+        /* Floating Hours Card */
+        .hours-card {
+            background-color: #ffffff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            max-width: 1000px;
+            margin: -4rem auto 3rem;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .hours-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .hours-col h4 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hours-col p {
+            font-weight: 500;
+        }
+
+        .hours-warning {
+            background-color: #fff5f5;
+            border-left: 4px solid #fc8181;
+            padding: 1rem;
+            border-radius: 8px;
+            flex-basis: 100%;
+            text-align: center;
+            font-weight: 600;
+            color: #c53030;
+        }
+
+        .walk-in-notice {
+            flex-basis: 100%;
+            text-align: center;
+            font-style: italic;
+            color: var(--muted);
+            margin-top: -1rem;
+        }
+
+        /* Walk-in Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            background-color: var(--surface);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            position: relative;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .process-card:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* About / Why Choose Us Section */
+        .about-section {
+            background-color: #ffffff;
+        }
+
+        .about-grid {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .feature-item {
+            margin-bottom: 2rem;
+        }
+
+        .feature-item h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--accent);
+        }
+
+        .feature-item h3::before {
+            content: "✓";
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            background-color: var(--primary);
+            color: var(--on-primary);
+            border-radius: 50%;
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: var(--surface);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            color: var(--accent);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .service-link:hover {
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #ffffff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background-color: var(--surface);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--background);
+            border-top: 1px solid var(--border);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .about-grid {
+                flex-direction: column;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--background);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hours-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+                margin-top: -2rem;
+            }
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://reputifly.com/wp-content/uploads/2026/02/ChatGPT-Image-Feb-25-2026-03_20_38-PM.png" alt="My Family Vet Clinic Logo">
+            </a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            <nav class="nav-links" id="nav-links">
+                <a href="#home">HOME</a>
+                <a href="#about">ABOUT US</a>
+                <a href="#services">SERVICES</a>
+                <a href="#blog">OUR BLOG</a>
+                <a href="#contact">CONTACT US</a>
+                <a href="#walk-in" class="btn btn-primary">View Walk-in Details</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Compassionate Care for Your Furry Family</h1>
+            <p>Providing expert veterinary services for the Bukit Batok community. We are a dedicated walk-in clinic ready to help when you need us most.</p>
+            <a href="#contact" class="btn btn-primary">Get Directions</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="hours-card">
+            <div class="hours-col">
+                <h4>Mon, Wed-Fri</h4>
+                <p>11:00 AM - 9:00 PM</p>
+            </div>
+            <div class="hours-col">
+                <h4>Sat-Sun</h4>
+                <p>11:00 AM - 5:00 PM</p>
+            </div>
+            <div class="hours-warning">
+                Tuesdays & Public Holidays: CLOSED
+            </div>
+            <div class="walk-in-notice">
+                We only accept walk-in appointments. Last registration is 30 minutes before closing time.
+            </div>
+        </div>
+    </div>
+
+    <section id="walk-in" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">How Our Walk-in System Works</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="step-number">1</div>
+                    <h3>Arrival</h3>
+                    <p>Come directly to our clinic during operating hours. No prior appointment is needed.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">2</div>
+                    <h3>Registration</h3>
+                    <p>Register at our front desk upon arrival. Please note last registration is 30 mins before closing.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">3</div>
+                    <h3>Consultation</h3>
+                    <p>Dr. Vanessa will see your pet in order of arrival, providing focused, personal care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding about-section">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="https://i0.wp.com/myfamilyvetclinicandsurgery.com/wp-content/uploads/2020/12/752ab-whatsapp2bimage2b2019-04-122bat2b3.29.462bpm-e1607692743877.jpg?resize=600%2C800&ssl=1" alt="My Family Vet Clinic Team">
+            </div>
+            <div class="about-content">
+                <h2 class="section-title" style="text-align: left;">Why Choose Us?</h2>
+                
+                <div class="feature-item">
+                    <h3>Experienced Vet</h3>
+                    <p>Led by Dr. Vanessa Lin, a University of Sydney graduate with over a decade of emergency and international experience.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>Comprehensive Care</h3>
+                    <p>We provide everything from routine check-ups and advanced surgery to emergency walk-in services tailored to your pet's needs.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>Peace of Mind</h3>
+                    <p>Our clean, modern facilities and a commitment to safe, personal care give you confidence in every visit.</p>
+                </div>
+
+                <a href="#services" class="btn btn-outline" style="margin-top: 1rem;">Explore Our Facilities</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding services-section">
+        <div class="container">
+            <h2 class="section-title">Our Core Services</h2>
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <h3>Consultation</h3>
+                    <p>Professional veterinary consultations including basic health checks, review visits, and first puppy/kitten examinations.</p>
+                    <a href="#" class="service-link">Consultation Details →</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Vaccination</h3>
+                    <p>Comprehensive vaccination programs for dogs, cats, and rabbits to protect against serious infectious diseases.</p>
+                    <a href="#" class="service-link">Vaccination Details →</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Sterilisation</h3>
+                    <p>Safe spaying and neutering procedures to promote your pet's long-term health and prevent unwanted pregnancies.</p>
+                    <a href="#" class="service-link">Sterilisation Details →</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Dental Scaling</h3>
+                    <p>Professional teeth cleaning and oral health care to prevent dental diseases and maintain your pet's dental hygiene.</p>
+                    <a href="#" class="service-link">Dental Scaling Details →</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Hospitalisation</h3>
+                    <p>Comprehensive inpatient care with medical monitoring, IV therapy, and specialized treatments for critically ill pets.</p>
+                    <a href="#" class="service-link">Hospitalisation Details →</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Diagnostic & Additional</h3>
+                    <p>Advanced diagnostic imaging including X-rays, ultrasound, and convenient house call services for your pet.</p>
+                    <a href="#" class="service-link">Diagnostic Details →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact & Arrival</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>Phone</h4>
+                        <p>+65 8102 6966</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h4>Address</h4>
+                        <p>My Family Vet Clinic and Surgery<br>
+                        265 Bukit Batok East Ave 4, #01-403<br>
+                        Singapore 650265</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h4>WhatsApp</h4>
+                        <p>Message for non-urgent inquiries.</p>
+                        <a href="https://wa.me/6581026966" class="btn btn-accent" style="margin-top: 0.5rem;" target="_blank">Message Us</a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;">Facebook</a>
+                        <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;">Instagram</a>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.750518049791!2d103.754406114754!3d1.353381099031267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da106362e6093d%3A0x2a3e6f6cb192d2!2s265%20Bukit%20Batok%20East%20Ave%204%2C%20%2301-403%2C%20Singapore%20650265!5e0!3m2!1sen!2ssg!4v1680000000000!5m2!1sen!2ssg" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>My Family Vet Clinic</h4>
+                <p style="color: var(--muted); font-size: 0.95rem;">Compassionate Care for Your Furry Family.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#blog">Our Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#walk-in">Walk-in System</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright 2026 © My Family Vet Clinic and Surgery Pte Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const navLinks = document.getElementById('nav-links');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(window.innerWidth <= 768) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
