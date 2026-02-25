@@ -1,0 +1,49 @@
+<svg width="720" height="520" viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract hero graphic">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="720" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111A35"/>
+      <stop offset="1" stop-color="#0D1328"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="120" y1="90" x2="620" y2="410" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6F8CFF"/>
+      <stop offset="1" stop-color="#5BE0FF"/>
+    </linearGradient>
+    <filter id="blurSoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="720" height="520" rx="28" fill="url(#bgGrad)"/>
+
+  <circle cx="170" cy="130" r="90" fill="#6F8CFF" opacity="0.20" filter="url(#blurSoft)"/>
+  <circle cx="560" cy="380" r="110" fill="#5BE0FF" opacity="0.16" filter="url(#blurSoft)"/>
+
+  <g opacity="0.9">
+    <rect x="86" y="78" width="548" height="364" rx="20" fill="none" stroke="rgba(255,255,255,0.12)"/>
+    <rect x="108" y="104" width="504" height="316" rx="16" fill="#121A31" stroke="rgba(255,255,255,0.08)"/>
+  </g>
+
+  <g>
+    <polyline points="142,322 218,274 292,300 370,218 456,240 548,166"
+      fill="none" stroke="url(#lineGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="#C9D6FF" stroke="#0D1328" stroke-width="3">
+      <circle cx="142" cy="322" r="8"/>
+      <circle cx="218" cy="274" r="8"/>
+      <circle cx="292" cy="300" r="8"/>
+      <circle cx="370" cy="218" r="8"/>
+      <circle cx="456" cy="240" r="8"/>
+      <circle cx="548" cy="166" r="8"/>
+    </g>
+  </g>
+
+  <g opacity="0.9">
+    <rect x="142" y="144" width="130" height="68" rx="14" fill="#172345" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="160" y="162" width="76" height="10" rx="5" fill="#6F8CFF"/>
+    <rect x="160" y="179" width="96" height="8" rx="4" fill="#8FA7FF" opacity="0.6"/>
+
+    <rect x="450" y="274" width="138" height="86" rx="14" fill="#172345" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="468" y="294" width="86" height="10" rx="5" fill="#5BE0FF"/>
+    <rect x="468" y="312" width="102" height="8" rx="4" fill="#7DE8FF" opacity="0.55"/>
+    <rect x="468" y="329" width="72" height="8" rx="4" fill="#7DE8FF" opacity="0.4"/>
+  </g>
+</svg>
