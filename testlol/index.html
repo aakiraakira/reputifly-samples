@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postnatal Healing | Premium Postnatal Care</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuration for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',  /* Soft Background */
+                            100: '#fce7f3',
+                            500: '#ec4899', /* Vibrant Primary */
+                            600: '#db2777', /* Hover State */
+                        },
+                        dark: '#111827',    /* Deep Black Text */
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Quicksand', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2.5rem',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar for horizontal scrolling sections */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Blob Shape for Hero Image */
+        .blob-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            transition: border-radius 1s ease-in-out;
+        }
+
+        .blob-shape:hover {
+            border-radius: 40% 60% 70% 30% / 40% 60% 30% 70%;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-dark bg-white antialiased">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-brand-100 transition-all duration-300"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24 sm:h-28 py-2">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl font-bold text-brand-500 tracking-tight">
+                        <img src="logo.jpg" alt="Postnatal Healing Singapore"
+                            class="h-20 sm:h-24 w-auto object-contain rounded-xl shadow-sm" />
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-dark hover:text-brand-500 font-semibold transition">Services</a>
+                    <a href="#about" class="text-dark hover:text-brand-500 font-semibold transition">About</a>
+                    <a href="#reviews" class="text-dark hover:text-brand-500 font-semibold transition">Reviews</a>
+                    <a href="#faq" class="text-dark hover:text-brand-500 font-semibold transition">FAQ</a>
+                    <a href="booking.html"
+                        class="bg-brand-500 hover:bg-brand-600 text-white px-6 py-2.5 rounded-full font-bold transition transform hover:scale-105 shadow-lg shadow-brand-500/30">
+                        Book Now
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-dark hover:text-brand-500 focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-brand-100 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-xl">
+                <a href="#services"
+                    class="block px-3 py-3 text-base font-semibold text-dark hover:bg-brand-50 rounded-xl">Services</a>
+                <a href="#about"
+                    class="block px-3 py-3 text-base font-semibold text-dark hover:bg-brand-50 rounded-xl">About</a>
+                <a href="#reviews"
+                    class="block px-3 py-3 text-base font-semibold text-dark hover:bg-brand-50 rounded-xl">Reviews</a>
+                <a href="booking.html"
+                    class="block w-full text-center mt-4 bg-brand-500 text-white px-4 py-3 rounded-full font-bold shadow-md">Book
+                    Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-to-b from-brand-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+
+                <!-- Text Content -->
+                <div class="text-center lg:text-left animate-fade-in-up">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 text-brand-600 font-bold text-sm mb-6">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span>Certified Home-Visit Postnatal Care in Singapore</span>
+                    </div>
+                    <h1 class="font-serif text-5xl lg:text-6xl font-bold leading-tight mb-6 text-dark">
+                        Restore Your Body, <br>
+                        <span class="text-brand-500">Reclaim Your Glow.</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
+                        Experience expert postnatal massage therapy in the comfort of your home. We help mummies heal,
+                        relax, and bond better with baby.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="booking.html"
+                            class="bg-brand-500 hover:bg-brand-600 text-white text-lg px-8 py-4 rounded-full font-bold transition transform hover:-translate-y-1 shadow-xl shadow-brand-500/30 flex items-center justify-center gap-2">
+                            Book Your Session <i data-lucide="calendar" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#services"
+                            class="bg-white border-2 border-brand-500 text-brand-500 hover:bg-brand-50 text-lg px-8 py-4 rounded-full font-bold transition flex items-center justify-center">
+                            View Treatments
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="relative flex justify-center lg:justify-end">
+                    <!-- Decor elements -->
+                    <div
+                        class="absolute -top-10 -right-10 w-24 h-24 bg-brand-200 rounded-full blur-2xl opacity-60 animate-pulse">
+                    </div>
+                    <div class="absolute bottom-10 -left-10 w-32 h-32 bg-yellow-200 rounded-full blur-2xl opacity-40">
+                    </div>
+
+                    <!-- Main Image with Blob Shape -->
+                    <div class="relative w-full max-w-lg animate-float">
+                        <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=1000&auto=format&fit=crop"
+                            alt="Mother holding baby comfortably"
+                            class="w-full h-[500px] object-cover shadow-2xl blob-shape border-4 border-white">
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-8 left-0 lg:-left-8 bg-white p-4 rounded-3xl shadow-xl flex items-center gap-3 animate-bounce"
+                            style="animation-duration: 3s;">
+                            <div class="bg-green-100 p-2 rounded-full text-green-600">
+                                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-bold uppercase">Certified</p>
+                                <p class="text-sm font-bold text-dark">Therapists</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="bg-white py-10 border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500 font-bold tracking-widest text-sm uppercase mb-6">Trusted by 500+ Happy Mummies</p>
+            <div
+                class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Mock Logos -->
+                <div class="flex items-center gap-2 font-serif text-xl font-bold"><i data-lucide="award"
+                        class="text-brand-500"></i> MumChoice</div>
+                <div class="flex items-center gap-2 font-serif text-xl font-bold"><i data-lucide="heart-handshake"
+                        class="text-brand-500"></i> ParentLife</div>
+                <div class="flex items-center gap-2 font-serif text-xl font-bold"><i data-lucide="shield-check"
+                        class="text-brand-500"></i> SafeBirth</div>
+                <div class="flex items-center gap-2 font-serif text-xl font-bold"><i data-lucide="stethoscope"
+                        class="text-brand-500"></i> MedCert</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES HIGHLIGHT -->
+    <section id="services" class="py-24 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-500 font-bold tracking-wider uppercase text-sm">Our Expertise</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mt-2 text-dark">Why Mummies Choose Us</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 group">
+                    <div
+                        class="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition">
+                        <i data-lucide="flower-2" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-3 text-dark">Postnatal Recovery</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Accelerate womb recovery, reduce water retention, and realign your body with traditional Jamu
+                        techniques.
+                    </p>
+                    <a href="#" class="text-brand-500 font-bold group-hover:underline flex items-center gap-1">Learn
+                        more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 group relative border-2 border-brand-100">
+                    <div
+                        class="absolute top-4 right-4 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        Popular</div>
+                    <div
+                        class="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition">
+                        <i data-lucide="droplets" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-3 text-dark">Lactation Support</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Gentle breast massage to clear blocked ducts, improve milk flow, and relieve engorgement pain
+                        naturally.
+                    </p>
+                    <a href="#" class="text-brand-500 font-bold group-hover:underline flex items-center gap-1">Learn
+                        more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 group">
+                    <div
+                        class="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition">
+                        <i data-lucide="baby" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-3 text-dark">Prenatal Relaxation</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Safe, soothing therapy during pregnancy to relieve backaches, leg swelling, and prepare your
+                        body for birth.
+                    </p>
+                    <a href="#" class="text-brand-500 font-bold group-hover:underline flex items-center gap-1">Learn
+                        more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Side -->
+                <div class="relative order-2 lg:order-1">
+                    <div class="absolute inset-0 bg-brand-100 rounded-full transform rotate-3 scale-105 z-0"></div>
+                    <img src="https://femia.health/wp-content/uploads/2024/12/Pregnant-belly.jpg"
+                        alt="Pregnant mother holding belly"
+                        class="relative z-10 w-full h-[500px] object-cover rounded-[50%] border-8 border-white shadow-2xl">
+                </div>
+
+                <!-- Text Side -->
+                <div class="order-1 lg:order-2">
+                    <h2 class="font-serif text-4xl lg:text-5xl font-bold mb-6 text-dark">Healing Hands, <br>Mother's
+                        Heart.</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Founded by Sarah Lim, a certified therapist and mother of two. We understand that the "fourth
+                        trimester" is fragile. Our team isn't just trained in massage; they are trained in empathy,
+                        safety, and hygiene.
+                    </p>
+
+                    <div class="border-l-4 border-brand-500 pl-6 my-8 bg-brand-50 py-4 pr-4 rounded-r-xl">
+                        <blockquote class="font-serif text-xl italic text-dark font-medium">
+                            "Every mummy deserves to heal. Postnatal care isn't a luxury; it's a necessity for your
+                            long-term health."
+                        </blockquote>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="text-brand-500 w-6 h-6"></i>
+                            <span class="font-bold text-gray-700">WSQ Certified</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="text-brand-500 w-6 h-6"></i>
+                            <span class="font-bold text-gray-700">Hospital Grade Hygiene</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="text-brand-500 w-6 h-6"></i>
+                            <span class="font-bold text-gray-700">100% Organic Oils</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="text-brand-500 w-6 h-6"></i>
+                            <span class="font-bold text-gray-700">Home Visits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING / PACKAGES -->
+    <section id="pricing" class="py-24 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <h2 class="font-serif text-4xl font-bold text-dark">Recovery Packages</h2>
+                <p class="text-gray-600 mt-3 max-w-2xl mx-auto">All services and prices below are taken from the
+                    provided service PDF. Choose a package, then book in one minute.</p>
+            </div>
+
+            <!-- Postnatal Packages -->
+            <div class="grid lg:grid-cols-2 gap-8">
+
+                <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="flex items-start justify-between gap-6">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-dark">Healing 5 Days Postnatal Treatments</h3>
+                            <p class="text-gray-500 text-sm mt-1">90-minute treatment</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-3xl font-bold text-brand-500">$850.00</div>
+                            <div class="text-xs text-gray-400 font-semibold mt-1">package price</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 p-4 rounded-2xl bg-brand-50 border border-brand-100 text-sm text-gray-700">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="package" class="w-4 h-4 text-brand-500 mt-0.5"></i>
+                            <span class="font-semibold">Included:</span>
+                            <span>Belly Binder, Mattress Protector, Massage oil & Transport included</span>
+                        </div>
+                    </div>
+
+
+                    <details class="group mt-6 rounded-2xl border border-gray-200 bg-white">
+                        <summary class="cursor-pointer list-none px-5 py-4 flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="calendar" class="w-5 h-5 text-brand-500"></i>
+                                <span class="font-bold text-dark">View full day-by-day plan</span>
+                            </div>
+                            <i data-lucide="chevron-down"
+                                class="w-5 h-5 text-gray-500 transition group-open:rotate-180"></i>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <ul class="space-y-2 pl-1">
+                                <li class="text-gray-700">Day 1: Fullbody post-natal massage, hotcompress,
+                                    lactation-support, bellybinding</li>
+                                <li class="text-gray-700">Day 2: Fullbody post-natal massage, hotcompress,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 3: Fullbody herbal massage, body wrapping,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 4: Fullbody relaxing massage, face detox massage,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 5: Fullbody steaming, post-natal & womb-lifting massage,
+                                    belly binding</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <div class="mt-6 grid sm:grid-cols-2 gap-3">
+                        <a href="booking.html?service=Healing%205%20Days%20Postnatal%20Treatments"
+                            class="text-center bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition shadow-lg shadow-brand-500/25">Book
+                            this package</a>
+                        <a href="booking.html"
+                            class="text-center border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white font-bold py-3 rounded-full transition">Book
+                            another service</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="flex items-start justify-between gap-6">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-dark">Healing 7 Days Postnatal Treatments</h3>
+                            <p class="text-gray-500 text-sm mt-1">90-minute treatment</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-3xl font-bold text-brand-500">$1150.00</div>
+                            <div class="text-xs text-gray-400 font-semibold mt-1">package price</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 p-4 rounded-2xl bg-brand-50 border border-brand-100 text-sm text-gray-700">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="package" class="w-4 h-4 text-brand-500 mt-0.5"></i>
+                            <span class="font-semibold">Included:</span>
+                            <span>Belly Binder, Mattress Protector, Massage oil & Transport included</span>
+                        </div>
+                    </div>
+
+
+                    <details class="group mt-6 rounded-2xl border border-gray-200 bg-white">
+                        <summary class="cursor-pointer list-none px-5 py-4 flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="calendar" class="w-5 h-5 text-brand-500"></i>
+                                <span class="font-bold text-dark">View full day-by-day plan</span>
+                            </div>
+                            <i data-lucide="chevron-down"
+                                class="w-5 h-5 text-gray-500 transition group-open:rotate-180"></i>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <ul class="space-y-2 pl-1">
+                                <li class="text-gray-700">Day 1: Fullbody post-natal massage, hotcompress,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 2: Fullbody post-natal massage,
+                                    hotcompress,lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 3: Fullbody herbal massage, body wrapping,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 4: Fullbody relaxing massage, hotcompress,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 5: Fullbody lymphatic drainage, face detox massage, belly
+                                    binding</li>
+                                <li class="text-gray-700">Day 6: Fullbody postnatal massage, hotcompress,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 7: Body steaming, post-natal massage, womb-lifting
+                                    massage, belly binding</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <div class="mt-6 grid sm:grid-cols-2 gap-3">
+                        <a href="booking.html?service=Healing%207%20Days%20Postnatal%20Treatments"
+                            class="text-center bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition shadow-lg shadow-brand-500/25">Book
+                            this package</a>
+                        <a href="booking.html"
+                            class="text-center border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white font-bold py-3 rounded-full transition">Book
+                            another service</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="flex items-start justify-between gap-6">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-dark">Healing 10 Days Postnatal Treatments
+                            </h3>
+                            <p class="text-gray-500 text-sm mt-1">90-minute treatment</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-3xl font-bold text-brand-500">$1700.00</div>
+                            <div class="text-xs text-gray-400 font-semibold mt-1">package price</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 p-4 rounded-2xl bg-brand-50 border border-brand-100 text-sm text-gray-700">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="package" class="w-4 h-4 text-brand-500 mt-0.5"></i>
+                            <span class="font-semibold">Included:</span>
+                            <span>Belly Binder, Portable Bed, Massage oil & Transport included</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 space-y-1 text-sm text-gray-600">
+                        <div class="flex items-start gap-2"><i data-lucide="gift"
+                                class="w-4 h-4 text-brand-500 mt-0.5"></i><span>1 complimentary pre-natal massage
+                                (45minutes)</span></div>
+                        <div class="flex items-start gap-2"><i data-lucide="gift"
+                                class="w-4 h-4 text-brand-500 mt-0.5"></i><span>1 complimentary baby massage (
+                                15minutes)</span></div>
+                    </div>
+
+                    <details class="group mt-6 rounded-2xl border border-gray-200 bg-white">
+                        <summary class="cursor-pointer list-none px-5 py-4 flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="calendar" class="w-5 h-5 text-brand-500"></i>
+                                <span class="font-bold text-dark">View full day-by-day plan</span>
+                            </div>
+                            <i data-lucide="chevron-down"
+                                class="w-5 h-5 text-gray-500 transition group-open:rotate-180"></i>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <ul class="space-y-2 pl-1">
+                                <li class="text-gray-700">Day 1: Fullbody post-natal massage, hotcompress,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 2: Fullbody post-natal massage, hotcompress,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 3: Fullbody herbal massage, body wrapping,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 4: Fullbody lymphatic drainage massage, face detox
+                                    massage, belly binding</li>
+                                <li class="text-gray-700">Day 5: Body steaming, fullbody post-natal massage, belly
+                                    binding</li>
+                                <li class="text-gray-700">Day 6: Healing Signature Slimming Massage, belly binding
+                                    (+complimentary 15mins baby massage)</li>
+                                <li class="text-gray-700">Day 7: Fullbody post-natal massage, diastasis recti & pelvic
+                                    treatment, belly binding</li>
+                                <li class="text-gray-700">Day 8: Fullbody post-natal massage, diastasis recti & pelvic
+                                    treatment, belly binding</li>
+                                <li class="text-gray-700">Day 9: Fullbody scrub, post-natal massage, lactation-support,
+                                    belly binding</li>
+                                <li class="text-gray-700">Day 10: Body steaming, post-natal massage, womb-lifting
+                                    massage,belly binding</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <div class="mt-6 grid sm:grid-cols-2 gap-3">
+                        <a href="booking.html?service=Healing%2010%20Days%20Postnatal%20Treatments"
+                            class="text-center bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition shadow-lg shadow-brand-500/25">Book
+                            this package</a>
+                        <a href="booking.html"
+                            class="text-center border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white font-bold py-3 rounded-full transition">Book
+                            another service</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="flex items-start justify-between gap-6">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-dark">Healing 14 Days Postnatal Treatments
+                            </h3>
+                            <p class="text-gray-500 text-sm mt-1">90-minute treatment</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-3xl font-bold text-brand-500">$2500.00</div>
+                            <div class="text-xs text-gray-400 font-semibold mt-1">package price</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 p-4 rounded-2xl bg-brand-50 border border-brand-100 text-sm text-gray-700">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="package" class="w-4 h-4 text-brand-500 mt-0.5"></i>
+                            <span class="font-semibold">Included:</span>
+                            <span>Belly Binder, Portable Bed, Massage oil & Transport included</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 space-y-1 text-sm text-gray-600">
+                        <div class="flex items-start gap-2"><i data-lucide="gift"
+                                class="w-4 h-4 text-brand-500 mt-0.5"></i><span>1 Complimentary Pre-natal massage
+                                (60minutes)</span></div>
+                        <div class="flex items-start gap-2"><i data-lucide="gift"
+                                class="w-4 h-4 text-brand-500 mt-0.5"></i><span>1 Complimentary Baby massage
+                                (15minutes)</span></div>
+                    </div>
+
+                    <details class="group mt-6 rounded-2xl border border-gray-200 bg-white">
+                        <summary class="cursor-pointer list-none px-5 py-4 flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="calendar" class="w-5 h-5 text-brand-500"></i>
+                                <span class="font-bold text-dark">View full day-by-day plan</span>
+                            </div>
+                            <i data-lucide="chevron-down"
+                                class="w-5 h-5 text-gray-500 transition group-open:rotate-180"></i>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <ul class="space-y-2 pl-1">
+                                <li class="text-gray-700">Day 1: Fullbody post-natal massage, hot compress,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 2: Fullbody post-natal massage, hot compress,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 3: Fullbody herbal massage, body-wrapping, belly binding
+                                </li>
+                                <li class="text-gray-700">Day 4: Fullbody lymphatic drainage massage, face-detox
+                                    massage, belly binding</li>
+                                <li class="text-gray-700">Day 5: Body steaming, Full body postnatal massage, Belly
+                                    binding</li>
+                                <li class="text-gray-700">Day 6: Healing Signature slimming massage, belly binding
+                                    (+complimentary 15mins baby massage)</li>
+                                <li class="text-gray-700">Day 7: Fullbody post-natal massage, diastasis recti & pelvic
+                                    treatment, belly binding</li>
+                                <li class="text-gray-700">Day 8: Fullbody post-natal massage, hot compress,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 9: Fullbody post-natal massage, hot compress,
+                                    lactation-support, belly binding</li>
+                                <li class="text-gray-700">Day 10: Fullbody post-natal massage, diastasis recti & pelvic
+                                    treatment, belly binding</li>
+                                <li class="text-gray-700">Day 11: Body steaming, fullbody post-natal massage, belly
+                                    binding</li>
+                                <li class="text-gray-700">Day 12: Healing Signature slimming massage, belly binding</li>
+                                <li class="text-gray-700">Day 13: Fullbody scrub, fullbody post-natal massage, belly
+                                    binding</li>
+                                <li class="text-gray-700">Day14: Herbal bath, fullbody postnatal massage, womb-lifting
+                                    massage, belly binding</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <div class="mt-6 grid sm:grid-cols-2 gap-3">
+                        <a href="booking.html?service=Healing%2014%20Days%20Postnatal%20Treatments"
+                            class="text-center bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition shadow-lg shadow-brand-500/25">Book
+                            this package</a>
+                        <a href="booking.html"
+                            class="text-center border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white font-bold py-3 rounded-full transition">Book
+                            another service</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Other Treatments -->
+            <div class="mt-16">
+                <h3 class="font-serif text-3xl font-bold text-dark text-center">Other Treatments and Wellness Services
+                </h3>
+                <p class="text-gray-600 mt-3 text-center max-w-3xl mx-auto">These services and prices are displayed
+                    exactly as listed in the service PDF.</p>
+
+                <div class="mt-10 grid md:grid-cols-2 gap-8">
+                    <!-- Prenatal -->
+                    <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                        <div class="flex items-start justify-between gap-6">
+                            <div>
+                                <h4 class="font-serif text-2xl font-bold text-dark">Healing Prenatal Massage</h4>
+                                <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                                    A gentle and nurturing therapy designed specially for mothers-to-be. This treatment
+                                    helps to improve blood circulation, backaches, swelling, enhance lymphatic low and
+                                    reduce edema in the lower extremities. It also reduces stress and anxiety, support
+                                    emotional well-being and promoting better sleep.
+                                </p>
+                            </div>
+                            <i data-lucide="heart" class="w-7 h-7 text-brand-500 mt-1"></i>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl border border-gray-200 overflow-hidden">
+                            <div class="px-5 py-3 bg-brand-50 font-bold text-dark">Pricing</div>
+                            <div class="px-5 py-4 space-y-2 text-gray-700 text-sm">
+                                <div class="flex justify-between gap-4"><span>90-minute Treatment</span><span
+                                        class="font-bold">$170.00</span></div>
+                                <div class="flex justify-between gap-4"><span>3 Sessions 90-minutes
+                                        Treatment</span><span class="font-bold">$480.00</span></div>
+                                <div class="flex justify-between gap-4"><span>5 Sessions 90-minutes
+                                        Treatment</span><span class="font-bold">$770.00</span></div>
+                            </div>
+                        </div>
+
+                        <a href="booking.html?service=Healing%20Prenatal%20Massage"
+                            class="mt-6 block text-center bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition">Book
+                            prenatal massage</a>
+                    </div>
+
+                    <!-- Slimming -->
+                    <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                        <div class="flex items-start justify-between gap-6">
+                            <div>
+                                <h4 class="font-serif text-2xl font-bold text-dark">Healing Signature Slimming Massage
+                                </h4>
+                                <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                                    A revitalizing treatment that helps shape and tone the body while promoting a
+                                    lighter, more refreshed feeling. Through rhythmic strokes and firm techniques,
+                                    slimming massage aids in reducing water retention, stimulates blood circulation
+                                    andlymphatic drainage to promote the breakdown and elimination of excess fluids,
+                                    toxins and reduce the appearance of cellulite. It leaves the body feeling more
+                                    sculpted and energized. Perfect for those seeking a confidence boost and sense of
+                                    renewed well-being.
+                                </p>
+                            </div>
+                            <i data-lucide="sparkles" class="w-7 h-7 text-brand-500 mt-1"></i>
+                        </div>
+
+                        <div class="mt-5 p-4 rounded-2xl bg-brand-50 border border-brand-100 text-sm text-gray-700">
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="package" class="w-4 h-4 text-brand-500 mt-0.5"></i>
+                                <span class="font-semibold">Included:</span>
+                                <span>Binder, Slimming Cream, Slimming Oil included</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl border border-gray-200 overflow-hidden">
+                            <div class="px-5 py-3 bg-brand-50 font-bold text-dark">Pricing</div>
+                            <div class="px-5 py-4 space-y-2 text-gray-700 text-sm">
+                                <div class="flex justify-between gap-4"><span>90-minute Treatment</span><span
+                                        class="font-bold">$190.00</span></div>
+                                <div class="flex justify-between gap-4"><span>7 Sessions 90-minutes
+                                        Treatment</span><span class="font-bold">$1300.00</span></div>
+                                <div class="flex justify-between gap-4"><span>10 Sessions 90-minutes
+                                        Treatment</span><span class="font-bold">$1750.00</span></div>
+                            </div>
+                        </div>
+
+                        <a href="booking.html?service=Healing%20Signature%20Slimming%20Massage"
+                            class="mt-6 block text-center bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition">Book
+                            slimming massage</a>
+                    </div>
+
+                    <!-- Diastasis & Pelvic -->
+                    <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                        <div class="flex items-start justify-between gap-6">
+                            <div>
+                                <h4 class="font-serif text-2xl font-bold text-dark">Healing Diastasis Rectic & Pelvic
+                                    Restore Massage Treatment</h4>
+                                <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                                    A restorative treatment designed to support postpartum recovery by focusing on the
+                                    core and pelvic region. Effective techniques help to realign abdominal muscle,
+                                    improve circulation and encourage tissue healing, which an aid in the recovery of
+                                    diastasis recti.This massage also works to strengthen pelvic floor support, relieve
+                                    tension in surrounding muscles and promote better posture, stability, core strength
+                                    and balance in the body.
+                                </p>
+                            </div>
+                            <i data-lucide="activity" class="w-7 h-7 text-brand-500 mt-1"></i>
+                        </div>
+
+                        <div class="mt-5 p-4 rounded-2xl bg-brand-50 border border-brand-100 text-sm text-gray-700">
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="package" class="w-4 h-4 text-brand-500 mt-0.5"></i>
+                                <span class="font-semibold">Included:</span>
+                                <span>Binder, portable bed ,herbal oil included</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl border border-gray-200 overflow-hidden">
+                            <div class="px-5 py-3 bg-brand-50 font-bold text-dark">Pricing</div>
+                            <div class="px-5 py-4 space-y-2 text-gray-700 text-sm">
+                                <div class="flex justify-between gap-4"><span>2hour Treatment</span><span
+                                        class="font-bold">$380.00</span></div>
+                                <div class="flex justify-between gap-4"><span>3 Sessions - 2hour Treatment</span><span
+                                        class="font-bold">$1100.00</span></div>
+                            </div>
+                        </div>
+
+                        <a href="booking.html?service=Healing%20Diastasis%20Rectic%20%26%20Pelvic%20Restore%20Massage%20Treatment"
+                            class="mt-6 block text-center bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition">Book
+                            pelvic restore</a>
+                    </div>
+
+                    <!-- Sciatica -->
+                    <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                        <div class="flex items-start justify-between gap-6">
+                            <div>
+                                <h4 class="font-serif text-2xl font-bold text-dark">Healing Sciatica Massage Treatment
+                                </h4>
+                                <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                                    A targeted therapy designed to relieve discomfort caused by sciatic nerve
+                                    compression. This treatment focuses on easing tension in the lower back, glutes, and
+                                    legs helping to reduce radiating pain, numbness or tingling along sciatic pathway.
+                                    By improving circulation, release muscle tightness, and enhancing flexibility,
+                                    sciatica massage support nerve function and natural healing.
+                                </p>
+                            </div>
+                            <i data-lucide="zap" class="w-7 h-7 text-brand-500 mt-1"></i>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl border border-gray-200 overflow-hidden">
+                            <div class="px-5 py-3 bg-brand-50 font-bold text-dark">Pricing</div>
+                            <div class="px-5 py-4 space-y-2 text-gray-700 text-sm">
+                                <div class="flex justify-between gap-4"><span>90-minute Treatment</span><span
+                                        class="font-bold">$250.00</span></div>
+                                <div class="flex justify-between gap-4"><span>3 Sessions 90-minutes
+                                        Treatment</span><span class="font-bold">$699.00</span></div>
+                                <div class="flex justify-between gap-4"><span>6 Sessions 90-minutes
+                                        Treatment</span><span class="font-bold">$1299.00</span></div>
+                            </div>
+                        </div>
+
+                        <a href="booking.html?service=Healing%20Sciatica%20Massage%20Treatment"
+                            class="mt-6 block text-center bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition">Book
+                            sciatica treatment</a>
+                    </div>
+                </div>
+
+                <!-- Wellness Services (full width) -->
+                <div class="mt-10 bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="flex items-start justify-between gap-6">
+                        <div>
+                            <h4 class="font-serif text-2xl font-bold text-dark">Healing Wellness Services</h4>
+                            <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                                Additional support services for mothers and families.
+                            </p>
+                        </div>
+                        <i data-lucide="smile" class="w-7 h-7 text-brand-500 mt-1"></i>
+                    </div>
+
+                    <div class="mt-6 grid md:grid-cols-2 gap-6">
+                        <div class="rounded-2xl border border-gray-200 overflow-hidden">
+                            <div class="px-5 py-3 bg-brand-50 font-bold text-dark">90-minutes Lactation Support</div>
+                            <div class="px-5 py-4 space-y-2 text-gray-700 text-sm">
+                                <div class="flex justify-between gap-4"><span>Non-peak hr</span><span
+                                        class="font-bold">$170.00</span></div>
+                                <div class="flex justify-between gap-4"><span>5pm-10pm</span><span
+                                        class="font-bold">$200.00</span></div>
+                            </div>
+                            <div class="px-5 pb-5">
+                                <a href="booking.html?service=90-minutes%20Lactation%20Support"
+                                    class="mt-2 inline-flex items-center justify-center w-full bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition">Book
+                                    lactation support</a>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-gray-200 overflow-hidden">
+                            <div class="px-5 py-3 bg-brand-50 font-bold text-dark">90-minutes Relaxation Massage</div>
+                            <div class="px-5 py-4 text-gray-700 text-sm">
+                                <div class="flex justify-between gap-4"><span>90-minutes Relaxation Massage</span><span
+                                        class="font-bold">$170.00</span></div>
+                            </div>
+                            <div class="px-5 pb-5">
+                                <a href="booking.html?service=90-minutes%20Relaxation%20Massage"
+                                    class="mt-2 inline-flex items-center justify-center w-full bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition">Book
+                                    relaxation massage</a>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-gray-200 overflow-hidden">
+                            <div class="px-5 py-3 bg-brand-50 font-bold text-dark">Miscarriage Treatment</div>
+                            <div class="px-5 py-4 text-gray-700 text-sm">
+                                <div class="flex justify-between gap-4"><span>3 Days 90-minutes Miscarriage
+                                        Treatment</span><span class="font-bold">$699.00</span></div>
+                            </div>
+                            <div class="px-5 pb-5">
+                                <a href="booking.html?service=3%20Days%2090-minutes%20Miscarriage%20Treatment"
+                                    class="mt-2 inline-flex items-center justify-center w-full bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition">Book
+                                    miscarriage treatment</a>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-gray-200 overflow-hidden">
+                            <div class="px-5 py-3 bg-brand-50 font-bold text-dark">Fertility Treatment</div>
+                            <div class="px-5 py-4 text-gray-700 text-sm">
+                                <div class="flex justify-between gap-4"><span>3 Days 90-minutes Fertility
+                                        Treatment</span><span class="font-bold">$699.00</span></div>
+                            </div>
+                            <div class="px-5 pb-5">
+                                <a href="booking.html?service=3%20Days%2090-minutes%20Fertility%20Treatment"
+                                    class="mt-2 inline-flex items-center justify-center w-full bg-brand-500 text-white hover:bg-brand-600 font-bold py-3 rounded-full transition">Book
+                                    fertility treatment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="reviews" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif text-4xl font-bold text-center mb-16 text-dark">Real Stories from Mummies</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="flex flex-col">
+                    <div class="bg-brand-50 p-8 rounded-t-3xl rounded-br-3xl relative mb-4">
+                        <div class="flex text-brand-500 mb-3">
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium italic">"I was suffering from terrible back pain after my
+                            C-section. Sarah was so gentle yet effective. I felt human again after just one session."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 px-2">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg"
+                            class="w-12 h-12 rounded-full object-cover border-2 border-brand-100" alt="User">
+                        <div>
+                            <p class="font-bold text-dark">Jessica T.</p>
+                            <p class="text-xs text-gray-500">3 weeks postpartum</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="flex flex-col">
+                    <div class="bg-brand-50 p-8 rounded-t-3xl rounded-br-3xl relative mb-4">
+                        <div class="flex text-brand-500 mb-3">
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium italic">"The best investment I made for myself. The
+                            convenience of having them come to my home was a lifesaver. Highly recommend!"</p>
+                    </div>
+                    <div class="flex items-center gap-4 px-2">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg"
+                            class="w-12 h-12 rounded-full object-cover border-2 border-brand-100" alt="User">
+                        <div>
+                            <p class="font-bold text-dark">Amanda L.</p>
+                            <p class="text-xs text-gray-500">1 month postpartum</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="flex flex-col">
+                    <div class="bg-brand-50 p-8 rounded-t-3xl rounded-br-3xl relative mb-4">
+                        <div class="flex text-brand-500 mb-3">
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium italic">"My milk supply increased significantly after the
+                            lactation massage. The therapist was so knowledgeable and kind."</p>
+                    </div>
+                    <div class="flex items-center gap-4 px-2">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg"
+                            class="w-12 h-12 rounded-full object-cover border-2 border-brand-100" alt="User">
+                        <div>
+                            <p class="font-bold text-dark">Priya R.</p>
+                            <p class="text-xs text-gray-500">2 weeks postpartum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ ACCORDION -->
+    <section id="faq" class="py-24 bg-brand-50">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="font-serif text-4xl font-bold text-center mb-12 text-dark">Common Questions</h2>
+
+            <div class="space-y-4">
+                <!-- Item 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button
+                        class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none faq-btn">
+                        <span class="font-bold text-lg text-dark">When should I start postnatal massage?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-8 pb-0 h-0 overflow-hidden transition-all duration-300 faq-content">
+                        <p class="pb-6 text-gray-600">For natural birth, you can start as early as 5-7 days postpartum.
+                            For C-section deliveries, we recommend waiting at least 21 days or until your incision has
+                            healed.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button
+                        class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none faq-btn">
+                        <span class="font-bold text-lg text-dark">Do you bring your own equipment?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-8 pb-0 h-0 overflow-hidden transition-all duration-300 faq-content">
+                        <p class="pb-6 text-gray-600">Yes! We bring a portable massage bed, fresh towels, organic oils,
+                            and the binder. You just need to prepare a small space in your home.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button
+                        class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none faq-btn">
+                        <span class="font-bold text-lg text-dark">Is the massage painful?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-8 pb-0 h-0 overflow-hidden transition-all duration-300 faq-content">
+                        <p class="pb-6 text-gray-600">No, it should be soothing. While we do work on deep tissues to
+                            expel wind and water retention, the pressure is always adjusted to your comfort level.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TERMS & CONDITIONS -->
+    <section id="terms" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-serif text-4xl font-bold text-dark">Terms and Conditions</h2>
+                <p class="text-gray-600 mt-3">Displayed as provided in the service PDF.</p>
+            </div>
+
+            <div class="bg-brand-50 border border-brand-100 rounded-3xl p-8 space-y-8">
+                <div>
+                    <h3 class="font-bold text-dark text-lg mb-3">Booking Confirmation</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start gap-3"><i data-lucide="credit-card"
+                                class="w-5 h-5 text-brand-500 mt-0.5"></i><span>Please make payment by bank transfer
+                                [UOB Account No: 511-376-476-8]</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle"
+                                class="w-5 h-5 text-brand-500 mt-0.5"></i><span>A 50% deposit is required to confirm
+                                your booking</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle"
+                                class="w-5 h-5 text-brand-500 mt-0.5"></i><span>The remaining balance must be paid on
+                                the first session</span></li>
+                    </ul>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold text-dark text-lg mb-3">Rescheduling Policy</h3>
+                        <p class="text-gray-700 flex items-start gap-3"><i data-lucide="clock"
+                                class="w-5 h-5 text-brand-500 mt-0.5"></i><span>A minimum of 3 hours’ notice is required
+                                for any rescheduling.</span></p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-dark text-lg mb-3">Refund Policy</h3>
+                        <p class="text-gray-700 flex items-start gap-3"><i data-lucide="shield"
+                                class="w-5 h-5 text-brand-500 mt-0.5"></i><span>Deposits are non-refundable, but can be
+                                transferred to a reschedule appointment (with sufficient notice)</span></p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold text-dark text-lg mb-3">Therapist Availability</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start gap-3"><i data-lucide="calendar-check"
+                                    class="w-5 h-5 text-brand-500 mt-0.5"></i><span>All bookings are subject to
+                                    therapist availability</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="repeat"
+                                    class="w-5 h-5 text-brand-500 mt-0.5"></i><span>In rare case of therapist
+                                    unavailability, we will reschedule your session at the earliest possible
+                                    time.</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-dark text-lg mb-3">Health and Safety</h3>
+                        <p class="text-gray-700 flex items-start gap-3"><i data-lucide="alert-triangle"
+                                class="w-5 h-5 text-brand-500 mt-0.5"></i><span>Clients are responsible for informing
+                                the therapist of any medical conditions, allergies,or concerns prior to the
+                                session.</span></p>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <a href="booking.html"
+                        class="inline-flex items-center justify-center w-full sm:w-auto bg-brand-500 text-white hover:bg-brand-600 font-bold px-8 py-3 rounded-full transition shadow-lg shadow-brand-500/25">Book
+                        Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <section class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <div
+                class="bg-gradient-to-r from-brand-500 to-rose-400 rounded-3xl md:rounded-[3rem] p-12 md:p-20 text-center shadow-2xl relative overflow-hidden">
+                <!-- Decor Circles -->
+                <div
+                    class="absolute top-0 left-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+                </div>
+                <div
+                    class="absolute bottom-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2">
+                </div>
+
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6 relative z-10">Ready to feel like
+                    yourself again?</h2>
+                <p class="text-white/90 text-lg md:text-xl mb-10 max-w-2xl mx-auto relative z-10">
+                    Slots fill up fast for the coming months. Secure your confinement recovery sessions today.
+                </p>
+                <div class="relative z-10">
+                    <a href="booking.html"
+                        class="inline-block bg-white text-brand-500 text-lg px-10 py-4 rounded-full font-bold transition transform hover:scale-105 shadow-xl hover:shadow-2xl">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6585224547" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+        class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center bg-[#25D366] hover:scale-105 transition-transform">
+        <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path fill="white"
+                d="M19.11 17.49c-.25-.13-1.46-.72-1.69-.8-.23-.08-.4-.13-.57.13-.17.25-.65.8-.8.96-.15.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.44-.06-.13-.57-1.37-.78-1.88-.2-.49-.41-.42-.57-.43h-.49c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.28 3.78.6.26 1.06.41 1.43.53.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z" />
+            <path fill="white" fill-rule="evenodd" clip-rule="evenodd"
+                d="M16 3C8.82 3 3 8.67 3 15.66c0 2.48.73 4.79 1.98 6.75L3 29l6.79-1.9c1.87 1 4.02 1.57 6.21 1.57 7.18 0 13-5.67 13-12.66C29 8.67 23.18 3 16 3zm0 23.1c-2.01 0-3.97-.56-5.67-1.62l-.41-.25-4.02 1.13 1.07-3.87-.27-.4C5.56 19.4 5 17.56 5 15.66 5 9.8 9.93 5.06 16 5.06S27 9.8 27 15.66 22.07 26.1 16 26.1z" />
+        </svg>
+    </a>
+
+
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="#" class="mb-6 block">
+                        <img src="logo.jpg" alt="Postnatal Healing Singapore"
+                            class="h-24 w-auto object-contain rounded-2xl shadow-lg border border-gray-700" />
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Singapore's premier home-visit postnatal massage service. Dedicated to your recovery and
+                        well-being.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-brand-500">Services</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="index.html#pricing" class="hover:text-white transition">Postnatal Packages</a></li>
+                        <li><a href="index.html#pricing" class="hover:text-white transition">Prenatal Massage</a></li>
+                        <li><a href="index.html#pricing" class="hover:text-white transition">Lactation Support</a></li>
+                        <li><a href="index.html#pricing" class="hover:text-white transition">Slimming Massage</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-brand-500">Company</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="index.html#about" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Therapists</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="index.html#footer-contact" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div id="footer-contact">
+                    <h4 class="font-bold mb-4 text-brand-500">Contact</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> +65 8525 5608
+                        </li>
+                        <li class="flex items-center gap-2"><i data-lucide="message-circle" class="w-4 h-4"></i>
+                            WhatsApp: +65 8522 4547</li>
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>
+                            postnatalhealingsingapore@gmail.com</li>
+                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i> Singapore</li>
+                    </ul>
+                    <div class="mt-4">
+                        <div class="text-gray-400 text-sm mb-2 font-semibold">Social</div>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://www.instagram.com/postnatalhealingsingapore?igsh=aThxNDN0aXAwNzE4&utm_source=qr"
+                                target="_blank" rel="noopener"
+                                class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-brand-500 transition text-xs font-semibold">Instagram</a>
+                            <a href="https://www.facebook.com/share/1F8HpjJZTh/?mibextid=wwXIfr" target="_blank"
+                                rel="noopener"
+                                class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-brand-500 transition text-xs font-semibold">Facebook</a>
+                            <a href="https://www.tiktok.com/@postnatalhealing.sg?_r=1&_t=ZS-9437Pc1xtfJ" target="_blank"
+                                rel="noopener"
+                                class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-brand-500 transition text-xs font-semibold">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
+                &copy; 2026 Postnatal Healing. All rights reserved. Website Design by <a href="https://reputifly.com"
+                    target="_blank" class="text-brand-500 hover:text-white transition">Reputifly</a>.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                const title = button.querySelector('span');
+
+                // Toggle Content Height
+                if (content.style.height && content.style.height !== '0px') {
+                    content.style.height = '0px';
+                    icon.style.transform = 'rotate(0deg)';
+                    title.classList.remove('text-brand-500');
+                    title.classList.add('text-dark');
+                } else {
+                    // Close others (optional, removes "accordion" effect if removed)
+                    document.querySelectorAll('.faq-content').forEach(c => c.style.height = '0px');
+                    document.querySelectorAll('.faq-btn i').forEach(i => i.style.transform = 'rotate(0deg)');
+                    document.querySelectorAll('.faq-btn span').forEach(s => {
+                        s.classList.remove('text-brand-500');
+                        s.classList.add('text-dark');
+                    });
+
+                    content.style.height = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                    title.classList.remove('text-dark');
+                    title.classList.add('text-brand-500');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
