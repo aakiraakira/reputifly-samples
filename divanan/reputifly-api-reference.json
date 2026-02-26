@@ -1,0 +1,114 @@
+{
+  "api_profile": {
+    "name": "Reputifly Lead Capture API",
+    "version": "9.5",
+    "base_url": "https://asia-southeast1-b2b-software.cloudfunctions.net",
+    "endpoint": "/reputifly",
+    "method": "POST",
+    "content_type": "application/json",
+    "description": "A public endpoint for processing web form submissions. It handles data capture, email notifications, auto-replies, rate limiting, and spam protection automatically."
+  },
+  "capabilities": {
+    "lead_capture": "Accepts unlimited custom fields (name, budget, timeline, etc.).",
+    "notifications": "Instantly emails the business owner with lead details.",
+    "auto_responder": "Can send a branded confirmation email to the lead immediately.",
+    "white_labeling": "Supports custom branding (logo, colors, sender name) for emails.",
+    "intelligence": "Automatically detects the lead's email address from any field containing 'email' in its name."
+  },
+  "payload_structure": {
+    "system_configuration": {
+      "description": "Reserved keys that control API behavior. These are NOT saved as lead data but configure how the system reacts.",
+      "fields": {
+        "_to": {
+          "type": "string (email)",
+          "requirement": "MANDATORY",
+          "description": "The destination email address where the lead notification will be sent. Acts as the unique Client ID for rate limiting."
+        },
+        "_subject": {
+          "type": "string",
+          "requirement": "OPTIONAL",
+          "default": "New Lead for [Client Email]",
+          "description": "The subject line of the notification email sent to the business owner."
+        },
+        "_auto_reply": {
+          "type": "boolean",
+          "requirement": "OPTIONAL",
+          "default": false,
+          "description": "If true, the system attempts to send a confirmation email to the lead. Requires a valid email field in the submission."
+        },
+        "_auto_reply_subject": {
+          "type": "string",
+          "requirement": "OPTIONAL",
+          "default": "We received your message!",
+          "description": "The subject line of the auto-reply email sent to the lead."
+        },
+        "_auto_reply_content": {
+          "type": "string (HTML)",
+          "requirement": "OPTIONAL",
+          "description": "Custom HTML content for the auto-reply body. If omitted, a default 'Thank you' template is used."
+        },
+        "_sender_name": {
+          "type": "string",
+          "requirement": "OPTIONAL",
+          "default": "Reputifly Leads",
+          "description": "The 'From' name displayed in the auto-reply email (e.g., 'My Design Agency')."
+        },
+        "_brand_color": {
+          "type": "string (hex code)",
+          "requirement": "OPTIONAL",
+          "default": "#0B0A14",
+          "description": "Accent color used in the header of email templates."
+        },
+        "_brand_logo": {
+          "type": "string (URL)",
+          "requirement": "OPTIONAL",
+          "description": "URL of a logo image to display at the top of email notifications and auto-replies."
+        }
+      }
+    },
+    "lead_data_capture": {
+      "description": "Dynamic data capture. The API accepts ANY key-value pair not listed in 'system_configuration' and saves it to the database.",
+      "behavior": "All fields are stored and formatted into a data table in the notification email.",
+      "best_practices": {
+        "email_field": {
+          "recommendation": "Name your email input 'email' or 'Client Email'.",
+          "reason": "The API scans all keys. If a key contains the word 'email' and the value looks like an email address, it is used as the recipient for the Auto-Reply."
+        },
+        "naming_convention": "Use readable keys (e.g., 'First Name' instead of 'fname') as these keys are displayed directly in the email notification."
+      }
+    }
+  },
+  "automatic_metadata": {
+    "description": "Information automatically captured by the server. Do NOT add hidden fields for these.",
+    "captured_fields": [
+      "IP Address (x-forwarded-for)",
+      "User Agent (Browser/Device info)",
+      "Referrer URL (Traffic source)",
+      "Geolocation (City, Country, Region via Google Cloud headers)"
+    ]
+  },
+  "responses": {
+    "success": {
+      "code": 200,
+      "schema": {
+        "success": true,
+        "client": "target@email.com",
+        "auto_replied": true
+      }
+    },
+    "rate_limited": {
+      "code": 429,
+      "description": "The client has exceeded their daily email limit (default 50).",
+      "schema": {
+        "error": "Daily email limit reached for this client."
+      }
+    },
+    "blocked": {
+      "code": 403,
+      "description": "The sender's email or domain is on the blacklist.",
+      "schema": {
+        "error": "Access Denied: Blocked Sender"
+      }
+    }
+  }
+}
