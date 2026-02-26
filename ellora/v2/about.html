@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Ellora Furnishings</title>
+  <meta name="description" content="Learn about Ellora Furnishings — our story, team, and values behind premium zip blinds and furnishing solutions.">
+  <meta name="theme-color" content="#e4c464">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+  
+    :root {
+      --primary: #e4c464;
+      --accent: #e4c464;
+      --bg: #ffffff;
+      --text: #0b0a14;
+      --surface: #fafafa;
+      --border: #e6e6e6;
+      --muted-raw: #08070e;
+      --primary-hover-raw: #000000;
+      --on-primary: #ffffff;
+      --focus: #f2e2b2;
+
+      --radius: 24px;
+      --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --glass: blur(12px);
+
+      --font-heading: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+      /* Slightly refined neutrals (allowed small variation) */
+      --muted: #2f2e38;
+      --muted-2: #5a5866;
+      --bg-warm: #fffdf7;
+      --ring: 0 0 0 4px color-mix(in srgb, var(--focus) 55%, transparent);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,.08);
+      --shadow-pop: 0 18px 50px rgba(0,0,0,.10);
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--text);
+      background:
+        radial-gradient(900px 420px at 15% 0%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 60%),
+        radial-gradient(900px 420px at 85% 10%, color-mix(in srgb, var(--primary) 10%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--bg-warm), var(--bg));
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 10px;
+      background: var(--text);
+      color: white;
+      padding: 10px 12px;
+      border-radius: 999px;
+      z-index: 9999;
+    }
+    .skip-link:focus { left: 12px; outline: none; box-shadow: var(--ring); }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: clamp(52px, 5.5vw, 88px) 0;
+    }
+
+    .kicker {
+      font-size: 0.9rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      margin: 0 0 10px;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      line-height: 1.15;
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(1.55rem, 2.2vw, 2.15rem);
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: color-mix(in srgb, var(--bg) 72%, transparent);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      border-bottom: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 210px;
+    }
+
+    .brand img {
+      width: 154px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--surface) 75%, transparent);
+      box-shadow: 0 1px 0 rgba(0,0,0,.04);
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .nav-links a:hover {
+      background: color-mix(in srgb, var(--primary) 14%, transparent);
+      color: var(--text);
+    }
+
+    .nav-links a[aria-current="page"] {
+      background: color-mix(in srgb, var(--primary) 20%, transparent);
+      color: var(--text);
+      border: 1px solid color-mix(in srgb, var(--primary) 26%, transparent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:focus-visible {
+      outline: none;
+      box-shadow: var(--ring);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--text);
+      box-shadow: 0 12px 22px rgba(228, 196, 100, .22);
+      border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: color-mix(in srgb, var(--primary) 84%, #b48c1b);
+      box-shadow: 0 16px 32px rgba(228, 196, 100, .26);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: color-mix(in srgb, var(--border) 92%, transparent);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      transform: translateY(-1px);
+      border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+      background: color-mix(in srgb, var(--primary) 10%, transparent);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: transparent;
+      color: var(--muted);
+      padding: 10px 12px;
+      font-weight: 700;
+    }
+
+    .btn-ghost:hover {
+      background: color-mix(in srgb, var(--primary) 10%, transparent);
+      color: var(--text);
+    }
+
+    /* Mobile menu */
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--surface) 75%, transparent);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .menu-btn:focus-visible { outline: none; box-shadow: var(--ring); }
+
+    .mobile-panel {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding: 14px 0 18px;
+    }
+
+    .mobile-panel a {
+      display: block;
+      padding: 12px 12px;
+      border-radius: 14px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .mobile-panel a:hover {
+      background: color-mix(in srgb, var(--primary) 10%, transparent);
+    }
+
+    /* Cards & grids */
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .card-pad { padding: 22px; }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    /* Section headers */
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section-head .meta {
+      max-width: 62ch;
+    }
+
+    /* Forms */
+    .field {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    label {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    input, select, textarea {
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--border) 95%, transparent);
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      outline: none;
+      transition: box-shadow .2s ease, border-color .2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+      box-shadow: var(--ring);
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: var(--muted-2);
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: color-mix(in srgb, var(--surface) 70%, var(--bg));
+      padding: 38px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 22px;
+    }
+
+    .footer-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      display: inline-block;
+      padding: 8px 0;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--primary) 55%, transparent);
+      text-underline-offset: 5px;
+    }
+
+    .fineprint {
+      margin-top: 18px;
+      color: var(--muted-2);
+      font-size: 0.9rem;
+    }
+
+    /* WhatsApp floating button (Home required, can be used elsewhere too) */
+    .wa-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2000;
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: #25D366;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.20);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .wa-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 55px rgba(0,0,0,.22);
+    }
+    .wa-float:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(37,211,102,.26), 0 18px 40px rgba(0,0,0,.18);
+    }
+    .wa-float svg { width: 26px; height: 26px; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .menu-btn { display: inline-flex; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .brand img { width: 142px; }
+    }
+
+    @media (max-width: 520px) {
+      .grid-4 { grid-template-columns: 1fr; }
+      .container { width: calc(100% - 28px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+    
+  
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+    
+  
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: clamp(56px, 6vw, 92px) 0;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -120px -80px auto -80px;
+      height: 520px;
+      background:
+        radial-gradient(420px 260px at 20% 30%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 60%),
+        radial-gradient(520px 280px at 75% 15%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 60%);
+      pointer-events: none;
+      filter: blur(0.2px);
+    }
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 22px;
+      align-items: center;
+    }
+    .hero-card {
+      border-radius: calc(var(--radius) + 8px);
+      box-shadow: var(--shadow-pop);
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 75%, transparent);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      overflow: hidden;
+    }
+    .hero-card .card-pad { padding: 22px; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .stat {
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--surface) 85%, transparent);
+    }
+    .stat strong { display:block; font-family: var(--font-heading); font-size: 1.2rem; }
+    .stat span { color: var(--muted-2); font-weight: 650; font-size: .9rem; }
+
+    /* TRUST STRIP */
+    .trust-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--surface) 80%, var(--bg));
+      padding: 18px 0;
+    }
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      align-items: center;
+    }
+    .trust {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+    }
+    .trust .icon { width: 20px; height: 20px; }
+    .trust strong { display:block; font-weight: 800; }
+    .trust small { display:block; color: var(--muted-2); font-weight: 650; margin-top: 2px; }
+
+    /* MEDIA PLACEHOLDERS */
+    .media {
+      height: 210px;
+      border-radius: calc(var(--radius) - 4px);
+      border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
+      background:
+        radial-gradient(350px 200px at 20% 20%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 60%),
+        linear-gradient(135deg, color-mix(in srgb, var(--surface) 92%, var(--bg)), color-mix(in srgb, var(--bg) 90%, var(--surface)));
+      position: relative;
+      overflow: hidden;
+    }
+    .media::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background:
+        linear-gradient(120deg, transparent, rgba(255,255,255,.55), transparent);
+      transform: translateX(-55%);
+      animation: sheen 3.8s ease-in-out infinite;
+      opacity: .35;
+      pointer-events: none;
+    }
+    @keyframes sheen {
+      0% { transform: translateX(-65%); }
+      50% { transform: translateX(65%); }
+      100% { transform: translateX(65%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .media::after { animation: none; }
+    }
+
+    /* Product / service cards */
+    .item-card .card-pad { display:flex; flex-direction:column; gap: 10px; }
+    .item-card h3 { margin: 2px 0 0; font-size: 1.15rem; }
+    .item-card p { margin: 0; color: var(--muted); }
+    .item-card .actions { display:flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+
+    /* WHY CHOOSE - features */
+    .feature {
+      display:flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px;
+      border-radius: calc(var(--radius) - 6px);
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+    }
+    .feature .icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--primary) 20%, transparent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+      flex: 0 0 auto;
+    }
+    .feature h3 { margin: 0 0 6px; font-size: 1.05rem; }
+    .feature p { margin: 0; color: var(--muted); }
+
+    /* Gallery */
+    .gallery-grid {
+      display:grid;
+      grid-template-columns: repeat(12, minmax(0,1fr));
+      gap: 14px;
+    }
+    .gallery-item {
+      grid-column: span 4;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+      box-shadow: var(--shadow-soft);
+    }
+    .gallery-item .media { height: 200px; border-radius: 0; border: none; }
+    .gallery-item figcaption { padding: 14px 16px; }
+    .gallery-item figcaption strong { display:block; font-weight: 850; }
+    .gallery-item figcaption span { color: var(--muted-2); font-weight: 650; font-size: .92rem; }
+
+    /* Steps */
+    .steps { counter-reset: step; }
+    .step {
+      position: relative;
+      padding: 18px 18px 18px 18px;
+      border-radius: var(--radius);
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      box-shadow: 0 1px 0 rgba(0,0,0,.04);
+      overflow: hidden;
+    }
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      right: 14px;
+      top: 12px;
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      background: color-mix(in srgb, var(--primary) 20%, transparent);
+      border: 1px solid color-mix(in srgb, var(--primary) 26%, transparent);
+      color: var(--text);
+    }
+    .step h3 { margin: 0 0 8px; font-size: 1.05rem; padding-right: 48px; }
+    .step p { margin: 0; color: var(--muted); }
+
+    /* Testimonials */
+    .quote {
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+      box-shadow: var(--shadow-soft);
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .stars {
+      display:flex;
+      gap: 4px;
+      color: color-mix(in srgb, var(--primary) 85%, #caa946);
+    }
+    .stars svg { width: 18px; height: 18px; }
+    .quote p { margin:0; color: var(--muted); }
+    .quote .who { display:flex; justify-content:space-between; gap: 12px; align-items: baseline; }
+    .quote .who strong { font-weight: 900; }
+    .quote .who span { color: var(--muted-2); font-weight: 650; font-size: .92rem; }
+
+    /* CTA */
+    .cta-card {
+      padding: 26px;
+      border-radius: calc(var(--radius) + 8px);
+      background:
+        radial-gradient(520px 280px at 20% 20%, color-mix(in srgb, var(--primary) 24%, transparent), transparent 60%),
+        linear-gradient(135deg, color-mix(in srgb, var(--surface) 92%, var(--bg)), color-mix(in srgb, var(--bg) 92%, var(--surface)));
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      box-shadow: var(--shadow-pop);
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .cta-card .actions { display:flex; gap: 12px; flex-wrap: wrap; }
+
+    /* FAQ */
+    .faq {
+      display:grid;
+      gap: 12px;
+      max-width: 860px;
+    }
+    details.faq-item {
+      border-radius: var(--radius);
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      padding: 16px 18px;
+      box-shadow: 0 1px 0 rgba(0,0,0,.04);
+    }
+    details.faq-item[open] {
+      background: color-mix(in srgb, var(--primary) 8%, var(--bg));
+      border-color: color-mix(in srgb, var(--primary) 25%, var(--border));
+    }
+    details.faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 900;
+      font-family: var(--font-heading);
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    details.faq-item summary::-webkit-details-marker { display:none; }
+    details.faq-item summary .chev { width: 20px; height: 20px; transition: transform .2s ease; }
+    details.faq-item[open] summary .chev { transform: rotate(180deg); }
+    details.faq-item .ans { padding-top: 10px; color: var(--muted); }
+
+    /* Small helpers */
+    .pill {
+      display:inline-flex;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      color: var(--muted);
+      font-weight: 800;
+      gap: 10px;
+      align-items:center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .trust-row { grid-template-columns: 1fr 1fr; }
+      .gallery-item { grid-column: span 6; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .trust-row { grid-template-columns: 1fr; }
+      .gallery-item { grid-column: span 12; }
+      .cta-card { padding: 20px; }
+    }
+    
+  </style>
+</head>
+<body>
+  
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Ellora Furnishings home">
+          <img src="ellora.jpg" alt="Ellora Furnishings logo" loading="eager" decoding="async">
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <div class="nav-links" role="navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html" aria-current="page">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <div class="header-actions">
+            <a class="btn btn-ghost" href="tel:+6589776860" aria-label="Call +65 8977 6860">Call</a>
+            <a class="btn btn-primary" href="contact.html#contact-form">Get a Quote</a>
+            <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" data-menu-btn>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      <div class="container mobile-panel" data-mobile-panel data-open="false">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html#contact-form">Get a Quote</a>
+      </div>
+    </header>
+    
+  <main id="main">
+    
+    <section class="section" id="our-story">
+      <div class="container">
+        <div class="section-head">
+          <div class="meta">
+            <p class="kicker">About</p>
+            <h2>Our Story</h2>
+            <p class="lead">
+              Ellora Furnishings was built around a simple idea: every home deserves comfort that looks refined and works flawlessly.
+              We combine careful measurement, thoughtful recommendations, and clean installation for a finish you can be proud of.
+            </p>
+          </div>
+          <a class="btn btn-outline" href="contact.html#contact-form">Get a quote</a>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card card-pad">
+            <div class="footer-title" style="margin-bottom: 10px;">What we do</div>
+            <p>
+              We provide premium zip blinds and complementary furnishing solutions, tailored to Singapore homes.
+              From balcony enclosures to interior fabric selections, we focus on the details that matter: smooth operation,
+              clean lines, and long‑term durability.
+            </p>
+            <div class="grid" style="grid-template-columns: 1fr; gap: 10px; margin-top: 12px;">
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Custom measurement and recommendations</div>
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Fabric and colour guidance</div>
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Professional installation and handover</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="media" style="height: 100%; min-height: 280px;" role="img" aria-label="Ellora craftsmanship visual"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="our-team">
+      <div class="container">
+        <div class="section-head">
+          <div class="meta">
+            <p class="kicker">People</p>
+            <h2>Our Team</h2>
+            <p class="lead">A small team that values craftsmanship, clear communication, and clean work sites.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          
+          <div class="card card-pad">
+            <div class="chip" style="width: fit-content; margin-bottom: 12px;">
+              <span style="display:inline-flex; width: 28px; height: 28px; border-radius: 10px; background: color-mix(in srgb, var(--primary) 22%, transparent); align-items:center; justify-content:center; font-weight: 900;">
+                E
+              </span>
+              <span>Team Member</span>
+            </div>
+            <h3 style="margin-top: 0;">Consultation Lead</h3>
+            <p>Focused on a smooth end‑to‑end experience — from consultation to final installation checks.</p>
+          </div>
+          <div class="card card-pad">
+            <div class="chip" style="width: fit-content; margin-bottom: 12px;">
+              <span style="display:inline-flex; width: 28px; height: 28px; border-radius: 10px; background: color-mix(in srgb, var(--primary) 22%, transparent); align-items:center; justify-content:center; font-weight: 900;">
+                L
+              </span>
+              <span>Team Member</span>
+            </div>
+            <h3 style="margin-top: 0;">Installation Specialist</h3>
+            <p>Focused on a smooth end‑to‑end experience — from consultation to final installation checks.</p>
+          </div>
+          <div class="card card-pad">
+            <div class="chip" style="width: fit-content; margin-bottom: 12px;">
+              <span style="display:inline-flex; width: 28px; height: 28px; border-radius: 10px; background: color-mix(in srgb, var(--primary) 22%, transparent); align-items:center; justify-content:center; font-weight: 900;">
+                R
+              </span>
+              <span>Team Member</span>
+            </div>
+            <h3 style="margin-top: 0;">Project Coordinator</h3>
+            <p>Focused on a smooth end‑to‑end experience — from consultation to final installation checks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="our-values">
+      <div class="container">
+        <div class="section-head">
+          <div class="meta">
+            <p class="kicker">Principles</p>
+            <h2>Our Values</h2>
+            <p class="lead">The standards we hold ourselves to for every home, every install, every time.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-4">
+          
+          <div class="feature">
+            <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 21l18-18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 17l-2-2M10 14l-2-2M13 11l-2-2M16 8l-2-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div>
+              <h3>Precision</h3>
+              <p>We measure carefully and confirm specs so the finish looks intentional.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l1.4 6.2L20 10l-6.6 1.8L12 18l-1.4-6.2L4 10l6.6-1.8L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+            <div>
+              <h3>Refinement</h3>
+              <p>We guide aesthetics and details that elevate the look of your space.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>
+              <h3>Reliability</h3>
+              <p>We select materials and methods built for local conditions.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>
+              <h3>Clarity</h3>
+              <p>Clear recommendations, clear timelines, and clean handovers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-choose-us-extended">
+      <div class="container">
+        <div class="section-head">
+          <div class="meta">
+            <p class="kicker">Why us</p>
+            <h2>Why Choose Us (Extended)</h2>
+            <p class="lead">More than a product — a result. Here is what you can expect from the Ellora experience.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card card-pad">
+            <div class="footer-title" style="margin-bottom: 10px;">Built for daily living</div>
+            <p>Our solutions are selected for smooth usage and low maintenance — with finishes that look premium even up close.</p>
+            <div style="display:grid; gap: 10px; margin-top: 12px;">
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Smooth, consistent operation</div>
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Clean edges and alignment</div>
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Options for privacy, glare, and airflow</div>
+            </div>
+          </div>
+
+          <div class="card card-pad">
+            <div class="footer-title" style="margin-bottom: 10px;">Service that respects your time</div>
+            <p>We keep the process straightforward, communicate clearly, and aim for a clean installation experience.</p>
+            <div style="display:grid; gap: 10px; margin-top: 12px;">
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Clear timelines and next steps</div>
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Professional on‑site etiquette</div>
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Post‑install checks and support</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <div class="cta-card">
+            <div>
+              <p class="kicker" style="margin-bottom: 8px;">Start here</p>
+              <h3 style="margin: 0 0 8px; font-family: var(--font-heading); font-size: 1.5rem;">Get recommendations for your space</h3>
+              <p class="lead" style="margin-bottom: 0;">Tell us your unit type and what you are trying to achieve — we will suggest the best options.</p>
+            </div>
+            <div class="actions">
+              <a class="btn btn-primary" href="https://wa.me/6589776860" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+              <a class="btn btn-outline" href="contact.html#contact-form">Request a Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-title">Ellora Furnishings</div>
+            <p class="lead" style="margin-bottom: 0;">
+              Premium zip blinds and furnishing solutions designed for Singapore homes.
+              Measured precisely, fabricated carefully, installed cleanly.
+            </p>
+            <div class="fineprint">
+              Quote requests are typically replied within 1 business day.
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-title">Quick Links</div>
+            <div class="footer-links">
+              <a href="services.html#zip-blinds">Zip Blinds</a><br>
+              <a href="services.html#other-furnishings-solutions">Other Furnishings</a><br>
+              <a href="index.html#recent-installations">Recent Installations</a><br>
+              <a href="contact.html#business-hours">Business Hours</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-title">Contact</div>
+            <div class="footer-links">
+              <a href="tel:+6589776860">+65 8977 6860</a><br>
+              <a href="mailto:hello@ellorafurnishings.com.sg">hello@ellorafurnishings.com.sg</a><br>
+              <a href="https://wa.me/6589776860" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a><br>
+              <span style="display:inline-block; padding-top: 8px; color: var(--muted); font-weight: 650;">Singapore (By appointment)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fineprint" style="margin-top: 26px;">
+          © 2026 Ellora Furnishings. All rights reserved.
+        </div>
+      </div>
+    </footer>
+    
+  
+  <script>
+  
+    (function () {
+      const menuBtn = document.querySelector('[data-menu-btn]');
+      const panel = document.querySelector('[data-mobile-panel]');
+      if (menuBtn && panel) {
+        menuBtn.addEventListener('click', () => {
+          const open = panel.getAttribute('data-open') === 'true';
+          panel.setAttribute('data-open', String(!open));
+          panel.style.display = open ? 'none' : 'block';
+          menuBtn.setAttribute('aria-expanded', String(!open));
+        });
+
+        // Close on nav click
+        panel.addEventListener('click', (e) => {
+          const a = e.target.closest('a');
+          if (!a) return;
+          panel.setAttribute('data-open', 'false');
+          panel.style.display = 'none';
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      // Lightweight form handler (demo-safe)
+      document.querySelectorAll('form[data-demo-form]').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]');
+          if (btn) {
+            const old = btn.textContent;
+            btn.textContent = 'Submitted';
+            btn.disabled = true;
+            setTimeout(() => { btn.textContent = old; btn.disabled = false; }, 1800);
+          }
+          // Optional: open WhatsApp with message if requested
+          if (form.hasAttribute('data-wa')) {
+            const fd = new FormData(form);
+            const name = (fd.get('name') || '').toString().trim();
+            const phone = (fd.get('phone') || '').toString().trim();
+            const interest = (fd.get('interest') || fd.get('service') || '').toString().trim();
+            const message = (fd.get('message') || '').toString().trim();
+
+            const parts = [];
+            if (name) parts.push(`Name: ${name}`);
+            if (phone) parts.push(`Phone: ${phone}`);
+            if (interest) parts.push(`Interested in: ${interest}`);
+            if (message) parts.push(`Message: ${message}`);
+            if (parts.length) {
+              const text = encodeURIComponent(`Hi Ellora Furnishings, I'd like a quote.\n${parts.join('\n')}`);
+              window.open(`https://wa.me/6589776860?text=${text}`, '_blank', 'noopener,noreferrer');
+            }
+          }
+        });
+      });
+    })();
+    
+  </script>
+</body>
+</html>
