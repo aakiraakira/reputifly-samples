@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Divanan Narkunan Law Corporation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- BRAND DNA & RESET --- */
+        :root {
+            --primary: #52525b;
+            --primary-dim: rgba(82, 82, 91, 0.1);
+            --accent: #3f3f46;
+            --background: #a1a1aa;
+            /* Zinc 400 base */
+            --surface: #d4d4d8;
+            /* Zinc 300 for cards */
+            --surface-hover: #e4e4e7;
+            /* Zinc 200 on hover */
+            --text-main: #09090b;
+            /* Zinc 950 for high contrast text */
+            --text-muted: #27272a;
+            /* Zinc 800 for body text */
+            --border: #71717a;
+            /* Zinc 500 for borders */
+            --grad-bg: linear-gradient(135deg, #a1a1aa 0%, #8b8b93 100%);
+            --radius: 24px;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            --font-main: 'Inter', sans-serif;
+            --max-width: 1200px;
+            --nav-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background);
+            background-image: var(--grad-bg);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Times New Roman', serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #111111, #444444);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: var(--surface-hover);
+            border: 1px solid var(--text-main);
+        }
+
+        .btn-primary:hover {
+            background: #3f3f46;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-text {
+            padding: 0;
+            background: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn-text:hover {
+            color: var(--text-main);
+        }
+
+        /* Force text for Consult Now button */
+        header .btn-primary {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            z-index: 1000;
+            background: rgba(161, 161, 170, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+            filter: brightness(0);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 180px 0 50px;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* --- ABOUT --- */
+        .about {
+            padding: 100px 0;
+            background: var(--background);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            height: 550px;
+            background: #d4d4d8;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* opacity: 0.85; Removed opacity for clearer image */
+        }
+
+        /* Brighter Section Override */
+        .bg-light {
+            background-color: #e4e4e7;
+            color: #111827;
+            padding: 100px 0;
+        }
+
+        .bg-light h1,
+        .bg-light h2,
+        .bg-light h3,
+        .bg-light h4 {
+            color: #111827;
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+
+        .bg-light p,
+        .bg-light li {
+            color: #4b5563;
+        }
+
+        .bg-light strong {
+            color: #111827;
+        }
+
+        /* --- WHATSAPP FLOAT --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: #a1a1aa;
+        }
+
+        .footer-logo img {
+            height: 35px;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            filter: brightness(0);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-credit {
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        .footer-credit a {
+            color: var(--text-main);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            .about-image {
+                height: 350px;
+            }
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: var(--background);
+            z-index: 999;
+            padding: 100px 2rem;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://reputifly.com/wp-content/uploads/2026/02/ChatGPT-Image-Feb-18-2026-12_55_59-PM.png"
+                    alt="Divanan Narkunan Law Logo">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" style="color: var(--text-main);">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="btn btn-primary"
+                        style="padding: 10px 24px; font-size: 0.9rem;">Consult Now</a></li>
+            </ul>
+
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="about.html" onclick="toggleMenu()">About</a>
+        <a href="services.html" onclick="toggleMenu()">Services</a>
+        <a href="contact.html" onclick="toggleMenu()">Consult Now</a>
+        <div style="font-size: 1.5rem; position: absolute; top: 30px; right: 30px; cursor: pointer;"
+            onclick="toggleMenu()">✕</div>
+    </div>
+
+    <section class="hero" style="min-height: 60vh; padding-bottom: 50px;">
+        <div class="container hero-content">
+            <span class="hero-tag">The Firm</span>
+            <h1>Strategic Advocacy. Unwavering Commitment.</h1>
+        </div>
+    </section>
+
+    <!-- Main About Section (Brighter) -->
+    <section class="about bg-light">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="https://reputifly.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-18-at-4.40.50-PM.jpeg"
+                    alt="Divanan Narkunan">
+            </div>
+            <div class="about-text">
+                <h4 style="color: #666; margin-bottom: 10px;">The Principal</h4>
+                <h2>Divanan Narkunan</h2>
+                <p><strong>Divanan Narkunan Law Corporation</strong> is a boutique firm built on the principle that
+                    every client deserves a rigorous, strategic defence. Named after its principal, the firm offers a
+                    level of personal attention that larger firms often cannot provide.</p>
+                <p>We do not just manage cases; we engineer defence strategies. Whether facing white-collar allegations
+                    or serious criminal charges, our approach is defined by meticulous preparation and aggressive
+                    advocacy.</p>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Brand Philosophy</h3>
+                <p>We believe in the presumption of innocence and the right to a fair trial. Our mission is to provide
+                    fearless representation, ensuring that every legal avenue is explored to protect our clients' rights
+                    and liberty.</p>
+
+                <div
+                    style="margin-top: 3rem; display: flex; gap: 3rem; border-top: 1px solid #d1d5db; padding-top: 2rem;">
+                    <div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 0.2rem;">24/7</h3>
+                        <span style="font-size: 0.85rem; color: #666; text-transform: uppercase;">Urgent
+                            Assistance</span>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 0.2rem;">100%</h3>
+                        <span style="font-size: 0.85rem; color: #666; text-transform: uppercase;">Client
+                            Discretion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="https://reputifly.com/wp-content/uploads/2026/02/ChatGPT-Image-Feb-18-2026-12_55_59-PM.png"
+                    alt="Logo">
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <p>&copy; 2026 Divanan Narkunan Law Corporation. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.5;">
+                Disclaimer: The information on this website is for general information purposes only and does not
+                constitute legal advice.
+            </p>
+
+            <div class="footer-credit">
+                Website Design by <a href="https://reputifly.com/web-development" target="_blank">Reputifly</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating CTA -->
+    <a href="https://wa.me/6589182324" target="_blank" class="whatsapp-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('h1, h2, p, .about-image').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+            observer.observe(el);
+        });
+
+        document.addEventListener('scroll', () => {
+            document.querySelectorAll('.in-view').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        });
+
+        setTimeout(() => {
+            document.querySelectorAll('.in-view').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        }, 100);
+    </script>
+</body>
+
+</html>
