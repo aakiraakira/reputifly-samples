@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divanan Narkunan Law Corporation | Criminal Defence & Litigation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- INTERNAL STYLES TO REMOVE style.css DEPENDENCY -->
+    <style>
+        /* --- BRAND DNA & RESET --- */
+        :root {
+            --primary: #52525b;
+            --primary-dim: rgba(82, 82, 91, 0.1);
+            --accent: #3f3f46;
+            --background: #a1a1aa;
+            /* Zinc 400 base */
+            --surface: #d4d4d8;
+            /* Zinc 300 for cards */
+            --surface-hover: #e4e4e7;
+            /* Zinc 200 on hover */
+            --text-main: #09090b;
+            /* Zinc 950 for high contrast text */
+            --text-muted: #27272a;
+            /* Zinc 800 for body text */
+            --border: #71717a;
+            /* Zinc 500 for borders */
+
+            /* Gradients */
+            --grad-bg: linear-gradient(135deg, #a1a1aa 0%, #8b8b93 100%);
+
+            /* UI Elements */
+            --radius: 24px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --font-main: 'Inter', sans-serif;
+            --max-width: 1200px;
+            --nav-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background);
+            background-image: var(--grad-bg);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Times New Roman', serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #111111, #555555);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: var(--surface-hover);
+            border: 1px solid var(--text-main);
+        }
+
+        .btn-primary:hover {
+            background: #3f3f46;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Force black text for Consult Now button as requested */
+        header .btn-primary {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            z-index: 1000;
+            background: rgba(161, 161, 170, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+            filter: brightness(0);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 180px 0 100px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(161, 161, 170, 0) 60%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* --- SECTIONS --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            height: 550px;
+            background: #d4d4d8;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Brighter Section (White/Light Mode) */
+        .bg-light {
+            background-color: #e4e4e7;
+            color: #111827;
+            padding: 100px 0;
+        }
+
+        .bg-light h1,
+        .bg-light h2,
+        .bg-light h3,
+        .bg-light h4 {
+            color: #111827;
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+
+        .bg-light p {
+            color: #4b5563;
+        }
+
+        .bg-light strong {
+            color: #111827;
+        }
+
+        .bg-light .btn-outline {
+            border-color: #d1d5db;
+            color: #111827;
+        }
+
+        .bg-light .btn-outline:hover {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: #111827;
+        }
+
+        /* --- FAQ SECTION --- */
+        .faq {
+            padding: 120px 0;
+            background: var(--surface);
+            /* Removed borders as requested "bad lines" */
+        }
+
+        .accordion {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: rgba(0, 0, 0, 0.03);
+            color: #000;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .accordion-content p {
+            padding: 1.5rem 2rem;
+            margin: 0;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .accordion-icon {
+            width: 14px;
+            height: 14px;
+            position: relative;
+            transition: transform 0.4s ease;
+        }
+
+        .accordion-icon::before,
+        .accordion-icon::after {
+            content: '';
+            position: absolute;
+            background: currentColor;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .accordion-icon::before {
+            width: 14px;
+            height: 2px;
+        }
+
+        .accordion-icon::after {
+            width: 2px;
+            height: 14px;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        /* .accordion-item.active .accordion-content handled by JS */
+
+        /* --- WHATSAPP FLOAT --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: #a1a1aa;
+        }
+
+        .footer-logo img {
+            height: 35px;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            filter: brightness(0);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            .about-image {
+                height: 350px;
+            }
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: var(--background);
+            z-index: 999;
+            padding: 100px 2rem;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        /* --- SERVICES CARD OVERVIEW --- */
+        .services-teaser-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-teaser-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .service-teaser-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--text-muted);
+            background: var(--surface-hover);
+        }
+
+        .service-teaser-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="https://reputifly.com/wp-content/uploads/2026/02/ChatGPT-Image-Feb-18-2026-12_55_59-PM.png"
+                    alt="Divanan Narkunan Law Logo">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="btn btn-primary"
+                        style="padding: 10px 24px; font-size: 0.9rem;">Consult Now</a></li>
+            </ul>
+
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="about.html" onclick="toggleMenu()">About</a>
+        <a href="services.html" onclick="toggleMenu()">Services</a>
+        <a href="contact.html" onclick="toggleMenu()">Consult Now</a>
+        <div style="font-size: 1.5rem; position: absolute; top: 30px; right: 30px; cursor: pointer;"
+            onclick="toggleMenu()">✕</div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="hero-tag">Boutique Criminal Litigation</span>
+            <h1>Unwavering Defence in the Face of Adversity.</h1>
+            <p>When your liberty is on the line, precision, strategy, and discretion matter most. We engineer defence
+                strategies for complex legal challenges.</p>
+            <div style="margin-top: 2.5rem; display: flex; justify-content: center; gap: 1rem;">
+                <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                <a href="about.html" class="btn btn-outline">Meet Divanan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Brighter for Contrast) -->
+    <section id="about" class="bg-light">
+        <div class="container about-grid">
+            <div class="about-image">
+                <!-- Principal Image Added -->
+                <img src="https://reputifly.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-18-at-4.40.50-PM.jpeg"
+                    alt="Divanan Narkunan">
+            </div>
+            <div class="about-text">
+                <h4
+                    style="color: #666; margin-bottom: 10px; font-weight: 600; text-transform: uppercase; font-size: 0.9rem;">
+                    The Principal</h4>
+                <h2 style="margin-bottom: 1.5rem;">Divanan Narkunan</h2>
+                <p><strong>Divanan Narkunan Law Corporation</strong> is a boutique firm built on the principle that
+                    every client deserves a rigorous, strategic defence. Named after its principal, the firm offers a
+                    level of personal attention that larger firms often cannot provide.</p>
+                <p>We do not just manage cases; we engineer defence strategies. Whether facing white-collar allegations
+                    or serious criminal charges, our approach is defined by meticulous preparation and aggressive
+                    advocacy.</p>
+
+                <div
+                    style="margin-top: 3rem; display: flex; gap: 3rem; border-top: 1px solid #d1d5db; padding-top: 2rem;">
+                    <div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 0.2rem;">24/7</h3>
+                        <span
+                            style="font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600;">Urgent
+                            Assistance</span>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 0.2rem;">100%</h3>
+                        <span
+                            style="font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600;">Client
+                            Discretion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Teaser (Improved) -->
+    <section class="services" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header" style="text-align:center; margin: 0 auto 2rem auto; max-width: 600px;">
+                <h2>Our Expertise</h2>
+                <p>We handle high-stakes criminal, family, and corporate matters.</p>
+            </div>
+
+            <div class="services-teaser-grid">
+                <div class="service-teaser-card">
+                    <h3>Criminal Defence</h3>
+                    <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">Rigorous defence for complex criminal charges,
+                        from white-collar crime to capital offences.</p>
+                    <a href="services.html" style="color: var(--text-main); font-size: 0.9rem; font-weight: 600;">Learn
+                        more →</a>
+                </div>
+                <div class="service-teaser-card">
+                    <h3>Family Law</h3>
+                    <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">Navigating sensitive domestic matters
+                        including divorce and custody with empathy and firmness.</p>
+                    <a href="services.html" style="color: var(--text-main); font-size: 0.9rem; font-weight: 600;">Learn
+                        more →</a>
+                </div>
+                <div class="service-teaser-card">
+                    <h3>Corporate Advisory</h3>
+                    <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">Strategic legal counsel for businesses,
+                        ensuring regulatory compliance and commercial stability.</p>
+                    <a href="services.html" style="color: var(--text-main); font-size: 0.9rem; font-weight: 600;">Learn
+                        more →</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="services.html" class="btn btn-outline" style="min-width: 200px;">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News / Media Section -->
+    <section id="media" class="bg-light">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin: 0 auto 4rem auto;">
+                <h2>In the Media</h2>
+                <p>Recent press coverage and publications.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Card 1 -->
+                <div class="bg-card-light"
+                    style="background: #fff; padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb;">
+                    <h4 style="color: #666; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem;">The
+                        Straits Times</h4>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: #111827;">High-Profile Defence case
+                        commentary.</h3>
+                    <a href="#" style="color: #2563eb; font-weight: 600; font-size: 0.9rem;">Read More →</a>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-card-light"
+                    style="background: #fff; padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb;">
+                    <h4 style="color: #666; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem;">
+                        Channel NewsAsia</h4>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: #111827;">Legal expert insights on new
+                        regulations.</h3>
+                    <a href="#" style="color: #2563eb; font-weight: 600; font-size: 0.9rem;">Read More →</a>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-card-light"
+                    style="background: #fff; padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb;">
+                    <h4 style="color: #666; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem;">The
+                        Business Times</h4>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: #111827;">Corporate fraud trends in 2026.
+                    </h3>
+                    <a href="#" style="color: #2563eb; font-weight: 600; font-size: 0.9rem;">Read More →</a>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-card-light"
+                    style="background: #fff; padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb;">
+                    <h4 style="color: #666; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem;">Legal
+                        500</h4>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: #111827;">Ranked as a Leading Boutique
+                        Firm.</h3>
+                    <a href="#" style="color: #2563eb; font-weight: 600; font-size: 0.9rem;">Read More →</a>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-card-light"
+                    style="background: #fff; padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb;">
+                    <h4 style="color: #666; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem;">
+                        Singapore The Law Gazette</h4>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: #111827;">Feature: The Future of Criminal
+                        Practice.</h3>
+                    <a href="#" style="color: #2563eb; font-weight: 600; font-size: 0.9rem;">Read More →</a>
+                </div>
+                <!-- Card 6 -->
+                <div class="bg-card-light"
+                    style="background: #fff; padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb;">
+                    <h4 style="color: #666; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem;">TODAY
+                        Online</h4>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: #111827;">Op-Ed: Understanding Your
+                        Rights.</h3>
+                    <a href="#" style="color: #2563eb; font-weight: 600; font-size: 0.9rem;">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section (Polished) -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin: 0 auto 4rem auto;">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        What should I do immediately upon arrest?
+                        <div class="accordion-icon"></div>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Remain calm. You have the right to remain silent regarding the facts of the case until you
+                            have consulted a lawyer. Do not sign any statements without understanding them. Contact us
+                            immediately so we can attend to you at the police station if permitted.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        How are your legal fees structured?
+                        <div class="accordion-icon"></div>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We value transparency. For most criminal matters, we offer a fixed-fee structure based on the
+                            complexity and stage of the proceedings. This ensures you know the costs upfront without
+                            surprise hourly billing.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Do you handle urgent bail matters?
+                        <div class="accordion-icon"></div>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes. Securing bail is often the first priority. We can represent you at bail hearings to
+                            argue for your release while the investigation or trial is pending.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Is my consultation confidential?
+                        <div class="accordion-icon"></div>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Absolutely. Lawyer-client privilege applies from our very first conversation. Nothing you
+                            tell us can be disclosed to the police or prosecution without your consent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="padding: 100px 0; background: var(--background);">
+        <div class="container" style="text-align: center;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Secure Your Future.</h2>
+            <p style="max-width: 500px; margin: 0 auto 2rem auto;">Time is often the most critical factor in legal
+                proceedings.</p>
+            <a href="contact.html" class="btn btn-primary">Contact Us Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="https://reputifly.com/wp-content/uploads/2026/02/ChatGPT-Image-Feb-18-2026-12_55_59-PM.png"
+                    alt="Logo">
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <p>&copy; 2026 Divanan Narkunan Law Corporation. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.5;">
+                Disclaimer: The information on this website is for general information purposes only and does not
+                constitute legal advice.
+            </p>
+
+            <div class="footer-credit">
+                Website Design by <a href="https://reputifly.com/web-development" target="_blank">Reputifly</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating CTA -->
+    <a href="https://wa.me/6589182324" target="_blank" class="whatsapp-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Accordion Logic
+        const accordions = document.querySelectorAll('.accordion-header');
+
+        accordions.forEach(acc => {
+            acc.addEventListener('click', function () {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all others
+                document.querySelectorAll('.accordion-item').forEach(other => {
+                    other.classList.remove('active');
+                    other.querySelector('.accordion-content').style.maxHeight = null;
+                });
+
+                // Toggle current
+                if (!isActive) {
+                    item.classList.add('active');
+                    const panel = item.querySelector('.accordion-content');
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('h1, h2, p, .about-image, .service-teaser-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+            observer.observe(el);
+        });
+
+        document.addEventListener('scroll', () => {
+            document.querySelectorAll('.in-view').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        });
+
+        setTimeout(() => {
+            document.querySelectorAll('.in-view').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        }, 100);
+    </script>
+</body>
+
+</html>
