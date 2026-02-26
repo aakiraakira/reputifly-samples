@@ -1,0 +1,1395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ellora Furnishings | Premium Zip Blinds & Furnishings in Singapore</title>
+  <meta name="description" content="Premium zip blinds and furnishing solutions in Singapore. Custom measurement, material guidance, and clean installation.">
+  <meta name="theme-color" content="#e4c464">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+  
+    :root {
+      --primary: #e4c464;
+      --accent: #e4c464;
+      --bg: #ffffff;
+      --text: #0b0a14;
+      --surface: #fafafa;
+      --border: #e6e6e6;
+      --muted-raw: #08070e;
+      --primary-hover-raw: #000000;
+      --on-primary: #ffffff;
+      --focus: #f2e2b2;
+
+      --radius: 24px;
+      --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --glass: blur(12px);
+
+      --font-heading: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+      /* Slightly refined neutrals (allowed small variation) */
+      --muted: #2f2e38;
+      --muted-2: #5a5866;
+      --bg-warm: #fffdf7;
+      --ring: 0 0 0 4px color-mix(in srgb, var(--focus) 55%, transparent);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,.08);
+      --shadow-pop: 0 18px 50px rgba(0,0,0,.10);
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--text);
+      background:
+        radial-gradient(900px 420px at 15% 0%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 60%),
+        radial-gradient(900px 420px at 85% 10%, color-mix(in srgb, var(--primary) 10%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--bg-warm), var(--bg));
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 10px;
+      background: var(--text);
+      color: white;
+      padding: 10px 12px;
+      border-radius: 999px;
+      z-index: 9999;
+    }
+    .skip-link:focus { left: 12px; outline: none; box-shadow: var(--ring); }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: clamp(52px, 5.5vw, 88px) 0;
+    }
+
+    .kicker {
+      font-size: 0.9rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      margin: 0 0 10px;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      line-height: 1.15;
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(1.55rem, 2.2vw, 2.15rem);
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: color-mix(in srgb, var(--bg) 72%, transparent);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      border-bottom: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 210px;
+    }
+
+    .brand img {
+      width: 154px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--surface) 75%, transparent);
+      box-shadow: 0 1px 0 rgba(0,0,0,.04);
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .nav-links a:hover {
+      background: color-mix(in srgb, var(--primary) 14%, transparent);
+      color: var(--text);
+    }
+
+    .nav-links a[aria-current="page"] {
+      background: color-mix(in srgb, var(--primary) 20%, transparent);
+      color: var(--text);
+      border: 1px solid color-mix(in srgb, var(--primary) 26%, transparent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:focus-visible {
+      outline: none;
+      box-shadow: var(--ring);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--text);
+      box-shadow: 0 12px 22px rgba(228, 196, 100, .22);
+      border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: color-mix(in srgb, var(--primary) 84%, #b48c1b);
+      box-shadow: 0 16px 32px rgba(228, 196, 100, .26);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: color-mix(in srgb, var(--border) 92%, transparent);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      transform: translateY(-1px);
+      border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+      background: color-mix(in srgb, var(--primary) 10%, transparent);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: transparent;
+      color: var(--muted);
+      padding: 10px 12px;
+      font-weight: 700;
+    }
+
+    .btn-ghost:hover {
+      background: color-mix(in srgb, var(--primary) 10%, transparent);
+      color: var(--text);
+    }
+
+    /* Mobile menu */
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--surface) 75%, transparent);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .menu-btn:focus-visible { outline: none; box-shadow: var(--ring); }
+
+    .mobile-panel {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding: 14px 0 18px;
+    }
+
+    .mobile-panel a {
+      display: block;
+      padding: 12px 12px;
+      border-radius: 14px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .mobile-panel a:hover {
+      background: color-mix(in srgb, var(--primary) 10%, transparent);
+    }
+
+    /* Cards & grids */
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .card-pad { padding: 22px; }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    /* Section headers */
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section-head .meta {
+      max-width: 62ch;
+    }
+
+    /* Forms */
+    .field {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    label {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    input, select, textarea {
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--border) 95%, transparent);
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      outline: none;
+      transition: box-shadow .2s ease, border-color .2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+      box-shadow: var(--ring);
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: var(--muted-2);
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: color-mix(in srgb, var(--surface) 70%, var(--bg));
+      padding: 38px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 22px;
+    }
+
+    .footer-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      display: inline-block;
+      padding: 8px 0;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--primary) 55%, transparent);
+      text-underline-offset: 5px;
+    }
+
+    .fineprint {
+      margin-top: 18px;
+      color: var(--muted-2);
+      font-size: 0.9rem;
+    }
+
+    /* WhatsApp floating button (Home required, can be used elsewhere too) */
+    .wa-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2000;
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: #25D366;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.20);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .wa-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 55px rgba(0,0,0,.22);
+    }
+    .wa-float:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(37,211,102,.26), 0 18px 40px rgba(0,0,0,.18);
+    }
+    .wa-float svg { width: 26px; height: 26px; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .menu-btn { display: inline-flex; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .brand img { width: 142px; }
+    }
+
+    @media (max-width: 520px) {
+      .grid-4 { grid-template-columns: 1fr; }
+      .container { width: calc(100% - 28px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+    
+  
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+    
+  
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: clamp(56px, 6vw, 92px) 0;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -120px -80px auto -80px;
+      height: 520px;
+      background:
+        radial-gradient(420px 260px at 20% 30%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 60%),
+        radial-gradient(520px 280px at 75% 15%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 60%);
+      pointer-events: none;
+      filter: blur(0.2px);
+    }
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 22px;
+      align-items: center;
+    }
+    .hero-card {
+      border-radius: calc(var(--radius) + 8px);
+      box-shadow: var(--shadow-pop);
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 75%, transparent);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      overflow: hidden;
+    }
+    .hero-card .card-pad { padding: 22px; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .stat {
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--surface) 85%, transparent);
+    }
+    .stat strong { display:block; font-family: var(--font-heading); font-size: 1.2rem; }
+    .stat span { color: var(--muted-2); font-weight: 650; font-size: .9rem; }
+
+    /* TRUST STRIP */
+    .trust-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--surface) 80%, var(--bg));
+      padding: 18px 0;
+    }
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      align-items: center;
+    }
+    .trust {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+    }
+    .trust .icon { width: 20px; height: 20px; }
+    .trust strong { display:block; font-weight: 800; }
+    .trust small { display:block; color: var(--muted-2); font-weight: 650; margin-top: 2px; }
+
+    /* MEDIA PLACEHOLDERS */
+    .media {
+      height: 210px;
+      border-radius: calc(var(--radius) - 4px);
+      border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
+      background:
+        radial-gradient(350px 200px at 20% 20%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 60%),
+        linear-gradient(135deg, color-mix(in srgb, var(--surface) 92%, var(--bg)), color-mix(in srgb, var(--bg) 90%, var(--surface)));
+      position: relative;
+      overflow: hidden;
+    }
+    .media::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background:
+        linear-gradient(120deg, transparent, rgba(255,255,255,.55), transparent);
+      transform: translateX(-55%);
+      animation: sheen 3.8s ease-in-out infinite;
+      opacity: .35;
+      pointer-events: none;
+    }
+    @keyframes sheen {
+      0% { transform: translateX(-65%); }
+      50% { transform: translateX(65%); }
+      100% { transform: translateX(65%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .media::after { animation: none; }
+    }
+
+    /* Product / service cards */
+    .item-card .card-pad { display:flex; flex-direction:column; gap: 10px; }
+    .item-card h3 { margin: 2px 0 0; font-size: 1.15rem; }
+    .item-card p { margin: 0; color: var(--muted); }
+    .item-card .actions { display:flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+
+    /* WHY CHOOSE - features */
+    .feature {
+      display:flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px;
+      border-radius: calc(var(--radius) - 6px);
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+    }
+    .feature .icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--primary) 20%, transparent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+      flex: 0 0 auto;
+    }
+    .feature h3 { margin: 0 0 6px; font-size: 1.05rem; }
+    .feature p { margin: 0; color: var(--muted); }
+
+    /* Gallery */
+    .gallery-grid {
+      display:grid;
+      grid-template-columns: repeat(12, minmax(0,1fr));
+      gap: 14px;
+    }
+    .gallery-item {
+      grid-column: span 4;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+      box-shadow: var(--shadow-soft);
+    }
+    .gallery-item .media { height: 200px; border-radius: 0; border: none; }
+    .gallery-item figcaption { padding: 14px 16px; }
+    .gallery-item figcaption strong { display:block; font-weight: 850; }
+    .gallery-item figcaption span { color: var(--muted-2); font-weight: 650; font-size: .92rem; }
+
+    /* Steps */
+    .steps { counter-reset: step; }
+    .step {
+      position: relative;
+      padding: 18px 18px 18px 18px;
+      border-radius: var(--radius);
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      box-shadow: 0 1px 0 rgba(0,0,0,.04);
+      overflow: hidden;
+    }
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      right: 14px;
+      top: 12px;
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      background: color-mix(in srgb, var(--primary) 20%, transparent);
+      border: 1px solid color-mix(in srgb, var(--primary) 26%, transparent);
+      color: var(--text);
+    }
+    .step h3 { margin: 0 0 8px; font-size: 1.05rem; padding-right: 48px; }
+    .step p { margin: 0; color: var(--muted); }
+
+    /* Testimonials */
+    .quote {
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+      box-shadow: var(--shadow-soft);
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .stars {
+      display:flex;
+      gap: 4px;
+      color: color-mix(in srgb, var(--primary) 85%, #caa946);
+    }
+    .stars svg { width: 18px; height: 18px; }
+    .quote p { margin:0; color: var(--muted); }
+    .quote .who { display:flex; justify-content:space-between; gap: 12px; align-items: baseline; }
+    .quote .who strong { font-weight: 900; }
+    .quote .who span { color: var(--muted-2); font-weight: 650; font-size: .92rem; }
+
+    /* CTA */
+    .cta-card {
+      padding: 26px;
+      border-radius: calc(var(--radius) + 8px);
+      background:
+        radial-gradient(520px 280px at 20% 20%, color-mix(in srgb, var(--primary) 24%, transparent), transparent 60%),
+        linear-gradient(135deg, color-mix(in srgb, var(--surface) 92%, var(--bg)), color-mix(in srgb, var(--bg) 92%, var(--surface)));
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      box-shadow: var(--shadow-pop);
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .cta-card .actions { display:flex; gap: 12px; flex-wrap: wrap; }
+
+    /* FAQ */
+    .faq {
+      display:grid;
+      gap: 12px;
+      max-width: 860px;
+    }
+    details.faq-item {
+      border-radius: var(--radius);
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      padding: 16px 18px;
+      box-shadow: 0 1px 0 rgba(0,0,0,.04);
+    }
+    details.faq-item[open] {
+      background: color-mix(in srgb, var(--primary) 8%, var(--bg));
+      border-color: color-mix(in srgb, var(--primary) 25%, var(--border));
+    }
+    details.faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 900;
+      font-family: var(--font-heading);
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    details.faq-item summary::-webkit-details-marker { display:none; }
+    details.faq-item summary .chev { width: 20px; height: 20px; transition: transform .2s ease; }
+    details.faq-item[open] summary .chev { transform: rotate(180deg); }
+    details.faq-item .ans { padding-top: 10px; color: var(--muted); }
+
+    /* Small helpers */
+    .pill {
+      display:inline-flex;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      color: var(--muted);
+      font-weight: 800;
+      gap: 10px;
+      align-items:center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .trust-row { grid-template-columns: 1fr 1fr; }
+      .gallery-item { grid-column: span 6; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .trust-row { grid-template-columns: 1fr; }
+      .gallery-item { grid-column: span 12; }
+      .cta-card { padding: 20px; }
+    }
+    
+  </style>
+</head>
+<body>
+  
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Ellora Furnishings home">
+          <img src="ellora.jpg" alt="Ellora Furnishings logo" loading="eager" decoding="async">
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <div class="nav-links" role="navigation">
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <div class="header-actions">
+            <a class="btn btn-ghost" href="tel:+6589776860" aria-label="Call +65 8977 6860">Call</a>
+            <a class="btn btn-primary" href="contact.html#contact-form">Get a Quote</a>
+            <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" data-menu-btn>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      <div class="container mobile-panel" data-mobile-panel data-open="false">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html#contact-form">Get a Quote</a>
+      </div>
+    </header>
+    
+  <main id="main">
+    
+    <section class="hero" id="hero-section">
+      <div class="container">
+        <h2 class="sr-only">Hero Section</h2>
+        <div class="hero-inner">
+          <div>
+            <p class="kicker">Premium furnishing solutions</p>
+            <h1>Transform your balcony and interiors with tailored zip blinds.</h1>
+            <p class="lead">
+              Elegant, weather‑resistant, and custom‑fitted for Singapore homes.
+              Control glare, reduce heat, and keep your space comfortable without sacrificing the view.
+            </p>
+
+            <div class="hero-badges">
+              <span class="chip"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 21l18-18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 17l-2-2M10 14l-2-2M13 11l-2-2M16 8l-2-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Precise on‑site measurement</span>
+              <span class="chip"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Clean, professional installation</span>
+              <span class="chip"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Motorised options available</span>
+            </div>
+
+            <div class="stat-row" aria-label="Highlights">
+              <div class="stat">
+                <strong>1–2 weeks</strong>
+                <span>Typical fabrication lead time</span>
+              </div>
+              <div class="stat">
+                <strong>5‑year</strong>
+                <span>Warranty options available</span>
+              </div>
+              <div class="stat">
+                <strong>Custom</strong>
+                <span>Fabric & colour selection</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 18px; display:flex; gap: 12px; flex-wrap: wrap;">
+              <a class="btn btn-primary" href="services.html#zip-blinds"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Explore Services</a>
+              <a class="btn btn-outline" href="#contact-form">Request a Quote</a>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Quick consultation form">
+            <div class="card-pad">
+              <div class="footer-title" style="margin-bottom: 6px;">Book a Free Consultation</div>
+              <p class="note" style="margin: 0 0 14px;">
+                Share a few details and we will follow up with recommended options and an estimated range.
+              </p>
+
+              <form data-demo-form data-wa>
+                <div class="field">
+                  <label for="home-name">Full Name</label>
+                  <input id="home-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                </div>
+
+                <div class="form-row">
+                  <div class="field">
+                    <label for="home-phone">Phone</label>
+                    <input id="home-phone" name="phone" type="tel" inputmode="tel" placeholder="+65 8977 6860" required>
+                  </div>
+                  <div class="field">
+                    <label for="home-interest">Interested In</label>
+                    <select id="home-interest" name="interest" required>
+                      <option value="" selected disabled>Select</option>
+                      <option>Zip Blinds</option>
+                      <option>Curtains</option>
+                      <option>Outdoor Roller Blinds</option>
+                      <option>Other Furnishings</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="home-message">Notes</label>
+                  <textarea id="home-message" name="message" placeholder="Balcony size, unit type, preferred look, timing, etc."></textarea>
+                </div>
+
+                <button class="btn btn-primary" type="submit" style="width:100%;">Submit & WhatsApp</button>
+                <div class="note">By submitting, you agree we may contact you about your request.</div>
+              </form>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" id="trust-strip">
+      <div class="container">
+        <h2 class="sr-only">Trust Strip</h2>
+        <div class="trust-row">
+          <div class="trust">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>Quality materials</strong>
+              <small>Weather‑ready hardware</small>
+            </div>
+          </div>
+          <div class="trust">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 21l18-18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 17l-2-2M10 14l-2-2M13 11l-2-2M16 8l-2-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div>
+              <strong>Measured precisely</strong>
+              <small>Clean fit and finish</small>
+            </div>
+          </div>
+          <div class="trust">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>Motorised options</strong>
+              <small>Remote or smart control</small>
+            </div>
+          </div>
+          <div class="trust">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l1.4 6.2L20 10l-6.6 1.8L12 18l-1.4-6.2L4 10l6.6-1.8L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>End‑to‑end service</strong>
+              <small>Consult to install</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="signature-collection-services">
+      <div class="container">
+        <div class="section-head">
+          <div class="meta">
+            <p class="kicker">Explore</p>
+            <h2>Signature Collection (Services)</h2>
+            <p class="lead">A curated set of core solutions built for comfort, durability, and refined aesthetics.</p>
+          </div>
+          <a class="btn btn-outline" href="services.html#services-overview">View all services</a>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card item-card">
+            <div class="media" role="img" aria-label="Zip blinds visual"></div>
+            <div class="card-pad">
+              <h3>Zip Blinds</h3>
+              <p>Balcony enclosure with smooth tracks that help block rain, sun, and insects while keeping airflow.</p>
+              <div class="actions">
+                <a class="btn btn-primary" href="services.html#zip-blinds">Details</a>
+                <a class="btn btn-outline" href="#contact-form">Get a quote</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card item-card">
+            <div class="media" role="img" aria-label="Curtains visual"></div>
+            <div class="card-pad">
+              <h3>Premium Curtains</h3>
+              <p>Day curtains, blackout, and sheers with fabric guidance for a cohesive, elevated interior.</p>
+              <div class="actions">
+                <a class="btn btn-primary" href="services.html#other-furnishings-solutions">Details</a>
+                <a class="btn btn-outline" href="#contact-form">Get a quote</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card item-card">
+            <div class="media" role="img" aria-label="Outdoor blinds visual"></div>
+            <div class="card-pad">
+              <h3>Outdoor Solutions</h3>
+              <p>Patio and landed‑home solutions designed for weather exposure with easy maintenance.</p>
+              <div class="actions">
+                <a class="btn btn-primary" href="services.html#other-furnishings-solutions">Details</a>
+                <a class="btn btn-outline" href="#contact-form">Get a quote</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-choose-ellora">
+      <div class="container">
+        <div class="section-head">
+          <div class="meta">
+            <p class="kicker">Quality that shows</p>
+            <h2>Why Choose Ellora</h2>
+            <p class="lead">We focus on details that homeowners feel every day — smoother operation, cleaner edges, and a calmer space.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="feature">
+            <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div>
+              <h3>UV & heat control</h3>
+              <p>Reduce glare and indoor temperature to keep your home comfortable and protect furnishings.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 0-8h-.7A6 6 0 0 0 5.3 12.2 3.5 3.5 0 0 0 7 18z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 20l-1 2M13 20l-1 2M17 20l-1 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div>
+              <h3>Weather resistance</h3>
+              <p>Designed for Singapore conditions — with fittings selected for rain and humidity exposure.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+            <div>
+              <h3>Smart-ready options</h3>
+              <p>Motorised setups available for smooth daily use with remote and selected smart integrations.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>
+              <h3>Confidence after install</h3>
+              <p>Clear workmanship standards and support so you get a clean finish and peace of mind.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="recent-installations">
+      <div class="container">
+        <div class="section-head">
+          <div class="meta">
+            <p class="kicker">Portfolio</p>
+            <h2>Recent Installations</h2>
+            <p class="lead">A selection of recent work. Replace these placeholders with your latest project photos anytime.</p>
+          </div>
+          <a class="btn btn-outline" href="services.html#service-specific-portfolio">See more</a>
+        </div>
+
+        <div class="gallery-grid">
+          
+          <figure class="gallery-item">
+            <div class="media" aria-hidden="true"></div>
+            <figcaption>
+              <strong>Balcony Zip Blinds</strong>
+              <span>Condo installation · Clean track finish</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="media" aria-hidden="true"></div>
+            <figcaption>
+              <strong>Balcony Zip Blinds</strong>
+              <span>Condo installation · Clean track finish</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="media" aria-hidden="true"></div>
+            <figcaption>
+              <strong>Balcony Zip Blinds</strong>
+              <span>Condo installation · Clean track finish</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="media" aria-hidden="true"></div>
+            <figcaption>
+              <strong>Balcony Zip Blinds</strong>
+              <span>Condo installation · Clean track finish</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="media" aria-hidden="true"></div>
+            <figcaption>
+              <strong>Balcony Zip Blinds</strong>
+              <span>Condo installation · Clean track finish</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="media" aria-hidden="true"></div>
+            <figcaption>
+              <strong>Balcony Zip Blinds</strong>
+              <span>Condo installation · Clean track finish</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <div class="meta">
+            <p class="kicker">Simple process</p>
+            <h2>How it works</h2>
+            <p class="lead">Clear steps, no confusion. We guide you from selection to a clean install.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-4 steps">
+          <div class="step">
+            <h3>Consultation</h3>
+            <p>Tell us your goals and preferred look. We recommend suitable options and finishes.</p>
+          </div>
+          <div class="step">
+            <h3>On‑site measurement</h3>
+            <p>We measure precisely and confirm specs so the final fit is clean and consistent.</p>
+          </div>
+          <div class="step">
+            <h3>Fabrication</h3>
+            <p>Your order is prepared to size with attention to materials and operating smoothness.</p>
+          </div>
+          <div class="step">
+            <h3>Installation</h3>
+            <p>Professional installation and handover, including usage guidance and post‑install checks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="what-our-clients-say-review-testimonials">
+      <div class="container">
+        <div class="section-head">
+          <div class="meta">
+            <p class="kicker">Social proof</p>
+            <h2>What our clients say (review testimonials)</h2>
+            <p class="lead">A few words from homeowners who wanted a cleaner, more comfortable living space.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          
+          <div class="quote">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg>
+            </div>
+            <p>Installation was neat and the blinds operate smoothly. The balcony is noticeably cooler and more usable now.</p>
+            <div class="who">
+              <strong>Homeowner</strong>
+              <span>Condo · Singapore</span>
+            </div>
+          </div>
+          <div class="quote">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg>
+            </div>
+            <p>Installation was neat and the blinds operate smoothly. The balcony is noticeably cooler and more usable now.</p>
+            <div class="who">
+              <strong>Homeowner</strong>
+              <span>Condo · Singapore</span>
+            </div>
+          </div>
+          <div class="quote">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.7l2.98 6.03 6.66.97-4.82 4.7 1.14 6.63L12 18.86 6.04 21l1.14-6.63-4.82-4.7 6.66-.97L12 2.7z"/></svg>
+            </div>
+            <p>Installation was neat and the blinds operate smoothly. The balcony is noticeably cooler and more usable now.</p>
+            <div class="who">
+              <strong>Homeowner</strong>
+              <span>Condo · Singapore</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="call-to-action-cta">
+      <div class="container">
+        
+        <div class="cta-card">
+          <div>
+            <p class="kicker" style="margin-bottom: 8px;">Ready when you are</p>
+            <h2 style="margin:0 0 8px;">Call to Action (CTA)</h2>
+            <p class="lead" style="margin-bottom: 0;">
+              Get a clear recommendation for your space and an estimated price range. Fast replies, no pressure.
+            </p>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://wa.me/6589776860" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+            <a class="btn btn-outline" href="#contact-form">Request a Quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact-form">
+      <div class="container">
+        <div class="section-head">
+          <div class="meta">
+            <p class="kicker">Enquiry</p>
+            <h2>Contact Form</h2>
+            <p class="lead">Share what you need and we will follow up with the next steps.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card card-pad">
+            <div class="footer-title" style="margin-bottom: 8px;">Contact details</div>
+            <div style="display:grid; gap: 10px; margin-top: 12px;">
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 3h3l1 5-2 1a14 14 0 0 0 6.5 6.5l1-2 5 1v3c0 1-1 2-2 2C10 20 4 14 4 6c0-1 1-3 2.5-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <span><strong style="color: var(--text);">Call / WhatsApp:</strong> <a href="tel:+6589776860">+65 8977 6860</a></span></div>
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4V6z" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <span><strong style="color: var(--text);">Email:</strong> <a href="mailto:hello@ellorafurnishings.com.sg">hello@ellorafurnishings.com.sg</a></span></div>
+              <div class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-4.4 7-11a7 7 0 0 0-14 0c0 6.6 7 11 7 11z" stroke="currentColor" stroke-width="2"/><path d="M12 10.5a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4z" stroke="currentColor" stroke-width="2"/></svg> <span><strong style="color: var(--text);">Location:</strong> Singapore (By appointment)</span></div>
+            </div>
+            <p class="note">Prefer a faster response? Tap the WhatsApp button to start a chat.</p>
+          </div>
+
+          <div class="card card-pad">
+            <form data-demo-form data-wa aria-label="Quote request form">
+              <div class="form-row">
+                <div class="field">
+                  <label for="q-name">Name</label>
+                  <input id="q-name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="q-phone">Phone</label>
+                  <input id="q-phone" name="phone" type="tel" inputmode="tel" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="q-email">Email</label>
+                  <input id="q-email" name="email" type="email" autocomplete="email" placeholder="Optional">
+                </div>
+                <div class="field">
+                  <label for="q-service">Service</label>
+                  <select id="q-service" name="service" required>
+                    <option value="" selected disabled>Select</option>
+                    <option>Zip Blinds</option>
+                    <option>Curtains</option>
+                    <option>Outdoor Blinds</option>
+                    <option>Other Furnishings</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="q-message">Message</label>
+                <textarea id="q-message" name="message" placeholder="Space type, dimensions, preferred style, and timeline."></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit" style="width: 100%;">Submit</button>
+              <div class="note">This demo form does not store data; it opens WhatsApp with your message.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div class="meta">
+            <p class="kicker">Questions</p>
+            <h2>FAQ</h2>
+            <p class="lead">Quick answers to the most common questions we get from homeowners.</p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details class="faq-item">
+            <summary>
+              How long does the full process usually take?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="ans">After measurement and confirmation, fabrication typically takes 1–2 weeks depending on specifications and schedule.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Do you offer motorised zip blinds?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="ans">Yes. Motorised options are available for smooth daily use. We will recommend suitable setups based on your space.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Can you advise on colours and fabric selection?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="ans">Yes. We help you choose finishes that match your interior lighting, colour palette, and privacy goals.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Do you provide warranty support after installation?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="ans">We provide clear after‑install support and workmanship standards. Warranty terms vary by product and configuration.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-title">Ellora Furnishings</div>
+            <p class="lead" style="margin-bottom: 0;">
+              Premium zip blinds and furnishing solutions designed for Singapore homes.
+              Measured precisely, fabricated carefully, installed cleanly.
+            </p>
+            <div class="fineprint">
+              Quote requests are typically replied within 1 business day.
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-title">Quick Links</div>
+            <div class="footer-links">
+              <a href="services.html#zip-blinds">Zip Blinds</a><br>
+              <a href="services.html#other-furnishings-solutions">Other Furnishings</a><br>
+              <a href="index.html#recent-installations">Recent Installations</a><br>
+              <a href="contact.html#business-hours">Business Hours</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-title">Contact</div>
+            <div class="footer-links">
+              <a href="tel:+6589776860">+65 8977 6860</a><br>
+              <a href="mailto:hello@ellorafurnishings.com.sg">hello@ellorafurnishings.com.sg</a><br>
+              <a href="https://wa.me/6589776860" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a><br>
+              <span style="display:inline-block; padding-top: 8px; color: var(--muted); font-weight: 650;">Singapore (By appointment)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fineprint" style="margin-top: 26px;">
+          © 2026 Ellora Furnishings. All rights reserved.
+        </div>
+      </div>
+    </footer>
+    
+  
+        <a class="wa-float" href="https://wa.me/6589776860" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path fill="currentColor" d="M19.11 17.6c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.41-.14-.01-.3-.01-.46-.01-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.69 2.58 4.1 3.62.57.25 1.01.4 1.36.51.57.18 1.09.15 1.5.09.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.03.14-1.14-.06-.11-.22-.18-.46-.3Z"/>
+      <path fill="currentColor" fill-rule="evenodd" d="M16 3C8.82 3 3 8.65 3 15.62c0 2.47.75 4.75 2.03 6.66L4 29l6.93-1.81A13.3 13.3 0 0 0 16 28.24c7.18 0 13-5.65 13-12.62C29 8.65 23.18 3 16 3Zm0 22.3c-1.63 0-3.15-.45-4.46-1.23l-.32-.19-4.11 1.08 1.1-3.97-.21-.33a10.3 10.3 0 0 1-1.6-5.54c0-5.68 4.77-10.28 10.6-10.28 5.84 0 10.6 4.6 10.6 10.28 0 5.67-4.76 10.28-10.6 10.28Z" clip-rule="evenodd"/>
+    </svg>
+        </a>
+        
+  <script>
+  
+    (function () {
+      const menuBtn = document.querySelector('[data-menu-btn]');
+      const panel = document.querySelector('[data-mobile-panel]');
+      if (menuBtn && panel) {
+        menuBtn.addEventListener('click', () => {
+          const open = panel.getAttribute('data-open') === 'true';
+          panel.setAttribute('data-open', String(!open));
+          panel.style.display = open ? 'none' : 'block';
+          menuBtn.setAttribute('aria-expanded', String(!open));
+        });
+
+        // Close on nav click
+        panel.addEventListener('click', (e) => {
+          const a = e.target.closest('a');
+          if (!a) return;
+          panel.setAttribute('data-open', 'false');
+          panel.style.display = 'none';
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      // Lightweight form handler (demo-safe)
+      document.querySelectorAll('form[data-demo-form]').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]');
+          if (btn) {
+            const old = btn.textContent;
+            btn.textContent = 'Submitted';
+            btn.disabled = true;
+            setTimeout(() => { btn.textContent = old; btn.disabled = false; }, 1800);
+          }
+          // Optional: open WhatsApp with message if requested
+          if (form.hasAttribute('data-wa')) {
+            const fd = new FormData(form);
+            const name = (fd.get('name') || '').toString().trim();
+            const phone = (fd.get('phone') || '').toString().trim();
+            const interest = (fd.get('interest') || fd.get('service') || '').toString().trim();
+            const message = (fd.get('message') || '').toString().trim();
+
+            const parts = [];
+            if (name) parts.push(`Name: ${name}`);
+            if (phone) parts.push(`Phone: ${phone}`);
+            if (interest) parts.push(`Interested in: ${interest}`);
+            if (message) parts.push(`Message: ${message}`);
+            if (parts.length) {
+              const text = encodeURIComponent(`Hi Ellora Furnishings, I'd like a quote.\n${parts.join('\n')}`);
+              window.open(`https://wa.me/6589776860?text=${text}`, '_blank', 'noopener,noreferrer');
+            }
+          }
+        });
+      });
+    })();
+    
+  </script>
+</body>
+</html>
