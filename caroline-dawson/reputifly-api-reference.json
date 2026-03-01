@@ -1,0 +1,78 @@
+{
+  "api_name": "Reputifly API",
+  "version": "9.0",
+  "base_url": "https://asia-southeast1-b2b-software.cloudfunctions.net",
+  "auth_types": {
+    "public": "No authentication required. Used for Lead Capture.",
+    "protected": "Requires 'Authorization: Bearer <ID_TOKEN>' header. Restricted to Super Admin."
+  },
+  "endpoints": {
+    "public": {
+      "reputifly": {
+        "description": "Captures leads, checks blacklist, applies rate limits (Daily Cap), sends notifications.",
+        "method": "POST",
+        "path": "/reputifly",
+        "rate_limit": "Enforced per 'client' email. Default 50/day. Returns 429 if exceeded.",
+        "body_params": {
+          "_to": "string (email, optional) - Owner of the lead. Supports multiple comma-separated emails. First email is used for ID/Rate Limiting.",
+          "_subject": "string (optional) - Email subject",
+          "_auto_reply": "boolean (optional) - enable auto-reply (2x cost)",
+          "_auto_reply_subject": "string (optional)",
+          "_auto_reply_content": "string (html, optional) - Custom body",
+          "_sender_name": "string (optional) - e.g. 'My Brand'",
+          "_brand_color": "string (hex, optional)",
+          "_brand_logo": "string (url, optional)",
+          "[custom_fields]": "any - Saved to database and email"
+        },
+        "error_responses": {
+          "429": "Daily email limit reached for this client.",
+          "403": "Access Denied: Blocked Sender (Blacklist)"
+        }
+      }
+    },
+    "protected": {
+      "createClient": {
+        "description": "Creates a new Firebase Auth user and Client Firestore document.",
+        "method": "POST",
+        "path": "/createClient",
+        "body_params": {
+          "email": "string (required)",
+          "password": "string (required)"
+        }
+      },
+      "manageClient": {
+        "description": "Admin function to pause, resume, delete, or limit a client.",
+        "method": "POST",
+        "path": "/manageClient",
+        "body_params": {
+          "uid": "string (required)",
+          "action": "enum('disable', 'enable', 'delete', 'update_limit')",
+          "value": "string/number (optional, e.g. limit amount)"
+        }
+      },
+      "manageSystem": {
+        "description": "Admin function for global settings.",
+        "method": "POST",
+        "path": "/manageSystem",
+        "body_params": {
+          "action": "enum('toggleReports', 'update_global_limit', 'blacklist_add')",
+          "value": "any (required)"
+        }
+      },
+      "triggerManualReport": {
+        "description": "Force sends weekly reports immediately.",
+        "method": "POST",
+        "path": "/triggerManualReport",
+        "body_params": {
+          "targetEmail": "string (optional) - Send to specific client only"
+        }
+      }
+    }
+  },
+  "system_logic": {
+    "rate_limiting": "Limits are checked against 'customDailyLimit' (client level) or 'globalDailyLimit' (settings). Limit resets daily (Singapore Time).",
+    "usage_cost": "Notification Only = 1 credit. Notification + Auto-Reply = 2 credits.",
+    "blacklist": "Blocks emails or domains present in 'blacklist' collection.",
+    "reports": "Weekly reports sent every Monday 09:00 SGT (if enabled)."
+  }
+}
