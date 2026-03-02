@@ -1,0 +1,13 @@
+HOW TO USE THIS MANUAL PROMPT PACK WITH GEMINI:
+
+STEP 1: UPLOAD THE ZIP & PLAN
+Drag and drop this ENTIRE ZIP FILE directly into the Gemini chat.
+Open '01_PHASE_1_PLAN.txt', copy the text, and send it along with the ZIP file upload.
+Gemini will analyze the logo and business details, then output a detailed design and section layout plan. Review it.
+
+STEP 2: EXECUTE & BUILD
+Once Gemini finishes planning and asks to proceed, open '02_PHASE_2_BUILD.txt', copy the text, and send it in the SAME CHAT.
+Gemini will now build the full, untruncated HTML page.
+
+STEP 3: DEPLOY
+Copy the generated code, save it as 'index.html' in this folder (alongside the logo.png), and upload the folder to GitHub Pages!
