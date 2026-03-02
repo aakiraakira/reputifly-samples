@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seine to Victoria Bakehouse</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Design System & CSS Variables */
+        :root {
+            --primary: #f97316;
+            --accent: #ea580c;
+            --bg: #FAFAFA;
+            --text-dark: #1A1A1A;
+            --text-light: #666666;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 96px 0;
+        }
+
+        /* Buttons & CTA Polish */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 32px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            border: none;
+            outline: none;
+        }
+
+        .btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-primary:hover i.fa-arrow-right {
+            transform: translateX(5px);
+        }
+
+        .btn-primary:hover i.fa-whatsapp {
+            transform: scale(1.1);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* Section 1: Header / Navigation */
+        header {
+            background-color: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            background: none;
+            border: none;
+        }
+
+        /* Section 2: Hero */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 96px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(249, 115, 22, 0.05);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            right: -5%;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(212, 175, 55, 0.05);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Section 3: About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .about-text h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            margin-top: 16px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        /* Section 4: Menu */
+        .menu-section {
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .menu-card {
+            background-color: var(--bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .menu-img-wrapper {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .menu-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover .menu-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .menu-content {
+            padding: 32px 24px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .menu-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .menu-content p {
+            color: var(--text-light);
+        }
+
+        /* Section 5: Trust / Reviews */
+        .reviews-section {
+            background-color: var(--bg);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .review-card {
+            background-color: var(--white);
+            padding: 40px 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .review-card:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+            transform: translateY(-5px);
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .review-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+        }
+
+        /* Section 5.5: FAQ Section */
+        .faq-section {
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--bg);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 24px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-body);
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: var(--white);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px; /* Arbitrary large number to allow content to expand */
+            padding: 0 24px 24px 24px;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+        }
+
+        /* Section 6: Contact & Delivery */
+        .contact-section {
+            background-color: var(--bg);
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 100%);
+            border-radius: 16px;
+            padding: 64px 48px;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .contact-methods {
+            margin-bottom: 32px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        .contact-method i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Form Styles */
+        .contact-form {
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-dark);
+            transition: var(--transition);
+            background-color: #FAFAFA;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Section 7: Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: #A0A0A0;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: #A0A0A0;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #A0A0A0;
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--accent);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15) translateY(-5px);
+            background-color: #1ebe57;
+            color: #FFF;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3rem; }
+            .about-grid, .menu-grid, .reviews-grid, .footer-grid {
+                gap: 40px;
+            }
+            .contact-box {
+                grid-template-columns: 1fr;
+                padding: 48px 32px;
+                gap: 48px;
+            }
+            .contact-info {
+                text-align: center;
+            }
+            .contact-method {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 24px;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 { font-size: 2.5rem; }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+            
+            .about-image img {
+                height: 350px;
+            }
+
+            .menu-grid, .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo-text">
+                <img src="./logo.png" alt="Logo" onerror="this.style.display='none'">
+                Seine to Victoria
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#about">Our Story</a>
+                <a href="#menu">Menu</a>
+                <a href="#faq">FAQ</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact" class="btn btn-primary">Order Now <i class="fa-solid fa-arrow-right"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Where Paris Meets <span>Victoria Harbour</span></h1>
+                <p>Experience the ultimate fusion of delicate French pastries and the nostalgic flavors of Hong Kong street culture.</p>
+                <a href="#menu" class="btn btn-primary">Explore the Menu <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="about">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="https://www.allrecipes.com/thmb/imrP1HYi5pu7j1en1_TI-Kcnzt4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20513-classic-waffles-mfs-025-4x3-81c0f0ace44d480ca69dd5f2c949731a.jpg" alt="Our Classic Bakes">
+            </div>
+            <div class="about-text">
+                <h2>A Tale of Two Cities</h2>
+                <p>Born from a passion for classic Parisian baking and the bustling energy of Hong Kong's street markets, we craft unique, handcrafted bakes that bridge two culinary worlds.</p>
+                <p>Our kitchen is a playground of flavor, where butter-rich laminations meet classic cha chaan teng staples. Every bite tells a story of heritage, travel, and uncompromising quality.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding menu-section" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Signature Bakes</h2>
+                <p>Discover the pillars of our unique bakery concept.</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="menu-img-wrapper">
+                        <img src="https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/b093fb7f90b3d25f5674209bb849fc17/Derivates/538d257ef5719ff8c548c0b5897e3465d3703408.jpg" alt="French Classics">
+                    </div>
+                    <div class="menu-content">
+                        <h3>French Classics</h3>
+                        <p>Flaky, buttery, and traditionally Parisian. Croissants, pain au chocolat, and delicate tartes made with imported AOP butter.</p>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-img-wrapper">
+                        <img src="https://www.allrecipes.com/thmb/dtTuIZ9Mhe2ZL0vn6Xwi6oiIpZs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ALR-24141-chocolate-waffles-i-VAT-4x3-52053b237749453a80c6d39dd67ac8ba.jpg" alt="Hong Kong Heritage">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Hong Kong Heritage</h3>
+                        <p>Nostalgic street food classics, elevated. Rich egg tarts, fluffy cocktail buns, and authentic pineapple buns baked fresh daily.</p>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-img-wrapper">
+                        <img src="https://swansdown.com/wp-content/uploads/2021/10/Basic-waffles-1024x683.jpg.webp" alt="The Fusions">
+                    </div>
+                    <div class="menu-content">
+                        <h3>The Fusions</h3>
+                        <p>Where cultures collide. Try our signature Matcha Polo Croissant, combining a crispy cookie crust with flawless lamination.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding reviews-section" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Loved by Locals</h2>
+                <p>See what our community is saying about our bakes.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"The perfect blend of my childhood favorites and high-end pastry. The Polo Croissant is absolutely incredible!"</p>
+                    <p class="reviewer-name">Sarah L.</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"I've been to Paris and I've lived in HK. This bakehouse nails the authenticity of both worlds flawlessly."</p>
+                    <p class="reviewer-name">Marcus C.</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="review-text">"Ordering was seamless and the delivery was prompt. Everything arrived fresh, warm, and beautifully packaged."</p>
+                    <p class="reviewer-name">Elena Y.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about our daily operations.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">How far in advance should I order? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>For standard menu items, please order at least 24 hours in advance. For bulk orders or catering, we kindly request a 48-hour notice to ensure we can prepare everything fresh for you.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do you offer delivery across the city? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer island-wide delivery. Delivery slots are available between 9 AM and 6 PM daily. Free delivery applies to all orders over $80.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can I pick up my order in person? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>Absolutely. You can select "Self Pick-Up" during checkout. Our kitchen is open for pickups from 8 AM to 4 PM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding contact-section" id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <div class="contact-info">
+                    <h2>Bring the Fusion Home</h2>
+                    <p>Baked fresh daily in our kitchen. Order online for next-day delivery across the city, or drop us a message for special event inquiries.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fa-solid fa-envelope"></i> hello@seinetovictoria.com
+                        </div>
+                        <div class="contact-method">
+                            <i class="fa-solid fa-location-dot"></i> 128 Fusion Hub, Kitchen #04
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/6580111965" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Seine to Victoria</h3>
+                    <p>A unique online bakehouse blending the artistry of French pastry with the vibrant soul of Hong Kong street food culture.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://wa.me/6580111965" target="_blank">WhatsApp</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Seine to Victoria Bakehouse. All rights reserved.</p>
+                <p>Website Design by <a href='https://reputifly.com/web-development' target='_blank'>Reputifly</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6580111965" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Logic
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            const navItems = navLinks.querySelectorAll('a');
+
+            mobileBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = mobileBtn.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = mobileBtn.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            // FAQ Accordion Logic
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const questionBtn = item.querySelector('.faq-question');
+                questionBtn.addEventListener('click', () => {
+                    // Close other open items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
