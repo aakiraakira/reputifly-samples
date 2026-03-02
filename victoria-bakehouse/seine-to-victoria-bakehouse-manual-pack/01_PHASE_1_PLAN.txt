@@ -1,0 +1,15 @@
+Attached is the logo (if provided in the zip). We will be deploying this on GitHub Pages, so please call the logo via relative path (./logo.png). Attached is also a brandkit JSON data and layout preferences I did with my software. Feel free to improve on it—adding elements and colours to make it look premium.
+            
+I need a full home page draft. Come up with the plan, the full layout first. Really think what each section should achieve. Please plan the entire thing out. In the next prompt I'll approve/disapprove then you give the full html css js code.
+
+BUSINESS DETAILS:
+Name: "Seine to Victoria Bakehouse"
+FYI, here is what they do: Industry: Restaurant / Food & Beverage / Bakery. Business details from the client: A online bakery shop that sells products of  French Pastries & Hong Kong street food Culture fusion.. Manual palette: Primary #f97316, Accent #ea580c. Heading font: Elegant.
+
+
+TASK:
+1. Define the Design System (Hex colors, fonts, UI styling).
+2. Map out a 6-8 section architecture (Header, Hero, Services, Trust, Contact, Footer, etc.).
+For each section, detail the layout and write the actual microcopy.
+
+End your response by asking: "Shall I proceed to Phase 2 and build the complete website?"
