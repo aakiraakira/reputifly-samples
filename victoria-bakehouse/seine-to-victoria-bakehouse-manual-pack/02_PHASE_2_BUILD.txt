@@ -1,0 +1,11 @@
+The plan is approved. Proceed and build the complete, interactive LANDING PAGE based on the plan.
+
+STRICT OUTPUT RULES:
+1. NO TRUNCATION: Provide the full, complete HTML file. Do not omit any lines or use placeholders for code.
+2. NO EMOJIS. Use SVG illustrations or FontAwesome.
+3. NO REAL PHOTOS. Use abstract CSS shapes, SVGs, or https://via.placeholder.com/ placeholders. DO NOT use Picsum.
+4. Make it fully responsive. Ensure grid layouts stack perfectly on mobile.
+5. Use a stylized text logo.
+6. Include a floating WhatsApp button to https://wa.me/6580111965 and the footer credit: "Website Design by <a href='https://reputifly.com/web-development' target='_blank'>Reputifly</a>".
+
+Output ONLY the raw HTML code inside a single code block.
