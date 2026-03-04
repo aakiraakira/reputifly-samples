@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Richz — 1st International Smart UniCity | Eco-Luxury Wellness & Education</title>
+    <meta name="description"
+        content="The Richz: 1st International Smart UniCity in East Genting Highlands. A RM2.8B LOHAS 3-generation community featuring wellness villas, hot springs, and an education hub.">
+    <meta property="og:title" content="The Richz — 1st International Smart UniCity">
+    <meta property="og:description"
+        content="Experience eco-luxury living in Benus Valley. Hot spring wellness, education hub, and resort community.">
+    <meta property="og:image" content="https://reputifly.com/wp-content/uploads/2026/01/Aerial-View-CD1-1-scaled.jpg">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateListing",
+      "name": "The Richz - 1st International Smart UniCity",
+      "description": "LOHAS 3-generation community in East Genting Highlands.",
+      "provider": {
+        "@type": "Organization",
+        "name": "DSA Development Sdn Bhd",
+        "founder": "Mr. Ghee Peng Lam"
+      },
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bentong",
+          "addressRegion": "Pahang",
+          "addressCountry": "Malaysia"
+        }
+      }
+    }
+    </script>
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --c-charcoal: #1a1a1a;
+            --c-dark-forest: #203028;
+            --c-gold: #c5a059;
+            --c-gold-hover: #d4b06a;
+            --c-white: #ffffff;
+            --c-offwhite: #f8f8f6;
+            --c-text-body: #4a4a4a;
+            --c-text-light: #888888;
+            --c-border: #e0e0e0;
+
+            --f-sans: 'Manrope', sans-serif;
+            --f-serif: 'Playfair Display', serif;
+
+            --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 50px -10px rgba(0, 0, 0, 0.15);
+            --radius-pill: 999px;
+            --radius-card: 12px;
+
+            --trans-fast: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --trans-slow: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--f-sans);
+            color: var(--c-text-body);
+            background-color: var(--c-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--f-serif);
+            color: var(--c-charcoal);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--trans-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-gold {
+            color: var(--c-gold);
+        }
+
+        .bg-offwhite {
+            background-color: var(--c-offwhite);
+        }
+
+        .bg-dark {
+            background-color: var(--c-charcoal);
+            color: var(--c-white);
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            font-family: var(--f-sans);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            border-radius: var(--radius-pill);
+            transition: var(--trans-fast);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--c-gold);
+            color: var(--c-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--c-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--c-white);
+            color: var(--c-white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--c-white);
+            color: var(--c-charcoal);
+        }
+
+        .btn-outline-dark {
+            border-color: var(--c-charcoal);
+            color: var(--c-charcoal);
+        }
+
+        .btn-outline-dark:hover {
+            background-color: var(--c-charcoal);
+            color: var(--c-white);
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* --- COMPONENTS --- */
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background-color: var(--c-charcoal);
+            color: var(--c-white);
+            padding: 8px 0;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+            z-index: 101;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+            padding-left: 100%;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 35px;
+            /* Height of announcement bar approx */
+            left: 0;
+            width: 100%;
+            background-color: var(--c-white);
+            z-index: 100;
+            transition: all var(--trans-fast);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .header.scrolled {
+            top: 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 10px 0;
+        }
+
+        .header-inner {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: height var(--trans-fast);
+        }
+
+        .header.scrolled .header-inner {
+            height: 70px;
+        }
+
+        /* Logo Styles - Clean */
+        .logo-link {
+            display: block;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 55px;
+            /* Adjust size as needed */
+            width: auto;
+            display: block;
+            object-fit: contain;
+            /* No filters, pure original image */
+        }
+
+        .header.scrolled .logo-img {
+            height: 45px;
+            /* Slightly smaller on scroll */
+        }
+
+        /* Nav */
+        .nav-list {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--c-charcoal);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--c-gold);
+            transition: width var(--trans-fast);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .line {
+            width: 24px;
+            height: 2px;
+            background: var(--c-charcoal);
+            transition: var(--trans-fast);
+        }
+
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: var(--c-white);
+            padding: 80px 30px;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            transition: right var(--trans-slow);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 99;
+        }
+
+        .mobile-drawer.open {
+            right: 0;
+        }
+
+        /* Hero */
+        /* Hero */
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 100vh;
+            /* Full viewport height */
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--c-white);
+            margin-top: 0;
+            /* Remove margin as it's full screen now, header handles overlay */
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+
+            background-image: url('https://reputifly.com/wp-content/uploads/2026/01/Aerial-View-CD1-1-scaled.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+
+            /* ANIMATION CONFIGURATION */
+            animation: pan-horizontal 40s linear infinite alternate;
+            will-change: background-position;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: left;
+            max-width: 600px;
+            margin-right: auto;
+            margin-left: 5%;
+            padding: 0 20px;
+            width: 100%;
+            opacity: 0;
+            /* Start hidden for JS fade-in */
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .hero-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            margin-bottom: 10px;
+            color: var(--c-white);
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            /* Match suggestion style */
+            font-weight: 700;
+        }
+
+        .hero-sub {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-family: var(--f-sans);
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            /* Slightly wider for balance */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        /* * KEYFRAMES FOR MOTION 
+         * Moves the background from Left (0%) to Right (100%)
+         */
+        @keyframes pan-horizontal {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .scroll-cue {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Stats Strip */
+        .stats-strip {
+            background: var(--c-charcoal);
+            color: var(--c-white);
+            padding: 40px 0;
+            position: relative;
+            z-index: 4;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-val {
+            font-family: var(--f-serif);
+            font-size: 2.5rem;
+            color: var(--c-gold);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Overview */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .feature-list {
+            margin-top: 30px;
+            display: grid;
+            gap: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1rem;
+            color: var(--c-charcoal);
+        }
+
+        .feature-icon {
+            color: var(--c-gold);
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        /* Masterplan Tabs */
+        .tabs-container {
+            margin-top: 40px;
+        }
+
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--c-border);
+            padding-bottom: 20px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            font-family: var(--f-sans);
+            font-size: 1rem;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: var(--c-text-light);
+            transition: var(--trans-fast);
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: var(--c-charcoal);
+            font-weight: 600;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -21px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--c-gold);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .zone-card {
+            background: var(--c-white);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .zone-info {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .zone-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+
+        .zone-letter {
+            font-size: 5rem;
+            font-family: var(--f-serif);
+            color: rgba(197, 160, 89, 0.2);
+            line-height: 1;
+            margin-bottom: -20px;
+            margin-left: -5px;
+        }
+
+        /* Wellness Split */
+        .wellness-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .wellness-content {
+            padding: 80px 60px;
+            background: var(--c-dark-forest);
+            color: var(--c-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .wellness-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .timeline-item {
+            border-left: 2px solid rgba(255, 255, 255, 0.2);
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item h4 {
+            color: var(--c-gold);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* Connectivity */
+        .connectivity-card {
+            background: var(--c-offwhite);
+            border-radius: var(--radius-card);
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .route-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        /* Education Diagram */
+        .edu-diagram {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .edu-circle {
+            width: 140px;
+            height: 140px;
+            border: 1px solid var(--c-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: var(--f-serif);
+            color: var(--c-charcoal);
+            transition: var(--trans-fast);
+            background: var(--c-white);
+        }
+
+        .edu-circle:hover {
+            border-color: var(--c-gold);
+            color: var(--c-gold);
+            transform: scale(1.05);
+        }
+
+        /* Incentives */
+        .incentive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .incentive-box {
+            background: var(--c-white);
+            border: 1px solid var(--c-border);
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            transition: var(--trans-fast);
+        }
+
+        .incentive-box:hover {
+            border-color: var(--c-gold);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Developer */
+        .dev-profile {
+            background: var(--c-white);
+            box-shadow: var(--shadow-soft);
+            border-radius: var(--radius-card);
+            padding: 50px;
+            border-left: 5px solid var(--c-gold);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            min-height: 400px;
+            /* Match existing min-height */
+            background: #f5f5f5;
+            /* Subtle background for letterboxing */
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Show full image without cropping */
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            font-size: 1.5rem;
+            z-index: 10;
+            border-radius: 50%;
+            transition: background 0.3s;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(197, 160, 89, 0.9);
+            /* Gold */
+        }
+
+        .carousel-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-btn.next {
+            right: 15px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .lightbox.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox img {
+            max-height: 90vh;
+            max-width: 90vw;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .lb-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 20px;
+        }
+
+        .lb-prev {
+            left: 20px;
+        }
+
+        .lb-next {
+            right: 20px;
+        }
+
+        /* FAQ */
+        .accordion-item {
+            border-bottom: 1px solid var(--c-border);
+        }
+
+        .accordion-header {
+            width: 100%;
+            text-align: left;
+            padding: 20px 0;
+            background: none;
+            border: none;
+            font-family: var(--f-serif);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            color: var(--c-text-body);
+        }
+
+        .accordion-body p {
+            padding-bottom: 20px;
+        }
+
+        .icon-plus {
+            transition: transform 0.3s;
+        }
+
+        .accordion-header.active .icon-plus {
+            transform: rotate(45deg);
+        }
+
+        /* Form */
+        .form-box {
+            background: var(--c-white);
+            padding: 50px;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-hover);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: var(--f-sans);
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--c-gold);
+        }
+
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .success-msg {
+            color: var(--c-dark-forest);
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--c-charcoal);
+            color: var(--c-white);
+            padding: 80px 0 30px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer h4 {
+            color: var(--c-gold);
+            margin-bottom: 20px;
+            font-family: var(--f-sans);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer ul li a {
+            opacity: 0.7;
+        }
+
+        .footer ul li a:hover {
+            opacity: 1;
+            color: var(--c-gold);
+        }
+
+        /* Media Queries */
+        @media (max-width: 900px) {
+
+            .nav-list,
+            .header-cta {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .overview-grid,
+            .zone-card,
+            .wellness-split {
+                grid-template-columns: 1fr;
+            }
+
+            .zone-img {
+                order: -1;
+                min-height: 250px;
+            }
+
+            .wellness-content {
+                padding: 50px 24px;
+            }
+
+            /* Mobile Hero: Vertical Layout */
+            .hero {
+                flex-direction: column;
+                height: auto;
+                background: #fff;
+                color: var(--c-charcoal);
+            }
+
+            .hero-bg {
+                position: relative;
+                height: 50vh;
+                min-height: 300px;
+            }
+
+            .hero-overlay {
+                display: none;
+            }
+
+            .hero-content {
+                background: #fff;
+                color: var(--c-charcoal);
+                padding: 60px 20px;
+                max-width: 100%;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                color: var(--c-charcoal);
+            }
+
+            .hero-sub,
+            .hero-desc {
+                color: var(--c-charcoal);
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                /* Stack buttons */
+                width: 100%;
+                /* Ensure container takes full width if needed, though block is default */
+                justify-content: center;
+            }
+
+            /* Override Outline Button for White Background */
+            .hero-btns .btn-outline {
+                border-color: var(--c-charcoal);
+                color: var(--c-charcoal);
+            }
+
+            .hero-btns .btn-outline:hover {
+                background-color: var(--c-charcoal);
+                color: var(--c-white);
+            }
+
+            .hero-btns .btn,
+            .hero-btns button {
+                width: 100%;
+                /* Full width buttons */
+                justify-content: center;
+                /* Center text/icon */
+            }
+
+            .tabs-nav {
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+                /* Smooth scrolling on iOS */
+                scrollbar-width: none;
+                /* Firefox */
+            }
+
+            .tabs-nav::-webkit-scrollbar {
+                display: none;
+                /* Chrome/Safari */
+            }
+
+            .tab-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+        }
+
+        /* Immersive Popup */
+        .immersive-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            z-index: 9999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .immersive-modal.active {
+            display: block;
+            opacity: 1;
+        }
+
+        #immersive-canvas {
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+            display: block;
+        }
+
+        #immersive-canvas:active {
+            cursor: grabbing;
+        }
+
+        /* Immersive UI */
+        .immersive-ui {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            pointer-events: none;
+            z-index: 10010;
+            mix-blend-mode: overlay;
+        }
+
+        .immersive-ui h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 800;
+            letter-spacing: 8px;
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .immersive-ui p {
+            font-size: clamp(0.8rem, 2vw, 1.2rem);
+            letter-spacing: 3px;
+            margin-top: 15px;
+            text-transform: uppercase;
+            opacity: 0.8;
+            color: white;
+        }
+
+        /* Actions */
+        .immersive-actions {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 10020;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .close-immersive {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: var(--f-sans);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .close-immersive:hover {
+            background: white;
+            color: black;
+        }
+
+        .zoom-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        .zoom-controls button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .zoom-controls button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        #immersive-loader {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            z-index: 10015;
+            transition: opacity 0.5s;
+        }
+
+        /* Landscape Overlay */
+        .landscape-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10030;
+            display: none;
+            /* JS will toggle flex */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .rotate-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: rotate 2s infinite ease-in-out;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(-90deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        /* Mobile Optimization */
+        @media only screen and (max-width: 900px) and (orientation: portrait) {
+            .landscape-overlay.active {
+                display: flex;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="announcement-bar">
+        <div class="marquee-content">
+            1st International Smart UniCity in East Genting Highlands • LOHAS 3-Generation Community • RM2.8B Vision •
+            45°C Class 1 Hot Spring • ECRL Connected by 2026 • Live, Work, Learn, Play in Nature
+        </div>
+    </div>
+
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo-link">
+                <img src="https://reputifly.com/wp-content/uploads/2026/01/Screenshot_2026-01-29_202549-removebg-preview.png"
+                    alt="The Richz Logo" class="logo-img">
+            </a>
+
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#overview" class="nav-link">Overview</a></li>
+                    <li><a href="#masterplan" class="nav-link">Masterplan</a></li>
+                    <li><a href="#location" class="nav-link">Location</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-cta">
+                <a href="#contact" class="btn btn-primary">Request Brochure</a>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+        <a href="#overview" class="nav-link mobile-link">Overview</a>
+        <a href="#masterplan" class="nav-link mobile-link">Masterplan</a>
+        <a href="#location" class="nav-link mobile-link">Location</a>
+        <a href="#contact" class="btn btn-primary">Request Brochure</a>
+    </div>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" id="heroContent">
+            <h1>P’Maveraz</h1>
+            <h2 class="hero-sub">An International Education Hub Inspiring Sustainable Living Amid Natural Hot Spring
+                Serenity</h2>
+
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">Book a Site Visit</a>
+                <button onclick="openImmersive()" class="btn btn-outline">
+                    <span style="margin-right:8px"></span> Immersive Experience
+                </button>
+            </div>
+        </div>
+
+
+    </section>
+
+    <div class="stats-strip">
+        <div class="container stats-grid" id="statsGrid">
+            <div>
+                <div class="stat-val" data-target="41">0</div>
+                <div class="stat-label">Acres Freehold</div>
+            </div>
+            <div>
+                <div class="stat-val" data-target="24">0</div>
+                <div class="stat-label">Average Temperature (°C)</div>
+            </div>
+            <div>
+                <div class="stat-val" data-target="45">0</div>
+                <div class="stat-label">°C Hot Spring</div>
+            </div>
+            <div>
+                <div class="stat-val" data-target="2.4">0</div>
+                <div class="stat-label">GDV (RM Billion)</div>
+            </div>
+        </div>
+    </div>
+
+    <section id="overview" class="section-padding">
+        <div class="container">
+            <div class="text-center reveal" style="max-width: 900px; margin: 0 auto;">
+                <div class="text-gold"
+                    style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">A
+                    RICHZ</div>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 30px; line-height: 1.3;">Inspired
+                    Integrated Sanctuary for 3-Generation Coexistence Living,Working, Learning and Wellbeing.</h2>
+
+                <div style="text-align: center; font-size: 1.1rem; color: #4a4a4a; display: grid; gap: 20px;">
+                    <p>
+                        P'Maveraz - Spring Forth Sanctuary is a transformative, GBI Platinum-certified green community
+                        reimagining contemporary living through LOHAS principles. Anchored by mineral-rich hot springs
+                        in a nature-rich environment, it integrates resort living, international education, wellness
+                        hospitality, and ecological stewardship across five thoughtfully curated zones of holistic
+                        growth.
+                    </p>
+                </div>
+
+                <!-- Video Section (Replaces Image Grid) -->
+                <div class="reveal" style="margin-top: 40px;">
+                    <video autoplay muted loop controls playsinline
+                        style="width: 100%; max-width: 100%; border-radius: 12px; box-shadow: var(--shadow-soft);">
+                        <source src="video-display.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="masterplan" class="section-padding bg-offwhite">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2 style="margin-bottom: 10px;">P'Maveraz - The RICHZ Master Development Zones</h2>
+            </div>
+
+            <div class="tabs-container reveal">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" onclick="openTab(event, 'zone1')">Zone R</button>
+                    <button class="tab-btn" onclick="openTab(event, 'zone2')">Zone I</button>
+                    <button class="tab-btn" onclick="openTab(event, 'zone3')">Zone C</button>
+                    <button class="tab-btn" onclick="openTab(event, 'zone4')">Zone H</button>
+                    <button class="tab-btn" onclick="openTab(event, 'zone5')">Zone Z</button>
+                </div>
+
+                <!-- Zone R (was Zone 1) -->
+                <div id="zone1" class="tab-content active">
+                    <div class="zone-card">
+                        <div class="zone-info">
+                            <div class="zone-letter">R</div>
+                            <h3>Zone R - Residential Suites</h3>
+                            <p>Refined residences offering tranquil living amid forested landscapes,designed for
+                                comfort, rejuvenation and long-term wellbeing.</p>
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-track" data-index="0">
+                                <img src="https://reputifly.com/wp-content/uploads/2026/01/Rooftop-CD1-1-scaled.jpg"
+                                    class="carousel-slide" alt="Zone R - Rooftop">
+                                <img src="https://reputifly.com/wp-content/uploads/2026/01/Garden-CD1-1-scaled.jpg"
+                                    class="carousel-slide" alt="Zone R - Garden">
+                                <img src="https://reputifly.com/wp-content/uploads/2026/01/Phase2-CD1-2-1-scaled.jpg"
+                                    class="carousel-slide" alt="Zone R - Phase 2">
+                            </div>
+                            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                            <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone I (was Zone 5) - International School -->
+                <div id="zone2" class="tab-content">
+                    <div class="zone-card">
+                        <div class="zone-info">
+                            <div class="zone-letter">I</div>
+                            <h3>Zone I - College University & International Forest Boarding Schools</h3>
+                            <p>A purpose-built international education ecosystem, from nursery to Level 12,where
+                                learning is immersed in nature, and sustainability is embedded into daily life.</p>
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-track" data-index="0">
+                                <img src="images/I/5.jpg" class="carousel-slide" alt="Zone I - View 1">
+                                <img src="images/I/6.jpg" class="carousel-slide" alt="Zone I - View 2">
+                                <img src="images/I/7.jpg" class="carousel-slide" alt="Zone I - View 3">
+                                <img src="images/I/Picture1.jpg" class="carousel-slide" alt="Zone I - View 4">
+                                <img src="images/I/Picture2.jpg" class="carousel-slide" alt="Zone I - View 5">
+                                <img src="images/I/Picture3.jpg" class="carousel-slide" alt="Zone I - View 6">
+                                <img src="images/I/Picture4.jpg" class="carousel-slide" alt="Zone I - View 7">
+                            </div>
+                            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                            <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone C (was Zone 3) - Villas -->
+                <div id="zone3" class="tab-content">
+                    <div class="zone-card">
+                        <div class="zone-info">
+                            <div class="zone-letter">C</div>
+                            <h3>Zone C - Curated Luxury Hot Spring Villas</h3>
+                            <p>Exclusive private villas centred around a natural hot spring, offering restorative living
+                                experiences that blend luxury, wellness and serenity.</p>
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-track" data-index="0">
+                                <img src="images/C/Picture2.jpg" class="carousel-slide" alt="Zone C - View 1">
+                                <img src="images/C/Picture4.jpg" class="carousel-slide" alt="Zone C - View 2">
+                                <img src="images/C/Picture6.jpg" class="carousel-slide" alt="Zone C - View 3">
+                                <img src="images/C/Picture7.jpg" class="carousel-slide" alt="Zone C - View 4">
+                                <img src="images/C/Picture8.jpg" class="carousel-slide" alt="Zone C - View 5">
+                                <img src="images/C/Picture9.jpg" class="carousel-slide" alt="Zone C - View 6">
+                                <img src="images/C/Picture14.jpg" class="carousel-slide" alt="Zone C - View 7">
+                                <img src="images/C/Picture15.jpg" class="carousel-slide" alt="Zone C - View 8">
+                                <img src="images/C/Picture16.jpg" class="carousel-slide" alt="Zone C - View 9">
+                                <img src="images/C/Picture17.jpg" class="carousel-slide" alt="Zone C - View 10">
+                                <img src="images/C/Picture18.jpg" class="carousel-slide" alt="Zone C - View 11">
+                                <img src="images/C/Picture19.jpg" class="carousel-slide" alt="Zone C - View 12">
+                                <img src="images/C/Picture20.jpg" class="carousel-slide" alt="Zone C - View 13">
+                                <img src="images/C/Picture21.jpg" class="carousel-slide" alt="Zone C - View 14">
+                                <img src="images/C/Picture22.jpg" class="carousel-slide" alt="Zone C - View 15">
+                                <img src="images/C/Picture23.jpg" class="carousel-slide" alt="Zone C - View 16">
+                                <img src="images/C/Picture24.jpg" class="carousel-slide" alt="Zone C - View 17">
+                                <img src="images/C/Picture25.jpg" class="carousel-slide" alt="Zone C - View 18">
+                                <img src="images/C/Picture26.jpg" class="carousel-slide" alt="Zone C - View 19">
+                                <img src="images/C/Picture27.jpg" class="carousel-slide" alt="Zone C - View 20">
+                                <img src="images/C/Picture28.jpg" class="carousel-slide" alt="Zone C - View 21">
+                                <img src="images/C/Picture29.jpg" class="carousel-slide" alt="Zone C - View 22">
+                                <img src="images/C/Picture30.jpg" class="carousel-slide" alt="Zone C - View 23">
+                                <img src="images/C/Picture31.jpg" class="carousel-slide" alt="Zone C - View 24">
+                                <img src="images/C/Picture32.jpg" class="carousel-slide" alt="Zone C - View 25">
+                                <img src="images/C/Picture33.jpg" class="carousel-slide" alt="Zone C - View 26">
+                                <img src="images/C/Picture34.jpg" class="carousel-slide" alt="Zone C - View 27">
+                                <img src="images/C/Picture35.jpg" class="carousel-slide" alt="Zone C - View 28">
+                                <img src="images/C/Picture36.jpg" class="carousel-slide" alt="Zone C - View 29">
+                                <img src="images/C/Picture37.jpg" class="carousel-slide" alt="Zone C - View 30">
+                                <img src="images/C/Picture38.jpg" class="carousel-slide" alt="Zone C - View 31">
+                                <img src="images/C/Picture39.jpg" class="carousel-slide" alt="Zone C - View 32">
+                                <img src="images/C/Picture40.jpg" class="carousel-slide" alt="Zone C - View 33">
+                                <img src="images/C/Picture44.jpg" class="carousel-slide" alt="Zone C - View 34">
+                            </div>
+                            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                            <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone H (was Zone 2) - Hotel/Medical -->
+                <div id="zone4" class="tab-content">
+                    <div class="zone-card">
+                        <div class="zone-info">
+                            <div class="zone-letter">H</div>
+                            <h3>Zone H - Hotel & Medical Wellness Centre</h3>
+                            <p>A hospitality and healthcare destination integrating premiumaccommodation with
+                                preventive, therapeutic and holistic medical wellness services.</p>
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-track" data-index="0">
+                                <img src="images/H/Picture1.jpg" class="carousel-slide" alt="Zone H - View 1">
+                                <img src="images/H/Picture2.jpg" class="carousel-slide" alt="Zone H - View 2">
+                                <img src="images/H/Picture3.jpg" class="carousel-slide" alt="Zone H - View 3">
+                                <img src="images/H/Picture4.jpg" class="carousel-slide" alt="Zone H - View 4">
+                                <img src="images/H/Picture6.jpg" class="carousel-slide" alt="Zone H - View 5">
+                                <img src="images/H/Picture12.jpg" class="carousel-slide" alt="Zone H - View 6">
+                                <img src="images/H/Picture13.jpg" class="carousel-slide" alt="Zone H - View 7">
+                                <img src="images/H/Picture14.jpg" class="carousel-slide" alt="Zone H - View 8">
+                                <img src="images/H/Picture16.jpg" class="carousel-slide" alt="Zone H - View 9">
+                                <img src="images/H/Picture17.jpg" class="carousel-slide" alt="Zone H - View 10">
+                                <img src="images/H/Picture19.jpg" class="carousel-slide" alt="Zone H - View 11">
+                                <img src="images/H/Picture20.jpg" class="carousel-slide" alt="Zone H - View 12">
+                                <img src="images/H/Picture22.jpg" class="carousel-slide" alt="Zone H - View 13">
+                                <img src="images/H/Picture24.jpg" class="carousel-slide" alt="Zone H - View 14">
+                                <img src="images/H/Picture25.jpg" class="carousel-slide" alt="Zone H - View 15">
+                                <img src="images/H/Picture27.jpg" class="carousel-slide" alt="Zone H - View 16">
+                                <img src="images/H/Picture29.jpg" class="carousel-slide" alt="Zone H - View 17">
+                            </div>
+                            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                            <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone Z (was Zone 4) - Eco Farm -->
+                <div id="zone5" class="tab-content">
+                    <div class="zone-card">
+                        <div class="zone-info">
+                            <div class="zone-letter">Z</div>
+                            <h3>Zone Z - Zen Herbal & Fragrance Garden</h3>
+                            <p>A contemplative green sanctuary featuring herbal landscapes, fragrance gardens, camping
+                                grounds and a gallery, celebrating biodiversity,</p>
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-track" data-index="0">
+                                <img src="images/Z/Picture2.jpg" class="carousel-slide" alt="Zone Z - View 1">
+                                <img src="images/Z/Picture6.jpg" class="carousel-slide" alt="Zone Z - View 2">
+                                <img src="images/Z/Picture7.jpg" class="carousel-slide" alt="Zone Z - View 3">
+                                <img src="images/Z/Picture8.jpg" class="carousel-slide" alt="Zone Z - View 4">
+                                <img src="images/Z/Picture9.jpg" class="carousel-slide" alt="Zone Z - View 5">
+                                <img src="images/Z/Picture10.jpg" class="carousel-slide" alt="Zone Z - View 6">
+                                <img src="images/Z/Picture11.jpg" class="carousel-slide" alt="Zone Z - View 7">
+                                <img src="images/Z/Picture12.jpg" class="carousel-slide" alt="Zone Z - View 8">
+                                <img src="images/Z/Picture13.jpg" class="carousel-slide" alt="Zone Z - View 9">
+                                <img src="images/Z/Picture14.jpg" class="carousel-slide" alt="Zone Z - View 10">
+                                <img src="images/Z/Picture15.jpg" class="carousel-slide" alt="Zone Z - View 11">
+                                <img src="images/Z/Picture16.jpg" class="carousel-slide" alt="Zone Z - View 12">
+                                <img src="images/Z/Picture17.jpg" class="carousel-slide" alt="Zone Z - View 13">
+                                <img src="images/Z/Picture18.jpg" class="carousel-slide" alt="Zone Z - View 14">
+                                <img src="images/Z/Picture19.jpg" class="carousel-slide" alt="Zone Z - View 15">
+                                <img src="images/Z/Picture20.jpg" class="carousel-slide" alt="Zone Z - View 16">
+                                <img src="images/Z/Picture21.jpg" class="carousel-slide" alt="Zone Z - View 17">
+                                <img src="images/Z/Picture22.jpg" class="carousel-slide" alt="Zone Z - View 18">
+                                <img src="images/Z/Picture23.jpg" class="carousel-slide" alt="Zone Z - View 19">
+                                <img src="images/Z/Picture24.jpg" class="carousel-slide" alt="Zone Z - View 20">
+                                <img src="images/Z/Picture25.jpg" class="carousel-slide" alt="Zone Z - View 21">
+                                <img src="images/Z/Picture26.jpg" class="carousel-slide" alt="Zone Z - View 22">
+                                <img src="images/Z/Picture27.jpg" class="carousel-slide" alt="Zone Z - View 23">
+                            </div>
+                            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                            <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="section-padding">
+        <div class="container text-center reveal">
+            <h2 style="margin-bottom: 40px;">Location</h2>
+            <div style="display: flex; flex-direction: column; gap: 40px; align-items: center;">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-02-at-10.21.08-AM-mm8k01c234t8.webp"
+                    alt="Location Map 1" style="max-width: 100%; border-radius: 12px; box-shadow: var(--shadow-soft);">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-02-at-10.21.12-AM-mm8k07ima50g.webp"
+                    alt="Location Map 2" style="max-width: 100%; border-radius: 12px; box-shadow: var(--shadow-soft);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Statement -->
+    <section class="section-padding bg-dark text-center">
+        <div class="container reveal">
+            <h2 class="text-gold" style="font-size: 2.5rem; margin-bottom: 20px;">P'Maveraz</h2>
+            <p style="font-size: 1.5rem; max-width: 900px; margin: 0 auto; line-height: 1.4;">
+                The Green Community Development That Fosters Vitality, Emergence And Sustainable Living, Where Life Is
+                Inspired To Spring Forth In Harmony With Nature.
+            </p>
+        </div>
+    </section>
+
+
+
+    <section class="section-padding bg-offwhite">
+        <div class="container reveal">
+            <div class="dev-profile">
+                <h5 style="text-transform: uppercase; color: #888; letter-spacing: 1px; margin-bottom: 10px;">The
+                    Developer</h5>
+                <h3>DSA Development Sdn Bhd</h3>
+                <p style="margin-bottom: 20px;">Led by Mr. Ghee Peng Lam, Founder & Managing Director.</p>
+
+                <p style="color: #555; margin-bottom: 10px;">
+                    With over 40 years of experience, including key roles in the <strong>Genting Group property
+                        division</strong> (1980s) involving the Awana Golf & Country Club and casino extension.
+                </p>
+                <p style="color: #555; font-size: 0.9rem;">
+                    <strong>Track Record:</strong> Wisma Zelan (KL), Bandar Utama Sunway Luxury Bungalows, Taman Raub
+                    Jaya 5, and townships in Bukit Desa Semantan.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <div class="lightbox" id="lightbox">
+        <span class="lb-close" onclick="closeLightbox()">&times;</span>
+        <div class="lb-nav lb-prev" onclick="changeImage(-1)">&#10094;</div>
+        <div class="lb-nav lb-next" onclick="changeImage(1)">&#10095;</div>
+        <img id="lightbox-img" src="" alt="Full view">
+    </div>
+
+    <section class="section-padding bg-offwhite">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="text-center" style="margin-bottom: 40px;">Frequently Asked Questions</h2>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    What is the LOHAS concept?
+                    <span class="icon-plus">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>LOHAS stands for "Lifestyles of Health and Sustainability." The Richz is designed for a
+                        3-generation community to live, work, learn, and play in a nature-centric environment.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    What is the tenure and land size?
+                    <span class="icon-plus">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>The Richz sits on 41 acres of freehold land in East Genting Highlands.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    How far is the development from KL?
+                    <span class="icon-plus">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>It is approximately 45 minutes from Kuala Lumpur City Center and 25 minutes from the Gombak Toll.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    Tell me about the Hot Spring.
+                    <span class="icon-plus">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>We possess natural hot spring aquifers measured at 45°C, tested as Class 1 category, which are
+                        integrated into our hotels and wellness villas.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    When is the ECRL completion?
+                    <span class="icon-plus">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>The ECRL station, located ~2km away, is expected to be completed by the end of 2026.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding text-center"
+        style="background: url('https://reputifly.com/wp-content/uploads/2026/01/Garden-CD1-1-scaled.jpg') center/cover; position: relative;">
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(26,26,26,0.85);"></div>
+        <div class="container reveal" style="position: relative; z-index: 2; color: #fff;">
+            <div class="flex gap-4 justify-center flex-wrap" style="gap: 15px; justify-content: center;">
+                <a href="#contact" class="btn btn-primary">Book a Site Visit</a>
+                <a href="#contact" class="btn btn-outline">Request Brochure</a>
+            </div>
+            <ul
+                style="display: flex; gap: 20px; justify-content: center; margin-top: 30px; font-size: 0.8rem; opacity: 0.7;">
+                <li>Confidential Enquiry</li>
+                <li>Responsive Team</li>
+                <li>Site Visit Scheduling</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="form-box reveal">
+                <div class="text-center" style="margin-bottom: 30px;">
+                    <h3>Make an Enquiry</h3>
+                    <p style="font-size: 0.9rem; color: #666;">Please fill out the form below.</p>
+                </div>
+
+                <div id="successMessage" class="success-msg">
+                    Thank you! Your enquiry has been received. Our team will contact you shortly.
+                </div>
+
+                <form id="enquiryForm" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label class="form-label"
+                            style="display: block; margin-bottom: 8px; font-weight: 500;">Name</label>
+                        <input type="text" class="form-control" name="name" required placeholder="Your Full Name">
+                    </div>
+
+                    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label class="form-label"
+                                style="display: block; margin-bottom: 8px; font-weight: 500;">Email</label>
+                            <input type="email" class="form-control" name="email" required
+                                placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"
+                                style="display: block; margin-bottom: 8px; font-weight: 500;">Phone</label>
+                            <input type="tel" class="form-control" name="phone" required placeholder="+60 12 345 6789">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"
+                            style="display: block; margin-bottom: 8px; font-weight: 500;">Interest</label>
+                        <select class="form-control" name="interest">
+                            <option value="Brochure">Request Brochure</option>
+                            <option value="Site Visit">Book a Site Visit</option>
+                            <option value="Investor">Investor Enquiry</option>
+                            <option value="Education">Education Hub</option>
+                            <option value="Wellness Villas">Wellness Villas</option>
+                            <option value="Corporate">Corporate / Bulk</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"
+                            style="display: block; margin-bottom: 8px; font-weight: 500;">Message</label>
+                        <textarea class="form-control" name="message" rows="4"
+                            placeholder="How can we help you?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-check">
+                            <input type="checkbox" required>
+                            <span>I agree to be contacted regarding my enquiry.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Enquiry</button>
+                    <p style="text-align: center; font-size: 0.75rem; color: #999; margin-top: 15px;">This form is for
+                        enquiry purposes only.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="https://reputifly.com/wp-content/uploads/2026/01/Screenshot_2026-01-29_202549-removebg-preview.png"
+                        alt="The Richz Logo"
+                        style="width: 140px; border-radius: 12px; margin-bottom: 20px; background-color: white; padding: 10px;">
+                    <p style="opacity: 0.5; font-size: 0.8rem;">Developed by DSA Development Sdn Bhd.</p>
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#masterplan">Masterplan</a></li>
+                        <li><a href="#location">Location</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#contact">Brochure Request</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+                <p style="opacity: 0.5; font-size: 0.8rem;">&copy; 2026 DSA Development Sdn Bhd. All rights reserved.
+                    <span style="margin: 0 10px;">|</span> Website Design by <a
+                        href="https://reputifly.com/web-development" target="_blank" rel="dofollow"
+                        style="color: inherit; text-decoration: underline;">Reputifly</a>
+                </p>
+                <button onclick="window.scrollTo(0,0)" class="btn btn-outline-dark"
+                    style="border-color: rgba(255,255,255,0.3); color: #fff; padding: 5px 15px; font-size: 0.8rem;">Back
+                    to Top</button>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Immersive Modal -->
+    <div id="immersive-modal" class="immersive-modal">
+        <div class="immersive-actions">
+            <!-- Zoom Controls -->
+            <div class="zoom-controls">
+                <button onclick="adjustZoom(-5)" title="Zoom Out">-</button>
+                <button onclick="adjustZoom(5)" title="Zoom In">+</button>
+            </div>
+            <button class="close-immersive" onclick="closeImmersive()">CLOSE ✕</button>
+        </div>
+
+        <div class="landscape-overlay" id="landscapeOverlay">
+            <div class="rotate-icon">⟳</div>
+            <h3>Please Rotate Your Device</h3>
+            <p>For the best immersive experience, switch to landscape mode.</p>
+        </div>
+
+        <div class="immersive-ui">
+            <h1>VISIONARY</h1>
+            <p>Interactive 3D Horizon</p>
+        </div>
+
+        <div id="immersive-loader">LOADING ASSETS...</div>
+        <div id="immersive-canvas"></div>
+    </div>
+
+    <script>
+        // --- Sticky Header & Parallax ---
+        const header = document.getElementById('header');
+        const heroBg = document.getElementById('heroBg');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+
+            // Sticky Header
+            if (scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Simple Parallax
+            if (heroBg) {
+                heroBg.style.transform = `translateY(${scrollY * 0.4}px)`;
+            }
+        });
+
+        // --- Mobile Menu ---
+        const hamburger = document.getElementById('hamburger');
+        const drawer = document.getElementById('mobileDrawer');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        hamburger.addEventListener('click', () => {
+            drawer.classList.toggle('open');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                drawer.classList.remove('open');
+            });
+        });
+
+        // --- Scroll Reveal ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: Stop observing once revealed
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // --- IMMERSIVE EXPERIENCE LOGIC ---
+        const immersiveModal = document.getElementById('immersive-modal');
+        const immersiveCanvas = document.getElementById('immersive-canvas');
+        const immersiveLoader = document.getElementById('immersive-loader');
+        let scene, camera, renderer, mesh;
+        let isImmersiveInit = false;
+        let animationId;
+
+        // Config
+        const CONFIG = {
+            imagePath: 'hero-image.jpg',
+            fov: 60,
+            curveRadius: 15,
+            mouseSpeed: 0.08,
+            maxVerticalLook: 5
+        };
+
+        function openImmersive() {
+            immersiveModal.classList.add('active');
+            if (!isImmersiveInit) {
+                initThreeJS();
+                isImmersiveInit = true;
+            }
+            animateImmersive();
+            checkOrientation();
+        }
+
+        function closeImmersive() {
+            immersiveModal.classList.remove('active');
+            cancelAnimationFrame(animationId);
+        }
+
+        function initThreeJS() {
+            // Scene Setup
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(CONFIG.fov, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            immersiveCanvas.appendChild(renderer.domElement);
+
+            // Load Texture
+            const loader = new THREE.TextureLoader();
+            loader.load(CONFIG.imagePath, (texture) => {
+                immersiveLoader.style.opacity = 0;
+
+                const imgAspect = texture.image.width / texture.image.height;
+                const vFOV = THREE.Math.degToRad(CONFIG.fov);
+                // Calculate geometry
+                const visibleHeight = 2 * CONFIG.curveRadius * Math.tan(vFOV / 2);
+                const planeHeight = visibleHeight * 1.1;
+                const planeWidth = planeHeight * imgAspect;
+                const arcAngle = planeWidth / CONFIG.curveRadius;
+
+                const geometry = new THREE.CylinderGeometry(
+                    CONFIG.curveRadius, CONFIG.curveRadius, planeHeight, 60, 1, true, -arcAngle / 2, arcAngle
+                );
+                geometry.scale(-1, 1, 1); // Invert
+
+                const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+                mesh = new THREE.Mesh(geometry, material);
+                mesh.rotation.y = Math.PI;
+                scene.add(mesh);
+
+                // Calculate Limits
+                const horizontalFOV = vFOV * camera.aspect;
+                limitY = (arcAngle - horizontalFOV) / 2;
+                if (limitY < 0) limitY = 0;
+                limitX = THREE.Math.degToRad(CONFIG.maxVerticalLook);
+
+            }, undefined, () => {
+                immersiveLoader.innerText = "FAILED TO LOAD IMAGE";
+            });
+
+            camera.position.set(0, 0, 0);
+
+            // Resize Handler
+            window.addEventListener('resize', onWindowResize);
+        }
+
+        function onWindowResize() {
+            if (!camera || !renderer) return;
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            checkOrientation();
+        }
+
+        // Interaction State
+        let mouseX = 0, mouseY = 0;
+        let currentRotX = 0, currentRotY = 0;
+        let limitX = 0, limitY = 0;
+
+        // Mouse Events
+        document.addEventListener('mousemove', (e) => {
+            if (!immersiveModal.classList.contains('active')) return;
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+        });
+
+        // Touch Events (Mobile Panning)
+        let touchStartX = 0, touchStartY = 0;
+        document.addEventListener('touchstart', (e) => {
+            if (!immersiveModal.classList.contains('active')) return;
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!immersiveModal.classList.contains('active')) return;
+            // Prevent scrolling
+            e.preventDefault();
+
+            const touchX = e.touches[0].clientX;
+            const touchY = e.touches[0].clientY;
+
+            // Calculate delta and update "mouse" equivalent
+            // We'll use relative movement for touch
+            const deltaX = (touchX - touchStartX) / window.innerWidth;
+            const deltaY = (touchY - touchStartY) / window.innerHeight;
+
+            // Sensitivity
+            mouseX -= deltaX * 2.0;
+            mouseY -= deltaY * 2.0;
+
+            // Clamp for safety
+            mouseX = Math.max(-1, Math.min(1, mouseX));
+            mouseY = Math.max(-1, Math.min(1, mouseY));
+
+            touchStartX = touchX;
+            touchStartY = touchY;
+        });
+
+        // Animation Loop
+        function animateImmersive() {
+            animationId = requestAnimationFrame(animateImmersive);
+
+            if (mesh) {
+                const targetRotY = mouseX * limitY;
+                const targetRotX = mouseY * limitX;
+
+                currentRotY += (targetRotY - currentRotY) * CONFIG.mouseSpeed;
+                currentRotX += (targetRotX - currentRotX) * CONFIG.mouseSpeed;
+
+                camera.rotation.y = -currentRotY;
+                camera.rotation.x = -currentRotX;
+            }
+            if (renderer && scene && camera) {
+                renderer.render(scene, camera);
+            }
+        }
+
+        // Zoom Controls
+        window.adjustZoom = function (delta) {
+            if (!camera) return;
+            const newFov = camera.fov - delta;
+            // Clamp FOV
+            if (newFov >= 20 && newFov <= 100) {
+                camera.fov = newFov;
+                camera.updateProjectionMatrix();
+            }
+        };
+
+        // Landscape Check
+        function checkOrientation() {
+            const overlay = document.getElementById('landscapeOverlay');
+            // If mobile width < 900 and height > width -> Portrait
+            if (window.innerWidth < 900 && window.innerHeight > window.innerWidth) {
+                overlay.classList.add('active');
+            } else {
+                overlay.classList.remove('active');
+            }
+        }
+
+        // --- Stats Counter ---
+        const statsGrid = document.getElementById('statsGrid');
+        let hasCounted = false;
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !hasCounted) {
+                hasCounted = true;
+                const counters = document.querySelectorAll('.stat-val[data-target]');
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const isFloat = target % 1 !== 0;
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+
+                    let current = 0;
+                    const updateCount = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.innerText = isFloat ? current.toFixed(1) : Math.ceil(current);
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            }
+        });
+        if (statsGrid) statsObserver.observe(statsGrid);
+
+        // --- Tabs ---
+        function openTab(evt, tabName) {
+            const tabContent = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+                tabContent[i].classList.remove("active");
+            }
+            const tabLinks = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove("active");
+            }
+            const activeContent = document.getElementById(tabName);
+            activeContent.style.display = "block";
+            // slight delay to trigger CSS fade in
+            setTimeout(() => activeContent.classList.add("active"), 10);
+            evt.currentTarget.classList.add("active");
+        }
+
+        // --- Accordion ---
+        function toggleAccordion(button) {
+            button.classList.toggle('active');
+            const content = button.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+
+        // --- Gallery Lightbox ---
+        const galleryImages = [
+            "https://reputifly.com/wp-content/uploads/2026/01/Aerial-View-CD1-1-scaled.jpg",
+            "https://reputifly.com/wp-content/uploads/2026/01/Front-View-CD1-1-scaled.jpg",
+            "https://reputifly.com/wp-content/uploads/2026/01/Phase2-CD1-2-1-scaled.jpg",
+            "https://reputifly.com/wp-content/uploads/2026/01/Garden-CD1-1-scaled.jpg",
+            "https://reputifly.com/wp-content/uploads/2026/01/pool-CD1-1-scaled.jpg",
+            "https://reputifly.com/wp-content/uploads/2026/01/Rooftop-CD1-1-scaled.jpg"
+        ];
+        let currentImgIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(index) {
+            currentImgIndex = index;
+            lightboxImg.src = galleryImages[index];
+            lightbox.classList.add('open');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+        }
+
+        function changeImage(dir) {
+            currentImgIndex += dir;
+            if (currentImgIndex >= galleryImages.length) currentImgIndex = 0;
+            if (currentImgIndex < 0) currentImgIndex = galleryImages.length - 1;
+            lightboxImg.src = galleryImages[currentImgIndex];
+        }
+
+        // Keyboard nav for lightbox
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') changeImage(1);
+            if (e.key === 'ArrowLeft') changeImage(-1);
+        });
+
+        // --- Form Handling ---
+        function submitForm(e) {
+            e.preventDefault();
+            const form = e.target;
+
+            // Basic console simulation
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            console.log('Form Submitted Payload:', data);
+
+            // UI Feedback
+            form.reset();
+            const successMsg = document.getElementById('successMessage');
+            successMsg.style.display = 'block';
+
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 5000);
+        }
+
+        // --- Hero Reveal ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroContent = document.getElementById('heroContent');
+            // Small delay for smooth entry
+            if (heroContent) {
+                setTimeout(() => {
+                    heroContent.classList.add('visible');
+                }, 300);
+            }
+        });
+
+        // --- Carousel Logic ---
+        function moveSlide(button, direction) {
+            const container = button.closest('.carousel-container');
+            const track = container.querySelector('.carousel-track');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const totalSlides = slides.length;
+
+            let currentIndex = parseInt(track.dataset.index || 0);
+
+            // Calculate new index with wrapping
+            let newIndex = currentIndex + direction;
+            if (newIndex < 0) {
+                newIndex = totalSlides - 1;
+            } else if (newIndex >= totalSlides) {
+                newIndex = 0;
+            }
+
+            // Update state
+            track.dataset.index = newIndex;
+
+            // Move track
+            track.style.transform = `translateX(-${newIndex * 100}%)`;
+        }
+
+    </script>
+</body>
+
+</html>
