@@ -1,0 +1,37 @@
+{
+  "colors": {
+    "primary": "#0690b0",
+    "accent": "#0590b1",
+    "background": "#ffffff",
+    "text": "#0b0a14",
+    "gradients": {
+      "primary": null,
+      "accent": null,
+      "bg": "linear-gradient(135deg, #ffffff 0%, #e8e4e3 100%)",
+      "text": null
+    },
+    "gradientDetails": {
+      "bg": {
+        "start": "#ffffff",
+        "end": "#e8e4e3"
+      }
+    }
+  },
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter"
+  },
+  "ui": {
+    "radius": "24px",
+    "shadow": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+    "glass": "blur(12px)"
+  },
+  "semantic": {
+    "surface": "#fafafa",
+    "border": "#e6e6e6",
+    "mutedText": "#08070e",
+    "primaryHover": "#000000",
+    "onPrimary": "#ffffff",
+    "focusRing": "#83c8d8"
+  }
+}
