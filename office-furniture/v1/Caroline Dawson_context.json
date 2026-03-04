@@ -1,0 +1,114 @@
+{
+  "project": "Caroline Dawson",
+  "domain": "juliant76.sg-host.com",
+  "structure": [
+    {
+      "page": "Home",
+      "sections": [
+        {
+          "name": "Hero Section",
+          "purpose": "Developing Leaders. Strengthening Communication. Elevating Performance."
+        },
+        {
+          "name": "About Caroline Dawson",
+          "purpose": "A warm greeting and brief overview of Caroline's professional profile and the value she offers."
+        },
+        {
+          "name": "Featured Portfolio Highlights",
+          "purpose": "A curated showcase of Caroline's best work across different disciplines to demonstrate her capabilities."
+        },
+        {
+          "name": "Professional Services",
+          "purpose": "A concise summary of the key professional services offered, including her unique courses."
+        },
+        {
+          "name": "National Alignment",
+          "purpose": "Quotes from satisfied clients to build trust and demonstrate positive client experiences."
+        },
+        {
+          "name": "Our Value Proposition",
+          "purpose": "Prominent buttons guiding visitors to explore services, view the full portfolio, or make direct contact."
+        },
+        {
+          "name": "Awards & Accolades",
+          "purpose": ""
+        },
+        {
+          "name": "Brands We Work With",
+          "purpose": ""
+        },
+        {
+          "name": "What Our Partners Say",
+          "purpose": ""
+        },
+        {
+          "name": "Contact Form",
+          "purpose": ""
+        }
+      ]
+    },
+    {
+      "page": "About",
+      "sections": [
+        {
+          "name": "More Than a Coach.",
+          "purpose": "An engaging header introducing Caroline Dawson's personal brand, mission, and professional approach."
+        },
+        {
+          "name": "From Vision to Reality",
+          "purpose": "A detailed narrative outlining Caroline's professional background, passions, and career path."
+        },
+        {
+          "name": "My Philosophy",
+          "purpose": "An articulation of the core principles and beliefs that guide Caroline's work and client interactions."
+        },
+        {
+          "name": "Skills & Expertise",
+          "purpose": "A clear listing of Caroline's professional abilities, tools, and areas of specialization."
+        },
+        {
+          "name": "Experience & Credentials",
+          "purpose": "Highlights of Caroline's education, certifications, and significant professional accomplishments."
+        },
+        {
+          "name": "Ready to Make an Impact?",
+          "purpose": "A final encouragement for potential clients to reach out and discuss collaboration opportunities."
+        }
+      ]
+    },
+    {
+      "page": "Services",
+      "sections": [
+        {
+          "name": "Services Cards",
+          "purpose": "A collection of each service to be displayed in this section with prominent call to actions"
+        },
+        {
+          "name": "Client Impact",
+          "purpose": "A carousel or reviews OR A list of case studies"
+        },
+        {
+          "name": "The Process",
+          "purpose": "An explanation of Caroline's typical workflow and how she collaborates with clients from start to finish."
+        }
+      ]
+    },
+    {
+      "page": "Contact",
+      "sections": [
+        {
+          "name": "Let's Start a Conversation",
+          "purpose": "Whether you have a specific project in mind or just want to explore possibilities, we are here to listen and lead the way."
+        },
+        {
+          "name": "Contact Details",
+          "purpose": "Email / Call Us Section"
+        },
+        {
+          "name": "Contact Form",
+          "purpose": "A direct and user-friendly form for visitors to send messages and detailed inquiries."
+        }
+      ]
+    }
+  ]
+}
