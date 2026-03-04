@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarePro - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- 1. CORE VARIABLES --- */
+        :root {
+            --brand-primary: #0060c9;
+            --brand-dark: #004b9e;
+            --brand-accent: #0ea5e9;
+            --text-main: #0f172a;
+            --text-sub: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+
+            /* Design Language: Force Rounded */
+            --radius-xl: 32px;  
+            --radius-lg: 24px;  
+            --radius-btn: 100px;
+            
+            /* Shadows */
+            --shadow-float: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --shadow-card: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            overflow-x: hidden; /* Prevent horizontal scroll on body */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { max-width: 100%; height: auto; display: block; object-fit: cover; }
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- 2. HERO SECTION --- */
+        .hero {
+            background-color: var(--brand-primary);
+            background-image: radial-gradient( circle at 100% 100%, rgba(255,255,255,0.1) 0%, transparent 20% );
+            color: var(--white);
+            padding: 100px 0 100px 0; /* Adjusted padding since we removed the overlapping bridge */
+            /* ORIGINAL DIVIDER: Rounded Corners */
+            border-bottom-left-radius: var(--radius-xl);
+            border-bottom-right-radius: var(--radius-xl);
+            position: relative;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: var(--radius-btn);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn:hover { transform: translateY(-2px); }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--brand-primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-visual .hero-img-frame {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-float);
+            border: 6px solid rgba(255,255,255,0.2);
+        }
+
+        /* --- 3. METRICS SECTION (UPDATED with Screenshot Look) --- */
+        .metrics-section {
+            background-color: var(--bg-light);
+            padding: 60px 0 60px 0; /* Padding to separate from the rounded hero */
+            position: relative;
+        }
+
+        .metrics-wrapper {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .metric-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 5px;
+        }
+
+        .metric-number {
+            font-size: 3.5rem;
+            font-weight: 500;
+            color: #333;
+            line-height: 1;
+        }
+
+        .metric-icon {
+            font-size: 2.5rem;
+            color: #333;
+            font-weight: 300;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2f3e46;
+            letter-spacing: -0.5px;
+        }
+
+        /* --- 4. BENTO GRID SERVICES --- */
+        .section-header { text-align: center; margin-bottom: 3rem; margin-top: 1rem; }
+        .section-title { font-size: 2.2rem; color: var(--text-main); font-weight: 700; margin-bottom: 0.5rem; }
+        .section-desc { color: var(--text-sub); }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 Columns Desktop */
+            gap: 24px;
+            padding-bottom: 2rem;
+        }
+
+        .bento-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            min-height: 240px;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-float);
+            border-color: rgba(0, 96, 201, 0.1);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            color: var(--brand-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .card-content h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main); }
+        .card-content p { color: var(--text-sub); font-size: 0.95rem; line-height: 1.5; }
+        
+        .card-link { 
+            margin-top: 20px; 
+            font-weight: 700; 
+            color: var(--brand-primary); 
+            display: flex; 
+            align-items: center; 
+            gap: 5px; 
+        }
+
+        .bento-large {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #0060c9 0%, #004b9e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bento-large .card-content h3 { color: #ffffff !important; font-size: 1.8rem; }
+        .bento-large .card-content p { color: rgba(255,255,255,0.95) !important; font-size: 1.05rem; max-width: 90%; }
+        .bento-large .card-icon { background: rgba(255,255,255,0.2) !important; color: #ffffff !important; }
+
+        /* --- 5. FEATURE SECTION --- */
+        .feature-container { margin: 60px auto 100px auto; }
+        
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            box-shadow: var(--shadow-card);
+        }
+
+        .feature-list { display: flex; flex-direction: column; gap: 15px; margin: 2rem 0; }
+        .feature-item { display: flex; align-items: center; gap: 15px; font-weight: 500; color: var(--text-main); }
+        .check-icon { color: var(--brand-primary); font-size: 1.2rem; }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 992px) {
+            .hero-layout { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+            .hero-content { order: 1; }
+            .hero-visual { order: 2; margin-top: 0; }
+            
+            /* Metrics Stack for Mobile */
+            .metrics-wrapper { flex-direction: column; gap: 40px; }
+            .metric-item { width: 100%; }
+
+            .bento-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding-bottom: 0;
+            }
+
+            .bento-card { width: 100%; min-width: 0; min-height: auto; }
+            .bento-large { grid-column: auto; }
+
+            .feature-card { grid-template-columns: 1fr; padding: 30px; text-align: left; }
+            .feature-card img { order: -1; margin-bottom: 20px; border-radius: var(--radius-lg); width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding-bottom: 60px; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .feature-card { padding: 25px; }
+            .btn { width: 100%; justify-content: center; }
+            
+            .metric-number { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container hero-layout">
+            <div class="hero-content">
+                <div style="margin-bottom: 1rem;">
+                    <span style="background: rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px; text-transform:uppercase;">Award Winning Agency</span>
+                </div>
+                <h1>Trusted Care Begins With A Dedicated Search</h1>
+                <p>Every home has different needs. We believe in pairing the right domestic helper with the right home.</p>
+                <a href="/maid-search/" class="btn btn-white">
+                    Find A Helper <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="hero-img-frame">
+                    <img src="https://farepromaids.com/wp-content/uploads/2026/02/pasted-image-1770972251235.webp" alt="Family">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="metrics-section" id="metrics">
+        <div class="container metrics-wrapper">
+            <div class="metric-item">
+                <div class="metric-top">
+                    <span class="metric-number" data-target="5217">0</span>
+                    <i class="far fa-heart metric-icon"></i>
+                </div>
+                <span class="metric-label">Happy Customers</span>
+            </div>
+
+            <div class="metric-item">
+                <div class="metric-top">
+                    <span class="metric-number" data-target="7">0</span>
+                    <i class="fas fa-certificate metric-icon"></i>
+                </div>
+                <span class="metric-label">Accreditation</span>
+            </div>
+
+            <div class="metric-item">
+                <div class="metric-top">
+                    <span class="metric-number" data-target="735">0</span>
+                    <i class="fas fa-user-nurse metric-icon"></i>
+                </div>
+                <span class="metric-label">Featured Maids</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="container">
+        <div class="section-header">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-desc">Comprehensive solutions for your household needs.</p>
+        </div>
+
+        <div class="bento-grid">
+            <div class="bento-card bento-large">
+                <div class="card-content">
+                    <div class="card-icon"><i class="fas fa-user-nurse"></i></div>
+                    <h3>Domestic Helpers</h3>
+                    <p>Find your perfect match. Browse our extensive list of candidates from Indonesia, Myanmar, Mizoram, and the Philippines.</p>
+                </div>
+                <a href="/domestic-helpers/" class="btn btn-white" style="align-self: flex-start; margin-top: 20px; color: var(--brand-primary);">
+                    Find Your Match
+                </a>
+            </div>
+
+            <div class="bento-card">
+                <div class="card-content">
+                    <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+                    <h3>Work Permit Renewal</h3>
+                    <p>We handle all MOM documentation and processing for you.</p>
+                </div>
+                <a href="/work-permit-renewal/" class="card-link">Learn More &rarr;</a>
+            </div>
+
+            <div class="bento-card">
+                <div class="card-content">
+                    <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>Training School</h3>
+                    <p>In-house training for elderly care, infant care, and household chores.</p>
+                </div>
+                <a href="/domestic-helper-training/" class="card-link">Learn More &rarr;</a>
+            </div>
+
+            <div class="bento-card">
+                <div class="card-content">
+                    <div class="card-icon"><i class="fas fa-bus-alt"></i></div>
+                    <h3>Maid Transport</h3>
+                    <p>Safe and reliable shuttle services for your helper's arrival and departure.</p>
+                </div>
+                <a href="/maid-transport/" class="card-link">Learn More &rarr;</a>
+            </div>
+
+            <div class="bento-card">
+                <div class="card-content">
+                    <div class="card-icon"><i class="fas fa-bed"></i></div>
+                    <h3>Approved Lodging</h3>
+                    <p>Clean and secure temporary accommodation facilities.</p>
+                </div>
+                <a href="/approved-maid-lodging/" class="card-link">Learn More &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container feature-container">
+        <div class="feature-card">
+            <div class="feature-img">
+                <img src="https://farepromaids.com/wp-content/uploads/2026/02/pasted-image-1770974205961.webp" alt="Why Choose Us">
+            </div>
+            <div class="feature-text">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-main); font-weight: 700;">Why Choose FarePro?</h2>
+                <p style="color: var(--text-sub);">FarePro combines years of experience with an extensive pool of domestic helpers. We ensure every helper is fully equipped to take care of your family's needs.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle check-icon"></i>
+                        <span>Thorough Screening Process</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle check-icon"></i>
+                        <span>Successful Employment Relationships</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle check-icon"></i>
+                        <span>Comprehensive Training</span>
+                    </div>
+                </div>
+
+                <a href="/about-us/" class="btn" style="background: var(--brand-primary); color: white;">
+                    Find Out More
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const counters = document.querySelectorAll('.metric-number');
+        const speed = 200; 
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText.replace(/,/g, ''); 
+                    
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc).toLocaleString();
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.disconnect(); 
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.metrics-section'));
+    </script>
+</body>
+</html>
