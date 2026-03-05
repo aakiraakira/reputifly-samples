@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Everyday Skin | Lash & Brow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <style>
+        /* --- FORCE OVERRIDES FOR WORDPRESS --- */
+        /* Ensures the search input and header don't get messed up by theme defaults */
+        header#masthead,
+        .site-header,
+        .site-branding,
+        .wp-block-site-title {
+            display: none !important;
+        }
+
+        :root {
+            /* --- PALETTE --- */
+            --bg-body: #F3F0EB;
+            /* Warm Nude */
+            --bg-card: #FFFFFF;
+            /* Clean White */
+
+            --text-dark: #1F1F1F;
+            --text-muted: #595959;
+            --accent-green: #7E8961;
+            /* TES Forest */
+            --accent-hover: #4F483F;
+            /* TES Latte */
+            --accent-light: #8FA18A;
+
+            /* --- TYPOGRAPHY --- */
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Anonymous Pro', monospace;
+
+            /* --- UI ELEMENTS --- */
+            --radius-card: 20px;
+            --radius-btn: 50px;
+            --container-width: 1000px;
+
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-head);
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        /* --- 1. HEADER --- */
+        .hero-header {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Using a generic aesthetic image consistent with the brand */
+            background-image: url('https://theeverydayskin.com.sg/wp-content/uploads/2026/01/Image-website-desktop.png');
+            background-size: cover;
+            background-position: center 30%;
+            /* Shifted slightly */
+            z-index: 1;
+            filter: brightness(0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* --- SEARCH FIX START --- */
+        .hero-search-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        /* Updated with !important overrides to prevent WP theme interference */
+        .hero-search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+
+            /* FIXED PADDING AND HEIGHT */
+            padding: 12px 20px 12px 50px !important;
+            /* Left padding ensures text clears icon */
+            line-height: normal !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+
+            color: #fff;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .hero-search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-search-input:focus {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #fff;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            opacity: 0.7;
+            stroke: #fff;
+            pointer-events: none;
+            /* Ensures clicks pass through to input */
+            z-index: 10;
+        }
+
+        /* --- SEARCH FIX END --- */
+
+        /* --- 2. MAIN CONTENT --- */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        .section-sub {
+            font-family: var(--font-mono);
+            color: var(--accent-green);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- 3. CARDS --- */
+        .treatment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-img-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: #e0e0e0;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .card-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header-row {
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Pricing Block */
+        .pricing-block {
+            background: #F8F7F4;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            margin-top: auto;
+            /* Pushes to bottom if text is short */
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+
+        .p-time {
+            color: var(--text-muted);
+        }
+
+        .p-cost {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-dark);
+            color: var(--text-dark);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-dark);
+            color: #fff;
+        }
+
+        .btn-solid {
+            background: var(--accent-green);
+            color: #fff;
+            border: 1px solid var(--accent-green);
+        }
+
+        .btn-solid:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(126, 137, 97, 0.3);
+        }
+
+
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            display: none;
+            grid-column: 1 / -1;
+        }
+
+        
+        /* --- INCLUSIONS TOGGLE --- */
+        details.tes-svc-includes {
+            margin-bottom: 20px;
+            border-top: 1px dashed rgba(0, 0, 0, 0.1);
+            padding-top: 15px;
+        }
+
+        details.tes-svc-includes summary {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            list-style: none;
+            outline: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        details.tes-svc-includes summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.tes-svc-includes summary::after {
+            content: '+';
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        details.tes-svc-includes[open] summary::after {
+            content: '-';
+        }
+
+        .tes-includes-list {
+            margin: 15px 0 0 0;
+            padding: 0 0 0 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-left: 2px solid rgba(74, 93, 68, 0.2);
+        }
+
+        .tes-includes-list li {
+            list-style: none;
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+        .tes-includes-list li::before {
+            content: '\2022';
+            position: absolute;
+            left: -12px;
+            color: var(--accent-green);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-header {
+                height: 50vh;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .treatment-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .btn-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero-header">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">The Everyday Skin</span>
+            <h1 class="hero-title">Everyday<br>Lash & Brow</h1>
+            <p class="hero-desc">Premium lash lifts and brow laminations to enhance what you already have.</p>
+
+            <div class="hero-search-wrap">
+                <input type="text" id="searchInput" class="hero-search-input" placeholder="Search treatments..."
+                    style="padding-left: 50px !important;">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <section id="cat-lash" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">Lash & Brow Menu</h2>
+                <span class="section-sub">Healthy Definition</span>
+            </div>
+
+            <div class="treatment-grid">
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <span class="tag">Most Popular</span>
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/screenshot-2026-01-09-at-10.png"
+                            alt="Elleebana Lash Lift" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="card-title">Elleebana Lash Lift, Tint & Nourish</h3>
+                        </div>
+                        <p class="card-desc">
+                            A premium lash lift using Elleebana products to enhance natural lashes with lift, curl and definition. A lash lift works with your natural lashes to create a luscious semi-permanent curl that will last between 6-8 weeks, depending on your lash growth. Our Lash Lifts uses the Elleebana Profusion system from Australia – utilises a cysteamine HCL active and contains no thioglycolate which allows for a gentle and effective lash lift. Profusion minimises the chance of over processing, keeps lashes healthy and maintains the bond integrity of the lash. This system works extremely well on clients who have very thin and brittle lashes. Perfect for us, Asian girlies!
+                        </p>
+
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Lash Bubble Cleanse</li>
+                                <li>Softening of lashes</li>
+                                <li>Setting of lashes</li>
+                                <li>Lash Nourishment</li>
+                                <li>Lash Tint</li>
+                                <li>Finishing Lash Serum</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span class="p-cost">$88</span>
+                            </div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Elleebana%20Lash%20Lift%2C%20Tint%20%26%20Nourish."
+                                class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/pasted-image-1767969843278.jpg"
+                            alt="Lash Reversal" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="card-title">Elleebana Lash Lift Reversal</h3>
+                        </div>
+                        <p class="card-desc">
+                            If your lashes have been over-processed and needs some SOS, don’t worry, we have you covered. This is a gentle reversal treatment designed to safely relax or correct an over-processed lash lift.
+                        </p>
+
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Lash Bubble Cleanse</li>
+                                <li>Lash treatment</li>
+                                <li>Softening of lashes</li>
+                                <li>Setting of lashes</li>
+                                <li>Lash Nourishment</li>
+                                <li>Lash Tint</li>
+                                <li>Finishing Lash Serum</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span
+                                    class="p-cost">$108</span></div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Lash%20Lift%20Reversal."
+                                class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/screenshot-2026-01-09-at-10-1.png"
+                            alt="Brow Lamination" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="card-title">Elleebana Brow Lamination & Tint</h3>
+                        </div>
+                        <p class="card-desc">
+                            An Elleebana brow lamination treatment that smooths, shapes and sets brows into a fuller, more defined look. Brow Lamination offers a temporary transformation that lasts up to 7 days for tint and will last between 4-6 weeks for lamination, depending on your brow growth. If your brows are on the sparser side, it’s essential to reach out to us before scheduling your appointment.
+                        </p>
+
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Brow bubble cleanse</li>
+                                <li>Softening of brows</li>
+                                <li>Setting of brows</li>
+                                <li>Brow Treatment</li>
+                                <li>Brow Tint</li>
+                                <li>Brow Shaping</li>
+                                <li>Brow Serum</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">60 Mins</span> <span class="p-cost">$78</span>
+                            </div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Brow%20Lamination."
+                                class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/screenshot-2026-01-09-at-10-2.png"
+                            alt="2-in-1 Combo" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="card-title">2-in-1 Combo: Lash & Brow</h3>
+                        </div>
+                        <p class="card-desc">
+                            A combined lash and brow lamination service for a balanced, polished look. The best of both worlds! Get your lash lifted and brows laminated simultaneously. Our Lash Lifts and Brow Lamination uses Elleebana Profusion system from Australia – utilises a cysteamine HCL active and contains no thioglycolate which allows for a gentle and effective lash lift/lamination. Profusion minimises the chance of over processing, keeps lashes healthy and maintains the bond integrity of the lash. Ideal for clients seeking effortless daily grooming with long-lasting results and minimal maintenance.
+                        </p>
+
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Lash/Brow Bubble Cleanse</li>
+                                <li>Softening of Lashes/Brows</li>
+                                <li>Setting of Lashes/Brows</li>
+                                <li>Lash/Brow Nourishment</li>
+                                <li>Lash/Brow Tint</li>
+                                <li>Brow Shaping</li>
+                                <li>Finishing Lash/Brow Serum</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span
+                                    class="p-cost">$138</span></div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%202in1%20Lash%20and%20Brow%20Combo."
+                                class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="no-results">No treatments found matching your search.</div>
+        </section>
+
+    </main>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- CARD ENTRANCE ANIMATION ---
+        const cards = gsap.utils.toArray('.card');
+        cards.forEach(card => {
+            gsap.from(card, {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%"
+                }
+            });
+        });
+
+        // --- SEARCH FILTER ---
+        const searchInput = document.getElementById('searchInput');
+        const searchables = document.querySelectorAll('.searchable');
+        const noResults = document.querySelector('.no-results');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            searchables.forEach(el => {
+                const text = el.innerText.toLowerCase();
+                const isCard = el.classList.contains('card');
+
+                if (text.includes(term)) {
+                    el.style.display = 'flex';
+                    visibleCount++;
+                    gsap.to(el, { opacity: 1, duration: 0.3 });
+                } else {
+                    el.style.display = 'none';
+                    gsap.to(el, { opacity: 0, duration: 0.3 });
+                }
+            });
+
+            // No Results Logic
+            if (visibleCount === 0 && term !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
