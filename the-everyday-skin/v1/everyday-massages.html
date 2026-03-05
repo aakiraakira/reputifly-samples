@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Everyday Skin | Massage Menu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <style>
+        /* --- FORCE OVERRIDES FOR WORDPRESS --- */
+        /* Ensures the search input and header don't get messed up by theme defaults */
+        header#masthead,
+        .site-header,
+        .site-branding,
+        .wp-block-site-title {
+            display: none !important;
+        }
+
+        :root {
+            /* --- PALETTE --- */
+            --bg-body: #F3F0EB;
+            /* Warm Nude (Requested) */
+            --bg-card: #FFFFFF;
+            /* Clean White for cards */
+
+            --text-dark: #1F1F1F;
+            --text-muted: #595959;
+            --accent-green: #7E8961;
+            /* TES Forest */
+            --accent-hover: #4F483F;
+            /* TES Latte */
+            --accent-light: #8FA18A;
+
+            /* --- TYPOGRAPHY (TES-3 Sizing Influence) --- */
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Anonymous Pro', monospace;
+
+            /* --- UI ELEMENTS --- */
+            --radius-card: 20px;
+            /* Rounded Blocks */
+            --radius-btn: 50px;
+            /* Fully Rounded Buttons */
+            --container-width: 1000px;
+            /* Tighter width (TES-3 style) */
+
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-head);
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        /* --- 1. HEADER (The "Mello" Look) --- */
+        /* High contrast, image only here, stripped from body */
+        .hero-header {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://theeverydayskin.com.sg/wp-content/uploads/2026/01/Image-website-desktop.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            /* Filter to darken image for white text readability */
+            filter: brightness(0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            /* Scaled down slightly */
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        /* --- SEARCH FIX START --- */
+        .hero-search-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        /* Updated with !important overrides to prevent WP theme interference */
+        .hero-search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+
+            /* FIXED PADDING AND HEIGHT */
+            padding: 12px 20px 12px 50px !important;
+            /* Left padding ensures text clears icon */
+            line-height: normal !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+
+            color: #fff;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .hero-search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-search-input:focus {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #fff;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            opacity: 0.7;
+            stroke: #fff;
+            pointer-events: none;
+            /* Ensures clicks pass through to input */
+            z-index: 10;
+        }
+
+        /* --- SEARCH FIX END --- */
+
+        /* --- 2. ISLAND NAVIGATION (From TES-1) --- */
+        .nav-island-wrapper {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .nav-island {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            padding: 8px 10px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            pointer-events: auto;
+            display: flex;
+            gap: 5px;
+
+            /* Hidden initially, animates in via JS */
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.4s ease;
+        }
+
+        .nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: var(--text-muted);
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-green);
+            background: #F4F4F4;
+        }
+
+        .nav-link.active {
+            background: var(--accent-green);
+            color: #fff;
+        }
+
+        /* --- 3. MAIN CONTENT --- */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        .section-sub {
+            font-family: var(--font-mono);
+            color: var(--accent-green);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- 4. CARDS (TES-0 Style but Compact) --- */
+        .treatment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            /* Sizing from TES-3 */
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-img-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header-row {
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* --- 5. DETAILED PRICING (Feature Request) --- */
+        .pricing-block {
+            background: #F8F7F4;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+            padding-bottom: 5px;
+        }
+
+        .pricing-row:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .p-time {
+            color: var(--text-muted);
+        }
+
+        .p-cost {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* --- 6. ROUNDED BUTTONS (Feature Request) --- */
+        .btn-group {
+            margin-top: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-dark);
+            color: var(--text-dark);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-dark);
+            color: #fff;
+        }
+
+        .btn-solid {
+            background: var(--accent-green);
+            color: #fff;
+            border: 1px solid var(--accent-green);
+        }
+
+        .btn-solid:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(126, 137, 97, 0.3);
+        }
+
+
+        /* --- 7. ADD-ONS WITH IMAGES (Feature Request) --- */
+        .addon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .addon-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .addon-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .addon-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: #eee;
+        }
+
+        .addon-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .addon-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+            margin-bottom: 5px;
+        }
+
+        .addon-price {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--accent-green);
+            font-size: 0.85rem;
+        }
+
+
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            display: none;
+            grid-column: 1 / -1;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-header {
+                height: 50vh;
+            }
+
+            /* Move Nav Island to bottom on mobile for better thumb reach? 
+               Or keep top as requested. Let's stick to Top but smaller */
+            .nav-island-wrapper {
+                top: auto;
+                bottom: 20px;
+                /* Switch to bottom on mobile like an app */
+            }
+
+            .nav-island {
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+                padding: 12px 15px;
+            }
+
+            .nav-link {
+                font-size: 0.7rem;
+                padding: 8px 12px;
+            }
+
+            .treatment-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .btn-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        /* --- FAQ SECTION --- */
+        .faq-section {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+        }
+
+        .faq-item summary {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            cursor: pointer;
+            text-transform: none;
+            letter-spacing: 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::before {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            flex-shrink: 0;
+            width: 24px;
+        }
+
+        .faq-item summary::after {
+            content: none;
+        }
+
+        .faq-item[open] summary::before {
+            content: '\2212';
+        }
+
+        .faq-answer {
+            padding: 10px 0 10px 34px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .faq-answer a {
+            color: var(--accent-green);
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="nav-island-wrapper">
+        <nav class="nav-island">
+            <a href="#signature" class="nav-link">Signature</a>
+            <a href="#traditional" class="nav-link">Traditional</a>
+            <a href="#relief" class="nav-link">Relief</a>
+            <a href="#addons" class="nav-link">Add-Ons</a>
+        </nav>
+    </div>
+
+    <header class="hero-header">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">The Everyday Skin</span>
+            <h1 class="hero-title">Everyday<br>Massages</h1>
+
+            <div class="hero-search-wrap">
+                <input type="text" id="searchInput" class="hero-search-input" placeholder="Search treatments..."
+                    style="padding-left: 50px !important;">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+        </div>
+    </header>
+    <!-- INTRO SECTION -->
+    <section class="intro-section" style="max-width: var(--container-width); margin: 0 auto; padding: 60px 20px 0;">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+            <p style="font-family: var(--font-body); font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                At The Everyday Skin, massage is not an add-on.
+            </p>
+            <p style="font-family: var(--font-head); font-size: 1.6rem; color: var(--text-dark); line-height: 1.4; margin-bottom: 20px;">
+                It is our strength.
+            </p>
+            <p style="font-family: var(--font-body); font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                Rooted in traditional Thai bodywork and delivered with firm hands and warm heart, our Thai Body Massages are designed to relieve muscle tension, support your body and allow you to rest in the middle of busy Singapore living. (and Yes, that is 90% of us.)
+            </p>
+            <p style="font-family: var(--font-body); font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                Whether you are tight from long office hours, feeling mentally exhausted, or are mummies, simply needing time to reconnect, our treatments are structured, unhurried and intentional.
+            </p>
+            <p style="font-family: var(--font-head); font-size: 1.3rem; color: var(--text-dark); line-height: 1.4; margin-bottom: 15px; font-style: italic;">
+                Experience Thai Massages by Thai Therapists At The Everyday Skin
+            </p>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-green); text-transform: uppercase; letter-spacing: 1px;">
+                Prices are nett &amp; quoted in SGD.
+            </p>
+        </div>
+    </section>
+
+
+    <main class="main-container">
+
+        <section id="signature" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">Signature Thai</h2>
+                <span class="section-sub">Aromatherapy & Herbal</span>
+            </div>
+
+            <div class="treatment-grid">
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <span class="tag">Most Popular</span>
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-243.jpg"
+                            alt="Signature Thai" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="card-title">Signature Thai Body Massage<br><span style="font-size:0.7em; font-family:var(--font-mono); color:var(--accent-green); text-transform:uppercase; letter-spacing:1px;">(Aromatherapy Oil or Thai Herbal Balm)</span></h3>
+                        </div>
+                        <p class="card-desc">
+                            Our Signature and most popular massage at The Everyday Skin. A traditional Thai full body massage designed to ease muscle tension, improve circulation and promote deep relaxation. We have sourced local Thai ingredients, for our aroma essential oils, Herbal balms and Warm Herbal Compress Balls to support local communities and preserve our cultural heritage. Light to firm pressure.
+                        </p>
+
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Indulge in a traditional Thai aromatherapy essential oil massage that combines therapeutic massage with your choice of essential oil blends</li>
+                                <li><strong>Thai Siam Aroma Oil</strong> — A calming blend of Lemongrass, Lavender, and Geranium</li>
+                                <li><strong>Relaxing Aroma Oil</strong> — A soothing blend of Lavender, Rosewood, and Orange</li>
+                                <li><strong>Awakening Aroma Oil</strong> — An invigorating blend of Eucalyptus, Peppermint, and Kaffir Lime</li>
+                                <li>Alternatively, opt for the <strong>Thai Herbal Balm</strong> to help relieve muscle pain, soreness, or joint stiffness</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">30 Mins</span> <span class="p-cost">$48</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">60 Mins</span> <span class="p-cost">$68</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span class="p-cost">$98</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span
+                                    class="p-cost">$128</span></div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277" class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-247.jpg"
+                            alt="4-in-1" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="card-title">Signature 4-in-1 Thai Body Massage (Aromatherapy Oil or Thai Herbal Balm)</h3>
+                        </div>
+                        <p class="card-desc">
+                            A focused massage addressing the head, neck, shoulders and back — common tension zones affected by stress and desk work. Ideal for relieving stiffness, headaches and fatigue on your upper body. We have sourced local Thai ingredients, for our aroma essential oils, Herbal balms and Warm Herbal Compress Balls to support local communities and preserve our cultural heritage. Light to firm pressure.
+                        </p>
+
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li><strong>Thai Siam Aroma Oil</strong> — A calming blend of Lemongrass, Lavender, and Geranium</li>
+                                <li><strong>Relaxing Aroma Oil</strong> — A soothing blend of Lavender, Rosewood, and Orange</li>
+                                <li><strong>Awakening Aroma Oil</strong> — An invigorating blend of Eucalyptus, Peppermint, and Kaffir Lime</li>
+                                <li>Alternatively, opt for the <strong>Thai Herbal Balm</strong> to help relieve muscle pain, soreness, or joint stiffness</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">30 Mins</span> <span class="p-cost">$48</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">60 Mins</span> <span class="p-cost">$68</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span class="p-cost">$98</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span
+                                    class="p-cost">$128</span></div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277" class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="traditional" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">Traditional</h2>
+                <span class="section-sub">Oil-Free / Unscented</span>
+            </div>
+
+            <div class="treatment-grid">
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-263.jpg"
+                            alt="Traditional Thai" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="card-title">Thai Body Massage</h3>
+                        </div>
+                        <p class="card-desc">
+                            Another Thai massage option using unscented or no oil, focusing on rhythmic pressure and
+                            stretching to release tension and restore body balance. Light to firm pressure.
+                        </p>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">30 Mins</span> <span class="p-cost">$40</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">60 Mins</span> <span class="p-cost">$60</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span class="p-cost">$90</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span
+                                    class="p-cost">$120</span></div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277" class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-250.jpg"
+                            alt="4-in-1 Oil Free" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="card-title">4-in-1 Thai Body Massage (Oil-free)</h3>
+                        </div>
+                        <p class="card-desc">
+                            An oil-free or unscented massage focusing on head, neck, shoulders and back for clients who
+                            prefer traditional pressure-based techniques without aromatherapy oils. Light to firm
+                            pressure.
+                        </p>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">30 Mins</span> <span class="p-cost">$40</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">60 Mins</span> <span class="p-cost">$60</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span class="p-cost">$90</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span
+                                    class="p-cost">$120</span></div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277" class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="relief" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">Targeted Relief</h2>
+                <span class="section-sub">Deep Tissue & Recovery</span>
+            </div>
+
+            <div class="treatment-grid">
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-217.jpg"
+                            alt="Deep Tissue" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="card-title">Deep Tissue Thai Body Massage<br><span style="font-size:0.7em; font-family:var(--font-mono); color:var(--accent-green); text-transform:uppercase; letter-spacing:1px;">(Thai Herbal Balm)</span></h3>
+                        </div>
+                        <p class="card-desc">
+                            A stronger massage designed to address deep-seated muscle tension and stiffness. Paired with our Thai Herbal Balm for the most relief in your body. Ideal for chronic aches, posture-related discomfort and physically demanding lifestyles. Firm to deep pressure.
+                        </p>
+
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Paired with our <strong>Thai Herbal Balm</strong> to help further relieve muscle pain, soreness, or joint stiffness</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">30 Mins</span> <span class="p-cost">$68</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">60 Mins</span> <span class="p-cost">$88</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span
+                                    class="p-cost">$148</span></div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277" class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/2.jpg" alt="Sports Therapy"
+                            class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="card-title">Sports Therapy Body Massage<br><span style="font-size:0.7em; font-family:var(--font-mono); color:var(--accent-green); text-transform:uppercase; letter-spacing:1px;">(Thai Herbal Balm and Red Light Therapy)</span></h3>
+                        </div>
+                        <p class="card-desc">
+                            A performance-focused massage combining deep tissue techniques with red light therapy to support muscle recovery, circulation and injury prevention. Suitable for active individuals, athletes or those whom have pulled or strained their muscle. Firm to deep pressure.
+                        </p>
+
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Paired with our <strong>Thai Herbal Balm</strong> and our <strong>Warm IR Red Light Therapy</strong> to help further relieve muscle pain, soreness, or joint stiffness</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">30 Mins</span> <span class="p-cost">$78</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">60 Mins</span> <span class="p-cost">$98</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span
+                                    class="p-cost">$158</span></div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277" class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <span class="tag">Coming Soon</span>
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-247.jpg"
+                            alt="Womb Care" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="card-title">Womb Care Massage Therapy (Ginger Mask and Moxibustion Therapy)</h3>
+                        </div>
+                        <p class="card-desc">
+                            A nurturing womb care therapy designed to support menstrual health, circulation and
+                            abdominal warmth. Incorporates ginger mask and moxibustion to promote balance, comfort and
+                            feminine wellbeing.
+                        </p>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">60 Mins</span> <span class="p-cost">$98</span>
+                            </div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277" class="btn btn-outline">Enquire</a>
+                            <a href="#" class="btn btn-solid" style="opacity:0.5; pointer-events:none;">Coming Soon</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="addons" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">Enhancements</h2>
+                <span class="section-sub">Add-on Rituals</span>
+            </div>
+
+            <div class="addon-grid">
+
+                <div class="addon-card searchable">
+                    <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-243.jpg"
+                        class="addon-img" alt="Warm Oil">
+                    <div class="addon-info">
+                        <h4>Add-on: Heated Warm Oil</h4>
+                        <p>A soothing heated oil designed to relax muscles, improve circulation and enhance massage
+                            comfort.</p>
+                        <span class="addon-price">$18</span>
+                    </div>
+                </div>
+
+                <div class="addon-card searchable">
+                    <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/1.jpg" class="addon-img"
+                        alt="Brushing">
+                    <div class="addon-info">
+                        <h4>Add-on: Dry Body Brushing</h4>
+                        <p>A pre-massage ritual to support detoxification and skin renewal.</p>
+                        <span class="addon-price">$24 (15m)</span>
+                    </div>
+                </div>
+
+                <div class="addon-card searchable">
+                    <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-263.jpg"
+                        class="addon-img" alt="Herbal Ball">
+                    <div class="addon-info">
+                        <h4>Add-on: Thai Compress Herbal Ball</h4>
+                        <p>A traditional Thai herbal compress using warm herbal balls to relieve muscle tension.</p>
+                        <span class="addon-price">$24 (15m)</span>
+                    </div>
+                </div>
+
+                <div class="addon-card searchable">
+                    <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/2.jpg" class="addon-img"
+                        alt="Hot Stone">
+                    <div class="addon-info">
+                        <h4>Add-on: Hot Stone</h4>
+                        <p>Deeply relaxing warm stones to ease muscle tightness and calm the nervous system.</p>
+                        <span class="addon-price">$24 (15m)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="no-results">No treatments found matching your search.</div>
+        </section>
+
+    
+        <!-- FAQ SECTION -->
+        <section id="faq" class="faq-section">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+
+            <details class="faq-item">
+                <summary>Which massage treatment is the most popular at The Everyday Skin?</summary>
+                <div class="faq-answer">Our most booked services are our Signature Thai Body Massage (Aromatherapy Oil or Thai Herbal Balm) for massages which is customisable from light to firm pressure but, if you would like even deeper pressure, do opt for our Deep Tissue Thai Body Massage!</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Do you offer couple sessions at The Everyday Skin in Singapore?</summary>
+                <div class="faq-answer">Yes, we offer Couple Thai Massage sessions in the same room, perfect for partners, friends or family members who want to relax together.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>What is the difference between Signature Thai Body Massage and Thai massage?</summary>
+                <div class="faq-answer">The quality of oils used are different! Our Signature Thai Body Massage (Aromatherapy Oil or Thai Herbal Balm) uses premium aromatherapy oils or Thai Herbal Balm that nourishes the skin, leaving very little oily residue. Whereas, the Thai massage uses an un-scented oil that is slightly heavier on the skin, or provides a no oil option.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Do you take male clients?</summary>
+                <div class="faq-answer">We welcome clients of all genders and ages. Our youngest client is 7 years old and oldest client is 86 years old. Clients under 18 years of age, must be accompanied by a legal guardian or parent.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Is Thai massage painful?</summary>
+                <div class="faq-answer">Thai massage can be firm, but it should never feel unbearable. Also, you should not develop a fever after a session. Pressure is always customised according to your comfort level. You are encouraged to communicate to our friendly therapists during the session.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>What are your payment methods?</summary>
+                <div class="faq-answer">We accept payment by Cash, PayNow, PayLah! and CDC/SG60 Vouchers.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>What should I wear for my appointment?</summary>
+                <div class="faq-answer">We recommend wearing comfortable, loose-fitting clothing for most of our services. For massages and facials, you will be provided with a gown or towel to ensure comfort and privacy.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>I am pregnant, which treatments are suitable for me?</summary>
+                <div class="faq-answer">Congratulations mummy! For facials, our expecting mummies really love our ESSE Organic &ldquo;Live Probiotics&rdquo; Treatment! We are able to customise our facial products and massages for you. Unfortunately, for massages, we are not ready to perform pre-post natal massages yet.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Why do I need to write my NRIC/Fin/Passport Number upon checking in?</summary>
+                <div class="faq-answer">According to Massage Establishment Rules 2018 (S96/2018), a licensee of a massage establishment must require a client to furnish his or her NRIC number or particulars of his/her passport travel document before providing any massage services. The licensee must enter the client&rsquo;s information in a register and keep the register for at least a year. Please refer to: <a href="https://sso.agc.gov.sg/SL/MEA2017-R1?DocDate=20250602&ProvIds=P14-#pr14-" target="_blank">Massage Establishment Rules 2018</a></div>
+            </details>
+
+            <details class="faq-item">
+                <summary>What happens if I am late for my booking?</summary>
+                <div class="faq-answer">All appointments have been designed to allow appropriate time for full enjoyment of each service. Your late arrival may limit our ability to offer the fullest possible experience. We will always accommodate you if possible, however if you arrive 15 minutes past your appointment time, the treatment time will be cut short. Hence, we highly encourage customers to arrive 10 minutes early for registration and for you to settle in, (visit the bathroom, enjoy our refreshments etc).</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Where are you located at?</summary>
+                <div class="faq-answer">
+                    We are located at <strong>157 Upper Paya Lebar Road, S(534854)</strong><br><br>
+                    <strong>Nearest MRT station:</strong> Tai Seng Mrt, Exit A, 8mins walk or 2 short bus stops away<br>
+                    <strong>Nearest Bus stop (#):</strong> #70301 (After Paya Lebar Street) and #70309 (Opposite Paya Lebar Street)<br>
+                    <strong>Bus numbers:</strong> 22, 24, 28, 43, 58, 62, 70/m, 76, 80, 93, 158<br>
+                    <strong>Parking:</strong> Parallel street parking available, No parking fees required.
+                </div>
+            </details>
+        </section>
+
+    </main>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // --- 1. NAV ISLAND ANIMATION & LOGIC ---
+        // Animate nav in after hero
+        gsap.to(".nav-island", {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.5,
+            ease: "power3.out"
+        });
+
+        // Active Link Highlighting on Scroll
+        const sections = document.querySelectorAll(".menu-section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const offset = window.innerHeight * 0.3; // Trigger earlier
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - offset) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth Scroll Click
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = link.getAttribute('href');
+                gsap.to(window, { duration: 1, scrollTo: { y: target, offsetY: 100 }, ease: "power2.inOut" });
+            });
+        });
+
+
+        // --- 2. CARD ENTRANCE ANIMATION ---
+        const cards = gsap.utils.toArray('.card');
+        cards.forEach(card => {
+            gsap.from(card, {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%"
+                }
+            });
+        });
+
+
+        // --- 3. SEARCH FILTER ---
+        const searchInput = document.getElementById('searchInput');
+        const searchables = document.querySelectorAll('.searchable');
+        const noResults = document.querySelector('.no-results');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            searchables.forEach(el => {
+                const text = el.innerText.toLowerCase();
+                const isCard = el.classList.contains('card');
+
+                if (text.includes(term)) {
+                    // Restore original display type
+                    el.style.display = isCard ? 'flex' : 'flex';
+                    visibleCount++;
+                    gsap.to(el, { opacity: 1, duration: 0.3 });
+                } else {
+                    el.style.display = 'none';
+                    gsap.to(el, { opacity: 0, duration: 0.3 });
+                }
+            });
+
+            // Hide/Show Sections based on content
+            document.querySelectorAll('.menu-section').forEach(sec => {
+                const visibleInSec = Array.from(sec.querySelectorAll('.searchable'))
+                    .some(child => child.style.display !== 'none');
+
+                sec.style.display = visibleInSec ? 'block' : 'none';
+            });
+
+            // No Results Logic
+            if (visibleCount === 0 && term !== '') {
+                noResults.style.display = 'block';
+                document.getElementById('addons').style.display = 'block'; // Ensure parent container visible
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+
+    </script>
+</body>
+
+</html>
