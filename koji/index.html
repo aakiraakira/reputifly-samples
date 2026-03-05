@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koji Photography | Premium Captures</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        :root {
+            --bg-base: #030303;
+            --bg-surface: #0a0a0a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.06);
+            --border-light: rgba(255, 255, 255, 0.06);
+            --border-focus: rgba(255, 255, 255, 0.15);
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --accent: #ffffff;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-base);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-base);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .playfair {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-pad {
+            padding: 140px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s var(--ease);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-base);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card);
+            border-color: var(--border-focus);
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(3, 3, 3, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, rgba(3,3,3,0) 60%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 7vw, 6.5rem);
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Marquee */
+        .marquee-section {
+            padding: 40px 0;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            gap: 16px;
+        }
+
+        .track-left {
+            animation: scroll-left 30s linear infinite;
+        }
+
+        .track-right {
+            animation: scroll-right 30s linear infinite;
+            transform: translateX(-50%);
+        }
+
+        .marquee-img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .marquee-img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 8px)); }
+        }
+
+        @keyframes scroll-right {
+            0% { transform: translateX(calc(-50% - 8px)); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Section Headers */
+        .section-header {
+            max-width: 700px;
+            margin: 0 auto 64px auto;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s var(--ease);
+            position: relative;
+        }
+
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-focus);
+            transform: translateY(-4px);
+        }
+
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--text-main);
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Why Choose Us */
+        .wcu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .wcu-image {
+            width: 100%;
+            height: 600px;
+            border-radius: 24px;
+            object-fit: cover;
+            border: 1px solid var(--border-light);
+        }
+
+        .wcu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .wcu-item h4 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .wcu-item p {
+            color: var(--text-muted);
+            padding-left: 36px;
+        }
+
+        /* Testimonials */
+        .reviews {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .review-card {
+            background: var(--bg-base);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .stars {
+            color: #fbbf24;
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .review-text {
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            font-style: italic;
+            color: var(--text-main);
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--border-light);
+        }
+
+        .reviewer-info h5 {
+            font-size: 0.95rem;
+        }
+
+        .reviewer-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active {
+            border-color: var(--border-focus);
+            background: var(--bg-card-hover);
+        }
+
+        .faq-question {
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-inner {
+            padding: 0 24px 24px 24px;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: 32px;
+            padding: 64px;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--text-muted);
+        }
+
+        .method i {
+            font-size: 24px;
+            color: var(--text-main);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            background: var(--bg-base);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 16px;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: var(--border-focus);
+        }
+
+        .input-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-light);
+            padding: 64px 0 32px 0;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 64px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .reputifly {
+            color: var(--text-main);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delays */
+        .d-1 { transition-delay: 0.1s; }
+        .d-2 { transition-delay: 0.2s; }
+        .d-3 { transition-delay: 0.3s; }
+        .d-4 { transition-delay: 0.4s; }
+        .d-5 { transition-delay: 0.5s; }
+
+        /* Mobile */
+        @media (max-width: 992px) {
+            .wcu-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-grid {
+                padding: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .btn-secondary {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-pad {
+                padding: 80px 0;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <i class="ph ph-aperture"></i> Koji Photography
+            </a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary">Book Session</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="container hero-content">
+            <div class="badge reveal">Premium Photography Studio</div>
+            <h1 class="reveal d-1">Preserving life's <span class="playfair">fleeting</span> moments</h1>
+            <p class="reveal d-2">We specialize in elegantly capturing the genuine emotions and delicate milestones of your family's unique story, tailored to your exact vision.</p>
+            <div class="hero-btns reveal d-3">
+                <a href="#services" class="btn btn-primary">View Portfolio <i class="ph ph-arrow-right"></i></a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="marquee-section">
+        <div class="marquee-track track-left">
+            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=500&q=80" alt="Gallery" class="marquee-img">
+        </div>
+        <div class="marquee-track track-right">
+            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1518104593124-ac2e82a5eb9d?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=500&q=80" alt="Gallery" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1518104593124-ac2e82a5eb9d?w=500&q=80" alt="Gallery" class="marquee-img">
+        </div>
+    </section>
+
+    <section id="services" class="section-pad container">
+        <div class="section-header reveal">
+            <h2>Our <span class="playfair">Services</span></h2>
+            <p>Dedicated to documenting your family's journey through every beautiful stage, crafted to match your vision.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card reveal d-1">
+                <div class="icon-box"><i class="ph ph-baby"></i></div>
+                <h3>Newborn</h3>
+                <p>Delicate moments of your newest addition. Focuses on capturing the earliest moments of life.</p>
+            </div>
+
+            <div class="service-card reveal d-2">
+                <div class="icon-box"><i class="ph ph-heart"></i></div>
+                <h3>Maternity</h3>
+                <p>Celebrate the beauty of motherhood. Elegant sessions honoring your journey.</p>
+            </div>
+
+            <div class="service-card reveal d-3">
+                <div class="icon-box"><i class="ph ph-confetti"></i></div>
+                <h3>Baby Milestones</h3>
+                <p>Documenting every unforgettable first. Relive your special moments as they grow.</p>
+            </div>
+
+            <div class="service-card reveal d-4">
+                <div class="icon-box"><i class="ph ph-users-three"></i></div>
+                <h3>Family & Pets</h3>
+                <p>Generations of love, including furry ones. Professional outdoor or studio sessions.</p>
+            </div>
+
+            <div class="service-card reveal d-5">
+                <div class="icon-box"><i class="ph ph-sliders-horizontal"></i></div>
+                <h3>Retouching & Editing</h3>
+                <p>Editing that elevates, not alters. Every touch enhances the genuine emotion of your photos.</p>
+            </div>
+        </div>
+        
+        <div class="text-center reveal">
+            <a href="#contact" class="btn btn-primary">Book a Consultation <i class="ph ph-calendar-plus"></i></a>
+        </div>
+    </section>
+
+    <section id="why-us" class="section-pad container">
+        <div class="wcu-grid">
+            <div class="wcu-image-container reveal">
+                <img src="https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?w=800&q=80" alt="Studio Setup" class="wcu-image">
+            </div>
+            <div class="wcu-content">
+                <div class="badge reveal">The Koji Standard</div>
+                <h2 class="reveal" style="font-size: 3rem; margin-bottom: 32px;">Artistry that <span class="playfair">elevates</span> reality.</h2>
+                <div class="wcu-list">
+                    <div class="wcu-item reveal d-1">
+                        <h4><i class="ph ph-faders"></i> Crafted Lighting</h4>
+                        <p>We manipulate studio and natural light to create dynamic, editorial-style imagery that flatters and inspires.</p>
+                    </div>
+                    <div class="wcu-item reveal d-2">
+                        <h4><i class="ph ph-camera-rotate"></i> Unobtrusive Direction</h4>
+                        <p>No stiff posing. We guide you gently to capture raw, authentic emotions and candid interactions.</p>
+                    </div>
+                    <div class="wcu-item reveal d-3">
+                        <h4><i class="ph ph-check-circle"></i> Gallery-Ready Finish</h4>
+                        <p>Our retouching process is meticulous, ensuring every delivered image is a pristine piece of art ready for print.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="section-pad reviews">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Client <span class="playfair">Stories</span></h2>
+                <p>Don't just take our word for it. Hear from the families we've had the honor of working with.</p>
+            </div>
+
+            <div class="review-grid">
+                <div class="review-card reveal d-1">
+                    <div class="stars">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="review-text">"The newborn session was incredibly professional. They handled our baby with such care, and the final photos look straight out of a magazine."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar"></div>
+                        <div class="reviewer-info">
+                            <h5>Sarah Jenkins</h5>
+                            <span>Newborn Session</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card reveal d-2">
+                    <div class="stars">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="review-text">"We wanted something elegant for our maternity shoot, and Koji delivered beyond expectations. The lighting and editing were absolutely flawless."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar"></div>
+                        <div class="reviewer-info">
+                            <h5>Marcus & Elena</h5>
+                            <span>Maternity Session</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card reveal d-3">
+                    <div class="stars">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="review-text">"Captured the chaos and love of our family perfectly, including our energetic golden retriever. The outdoor aesthetic is stunning."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar"></div>
+                        <div class="reviewer-info">
+                            <h5>The Thompson Family</h5>
+                            <span>Family & Pets</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-pad container">
+        <div class="section-header reveal">
+            <h2>Common <span class="playfair">Questions</span></h2>
+            <p>Everything you need to know about preparing for your session.</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item reveal d-1">
+                <div class="faq-question">
+                    What should we wear to our session?
+                    <i class="ph ph-caret-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        We recommend neutral, earthy tones and avoiding busy patterns or prominent logos. Once booked, we provide a comprehensive styling guide to help coordinate your family's wardrobe perfectly.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal d-2">
+                <div class="faq-question">
+                    When is the best time to book a newborn shoot?
+                    <i class="ph ph-caret-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Ideally, newborn sessions should take place within the first 7 to 14 days of birth. We highly recommend booking during your second trimester to secure your tentative spot based on your due date.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal d-3">
+                <div class="faq-question">
+                    How long does it take to get our photos?
+                    <i class="ph ph-caret-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        You will receive a sneak peek gallery within 48 hours. Your fully retouched, high-resolution final gallery will be delivered via a private online link within 2-3 weeks of your session.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-pad container">
+        <div class="contact-grid reveal">
+            <div class="contact-info">
+                <h2>Let's capture <br><span class="playfair">your story.</span></h2>
+                <p>Fill out the form to inquire about availability, pricing, or to schedule a pre-session consultation.</p>
+                <div class="contact-methods">
+                    <div class="method">
+                        <i class="ph ph-envelope-simple"></i> hello@kojiphotography.com
+                    </div>
+                    <div class="method">
+                        <i class="ph ph-phone"></i> +65 1234 5678
+                    </div>
+                    <div class="method">
+                        <i class="ph ph-map-pin"></i> Studio 4, Creative Hub, Singapore
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form" onsubmit="event.preventDefault();">
+                <div class="input-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <select style="width:100%; background:var(--bg-base); border:1px solid var(--border-light); border-radius:12px; padding:16px; color:var(--text-main); font-family:'Inter', sans-serif;">
+                        <option value="" disabled selected>Select Service</option>
+                        <option>Newborn</option>
+                        <option>Maternity</option>
+                        <option>Baby Milestones</option>
+                        <option>Family & Pets</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <textarea placeholder="Tell us about your vision..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px;">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <a href="#" class="logo" style="font-size: 1.5rem;">
+                    <i class="ph ph-aperture"></i> Koji
+                </a>
+                <div class="nav-links">
+                    <a href="https://instagram.com" target="_blank"><i class="ph ph-instagram-logo" style="font-size: 24px;"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="ph ph-facebook-logo" style="font-size: 24px;"></i></a>
+                    <a href="https://pinterest.com" target="_blank"><i class="ph ph-pinterest-logo" style="font-size: 24px;"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Koji Photography. All rights reserved.</p>
+                <p>Website Design by <a href="#" class="reputifly">Reputifly</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => observer.observe(el));
+
+            // FAQ Accordion Logic
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all
+                    faqItems.forEach(faq => {
+                        faq.classList.remove('active');
+                        faq.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+
+                    // If wasn't active, open it
+                    if (!isActive) {
+                        item.classList.add('active');
+                        const answer = item.querySelector('.faq-answer');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
