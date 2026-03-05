@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Everyday Skin | Eye Treatments</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <style>
+        /* --- FORCE OVERRIDES FOR WORDPRESS --- */
+        header#masthead,
+        .site-header,
+        .site-branding,
+        .wp-block-site-title {
+            display: none !important;
+        }
+
+        :root {
+            /* --- PALETTE --- */
+            --bg-body: #F3F0EB;
+            /* Warm Nude */
+            --bg-card: #FFFFFF;
+            /* Clean White */
+
+            --text-dark: #1F1F1F;
+            --text-muted: #595959;
+            --accent-green: #7E8961;
+            /* TES Forest */
+            --accent-hover: #4F483F;
+            /* TES Latte */
+            --accent-light: #8FA18A;
+
+            /* --- TYPOGRAPHY --- */
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Anonymous Pro', monospace;
+
+            /* --- UI ELEMENTS --- */
+            --radius-card: 20px;
+            --radius-btn: 50px;
+            --container-width: 1000px;
+
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-head);
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        /* --- 1. HEADER --- */
+        .hero-header {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://theeverydayskin.com.sg/wp-content/uploads/2026/01/Image-website-desktop.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            filter: brightness(0.65);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding-top: 20px;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- SEARCH BAR FIX --- */
+        .hero-search-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .hero-search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 12px 20px 12px 55px !important;
+            color: #fff;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s;
+            box-shadow: none !important;
+            text-indent: 0 !important;
+            margin: 0 !important;
+            height: auto !important;
+        }
+
+        .hero-search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hero-search-input:focus {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #fff;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            width: 18px;
+            opacity: 0.8;
+            stroke: #fff;
+            z-index: 10 !important;
+            pointer-events: none;
+        }
+
+        /* --- 2. MAIN CONTENT --- */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        .section-sub {
+            font-family: var(--font-mono);
+            color: var(--accent-green);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- 3. CARDS --- */
+        .treatment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-img-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: #e0e0e0;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .card-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Pricing Block */
+        .pricing-block {
+            background: #F8F7F4;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            margin-top: auto;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+            padding-bottom: 5px;
+        }
+
+        .pricing-row:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .p-time {
+            color: var(--text-muted);
+        }
+
+        .p-cost {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .p-addon {
+            color: var(--accent-green);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-dark);
+            color: var(--text-dark);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-dark);
+            color: #fff;
+        }
+
+        .btn-solid {
+            background: var(--accent-green);
+            color: #fff;
+            border: 1px solid var(--accent-green);
+        }
+
+        .btn-solid:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(126, 137, 97, 0.3);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            display: none;
+            grid-column: 1 / -1;
+        }
+
+        
+        /* --- INCLUSIONS TOGGLE --- */
+        details.tes-svc-includes {
+            margin-bottom: 20px;
+            border-top: 1px dashed rgba(0, 0, 0, 0.1);
+            padding-top: 15px;
+        }
+
+        summary {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            list-style: none;
+            outline: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .tes-includes-list {
+            margin: 15px 0 0 0;
+            padding: 0 0 0 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-left: 2px solid rgba(74, 93, 68, 0.2);
+        }
+
+        .tes-includes-list li {
+            list-style: none;
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+        .tes-includes-list li::before {
+            content: '•';
+            position: absolute;
+            left: -12px;
+            color: var(--accent-green);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-header {
+                height: 50vh;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .treatment-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .btn-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero-header">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">The Everyday Skin</span>
+            <h1 class="hero-title">Everyday<br>Eyes</h1>
+            <p class="hero-desc">Gentle, restorative care for tired, overworked eyes. Designed to relieve fatigue,
+                reduce puffiness, and restore brightness.</p>
+
+            <div class="hero-search-wrap">
+                <input type="text" id="searchInput" class="hero-search-input" placeholder="Search treatments...">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <section id="cat-eyes" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">Signature Eye Treatments</h2>
+                <span class="section-sub">02 Treatments</span>
+            </div>
+
+            <div class="treatment-grid">
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/ntl00574.jpg"
+                            alt="Signature Eye Treatment" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Signature Eye Treatment</h3>
+                        <p class="card-desc">
+                            A targeted eye treatment designed to relieve tired eyes, reduce puffiness and soften fine lines. Ideal for screen fatigue, lack of sleep, eye strain and early signs of aging.
+                        </p>
+
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Cleanse</li>
+                                <li>Eye Massage</li>
+                                <li>Eye BoJin therapy</li>
+                                <li>Peptide+ intensive eye ampoule with ultrasound infusion</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">30 Mins</span> <span class="p-cost">$68</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-addon">Add-on to facials</span> <span
+                                    class="p-cost">$48</span></div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Signature%20Eye%20Treatment."
+                                class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <span class="tag">Advanced Care</span>
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/ntl00583.jpg"
+                            alt="Signature Eye Treatment PLUS+" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Signature Eye Treatment PLUS+</h3>
+                        <p class="card-desc">
+                            An enhanced eye treatment incorporating advanced techniques and actives to improve firmness, hydration and elasticity around the eyes. Dive into a realm of pure relaxation and revitalization, as gentle steam envelopes your eyes, alleviating strain and fatigue. Ideal for deeper lines, eye bags and visible fatigue, while remaining suitable for sensitive skin.
+                        </p>
+
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Eye BoJin Therapy</li>
+                                <li>RF Lifting</li>
+                                <li>Warm Steam Therapy</li>
+                                <li>Peptide+ intensive eye ampoule with ultrasound infusion</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">45 Mins (Ala Carte)</span> <span class="p-cost">$98</span>
+                            </div>
+                            <div class="pricing-row"><span class="p-addon">Add-on to facials</span> <span
+                                    class="p-cost">$78</span></div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Signature%20Eye%20Treatment%20PLUS."
+                                class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="no-results">No treatments found matching your search.</div>
+        </section>
+
+    </main>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- CARD ENTRANCE ANIMATION ---
+        const cards = gsap.utils.toArray('.card');
+        cards.forEach(card => {
+            gsap.from(card, {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%"
+                }
+            });
+        });
+
+        // --- SEARCH FILTER ---
+        const searchInput = document.getElementById('searchInput');
+        const searchables = document.querySelectorAll('.searchable');
+        const noResults = document.querySelector('.no-results');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            searchables.forEach(el => {
+                const text = el.innerText.toLowerCase();
+                if (text.includes(term)) {
+                    el.style.display = 'flex';
+                    visibleCount++;
+                    gsap.to(el, { opacity: 1, duration: 0.3 });
+                } else {
+                    el.style.display = 'none';
+                    gsap.to(el, { opacity: 0, duration: 0.3 });
+                }
+            });
+
+            if (visibleCount === 0 && term !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
