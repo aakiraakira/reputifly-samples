@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everyday Head Therapy | The Everyday Skin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <style>
+        /* --- FORCE OVERRIDES FOR WORDPRESS --- */
+        /* Ensures the search input and header don't get messed up by theme defaults */
+        header#masthead,
+        .site-header,
+        .site-branding,
+        .wp-block-site-title {
+            display: none !important;
+        }
+
+        :root {
+            /* --- PALETTE --- */
+            --bg-body: #F3F0EB;
+            /* Warm Nude */
+            --bg-card: #FFFFFF;
+            /* Clean White for cards */
+
+            --text-dark: #1F1F1F;
+            --text-muted: #595959;
+            --accent-green: #7E8961;
+            /* TES Forest */
+            --accent-hover: #4F483F;
+            /* TES Latte */
+            --accent-light: #8FA18A;
+
+            /* --- TYPOGRAPHY --- */
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Anonymous Pro', monospace;
+
+            /* --- UI ELEMENTS --- */
+            --radius-card: 20px;
+            --radius-btn: 50px;
+            --container-width: 1000px;
+
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-head);
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        /* --- 1. HEADER (The "Mello" Look) --- */
+        .hero-header {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Using the background image from sample or a relevant one */
+            background-image: url('https://theeverydayskin.com.sg/wp-content/uploads/2026/01/Image-website-desktop.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            filter: brightness(0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- SEARCH BAR FIX --- */
+        .hero-search-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        /* Added !important to force override WordPress theme styles */
+        .hero-search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 12px 20px 12px 50px !important;
+            /* Extra padding for icon */
+            color: #fff;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s;
+            line-height: normal !important;
+            /* Prevent weird text alignment */
+            height: auto !important;
+            box-sizing: border-box !important;
+        }
+
+        .hero-search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-search-input:focus {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #fff;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            opacity: 0.8;
+            stroke: #fff;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* --- 2. MAIN CONTENT --- */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+        }
+
+        .section-sub {
+            font-family: var(--font-mono);
+            color: var(--accent-green);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- 3. CARDS --- */
+        .treatment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-img-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-desc b,
+        .card-desc strong {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* --- INCLUSIONS TOGGLE --- */
+        details.tes-svc-includes {
+            margin-bottom: 20px;
+            border-top: 1px dashed rgba(0, 0, 0, 0.1);
+            padding-top: 15px;
+        }
+
+        summary {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            list-style: none;
+            outline: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .tes-includes-list {
+            margin: 15px 0 0 0;
+            padding: 0 0 0 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-left: 2px solid rgba(74, 93, 68, 0.2);
+        }
+
+        .tes-includes-list li {
+            list-style: none;
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+        .tes-includes-list li::before {
+            content: '•';
+            position: absolute;
+            left: -12px;
+            color: var(--accent-green);
+        }
+
+        /* --- PRICING BLOCK --- */
+        .pricing-block {
+            background: #F8F7F4;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            margin-top: auto;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .p-time {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .p-cost {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-dark);
+            color: var(--text-dark);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-dark);
+            color: #fff;
+        }
+
+        .btn-solid {
+            background: var(--accent-green);
+            color: #fff;
+            border: 1px solid var(--accent-green);
+        }
+
+        .btn-solid:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(126, 137, 97, 0.3);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            display: none;
+            grid-column: 1 / -1;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-header {
+                height: 50vh;
+            }
+
+            .treatment-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .btn-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero-header">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">The Everyday Skin</span>
+            <h1 class="hero-title">Everyday<br>Head Therapy</h1>
+            <p class="hero-desc">Created for modern, overstimulated lives — where stress, mental load, poor sleep and
+                constant screen time leave the head feeling heavy.</p>
+
+            <div class="hero-search-wrap">
+                <input type="text" id="searchInput" class="hero-search-input" placeholder="Search therapy..."
+                    style="padding-left: 45px !important;">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <section id="restorative" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">Meridian Dry Head Therapy</h2>
+                <span class="section-sub">Deep Sleep Focus</span>
+            </div>
+
+            <div class="treatment-grid">
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/img-0819.jpg"
+                            alt="Meridian Dry Head Therapy 60mins" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Meridian Dry Head Therapy<br>(60mins)</h3>
+
+                        <div class="card-desc">
+                            <p>Our heads carry more than just thoughts — they hold tension, stress, and the weight of our daily lives.</p>
+                            <br>
+                            <p>Using a carefully curated set of 9 meridian tools, we awaken key pressure points on the scalp that are traditionally linked to energy flow, stress relief, and improved sleep.</p>
+                            <br>
+                            <p>We will also be incorporating our signature rosemary nourishing scalp oil, known to stimulate circulation and encourage healthy hair growth.</p>
+                            <br>
+                            <p>We encourage you to leave this nourishing oil on your scalp for a minimum of 2 hours before washing so that your scalp is marinated with the full benefits!</p>
+                            <br>
+                            <p><em>Best recommended for people with headaches and tension, insomnia, hair-loss or those with dry, flaky and eczema scalp.</em></p>
+                        </div>
+
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Gentle sound waves</li>
+                                <li>Shoulder, Face and Scalp acupressure points massage</li>
+                                <li>Warm steam eye mask</li>
+                                <li>Application of our nourishing scalp oil</li>
+                                <li>Meridian tool work</li>
+                                <li>Scalp massage</li>
+                                <li>Warm down Shoulder, Face and Scalp acupressure points massage</li>
+                                <li>Gentle sound waves</li>
+                                <li>Hot towel</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row">
+                                <span class="p-time">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    60 Mins
+                                </span>
+                                <span class="p-cost">$98</span>
+                            </div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Meridian%20Dry%20Head%20Therapy%2060mins."
+                                class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&amp;pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable" id="signature-sec">
+                    <div class="card-img-container">
+                        <span class="tag">Signature</span>
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/img-0802.jpg"
+                            alt="Meridian Dry Head Therapy 90mins" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Meridian Dry Head Therapy<br>(90mins)</h3>
+
+                        <div class="card-desc">
+                            <p>Everything that the 60mins session offers and additional face and décolleté massage.</p>
+                            <br>
+                            <p>This is more than just a treatment — it’s a reset for your headspace.</p>
+                            <br>
+                            <p><em>Best recommended for clients with headaches and tension, insomnia, hair-loss or those with dry, flaky and eczema scalp. Not suitable for clients with acne or super sensitive skin conditions.</em></p>
+                        </div>
+
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Gentle sound waves</li>
+                                <li>Shoulder, Face and Scalp acupressure points massage</li>
+                                <li>Warm steam eye mask</li>
+                                <li>Application of our nourishing scalp oil</li>
+                                <li>Application of our balancing facial oil</li>
+                                <li>Rose quartz (Face and Décolleté) massage</li>
+                                <li>Meridian tool work</li>
+                                <li>Scalp massage</li>
+                                <li>Hot stone shoulder therapy</li>
+                                <li>Aftercare for face</li>
+                                <li>Gentle sound waves</li>
+                                <li>Hot towel</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row">
+                                <span class="p-time">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    90 Mins
+                                </span>
+                                <span class="p-cost">$168</span>
+                            </div>
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Meridian%20Dry%20Head%20Therapy%2090mins."
+                                class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&amp;pId=2710539"
+                                class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="no-results">No treatments found matching your search.</div>
+        </section>
+
+    </main>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // --- 1. CARD ENTRANCE ANIMATION ---
+        const cards = gsap.utils.toArray('.card');
+        cards.forEach(card => {
+            gsap.from(card, {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 95%"
+                }
+            });
+        });
+
+        // --- 2. SEARCH FILTER ---
+        const searchInput = document.getElementById('searchInput');
+        const searchables = document.querySelectorAll('.searchable');
+        const noResults = document.querySelector('.no-results');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            searchables.forEach(el => {
+                const text = el.innerText.toLowerCase();
+                const isCard = el.classList.contains('card');
+
+                if (text.includes(term)) {
+                    el.style.display = 'flex';
+                    visibleCount++;
+                    gsap.to(el, { opacity: 1, duration: 0.3 });
+                } else {
+                    el.style.display = 'none';
+                    gsap.to(el, { opacity: 0, duration: 0.3 });
+                }
+            });
+
+            if (visibleCount === 0 && term !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
