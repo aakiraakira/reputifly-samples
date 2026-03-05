@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Everyday Skin | Facial Menu</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <style>
+        /* --- FORCE OVERRIDES FOR WORDPRESS --- */
+        header#masthead, .site-header, .site-branding, .wp-block-site-title {
+            display: none !important; 
+        }
+
+        :root {
+            /* --- PALETTE --- */
+            --bg-body: #F3F0EB;       /* Warm Nude */
+            --bg-card: #FFFFFF;       /* Clean White */
+            
+            --text-dark: #1F1F1F;
+            --text-muted: #595959;
+            --accent-green: #7E8961;  /* TES Forest */
+            --accent-hover: #4F483F;  /* TES Latte */
+            --accent-light: #8FA18A;
+            
+            /* --- TYPOGRAPHY --- */
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Anonymous Pro', monospace;
+
+            /* --- UI ELEMENTS --- */
+            --radius-card: 20px;
+            --radius-btn: 50px;
+            --container-width: 1100px;
+            
+            --shadow-soft: 0 10px 40px rgba(0,0,0,0.03);
+            --shadow-hover: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 400; }
+        a { text-decoration: none; color: inherit; transition: all 0.3s; }
+
+        /* --- 1. HEADER --- */
+        .hero-header {
+            position: relative;
+            height: 60vh;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://theeverydayskin.com.sg/wp-content/uploads/2026/01/Image-website-desktop.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            filter: brightness(0.65); 
+        }
+
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 700px;
+            padding-top: 40px;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 2px;
+            text-transform: uppercase; margin-bottom: 15px; display: block;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1; margin-bottom: 20px;
+        }
+        
+        .hero-desc {
+            font-size: 1.1rem; color: rgba(255,255,255,0.95);
+            margin-bottom: 30px; font-weight: 300; max-width: 650px; margin-left: auto; margin-right: auto;
+        }
+
+        /* --- SEARCH BAR --- */
+        .hero-search-wrap {
+            position: relative; width: 100%; max-width: 400px; margin: 0 auto;
+        }
+        
+        .hero-search-input {
+            width: 100%;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            padding: 12px 20px 12px 55px !important; 
+            color: #fff;
+            font-family: var(--font-mono); font-size: 0.9rem;
+            outline: none; transition: all 0.3s;
+            box-shadow: none !important;
+            text-indent: 0 !important;
+            margin: 0 !important;
+            height: auto !important;
+        }
+        
+        .hero-search-input::placeholder { color: rgba(255,255,255,0.7); }
+        .hero-search-input:focus { background: rgba(255,255,255,0.25); border-color: #fff; }
+        
+        .search-icon {
+            position: absolute; 
+            left: 20px !important; 
+            top: 50% !important; 
+            transform: translateY(-50%) !important;
+            width: 18px; opacity: 0.8; stroke: #fff;
+            z-index: 10 !important;
+            pointer-events: none;
+        }
+
+        /* --- 2. DYNAMIC ISLAND NAV --- */
+        .nav-island-wrapper {
+            position: fixed; top: 20px; left: 0; width: 100%;
+            display: flex; justify-content: center;
+            z-index: 999; pointer-events: none;
+        }
+
+        .nav-island {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            padding: 8px 10px;
+            border-radius: 50px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            pointer-events: auto;
+            display: flex; gap: 5px;
+            opacity: 0; transform: translateY(-20px); 
+            transition: all 0.4s ease;
+            max-width: 95vw; overflow-x: auto;
+        }
+        
+        .nav-island::-webkit-scrollbar { display: none; }
+
+        .nav-link {
+            font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; padding: 10px 20px;
+            border-radius: 30px; color: var(--text-muted);
+            transition: all 0.3s; white-space: nowrap;
+        }
+        .nav-link:hover { color: var(--accent-green); background: #F4F4F4; }
+        .nav-link.active { background: var(--accent-green); color: #fff; }
+
+        /* --- 3. MAIN CONTENT --- */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .menu-section {
+            scroll-margin-top: 120px; 
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex; align-items: baseline; justify-content: space-between;
+        }
+        .section-title { font-size: 2.5rem; color: var(--text-dark); }
+        .section-sub { font-family: var(--font-mono); color: var(--accent-green); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+
+        /* --- 4. CARDS --- */
+        .treatment-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px; margin-bottom: 100px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex; flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.02);
+            height: 100%;
+        }
+
+        .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+
+        .card-img-container {
+            position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden;
+            background: #e0e0e0;
+        }
+        .card-img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        .card:hover .card-img { transform: scale(1.05); }
+
+        .tag {
+            position: absolute; top: 15px; left: 15px;
+            background: rgba(255,255,255,0.95);
+            padding: 6px 14px; border-radius: 50px;
+            font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700;
+            color: var(--accent-green); text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .card-body {
+            padding: 30px;
+            flex-grow: 1; display: flex; flex-direction: column;
+        }
+
+        .card-title { font-size: 1.4rem; line-height: 1.2; margin-bottom: 10px; min-height: 1.2em;}
+        
+        .card-desc {
+            font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;
+            margin-bottom: 20px; flex-grow: 1;
+        }
+
+        /* --- INCLUSIONS TOGGLE (DROPDOWN) --- */
+        details.tes-svc-includes {
+            margin-bottom: 20px;
+            border-top: 1px dashed rgba(0,0,0,0.1);
+            padding-top: 15px;
+        }
+        
+        summary {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            list-style: none;
+            outline: none;
+            display: flex; align-items: center; gap: 5px;
+        }
+        
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.2em; font-weight: 700; margin-left: auto; }
+        details[open] summary::after { content: '-'; }
+
+        .tes-includes-list {
+            margin: 15px 0 0 0;
+            padding: 0 0 0 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-left: 2px solid rgba(126, 137, 97, 0.2); 
+        }
+
+        .tes-includes-list li {
+            list-style: none;
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+        .tes-includes-list li::before {
+            content: '•';
+            position: absolute;
+            left: -12px;
+            color: var(--accent-green);
+        }
+
+        /* Pricing Block */
+        .pricing-block {
+            background: #F8F7F4;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            margin-top: auto; 
+        }
+        .pricing-row {
+            display: flex; justify-content: space-between;
+            font-family: var(--font-mono); font-size: 0.85rem;
+            margin-bottom: 5px;
+            border-bottom: 1px dashed rgba(0,0,0,0.05);
+            padding-bottom: 5px;
+        }
+        .pricing-row:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+        .p-time { color: var(--text-muted); }
+        .p-cost { font-weight: 700; color: var(--text-dark); }
+
+        /* Buttons */
+        .btn-group {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 15px;
+        }
+        .btn {
+            display: flex; align-items: center; justify-content: center;
+            padding: 12px 20px; text-decoration: none;
+            font-family: var(--font-body); font-size: 0.85rem; font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .btn-outline { border: 1px solid var(--text-dark); color: var(--text-dark); background: transparent; }
+        .btn-outline:hover { background: var(--text-dark); color: #fff; }
+        .btn-solid { background: var(--accent-green); color: #fff; border: 1px solid var(--accent-green); }
+        .btn-solid:hover { background: var(--accent-hover); border-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(126, 137, 97, 0.3); }
+
+        .no-results {
+            text-align: center; padding: 60px;
+            font-family: var(--font-mono); color: var(--text-muted);
+            display: none; grid-column: 1 / -1;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-header { height: 50vh; }
+            .hero-title { font-size: 3rem; }
+            
+            .nav-island-wrapper { top: auto; bottom: 20px; }
+            .nav-island { background: rgba(255, 255, 255, 0.95); padding: 12px 15px; }
+            .nav-link { font-size: 0.7rem; padding: 8px 12px; }
+
+            .treatment-grid { grid-template-columns: 1fr; gap: 30px; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .btn-group { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-island-wrapper">
+        <nav class="nav-island">
+            <a href="#cat-bespoke" class="nav-link">Bespoke</a>
+            <a href="#cat-plus" class="nav-link">Plus+</a>
+            <a href="#cat-intensive" class="nav-link">Intensive</a>
+            <a href="#cat-gentlemen" class="nav-link">For Him</a>
+        </nav>
+    </div>
+
+    <header class="hero-header">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">The Everyday Skin</span>
+            <h1 class="hero-title">Everyday<br>Facials</h1>
+            <p class="hero-desc">
+                We do not rush treatments or over-treat the skin. Every facial is approached with firm hands and a warm heart — always respecting what your skin needs.
+            </p>
+            
+            <div class="hero-search-wrap">
+                <input type="text" id="searchInput" class="hero-search-input" placeholder="Search treatments...">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <section id="cat-bespoke" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">Bespoke Facials</h2>
+                <span class="section-sub">Fuss-free / Maintenance</span>
+            </div>
+
+            <div class="treatment-grid">
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-25.webp" alt="Bespoke 60" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Bespoke 60mins / Express</h3>
+                        <p class="card-desc">A customised facial designed for busy individuals who want visible skin results without downtime. This express bespoke facial focuses on essential cleansing, exfoliation, targeted treatment and hydration, tailored to your skin's daily needs. Ideal for maintenance care, or a quick skin reset between treatments. For all skin types.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Exfoliation (enzyme or light peel)</li>
+                                <li>Light extractions only (if required)</li>
+                                <li>Lymphatic drainage massage (Face & Décolleté)</li>
+                                <li>Customised serum application</li>
+                                <li>Customised mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">60 Mins</span> <span class="p-cost">$128</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Bespoke%2060mins." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <span class="tag">Most Popular</span>
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-56.webp" alt="Bespoke 90" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Bespoke 90mins</h3>
+                        <p class="card-desc">Our signature bespoke facial experience, fully tailored to your skin’s current condition and long-term goals. This treatment allows a more rounded customisation with targeted serums, extended massage and customised masks to address concerns such as dehydration, dullness, congestion or sensitivity. Suitable for all skin types. A perfect balance of results and relaxation, designed for everyday skin health.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Steam</li>
+                                <li>Exfoliant (enzyme or light peel)</li>
+                                <li>Manual extraction (if required)</li>
+                                <li>Lymphatic drainage massage (Scalp, Face, Décolleté)</li>
+                                <li>Customised serum application with use of a machine</li>
+                                <li>Customised serum jelly mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span class="p-cost">$158</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Bespoke%2090mins." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-100.webp" alt="Bespoke 120" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Bespoke 120mins</h3>
+                        <p class="card-desc">A deeply restorative, unhurried facial experience for those seeking comprehensive skin correction and relaxation. This extended bespoke facial allows for advanced treatments, layered masks, extended massage, and focused problem-solving for complex skin concerns. Ideal for chronic congestion, stressed skin, or clients who want both therapeutic results and deep relaxation.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Steam</li>
+                                <li>Exfoliant (enzyme or light peel)</li>
+                                <li>Manual extraction (if required)</li>
+                                <li>Lymphatic drainage massage (Scalp, Face, Décolleté)</li>
+                                <li>Customised serum application with use of a machine</li>
+                                <li>Another use of machine depending on skin</li>
+                                <li>Customised serum jelly mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span class="p-cost">$198</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Bespoke%20120mins." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="cat-plus" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">Bespoke PLUS+ Facials</h2>
+                <span class="section-sub">Targeted Correction</span>
+            </div>
+
+            <div class="treatment-grid">
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-76.webp" alt="Myofascial" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Myofascial Sculpted Flow</h3>
+                        <p class="card-desc">A targeted facial combining deep myofascial release with lymphatic sculpting techniques. This treatment works on fascia tension, jaw-clenching patterns, and facial puffiness through manual manipulation. Ideal for clients who carry tension in their jaw, temples, or forehead, and those wanting a more sculpted, lifted appearance without machines.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Steam</li>
+                                <li>Exfoliant (enzyme or light peel)</li>
+                                <li>Manual extraction (if required)</li>
+                                <li>Myofascial release + sculpting massage (Face, Jaw, Décolleté)</li>
+                                <li>Customised serum application</li>
+                                <li>Customised mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">60 Mins</span> <span class="p-cost">$168</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Myofascial%20Flow." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <span class="tag">Pregnancy Safe</span>
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-64.webp" alt="ESSE" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">ESSE Organic "Live Probiotics"</h3>
+                        <p class="card-desc">A clean beauty facial using certified organic, probiotic skincare from ESSE. This treatment supports the skin’s microbiome, restoring balance and strengthening the skin barrier using naturally-derived actives. Ideal for sensitive, reactive, or eco-conscious clients who prefer a toxin-free experience without compromising results.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse (ESSE organic products)</li>
+                                <li>Steam</li>
+                                <li>Gentle exfoliation</li>
+                                <li>Manual extraction (if required)</li>
+                                <li>Probiotic serum infusion</li>
+                                <li>Lymphatic drainage massage (Face, Décolleté)</li>
+                                <li>ESSE organic mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span class="p-cost">$178</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20ESSE%20Organic." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <span class="tag">Popular</span>
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-154.webp" alt="No Downtime Peel" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">No-downtime Peel</h3>
+                        <p class="card-desc">A results-driven peel treatment designed for clients who want visible skin renewal without the peeling or redness associated with stronger acids. This treatment uses carefully selected professional-grade acids to brighten, smooth texture, and reduce pigmentation — all with zero visible downtime. Ideal for first-time peel clients, dull or uneven skin, and those with upcoming events.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Skin prep</li>
+                                <li>Professional peel application (customised acid blend)</li>
+                                <li>Neutralisation</li>
+                                <li>Calming serum + hydration</li>
+                                <li>LED or calming mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span class="p-cost">$168</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20No-downtime%20Peel." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-60.webp" alt="Detox" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Detox Reset</h3>
+                        <p class="card-desc">A purifying, clarifying facial focused on decongesting the skin through deep cleansing, detoxifying masks, and oil-balancing techniques. This treatment is designed for oily, congested, or breakout-prone skin. Ideal for clients experiencing sluggish skin, excess sebum, clogged pores, or post-holiday skin.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Steam</li>
+                                <li>Deep exfoliation (enzyme or peel)</li>
+                                <li>Thorough manual extraction</li>
+                                <li>High frequency (antibacterial)</li>
+                                <li>Purifying serum application</li>
+                                <li>Detox clay or charcoal mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">100 Mins</span> <span class="p-cost">$178</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Detox%20Reset." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-96-1.webp" alt="Bojin" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Meridian Bojin and Gua Sha Sculpt</h3>
+                        <p class="card-desc">A TCM-inspired lifting facial that combines Meridian Bojin techniques with modern skincare. Using a specialised horn tool, this treatment traces facial meridian lines to release tension, stimulate blood flow, and promote lymphatic drainage. Ideal for clients experiencing facial puffiness, dullness, or tension-related skin concerns.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Steam</li>
+                                <li>Exfoliant (enzyme or light peel)</li>
+                                <li>Manual extraction (if required)</li>
+                                <li>Meridian Bojin sculpting massage (Face, Jaw, Neck)</li>
+                                <li>Customised serum application</li>
+                                <li>Customised mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span class="p-cost">$198</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Meridian%20Bojin." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-30.webp" alt="Hydration" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Hydration Rescue PLUS+</h3>
+                        <p class="card-desc">An intensive hydration facial designed for severely dehydrated, tight, or flaky skin. This treatment uses layered hydrating serums, hyaluronic acid infusion, and moisture-locking masks to restore the skin’s water balance and plumpness. Ideal for clients with dehydration lines, weather-damaged skin, or post-treatment dryness.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Steam</li>
+                                <li>Gentle exfoliation</li>
+                                <li>Manual extraction (if required)</li>
+                                <li>Hydrating serum layering with machine infusion</li>
+                                <li>Lymphatic drainage massage</li>
+                                <li>Intensive hydration mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span class="p-cost">$198</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Hydration%20Rescue." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-38.webp" alt="3D Lift" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">3D Lift & Sculpt PLUS+</h3>
+                        <p class="card-desc">A non-invasive lifting and firming facial that combines advanced machine technology with sculpting massage for visible contouring results. This treatment targets sagging jawline, loss of elasticity, and facial volume loss. Ideal for clients wanting a more defined, lifted look without injectables.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Steam</li>
+                                <li>Exfoliant (enzyme or light peel)</li>
+                                <li>Manual extraction (if required)</li>
+                                <li>RF or EMS lifting treatment</li>
+                                <li>Sculpting massage (Face, Jaw, Décolleté)</li>
+                                <li>Firming serum application</li>
+                                <li>Lifting mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span class="p-cost">$198</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%203D%20Lift." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-134.webp" alt="Brightening" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Brightening PLUS+</h3>
+                        <p class="card-desc">A targeted brightening facial designed to address pigmentation, dark spots, and uneven skin tone. This treatment combines professional-grade brightening actives with advanced machine infusion for visible luminosity. Ideal for sun-damaged skin, post-inflammatory hyperpigmentation, or melasma concerns.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Steam</li>
+                                <li>Brightening peel or exfoliation</li>
+                                <li>Manual extraction (if required)</li>
+                                <li>Brightening serum infusion with machine</li>
+                                <li>Lymphatic drainage massage</li>
+                                <li>Brightening mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span class="p-cost">$198</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Brightening%20PLUS." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-143.webp" alt="Acne Calm" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Acne Calm PLUS+</h3>
+                        <p class="card-desc">A specialised facial for active acne, cystic breakouts, or severely congested skin. This treatment combines thorough extraction with antibacterial and anti-inflammatory technologies to calm, heal, and prevent future breakouts. Ideal for clients with persistent acne, hormonal breakouts, or post-mask acne (maskne).</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Steam</li>
+                                <li>Deep exfoliation</li>
+                                <li>Thorough manual extraction</li>
+                                <li>High frequency (antibacterial treatment)</li>
+                                <li>Blue LED therapy</li>
+                                <li>Anti-inflammatory serum infusion</li>
+                                <li>Calming mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span class="p-cost">$198</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Acne%20Calm." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="cat-intensive" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">Intensive</h2>
+                <span class="section-sub">Total Skin Reset</span>
+            </div>
+
+            <div class="treatment-grid">
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <span class="tag">Downtime Required</span>
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/img-6605-2.webp" alt="Green Sea Peel" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Liquid Micro-needling + Exosome (Green Sea Peel/with downtime)</h3>
+                        <p class="card-desc">Our most advanced skin regeneration treatment combining professional micro-needling with cutting-edge exosome technology. Exosomes are cell-derived messengers that accelerate skin repair, boost collagen synthesis, and enhance overall skin quality at a cellular level. Ideal for ageing skin, scarring, enlarged pores, and clients seeking dramatic skin transformation.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Consultation and skin prep</li>
+                                <li>Numbing cream application</li>
+                                <li>Professional micro-needling treatment</li>
+                                <li>Exosome serum application</li>
+                                <li>Calming LED therapy</li>
+                                <li>Aftercare and post-treatment guidance</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span class="p-cost">$238</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Liquid%20Microneedling." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <span class="tag">Popular</span>
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/ntl01091-1.webp" alt="Microneedling" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Micro-needling + Exosome (with downtime)</h3>
+                        <p class="card-desc">Collagen-stimulating treatment that enhances repair, firmness, and clarity. Combined with exosomes to accelerate healing. Suitable for scars and fine lines.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>MTS Therapy</li>
+                                <li>Exosome Infusion</li>
+                                <li>Collagen Induction</li>
+                                <li>Repair Mask</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span class="p-cost">$238</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Microneedling." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <span class="tag" style="background: var(--text-dark); color: #fff;">Coming Soon</span>
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/Image-website-desktop.png" alt="Cold Plasma Therapy" class="card-img" style="filter: grayscale(100%); opacity: 0.8;">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Cold Plasma Therapy</h3>
+                        <p class="card-desc">Advanced cold plasma technology to instantly sterilize the skin, stimulate collagen, and dramatically accelerate healing. Full treatment details to be announced soon.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Plasma Sterilization</li>
+                                <li>Collagen Stimulation</li>
+                                <li>Accelerated Healing</li>
+                                <li>More details soon</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span class="p-cost">$238</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20upcoming%20Cold%20Plasma%20Therapy." class="btn btn-outline" style="grid-column: 1 / -1; text-align: center;">Join Waitlist / Enquire</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-141.webp" alt="Corrective Peel" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Corrective Peel Therapy (3 peels)</h3>
+                        <p class="card-desc">A progressive, multi-session peel programme designed for significant skin correction. Each session builds upon the last, gradually increasing in strength to target deep pigmentation, acne scarring, sun damage, and textural irregularities. Requires commitment to a structured treatment plan with strict aftercare.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Consultation and skin assessment</li>
+                                <li>Skin prep and cleanse</li>
+                                <li>Professional corrective peel application (strength increases per session)</li>
+                                <li>Neutralisation</li>
+                                <li>Calming and protective aftercare</li>
+                                <li>Post-peel home care guidance</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">100 Mins</span> <span class="p-cost">$288</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Corrective%20Peel." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="cat-gentlemen" class="menu-section">
+            <div class="section-header">
+                <h2 class="section-title">The Gentlemen</h2>
+                <span class="section-sub">For Him</span>
+            </div>
+
+            <div class="treatment-grid">
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/meridian-dry-head-therapy-shopline-2.webp" alt="Gentlemen" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">The Gentlemen 90mins</h3>
+                        <p class="card-desc">A facial designed specifically for men’s skin, addressing common concerns like razor burn, ingrown hairs, excess oil, and congestion. This treatment uses targeted techniques and products formulated for thicker, oilier male skin. Ideal for men new to facials or those wanting regular skin maintenance.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Steam</li>
+                                <li>Exfoliation</li>
+                                <li>Manual extraction (if required)</li>
+                                <li>Massage (Face, Scalp)</li>
+                                <li>Customised serum application</li>
+                                <li>Customised mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">90 Mins</span> <span class="p-cost">$168</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Gentlemen%2090mins." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card searchable">
+                    <div class="card-img-container">
+                        <img src="https://theeverydayskin.com.sg/wp-content/uploads/2026/01/meridian-dry-head-therapy-shopline.webp" alt="Gentlemen Plus" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">The Gentlemen PLUS+</h3>
+                        <p class="card-desc">An enhanced version of our men’s facial with additional machine treatments and extended massage for deeper results. This treatment addresses advanced concerns like deep congestion, premature ageing, and stressed skin. Ideal for men wanting more intensive care and visible results.</p>
+                        
+                        <details class="tes-svc-includes">
+                            <summary>View Inclusions</summary>
+                            <ul class="tes-includes-list">
+                                <li>Double cleanse</li>
+                                <li>Steam</li>
+                                <li>Exfoliation</li>
+                                <li>Manual extraction (if required)</li>
+                                <li>Machine treatment (customised to skin)</li>
+                                <li>Extended massage (Face, Scalp, Décolleté)</li>
+                                <li>Customised serum application</li>
+                                <li>Premium mask</li>
+                                <li>Aftercare</li>
+                            </ul>
+                        </details>
+
+                        <div class="pricing-block">
+                            <div class="pricing-row"><span class="p-time">120 Mins</span> <span class="p-cost">$198</span></div>
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://wa.me/6589549277?text=Hi%20The%20Everyday%20Skin%2C%20I%20would%20like%20to%20enquire%20about%20the%20Gentlemen%20PLUS." class="btn btn-outline">Enquire</a>
+                            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" class="btn btn-solid">Book Now</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <div class="no-results">No treatments found matching your search.</div>
+
+    </main>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // --- 1. NAV ISLAND ANIMATION & LOGIC ---
+        // Animate nav in
+        gsap.to(".nav-island", {
+            opacity: 1, 
+            y: 0,
+            duration: 0.8, 
+            delay: 0.5,
+            ease: "power3.out"
+        });
+
+        // Active Link Highlighting
+        const sections = document.querySelectorAll(".menu-section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const offset = window.innerHeight * 0.3; 
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(scrollY >= sectionTop - offset) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth Scroll
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = link.getAttribute('href');
+                gsap.to(window, { duration: 1, scrollTo: { y: target, offsetY: 100 }, ease: "power2.inOut" });
+            });
+        });
+
+
+        // --- 2. CARD ENTRANCE ---
+        const cards = gsap.utils.toArray('.card');
+        cards.forEach(card => {
+            gsap.from(card, {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%"
+                }
+            });
+        });
+
+
+        // --- 3. SEARCH FILTER ---
+        const searchInput = document.getElementById('searchInput');
+        const searchables = document.querySelectorAll('.searchable');
+        const noResults = document.querySelector('.no-results');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            searchables.forEach(el => {
+                const text = el.innerText.toLowerCase();
+                const isCard = el.classList.contains('card');
+                
+                if(text.includes(term)) {
+                    el.style.display = 'flex'; 
+                    visibleCount++;
+                    gsap.to(el, { opacity: 1, duration: 0.3 });
+                } else {
+                    el.style.display = 'none';
+                    gsap.to(el, { opacity: 0, duration: 0.3 });
+                }
+            });
+
+            // Hide/Show Sections based on content
+            document.querySelectorAll('.menu-section').forEach(sec => {
+                const visibleInSec = Array.from(sec.querySelectorAll('.searchable'))
+                                          .some(child => child.style.display !== 'none');
+                sec.style.display = visibleInSec ? 'block' : 'none';
+            });
+
+            if(visibleCount === 0 && term !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+
+    </script>
+</body>
+</html>
