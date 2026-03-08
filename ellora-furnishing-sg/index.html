@@ -1196,6 +1196,17 @@
                 border-radius: 12px !important; 
             }
         </style>
+    
+        <style id="ai-theme-override">
+            /* Enforce AI Rounding globally */
+            :root { --radius: 12px !important; }
+            [data-section] { --radius: 12px !important; }
+            
+            /* Aggressive fallbacks for elements that might hardcode radius */
+            img, .btn, button, .button, [data-component="card"], .page__tile { 
+                border-radius: 12px !important; 
+            }
+        </style>
     </head>
 <body>
     
@@ -1253,9 +1264,9 @@
       <div class="hero-interior__content">
         <span class="hero-interior__kicker" id="hero-interior-kicker">Curtains &amp; Blinds Experts</span>
 
-        <h1 class="hero-interior__title" id="hero-interior-title">Elevate Your <br> Home with <br> <span class="hero-interior__italic">Style.</span></h1>
+        <h1 class="hero-interior__title" id="hero-interior-title">Transform Your <br> Space with <br> <span class="hero-interior__italic">Elegance.</span></h1>
 
-        <p class="hero-interior__subtitle" id="hero-interior-subtitle">Discover the perfect curtains and blinds to enhance your living spaces, offering privacy, light control, and timeless elegance.</p>
+        <p class="hero-interior__subtitle" id="hero-interior-subtitle">Discover exquisite curtains and blinds designed to enhance your living spaces, offering perfect privacy, precise light control, and timeless elegance.</p>
 
         <div class="hero-interior__actions" role="group" aria-label="Primary actions">
           <a href="#" class="hero-interior__button" data-component="button" data-variant="primary" id="hero-interior-cta-primary">
@@ -1272,7 +1283,7 @@
         <div class="hero-interior__frame" aria-hidden="true"></div>
 
         <div class="hero-interior__image-wrap">
-          <img class="hero-interior__image" src="https://loremflickr.com/800/600/window?lock=288" alt="window" loading="lazy">
+          <img class="hero-interior__image" src="https://loremflickr.com/800/600/Interior?lock=588" alt="Interior" loading="lazy">
         </div>
 
         <div class="hero-interior__quote" data-component="card" aria-label="Client testimonial">
@@ -1304,7 +1315,7 @@
             </span>
           </div>
 
-          <p class="hero-interior__quote-text">“Our windows have never looked better! Ellora Furnishing SG truly transformed our home.”</p>
+          <p class="hero-interior__quote-text">“Ellora Furnishing SG transformed our home with stunning curtains. The quality and service were exceptional!”</p>
         </div>
       </div>
     </div>
@@ -1322,7 +1333,7 @@
     <div class="why-choose-us__header">
       <div class="why-choose-us__header-content">
         <span data-component="badge" class="why-choose-us__badge">Why Choose Us</span>
-        <h2 class="why-choose-us__title">Crafted for <br> Beauty,<br>Designed for <br> Life.</h2>
+        <h2 class="why-choose-us__title">Crafted for <br> Beauty,<br>Engineered for <br> Comfort.</h2>
       </div>
 
       <a href="#" class="why-choose-us__cta" data-component="button" data-variant="secondary">
@@ -1342,7 +1353,7 @@
         </div>
         <div class="why-choose-us__content">
           <h3 class="why-choose-us__card-title">Expert Consultation</h3>
-          <p class="why-choose-us__text">Our experienced team provides personalized advice to help you choose the ideal window furnishings for your unique space.</p>
+          <p class="why-choose-us__text">Our experienced team offers personalized consultations, guiding you to select the ideal window furnishings that perfectly complement your unique space and lifestyle.</p>
         </div>
       </div>
 
@@ -1355,7 +1366,7 @@
         </div>
         <div class="why-choose-us__content">
           <h3 class="why-choose-us__card-title">Quality Craftsmanship</h3>
-          <p class="why-choose-us__text">We partner with trusted manufacturers to ensure every curtain and blind meets the highest standards of durability and finish.</p>
+          <p class="why-choose-us__text">We are committed to exceptional quality, partnering with trusted manufacturers to ensure every curtain and blind meets the highest standards of durability, function, and finish.</p>
         </div>
       </div>
 
@@ -1371,7 +1382,7 @@
         </div>
         <div class="why-choose-us__content">
           <h3 class="why-choose-us__card-title">Tailored Solutions</h3>
-          <p class="why-choose-us__text">From fabric selection to measurement and installation, we customize every detail to perfectly fit your windows and style.</p>
+          <p class="why-choose-us__text">From fabric selection to precise measurement and professional installation, we tailor every detail to perfectly fit your windows and reflect your personal style.</p>
         </div>
       </div>
 
@@ -1383,7 +1394,7 @@
         </div>
         <div class="why-choose-us__content">
           <h3 class="why-choose-us__card-title">Seamless Installation</h3>
-          <p class="why-choose-us__text">Our professional installers ensure a precise and hassle-free fitting, leaving you with beautiful, functional window treatments.</p>
+          <p class="why-choose-us__text">Our certified installers guarantee a precise, efficient, and hassle-free fitting, ensuring your new window treatments are perfectly functional and flawlessly beautiful.</p>
         </div>
       </div>
 
@@ -1395,7 +1406,7 @@
         </div>
         <div class="why-choose-us__content">
           <h3 class="why-choose-us__card-title">Wide Selection</h3>
-          <p class="why-choose-us__text">Explore an extensive range of styles, materials, and colors to complement any interior design aesthetic.</p>
+          <p class="why-choose-us__text">Explore an extensive and curated collection of styles, materials, and colors, ensuring the perfect complement to any interior design aesthetic.</p>
         </div>
       </div>
 
@@ -1407,7 +1418,7 @@
         </div>
         <div class="why-choose-us__content">
           <h3 class="why-choose-us__card-title">Lasting Value</h3>
-          <p class="why-choose-us__text">Invest in window furnishings that not only look stunning but also provide long-term comfort, energy efficiency, and privacy.</p>
+          <p class="why-choose-us__text">Invest in premium window furnishings that not only enhance your decor but also provide long-term comfort, improved energy efficiency, and enhanced privacy.</p>
         </div>
       </div>
     </div>
@@ -1423,8 +1434,8 @@
   <div class="about-split__container" data-component="container">
     
     <div class="about-split__content">
-      <h2 class="about-split__title">Transforming homes with elegance and expertise.</h2>
-      <p class="about-split__desc">At Ellora Furnishing SG, we believe your windows deserve the best. Our dedicated team is committed to delivering exceptional quality and service, from consultation to installation.</p>
+      <h2 class="about-split__title">Your Vision, Our Expertise: Transforming Homes with Elegance.</h2>
+      <p class="about-split__desc">At Ellora Furnishing SG, we believe every window is an opportunity to enhance your home's beauty and comfort. Our dedicated team is committed to delivering exceptional quality and personalized service, from initial consultation to flawless installation.</p>
 
       <div class="about-split__metrics">
         <div class="about-split__metric">
@@ -1449,7 +1460,7 @@
     <div class="about-split__visual">
       <div class="about-split__dots"></div>
       <div class="about-split__image-wrap">
-        <img src="https://loremflickr.com/800/600/fabric?lock=506" alt="fabric" class="about-split__image">
+        <img src="https://loremflickr.com/800/600/Fabric?lock=926" alt="Fabric" class="about-split__image">
       </div>
     </div>
 
@@ -1461,8 +1472,8 @@
   <div class="client-stories__container client-stories__type" data-component="container">
     <div class="client-stories__header" id="client-stories-header">
       <div class="client-stories__headerLeft" id="client-stories-header-left">
-        <h2 class="client-stories__title" id="client-stories-title">Happy Homes</h2>
-        <p class="client-stories__subtitle client-stories__muted" id="client-stories-subtitle">Hear from our satisfied customers.</p>
+        <h2 class="client-stories__title" id="client-stories-title">Hear From Our <br> Valued Clients</h2>
+        <p class="client-stories__subtitle client-stories__muted" id="client-stories-subtitle">Discover why homeowners across Singapore trust Ellora Furnishing SG.</p>
       </div>
 
       <div class="client-stories__rating" id="client-stories-rating" aria-label="Average rating 4.9 out of 5">
@@ -1477,7 +1488,7 @@
 
     <div class="client-stories__grid" id="client-stories-grid">
       <article data-component="card" class="client-stories__card" id="client-stories-card-1">
-        <p class="client-stories__quote" id="client-stories-quote-1">"The team at Ellora Furnishing SG was incredibly helpful. Our new blinds are perfect and the installation was flawless."</p>
+        <p class="client-stories__quote" id="client-stories-quote-1">"The team at Ellora Furnishing SG provided outstanding service. Our new blinds are absolutely perfect, and the installation was incredibly smooth and professional."</p>
 
         <div class="client-stories__person" id="client-stories-person-1">
           <img class="client-stories__avatar" id="client-stories-avatar-1" src="https://i.pravatar.cc/150?u=a" alt="Portrait of David Chen" loading="lazy">
@@ -1489,7 +1500,7 @@
       </article>
 
       <article data-component="card" class="client-stories__card" id="client-stories-card-2">
-        <p class="client-stories__quote" id="client-stories-quote-2">"We are so pleased with our new curtains. They've completely changed the feel of our living room, adding both warmth and style."</p>
+        <p class="client-stories__quote" id="client-stories-quote-2">"We are absolutely delighted with our new curtains. They've completely transformed the ambiance of our living room, adding both warmth and sophisticated style."</p>
 
         <div class="client-stories__person" id="client-stories-person-2">
           <img class="client-stories__avatar" id="client-stories-avatar-2" src="https://i.pravatar.cc/150?u=b" alt="Portrait of Sarah Miller" loading="lazy">
@@ -1501,7 +1512,7 @@
       </article>
 
       <article data-component="card" class="client-stories__card" id="client-stories-card-3">
-        <p class="client-stories__quote" id="client-stories-quote-3">"From the initial consultation to the final fitting, Ellora Furnishing SG provided excellent service. Highly recommend!"</p>
+        <p class="client-stories__quote" id="client-stories-quote-3">"From the insightful initial consultation to the meticulous final fitting, Ellora Furnishing SG delivered truly excellent service. We couldn't be happier and highly recommend them!"</p>
 
         <div class="client-stories__person" id="client-stories-person-3">
           <img class="client-stories__avatar" id="client-stories-avatar-3" src="https://i.pravatar.cc/150?u=c" alt="Portrait of James Wilson" loading="lazy">
@@ -1522,7 +1533,7 @@
 
 <section data-section="faq_variant_3">
     <div class="faq-wrapper" data-component="container">
-        <h2 class="section-title">Our Promise</h2>
+        <h2 class="section-title">Our Commitment to <br> Your Satisfaction</h2>
 
         <div class="accordion-item">
             <button class="accordion-header" aria-expanded="false">
@@ -1589,7 +1600,7 @@
         <div class="cta-split__container">
 
             <div class="cta-split__image-wrap">
-                <img src="https://loremflickr.com/800/600/home?lock=256" alt="home" class="cta-split__image">
+                <img src="https://loremflickr.com/800/600/Window?lock=958" alt="Window" class="cta-split__image">
                 <div class="cta-split__overlay"></div>
             </div>
 
@@ -1600,8 +1611,8 @@
                         Accepting new clients
                     </div>
 
-                    <h2 class="cta-split__title">Ready to enhance your home?</h2>
-                    <p class="cta-split__desc">Discover how beautiful curtains and blinds can elevate your living experience. Contact us for a personalized consultation today.</p>
+                    <h2 class="cta-split__title">Ready to Reimagine <br> Your Windows?</h2>
+                    <p class="cta-split__desc">Discover how beautifully crafted curtains and blinds can elevate your living experience and transform your home. Contact us for a personalized, no-obligation consultation today.</p>
 
                     <form class="cta-split__form" action="#" method="POST">
                         <input type="email" class="cta-split__input" placeholder="Enter your work email" required="">
@@ -1622,7 +1633,7 @@
         <div style="display: flex;  flex-wrap: wrap;  justify-content: space-between;  gap: 40px;  margin-bottom: 40px">
             <div style="flex: 1;  min-width: 250px">
                 <h3 style="color: var(--primary);  font-family: var(--font-heading);  margin-bottom: 20px;  font-size: 22px">Ellora Furnishing SG</h3>
-                <p style="color: var(--muted);  line-height: 1.6">Your trusted partner for exquisite curtains and blinds in Singapore. We're dedicated to transforming your space with quality and style.</p>
+                <p style="color: var(--muted);  line-height: 1.6">Your trusted partner for exquisite curtains and blinds in Singapore. We are dedicated to transforming your space with unparalleled quality, sophisticated style, and exceptional service.</p>
             </div>
             
             <div style="flex: 1;  min-width: 200px">
