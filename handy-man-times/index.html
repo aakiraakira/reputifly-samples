@@ -50,9 +50,9 @@
             
             /* Bridge for global scope */
             :root {
-                --bg: #ffffff;
-                --text: #0f172a;
-                --font-body: 'Inter', sans-serif;
+                --bg: #fafaf9;
+                --text: #1c1917;
+                --font-body: 'Playfair Display', serif;
                 --font-heading: var(--brand-font-heading);
             }
 
@@ -61,21 +61,21 @@
             [data-section] {
                 --primary: #f97316;
                 --accent: var(--brand-accent) !important;
-                --bg: #ffffff;
-                --text: #0f172a;
+                --bg: #fafaf9;
+                --text: #1c1917;
                 
-                --surface: #f8fafc;
+                --surface: #ffffff;
                 --border: var(--brand-border) !important;
                 --muted: var(--brand-muted) !important;
                 --on-primary: var(--brand-on-primary) !important;
                 --primary-hover: var(--brand-primary-hover) !important;
                 --focus: var(--brand-focus) !important;
                 
-                --radius: 8px;
+                --radius: 0px;
                 --shadow: var(--brand-shadow) !important;
                 --glass-blur: var(--brand-glass-blur) !important;
                 
-                --font-body: 'Inter', sans-serif;
+                --font-body: 'Playfair Display', serif;
                 --font-heading: var(--brand-font-heading) !important;
             }
 
@@ -87,188 +87,196 @@
         /* Merged Styles from Sections */
         
     /* * SCOPED THEME VARIABLES 
+     * Fallbacks defined here. These will be overridden by brand_dna.json later.
      */
-    [data-section="hero-immersive"] {
-      --bg: #ffffff;       /* Dark background fallback */
-      --text: #0f172a;     /* Light text forced */
-      --muted: #cbd5e1;    /* Slate-300 */
-      --surface: #f8fafc; /* Glass effect */
-      --border: rgba(255, 255, 255, 0.2);
-      --primary: #f97316;  /* Button text/bg inversion */
-      --accent: #3b82f6;   /* Bright blue */
-      --on-primary: #0f172a;
-      --primary-hover: #f1f5f9;
-      --focus: rgba(255, 255, 255, 0.3);
-      --radius: 8px;
-      --glass-blur: blur(12px);
-      --font-body: 'Inter', sans-serif;
-    }
-
-    /* * LAYOUT 
-     */
-    [data-section="hero-immersive"] {
-      font-family: var(--font-body);
-      -webkit-font-smoothing: antialiased;
-      color: var(--text);
-      background-color: var(--bg);
-      position: relative;
-      padding-top: 128px;
-      padding-bottom: 128px;
-      overflow: hidden;
-    }
-
-    /* Background Image with Overlay */
-    [data-section="hero-immersive"] .hero-immersive__bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%);
-      z-index: 1;
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 10;
-    }
-
-    /* * CONTENT 
-     */
-    [data-section="hero-immersive"] .hero-immersive__content {
-      max-width: 600px;
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__pre {
-      font-size: 0.875rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-bottom: 24px;
-      display: block;
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__title {
-      font-size: 3rem;
-      font-weight: 800;
-      color: #ffffff; /* Always white */
-      margin: 0 0 24px 0;
-      line-height: 1.1;
-    }
-
-    @media (min-width: 768px) {
-      [data-section="hero-immersive"] .hero-immersive__title {
-        font-size: 4rem;
-      }
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__desc {
-      font-size: 1.125rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin: 0 0 40px 0;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-    }
-
-    /* * FORM/CTA CARD 
-     */
-    [data-section="hero-immersive"] .hero-immersive__card {
-      background-color: var(--surface);
-      backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur);
-      border: 1px solid var(--border);
-      padding: 24px;
-      border-radius: var(--radius);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    @media (min-width: 640px) {
-      [data-section="hero-immersive"] .hero-immersive__card {
-        flex-direction: row;
-        align-items: center;
-        width: fit-content;
-      }
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__input {
-      background-color: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 12px 16px;
-      font-size: 1rem;
-      color: #ffffff;
-      min-width: 240px;
-      font-family: var(--font-body);
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__input::placeholder {
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__input:focus {
-      outline: none;
-      border-color: var(--accent);
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 24px;
-      font-weight: 700;
-      border-radius: 4px;
-      background-color: var(--accent); /* Blue */
-      color: #ffffff;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.2s ease;
-      white-space: nowrap;
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__btn:hover {
-      background-color: #2563eb; /* Slightly darker blue */
-    }
-
-    [data-section="hero-immersive"] .hero-immersive__note {
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.6);
-      margin-top: 12px;
-    }
-
-  
-
-    /* * SCOPED THEME VARIABLES 
-     */
-    [data-section="services-list"] {
-      --bg: #ffffff;
-      --text: #0f172a;
+    [data-section="hero-centered"] {
+      --bg: #fafaf9;
+      --text: #1c1917;
       --muted: #64748b;
-      --surface: #f8fafc;
+      --surface: #ffffff;
       --border: #e2e8f0;
       --primary: #f97316;
       --accent: #2563EB;
       --on-primary: #ffffff;
       --primary-hover: #1e293b;
       --focus: rgba(15, 23, 42, 0.20);
-      --radius: 8px; /* Sharp edges for executive feel */
-      --font-body: 'Inter', sans-serif;
+      --radius: 0px;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --font-body: 'Playfair Display', serif;
+    }
+
+    /* * TYPOGRAPHY BASELINE 
+     */
+    [data-section="hero-centered"] {
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      color: var(--text);
+      background-color: var(--bg);
+      padding-top: 112px;
+      padding-bottom: 112px;
+    }
+
+    [data-section="hero-centered"] .hero-centered__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* * CONTENT STYLES 
+     */
+    [data-section="hero-centered"] .hero-centered__badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 16px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 32px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    [data-section="hero-centered"] .hero-centered__title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0 0 24px 0;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      max-width: 800px;
+    }
+
+    @media (min-width: 768px) {
+      [data-section="hero-centered"] .hero-centered__title {
+        font-size: 3.75rem; /* 60px */
+      }
+    }
+
+    [data-section="hero-centered"] .hero-centered__desc {
+      font-size: 1.125rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 40px 0;
+      max-width: 600px;
+    }
+
+    @media (min-width: 768px) {
+      [data-section="hero-centered"] .hero-centered__desc {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* * BUTTONS 
+     */
+    [data-section="hero-centered"] .hero-centered__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    @media (min-width: 640px) {
+      [data-section="hero-centered"] .hero-centered__actions {
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+      }
+    }
+
+    [data-section="hero-centered"] .hero-centered__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 32px;
+      font-weight: 600;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+    }
+
+    [data-section="hero-centered"] .hero-centered__btn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--focus);
+    }
+
+    /* Primary */
+    [data-section="hero-centered"] .hero-centered__btn--primary {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    [data-section="hero-centered"] .hero-centered__btn--primary: #f97316;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    /* Secondary */
+    [data-section="hero-centered"] .hero-centered__btn--secondary {
+      background-color: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    [data-section="hero-centered"] .hero-centered__btn--secondary:hover {
+      background-color: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    /* * SOCIAL PROOF (Optional)
+     */
+    [data-section="hero-centered"] .hero-centered__proof {
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    [data-section="hero-centered"] .hero-centered__proof-text {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    [data-section="hero-centered"] .hero-centered__stars {
+      display: flex;
+      gap: 4px;
+      color: #F59E0B; /* Amber-500 for stars */
+    }
+  
+
+    /* * SCOPED THEME VARIABLES 
+     */
+    [data-section="services-list"] {
+      --bg: #fafaf9;
+      --text: #1c1917;
+      --muted: #64748b;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --primary: #f97316;
+      --accent: #2563EB;
+      --on-primary: #ffffff;
+      --primary-hover: #1e293b;
+      --focus: rgba(15, 23, 42, 0.20);
+      --radius: 0px; /* Sharp edges for executive feel */
+      --font-body: 'Playfair Display', serif;
     }
 
     /* * LAYOUT 
@@ -402,19 +410,19 @@
      * Fallbacks defined here. These will be overridden by brand_dna.json later.
      */
     [data-section="feature-steps-split"] {
-      --bg: #ffffff;       /* White background */
-      --text: #0f172a;     /* Slate-800 text */
+      --bg: #fafaf9;       /* White background */
+      --text: #1c1917;     /* Slate-800 text */
       --muted: #64748b;    /* Slate-500 muted text */
-      --surface: #f8fafc;  /* Slate-100 for image backdrop */
+      --surface: #ffffff;  /* Slate-100 for image backdrop */
       --border: #e2e8f0;   /* Slate-200 border */
       --primary: #f97316;  /* Slate-900 (Dark) */
       --accent: #2563EB;   /* Blue-600 origin */
       --on-primary: #ffffff;
       --primary-hover: #1d4ed8;
       --focus: rgba(37, 99, 235, 0.2);
-      --radius: 8px;      /* rounded-3xl */
+      --radius: 0px;      /* rounded-3xl */
       --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      --font-body: 'Inter', sans-serif;
+      --font-body: 'Playfair Display', serif;
     }
 
     /* * MAIN LAYOUT 
@@ -561,33 +569,30 @@
 
     /* * SCOPED THEME VARIABLES 
      */
-    [data-section="case-studies-grid"] {
-      --bg: #ffffff;
-      --text: #0f172a;
+    [data-section="testimonials-ultra"] {
+      --bg: #fafaf9;
+      --text: #1c1917;
       --muted: #64748b;
-      --surface: #f8fafc;
+      --surface: #ffffff;
       --border: #e2e8f0;
       --primary: #f97316;
       --accent: #2563EB;
-      --on-primary: #ffffff;
-      --primary-hover: #1e293b;
-      --focus: rgba(15, 23, 42, 0.20);
-      --radius: 8px;
-      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --font-body: 'Inter', sans-serif;
+      --radius: 0px;
+      --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      --font-body: 'Playfair Display', serif;
     }
 
-    /* * LAYOUT 
+    /* * MAIN LAYOUT 
      */
-    [data-section="case-studies-grid"] {
-      font-family: var(--font-body);
+    [data-section="testimonials-ultra"] {
       background-color: var(--bg);
+      font-family: var(--font-body);
+      padding-top: 112px;
+      padding-bottom: 112px;
       color: var(--text);
-      padding-top: 96px;
-      padding-bottom: 96px;
     }
 
-    [data-section="case-studies-grid"] .case-studies-grid__container {
+    [data-section="testimonials-ultra"] .testimonials-ultra__container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
@@ -595,438 +600,426 @@
 
     /* * HEADER 
      */
-    [data-section="case-studies-grid"] .case-studies-grid__header {
-      margin-bottom: 64px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 24px;
+    [data-section="testimonials-ultra"] .testimonials-ultra__header {
+      text-align: center;
+      margin-bottom: 80px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    [data-section="case-studies-grid"] .case-studies-grid__title {
+    [data-section="testimonials-ultra"] .testimonials-ultra__title {
       font-size: 2.5rem;
       font-weight: 800;
       color: var(--primary);
-      margin: 0 0 16px 0;
+      margin: 0 0 24px 0;
       line-height: 1.1;
-    }
-
-    [data-section="case-studies-grid"] .case-studies-grid__subtitle {
-      font-size: 1.125rem;
-      color: var(--muted);
-      margin: 0;
-      max-width: 600px;
-    }
-
-    [data-section="case-studies-grid"] .case-studies-grid__link {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--primary);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: gap 0.2s ease;
-    }
-
-    [data-section="case-studies-grid"] .case-studies-grid__link:hover {
-      gap: 12px;
-      color: var(--accent);
-    }
-
-    /* * GRID 
-     */
-    [data-section="case-studies-grid"] .case-studies-grid__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
+      letter-spacing: -0.02em;
     }
 
     @media (min-width: 768px) {
-      [data-section="case-studies-grid"] .case-studies-grid__grid {
-        grid-template-columns: repeat(2, 1fr);
+      [data-section="testimonials-ultra"] .testimonials-ultra__title {
+        font-size: 3.5rem;
+      }
+    }
+
+    [data-section="testimonials-ultra"] .testimonials-ultra__desc {
+      font-size: 1.125rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* * MASONRY GRID 
+     * Simulating masonry with columns 
+     */
+    [data-section="testimonials-ultra"] .testimonials-ultra__grid {
+      column-count: 1;
+      column-gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      [data-section="testimonials-ultra"] .testimonials-ultra__grid {
+        column-count: 2;
       }
     }
 
     @media (min-width: 1024px) {
-      [data-section="case-studies-grid"] .case-studies-grid__grid {
-        grid-template-columns: repeat(3, 1fr);
+      [data-section="testimonials-ultra"] .testimonials-ultra__grid {
+        column-count: 3;
       }
     }
 
     /* * CARD COMPONENT 
      */
-    [data-section="case-studies-grid"] .case-studies-grid__card {
-      group: 'card';
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    [data-section="case-studies-grid"] .case-studies-grid__image-wrap {
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin-bottom: 24px;
-      aspect-ratio: 4/3;
-      position: relative;
+    [data-section="testimonials-ultra"] .testimonials-ultra__card {
+      break-inside: avoid;
       background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      position: relative;
       box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
     }
 
-    [data-section="case-studies-grid"] .case-studies-grid__image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+    [data-section="testimonials-ultra"] .testimonials-ultra__card:hover {
+      transform: translateY(-4px);
     }
 
-    [data-section="case-studies-grid"] .case-studies-grid__card:hover .case-studies-grid__image {
-      transform: scale(1.05);
+    /* Highlight Card Variant */
+    [data-section="testimonials-ultra"] .testimonials-ultra__card--highlight {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
     }
 
-    [data-section="case-studies-grid"] .case-studies-grid__overlay {
+    [data-section="testimonials-ultra"] .testimonials-ultra__card--highlight .testimonials-ultra__text {
+      color: #e2e8f0;
+    }
+
+    [data-section="testimonials-ultra"] .testimonials-ultra__card--highlight .testimonials-ultra__author-role {
+      color: #94a3b8;
+    }
+
+    /* Quote Icon */
+    [data-section="testimonials-ultra"] .testimonials-ultra__quote-icon {
       position: absolute;
-      inset: 0;
-      background-color: rgba(0,0,0,0.0);
-      transition: background-color 0.3s ease;
+      top: 24px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      color: var(--border);
+      opacity: 0.5;
     }
 
-    [data-section="case-studies-grid"] .case-studies-grid__card:hover .case-studies-grid__overlay {
-      background-color: rgba(0,0,0,0.05);
+    [data-section="testimonials-ultra"] .testimonials-ultra__card--highlight .testimonials-ultra__quote-icon {
+      color: rgba(255,255,255,0.1);
     }
 
     /* Content */
-    [data-section="case-studies-grid"] .case-studies-grid__meta {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 8px;
-    }
-
-    [data-section="case-studies-grid"] .case-studies-grid__card-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin: 0 0 12px 0;
-      line-height: 1.3;
-    }
-
-    [data-section="case-studies-grid"] .case-studies-grid__desc {
-      font-size: 1rem;
-      color: var(--muted);
+    [data-section="testimonials-ultra"] .testimonials-ultra__text {
+      font-size: 1.125rem;
       line-height: 1.6;
+      font-weight: 500;
+      margin: 0 0 32px 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    [data-section="testimonials-ultra"] .testimonials-ultra__card--large .testimonials-ultra__text {
+      font-size: 1.5rem;
+      line-height: 1.4;
+    }
+
+    /* Author Footer */
+    [data-section="testimonials-ultra"] .testimonials-ultra__footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    [data-section="testimonials-ultra"] .testimonials-ultra__avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 9999px;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+
+    [data-section="testimonials-ultra"] .testimonials-ultra__author-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    [data-section="testimonials-ultra"] .testimonials-ultra__author-name {
+      font-size: 1rem;
+      font-weight: 700;
       margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    [data-section="testimonials-ultra"] .testimonials-ultra__verified {
+      color: var(--accent);
+      width: 16px;
+      height: 16px;
+    }
+
+    [data-section="testimonials-ultra"] .testimonials-ultra__author-role {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-top: 2px;
     }
 
   
 
-    [data-section="faq_variant_3"] {
-        --bg: #ffffff;
-        --text: #0f172a;
-        --muted: #555;
-        --primary: #f97316;
-        --border: #e5e5e5;
-        --font-heading: 'Inter', sans-serif;
-        --font-body: 'Inter', sans-serif;
+    /* * SCOPED THEME VARIABLES 
+     * Fallbacks defined here. These will be overridden by brand_dna.json later.
+     */
+    [data-section="faq-accordion"] {
+      --bg: #fafaf9;       /* Slate-50 background from input */
+      --text: #1c1917;     /* Slate-800 text */
+      --muted: #64748b;    /* Slate-500 muted text */
+      --surface: #ffffff;  /* White accordion items */
+      --border: #e2e8f0;   /* Slate-200 borders */
+      --primary: #f97316;  /* Slate-900 (Dark) for active states/headings */
+      --accent: #3b82f6;   /* Blue-500 from hover state */
+      --on-primary: #ffffff;
+      --primary-hover: #3b82f6; /* Blue-500 hover border */
+      --focus: rgba(59, 130, 246, 0.2); /* Blue focus ring */
+      --radius: 0px;       /* Rounded-lg */
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --font-body: 'Playfair Display', serif;
     }
 
-    [data-section="faq_variant_3"] {
-        font-family: var(--font-body);
-        background-color: var(--bg);
-        color: var(--text);
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 80px 24px;
+    /* * MAIN LAYOUT 
+     */
+    [data-section="faq-accordion"] {
+      background-color: var(--bg);
+      font-family: var(--font-body);
+      padding-top: 96px; /* py-24 equivalent */
+      padding-bottom: 96px;
+      color: var(--text);
+      line-height: 1.5;
     }
 
-    [data-section="faq_variant_3"] * {
-        box-sizing: border-box;
+    [data-section="faq-accordion"] .faq-accordion__container {
+      max-width: 768px; /* max-w-3xl */
+      margin: 0 auto;
+      padding: 0 24px; /* px-6 */
     }
 
-    [data-section="faq_variant_3"] .faq-wrapper {
-        width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
+    /* * HEADER 
+     */
+    [data-section="faq-accordion"] .faq-accordion__header {
+      text-align: center;
+      margin-bottom: 64px; /* mb-16 */
     }
 
-    [data-section="faq_variant_3"] .section-title {
-        font-size: 2.25rem;
-        font-weight: 700;
-        margin-bottom: 40px;
-        color: var(--primary);
-        font-family: var(--font-heading);
-        padding-left: 0;
+    [data-section="faq-accordion"] .faq-accordion__title {
+      font-size: 1.875rem; /* text-3xl */
+      font-weight: 700;
+      color: var(--primary); /* Slate-900 */
+      margin: 0 0 16px 0; /* mb-4 */
+      line-height: 1.2;
     }
 
-    [data-section="faq_variant_3"] .accordion-item {
-        margin-bottom: 0px;
-        border-bottom: 1px solid var(--border);
+    [data-section="faq-accordion"] .faq-accordion__subtitle {
+      color: var(--muted); /* Slate-500 */
+      font-size: 1rem;
+      margin: 0;
     }
 
-    [data-section="faq_variant_3"] .accordion-header {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 24px 0;
-        background-color: transparent;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        font-family: var(--font-body);
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--text);
-        text-align: left;
-        transition: color 0.2s ease;
+    /* * ACCORDION LIST 
+     */
+    [data-section="faq-accordion"] .faq-accordion__list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px; /* space-y-4 */
     }
 
-    [data-section="faq_variant_3"] .accordion-header:hover {
-        color: var(--accent);
+    /* * ACCORDION ITEM 
+     */
+    [data-section="faq-accordion"] .faq-accordion__item {
+      background-color: var(--surface); /* bg-white */
+      border: 1px solid var(--border); /* border-slate-200 */
+      border-radius: var(--radius);
+      padding: 20px; /* p-5 */
+      cursor: pointer;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    [data-section="faq_variant_3"] .icon {
-        font-size: 1.5rem;
-        font-weight: 300;
-        color: var(--muted);
-        transition: transform 0.3s ease;
-        display: inline-block;
-        width: 24px;
-        text-align: right;
+    [data-section="faq-accordion"] .faq-accordion__item:hover {
+      border-color: rgba(59, 130, 246, 0.5); /* hover:border-blue-500/50 */
     }
 
-    [data-section="faq_variant_3"] .accordion-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
+    [data-section="faq-accordion"] .faq-accordion__item:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--focus);
+      border-color: var(--primary-hover);
     }
 
-    [data-section="faq_variant_3"] .accordion-content-inner {
-        padding: 0 0 24px 0;
-        font-size: 1rem;
-        line-height: 1.6;
-        color: var(--muted);
+    /* Item Header (Trigger) */
+    [data-section="faq-accordion"] .faq-accordion__trigger {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      text-align: left;
     }
 
-    @media (max-width: 600px) {
-        [data-section="faq_variant_3"] {
-            padding: 48px 16px;
-        }
-
-        [data-section="faq_variant_3"] .section-title {
-            font-size: 1.75rem;
-        }
-
-        [data-section="faq_variant_3"] .accordion-header {
-            font-size: 1rem;
-            padding: 20px 0;
-        }
-
-        [data-section="faq_variant_3"] .accordion-content-inner {
-            font-size: 0.95rem;
-        }
+    [data-section="faq-accordion"] .faq-accordion__question {
+      font-weight: 600; /* font-semibold */
+      color: var(--primary); /* text-slate-900 */
+      font-size: 1rem;
+      margin: 0;
+      padding-right: 16px;
     }
 
+    /* Icon */
+    [data-section="faq-accordion"] .faq-accordion__icon {
+      width: 20px; /* w-5 */
+      height: 20px; /* h-5 */
+      color: #94a3b8; /* text-slate-400 */
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    [data-section="faq-accordion"] .faq-accordion__item.active .faq-accordion__icon {
+      transform: rotate(180deg);
+      color: var(--accent); /* Optional: Color the icon when active */
+    }
+
+    /* Content Area */
+    [data-section="faq-accordion"] .faq-accordion__content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      margin-top: 0;
+      color: var(--muted); /* text-slate-500 */
+      font-size: 0.875rem; /* text-sm */
+      line-height: 1.625; /* leading-relaxed */
+    }
+
+    [data-section="faq-accordion"] .faq-accordion__item.active .faq-accordion__content {
+      max-height: 200px; /* Arbitrary large height for animation */
+      opacity: 1;
+      margin-top: 16px; /* mt-4 equivalent */
+    }
+  
 
     /* * SCOPED THEME VARIABLES 
      */
-    [data-section="contact-split"] {
-      --bg: #ffffff;
-      --text: #0f172a;
-      --muted: #64748b;
-      --surface: #f8fafc;
-      --border: #e2e8f0;
+    [data-section="cta-centered"] {
+      --bg: #fafaf9;       /* Dark background default */
+      --text: #1c1917;     /* Light text */
+      --muted: #94a3b8;    /* Muted light */
+      --surface: #ffffff;
+      --border: rgba(255, 255, 255, 0.1);
       --primary: #f97316;
       --accent: #2563EB;
-      --on-primary: #ffffff;
-      --primary-hover: #1e293b;
-      --focus: rgba(15, 23, 42, 0.20);
-      --radius: 8px;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --font-body: 'Inter', sans-serif;
+      --on-primary: #0f172a;
+      --primary-hover: #f1f5f9;
+      --focus: rgba(255, 255, 255, 0.20);
+      --radius: 0px;
+      --font-body: 'Playfair Display', serif;
     }
 
     /* * LAYOUT 
      */
-    [data-section="contact-split"] {
+    [data-section="cta-centered"] {
       font-family: var(--font-body);
       background-color: var(--bg);
       color: var(--text);
-      padding-top: 96px;
-      padding-bottom: 96px;
+      padding-top: 80px;
+      padding-bottom: 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    [data-section="contact-split"] .contact-split__container {
-      max-width: 1200px;
+    /* Abstract Background Shape */
+    [data-section="cta-centered"]::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 1000px;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 70%);
+      pointer-events: none;
+    }
+
+    [data-section="cta-centered"] .cta-centered__container {
+      max-width: 800px;
       margin: 0 auto;
       padding: 0 24px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 64px;
+      position: relative;
+      z-index: 10;
     }
 
-    @media (min-width: 1024px) {
-      [data-section="contact-split"] .contact-split__container {
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-      }
-    }
-
-    /* * INFO SIDE (LEFT) 
+    /* * CONTENT 
      */
-    [data-section="contact-split"] .contact-split__info {
-      padding-right: 0;
-    }
-
-    @media (min-width: 1024px) {
-      [data-section="contact-split"] .contact-split__info {
-        padding-right: 48px;
-      }
-    }
-
-    [data-section="contact-split"] .contact-split__label {
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    [data-section="contact-split"] .contact-split__title {
-      font-size: 3rem;
+    [data-section="cta-centered"] .cta-centered__title {
+      font-size: 2.5rem;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--text);
       margin: 0 0 24px 0;
       line-height: 1.1;
+      letter-spacing: -0.02em;
     }
 
-    [data-section="contact-split"] .contact-split__desc {
-      font-size: 1.125rem;
+    @media (min-width: 768px) {
+      [data-section="cta-centered"] .cta-centered__title {
+        font-size: 3.5rem;
+      }
+    }
+
+    [data-section="cta-centered"] .cta-centered__desc {
+      font-size: 1.25rem;
       color: var(--muted);
       line-height: 1.6;
-      margin: 0 0 48px 0;
+      margin: 0 0 40px 0;
     }
 
-    /* Contact Details List */
-    [data-section="contact-split"] .contact-split__list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    /* * ACTIONS 
+     */
+    [data-section="cta-centered"] .cta-centered__actions {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      align-items: center;
+      gap: 16px;
     }
 
-    [data-section="contact-split"] .contact-split__item {
-      display: flex;
-      gap: 20px;
+    @media (min-width: 640px) {
+      [data-section="cta-centered"] .cta-centered__actions {
+        flex-direction: row;
+        justify-content: center;
+      }
     }
 
-    [data-section="contact-split"] .contact-split__icon-box {
-      width: 48px;
-      height: 48px;
-      background-color: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      display: flex;
+    [data-section="cta-centered"] .cta-centered__btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary);
-      flex-shrink: 0;
-    }
-
-    [data-section="contact-split"] .contact-split__item-label {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 4px;
-      display: block;
-    }
-
-    [data-section="contact-split"] .contact-split__item-val {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--text);
-      display: block;
-    }
-
-    /* * FORM SIDE (RIGHT) 
-     */
-    [data-section="contact-split"] .contact-split__form-wrap {
-      background-color: var(--surface);
-      padding: 48px;
+      padding: 16px 32px;
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    [data-section="contact-split"] .contact-split__form {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    /* Input Group */
-    [data-section="contact-split"] .contact-split__group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    [data-section="contact-split"] .contact-split__input-label {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    [data-section="contact-split"] .contact-split__input {
-      width: 100%;
-      padding: 12px 16px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background-color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease;
       font-size: 1rem;
-      color: var(--text);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-      font-family: var(--font-body);
+      cursor: pointer;
+      min-width: 160px;
     }
 
-    [data-section="contact-split"] .contact-split__input:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--focus);
-    }
-
-    [data-section="contact-split"] .contact-split__textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    /* Submit Button */
-    [data-section="contact-split"] .contact-split__submit {
-      margin-top: 16px;
+    /* Primary: White on Dark */
+    [data-section="cta-centered"] .cta-centered__btn--primary {
       background-color: var(--primary);
       color: var(--on-primary);
-      padding: 16px 32px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-      display: inline-flex;
-      justify-content: center;
+      border: 1px solid var(--primary);
     }
 
-    [data-section="contact-split"] .contact-split__submit:hover {
-      background-color: var(--primary-hover);
+    [data-section="cta-centered"] .cta-centered__btn--primary: #f97316;
+      transform: translateY(-2px);
+    }
+
+    /* Secondary: Transparent */
+    [data-section="cta-centered"] .cta-centered__btn--secondary {
+      background-color: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    [data-section="cta-centered"] .cta-centered__btn--secondary:hover {
+      background-color: rgba(255,255,255,0.05);
     }
 
   
@@ -1082,33 +1075,40 @@
 </header>
 <!-- ======================= -->
 
-<!-- Section: hero section hero variant 15 -->
-<section data-section="hero-immersive" id="hero-immersive-section">
+<!-- Section: hero section hero business -->
+<section data-section="hero-centered" id="hero-centered-section">
   
 
-  <div class="hero-immersive__bg">
-    <div class="hero-immersive__overlay"></div>
-    <img 
-      src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
-      alt="Modern corporate architecture" 
-      class="hero-immersive__image"
-    >
-  </div>
+  <div class="hero-centered__container" data-component="container">
+    
+    <span class="hero-centered__badge">Now Accepting New Clients</span>
+    
+    <h1 class="hero-centered__title">Scale your business with confidence and clarity.</h1>
+    
+    <p class="hero-centered__desc">
+      We provide the strategic infrastructure and operational support you need to grow revenue without the burnout.
+    </p>
 
-  <div class="hero-immersive__container" data-component="container">
-    <div class="hero-immersive__content">
-      <span class="hero-immersive__pre">Premium Service</span>
-      <h1 class="hero-immersive__title">Building the future, one project at a time.</h1>
-      <p class="hero-immersive__desc">
-        Delivering excellence in construction and design. We bring your vision to life with precision, quality, and dedicated project management.
-      </p>
-
-      <div class="hero-immersive__card">
-        <input type="email" class="hero-immersive__input" placeholder="Enter your email address">
-        <button class="hero-immersive__btn">Request Quote</button>
-      </div>
-      <p class="hero-immersive__note">Free consultation • No credit card required</p>
+    <div class="hero-centered__actions">
+      <a href="#" class="hero-centered__btn hero-centered__btn--primary">
+        Book a Consultation
+      </a>
+      <a href="#" class="hero-centered__btn hero-centered__btn--secondary">
+        View Case Studies
+      </a>
     </div>
+
+    <div class="hero-centered__proof">
+      <div class="hero-centered__stars">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+      </div>
+      <p class="hero-centered__proof-text">Trusted by 200+ companies worldwide</p>
+    </div>
+
   </div>
 </section>
 
@@ -1215,193 +1215,158 @@
   </div>
 </section>
 
-<!-- Section: case studies case studies 1 -->
-<section data-section="case-studies-grid" id="case-studies-grid-section">
+<!-- Section: testimonials testimonial premium -->
+<section data-section="testimonials-ultra" id="testimonials-ultra-section">
   
 
-  <div class="case-studies-grid__container" data-component="container">
+  <div class="testimonials-ultra__container" data-component="container">
     
-    <div class="case-studies-grid__header">
-      <div>
-        <h2 class="case-studies-grid__title">Featured Work</h2>
-        <p class="case-studies-grid__subtitle">A selection of projects that showcase our expertise in delivering results.</p>
-      </div>
-      <a href="#" class="case-studies-grid__link">
-        View All Projects
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </a>
+    <div class="testimonials-ultra__header">
+      <h2 class="testimonials-ultra__title">Trusted by industry leaders.</h2>
+      <p class="testimonials-ultra__desc">Don't just take our word for it. Read what our executive partners have to say about the results we deliver.</p>
     </div>
 
-    <div class="case-studies-grid__grid">
+    <div class="testimonials-ultra__grid">
       
-      <a href="#" class="case-studies-grid__card">
-        <div class="case-studies-grid__image-wrap">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fintech App" class="case-studies-grid__image">
-          <div class="case-studies-grid__overlay"></div>
+      <div class="testimonials-ultra__card testimonials-ultra__card--highlight testimonials-ultra__card--large">
+        <svg class="testimonials-ultra__quote-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z"/></svg>
+        <p class="testimonials-ultra__text">"The ROI was immediate. Within 30 days of implementation, we saw a 40% increase in operational efficiency. It's rare to find a partner who cares this much about the outcome."</p>
+        <div class="testimonials-ultra__footer">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Executive" class="testimonials-ultra__avatar">
+          <div class="testimonials-ultra__author-info">
+            <span class="testimonials-ultra__author-name">David Chen <svg class="testimonials-ultra__verified" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
+            <span class="testimonials-ultra__author-role">CTO, Nexus Corp</span>
+          </div>
         </div>
-        <div class="case-studies-grid__content">
-          <span class="case-studies-grid__meta">Fintech</span>
-          <h3 class="case-studies-grid__card-title">Apex Banking App</h3>
-          <p class="case-studies-grid__desc">Redesigning the mobile banking experience for over 2 million users.</p>
-        </div>
-      </a>
+      </div>
 
-      <a href="#" class="case-studies-grid__card">
-        <div class="case-studies-grid__image-wrap">
-          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Branding" class="case-studies-grid__image">
-          <div class="case-studies-grid__overlay"></div>
+      <div class="testimonials-ultra__card">
+        <p class="testimonials-ultra__text">"Simply outstanding. The attention to detail and the level of strategic insight provided was exactly what we needed to scale to the next level."</p>
+        <div class="testimonials-ultra__footer">
+          <img src="https://images.unsplash.com/photo-1573496359-7013c53bca09?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Executive" class="testimonials-ultra__avatar">
+          <div class="testimonials-ultra__author-info">
+            <span class="testimonials-ultra__author-name">Sarah Jenkins</span>
+            <span class="testimonials-ultra__author-role">VP of Marketing, Stripe</span>
+          </div>
         </div>
-        <div class="case-studies-grid__content">
-          <span class="case-studies-grid__meta">Branding</span>
-          <h3 class="case-studies-grid__card-title">Nexus Corp</h3>
-          <p class="case-studies-grid__desc">A complete brand overhaul for a Fortune 500 logistics company.</p>
-        </div>
-      </a>
+      </div>
 
-      <a href="#" class="case-studies-grid__card">
-        <div class="case-studies-grid__image-wrap">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Education Platform" class="case-studies-grid__image">
-          <div class="case-studies-grid__overlay"></div>
+      <div class="testimonials-ultra__card">
+        <p class="testimonials-ultra__text">"I've worked with dozens of agencies over the years. None have delivered with the consistency and quality that this team brings to the table every single day."</p>
+        <div class="testimonials-ultra__footer">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Executive" class="testimonials-ultra__avatar">
+          <div class="testimonials-ultra__author-info">
+            <span class="testimonials-ultra__author-name">Marcus Reid <svg class="testimonials-ultra__verified" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
+            <span class="testimonials-ultra__author-role">Founder, Elevate</span>
+          </div>
         </div>
-        <div class="case-studies-grid__content">
-          <span class="case-studies-grid__meta">EdTech</span>
-          <h3 class="case-studies-grid__card-title">LearnLoop</h3>
-          <p class="case-studies-grid__desc">Building a scalable learning management system from the ground up.</p>
+      </div>
+
+      <div class="testimonials-ultra__card">
+        <p class="testimonials-ultra__text">"The onboarding process was seamless. We were up and running in less than a week, and the support team was there whenever we had a question."</p>
+        <div class="testimonials-ultra__footer">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Executive" class="testimonials-ultra__avatar">
+          <div class="testimonials-ultra__author-info">
+            <span class="testimonials-ultra__author-name">Elena Rodriguez</span>
+            <span class="testimonials-ultra__author-role">Director of Ops, SolarFwd</span>
+          </div>
         </div>
-      </a>
+      </div>
+
+      <div class="testimonials-ultra__card">
+        <p class="testimonials-ultra__text">"A game changer for our internal workflows. Highly recommended."</p>
+        <div class="testimonials-ultra__footer">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Executive" class="testimonials-ultra__avatar">
+          <div class="testimonials-ultra__author-info">
+            <span class="testimonials-ultra__author-name">James Wilson</span>
+            <span class="testimonials-ultra__author-role">CEO, TechFlow</span>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
 </section>
 
-<!-- Section: faq variant 3 -->
-
-
-<section data-section="faq_variant_3">
-    <div class="faq-wrapper" data-component="container">
-        <h2 class="section-title">Our Focus</h2>
-
-        <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">
-                Accreditation without borders
-                <span class="icon">+</span>
-            </button>
-            <div class="accordion-content">
-                <div class="accordion-content-inner">
-                    We provide global accreditation services that transcend geographical boundaries. Our mission
-                    is to ensure quality and compliance for institutions worldwide, offering a seamless and
-                    standardized evaluation process regardless of your location.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">
-                Allergen & Contaminant Testing
-                <span class="icon">+</span>
-            </button>
-            <div class="accordion-content">
-                <div class="accordion-content-inner">
-                    Every batch undergoes rigorous third-party testing to ensure zero presence of major
-                    allergens, heavy metals, and harmful microbes, strictly adhering to the highest global
-                    safety standards.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">
-                Quality Control Standards
-                <span class="icon">+</span>
-            </button>
-            <div class="accordion-content">
-                <div class="accordion-content-inner">
-                    Our end-to-end quality control spans from raw material sourcing to final encapsulation,
-                    utilizing advanced chromatography and spectrometry to verify potency and purity.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">
-                Global Quality Adherence
-                <span class="icon">+</span>
-            </button>
-            <div class="accordion-content">
-                <div class="accordion-content-inner">
-                    We design our protocols to meet and exceed regulatory frameworks across multiple continents,
-                    streamlining compliance for international distribution.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-</section>
-
-<!-- Section: contact location contact 1 -->
-<section data-section="contact-split" id="contact-split-section">
+<!-- Section: faq faq variation 1 -->
+<section data-section="faq-accordion" id="faq-accordion-section">
   
 
-  <div class="contact-split__container" data-component="container">
+  <div class="faq-accordion__container" data-component="container">
     
-    <div class="contact-split__info">
-      <span class="contact-split__label">Get in Touch</span>
-      <h2 class="contact-split__title">Let's build something great together.</h2>
-      <p class="contact-split__desc">Have a project in mind? We'd love to hear about it. Send us a message and we'll respond as soon as possible.</p>
+    <div class="faq-accordion__header">
+      <h2 class="faq-accordion__title">Frequently Asked Questions</h2>
+      <p class="faq-accordion__subtitle">Everything you need to know about the product and billing.</p>
+    </div>
+
+    <div class="faq-accordion__list">
       
-      <ul class="contact-split__list">
-        <li class="contact-split__item">
-          <div class="contact-split__icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          </div>
-          <div>
-            <span class="contact-split__item-label">Email</span>
-            <span class="contact-split__item-val">hello@example.com</span>
-          </div>
-        </li>
-        <li class="contact-split__item">
-          <div class="contact-split__icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          </div>
-          <div>
-            <span class="contact-split__item-label">Office</span>
-            <span class="contact-split__item-val">123 Market St, San Francisco, CA</span>
-          </div>
-        </li>
-        <li class="contact-split__item">
-          <div class="contact-split__icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          </div>
-          <div>
-            <span class="contact-split__item-label">Phone</span>
-            <span class="contact-split__item-val">+1 (555) 000-0000</span>
-          </div>
-        </li>
-      </ul>
+      <div class="faq-accordion__item" onclick="toggleFaq(this)" onkeydown="handleKey(event, this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="faq-accordion__trigger">
+          <h3 class="faq-accordion__question">Is there a free trial available?</h3>
+          <svg class="faq-accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-accordion__content">
+          Yes, you can try us for free for 30 days. If you want, we'll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.
+        </div>
+      </div>
+
+      <div class="faq-accordion__item" onclick="toggleFaq(this)" onkeydown="handleKey(event, this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="faq-accordion__trigger">
+          <h3 class="faq-accordion__question">Can I change my plan later?</h3>
+          <svg class="faq-accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-accordion__content">
+          Of course. Our pricing scales with your company. Chat to our friendly team to find a solution that works for you.
+        </div>
+      </div>
+
+      <div class="faq-accordion__item" onclick="toggleFaq(this)" onkeydown="handleKey(event, this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="faq-accordion__trigger">
+          <h3 class="faq-accordion__question">What is your cancellation policy?</h3>
+          <svg class="faq-accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-accordion__content">
+          We understand that things change. You can cancel your plan at any time and we will refund you the difference already paid.
+        </div>
+      </div>
+
+      <div class="faq-accordion__item" onclick="toggleFaq(this)" onkeydown="handleKey(event, this)" tabindex="0" role="button" aria-expanded="false">
+        <div class="faq-accordion__trigger">
+          <h3 class="faq-accordion__question">How do I get an invoice?</h3>
+          <svg class="faq-accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-accordion__content">
+          Invoices are automatically generated and sent to your billing email address at the start of each billing cycle. You can also download them from your dashboard.
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <div class="contact-split__form-wrap">
-      <form class="contact-split__form">
-        <div class="contact-split__group">
-          <label class="contact-split__input-label" for="contact-name">Name</label>
-          <input type="text" id="contact-name" class="contact-split__input" placeholder="John Doe">
-        </div>
-        
-        <div class="contact-split__group">
-          <label class="contact-split__input-label" for="contact-email">Email</label>
-          <input type="email" id="contact-email" class="contact-split__input" placeholder="john@company.com">
-        </div>
-        
-        <div class="contact-split__group">
-          <label class="contact-split__input-label" for="contact-message">Message</label>
-          <textarea id="contact-message" class="contact-split__input contact-split__textarea" placeholder="Tell us about your project..."></textarea>
-        </div>
+  
+</section>
 
-        <button type="button" class="contact-split__submit">Send Message</button>
-      </form>
+<!-- Section: call to actions cta 1 -->
+<section data-section="cta-centered" id="cta-centered-section">
+  
+
+  <div class="cta-centered__container" data-component="container">
+    <h2 class="cta-centered__title">Ready to scale your operation?</h2>
+    <p class="cta-centered__desc">Join 500+ companies that use our platform to drive growth and efficiency. Start your free 14-day trial today.</p>
+    
+    <div class="cta-centered__actions">
+      <a href="#" class="cta-centered__btn cta-centered__btn--primary">Get Started Now</a>
+      <a href="#" class="cta-centered__btn cta-centered__btn--secondary">Book a Demo</a>
     </div>
-
   </div>
 </section>
 
@@ -1492,29 +1457,42 @@
     <!-- Merged Scripts -->
     <script>
         
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('[data-section="faq_variant_3"]');
-            if (!container) return;
-            const headers = container.querySelectorAll(".accordion-header");
-            headers.forEach(header => {
-                header.addEventListener("click", function () {
-                    const content = this.nextElementSibling;
-                    const icon = this.querySelector(".icon");
-                    const isOpen = content.style.maxHeight;
-
-                    if (isOpen && isOpen !== "0px") {
-                        content.style.maxHeight = null;
-                        icon.textContent = "+";
-                        this.setAttribute("aria-expanded", "false");
-                    } else {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                        icon.textContent = "-";
-                        this.setAttribute("aria-expanded", "true");
-                    }
-                });
-            });
+    // Scoped JS for FAQ Interaction
+    (function() {
+      const root = document.querySelector('[data-section="faq-accordion"]');
+      
+      // Toggle function
+      window.toggleFaq = function(el) {
+        // Optional: Close others (Uncomment if needed)
+        /*
+        const items = root.querySelectorAll('.faq-accordion__item');
+        items.forEach(item => {
+          if (item !== el) {
+            item.classList.remove('active');
+            item.setAttribute('aria-expanded', 'false');
+          }
         });
-    
+        */
+        
+        const isActive = el.classList.contains('active');
+        if (isActive) {
+          el.classList.remove('active');
+          el.setAttribute('aria-expanded', 'false');
+        } else {
+          el.classList.add('active');
+          el.setAttribute('aria-expanded', 'true');
+        }
+      };
+
+      // Keyboard Accessibility
+      window.handleKey = function(e, el) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleFaq(el);
+        }
+      };
+    })();
+  
 
     </script>
 </body>
