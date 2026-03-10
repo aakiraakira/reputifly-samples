@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Imperial Builder PTE LTD — Renovation Specialists</title>
+    <meta name="description"
+        content="Get in touch with Imperial Builder. Request a free consultation for your residential or commercial renovation project in Singapore.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #b4933e;
+            --primary-dark: #9a7d34;
+            --primary-light: #d4b96a;
+            --accent: #162f4e;
+            --accent-light: #1e3f66;
+            --bg: #ffffff;
+            --text: #0b0a14;
+            --surface: #f7f7f5;
+            --border: #e6e6e6;
+            --muted: #555;
+            --on-primary: #fff;
+            --heading: 'Montserrat', sans-serif;
+            --body: 'Inter', sans-serif;
+            --radius: 16px;
+            --shadow: 0 20px 40px rgba(0, 0, 0, .08);
+            --glass: blur(14px)
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box !important
+        }
+
+        html {
+            scroll-behavior: smooth !important
+        }
+
+        body {
+            font-family: var(--body) !important;
+            color: var(--text) !important;
+            background: var(--bg) !important;
+            line-height: 1.7 !important;
+            overflow-x: hidden !important;
+            -webkit-font-smoothing: antialiased !important
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--heading) !important;
+            color: var(--accent) !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0 !important
+        }
+
+        a {
+            text-decoration: none !important;
+            color: inherit !important;
+            transition: all .3s ease !important
+        }
+
+        ul {
+            list-style: none !important
+        }
+
+        img {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important
+        }
+
+        .ib-container {
+            width: 100% !important;
+            max-width: 1280px !important;
+            margin: 0 auto !important;
+            padding: 0 24px !important
+        }
+
+        .ib-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 15px 32px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            font-family: var(--body) !important;
+            font-size: .95rem !important;
+            transition: all .35s ease !important;
+            cursor: pointer !important;
+            border: none !important;
+            letter-spacing: .5px !important;
+            text-transform: uppercase !important
+        }
+
+        .ib-btn-primary {
+            background: var(--primary) !important;
+            color: var(--on-primary) !important;
+            box-shadow: 0 4px 20px rgba(180, 147, 62, .35) !important
+        }
+
+        .ib-btn-primary:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 30px rgba(180, 147, 62, .45) !important
+        }
+
+        .ib-gold-line {
+            width: 60px !important;
+            height: 4px !important;
+            background: var(--primary) !important;
+            margin: 0 auto 20px !important;
+            border-radius: 2px !important
+        }
+
+        /* Header */
+        .ib-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 1000 !important;
+            background: rgba(255, 255, 255, .92) !important;
+            backdrop-filter: var(--glass) !important;
+            -webkit-backdrop-filter: var(--glass) !important;
+            border-bottom: 1px solid var(--border) !important
+        }
+
+        .ib-nav {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            height: 100px !important
+        }
+
+        .ib-logo img {
+            height: 80px !important;
+            object-fit: contain !important;
+            padding: 8px 0 !important
+        }
+
+        .ib-nav-links {
+            display: flex !important;
+            gap: 36px !important;
+            align-items: center !important
+        }
+
+        .ib-nav-links a {
+            font-weight: 500 !important;
+            color: var(--accent) !important;
+            font-size: .95rem !important;
+            position: relative !important
+        }
+
+        .ib-nav-links a:not(.ib-btn)::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -4px !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: var(--primary) !important;
+            transition: width .3s ease !important
+        }
+
+        .ib-nav-links a:not(.ib-btn):hover::after {
+            width: 100% !important
+        }
+
+        .ib-nav-links a:hover {
+            color: var(--primary) !important
+        }
+
+        .ib-nav-links a.active {
+            color: var(--primary) !important
+        }
+
+        .ib-mobile-btn {
+            display: none !important;
+            font-size: 1.5rem !important;
+            color: var(--accent) !important;
+            cursor: pointer !important;
+            border: none !important;
+            background: none !important
+        }
+
+        /* Page Hero */
+        .ib-page-hero {
+            padding: 175px 0 100px !important;
+            background: linear-gradient(135deg, rgba(22, 47, 78, .88), rgba(11, 10, 20, .75)), url('assets/WhatsApp%20Image%202026-03-06%20at%202.37.30%20PM%20(2).jpeg') center/cover no-repeat !important;
+            text-align: center !important;
+            color: var(--on-primary) !important
+        }
+
+        .ib-page-hero h1 {
+            color: var(--on-primary) !important;
+            font-size: 3.5rem !important;
+            font-weight: 900 !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-page-hero p {
+            font-size: 1.15rem !important;
+            opacity: .85 !important;
+            max-width: 600px !important;
+            margin: 0 auto !important
+        }
+
+        .ib-page-hero .ib-breadcrumb {
+            margin-top: 20px !important;
+            font-size: .9rem !important;
+            opacity: .6 !important
+        }
+
+        .ib-page-hero .ib-breadcrumb a {
+            color: var(--primary-light) !important;
+            opacity: 1 !important
+        }
+
+        /* Contact Layout */
+        .ib-contact {
+            padding: 100px 0 !important;
+            background: var(--bg) !important
+        }
+
+        .ib-contact-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1.2fr !important;
+            gap: 64px !important;
+            align-items: flex-start !important
+        }
+
+        /* Contact Info */
+        .ib-contact-info h2 {
+            font-size: 2.2rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 12px !important
+        }
+
+        .ib-contact-info h2 span {
+            color: var(--primary) !important
+        }
+
+        .ib-contact-info>p {
+            color: var(--muted) !important;
+            font-size: 1.05rem !important;
+            margin-bottom: 36px !important
+        }
+
+        .ib-info-item {
+            display: flex !important;
+            gap: 20px !important;
+            margin-bottom: 28px !important;
+            align-items: flex-start !important
+        }
+
+        .ib-info-icon {
+            width: 56px !important;
+            height: 56px !important;
+            border-radius: 50% !important;
+            background: rgba(180, 147, 62, .1) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important
+        }
+
+        .ib-info-icon i {
+            font-size: 1.3rem !important;
+            color: var(--primary) !important
+        }
+
+        .ib-info-text h4 {
+            font-size: 1.05rem !important;
+            margin-bottom: 4px !important;
+            font-weight: 700 !important
+        }
+
+        .ib-info-text p,
+        .ib-info-text a {
+            color: var(--muted) !important;
+            font-size: .95rem !important;
+            display: block !important
+        }
+
+        .ib-info-text a:hover {
+            color: var(--primary) !important
+        }
+
+        /* Contact Form */
+        .ib-contact-form {
+            background: var(--surface) !important;
+            padding: 48px !important;
+            border-radius: var(--radius) !important;
+            border: 1px solid var(--border) !important;
+            box-shadow: var(--shadow) !important
+        }
+
+        .ib-contact-form h3 {
+            font-size: 1.6rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 8px !important
+        }
+
+        .ib-contact-form>p {
+            color: var(--muted) !important;
+            margin-bottom: 32px !important;
+            font-size: .95rem !important
+        }
+
+        .ib-form-group {
+            margin-bottom: 24px !important
+        }
+
+        .ib-form-group label {
+            display: block !important;
+            margin-bottom: 8px !important;
+            color: var(--accent) !important;
+            font-weight: 600 !important;
+            font-size: .85rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: .5px !important
+        }
+
+        .ib-form-control {
+            width: 100% !important;
+            padding: 14px 18px !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 12px !important;
+            font-family: var(--body) !important;
+            font-size: 1rem !important;
+            background: var(--bg) !important;
+            transition: all .3s ease !important;
+            color: var(--text) !important
+        }
+
+        .ib-form-control:focus {
+            outline: none !important;
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 3px rgba(180, 147, 62, .15) !important
+        }
+
+        .ib-form-row {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 16px !important
+        }
+
+        .ib-contact-form .ib-btn {
+            width: 100% !important;
+            font-size: 1rem !important;
+            padding: 16px !important
+        }
+
+        /* Map */
+        .ib-map {
+            padding: 0 !important;
+            background: var(--bg) !important
+        }
+
+        .ib-map iframe {
+            width: 100% !important;
+            height: 450px !important;
+            border: none !important;
+            display: block !important
+        }
+
+        /* Business Hours */
+        .ib-hours {
+            padding: 80px 0 !important;
+            background: var(--surface) !important
+        }
+
+        .ib-hours-inner {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr 1fr !important;
+            gap: 48px !important;
+            align-items: center !important
+        }
+
+        .ib-hours-card {
+            background: var(--bg) !important;
+            padding: 40px 32px !important;
+            border-radius: var(--radius) !important;
+            border: 1px solid var(--border) !important;
+            text-align: center !important
+        }
+
+        .ib-hours-card i {
+            font-size: 2.2rem !important;
+            color: var(--primary) !important;
+            margin-bottom: 20px !important;
+            display: block !important
+        }
+
+        .ib-hours-card h3 {
+            font-size: 1.2rem !important;
+            margin-bottom: 16px !important;
+            font-weight: 700 !important
+        }
+
+        .ib-hours-card p {
+            color: var(--muted) !important;
+            font-size: .95rem !important;
+            margin-bottom: 4px !important
+        }
+
+        /* Social */
+        .ib-social-band {
+            padding: 80px 0 !important;
+            background: var(--bg) !important;
+            text-align: center !important
+        }
+
+        .ib-social-band h2 {
+            font-size: 2rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 12px !important
+        }
+
+        .ib-social-band>div>p {
+            color: var(--muted) !important;
+            font-size: 1.05rem !important;
+            margin-bottom: 32px !important
+        }
+
+        .ib-social-links {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 20px !important
+        }
+
+        .ib-social-link {
+            width: 60px !important;
+            height: 60px !important;
+            border-radius: 50% !important;
+            background: var(--surface) !important;
+            border: 1px solid var(--border) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 1.5rem !important;
+            color: var(--accent) !important;
+            transition: all .35s ease !important
+        }
+
+        .ib-social-link:hover {
+            background: var(--primary) !important;
+            color: var(--on-primary) !important;
+            border-color: var(--primary) !important;
+            transform: translateY(-5px) !important;
+            box-shadow: 0 8px 20px rgba(180, 147, 62, .3) !important
+        }
+
+        /* Footer */
+        .ib-footer {
+            background: #0b0a14 !important;
+            color: rgba(255, 255, 255, .7) !important;
+            padding: 80px 0 32px !important
+        }
+
+        .ib-footer-grid {
+            display: grid !important;
+            grid-template-columns: 2fr 1fr 1fr 1fr !important;
+            gap: 48px !important;
+            margin-bottom: 64px !important
+        }
+
+        .ib-footer-col h4 {
+            color: var(--primary) !important;
+            font-size: 1.15rem !important;
+            margin-bottom: 24px !important;
+            font-family: var(--heading) !important;
+            font-weight: 700 !important
+        }
+
+        .ib-footer-col p,
+        .ib-footer-col a {
+            color: rgba(255, 255, 255, .6) !important;
+            margin-bottom: 14px !important;
+            display: block !important;
+            font-size: .95rem !important
+        }
+
+        .ib-footer-col a:hover {
+            color: var(--primary) !important
+        }
+
+        .ib-footer-logo img {
+            height: 80px !important;
+            margin-bottom: 20px !important
+        }
+
+        .ib-footer-social {
+            display: flex !important;
+            gap: 12px !important;
+            margin-top: 20px !important
+        }
+
+        .ib-footer-social a {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            border: 1px solid rgba(255, 255, 255, .15) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: rgba(255, 255, 255, .6) !important;
+            font-size: 1rem !important
+        }
+
+        .ib-footer-social a:hover {
+            background: var(--primary) !important;
+            border-color: var(--primary) !important;
+            color: var(--on-primary) !important
+        }
+
+        .ib-footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .08) !important;
+            padding-top: 32px !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            font-size: .85rem !important;
+            color: rgba(255, 255, 255, .4) !important
+        }
+
+        .ib-footer-bottom a {
+            color: var(--primary) !important;
+            font-weight: 600 !important
+        }
+
+        .ib-wa {
+            position: fixed !important;
+            width: 60px !important;
+            height: 60px !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            background: #25d366 !important;
+            color: #fff !important;
+            border-radius: 50% !important;
+            font-size: 32px !important;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, .4) !important;
+            z-index: 999 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: transform .3s ease !important
+        }
+
+        .ib-wa:hover {
+            transform: scale(1.12) !important
+        }
+
+        /* Animations */
+        .ib-fade-up {
+            opacity: 0 !important;
+            transform: translateY(30px) !important;
+            transition: opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1), transform .8s cubic-bezier(0.165, 0.84, 0.44, 1) !important
+        }
+
+        .ib-fade-up.ib-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important
+        }
+
+        @media(max-width:1024px) {
+            .ib-contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 48px !important
+            }
+
+            .ib-hours-inner {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important
+            }
+
+            .ib-footer-grid {
+                grid-template-columns: 1fr 1fr !important
+            }
+
+            .ib-page-hero h1 {
+                font-size: 2.8rem !important
+            }
+        }
+
+        @media(max-width:768px) {
+            .ib-nav-links {
+                display: none !important;
+                position: absolute !important;
+                top: 100px !important;
+                left: 0 !important;
+                width: 100% !important;
+                background: var(--bg) !important;
+                flex-direction: column !important;
+                padding: 24px !important;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, .1) !important;
+                gap: 16px !important
+            }
+
+            .ib-nav-links.active {
+                display: flex !important
+            }
+
+            .ib-mobile-btn {
+                display: block !important
+            }
+
+            .ib-page-hero {
+                padding: 140px 0 80px !important
+            }
+
+            .ib-page-hero h1 {
+                font-size: 2.2rem !important
+            }
+
+            .ib-contact-form {
+                padding: 32px 20px !important
+            }
+
+            .ib-form-row {
+                grid-template-columns: 1fr !important
+            }
+
+            .ib-map iframe {
+                height: 300px !important
+            }
+
+            .ib-footer-grid {
+                grid-template-columns: 1fr !important
+            }
+
+            .ib-footer-bottom {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 12px !important
+            }
+
+            .ib-social-band h2 {
+                font-size: 1.8rem !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="ib-header">
+        <div class="ib-container ib-nav">
+            <a href="index.html" class="ib-logo"><img
+                    src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-6-2026-04-17-52-PM-mmemgrsxe44n.webp"
+                    alt="Imperial Builder Logo"></a>
+            <nav class="ib-nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="contact.html" class="ib-btn ib-btn-primary">Get a Quote</a>
+            </nav>
+            <button class="ib-mobile-btn" id="mobile-menu-btn" aria-label="Toggle menu"><i
+                    class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="ib-page-hero">
+        <div class="ib-container">
+            <div class="ib-gold-line"></div>
+            <h1>Contact Us</h1>
+            <p>Have a renovation project in mind? Let's start a conversation and transform your space.</p>
+            <div class="ib-breadcrumb"><a href="index.html">Home</a> / Contact</div>
+        </div>
+    </section>
+
+    <!-- GET IN TOUCH + CONTACT FORM -->
+    <section class="ib-contact">
+        <div class="ib-container ib-contact-grid">
+            <!-- Contact Info -->
+            <div class="ib-contact-info">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>Get in <span>Touch</span></h2>
+                <p>We'd love to hear about your renovation project. Reach out through any of the channels below, or fill out the
+                    form and our team will respond within 24 hours.</p>
+
+                <div class="ib-info-item">
+                    <div class="ib-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="ib-info-text">
+                        <h4>Visit Our Office</h4>
+                        <p>123 Builder Avenue, Singapore 012345</p>
+                    </div>
+                </div>
+                <div class="ib-info-item">
+                    <div class="ib-info-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="ib-info-text">
+                        <h4>Call Us</h4>
+                        <a href="tel:+6567890123">+65 6789 0123</a>
+                        <a href="tel:+6598765432">+65 9876 5432 (WhatsApp)</a>
+                    </div>
+                </div>
+                <div class="ib-info-item">
+                    <div class="ib-info-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="ib-info-text">
+                        <h4>Email Us</h4>
+                        <a href="mailto:info@imperialbuilder.com.sg">info@imperialbuilder.com.sg</a>
+                        <a href="mailto:projects@imperialbuilder.com.sg">projects@imperialbuilder.com.sg</a>
+                    </div>
+                </div>
+                <div class="ib-info-item">
+                    <div class="ib-info-icon"><i class="fas fa-clock"></i></div>
+                    <div class="ib-info-text">
+                        <h4>Office Hours</h4>
+                        <p>Mon — Fri: 9:00 AM — 6:00 PM</p>
+                        <p>Sat: 10:00 AM — 2:00 PM</p>
+                        <p>Sun & PH: Closed</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="ib-contact-form">
+                <h3>Tell Us About Your Renovation</h3>
+                <p>Fill in the form below and our renovation team will get back to you promptly.</p>
+                <form
+                    onsubmit="event.preventDefault(); alert('Thank you for your inquiry! We will contact you within 24 hours.');">
+                    <div class="ib-form-row">
+                        <div class="ib-form-group">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" class="ib-form-control" placeholder="John" required>
+                        </div>
+                        <div class="ib-form-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" class="ib-form-control" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    <div class="ib-form-row">
+                        <div class="ib-form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="ib-form-control" placeholder="you@example.com"
+                                required>
+                        </div>
+                        <div class="ib-form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="ib-form-control" placeholder="+65 8888 8888" required>
+                        </div>
+                    </div>
+                    <div class="ib-form-group">
+                        <label for="project">Project Type</label>
+                        <select id="project" class="ib-form-control" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="hdb">HDB Renovation</option>
+                            <option value="condo">Condo Renovation</option>
+                            <option value="landed">Landed Property Renovation</option>
+                            <option value="commercial">Commercial / Office Renovation</option>
+                            <option value="retail">Retail / F&B Renovation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="ib-form-group">
+                        <label for="budget">Estimated Budget</label>
+                        <select id="budget" class="ib-form-control">
+                            <option value="" disabled selected>Select a range</option>
+                            <option value="below-50k">Below $50,000</option>
+                            <option value="50k-100k">$50,000 — $100,000</option>
+                            <option value="100k-250k">$100,000 — $250,000</option>
+                            <option value="250k-500k">$250,000 — $500,000</option>
+                            <option value="above-500k">Above $500,000</option>
+                        </select>
+                    </div>
+                    <div class="ib-form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" class="ib-form-control" rows="5"
+                            placeholder="Tell us about your renovation project, timeline, and any specific requirements..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="ib-btn ib-btn-primary">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFICE LOCATION & MAP -->
+    <section class="ib-map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.190108618516!2d103.8198!3d1.3521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19a340000001%3A0xdb2ba4563e2c1d8e!2sSingapore!5e0!3m2!1sen!2ssg!4v1709660000000!5m2!1sen!2ssg"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Imperial Builder Office Location"></iframe>
+    </section>
+
+    <!-- BUSINESS HOURS & INFO -->
+    <section class="ib-hours">
+        <div class="ib-container">
+            <div class="ib-hours-inner">
+                <div class="ib-hours-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Business Hours</h3>
+                    <p><strong>Monday — Friday</strong></p>
+                    <p>9:00 AM — 6:00 PM</p>
+                    <p style="margin-top:12px!important"><strong>Saturday</strong></p>
+                    <p>10:00 AM — 2:00 PM</p>
+                    <p style="margin-top:12px!important"><strong>Sunday & PH</strong></p>
+                    <p>Closed</p>
+                </div>
+                <div class="ib-hours-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Consultation</h3>
+                    <p>Free initial renovation consultations available</p>
+                    <p style="margin-top:12px!important">Site visits for renovation assessment can be arranged during weekdays by appointment.</p>
+                    <p style="margin-top:12px!important"><strong>Response Time:</strong></p>
+                    <p>Within 24 business hours</p>
+                </div>
+                <div class="ib-hours-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Emergency Support</h3>
+                    <p>For ongoing renovation project emergencies, our project managers are available via direct hotlines.</p>
+                    <p style="margin-top:12px!important"><strong>Emergency Line:</strong></p>
+                    <p>+65 9876 5432</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL MEDIA -->
+    <section class="ib-social-band">
+        <div class="ib-container">
+            <div class="ib-gold-line"></div>
+            <h2>Follow Us on Social Media</h2>
+            <p>Stay updated with our latest renovation projects, design inspiration, and company news.</p>
+            <div class="ib-social-links">
+                <a href="#" class="ib-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="ib-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="ib-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="ib-social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="ib-social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="ib-footer">
+        <div class="ib-container">
+            <div class="ib-footer-grid">
+                <div class="ib-footer-col">
+                    <div class="ib-footer-logo"><img
+                            src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-6-2026-04-17-52-PM-mmemgrsxe44n.webp"
+                            alt="Imperial Builder Logo"></div>
+                    <p>Imperial Builder PTE LTD is Singapore's trusted renovation specialist, delivering quality craftsmanship and uncompromising standards for residential and commercial spaces since 2010.</p>
+                    <div class="ib-footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Our
+                        Services</a><a href="contact.html">Contact</a>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Services</h4>
+                    <a href="services.html">Residential Renovation</a><a href="services.html">Commercial Renovation</a><a
+                        href="services.html">Interior Design & Renovation</a><a href="services.html">A&A Works</a>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"
+                            style="color:var(--primary)!important;margin-right:8px!important"></i>123 Builder Avenue,
+                        Singapore 012345</p>
+                    <p><i class="fas fa-phone" style="color:var(--primary)!important;margin-right:8px!important"></i>+65
+                        6789 0123</p>
+                    <p><i class="fas fa-envelope"
+                            style="color:var(--primary)!important;margin-right:8px!important"></i>info@imperialbuilder.com.sg
+                    </p>
+                </div>
+            </div>
+            <div class="ib-footer-bottom">
+                <p>&copy; 2026 Imperial Builder PTE LTD. All Rights Reserved.</p>
+                <p>Website Design by <a href="https://reputifly.com" target="_blank" rel="noopener">Reputifly</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6567890123" class="ib-wa" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+            class="fab fa-whatsapp"></i></a>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn'), navLinks = document.getElementById('nav-links');
+        menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); const i = menuBtn.querySelector('i'); i.classList.toggle('fa-bars'); i.classList.toggle('fa-times') });
+        document.querySelectorAll('.ib-nav-links a').forEach(l => l.addEventListener('click', () => { navLinks.classList.remove('active'); const i = menuBtn.querySelector('i'); i.classList.remove('fa-times'); i.classList.add('fa-bars') }));
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeEls = document.querySelectorAll('.ib-section-header, .ib-hero-content, .ib-trust-item, .ib-about-img, .ib-about-text, .ib-cert-card, .ib-why-card, .ib-svc-card, .ib-port-item, .ib-test-card, .ib-cta h2, .ib-cta p, .ib-form, .ib-page-hero h1, .ib-page-hero p, .ib-svc-intro-text, .ib-svc-intro-img, .ib-svc-row-img, .ib-svc-row-text, .ib-step, .ib-cta-band h2, .ib-cta-band p, .ib-story-img, .ib-story-text, .ib-vision-card, .ib-team-card, .ib-exp-text, .ib-exp-img, .ib-award-card, .ib-contact-info, .ib-contact-form, .ib-hours-card, .ib-social-link, .ib-footer-col');
+            fadeEls.forEach(el => el.classList.add('ib-fade-up'));
+
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) {
+                        setTimeout(() => e.target.classList.add('ib-visible'), (e.target.dataset.delay || 0) * 100);
+                        obs.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            const grids = document.querySelectorAll('.ib-trust-grid, .ib-certs-grid, .ib-why-grid, .ib-services-grid, .ib-port-grid, .ib-test-grid, .ib-process-grid, .ib-vision-grid, .ib-team-grid, .ib-awards-grid, .ib-hours-inner, .ib-social-links, .ib-footer-grid');
+            grids.forEach(g => Array.from(g.children).forEach((c, i) => c.dataset.delay = i + 1));
+
+            fadeEls.forEach(el => obs.observe(el));
+
+            const stats = document.querySelectorAll('.ib-stat .num');
+            if (stats.length > 0) {
+                const statObs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            const t = e.target;
+                            if (t.dataset.counted) return;
+                            t.dataset.counted = true;
+                            const text = t.innerText;
+                            const finalVal = parseInt(text.replace(/[^0-9]/g, ''));
+                            const suffix = text.replace(/[0-9]/g, '');
+                            let start = 0, step = finalVal / 60;
+                            const c = setInterval(() => {
+                                start += step;
+                                if (start >= finalVal) { t.innerText = finalVal + suffix; clearInterval(c); }
+                                else t.innerText = Math.floor(start) + suffix;
+                            }, 25);
+                            statObs.unobserve(t);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                stats.forEach(s => statObs.observe(s));
+            }
+        });
+    </script>
+</body>
+
+</html>
