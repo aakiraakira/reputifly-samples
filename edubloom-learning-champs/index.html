@@ -1343,6 +1343,17 @@ body, p, a, li, span, .subtitle, [class*="desc"], [class*="text"], [class*="badg
                 border-radius: 12px !important; 
             }
         </style>
+    
+        <style id="ai-theme-override">
+            /* Enforce AI Rounding globally */
+            :root { --radius: 12px !important; }
+            [data-section] { --radius: 12px !important; }
+            
+            /* Aggressive fallbacks for elements that might hardcode radius */
+            img, .btn, button, .button, [data-component="card"], .page__tile { 
+                border-radius: 12px !important; 
+            }
+        </style>
     </head>
 <body>
     
@@ -1439,7 +1450,7 @@ body, p, a, li, span, .subtitle, [class*="desc"], [class*="text"], [class*="badg
         <div class="hero__mediaDecor hero__mediaDecorA" id="hero-media-decor-a" aria-hidden="true"></div>
         <div class="hero__mediaDecor hero__mediaDecorB" id="hero-media-decor-b" aria-hidden="true"></div>
 
-        <img class="hero__image" id="hero-image" src="https://images.pexels.com/photos/5211478/pexels-photo-5211478.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="student" loading="lazy">
+        <img class="hero__image" id="hero-image" src="https://images.pexels.com/photos/8199172/pexels-photo-8199172.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="student" loading="lazy">
       </div>
     </div>
   </div>
@@ -1514,7 +1525,7 @@ body, p, a, li, span, .subtitle, [class*="desc"], [class*="text"], [class*="badg
     <div class="about-manifesto__divider"></div>
 
     <div class="about-manifesto__signature-block">
-      <img src="https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="books" class="about-manifesto__avatar">
+      <img src="https://images.pexels.com/photos/18998898/pexels-photo-18998898.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="children" class="about-manifesto__avatar">
       <div>
         <div class="about-manifesto__author">James Sterling</div>
         <span class="about-manifesto__role">Founder &amp; CEO</span>
@@ -1541,7 +1552,7 @@ body, p, a, li, span, .subtitle, [class*="desc"], [class*="text"], [class*="badg
         <svg class="testimonials-ultra__quote-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z"></path></svg>
         <p class="testimonials-ultra__text">"My child's grades have soared since joining Edubloom! The personalized attention made all the difference, and they actually look forward to learning now. Highly recommend!"</p>
         <div class="testimonials-ultra__footer">
-          <img src="https://images.pexels.com/photos/10646410/pexels-photo-10646410.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="classroom" class="testimonials-ultra__avatar">
+          <img src="https://images.pexels.com/photos/8926900/pexels-photo-8926900.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="teacher" class="testimonials-ultra__avatar">
           <div class="testimonials-ultra__author-info">
             <span class="testimonials-ultra__author-name">David Chen <svg class="testimonials-ultra__verified" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"></path></svg></span>
             <span class="testimonials-ultra__author-role">CTO, Nexus Corp</span>
@@ -1552,7 +1563,7 @@ body, p, a, li, span, .subtitle, [class*="desc"], [class*="text"], [class*="badg
       <div class="testimonials-ultra__card">
         <p class="testimonials-ultra__text">"The intervention services for my child with special needs have been life-changing. The dedicated team truly understands and provides the exact support needed. We're so grateful."</p>
         <div class="testimonials-ultra__footer">
-          <img src="https://images.pexels.com/photos/17087160/pexels-photo-17087160.png?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="child" class="testimonials-ultra__avatar">
+          <img src="https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="books" class="testimonials-ultra__avatar">
           <div class="testimonials-ultra__author-info">
             <span class="testimonials-ultra__author-name">Sarah Jenkins</span>
             <span class="testimonials-ultra__author-role">VP of Marketing, Stripe</span>
@@ -1563,7 +1574,7 @@ body, p, a, li, span, .subtitle, [class*="desc"], [class*="text"], [class*="badg
       <div class="testimonials-ultra__card">
         <p class="testimonials-ultra__text">"Finding quality tutoring that's also affordable was a challenge until we found Edubloom. The packages are great value, and the care is exceptional."</p>
         <div class="testimonials-ultra__footer">
-          <img src="https://images.pexels.com/photos/5212703/pexels-photo-5212703.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="teacher" class="testimonials-ultra__avatar">
+          <img src="https://images.pexels.com/photos/5212329/pexels-photo-5212329.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="classroom" class="testimonials-ultra__avatar">
           <div class="testimonials-ultra__author-info">
             <span class="testimonials-ultra__author-name">Marcus Reid <svg class="testimonials-ultra__verified" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"></path></svg></span>
             <span class="testimonials-ultra__author-role">Founder, Elevate</span>
@@ -1574,7 +1585,7 @@ body, p, a, li, span, .subtitle, [class*="desc"], [class*="text"], [class*="badg
       <div class="testimonials-ultra__card">
         <p class="testimonials-ultra__text">"The student care program is fantastic! I know my child is safe, happy, and getting their homework done. It's a huge relief for working parents."</p>
         <div class="testimonials-ultra__footer">
-          <img src="https://images.pexels.com/photos/399161/pexels-photo-399161.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="desk" class="testimonials-ultra__avatar">
+          <img src="https://images.pexels.com/photos/105952/pexels-photo-105952.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="parent" class="testimonials-ultra__avatar">
           <div class="testimonials-ultra__author-info">
             <span class="testimonials-ultra__author-name">Elena Rodriguez</span>
             <span class="testimonials-ultra__author-role">Director of Ops, SolarFwd</span>
@@ -1585,7 +1596,7 @@ body, p, a, li, span, .subtitle, [class*="desc"], [class*="text"], [class*="badg
       <div class="testimonials-ultra__card">
         <p class="testimonials-ultra__text">"A truly nurturing and effective learning environment. Our child is thriving!"</p>
         <div class="testimonials-ultra__footer">
-          <img src="https://images.pexels.com/photos/4887170/pexels-photo-4887170.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="pencil" class="testimonials-ultra__avatar">
+          <img src="https://images.pexels.com/photos/1034646/pexels-photo-1034646.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" alt="desk" class="testimonials-ultra__avatar">
           <div class="testimonials-ultra__author-info">
             <span class="testimonials-ultra__author-name">James Wilson</span>
             <span class="testimonials-ultra__author-role">CEO, TechFlow</span>
