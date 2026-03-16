@@ -7,195 +7,210 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            bg: '#0b0a14',
-                            surface: '#171620',
-                            border: '#23232c',
-                            primary: '#479539',
-                            primaryHover: '#5cc14a',
-                            accent: '#60acc0',
-                            text: '#ffffff',
-                            muted: '#a1a1aa'
+                            bg: '#f3faf4',
+                            surface: '#eef5ef',
+                            border: '#dbe1dc',
+                            primary: '#81c434',
+                            primaryHover: '#000000',
+                            accent: '#338a36',
+                            text: '#0c3d19',
+                            muted: '#082b12',
+                            onPrimary: '#ffffff',
+                            focus: '#badf94'
                         }
+                    },
+                    backgroundImage: {
+                        'gradient-primary': 'linear-gradient(135deg, #81c434 0%, #2b6513 100%)',
+                        'gradient-bg': 'linear-gradient(135deg, #f3faf4 0%, #cceed9 100%)',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        heading: ['Playfair Display', 'serif'],
                     },
                     borderRadius: {
-                        'brand': '8px',
+                        'brand': '16px',
+                    },
+                    boxShadow: {
+                        'brand': '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #0b0a14; color: #ffffff; }
+        body { background-color: #f3faf4; color: #0c3d19; }
+        .logo-blend { mix-blend-mode: multiply; }
     </style>
 </head>
 <body class="font-sans antialiased text-brand-text bg-brand-bg">
 
-    <header class="fixed w-full top-0 z-50 bg-brand-bg/90 backdrop-blur-md border-b border-brand-border">
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-border shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-24">
                 <div class="flex-shrink-0 flex items-center">
-                    <span class="text-2xl font-bold tracking-tight text-white">Eco<span class="text-brand-primary">Greenspace</span></span>
+                    <a href="#home">
+                        <img src="Eco Greenscape.jpeg" alt="Eco Greenscape Logo" class="h-16 w-auto object-contain">
+                    </a>
                 </div>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-sm font-medium hover:text-brand-primary transition-colors">Home</a>
-                    <a href="#about" class="text-sm font-medium hover:text-brand-primary transition-colors">About</a>
-                    <a href="#services" class="text-sm font-medium hover:text-brand-primary transition-colors">Services</a>
-                    <a href="#contact" class="text-sm font-medium hover:text-brand-primary transition-colors">Contact</a>
+                    <a href="#home" class="text-sm font-medium hover:text-brand-accent transition-colors">Home</a>
+                    <a href="#about" class="text-sm font-medium hover:text-brand-accent transition-colors">About</a>
+                    <a href="#services" class="text-sm font-medium hover:text-brand-accent transition-colors">Services</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-brand-accent transition-colors">Contact</a>
                 </nav>
                 <div class="hidden md:flex">
-                    <a href="#quote" class="bg-brand-primary hover:bg-brand-primaryHover text-white px-5 py-2 rounded-brand font-medium transition-all">Get a Quote</a>
+                    <a href="#quote" class="bg-gradient-primary hover:bg-none hover:bg-brand-primaryHover text-brand-onPrimary px-6 py-2.5 rounded-brand font-medium transition-all shadow-brand">Get a Quote</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="pt-20">
+    <main class="pt-24">
 
         <div id="home">
-            <section class="relative bg-brand-surface py-32 border-b border-brand-border">
+            <section class="relative bg-gradient-bg py-32 border-b border-brand-border">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 class="text-5xl md:text-6xl font-bold mb-6">Sustainable Landscapes,<br>Beautiful <span class="text-brand-primary">Greenspaces</span></h1>
-                    <p class="text-xl text-brand-muted max-w-2xl mx-auto mb-10">Transforming your residential and commercial properties with eco-conscious landscaping and expert maintenance.</p>
+                    <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6 text-brand-text">Transform Your Outdoor Space</h1>
+                    <p class="text-xl text-brand-muted max-w-2xl mx-auto mb-10">High-impact landscaping and maintenance services dedicated to creating sustainable, breathtaking eco-havens.</p>
                     <div class="flex justify-center gap-4">
-                        <a href="#services" class="bg-brand-primary hover:bg-brand-primaryHover text-white px-8 py-3 rounded-brand font-medium transition-all">Explore Services</a>
-                        <a href="#contact" class="border border-brand-primary text-brand-primary hover:bg-brand-primary/10 px-8 py-3 rounded-brand font-medium transition-all">Contact Us</a>
+                        <a href="#services" class="bg-gradient-primary hover:bg-none hover:bg-brand-primaryHover text-brand-onPrimary px-8 py-3.5 rounded-brand font-medium transition-all shadow-brand">Explore Services</a>
+                        <a href="#contact" class="bg-white border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-brand-onPrimary px-8 py-3.5 rounded-brand font-medium transition-all">Contact Us</a>
                     </div>
                 </div>
             </section>
 
             <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold mb-4">Our Landscaping Services</h2>
-                    <p class="text-brand-muted max-w-2xl mx-auto">Comprehensive maintenance and design offerings tailored to your needs.</p>
+                    <h2 class="font-heading text-4xl font-bold mb-4">Our Landscaping Services</h2>
+                    <p class="text-brand-muted max-w-2xl mx-auto">Discover our range of comprehensive greenspace offerings tailored to your specific needs.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-brand-surface border border-brand-border p-8 rounded-brand hover:border-brand-primary transition-colors">
-                        <div class="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center mb-6 text-brand-primary">🌿</div>
-                        <h3 class="text-xl font-bold mb-3">Lawn Care</h3>
-                        <p class="text-brand-muted text-sm">Routine mowing, fertilization, and eco-friendly weed control.</p>
+                    <div class="bg-brand-surface shadow-brand p-8 rounded-brand border border-brand-border hover:border-brand-primary transition-colors">
+                        <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-6 text-brand-accent shadow-sm text-2xl">🌱</div>
+                        <h3 class="font-heading text-2xl font-bold mb-3">Lawn & Garden Care</h3>
+                        <p class="text-brand-muted text-sm">Professional maintenance keeping your lawns lush and your gardens thriving.</p>
                     </div>
-                    <div class="bg-brand-surface border border-brand-border p-8 rounded-brand hover:border-brand-primary transition-colors">
-                        <div class="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center mb-6 text-brand-primary">📐</div>
-                        <h3 class="text-xl font-bold mb-3">Garden Design</h3>
-                        <p class="text-brand-muted text-sm">Bespoke planting arrangements and hardscaping implementation.</p>
+                    <div class="bg-brand-surface shadow-brand p-8 rounded-brand border border-brand-border hover:border-brand-primary transition-colors">
+                        <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-6 text-brand-accent shadow-sm text-2xl">📐</div>
+                        <h3 class="font-heading text-2xl font-bold mb-3">Custom Design</h3>
+                        <p class="text-brand-muted text-sm">Bespoke planting, hardscaping, and unique outdoor space design installations.</p>
                     </div>
-                    <div class="bg-brand-surface border border-brand-border p-8 rounded-brand hover:border-brand-primary transition-colors">
-                        <div class="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center mb-6 text-brand-primary">💧</div>
-                        <h3 class="text-xl font-bold mb-3">Irrigation</h3>
-                        <p class="text-brand-muted text-sm">Water-saving sprinkler and drip systems designed for efficiency.</p>
+                    <div class="bg-brand-surface shadow-brand p-8 rounded-brand border border-brand-border hover:border-brand-primary transition-colors">
+                        <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-6 text-brand-accent shadow-sm text-2xl">💧</div>
+                        <h3 class="font-heading text-2xl font-bold mb-3">Irrigation Systems</h3>
+                        <p class="text-brand-muted text-sm">Efficient, water-saving setups to maintain hydration with zero waste.</p>
                     </div>
                 </div>
             </section>
 
             <section class="py-24 bg-brand-surface border-y border-brand-border">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
                     <div>
-                        <h2 class="text-3xl font-bold mb-6">Why Choose Eco Greenspace?</h2>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <span class="text-brand-accent font-bold">✓</span>
+                        <h2 class="font-heading text-4xl font-bold mb-6">Why Choose Eco Greenscape?</h2>
+                        <p class="text-brand-muted mb-8">We combine aesthetic excellence with deep environmental responsibility, setting a new standard for greenspace management.</p>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <div class="bg-brand-primary/20 p-2 rounded-full text-brand-accent font-bold">✓</div>
                                 <div>
-                                    <h4 class="font-bold">Eco-Friendly Commitment</h4>
-                                    <p class="text-sm text-brand-muted">Sustainable practices that protect local environments.</p>
+                                    <h4 class="font-heading text-xl font-bold text-brand-text">Sustainable Practices</h4>
+                                    <p class="text-sm text-brand-muted mt-1">We utilize organic treatments and water-conscious designs.</p>
                                 </div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-brand-accent font-bold">✓</span>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-brand-primary/20 p-2 rounded-full text-brand-accent font-bold">✓</div>
                                 <div>
-                                    <h4 class="font-bold">Certified Experts</h4>
-                                    <p class="text-sm text-brand-muted">A team of licensed arborists and landscape designers.</p>
+                                    <h4 class="font-heading text-xl font-bold text-brand-text">Expert Craftsmanship</h4>
+                                    <p class="text-sm text-brand-muted mt-1">Our team consists of seasoned horticulturists and designers.</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <div class="h-64 bg-brand-border rounded-brand flex items-center justify-center text-brand-muted">
-                        [Compelling Visual/Image Placeholder]
+                    <div class="h-96 bg-brand-bg rounded-brand border border-brand-border shadow-brand flex items-center justify-center text-brand-accent">
+                        [Engaging Visual Placeholder]
                     </div>
                 </div>
             </section>
 
             <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold mb-12">What Our Clients Say</h2>
+                <h2 class="font-heading text-4xl font-bold mb-12">What Our Clients Say</h2>
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-brand-surface p-8 rounded-brand border border-brand-border text-left">
-                        <p class="italic text-brand-muted mb-4">"Eco Greenspace completely revitalized our office courtyard. Professional and truly sustainable."</p>
-                        <p class="font-bold">- Sarah Jenkins, Property Manager</p>
+                    <div class="bg-white p-10 rounded-brand shadow-brand border border-brand-border text-left">
+                        <div class="text-brand-primary text-xl mb-4">★★★★★</div>
+                        <p class="italic text-brand-muted mb-6 text-lg">"Eco Greenscape completely revitalized our office courtyard. Their dedication to sustainability is inspiring and the results are stunning."</p>
+                        <p class="font-bold font-heading text-xl">- Sarah Jenkins, Property Manager</p>
                     </div>
-                    <div class="bg-brand-surface p-8 rounded-brand border border-brand-border text-left">
-                        <p class="italic text-brand-muted mb-4">"Their lawn care team is punctual and highly knowledgeable. My garden has never looked better."</p>
-                        <p class="font-bold">- David M., Homeowner</p>
+                    <div class="bg-white p-10 rounded-brand shadow-brand border border-brand-border text-left">
+                        <div class="text-brand-primary text-xl mb-4">★★★★★</div>
+                        <p class="italic text-brand-muted mb-6 text-lg">"Their lawn care team is punctual and highly knowledgeable. My home's garden has never looked healthier or more vibrant."</p>
+                        <p class="font-bold font-heading text-xl">- David M., Homeowner</p>
                     </div>
                 </div>
             </section>
 
-            <section class="py-24 bg-brand-surface border-y border-brand-border">
+            <section class="py-24 bg-gradient-bg border-y border-brand-border">
                 <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+                    <h2 class="font-heading text-4xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
                     <div class="space-y-4">
-                        <div class="p-6 border border-brand-border rounded-brand bg-brand-bg">
-                            <h4 class="font-bold mb-2">Are your fertilizers safe for pets?</h4>
-                            <p class="text-sm text-brand-muted">Yes, we exclusively use organic, pet-safe treatments.</p>
+                        <div class="p-6 border border-brand-border rounded-brand bg-white shadow-sm">
+                            <h4 class="font-heading text-xl font-bold mb-2">Are your fertilizers safe for pets and children?</h4>
+                            <p class="text-brand-muted">Yes, our commitment to eco-friendly landscaping means we strictly use organic, non-toxic treatments that are entirely safe for your family and pets.</p>
                         </div>
-                        <div class="p-6 border border-brand-border rounded-brand bg-brand-bg">
-                            <h4 class="font-bold mb-2">Do you serve commercial properties?</h4>
-                            <p class="text-sm text-brand-muted">Absolutely. We have comprehensive plans for businesses and estates.</p>
+                        <div class="p-6 border border-brand-border rounded-brand bg-white shadow-sm">
+                            <h4 class="font-heading text-xl font-bold mb-2">Do you serve commercial properties?</h4>
+                            <p class="text-brand-muted">Absolutely. We manage greenspaces for both residential homes and large commercial estates, tailoring our approach to the scale of the project.</p>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
 
-
-        <div id="about" class="pt-24 pb-12 border-b border-brand-border">
+        <div id="about" class="pt-24 pb-16 border-b border-brand-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-20">
-                    <h2 class="text-4xl font-bold mb-6">About Us</h2>
-                    <p class="text-brand-muted max-w-3xl mx-auto text-lg">Founded on the principle that beautiful landscapes shouldn't cost the earth. Our mission is to provide top-tier landscaping while preserving natural ecosystems.</p>
+                    <h2 class="font-heading text-5xl font-bold mb-6">Our Story & Mission</h2>
+                    <p class="text-brand-muted max-w-3xl mx-auto text-lg leading-relaxed">Eco Greenscape was founded with a singular vision: to create breathtaking outdoor spaces while steadfastly protecting the environment. We merge innovative landscaping techniques with deep-rooted sustainability to ensure absolute customer satisfaction.</p>
                 </div>
 
-                <div class="mb-20">
-                    <h3 class="text-2xl font-bold mb-8 text-center">Our Team</h3>
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="text-center">
-                            <div class="w-24 h-24 mx-auto bg-brand-surface rounded-full mb-4 border border-brand-border"></div>
-                            <h4 class="font-bold">John Doe</h4>
-                            <p class="text-sm text-brand-accent">Lead Landscape Architect</p>
+                <div class="mb-24">
+                    <h3 class="font-heading text-3xl font-bold mb-10 text-center">Meet Our Team</h3>
+                    <div class="grid md:grid-cols-3 gap-10">
+                        <div class="bg-white p-8 rounded-brand shadow-brand border border-brand-border text-center">
+                            <div class="w-32 h-32 mx-auto bg-brand-surface rounded-full mb-6 border border-brand-border"></div>
+                            <h4 class="font-heading text-2xl font-bold">Marcus Lin</h4>
+                            <p class="text-brand-accent font-medium mt-1">Lead Landscape Architect</p>
                         </div>
-                        <div class="text-center">
-                            <div class="w-24 h-24 mx-auto bg-brand-surface rounded-full mb-4 border border-brand-border"></div>
-                            <h4 class="font-bold">Jane Smith</h4>
-                            <p class="text-sm text-brand-accent">Horticulture Specialist</p>
+                        <div class="bg-white p-8 rounded-brand shadow-brand border border-brand-border text-center">
+                            <div class="w-32 h-32 mx-auto bg-brand-surface rounded-full mb-6 border border-brand-border"></div>
+                            <h4 class="font-heading text-2xl font-bold">Jane Smith</h4>
+                            <p class="text-brand-accent font-medium mt-1">Master Horticulturist</p>
                         </div>
-                        <div class="text-center">
-                            <div class="w-24 h-24 mx-auto bg-brand-surface rounded-full mb-4 border border-brand-border"></div>
-                            <h4 class="font-bold">Mike Johnson</h4>
-                            <p class="text-sm text-brand-accent">Irrigation Expert</p>
+                        <div class="bg-white p-8 rounded-brand shadow-brand border border-brand-border text-center">
+                            <div class="w-32 h-32 mx-auto bg-brand-surface rounded-full mb-6 border border-brand-border"></div>
+                            <h4 class="font-heading text-2xl font-bold">Ahmad Rahman</h4>
+                            <p class="text-brand-accent font-medium mt-1">Irrigation Specialist</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-brand-surface p-6 rounded-brand border border-brand-border">
-                        <h4 class="font-bold mb-3 text-brand-primary">Philosophy & Values</h4>
-                        <p class="text-sm text-brand-muted">Sustainability guides every cut, plant, and design we execute.</p>
+                    <div class="bg-gradient-bg p-8 rounded-brand border border-brand-border shadow-sm">
+                        <h4 class="font-heading text-2xl font-bold mb-4 text-brand-text">Philosophy & Values</h4>
+                        <p class="text-brand-muted leading-relaxed">Environmental stewardship guides every project we undertake. We believe in working with nature, not against it.</p>
                     </div>
-                    <div class="bg-brand-surface p-6 rounded-brand border border-brand-border">
-                        <h4 class="font-bold mb-3 text-brand-primary">Certifications & Awards</h4>
-                        <p class="text-sm text-brand-muted">Certified Green Industry Professionals and recognized locally for excellence.</p>
+                    <div class="bg-gradient-bg p-8 rounded-brand border border-brand-border shadow-sm">
+                        <h4 class="font-heading text-2xl font-bold mb-4 text-brand-text">Certifications & Awards</h4>
+                        <p class="text-brand-muted leading-relaxed">Recognized as Certified Green Industry Professionals, bringing licensed credibility to your doorstep.</p>
                     </div>
-                    <div class="bg-brand-surface p-6 rounded-brand border border-brand-border">
-                        <h4 class="font-bold mb-3 text-brand-primary">Community Involvement</h4>
-                        <p class="text-sm text-brand-muted">Proud sponsors of local urban gardening initiatives and park cleanups.</p>
+                    <div class="bg-gradient-bg p-8 rounded-brand border border-brand-border shadow-sm">
+                        <h4 class="font-heading text-2xl font-bold mb-4 text-brand-text">Community Involvement</h4>
+                        <p class="text-brand-muted leading-relaxed">We proudly support local environmental initiatives, sponsoring neighborhood park cleanups and urban planting drives.</p>
                     </div>
                 </div>
             </div>
@@ -204,44 +219,44 @@
         <div id="services" class="py-24 bg-brand-surface border-b border-brand-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold mb-6">Comprehensive Services</h2>
-                    <p class="text-brand-muted max-w-2xl mx-auto">From residential backyards to sprawling commercial estates, we offer an end-to-end suite of greenspace solutions.</p>
+                    <h2 class="font-heading text-5xl font-bold mb-6">Comprehensive Services</h2>
+                    <p class="text-brand-muted max-w-2xl mx-auto text-lg">Whether you are a residential homeowner or managing a commercial property, our extensive greenspace offerings cover all your landscaping needs.</p>
                 </div>
 
-                <div class="space-y-12">
-                    <div class="bg-brand-bg p-8 rounded-brand border border-brand-border flex flex-col md:flex-row gap-8 items-center">
+                <div class="space-y-10">
+                    <div class="bg-white p-10 rounded-brand shadow-brand border border-brand-border flex flex-col md:flex-row gap-8 items-center">
                         <div class="flex-1">
-                            <h3 class="text-2xl font-bold mb-3">Lawn Care & Maintenance</h3>
-                            <p class="text-brand-muted mb-4">Mowing, organic fertilization, core aeration, pest control, and seasonal treatments to keep your lawn resilient.</p>
+                            <h3 class="font-heading text-3xl font-bold mb-4 text-brand-primary">Lawn Care & Maintenance</h3>
+                            <p class="text-brand-muted text-lg">Specialized services encompassing precision mowing, core aeration, seasonal treatments, and organic pest control to ensure healthy, resilient lawns year-round.</p>
                         </div>
                     </div>
                     
-                    <div class="bg-brand-bg p-8 rounded-brand border border-brand-border flex flex-col md:flex-row-reverse gap-8 items-center">
+                    <div class="bg-white p-10 rounded-brand shadow-brand border border-brand-border flex flex-col md:flex-row-reverse gap-8 items-center">
                         <div class="flex-1">
-                            <h3 class="text-2xl font-bold mb-3">Garden Design & Installation</h3>
-                            <p class="text-brand-muted mb-4">Complete creation of beautiful spaces including drought-resistant plant selection, custom hardscaping, and serene water features.</p>
+                            <h3 class="font-heading text-3xl font-bold mb-4 text-brand-primary">Garden Design & Installation</h3>
+                            <p class="text-brand-muted text-lg">We conceptualize and build beautiful spaces featuring native plant selection, elegant hardscaping, and peaceful water features tailored to your aesthetic.</p>
                         </div>
                     </div>
 
-                    <div class="bg-brand-bg p-8 rounded-brand border border-brand-border flex flex-col md:flex-row gap-8 items-center">
+                    <div class="bg-white p-10 rounded-brand shadow-brand border border-brand-border flex flex-col md:flex-row gap-8 items-center">
                         <div class="flex-1">
-                            <h3 class="text-2xl font-bold mb-3">Tree & Shrub Care</h3>
-                            <p class="text-brand-muted mb-4">Expert pruning, health assessments, disease treatment, and safe removal services to protect your property's valuable assets.</p>
+                            <h3 class="font-heading text-3xl font-bold mb-4 text-brand-primary">Tree & Shrub Care</h3>
+                            <p class="text-brand-muted text-lg">Expert arboricultural services including precise pruning, health assessments, disease treatment, and safe removals to protect your property's larger flora.</p>
                         </div>
                     </div>
 
-                    <div class="bg-brand-bg p-8 rounded-brand border border-brand-border flex flex-col md:flex-row-reverse gap-8 items-center">
+                    <div class="bg-white p-10 rounded-brand shadow-brand border border-brand-border flex flex-col md:flex-row-reverse gap-8 items-center">
                         <div class="flex-1">
-                            <h3 class="text-2xl font-bold mb-3">Irrigation Systems</h3>
-                            <p class="text-brand-muted mb-4">Design, installation, and preventative maintenance of smart, water-saving sprinkler and drip systems.</p>
+                            <h3 class="font-heading text-3xl font-bold mb-4 text-brand-primary">Irrigation Systems</h3>
+                            <p class="text-brand-muted text-lg">Complete design, installation, and maintenance of modern, water-saving irrigation networks ensuring optimal hydration without waste.</p>
                         </div>
                     </div>
                 </div>
 
-                <div id="quote" class="mt-20 text-center bg-brand-bg py-16 rounded-brand border border-brand-primary/30">
-                    <h3 class="text-2xl font-bold mb-4">Ready to elevate your greenspace?</h3>
-                    <p class="text-brand-muted mb-8">Get a personalized estimate tailored to your property.</p>
-                    <a href="#contact" class="bg-brand-primary hover:bg-brand-primaryHover text-white px-8 py-4 rounded-brand font-bold transition-all text-lg shadow-[0_4px_14px_0_rgba(71,149,57,0.39)]">Request a Free Quote</a>
+                <div id="quote" class="mt-20 text-center bg-gradient-bg py-16 rounded-brand shadow-brand border border-brand-primary/30">
+                    <h3 class="font-heading text-4xl font-bold mb-4">Ready to elevate your greenspace?</h3>
+                    <p class="text-brand-muted mb-8 text-lg">Reach out today for a personalized consultation and service estimate.</p>
+                    <a href="#contact" class="bg-gradient-primary hover:bg-none hover:bg-brand-primaryHover text-brand-onPrimary px-10 py-4 rounded-brand font-bold transition-all text-lg shadow-brand inline-block">Request Your Quote</a>
                 </div>
             </div>
         </div>
@@ -251,63 +266,64 @@
                 <div class="grid md:grid-cols-2 gap-16">
                     
                     <div>
-                        <h2 class="text-4xl font-bold mb-8">Get In Touch</h2>
+                        <h2 class="font-heading text-5xl font-bold mb-8">Get In Touch</h2>
                         
-                        <div class="space-y-6 mb-10">
+                        <div class="space-y-8 mb-10 bg-white p-8 rounded-brand shadow-sm border border-brand-border">
                             <div>
-                                <h4 class="text-brand-accent font-bold mb-1">Contact Information</h4>
-                                <p class="text-brand-muted">Phone: +65 6123 4567</p>
-                                <p class="text-brand-muted">Email: hello@ecogreenspacesg.com</p>
-                                <p class="text-brand-muted">Address: 123 Green Avenue, Singapore</p>
+                                <h4 class="font-heading text-2xl font-bold text-brand-accent mb-2">Contact Information</h4>
+                                <p class="text-brand-muted flex items-center gap-2"><span class="font-bold">Phone:</span> +65 6123 4567</p>
+                                <p class="text-brand-muted flex items-center gap-2"><span class="font-bold">Email:</span> hello@ecogreenspacesg.com</p>
+                                <p class="text-brand-muted flex items-center gap-2"><span class="font-bold">Address:</span> 123 Green Avenue, Singapore</p>
                             </div>
                             
                             <div>
-                                <h4 class="text-brand-accent font-bold mb-1">Operating Hours</h4>
+                                <h4 class="font-heading text-2xl font-bold text-brand-accent mb-2">Operating Hours</h4>
                                 <p class="text-brand-muted">Monday - Friday: 8:00 AM - 6:00 PM</p>
                                 <p class="text-brand-muted">Saturday: 9:00 AM - 2:00 PM</p>
                                 <p class="text-brand-muted">Sunday: Closed</p>
                             </div>
                         </div>
 
-                        <div class="w-full h-48 bg-brand-surface border border-brand-border rounded-brand mb-8 flex items-center justify-center text-brand-muted">
+                        <div class="w-full h-64 bg-brand-surface border border-brand-border rounded-brand mb-8 flex items-center justify-center text-brand-accent shadow-inner">
                             [Interactive Map Placeholder]
                         </div>
 
                         <div>
-                            <h4 class="text-brand-accent font-bold mb-3">Follow Us</h4>
+                            <h4 class="font-heading text-xl font-bold text-brand-text mb-4">Follow Our Work</h4>
                             <div class="flex gap-4">
-                                <a href="#" class="w-10 h-10 bg-brand-surface rounded-full flex items-center justify-center border border-brand-border hover:text-brand-primary transition-colors">FB</a>
-                                <a href="#" class="w-10 h-10 bg-brand-surface rounded-full flex items-center justify-center border border-brand-border hover:text-brand-primary transition-colors">IG</a>
-                                <a href="#" class="w-10 h-10 bg-brand-surface rounded-full flex items-center justify-center border border-brand-border hover:text-brand-primary transition-colors">IN</a>
+                                <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-brand-border hover:border-brand-primary hover:text-brand-primary transition-colors shadow-sm font-bold">FB</a>
+                                <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-brand-border hover:border-brand-primary hover:text-brand-primary transition-colors shadow-sm font-bold">IG</a>
+                                <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-brand-border hover:border-brand-primary hover:text-brand-primary transition-colors shadow-sm font-bold">IN</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-brand-surface p-8 rounded-brand border border-brand-border">
-                        <h3 class="text-2xl font-bold mb-6">Send an Inquiry</h3>
-                        <form class="space-y-4">
+                    <div class="bg-white p-10 rounded-brand shadow-brand border border-brand-border">
+                        <h3 class="font-heading text-3xl font-bold mb-8">Send an Inquiry</h3>
+                        <form class="space-y-6">
                             <div>
-                                <label class="block text-sm font-medium mb-1">Full Name</label>
-                                <input type="text" class="w-full bg-brand-bg border border-brand-border rounded-brand px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors text-white" placeholder="John Doe">
+                                <label class="block text-sm font-bold text-brand-text mb-2">Full Name</label>
+                                <input type="text" class="w-full bg-brand-bg border border-brand-border rounded-brand px-5 py-3 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-brand-primary transition-all text-brand-text" placeholder="e.g. John Doe">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium mb-1">Email Address</label>
-                                <input type="email" class="w-full bg-brand-bg border border-brand-border rounded-brand px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors text-white" placeholder="john@example.com">
+                                <label class="block text-sm font-bold text-brand-text mb-2">Email Address</label>
+                                <input type="email" class="w-full bg-brand-bg border border-brand-border rounded-brand px-5 py-3 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-brand-primary transition-all text-brand-text" placeholder="john@example.com">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium mb-1">Service Needed</label>
-                                <select class="w-full bg-brand-bg border border-brand-border rounded-brand px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors text-white">
+                                <label class="block text-sm font-bold text-brand-text mb-2">Service Needed</label>
+                                <select class="w-full bg-brand-bg border border-brand-border rounded-brand px-5 py-3 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-brand-primary transition-all text-brand-text">
                                     <option>Lawn Maintenance</option>
-                                    <option>Garden Design</option>
-                                    <option>Tree Care</option>
+                                    <option>Garden Design & Installation</option>
+                                    <option>Tree & Shrub Care</option>
+                                    <option>Irrigation Systems</option>
                                     <option>Other / General Inquiry</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-sm font-medium mb-1">Message Details</label>
-                                <textarea rows="4" class="w-full bg-brand-bg border border-brand-border rounded-brand px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors text-white" placeholder="How can we help?"></textarea>
+                                <label class="block text-sm font-bold text-brand-text mb-2">Message Details</label>
+                                <textarea rows="5" class="w-full bg-brand-bg border border-brand-border rounded-brand px-5 py-3 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-brand-primary transition-all text-brand-text" placeholder="Please provide specific details for your quote or inquiry..."></textarea>
                             </div>
-                            <button type="button" class="w-full bg-brand-primary hover:bg-brand-primaryHover text-white font-bold py-3 rounded-brand transition-all mt-4">Submit Inquiry</button>
+                            <button type="button" class="w-full bg-gradient-primary hover:bg-none hover:bg-brand-primaryHover text-brand-onPrimary font-bold py-4 rounded-brand transition-all mt-4 text-lg shadow-md">Submit Inquiry</button>
                         </form>
                     </div>
 
@@ -317,9 +333,15 @@
 
     </main>
 
-    <footer class="bg-brand-surface border-t border-brand-border py-12 text-center">
-        <div class="max-w-7xl mx-auto px-4">
-            <p class="text-brand-muted text-sm">&copy; 2026 Eco Greenspace. All Rights Reserved.</p>
+    <footer class="bg-brand-surface border-t border-brand-border py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex-shrink-0">
+                 <img src="Eco Greenscape.jpeg" alt="Eco Greenscape Logo" class="h-20 w-auto object-contain logo-blend">
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-brand-muted font-medium">&copy; 2026 Eco Greenspace Pte Ltd. All Rights Reserved.</p>
+                <p class="text-brand-muted text-sm mt-2">Sustainable Landscaping for a Greener Tomorrow.</p>
+            </div>
         </div>
     </footer>
 
