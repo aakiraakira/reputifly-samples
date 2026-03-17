@@ -1,257 +1,788 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Eco Greenscape</title>
-    
-    <!-- Google Fonts -->
+    <title>About Us | Ecogreenscape</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#81c434',
-                        accent: '#338a36',
-                        background: '#f3faf4',
-                        text: '#0c3d19',
-                        surface: '#eef5ef',
-                        border: '#dbe1dc',
-                        muted: '#082b12',
-                    },
-                    fontFamily: {
-                        heading: ['"Playfair Display"', 'serif'],
-                        body: ['Inter', 'sans-serif'],
-                    },
-                    borderRadius: {
-                        'brand': '16px',
-                    },
-                    boxShadow: {
-                        'brand': '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                    }
-                }
+    <style>
+        /* === BRAND DNA & CSS VARIABLES === */
+        :root {
+            --primary: #81c434;
+            --accent: #338a36;
+            --background: #f3faf4;
+            --text: #0c3d19;
+            --gradient-primary: linear-gradient(135deg, #81c434 0%, #2b6513 100%);
+            --gradient-bg: linear-gradient(135deg, #f3faf4 0%, #cceed9 100%);
+            --surface: #eef5ef;
+            --border: #dbe1dc;
+            --muted-text: #082b12;
+            --primary-hover: #000000;
+            --on-primary: #ffffff;
+            --focus-ring: #badf94;
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --radius: 16px;         
+            --radius-pill: 999px;   
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* === RESET & BASE STYLES === */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--text);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--muted-text);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* === REUSABLE COMPONENTS === */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--on-primary);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            color: var(--on-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--on-primary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.125rem;
+        }
+
+        /* === HEADER & NAVIGATION === */
+        header {
+            background: var(--on-primary);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        /* === PAGE HERO SECTION === */
+        .page-hero {
+            background: var(--gradient-bg);
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1558904541-efa843a96f09?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.10;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+
+        /* === STORY & MISSION === */
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            color: var(--accent);
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mission-box {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+            margin-top: 2rem;
+        }
+
+        .mission-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* === OUR TEAM === */
+        .team-section {
+            background: var(--on-primary);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: var(--surface);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 1.5rem;
+        }
+
+        .team-info h3 {
+            margin-bottom: 0.25rem;
+            font-size: 1.25rem;
+        }
+
+        .team-title {
+            color: var(--accent);
+            font-weight: 500;
+            font-family: var(--font-body);
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* === PHILOSOPHY & VALUES === */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: var(--on-primary);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--on-primary);
+        }
+
+        .value-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* === CERTIFICATIONS === */
+        .certifications {
+            background: var(--on-primary);
+        }
+
+        .cert-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .cert-item {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cert-item p {
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        /* === COMMUNITY INVOLVEMENT === */
+        .community {
+            background: var(--gradient-bg);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .community-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .community-content {
+            flex: 1;
+        }
+
+        .community-image {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .community-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--text); 
+            color: #ffffff;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo-wrapper {
+            background-color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col p {
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 300;
+        }
+
+        .footer-bottom p {
+            color: #ffffff !important;
+        }
+
+        .footer-bottom a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* === FLOATING WHATSAPP BUTTON === */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+            background-color: #1ebe57;
+            color: white;
+        }
+
+        .floating-wa svg {
+            width: 35px;
+            height: 35px;
+            fill: currentColor;
+        }
+
+        /* === MOBILE RESPONSIVENESS === */
+        @media (max-width: 992px) {
+            .story-section, .community-container { gap: 2rem; }
+            .team-grid, .values-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--on-primary);
+                flex-direction: column;
+                padding: 1rem 2rem 2rem;
+                box-shadow: 0 10px 10px -10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-cta {
+                display: none; 
+            }
+
+            .page-hero { padding: 4rem 0 3rem; }
+            .page-hero h1 { font-size: 2.25rem; }
+            
+            .story-section, .community-container {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            
+            .story-image, .community-image {
+                order: -1; 
+            }
+            
+            .team-grid, .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+            .floating-wa {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+            .floating-wa svg {
+                width: 30px;
+                height: 30px;
             }
         }
-    </script>
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f3faf4; color: #0c3d19; }
-        h1, h2, h3, h4, h5, h6 { font-family: '"Playfair Display"', serif; }
-        .bg-gradient-brand { background: linear-gradient(135deg, #f3faf4 0%, #cceed9 100%); }
-        .bg-gradient-primary { background: linear-gradient(135deg, #81c434 0%, #2b6513 100%); }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-brand border-b border-border">
-        <div class="container mx-auto px-4 lg:px-8 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center">
-                <span class="text-2xl font-bold font-heading text-primary">Eco Greenscape</span>
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/Eco-Greenscape-mmsrr817hik8.webp" alt="Ecogreenscape Logo">
             </a>
-            
-            <button id="mobile-menu-btn" class="md:hidden text-text hover:text-primary focus:outline-none">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
-
-            <nav class="hidden md:flex space-x-8 items-center font-medium">
-                <a href="index.html" class="text-text hover:text-primary transition-colors">Home</a>
-                <a href="about.html" class="text-primary transition-colors">About</a>
-                <a href="services.html" class="text-text hover:text-primary transition-colors">Services</a>
-                <a href="contact.html" class="text-text hover:text-primary transition-colors">Contact</a>
-                <a href="contact.html" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-accent transition-colors shadow-brand">Get a Quote</a>
-            </nav>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-border">
-            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 text-center">
-                <a href="index.html" class="block px-3 py-2 text-text hover:text-primary font-medium">Home</a>
-                <a href="about.html" class="block px-3 py-2 text-primary font-medium">About</a>
-                <a href="services.html" class="block px-3 py-2 text-text hover:text-primary font-medium">Services</a>
-                <a href="contact.html" class="block px-3 py-2 text-text hover:text-primary font-medium">Contact</a>
-            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" style="color:var(--primary); font-weight:700;">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="mobile-only" style="display:none;"><a href="contact.html" style="color:var(--primary); font-weight:700;">Get a Quote</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary header-cta">Get a Quote</a>
         </div>
     </header>
 
-    <!-- Page Header Area -->
-    <section class="bg-gradient-primary py-20 text-center text-white relative overflow-hidden">
-        <div class="container mx-auto px-4 relative z-10">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 font-heading">About Us</h1>
-            <p class="text-lg md:text-xl max-w-2xl mx-auto font-light text-green-100">Discover our roots, our mission, and the passionate team behind Eco Greenscape.</p>
+    <section class="page-hero">
+        <div class="container page-hero-content">
+            <h1>About Ecogreenscape</h1>
+            <p>Cultivating beautiful, sustainable environments in Singapore through expert landscaping and an unwavering commitment to nature.</p>
         </div>
-        <div class="absolute inset-0 bg-black/10 z-0"></div>
     </section>
 
-    <!-- Company Story & Mission -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Story & Mission</h2>
-                    <p class="text-muted text-lg mb-6 leading-relaxed">
-                        Founded with a deep reverence for nature, Eco Greenscape began as a small initiative to bring sustainable garden maintenance to local neighborhoods. Over the years, our dedication to eco-friendly practices and exceptional service has allowed us to grow into a premier landscaping firm in Singapore.
-                    </p>
-                    <p class="text-muted text-lg leading-relaxed mb-6">
-                        <strong>Our Mission:</strong> To transform ordinary spaces into thriving, sustainable eco-havens that enhance the well-being of our clients and the environment. We believe that beautiful landscaping should not come at the expense of our planet.
-                    </p>
-                    <div class="bg-surface border-l-4 border-primary p-6 rounded-r-brand">
-                        <p class="text-text italic font-heading text-xl">"We don't just landscape; we cultivate living ecosystems that stand the test of time."</p>
-                    </div>
+    <section class="section-padding">
+        <div class="container story-section">
+            <div class="story-content">
+                <h2>Our Roots & Vision</h2>
+                <p>Ecogreenscape was founded with a singular vision: to merge aesthetic brilliance with ecological responsibility. What began as a small team of passionate horticulturists has blossomed into Singapore's premier eco-conscious landscaping firm.</p>
+                <p>We believe that outdoor spaces are extensions of our homes and businesses, and they should be nurtured in harmony with the environment. For years, we have pushed the boundaries of traditional landscaping by prioritizing organic practices, water conservation, and native planting.</p>
+                
+                <div class="mission-box">
+                    <h3>Our Mission</h3>
+                    <p>To design, install, and maintain lush environments that elevate our clients' quality of life while actively protecting and enriching the local ecosystem.</p>
                 </div>
-                <div class="md:w-1/2 rounded-brand overflow-hidden shadow-brand border-4 border-surface">
-                    <img src="https://images.unsplash.com/photo-1598902598642-e14bade23351?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eco Greenscape Team at Work" class="w-full h-full object-cover">
-                </div>
+            </div>
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1599596160533-3d0d62aabfb7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Landscaping professionals working in a garden">
             </div>
         </div>
     </section>
 
-    <!-- Our Team -->
-    <section class="py-20 bg-surface">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet Our Experts</h2>
-                <p class="text-muted text-lg">The passionate and highly skilled professionals who make every green vision a reality.</p>
-            </div>
+    <section class="section-padding" style="background: var(--background);">
+        <div class="container">
+            <h2 class="section-title">Our Philosophy & Values</h2>
+            <p class="section-subtitle">The core principles that guide every design we draft, every seed we plant, and every client we serve.</p>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                <!-- Team Member 1 -->
-                <div class="bg-white rounded-brand overflow-hidden shadow-sm border border-border text-center pb-6">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="David Lee" class="w-full h-64 object-cover object-top mb-4">
-                    <h3 class="text-xl font-bold text-text">David Lee</h3>
-                    <p class="text-primary font-medium mb-3">Founder & Chief Landscape Architect</p>
-                    <p class="text-muted px-4 text-sm">Over 15 years of experience in sustainable urban landscaping and design.</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                    </div>
+                    <h3>Sustainability First</h3>
+                    <p>We prioritize organic fertilizers, zero-emission tools where possible, and water-smart irrigation to ensure our footprint remains light and green.</p>
                 </div>
-                <!-- Team Member 2 -->
-                <div class="bg-white rounded-brand overflow-hidden shadow-sm border border-border text-center pb-6">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Amanda Chen" class="w-full h-64 object-cover object-top mb-4">
-                    <h3 class="text-xl font-bold text-text">Amanda Chen</h3>
-                    <p class="text-primary font-medium mb-3">Lead Horticulturalist</p>
-                    <p class="text-muted px-4 text-sm">Passionate about native flora and organic soil regeneration techniques.</p>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3>Uncompromising Quality</h3>
+                    <p>From the sourcing of robust plants to the precision of our hardscaping, we hold ourselves to the highest standards of craftsmanship.</p>
                 </div>
-                <!-- Team Member 3 -->
-                <div class="bg-white rounded-brand overflow-hidden shadow-sm border border-border text-center pb-6">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Rizwan Ahmad" class="w-full h-64 object-cover object-top mb-4">
-                    <h3 class="text-xl font-bold text-text">Rizwan Ahmad</h3>
-                    <p class="text-primary font-medium mb-3">Operations Manager</p>
-                    <p class="text-muted px-4 text-sm">Ensures every project is executed flawlessly, safely, and on schedule.</p>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Client Collaboration</h3>
+                    <p>We listen closely. Your vision combined with our expertise guarantees an outdoor space that perfectly reflects your lifestyle or brand.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Philosophy & Values -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4 lg:px-8 text-center max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12">Our Core Values</h2>
+    <section class="section-padding team-section">
+        <div class="container">
+            <h2 class="section-title">Meet the Experts</h2>
+            <p class="section-subtitle">Our team consists of certified arborists, experienced landscape architects, and dedicated maintenance professionals.</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <div class="p-8 rounded-brand bg-gradient-brand shadow-sm border border-border">
-                    <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Marcus Tan" class="team-image">
+                    <div class="team-info">
+                        <h3>Marcus Tan</h3>
+                        <p class="team-title">Founder & Lead Architect</p>
+                        <p>With over 15 years in sustainable design, Marcus leads the creative vision for all major commercial and residential projects.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Eco-Conscious Integrity</h3>
-                    <p class="text-muted">We refuse to use harsh chemicals that harm local wildlife. Our methods prioritize the long-term health of our planet.</p>
                 </div>
-
-                <div class="p-8 rounded-brand bg-gradient-brand shadow-sm border border-border">
-                    <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.514" /></svg>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sarah Lim" class="team-image">
+                    <div class="team-info">
+                        <h3>Sarah Lim</h3>
+                        <p class="team-title">Certified Arborist</p>
+                        <p>Sarah is our resident tree health expert, specializing in disease diagnosis, structural pruning, and urban forestry conservation.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Uncompromising Quality</h3>
-                    <p class="text-muted">We deliver meticulous craftsmanship in every project, regardless of size. Excellent results are our minimum standard.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="David Chen" class="team-image">
+                    <div class="team-info">
+                        <h3>David Chen</h3>
+                        <p class="team-title">Head of Maintenance</p>
+                        <p>David oversees all field operations, ensuring every lawn, garden, and estate we manage remains in pristine, healthy condition.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Certifications & Awards -->
-    <section class="py-16 bg-gradient-primary text-white text-center">
-        <div class="container mx-auto px-4 lg:px-8">
-            <h2 class="text-3xl font-bold mb-10 text-white">Certifications & Accolades</h2>
-            <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center opacity-90">
-                <!-- Using placeholder icons for awards/certifications -->
-                <div class="flex flex-col items-center max-w-[150px]">
-                    <svg class="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                    <span class="font-semibold text-sm">Certified Singapore Arborist</span>
+    <section class="section-padding certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Accreditations</h2>
+            <p class="section-subtitle" style="margin-bottom: 2rem;">We are proud to be recognized by industry leaders for our commitment to excellence and environmental safety.</p>
+            
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <div class="cert-icon">🏆</div>
+                    <p>Excellence in Sustainable Design 2025</p>
                 </div>
-                <div class="flex flex-col items-center max-w-[150px]">
-                    <svg class="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
-                    <span class="font-semibold text-sm">Green Landscape Excellence Award 2025</span>
+                <div class="cert-item">
+                    <div class="cert-icon">🛡️</div>
+                    <p>Certified Green Landscape Professional (CGLP)</p>
                 </div>
-                <div class="flex flex-col items-center max-w-[150px]">
-                    <svg class="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-                    <span class="font-semibold text-sm">Organic Treatment Certified Provider</span>
+                <div class="cert-item">
+                    <div class="cert-icon">🌳</div>
+                    <p>Singapore Arboriculture Society Member</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Involvement -->
-    <section class="py-20 bg-surface">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="flex flex-col md:flex-row-reverse items-center gap-12">
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Giving Back to Our Roots</h2>
-                    <p class="text-muted text-lg mb-6">
-                        We believe a business should enrich its community. Every year, Eco Greenscape commits a portion of our resources and volunteer hours to local community garden restoration and urban planting initiatives across Singapore.
-                    </p>
-                    <p class="text-muted text-lg mb-6">
-                        By partnering with local schools to create educational green spaces, we're helping plant the seeds of environmental stewardship in the next generation.
-                    </p>
-                    <a href="contact.html" class="inline-block bg-white text-primary border border-primary px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">Join Our Next Initiative</a>
-                </div>
-                <div class="md:w-1/2 rounded-brand overflow-hidden shadow-brand">
-                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community Planting Event" class="w-full h-full object-cover">
+                <div class="cert-item">
+                    <div class="cert-icon">💧</div>
+                    <p>Water-Smart Irrigation Certified</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#082b12] text-white pt-16 pb-8">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-1 md:col-span-2">
-                    <span class="text-2xl font-bold font-heading text-primary bg-white px-4 py-2 rounded-lg inline-block mb-6">Eco Greenscape</span>
-                    <p class="text-gray-300 md:pr-12 leading-relaxed">Dedicated to cultivating beautiful, sustainable, and thriving outdoor environments in Singapore through professional, eco-friendly practices.</p>
+    <section class="section-padding community">
+        <div class="container community-container">
+            <div class="community-content">
+                <h2>Growing Together: Our Community Impact</h2>
+                <p>Ecogreenscape is deeply rooted in the Singaporean community. We believe that an eco-friendly future requires education and collective action.</p>
+                <p>Through our <strong>"Green Tomorrow"</strong> initiative, our staff routinely volunteers for local park clean-ups and urban tree planting drives. Additionally, we host free bi-monthly workshops for residential neighborhoods, teaching locals how to start their own organic urban gardens and compost systems.</p>
+                <p>When you hire Ecogreenscape, a portion of our proceeds goes directly into funding green spaces in underserved urban areas.</p>
+            </div>
+            <div class="community-image">
+                <img src="https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community volunteers planting trees">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/Eco-Greenscape-mmsrr817hik8.webp" alt="Ecogreenscape Logo" style="height: 50px; display: block;">
+                    </div>
+                    <p>Ecogreenscape is Singapore's premier eco-conscious landscaping and garden maintenance firm.</p>
                 </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-6 text-white">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="about.html" class="text-gray-300 hover:text-primary transition-colors">About Us</a></li>
-                        <li><a href="services.html" class="text-gray-300 hover:text-primary transition-colors">Services</a></li>
-                        <li><a href="contact.html" class="text-gray-300 hover:text-primary transition-colors">Contact</a></li>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-6 text-white">Connect</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-gray-300"><svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +65 9123 4567</li>
-                        <li class="flex items-center text-gray-300"><svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> hello@ecogreenspacesg.com</li>
-                        <li class="flex items-center text-gray-300"><svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Marina Bay, Singapore</li>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>+65 6123 4567</li>
+                        <li>hello@ecogreenscape.com.sg</li>
+                        <li>Singapore</li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-400 text-sm">
-                <p>&copy; 2026 Eco Greenscape Pte Ltd. All Rights Reserved.</p>
+            <div class="footer-bottom">
+                <p>© 2026 Ecogreenscape. All rights reserved.</p>
+                <p style="margin-top: 0.5rem;">Website Designed by <a href="https://reputifly.com/web-development" target="_blank">Reputifly</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
-    <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+    <a href="https://wa.me/6580111965" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+    </a>
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const mobileOnlyLink = document.querySelector('.mobile-only');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if(window.innerWidth <= 768) {
+                mobileOnlyLink.style.display = navLinks.classList.contains('active') ? 'block' : 'none';
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
     </script>
 </body>
