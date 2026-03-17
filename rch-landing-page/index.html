@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P'Maveraz - Spring Forth Sanctuary</title>
+    <style>
+        /* CSS VARIABLES - ECO-LUXURY THEME */
+        :root {
+            --primary-color: #163624; 
+            --secondary-color: #2b6046; 
+            --accent-color: #d4af37; 
+            --bg-light: #fafaf9;
+            --bg-white: #ffffff;
+            --text-dark: #2c2c2c;
+            --text-light: #ffffff;
+            --font-main: 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: 'Georgia', serif;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* RESET & BASE STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: normal;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-color);
+            margin: 16px auto 0;
+        }
+
+        /* NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--accent-color); }
+
+        .cta-btn {
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 12px 24px;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 1px solid var(--accent-color);
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 24px;
+            position: relative;
+            background: linear-gradient(-45deg, #0d2116, #163624, #1a422b, #204d33);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+        /* MASTERPLAN SECTION */
+        .overview { padding: 100px 0; background-color: var(--bg-white); }
+        
+        .masterplan-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .masterplan-visual {
+            width: 100%;
+            background: var(--bg-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            box-shadow: inset 0 0 40px rgba(0,0,0,0.02);
+            border: 1px solid #eaeaea;
+        }
+
+        .masterplan-visual svg {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+        }
+
+        .masterplan-visual svg .property-line {
+            fill: none;
+            stroke: #e74c3c;
+            stroke-width: 2;
+            stroke-dasharray: 8 8;
+            animation: dash 20s linear infinite;
+        }
+
+        @keyframes dash {
+            to { stroke-dashoffset: 1000; }
+        }
+
+        .masterplan-visual svg .building-block {
+            fill: rgba(22, 54, 36, 0.05);
+            stroke: var(--primary-color);
+            stroke-width: 3;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .masterplan-visual svg .building-block.pavilion {
+            fill: rgba(212, 175, 55, 0.15);
+            stroke: var(--accent-color);
+        }
+
+        .masterplan-visual svg .building-block:hover {
+            fill: rgba(22, 54, 36, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .masterplan-visual svg .pavilion:hover {
+            fill: rgba(212, 175, 55, 0.3);
+        }
+
+        .block-card {
+            padding: 30px;
+            background: var(--bg-light);
+            border-left: 3px solid var(--accent-color);
+            margin-bottom: 24px;
+            border-radius: 0 4px 4px 0;
+            transition: var(--transition);
+        }
+
+        .block-card:hover {
+            transform: translateX(10px);
+            background: #f0f0ed;
+        }
+
+        .block-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        /* FLOOR PLANS (ANIMATED TABS) */
+        .floor-plans { padding: 100px 0; background-color: var(--bg-light); }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 50px;
+        }
+
+        .tab-btn {
+            padding: 14px 28px;
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: var(--transition);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-btn:hover { background-color: rgba(22, 54, 36, 0.05); }
+        .tab-btn.active { background-color: var(--primary-color); color: var(--text-light); }
+
+        .tab-content {
+            display: none;
+            background: var(--bg-white);
+            padding: 50px;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            animation: fadeInScale 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .plan-details h3 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .plan-stats {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 24px;
+            font-family: var(--font-heading);
+        }
+
+        .plan-specs { list-style: none; }
+        
+        .plan-specs li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05rem;
+            color: #555;
+        }
+
+        .floorplan-svg-container {
+            width: 100%;
+            background: #fdfdfc;
+            border: 1px solid #eaeaea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
+        }
+
+        .floorplan-svg-container svg {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+        }
+
+        .floorplan-svg-container svg .wall {
+            fill: none;
+            stroke: var(--primary-color);
+            stroke-width: 4;
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: drawWall 1.5s ease forwards;
+        }
+
+        .floorplan-svg-container svg .interior {
+            fill: #f4f6f5;
+            stroke: var(--primary-color);
+            stroke-width: 2;
+            opacity: 0;
+            animation: fadeInterior 0.5s ease 1s forwards;
+        }
+        
+        .floorplan-svg-container svg text {
+            font-family: var(--font-main);
+            fill: var(--text-dark);
+            opacity: 0;
+            animation: fadeInterior 0.5s ease 1.2s forwards;
+        }
+
+        @keyframes drawWall { to { stroke-dashoffset: 0; } }
+        @keyframes fadeInterior { to { opacity: 1; } }
+
+        /* LIFESTYLE PAVILION (ACCORDION / FAQ STYLE UI) */
+        .facilities {
+            padding: 100px 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .facilities .section-title { color: var(--accent-color); }
+
+        .accordion { max-width: 900px; margin: 0 auto; }
+
+        .accordion-item {
+            margin-bottom: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 24px;
+            background: rgba(255,255,255,0.03);
+            border: none;
+            text-align: left;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            font-family: var(--font-heading);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover { background: rgba(255,255,255,0.08); }
+
+        /* FIXED ICON UI - Prevents breaking out of container */
+        .accordion-icon {
+            position: relative;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0; /* Critical for mobile wrapping */
+            margin-left: 20px;
+        }
+
+        .accordion-icon::before,
+        .accordion-icon::after {
+            content: '';
+            position: absolute;
+            background-color: var(--accent-color);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: var(--transition);
+        }
+
+        .accordion-icon::before {
+            width: 16px;
+            height: 2px;
+        }
+
+        .accordion-icon::after {
+            width: 2px;
+            height: 16px;
+        }
+
+        .accordion-item.active .accordion-icon::after {
+            transform: translate(-50%, -50%) rotate(90deg);
+            opacity: 0;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .accordion-content-inner { padding: 30px; line-height: 2; }
+        .accordion-content-inner ul { list-style-type: none; color: #e0e0e0; }
+        .accordion-content-inner ul li { position: relative; padding-left: 20px; margin-bottom: 8px; }
+        .accordion-content-inner ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+
+        /* LOCATION MAP */
+        .location { padding: 100px 0; background-color: var(--bg-white); }
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .location-map-container {
+            width: 100%;
+            height: 450px;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .node-map { width: 100%; height: 100%; }
+        .node-map circle { fill: var(--accent-color); }
+        .node-map text { fill: #fff; font-size: 14px; font-family: var(--font-main); }
+        .node-map line { stroke: rgba(255,255,255,0.2); stroke-width: 2; }
+        
+        .pulse-node { animation: pulse 2s infinite; transform-origin: center; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .location-list h3 {
+            color: var(--primary-color);
+            margin-top: 30px;
+            margin-bottom: 16px;
+            font-size: 1.3rem;
+        }
+
+        .location-list h3:first-child { margin-top: 0; }
+        .location-list ul { list-style: none; margin-bottom: 24px; }
+        .location-list li {
+            padding: 6px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .location-list li::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            flex-shrink: 0; /* Ensures bullets don't squash */
+        }
+
+        /* FOOTER & CONTACT */
+        footer {
+            background-color: #0a1710;
+            color: #ffffff;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .contact-form { display: flex; flex-direction: column; gap: 16px; }
+
+        .contact-form input, .contact-form select {
+            padding: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            border-radius: 2px;
+            font-family: var(--font-main);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus, .contact-form select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .contact-form select option { background: var(--primary-color); color: #fff; }
+
+        .developer-info h3 { color: var(--accent-color); margin-bottom: 24px; font-size: 1.5rem; }
+        .developer-info p { margin-bottom: 12px; color: #a0a0a0; font-size: 0.95rem; }
+
+        .disclaimers {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            font-size: 0.75rem;
+            color: #666;
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .agency-signature { text-align: center; margin-top: 40px; padding-top: 20px; }
+        .agency-signature a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: opacity 0.3s ease;
+        }
+        .agency-signature a:hover { opacity: 0.7; }
+
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 900px) {
+            .masterplan-grid, .tab-content.active, .location-grid, .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .nav-links { display: none; } 
+            .tab-content { padding: 30px 20px; }
+            .location-grid { display: flex; flex-direction: column-reverse; }
+            .tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .tab-btn { flex: 0 0 auto; }
+            .masterplan-visual { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">P'MAVERAZ</div>
+            <ul class="nav-links">
+                <li><a href="#overview">Masterplan</a></li>
+                <li><a href="#floorplans">Floor Plans</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+            <a href="#contact"><button class="cta-btn">Register Interest</button></a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Spring Forth Sanctuary</h1>
+            <p>A Premium Freehold Development</p>
+            <a href="#contact"><button class="cta-btn" style="padding: 16px 32px; font-size: 1rem;">Download E-Brochure</button></a>
+        </div>
+    </section>
+
+    <section id="overview" class="overview container">
+        <h2 class="section-title">The Masterplan</h2>
+        <div class="masterplan-grid">
+            <div class="masterplan-visual">
+                <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                    <path class="property-line" d="M 50 200 L 150 50 L 450 50 L 550 200 L 450 350 L 150 350 Z" />
+                    
+                    <path class="building-block" d="M 120 250 L 160 140 L 220 160 L 180 270 Z" />
+                    <text x="145" y="210" fill="#163624" font-size="16" font-family="Arial" font-weight="bold">BLOCK B</text>
+                    <text x="148" y="230" fill="#555" font-size="12" font-family="Arial">502 Units</text>
+
+                    <path class="building-block pavilion" d="M 230 130 L 270 70 L 330 70 L 370 130 L 340 160 L 260 160 Z" />
+                    <text x="300" y="110" fill="#d4af37" font-size="14" font-family="Arial" font-weight="bold" text-anchor="middle">BLOCK C</text>
+                    <text x="300" y="130" fill="#555" font-size="12" font-family="Arial" text-anchor="middle">Lifestyle Pavilion</text>
+
+                    <path class="building-block" d="M 480 250 L 440 140 L 380 160 L 420 270 Z" />
+                    <text x="405" y="210" fill="#163624" font-size="16" font-family="Arial" font-weight="bold">BLOCK A</text>
+                    <text x="408" y="230" fill="#555" font-size="12" font-family="Arial">886 Units</text>
+                </svg>
+            </div>
+            <div class="masterplan-details">
+                <div class="block-card">
+                    <h3>Block A</h3>
+                    <p>Residential Suites featuring <strong>886 Units</strong>.</p>
+                </div>
+                <div class="block-card">
+                    <h3>Block B</h3>
+                    <p>MM2H Tower featuring <strong>502 Units</strong>.</p>
+                </div>
+                <div class="block-card">
+                    <h3>Block C</h3>
+                    <p>The Lifestyle Pavilion - A comprehensive sanctuary of amenities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="floorplans" class="floor-plans">
+        <div class="container">
+            <h2 class="section-title">Floor Plans & Layouts</h2>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-target="tab-studio">Studio 1</button>
+                <button class="tab-btn" data-target="tab-deluxe3-1">Deluxe 3 (T1)</button>
+                <button class="tab-btn" data-target="tab-deluxe3-2">Deluxe 3 (T2)</button>
+                <button class="tab-btn" data-target="tab-deluxe1a">Deluxe 1A</button>
+                <button class="tab-btn" data-target="tab-family">Family 2</button>
+            </div>
+
+            <div id="tab-studio" class="tab-content active">
+                <div class="plan-details">
+                    <h3>Studio 1</h3>
+                    <div class="plan-stats">391 sq ft</div>
+                    <ul class="plan-specs">
+                        <li>1 Room</li>
+                        <li>1 Bathroom</li>
+                        <li>Living Area, Dining & Kitchen, Air Well</li>
+                    </ul>
+                </div>
+                <div class="floorplan-svg-container">
+                    <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+                        <rect class="wall" x="50" y="50" width="300" height="300" />
+                        <rect class="interior" x="50" y="200" width="120" height="150" />
+                        <text x="110" y="280" font-size="14" font-weight="bold" text-anchor="middle">BATHROOM</text>
+                        <text x="250" y="150" font-size="16" font-weight="bold" text-anchor="middle">LIVING & KITCHEN</text>
+                        <text x="250" y="170" font-size="12" fill="#777" text-anchor="middle">391 sq ft</text>
+                        <text x="250" y="250" font-size="14" font-weight="bold" text-anchor="middle">BEDROOM</text>
+                        <path class="wall" d="M 170 200 A 40 40 0 0 1 210 240 L 170 240 Z" />
+                    </svg>
+                </div>
+            </div>
+
+            <div id="tab-deluxe3-1" class="tab-content">
+                <div class="plan-details">
+                    <h3>Deluxe 3 (Type 1)</h3>
+                    <div class="plan-stats">714 sq ft</div>
+                    <ul class="plan-specs">
+                        <li>2 Rooms</li>
+                        <li>2 Bathrooms</li>
+                        <li>Master Bedroom, Master Bath, Living Area</li>
+                    </ul>
+                </div>
+                <div class="floorplan-svg-container">
+                    <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+                        <rect class="wall" x="20" y="20" width="360" height="360" />
+                        <rect class="interior" x="20" y="20" width="180" height="200" />
+                        <text x="110" y="120" font-size="14" font-weight="bold" text-anchor="middle">MASTER BEDROOM</text>
+                        <rect class="interior" x="20" y="220" width="180" height="160" />
+                        <text x="110" y="300" font-size="14" font-weight="bold" text-anchor="middle">BEDROOM 2</text>
+                        <text x="290" y="120" font-size="16" font-weight="bold" text-anchor="middle">LIVING AREA</text>
+                        <text x="290" y="250" font-size="14" font-weight="bold" text-anchor="middle">DINING & KITCHEN</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div id="tab-deluxe3-2" class="tab-content">
+                <div class="plan-details">
+                    <h3>Deluxe 3 (Type 2)</h3>
+                    <div class="plan-stats">826 sq ft</div>
+                    <ul class="plan-specs">
+                        <li>3 Rooms</li>
+                        <li>3 Bathrooms</li>
+                        <li>Master Bedroom, Master Bath, Air Well</li>
+                    </ul>
+                </div>
+                <div class="floorplan-svg-container">
+                    <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+                        <rect class="wall" x="20" y="20" width="360" height="360" />
+                        <rect class="interior" x="20" y="20" width="120" height="200" />
+                        <text x="80" y="120" font-size="12" font-weight="bold" text-anchor="middle">MASTER BED</text>
+                        <rect class="interior" x="140" y="20" width="120" height="200" />
+                        <text x="200" y="120" font-size="12" font-weight="bold" text-anchor="middle">BEDROOM 2</text>
+                        <rect class="interior" x="260" y="20" width="120" height="200" />
+                        <text x="320" y="120" font-size="12" font-weight="bold" text-anchor="middle">BEDROOM 3</text>
+                        <text x="200" y="300" font-size="16" font-weight="bold" text-anchor="middle">LIVING & DINING</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div id="tab-deluxe1a" class="tab-content">
+                <div class="plan-details">
+                    <h3>Deluxe 1A</h3>
+                    <div class="plan-stats">1053 sq ft</div>
+                    <ul class="plan-specs">
+                        <li>3 Rooms</li>
+                        <li>2 Bathrooms</li>
+                        <li>Study Area, Master Bedroom, Living Area</li>
+                    </ul>
+                </div>
+                <div class="floorplan-svg-container">
+                    <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+                        <rect class="wall" x="20" y="20" width="360" height="360" />
+                        <rect class="interior" x="20" y="20" width="180" height="150" />
+                        <text x="110" y="95" font-size="14" font-weight="bold" text-anchor="middle">MASTER BEDROOM</text>
+                        <rect class="interior" x="200" y="20" width="180" height="150" />
+                        <text x="290" y="95" font-size="14" font-weight="bold" text-anchor="middle">STUDY AREA</text>
+                        <text x="200" y="250" font-size="16" font-weight="bold" text-anchor="middle">SPACIOUS LIVING AREA</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div id="tab-family" class="tab-content">
+                <div class="plan-details">
+                    <h3>Family 2</h3>
+                    <div class="plan-stats">1347 sq ft</div>
+                    <ul class="plan-specs">
+                        <li>3 Rooms</li>
+                        <li>3 Bathrooms</li>
+                        <li>Master Bedroom 2, Master Bath 2, Living Area</li>
+                    </ul>
+                </div>
+                <div class="floorplan-svg-container">
+                    <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+                        <rect class="wall" x="10" y="10" width="380" height="380" />
+                        <rect class="interior" x="10" y="10" width="190" height="190" />
+                        <text x="105" y="105" font-size="14" font-weight="bold" text-anchor="middle">MASTER SUITE 1</text>
+                        <rect class="interior" x="200" y="10" width="190" height="190" />
+                        <text x="295" y="105" font-size="14" font-weight="bold" text-anchor="middle">MASTER SUITE 2</text>
+                        <text x="200" y="280" font-size="18" font-weight="bold" text-anchor="middle">GRAND LIVING & DINING</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facilities" class="facilities">
+        <div class="container">
+            <h2 class="section-title">Block C - Lifestyle Pavilion</h2>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Roof Level</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <ul>
+                                <li>Eco-Infinity Swimming Pool / Spa Pool</li>
+                                <li>Aquatic Centre</li>
+                                <li>Multi-Convention Hall</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Level 6</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <ul>
+                                <li>Indoor - Forest Mini Golf Course</li>
+                                <li>Golf Training Centre / Cafeteria</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Level 5</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <ul>
+                                <li>Recreation Club / Entertainment Centre</li>
+                                <li>Amusement Park</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Level 4</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <ul>
+                                <li>Co-Working Spaces</li>
+                                <li>Corporate / Banking Services Centre</li>
+                                <li>Conference / Meeting Room</li>
+                                <li>Professional Research Centre</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Level 3 & 2</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <ul>
+                                <li><strong>Level 3:</strong> ASEAN + (China) AI Exhibition Centre</li>
+                                <li><strong>Level 2:</strong> International And Asian Cuisine - Street Walk</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Level 1 & Ground Floor</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <ul>
+                                <li><strong>Level 1:</strong> Medical Wellcare Centre, Caregiver Centre</li>
+                                <li><strong>Ground Floor:</strong> Main Concourse, Reception Area, Cafeteria, 24-Hour Smart Security</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Basement</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <ul>
+                                <li>Green Grocery / F&B</li>
+                                <li>Private Storage Space</li>
+                                <li>Private Chauffeur Room</li>
+                                <li>Housekeeping Service</li>
+                                <li>Centralised Laundrette Service</li>
+                                <li>Carpool Service</li>
+                                <li>Transportation Service Station</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Outdoor Arena</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <ul>
+                                <li>Hand Percussion Exclusive Event Organiser</li>
+                                <li>Arts & Culture Performance Stage</li>
+                                <li>Festival Events</li>
+                                <li>Musical Performance Stage / Terrace Gallery Arena</li>
+                                <li>Riverside Walk</li>
+                                <li>Archery</li>
+                                <li>Out-Bound Training Ground</li>
+                                <li>Camping Site / Hot Spring Pool</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="location container">
+        <h2 class="section-title">Eco Tourism Zone</h2>
+        <div class="location-grid">
+            <div class="location-map-container">
+                <svg class="node-map" viewBox="0 0 400 300">
+                    <line x1="50" y1="250" x2="150" y2="150" />
+                    <line x1="150" y1="150" x2="250" y2="200" />
+                    <line x1="150" y1="150" x2="300" y2="50" />
+                    
+                    <circle cx="50" cy="250" r="8" class="pulse-node" />
+                    <text x="65" y="255">KL City</text>
+                    
+                    <circle cx="150" cy="150" r="10" fill="#fff" />
+                    <text x="165" y="145" font-weight="bold">The Site</text>
+                    
+                    <circle cx="250" cy="200" r="6" />
+                    <text x="265" y="205">Genting Skyworld</text>
+                    
+                    <circle cx="300" cy="50" r="6" />
+                    <text x="315" y="55">Bentong</text>
+                </svg>
+            </div>
+            <div class="location-details">
+                <div class="location-list">
+                    <h3>Transit Connectivity</h3>
+                    <ul>
+                        <li>ECRL Bentong Station</li>
+                        <li>ECRL Station Gombak</li>
+                        <li>Plaza Tol Bentong</li>
+                        <li>Plaza Tol Gombak</li>
+                    </ul>
+                    
+                    <h3>Leisure & Lifestyle</h3>
+                    <ul>
+                        <li>Genting Skyworld Theme Park</li>
+                        <li>Awana Golf & Country Club</li>
+                        <li>Bukit Tinggi Golf & Country Club</li>
+                        <li>R&R Genting Sempah</li>
+                    </ul>
+
+                    <h3>Local Highlights</h3>
+                    <ul>
+                        <li>Musang King Durian</li>
+                        <li>Dharma Buddhist University</li>
+                        <li>The Waterway Villa</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="contact-section">
+                    <h2 style="margin-bottom: 24px; color: var(--accent-color); font-family: var(--font-heading);">Register Your Interest</h2>
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Connected to CRM pipeline.');">
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="email" placeholder="Email Address" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                        <select required>
+                            <option value="">Select Unit of Interest</option>
+                            <option value="studio">Studio 1</option>
+                            <option value="deluxe3-1">Deluxe 3 (714 sq ft)</option>
+                            <option value="deluxe3-2">Deluxe 3 (826 sq ft)</option>
+                            <option value="deluxe1a">Deluxe 1A</option>
+                            <option value="family2">Family 2</option>
+                        </select>
+                        <button type="submit" class="cta-btn">Submit Enquiry</button>
+                    </form>
+                </div>
+                <div class="developer-info">
+                    <h3>DSA DEVELOPMENT SDN BHD</h3>
+                    <p>Co. No. 1005799-1</p>
+                    <p><strong>Address:</strong> Wisma Zelan, Suite 20.15 & 16, 20th Floor, No.1, Jalan Tasik Permaisuri 2, Bandar Tun Razak, Cheras, 56000 Kuala Lumpur</p>
+                    <p><strong>Tel:</strong> 603 9173 0890</p>
+                    <p><strong>Enquiry:</strong> +65-88691885 (James) | 6011-20666011 (Jet)</p>
+                    <p><strong>Email:</strong> ds.dev.2014@gmail.com | Pmaveraz.2025@gmail.com</p>
+                    <p><strong>Website:</strong> www.pmaveraz.com.my</p>
+                </div>
+            </div>
+            <div class="disclaimers">
+                <p>All plans, layouts, designs, specifications and information contained herein are subject to change as required by the relevant authorities and / or the developer's architect and cannot form part of an offer or contract. Whilst every care has been taken in preparation and providing this information at the time, the vendor, proprietor, developer and its authorised employees and/or agents cannot be held liable for any variation(s). All illustrations, drawings, designs, sketches, models, images, visuals and pictures are artist's impressions only. The items are subject to variations, modifications, changes and substitutions as may be recommended by the company's consultant and architect and/or relevant Approving Authorities.</p>
+            </div>
+            
+            <div class="agency-signature">
+                <a href="https://reputifly.com" target="_blank" rel="dofollow">Website Design by Reputifly</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animated Tabs Logic
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => {
+                        c.classList.remove('active');
+                        // Reset SVG animation by re-triggering reflow
+                        const svgLines = c.querySelectorAll('.wall, .interior, text');
+                        svgLines.forEach(el => {
+                            el.style.animation = 'none';
+                            el.offsetHeight; /* trigger reflow */
+                            el.style.animation = null;
+                        });
+                    });
+                    
+                    btn.classList.add('active');
+                    const targetId = btn.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+
+            // Mobile Accordion Logic
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    const content = this.nextElementSibling;
+                    const isActive = item.classList.contains('active');
+
+                    // Auto-collapse others to save mobile screen space
+                    document.querySelectorAll('.accordion-item').forEach(accItem => {
+                        accItem.classList.remove('active');
+                        accItem.querySelector('.accordion-content').style.maxHeight = null;
+                    });
+
+                    if (!isActive) {
+                        item.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
