@@ -1,0 +1,114 @@
+{
+  "project": "Eco Greenspace",
+  "domain": "ecogreenspacesg.com",
+  "structure": [
+    {
+      "page": "Home",
+      "sections": [
+        {
+          "name": "Hero Section",
+          "purpose": "A high-impact banner welcoming visitors and showcasing Eco Greenscape's core offering with a compelling image or video."
+        },
+        {
+          "name": "Our Landscaping Services Section",
+          "purpose": "Showcases Eco Greenscape's range of landscaping and maintenance offerings, often with visuals and brief descriptions."
+        },
+        {
+          "name": "Why Choose Us",
+          "purpose": "Highlights the core advantages, unique selling points, and values that make Eco Greenscape stand out from competitors."
+        },
+        {
+          "name": "What Our Clients Say",
+          "purpose": "Displays authentic testimonials and reviews from satisfied customers to build trust and credibility."
+        },
+        {
+          "name": "FAQ",
+          "purpose": "Provides concise answers to frequently asked questions about Eco Greenscape's services, process, or company."
+        },
+        {
+          "name": "Contact Form",
+          "purpose": "Allows potential clients to easily submit inquiries or request a quote directly from the home page."
+        }
+      ]
+    },
+    {
+      "page": "About",
+      "sections": [
+        {
+          "name": "Company Story & Mission",
+          "purpose": "Introduces Eco Greenscape's history, values, and dedication to sustainable landscaping and customer satisfaction."
+        },
+        {
+          "name": "Our Team",
+          "purpose": "Presents the skilled professionals behind Eco Greenscape, highlighting their expertise and passion for greenspace."
+        },
+        {
+          "name": "Our Philosophy & Values",
+          "purpose": "Details the core principles and environmental commitment that guide Eco Greenscape's operations and service delivery."
+        },
+        {
+          "name": "Certifications & Awards",
+          "purpose": "Showcases any industry recognitions, licenses, or special achievements to underscore professional credibility."
+        },
+        {
+          "name": "Community Involvement",
+          "purpose": "Demonstrates Eco Greenscape's commitment to giving back to the local community or supporting environmental initiatives."
+        }
+      ]
+    },
+    {
+      "page": "Services",
+      "sections": [
+        {
+          "name": "Introduction to Services",
+          "purpose": "Provides an overview of Eco Greenscape's comprehensive service offerings for both residential and commercial clients."
+        },
+        {
+          "name": "Lawn Care & Maintenance",
+          "purpose": "Details specialized services like mowing, fertilization, aeration, pest control, and seasonal treatments for healthy lawns."
+        },
+        {
+          "name": "Garden Design & Installation",
+          "purpose": "Explains services for creating and implementing beautiful garden spaces, including plant selection, hardscaping, and water features."
+        },
+        {
+          "name": "Tree & Shrub Care",
+          "purpose": "Covers pruning, trimming, health assessments, disease treatment, and removal services for trees and shrubs."
+        },
+        {
+          "name": "Irrigation Systems",
+          "purpose": "Describes the design, installation, and maintenance of efficient and water-saving irrigation systems."
+        },
+        {
+          "name": "Request a Quote CTA",
+          "purpose": "Encourages visitors to request a personalized service estimate or consultation."
+        }
+      ]
+    },
+    {
+      "page": "Contact",
+      "sections": [
+        {
+          "name": "Contact Information",
+          "purpose": "Provides all essential contact details, including phone number, email address, and physical address (if applicable)."
+        },
+        {
+          "name": "Location Map",
+          "purpose": "Displays an interactive map showing Eco Greenscape's service area or physical office location for easy reference."
+        },
+        {
+          "name": "Operating Hours",
+          "purpose": "Informs clients of the company's availability for inquiries, service appointments, and office visits."
+        },
+        {
+          "name": "Detailed Contact Form",
+          "purpose": "A comprehensive form for specific inquiries, quote requests, appointment scheduling, or general feedback."
+        },
+        {
+          "name": "Social Media Links",
+          "purpose": "Provides direct links to Eco Greenscape's social media profiles for further engagement and community connection."
+        }
+      ]
+    }
+  ]
+}
