@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Eco Greenscape</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#81c434',
+                        accent: '#338a36',
+                        background: '#f3faf4',
+                        text: '#0c3d19',
+                        surface: '#eef5ef',
+                        border: '#dbe1dc',
+                        muted: '#082b12',
+                    },
+                    fontFamily: {
+                        heading: ['"Playfair Display"', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'brand': '16px',
+                    },
+                    boxShadow: {
+                        'brand': '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3faf4; color: #0c3d19; }
+        h1, h2, h3, h4, h5, h6 { font-family: '"Playfair Display"', serif; }
+        .bg-gradient-brand { background: linear-gradient(135deg, #f3faf4 0%, #cceed9 100%); }
+        .bg-gradient-primary { background: linear-gradient(135deg, #81c434 0%, #2b6513 100%); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-brand border-b border-border">
+        <div class="container mx-auto px-4 lg:px-8 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <span class="text-2xl font-bold font-heading text-primary">Eco Greenscape</span>
+            </a>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-text hover:text-primary focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+
+            <nav class="hidden md:flex space-x-8 items-center font-medium">
+                <a href="index.html" class="text-text hover:text-primary transition-colors">Home</a>
+                <a href="about.html" class="text-text hover:text-primary transition-colors">About</a>
+                <a href="services.html" class="text-primary transition-colors">Services</a>
+                <a href="contact.html" class="text-text hover:text-primary transition-colors">Contact</a>
+                <a href="contact.html" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-accent transition-colors shadow-brand">Get a Quote</a>
+            </nav>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-border">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 text-center">
+                <a href="index.html" class="block px-3 py-2 text-text hover:text-primary font-medium">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-text hover:text-primary font-medium">About</a>
+                <a href="services.html" class="block px-3 py-2 text-primary font-medium">Services</a>
+                <a href="contact.html" class="block px-3 py-2 text-text hover:text-primary font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header Area -->
+    <section class="bg-gradient-primary py-20 text-center text-white relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 font-heading">Our Services</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto font-light text-green-100">Comprehensive, eco-friendly landscaping and maintenance solutions for residential and commercial properties.</p>
+        </div>
+        <div class="absolute inset-0 bg-black/10 z-0"></div>
+    </section>
+
+    <!-- Introduction to Services -->
+    <section class="py-20 bg-white text-center">
+        <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Expertise You Can Trust</h2>
+            <p class="text-muted text-lg leading-relaxed mb-6">
+                At Eco Greenscape, we blend horticultural science with artistic design to offer a full spectrum of landscaping services. Whether you need a complete garden overhaul or regular maintenance to keep your lawn pristine, our sustainable approach guarantees a healthy, visually stunning result that respects the local environment.
+            </p>
+        </div>
+    </section>
+
+    <!-- Lawn Care & Maintenance -->
+    <section class="py-20 bg-surface border-t border-border">
+        <div class="container mx-auto px-4 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 rounded-brand overflow-hidden shadow-brand">
+                <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lawn Care & Maintenance" class="w-full h-full object-cover">
+            </div>
+            <div class="md:w-1/2">
+                <h3 class="text-3xl font-bold mb-4">Lawn Care & Maintenance</h3>
+                <p class="text-primary font-medium mb-4 text-lg">Lush, green, and sustainably managed.</p>
+                <p class="text-muted mb-6">
+                    A vibrant lawn is the foundation of any great landscape. Our turf experts utilize organic fertilization, precise mowing techniques, and strategic aeration to promote deep root growth and drought resistance. We also provide safe, eco-friendly pest and weed management, ensuring your lawn is safe for children, pets, and local wildlife.
+                </p>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Organic turf fertilization</li>
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Precision mowing and edging</li>
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Aeration and overseeding</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garden Design & Installation -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-8 flex flex-col md:flex-row-reverse items-center gap-12">
+            <div class="md:w-1/2 rounded-brand overflow-hidden shadow-brand">
+                <img src="https://cclanddesign.com/wp-content/uploads/2024/11/landscaping.jpg" alt="Garden Design & Installation" class="w-full h-full object-cover">
+            </div>
+            <div class="md:w-1/2">
+                <h3 class="text-3xl font-bold mb-4">Garden Design & Installation</h3>
+                <p class="text-primary font-medium mb-4 text-lg">Bringing your vision to life.</p>
+                <p class="text-muted mb-6">
+                    Our landscape architects work closely with you to design a custom outdoor space that complements your property's architecture and suits your lifestyle. From selecting native, drought-tolerant plants to constructing elegant hardscaping and soothing water features, we manage the entire installation process with meticulous attention to detail.
+                </p>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 3D Landscape Design</li>
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Native & Tropical Plant Sourcing</li>
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Hardscaping & Paths</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tree & Shrub Care -->
+    <section class="py-20 bg-surface border-t border-border border-b border-border">
+        <div class="container mx-auto px-4 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 rounded-brand overflow-hidden shadow-brand">
+                <img src="https://images.unsplash.com/photo-1598902598642-e14bade23351?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tree & Shrub Care" class="w-full h-full object-cover">
+            </div>
+            <div class="md:w-1/2">
+                <h3 class="text-3xl font-bold mb-4">Tree & Shrub Care</h3>
+                <p class="text-primary font-medium mb-4 text-lg">Protecting your landscape's biggest assets.</p>
+                <p class="text-muted mb-6">
+                    Trees and shrubs require specialized care to maintain their structural integrity and health. Our certified arborists provide expert structural pruning, disease diagnostics, and targeted deep-root feeding. We proactively manage the health of your woody plants to prevent issues before they start, ensuring they provide shade and beauty for decades.
+                </p>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Structural pruning & shaping</li>
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Disease & pest diagnostics</li>
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Deep root fertilization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Irrigation Systems -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-8 flex flex-col md:flex-row-reverse items-center gap-12">
+            <div class="md:w-1/2 rounded-brand overflow-hidden shadow-brand">
+                <img src="https://images.unsplash.com/photo-1584985223631-4cefcb11da08?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Irrigation Systems" class="w-full h-full object-cover">
+            </div>
+            <div class="md:w-1/2">
+                <h3 class="text-3xl font-bold mb-4">Irrigation Systems</h3>
+                <p class="text-primary font-medium mb-4 text-lg">Smart watering for sustainable growth.</p>
+                <p class="text-muted mb-6">
+                    Water is a precious resource. We design and install state-of-the-art "smart" irrigation systems that minimize runoff and maximize absorption. By utilizing drip irrigation and weather-sensing technology, we ensure your landscape receives exactly the moisture it needs to thrive, lowering your water bills and protecting the environment.
+                </p>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Smart sensor installation</li>
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Drip irrigation setup</li>
+                    <li class="flex items-center text-muted"><svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> System repair and winterization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request a Quote CTA -->
+    <section class="py-20 bg-gradient-brand text-center relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10 max-w-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Landscape?</h2>
+            <p class="text-lg text-muted mb-8">Schedule a free consultation today and let our experts propose a tailored plan for your property.</p>
+            <a href="contact.html" class="inline-block bg-primary text-white font-bold py-4 px-10 rounded-full shadow-lg hover:bg-accent transform hover:-translate-y-1 transition-all">Request a Free Estimate</a>
+        </div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -ml-20 -mb-20"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#082b12] text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <span class="text-2xl font-bold font-heading text-primary bg-white px-4 py-2 rounded-lg inline-block mb-6">Eco Greenscape</span>
+                    <p class="text-gray-300 md:pr-12 leading-relaxed">Dedicated to cultivating beautiful, sustainable, and thriving outdoor environments in Singapore through professional, eco-friendly practices.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white">Connect</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-300"><svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +65 9123 4567</li>
+                        <li class="flex items-center text-gray-300"><svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> hello@ecogreenspacesg.com</li>
+                        <li class="flex items-center text-gray-300"><svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Marina Bay, Singapore</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2026 Eco Greenscape Pte Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
