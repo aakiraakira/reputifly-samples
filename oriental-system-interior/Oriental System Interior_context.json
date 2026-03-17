@@ -1,0 +1,114 @@
+{
+  "project": "Oriental System Interior",
+  "domain": "orientalsystemsg.com",
+  "structure": [
+    {
+      "page": "Home",
+      "sections": [
+        {
+          "name": "Hero Section",
+          "purpose": "A high-impact banner or slider that immediately captures visitor attention and conveys the brand's essence."
+        },
+        {
+          "name": "Review Section",
+          "purpose": "Displays testimonials and positive feedback from satisfied clients to build trust and credibility."
+        },
+        {
+          "name": "Why Choose Us",
+          "purpose": "Highlights the unique value propositions, benefits, and differentiators that make the company stand out."
+        },
+        {
+          "name": "Curated Spaces",
+          "purpose": "Showcases a selection of our best work or design styles through compelling imagery and brief descriptions."
+        },
+        {
+          "name": "Common Questions",
+          "purpose": "Addresses frequently asked questions to provide immediate answers and reduce customer inquiries."
+        },
+        {
+          "name": "Call to Action",
+          "purpose": "A prominent section encouraging visitors to take a specific next step, such as scheduling a consultation or requesting a quote."
+        }
+      ]
+    },
+    {
+      "page": "About",
+      "sections": [
+        {
+          "name": "Introduction",
+          "purpose": "A brief overview of the company's mission, vision, and core values."
+        },
+        {
+          "name": "Our Story",
+          "purpose": "Details the journey, history, and founding principles of the business."
+        },
+        {
+          "name": "Meet the Team",
+          "purpose": "Introduces key team members, highlighting their expertise and roles within the company."
+        },
+        {
+          "name": "Our Philosophy",
+          "purpose": "Explains the fundamental beliefs and approach to design and client service."
+        },
+        {
+          "name": "Accreditations & Awards",
+          "purpose": "Showcases any professional certifications, industry recognitions, or awards received."
+        }
+      ]
+    },
+    {
+      "page": "Services",
+      "sections": [
+        {
+          "name": "Services Overview",
+          "purpose": "An introduction to the comprehensive range of design and architecture services offered."
+        },
+        {
+          "name": "Service Package Section",
+          "purpose": "Presents various bundled service tiers or specific offerings with clear pricing or scope details."
+        },
+        {
+          "name": "Residential Design",
+          "purpose": "Details services tailored for homes, including interior design, renovation, and new builds."
+        },
+        {
+          "name": "Commercial Design",
+          "purpose": "Outlines services for businesses, such as office layouts, retail spaces, and hospitality design."
+        },
+        {
+          "name": "Consultation & Planning",
+          "purpose": "Describes initial consultation services, feasibility studies, and project planning assistance."
+        },
+        {
+          "name": "Our Process",
+          "purpose": "Explains the step-by-step journey clients can expect from project initiation to completion."
+        }
+      ]
+    },
+    {
+      "page": "Contact",
+      "sections": [
+        {
+          "name": "Contact Form",
+          "purpose": "Provides a user-friendly form for visitors to submit inquiries directly to the team."
+        },
+        {
+          "name": "Contact Information",
+          "purpose": "Lists essential contact details such as phone number, email address, and physical location."
+        },
+        {
+          "name": "Location Map",
+          "purpose": "Embeds an interactive map to help clients easily find the business's physical address."
+        },
+        {
+          "name": "Business Hours",
+          "purpose": "Specifies the operating hours for client communication and appointments."
+        },
+        {
+          "name": "Social Media Links",
+          "purpose": "Provides direct links to the company's social media profiles for broader engagement."
+        }
+      ]
+    }
+  ]
+}
