@@ -1,404 +1,1073 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco Greenscape | Premium Landscaping</title>
-    
-    <!-- Google Fonts -->
+    <title>Ecogreenscape | Premium Landscaping & Maintenance</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#81c434',
-                        accent: '#338a36',
-                        background: '#f3faf4',
-                        text: '#0c3d19',
-                        surface: '#eef5ef',
-                        border: '#dbe1dc',
-                        muted: '#082b12',
-                    },
-                    fontFamily: {
-                        heading: ['"Playfair Display"', 'serif'],
-                        body: ['Inter', 'sans-serif'],
-                    },
-                    borderRadius: {
-                        'brand': '16px',
-                    },
-                    boxShadow: {
-                        'brand': '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                    }
-                }
+    <style>
+        /* === BRAND DNA & CSS VARIABLES === */
+        :root {
+            --primary: #81c434;
+            --accent: #338a36;
+            --background: #f3faf4;
+            --text: #0c3d19;
+            --gradient-primary: linear-gradient(135deg, #81c434 0%, #2b6513 100%);
+            --gradient-bg: linear-gradient(135deg, #f3faf4 0%, #cceed9 100%);
+            --surface: #eef5ef;
+            --border: #dbe1dc;
+            --muted-text: #082b12;
+            --primary-hover: #000000;
+            --on-primary: #ffffff;
+            --focus-ring: #badf94;
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --radius: 16px;         
+            --radius-pill: 999px;   
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* === RESET & BASE STYLES === */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--text);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--muted-text);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* === REUSABLE COMPONENTS === */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--on-primary);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            color: var(--on-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--on-primary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* === HEADER & NAVIGATION === */
+        header {
+            background: var(--on-primary);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            background: var(--gradient-bg);
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1558904541-efa843a96f09?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: var(--text);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* === SERVICES SECTION === */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; 
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            align-items: center;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -3rem auto 1rem; 
+            color: var(--on-primary);
+            border: 4px solid var(--surface);
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            margin-bottom: 1.5rem;
+        }
+
+        .service-btn {
+            margin-top: auto; 
+            width: 100%;
+        }
+
+        /* === WHY CHOOSE US === */
+        .why-us {
+            background: var(--on-primary);
+        }
+
+        .why-us-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .why-us-img {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .why-us-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .why-us-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .why-us-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .check-icon {
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        /* === REVIEWS MARQUEE === */
+        .reviews {
+            background: var(--surface);
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+
+        .marquee-wrapper {
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            gap: 2rem;
+            justify-content: space-around;
+            min-width: 100%;
+        }
+
+        .scroll-left {
+            animation: scroll 30s linear infinite;
+        }
+
+        .scroll-right {
+            animation: scroll-reverse 30s linear infinite;
+        }
+
+        .marquee-wrapper:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-100% - 2rem)); }
+        }
+
+        @keyframes scroll-reverse {
+            from { transform: translateX(calc(-100% - 2rem)); }
+            to { transform: translateX(0); }
+        }
+
+        .review-card {
+            background: var(--on-primary);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            width: 350px;
+            flex-shrink: 0;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* === FAQ SECTION === */
+        .faq {
+            background: var(--on-primary);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            text-align: left;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            color: var(--primary);
+        }
+
+        .accordion-header.active {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: var(--on-primary);
+        }
+
+        .accordion-content p {
+            padding: 1.5rem 2rem;
+            margin: 0;
+        }
+
+        /* === CONTACT SECTION === */
+        .contact {
+            background: var(--gradient-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background: var(--on-primary);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item h4 {
+            margin-bottom: 0.25rem;
+            color: var(--accent);
+            font-family: var(--font-body);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: var(--text);
+            padding-left: 0.5rem;
+        }
+
+        .form-control {
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background: var(--surface);
+            color: var(--text);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--focus-ring);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--text); 
+            color: #ffffff;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo-wrapper {
+            background-color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col p {
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 300;
+        }
+
+        .footer-bottom p {
+            color: #ffffff !important;
+        }
+
+        .footer-bottom a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* === FLOATING WHATSAPP BUTTON === */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+            background-color: #1ebe57;
+            color: white;
+        }
+
+        .floating-wa svg {
+            width: 35px;
+            height: 35px;
+            fill: currentColor;
+        }
+
+        /* === MOBILE RESPONSIVENESS === */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.75rem; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-us-container, .contact-grid { gap: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--on-primary);
+                flex-direction: column;
+                padding: 1rem 2rem 2rem;
+                box-shadow: 0 10px 10px -10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-cta {
+                display: none; 
+            }
+
+            .hero { padding: 5rem 0; }
+            .hero h1 { font-size: 2.25rem; }
+            .hero-btns { flex-direction: column; }
+            
+            .services-grid { grid-template-columns: 1fr; }
+            
+            .why-us-container { grid-template-columns: 1fr; }
+            .why-us-img { order: -1; } 
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+            }
+            
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+            .floating-wa {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+            .floating-wa svg {
+                width: 30px;
+                height: 30px;
             }
         }
-    </script>
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f3faf4; color: #0c3d19; }
-        h1, h2, h3, h4, h5, h6 { font-family: '"Playfair Display"', serif; }
-        .bg-gradient-brand { background: linear-gradient(135deg, #f3faf4 0%, #cceed9 100%); }
-        .bg-gradient-primary { background: linear-gradient(135deg, #81c434 0%, #2b6513 100%); }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-brand border-b border-border">
-        <div class="container mx-auto px-4 lg:px-8 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center">
-                <!-- Fallback logo approach -->
-                <span class="text-2xl font-bold font-heading text-primary">Eco Greenscape</span>
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/Eco-Greenscape-mmsrr817hik8.webp" alt="Ecogreenscape Logo">
             </a>
-            
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-text hover:text-primary focus:outline-none">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
-
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex space-x-8 items-center font-medium">
-                <a href="index.html" class="text-primary transition-colors">Home</a>
-                <a href="about.html" class="text-text hover:text-primary transition-colors">About</a>
-                <a href="services.html" class="text-text hover:text-primary transition-colors">Services</a>
-                <a href="contact.html" class="text-text hover:text-primary transition-colors">Contact</a>
-                <a href="#quote" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-accent transition-colors shadow-brand">Get a Quote</a>
-            </nav>
-        </div>
-        <!-- Mobile Nav Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-border">
-            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 text-center">
-                <a href="index.html" class="block px-3 py-2 text-primary font-medium">Home</a>
-                <a href="about.html" class="block px-3 py-2 text-text hover:text-primary font-medium">About</a>
-                <a href="services.html" class="block px-3 py-2 text-text hover:text-primary font-medium">Services</a>
-                <a href="contact.html" class="block px-3 py-2 text-text hover:text-primary font-medium">Contact</a>
-            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="mobile-only" style="display:none;"><a href="contact.html" style="color:var(--primary); font-weight:700;">Get a Quote</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary header-cta">Get a Quote</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative bg-gradient-brand py-20 lg:py-32 overflow-hidden">
-        <div class="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-text leading-tight">
-                    Transforming Spaces into Lush <span class="text-primary text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Eco-Havens</span>
-                </h1>
-                <p class="text-lg md:text-xl text-muted mb-8 max-w-lg mx-auto md:mx-0">
-                    Professional, sustainable landscaping and maintenance tailored to bring vibrant natural beauty to your property.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#quote" class="bg-primary hover:bg-accent text-white font-medium py-3 px-8 rounded-full shadow-brand transition-all transform hover:-translate-y-1">Request a Quote</a>
-                    <a href="services.html" class="border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-8 rounded-full transition-all">Explore Services</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 md:pl-10">
-                <!-- Using a beautiful unsplash image conceptually fit for Hero -->
-                <img src="https://images.unsplash.com/photo-1558904541-efa843a96f09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Beautiful Landscaped Garden" class="rounded-brand shadow-2xl object-cover h-[400px] w-full border-4 border-white/50">
-            </div>
-        </div>
-        <!-- Decorative subtle pattern/blob behind hero -->
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-primary/10 blur-3xl z-0"></div>
-    </section>
-
-    <!-- Our Landscaping Services Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Landscaping Services</h2>
-                <p class="text-muted text-lg">Comprehensive eco-friendly solutions to create and maintain stunning outdoor spaces.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-surface rounded-brand overflow-hidden shadow-brand border border-border group hover:shadow-lg transition-all transform hover:-translate-y-1">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://blog.fantasticgardeners.co.uk/wp-content/uploads/2020/10/garden-maintenance-cost.jpg" alt="Garden Maintenance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 text-center relative">
-                        <div class="w-14 h-14 bg-gradient-primary rounded-full flex items-center justify-center text-white mx-auto -mt-12 mb-4 border-4 border-surface relative z-10">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Garden Maintenance</h3>
-                        <p class="text-muted mb-6">Expert pruning, weeding, and organic soil care to ensure your garden thrives year-round.</p>
-                        <a href="services.html" class="text-accent font-semibold flex items-center justify-center group-hover:text-primary transition-colors">
-                            Learn More <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="bg-surface rounded-brand overflow-hidden shadow-brand border border-border group hover:shadow-lg transition-all transform hover:-translate-y-1">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://cclanddesign.com/wp-content/uploads/2024/11/landscaping.jpg" alt="Custom Landscaping" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 text-center relative">
-                        <div class="w-14 h-14 bg-gradient-primary rounded-full flex items-center justify-center text-white mx-auto -mt-12 mb-4 border-4 border-surface relative z-10">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M11 2v4.26c-2.84.4-5 2.86-5 5.74h2c0-2.21 1.79-4 4-4v4l5-5-5-5zM4 12c0 3.86 3.14 7 7 7v-4l5 5-5 5v-4.26c-2.84-.4-5-2.86-5-5.74H4z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Custom Landscaping</h3>
-                        <p class="text-muted mb-6">Bespoke, sustainable design and installation of vibrant plants and beautiful hardscaping.</p>
-                        <a href="services.html" class="text-accent font-semibold flex items-center justify-center group-hover:text-primary transition-colors">
-                            Learn More <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="bg-surface rounded-brand overflow-hidden shadow-brand border border-border group hover:shadow-lg transition-all transform hover:-translate-y-1">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://www.thespruce.com/thmb/gIE2azGLSJr84LCnTm-8XIbAuWs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spring-lawn-care-2132455-09-df14429ef98948e69439952f6e7287fa.jpg" alt="Turf Care" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 text-center relative">
-                        <div class="w-14 h-14 bg-gradient-primary rounded-full flex items-center justify-center text-white mx-auto -mt-12 mb-4 border-4 border-surface relative z-10">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7 11.5v4.46L12 19l5-3.04V11.5L12 8.46 7 11.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Turf Care & Mowing</h3>
-                        <p class="text-muted mb-6">Precision mowing, aeration, and eco-fertilization treatments for a lush, green lawn.</p>
-                        <a href="services.html" class="text-accent font-semibold flex items-center justify-center group-hover:text-primary transition-colors">
-                            Learn More <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="services.html" class="inline-block bg-white border border-border text-text hover:text-primary hover:border-primary font-medium px-8 py-3 rounded-full transition-colors shadow-sm">View All Services</a>
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Transforming Spaces into Lush Eco-Havens</h1>
+            <p>Professional landscaping and garden maintenance services dedicated to sustainability and natural beauty in Singapore.</p>
+            <div class="hero-btns">
+                <a href="contact.html" class="btn btn-primary">Request a Free Estimate</a>
+                <a href="services.html" class="btn btn-outline">Explore Our Services</a>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="py-20 bg-surface">
-        <div class="container mx-auto px-4 lg:px-8 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 rounded-brand overflow-hidden shadow-brand">
-                <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eco Greenscape Quality Work" class="w-full h-full object-cover">
-            </div>
-            <div class="md:w-1/2">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Choose Eco Greenscape?</h2>
-                <p class="text-muted text-lg mb-8">We combine horticultural expertise with a deep commitment to the environment, delivering landscapes that are as healthy as they are beautiful.</p>
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Our Landscaping Services</h2>
+            <div class="services-grid">
                 
-                <div class="space-y-6">
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mt-1">
-                            <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="20 6 9 17 4 12"></polyline></svg>
-                            </div>
+                <div class="service-card">
+                    <img src="https://blog.fantasticgardeners.co.uk/wp-content/uploads/2020/10/garden-maintenance-cost.jpg" alt="Lawn Care & Maintenance" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
                         </div>
-                        <div class="ml-4">
-                            <h4 class="text-xl font-semibold mb-1">Eco-Friendly Practices</h4>
-                            <p class="text-muted">We use sustainable materials, organic fertilizers, and water-efficient systems to protect the local ecosystem.</p>
-                        </div>
+                        <h3>Lawn Care & Maintenance</h3>
+                        <p>Specialized services including mowing, fertilization, aeration, and pest control for healthy lawns.</p>
+                        <a href="services.html" class="btn btn-outline service-btn">Learn More</a>
                     </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://cclanddesign.com/wp-content/uploads/2024/11/landscaping.jpg" alt="Garden Design & Installation" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M11 2v4.26c-2.84.4-5 2.86-5 5.74h2c0-2.21 1.79-4 4-4v4l5-5-5-5zM4 12c0 3.86 3.14 7 7 7v-4l5 5-5 5v-4.26c-2.84-.4-5-2.86-5-5.74H4z"/></svg>
+                        </div>
+                        <h3>Garden Design & Installation</h3>
+                        <p>Creating and implementing beautiful garden spaces, including plant selection and hardscaping.</p>
+                        <a href="services.html" class="btn btn-outline service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://www.thespruce.com/thmb/gIE2azGLSJr84LCnTm-8XIbAuWs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spring-lawn-care-2132455-09-df14429ef98948e69439952f6e7287fa.jpg" alt="Tree & Shrub Care" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24"><path d="M7 11.5v4.46L12 19l5-3.04V11.5L12 8.46 7 11.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                        </div>
+                        <h3>Tree & Shrub Care</h3>
+                        <p>Expert pruning, trimming, health assessments, and disease treatments for your greenspace.</p>
+                        <a href="services.html" class="btn btn-outline service-btn">Learn More</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="section-padding why-us">
+        <div class="container why-us-container">
+            <div class="why-us-content">
+                <h2>Cultivating Trust & Greenery</h2>
+                <p>At Ecogreenscape, we don't just maintain gardens; we curate ecosystems. Our approach blends aesthetic perfection with environmentally conscious practices.</p>
+                <ul class="why-us-list">
+                    <li>
+                        <svg class="check-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <div>
+                            <strong>Eco-Friendly Practices</strong>
+                            <p>We use sustainable organic fertilizers and water-efficient systems.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <svg class="check-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <div>
+                            <strong>Certified Specialists</strong>
+                            <p>Our team consists of trained arborists and landscaping professionals.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <svg class="check-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <div>
+                            <strong>Reliable & Punctual</strong>
+                            <p>We respect your time and consistently deliver on our promises.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="why-us-img">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beautifully landscaped garden">
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+        </div>
+        
+        <div class="marquee-wrapper">
+            <div class="marquee-content scroll-left" id="marquee1">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Ecogreenscape completely transformed our front yard. Their attention to detail and sustainable approach is unmatched in Singapore."</p>
+                    <p class="reviewer-name">- Sarah T.</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Professional, punctual, and highly skilled. They've been maintaining our corporate office gardens for a year now with excellent results."</p>
+                    <p class="reviewer-name">- David L.</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Love their eco-friendly fertilizers! My lawn has never looked greener, and I feel safe knowing it's organic."</p>
+                    <p class="reviewer-name">- Michelle K.</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"The team designed a beautiful vertical garden for my balcony. Highly recommend their bespoke services."</p>
+                    <p class="reviewer-name">- Jonathan W.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="marquee-wrapper">
+            <div class="marquee-content scroll-right" id="marquee2">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Fast and efficient tree pruning. They cleaned up everything perfectly before leaving."</p>
+                    <p class="reviewer-name">- Amanda C.</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Great communication from quote to completion. The landscaping design fits our modern home perfectly."</p>
+                    <p class="reviewer-name">- Robert Y.</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"I appreciate their commitment to sustainability. Even the weed control methods they use are safe for my pets."</p>
+                    <p class="reviewer-name">- Elena G.</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Top-tier maintenance service. Our condo estate's greenery has improved drastically since hiring them."</p>
+                    <p class="reviewer-name">- MCST Manager, The Tropics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-padding faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        How often do you maintain lawns?
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We offer flexible scheduling including weekly, bi-weekly, or monthly maintenance plans depending on the specific needs of your garden and the season.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Do you use eco-friendly fertilizers?
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes, sustainability is in our name. We prioritize organic, non-toxic fertilizers and pest control methods that are safe for your family, pets, and the local ecosystem.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Do you provide free estimates?
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Absolutely. Contact us through the form below or give us a call, and we will arrange a site visit to provide an accurate, no-obligation quote.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Do you handle commercial properties?
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes, we manage landscaping for both residential homes and commercial estates, including condos, offices, and retail spaces.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Ready to transform your green space? Reach out to us for a consultation or quote.</p>
                     
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mt-1">
-                            <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="20 6 9 17 4 12"></polyline></svg>
-                            </div>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-xl font-semibold mb-1">Expert Horticulturalists</h4>
-                            <p class="text-muted">Our trained professionals understand soil health, climate nuances, and plant biology.</p>
-                        </div>
+                    <div class="info-item">
+                        <h4>Email Us</h4>
+                        <p>hello@ecogreenscape.com.sg</p>
                     </div>
-                    
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mt-1">
-                            <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="20 6 9 17 4 12"></polyline></svg>
-                            </div>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-xl font-semibold mb-1">Reliable & Consistent</h4>
-                            <p class="text-muted">We pride ourselves on punctuality, clear communication, and delivering impeccable results every time.</p>
-                        </div>
+                    <div class="info-item">
+                        <h4>Call Us</h4>
+                        <p>+65 6123 4567</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Operating Hours</h4>
+                        <p>Mon - Sat: 8:00 AM - 6:00 PM<br>Sunday: Closed</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What Our Clients Say -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4 lg:px-8 text-center max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
-            <p class="text-muted text-lg mb-12">Don't just take our word for it—see what our satisfied customers have to say about our transformations.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <!-- Testimonial 1 -->
-                <div class="bg-surface p-8 rounded-brand shadow-sm border border-border">
-                    <div class="flex text-yellow-400 mb-4">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    </div>
-                    <p class="italic text-muted mb-6">"Eco Greenscape completely revitalized our backyard. Their attention to detail and knowledge of native plants is simply unmatched. Highly recommended!"</p>
-                    <div class="font-bold text-text">- Sarah T., Residential Client</div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-surface p-8 rounded-brand shadow-sm border border-border">
-                    <div class="flex text-yellow-400 mb-4">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    </div>
-                    <p class="italic text-muted mb-6">"Our commercial plaza has never looked better. The maintenance team is professional, quiet, and always leaves the property looking immaculate."</p>
-                    <div class="font-bold text-text">- Marcus Wong, Facilities Manager</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-20 bg-surface">
-        <div class="container mx-auto px-4 lg:px-8 max-w-3xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
-            
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="bg-white border border-border rounded-brand overflow-hidden shadow-sm">
-                    <button class="w-full px-6 py-4 text-left font-bold text-lg flex justify-between items-center focus:outline-none" onclick="toggleFaq('faq1')">
-                        <span>Do you provide free estimates?</span>
-                        <svg id="icon-faq1" class="w-5 h-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div id="faq1" class="px-6 pb-4 text-muted hidden">
-                        <p>Yes! We offer a complimentary initial consultation and estimate for all landscaping and maintenance projects.</p>
-                    </div>
-                </div>
-                <!-- FAQ Item 2 -->
-                <div class="bg-white border border-border rounded-brand overflow-hidden shadow-sm">
-                    <button class="w-full px-6 py-4 text-left font-bold text-lg flex justify-between items-center focus:outline-none" onclick="toggleFaq('faq2')">
-                        <span>Are your fertilizers pet and child safe?</span>
-                        <svg id="icon-faq2" class="w-5 h-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div id="faq2" class="px-6 pb-4 text-muted hidden">
-                        <p>Absolutely. Environmental safety is our core value; we use 100% organic, non-toxic products that are entirely safe once applied.</p>
-                    </div>
-                </div>
-                <!-- FAQ Item 3 -->
-                <div class="bg-white border border-border rounded-brand overflow-hidden shadow-sm">
-                    <button class="w-full px-6 py-4 text-left font-bold text-lg flex justify-between items-center focus:outline-none" onclick="toggleFaq('faq3')">
-                        <span>What areas do you service?</span>
-                        <svg id="icon-faq3" class="w-5 h-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div id="faq3" class="px-6 pb-4 text-muted hidden">
-                        <p>We provide prime landscaping services across Singapore, catering to both residential neighborhoods and commercial sectors.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <script>
-                function toggleFaq(id) {
-                    const content = document.getElementById(id);
-                    const icon = document.getElementById('icon-' + id);
-                    if (content.classList.contains('hidden')) {
-                        content.classList.remove('hidden');
-                        icon.classList.add('rotate-180');
-                    } else {
-                        content.classList.add('hidden');
-                        icon.classList.remove('rotate-180');
-                    }
-                }
-            </script>
-        </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section id="quote" class="py-20 bg-gradient-brand">
-        <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
-            <div class="bg-white p-8 md:p-12 rounded-brand shadow-brand border border-border relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
                 
-                <div class="relative z-10">
-                    <div class="text-center mb-10">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready for a Greener Space?</h2>
-                        <p class="text-muted text-lg">Send us a message and our consultants will get back to you within 24 hours.</p>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="John Doe" required>
                     </div>
-                    
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-semibold text-text mb-2" for="name">Full Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-border bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="John Doe">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-text mb-2" for="email">Email Address</label>
-                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-border bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="john@example.com">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-text mb-2" for="service">Service Needed</label>
-                            <select id="service" class="w-full px-4 py-3 rounded-lg border border-border bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
-                                <option>Landscape Design & Installation</option>
-                                <option>Garden Maintenance</option>
-                                <option>Turf Care & Mowing</option>
-                                <option>Irrigation Systems</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-text mb-2" for="message">Your Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-border bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Tell us about your project..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-gradient-primary text-white font-bold py-4 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all">Submit Inquiry</button>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Interested Service</label>
+                        <select id="service" class="form-control" required>
+                            <option value="">Select a service...</option>
+                            <option value="maintenance">Lawn Care & Maintenance</option>
+                            <option value="custom">Garden Design & Installation</option>
+                            <option value="turf">Tree & Shrub Care</option>
+                            <option value="irrigation">Irrigation Systems</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message Details</label>
+                        <textarea id="message" class="form-control" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#082b12] text-white pt-16 pb-8">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-1 md:col-span-2">
-                    <span class="text-2xl font-bold font-heading text-primary bg-white px-4 py-2 rounded-lg inline-block mb-6">Eco Greenscape</span>
-                    <p class="text-gray-300 md:pr-12 leading-relaxed">Dedicated to cultivating beautiful, sustainable, and thriving outdoor environments in Singapore through professional, eco-friendly practices.</p>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/Eco-Greenscape-mmsrr817hik8.webp" alt="Ecogreenscape Logo" style="height: 50px; display: block;">
+                    </div>
+                    <p>Ecogreenscape is Singapore's premier eco-conscious landscaping and garden maintenance firm.</p>
                 </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-6 text-white">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="about.html" class="text-gray-300 hover:text-primary transition-colors">About Us</a></li>
-                        <li><a href="services.html" class="text-gray-300 hover:text-primary transition-colors">Services</a></li>
-                        <li><a href="contact.html" class="text-gray-300 hover:text-primary transition-colors">Contact</a></li>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-6 text-white">Connect</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-gray-300"><svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +65 9123 4567</li>
-                        <li class="flex items-center text-gray-300"><svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> hello@ecogreenspacesg.com</li>
-                        <li class="flex items-center text-gray-300"><svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Marina Bay, Singapore</li>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>+65 6123 4567</li>
+                        <li>hello@ecogreenscape.com.sg</li>
+                        <li>Singapore</li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-400 text-sm">
-                <p>&copy; 2026 Eco Greenscape Pte Ltd. All Rights Reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ecogreenscape. All rights reserved.</p>
+                <p style="margin-top: 0.5rem;">Website Designed by <a href="https://reputifly.com/web-development" target="_blank">Reputifly</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
-    <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+    <a href="https://wa.me/6580111965" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+    </a>
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+    <script>
+        // 1. Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const mobileOnlyLink = document.querySelector('.mobile-only');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if(window.innerWidth <= 768) {
+                mobileOnlyLink.style.display = navLinks.classList.contains('active') ? 'block' : 'none';
+            }
         });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 2. FAQ Accordion Logic
+        const accordions = document.querySelectorAll('.accordion-header');
+
+        accordions.forEach(acc => {
+            acc.addEventListener('click', function() {
+                // Close others
+                accordions.forEach(otherAcc => {
+                    if (otherAcc !== this && otherAcc.classList.contains('active')) {
+                        otherAcc.classList.remove('active');
+                        otherAcc.nextElementSibling.style.maxHeight = null;
+                    }
+                });
+
+                // Toggle current
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (this.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = null;
+                }
+            });
+        });
+
+        // 3. Marquee Seamless Loop Cloning
+        function cloneMarquee(id) {
+            const marquee = document.getElementById(id);
+            if (marquee) {
+                const clone = marquee.cloneNode(true);
+                clone.id = "";
+                marquee.parentNode.appendChild(clone);
+            }
+        }
+
+        cloneMarquee('marquee1');
+        cloneMarquee('marquee2');
+
     </script>
 </body>
 </html>
