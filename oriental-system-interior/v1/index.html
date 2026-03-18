@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Expert Singapore Home Renovation | Oriental System Interior</title>
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================================
+           GLOBAL OVERRIDES & VARIABLES (Scoped)
+           ========================================= */
+        #oriental-optimized-landing {
+            /* Brand Colors based on JSON Brand DNA */
+            --primary: #8a1514;
+            --accent: #8a1413;
+            --background: #ffffff;
+            --text: #0b0a14;
+            --surface: #fafafa;
+            --border: #e6e6e6;
+            --muted: rgba(8, 7, 14, 0.65); /* Based on #08070e with opacity for readability */
+            --primary-hover: #751111;
+            --focus-ring: #c58a8a;
+            
+            /* UI Tokens */
+            --radius: 24px;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            width: 100% !important;
+            max-width: 100vw !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box !important;
+            font-family: var(--font-main) !important;
+            color: var(--text) !important;
+            background-color: var(--background) !important;
+            line-height: 1.7 !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+            text-rendering: optimizeLegibility !important;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        #oriental-optimized-landing h1,
+        #oriental-optimized-landing h2,
+        #oriental-optimized-landing h3,
+        #oriental-optimized-landing h4,
+        #oriental-optimized-landing .hero-title,
+        #oriental-optimized-landing .port-title,
+        #oriental-optimized-landing .svc-title,
+        #oriental-optimized-landing .process-title,
+        #oriental-optimized-landing .reviews-title,
+        #oriental-optimized-landing .faq-title {
+            font-family: var(--font-main) !important;
+            letter-spacing: -0.03em;
+            color: var(--text);
+        }
+
+        #oriental-optimized-landing * {
+            box-sizing: border-box !important;
+        }
+
+        #oriental-optimized-landing img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #oriental-optimized-landing a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Utility Classes */
+        #oriental-optimized-landing .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        #oriental-optimized-landing .section-padding {
+            padding: 5rem 0;
+        }
+
+        #oriental-optimized-landing .text-center {
+            text-align: center;
+        }
+        
+        /* =========================================
+           HEADER & NAVIGATION
+           ========================================= */
+        #oriental-header {
+            padding: 1.5rem 0;
+            background: var(--background);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        #oriental-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #oriental-header img {
+            height: 60px;
+            object-fit: contain;
+        }
+
+        #oriental-header .main-nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        #oriental-header .main-nav a {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+            transition: color 0.3s ease;
+        }
+
+        #oriental-header .main-nav a:hover,
+        #oriental-header .main-nav a.active {
+            color: var(--primary);
+        }
+
+        /* =========================================
+           1. HERO SECTION & LEAD FORM (Split Layout)
+           ========================================= */
+        #oriental-hero {
+            background-color: var(--surface);
+            padding: 4rem 0 6rem 0;
+            position: relative;
+        }
+
+        #oriental-hero .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        #oriental-hero .hero-content {
+            padding-right: 2rem;
+        }
+
+        #oriental-hero .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(138, 21, 20, 0.08);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(138, 21, 20, 0.2);
+        }
+
+        #oriental-hero .hero-title {
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1.08;
+            margin: 0 0 1.5rem 0;
+        }
+
+        #oriental-hero .hero-desc {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        #oriental-hero .hero-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+
+        #oriental-hero .hero-bullets li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        #oriental-hero .hero-bullets svg {
+            width: 20px;
+            height: 20px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Lead Form Card */
+        #oriental-hero .form-card {
+            background: var(--background);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            position: relative;
+            z-index: 10;
+        }
+
+        #oriental-hero .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        #oriental-hero .form-header h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+        }
+
+        #oriental-hero .form-header p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Form Inputs */
+        #oriental-hero .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        #oriental-hero .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        #oriental-hero .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        #oriental-hero label {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        #oriental-hero label span {
+            color: var(--primary);
+        }
+
+        #oriental-hero input,
+        #oriental-hero select,
+        #oriental-hero textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-family: var(--font-main) !important;
+            font-size: 16px !important;
+            color: var(--text);
+            background: var(--background);
+            transition: all 0.2s ease;
+            appearance: none;
+            -webkit-appearance: none;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            select,
+            textarea,
+            input {
+                font-size: 16px !important;
+            }
+        }
+
+        #oriental-hero select {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b0a14' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 16px;
+            padding-right: 2.5rem;
+        }
+
+        #oriental-hero input:focus,
+        #oriental-hero select:focus,
+        #oriental-hero textarea:focus {
+            outline: none;
+            border-color: var(--focus-ring);
+            box-shadow: 0 0 0 4px rgba(197, 138, 138, 0.2);
+        }
+
+        #oriental-hero textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        #oriental-hero .submit-btn {
+            width: 100%;
+            padding: 1.1rem;
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        #oriental-hero .submit-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        #oriental-hero .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s linear infinite;
+        }
+
+        #oriental-optimized-landing .viewport-wrapper {
+            width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        /* =========================================
+           2. SOCIAL PROOF (REVIEWS MARQUEE)
+           ========================================= */
+        #oriental-reviews {
+            padding: 5rem 0;
+            background: var(--background);
+            overflow: hidden;
+        }
+
+        #oriental-reviews .reviews-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        #oriental-reviews .reviews-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+        }
+
+        #oriental-reviews .marquee-wrapper {
+            position: relative;
+            display: flex;
+            padding: 1rem 0;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        #oriental-reviews .marquee-track {
+            display: flex;
+            gap: 2rem;
+            width: max-content;
+            animation: scroll-left 40s linear infinite;
+        }
+
+        #oriental-reviews .marquee-wrapper:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        #oriental-reviews .review-card {
+            width: 380px;
+            background: var(--background);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        #oriental-reviews .review-card::before {
+            content: '“';
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 4rem;
+            color: var(--surface);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        #oriental-reviews .card-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        #oriental-reviews .user-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        #oriental-reviews .user-loc {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        #oriental-reviews .stars {
+            color: #FFB400;
+            letter-spacing: 2px;
+        }
+
+        #oriental-reviews .review-text {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            flex-grow: 1;
+        }
+
+        #oriental-reviews .card-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+
+        /* =========================================
+           3. SERVICES (Direct Factory Contractor)
+           ========================================= */
+        #oriental-services {
+            background-color: var(--surface);
+            padding: 5rem 0;
+        }
+
+        #oriental-services .svc-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        #oriental-services .svc-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+        }
+
+        #oriental-services .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        #oriental-services .svc-card {
+            background: var(--background);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        #oriental-services .svc-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(138, 21, 20, 0.2);
+        }
+
+        #oriental-services .svc-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(138, 21, 20, 0.08);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        #oriental-services .svc-card h4 {
+            font-size: 1.25rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+        }
+
+        #oriental-services .svc-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+
+        /* =========================================
+           4. OUR PROCESS (New Section)
+           ========================================= */
+        #oriental-process {
+            background-color: var(--background);
+            padding: 5rem 0;
+        }
+
+        #oriental-process .process-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        #oriental-process .process-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+        }
+
+        #oriental-process .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        /* Connecting line for desktop */
+        @media (min-width: 900px) {
+            #oriental-process .process-grid::before {
+                content: '';
+                position: absolute;
+                top: 40px;
+                left: 10%;
+                right: 10%;
+                height: 2px;
+                background: var(--border);
+                z-index: 0;
+            }
+        }
+
+        #oriental-process .step-card {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: var(--background);
+            padding: 0 1rem;
+        }
+
+        #oriental-process .step-num {
+            width: 80px;
+            height: 80px;
+            background: var(--background);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0 auto 1.5rem auto;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(138, 21, 20, 0.15);
+        }
+
+        #oriental-process .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        #oriental-process .step-desc {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* =========================================
+           5. PORTFOLIO (Grid Layout - Phase 3)
+           ========================================= */
+        #oriental-portfolio {
+            background: var(--surface);
+            padding: 5rem 0;
+        }
+
+        #oriental-portfolio .port-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        #oriental-portfolio .port-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin: 0;
+        }
+
+        #oriental-portfolio .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding-bottom: 3rem;
+        }
+
+        #oriental-portfolio .project-card {
+            background: var(--background);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        #oriental-portfolio .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(138, 21, 20, 0.2);
+        }
+
+        #oriental-portfolio .card-image-wrapper {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        #oriental-portfolio .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        #oriental-portfolio .project-card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        #oriental-portfolio .card-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        #oriental-portfolio .proj-num {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--surface);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            line-height: 1;
+        }
+
+        #oriental-portfolio .proj-cat {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        #oriental-portfolio .proj-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 0 1rem 0;
+            color: var(--text);
+            position: relative;
+            z-index: 2;
+        }
+
+        #oriental-portfolio .proj-desc {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =========================================
+           6. FAQ
+           ========================================= */
+        #oriental-faq {
+            background-color: var(--background);
+            padding: 5rem 0 2rem 0;
+        }
+
+        #oriental-faq .faq-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        #oriental-faq .faq-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+        }
+
+        #oriental-faq .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #oriental-faq .faq-item {
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1rem;
+        }
+
+        #oriental-faq .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: var(--font-main) !important;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        #oriental-faq .faq-icon {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-left: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        #oriental-faq .faq-icon::before,
+        #oriental-faq .faq-icon::after {
+            content: '';
+            position: absolute;
+            background: var(--text);
+            border-radius: 2px;
+        }
+
+        #oriental-faq .faq-icon::before {
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        #oriental-faq .faq-icon::after {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        #oriental-faq .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        #oriental-faq .faq-item.active .faq-icon::before,
+        #oriental-faq .faq-item.active .faq-icon::after {
+            background: var(--primary);
+        }
+
+        #oriental-faq .faq-item.active .faq-question {
+            color: var(--primary);
+        }
+
+        #oriental-faq .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        #oriental-faq .faq-answer-inner {
+            padding-bottom: 1.5rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           7. CTA PROMO
+           ========================================= */
+        #oriental-cta {
+            background-color: var(--text);
+            color: #ffffff;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        #oriental-cta h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: #ffffff !important;
+            margin: 0 0 1rem 0;
+        }
+
+        #oriental-cta p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        #oriental-cta strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        #oriental-cta .wa-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        #oriental-cta .wa-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(138, 21, 20, 0.4);
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        #oriental-footer {
+            background-color: var(--surface);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        #oriental-footer .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        #oriental-footer .footer-nav a {
+            font-weight: 500;
+            color: var(--text);
+            transition: color 0.3s ease;
+        }
+
+        #oriental-footer .footer-nav a:hover {
+            color: var(--primary);
+        }
+        
+        #oriental-footer p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.8;
+        }
+        
+        #oriental-footer a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        #oriental-footer a:hover {
+            color: var(--primary-hover);
+        }
+
+        /* =========================================
+           STICKY MOBILE CTA
+           ========================================= */
+        #oriental-floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 10000;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #oriental-floating-wa:hover {
+            transform: scale(1.1) translateY(-5px);
+        }
+
+        #oriental-floating-wa svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* =========================================
+           MOBILE RESPONSIVENESS
+           ========================================= */
+        @media (max-width: 900px) {
+            #oriental-header .container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            #oriental-header .main-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            #oriental-hero .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            #oriental-hero .hero-content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            #oriental-hero .hero-bullets li {
+                justify-content: center;
+            }
+
+            #oriental-hero .hero-cta-wrapper {
+                justify-content: center !important;
+            }
+
+            #oriental-floating-wa {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+
+            #oriental-floating-wa svg {
+                width: 26px;
+                height: 26px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            #oriental-hero .form-card {
+                padding: 1.5rem;
+            }
+
+            #oriental-hero .form-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            #oriental-reviews .review-card {
+                width: 320px;
+            }
+
+            #oriental-faq .faq-question {
+                font-size: 1.1rem;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="oriental-optimized-landing">
+        <div class="viewport-wrapper">
+
+            <header id="oriental-header">
+                <div class="container">
+                    <a href="index.html">
+                        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior Pte Ltd">
+                    </a>
+                    <nav class="main-nav">
+                        <a href="index.html" class="active">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="contact.html">Contact</a>
+                    </nav>
+                </div>
+            </header>
+
+            <section id="oriental-hero">
+                <div class="container hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-badge">Expert HDB & Condo Renovation</div>
+                        <h1 class="hero-title">Singapore Interior Design & Renovation</h1>
+                        <p class="hero-desc">We are a direct HDB-licensed factory contractor. No hidden markups, completely transparent pricing, and 100% in-house custom carpentry.</p>
+                        <ul class="hero-bullets">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                In-House Carpentry Factory
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Zero Middleman Fees
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                HDB Licensed & Approved
+                            </li>
+                        </ul>
+
+                        <div class="hero-cta-wrapper"
+                            style="display: flex; gap: 1rem; align-items: center; margin-top: 2rem; flex-wrap: wrap;">
+                            <a href="https://wa.me/6596900898?text=Hi%20there,%20I'm%20interested%20in%20a%20renovation%20consultation!"
+                                target="_blank"
+                                style="padding: 1rem 2.5rem; background: #25D366; color: white; display: inline-flex; align-items: center; gap: 8px; border-radius: 50px; font-weight: 700; transition: transform 0.3s ease; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); font-size: 1.05rem;">
+                                <svg width="22" height="22" viewBox="0 0 448 512" fill="currentColor">
+                                    <path
+                                        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                                </svg>
+                                WhatsApp Us
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="form-card" id="form-target">
+                        <div class="form-header">
+                            <h3>Get a Free Quote</h3>
+                            <p>Tell us about your home. We'll reply via WhatsApp.</p>
+                        </div>
+                        <form id="renovationForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>First Name <span>*</span></label>
+                                    <input type="text" name="First Name" required placeholder="Julian">
+                                </div>
+                                <div class="form-group">
+                                    <label>Contact Number <span>*</span></label>
+                                    <input type="tel" name="Contact Number" required placeholder="9123 4567">
+                                </div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label>Estate Type <span>*</span></label>
+                                    <select name="Estate Type" required>
+                                        <option value="" disabled selected>Select an option</option>
+                                        <option value="HDB BTO">HDB BTO</option>
+                                        <option value="HDB Resale">HDB Resale</option>
+                                        <option value="Condo">Condominium</option>
+                                        <option value="Landed">Landed Property</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width" style="margin-bottom: 1.25rem;">
+                                <label>Budget Estimate <span>*</span></label>
+                                <select name="Budget" required>
+                                    <option value="" disabled selected>Select Budget</option>
+                                    <option value="Below $30k">Below $30k</option>
+                                    <option value="$30k - $50k">$30k - $50k</option>
+                                    <option value="$50k - $80k">$50k - $80k</option>
+                                    <option value="Above $80k">Above $80k</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full-width" style="margin-bottom: 1.5rem;">
+                                <label>Requirements <span>*</span></label>
+                                <textarea name="Message" required
+                                    placeholder="Briefly describe what you want done..."></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <span class="btn-text">Chat on WhatsApp</span>
+                                <div class="spinner"></div>
+                            </button>
+
+                            <div
+                                style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-around; align-items: center; color: var(--muted); font-size: 0.8rem; font-weight: 600;">
+                                <div style="display:flex; flex-direction:column; align-items:center; gap:5px;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    </svg>
+                                    HDB Licensed
+                                </div>
+                                <div style="display:flex; flex-direction:column; align-items:center; gap:5px;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M12 8v4l3 3"></path>
+                                    </svg>
+                                    CaseTrust
+                                </div>
+                                <div style="display:flex; flex-direction:column; align-items:center; gap:5px;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                        </polygon>
+                                    </svg>
+                                    Top Ratings
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="oriental-reviews">
+                <div class="reviews-header">
+                    <h2 class="reviews-title">Trusted by Homeowners</h2>
+                    <p style="color:var(--muted)">Rated 5-Stars for HDB and Condo renovations.</p>
+                </div>
+                <div class="marquee-wrapper">
+                    <div class="marquee-track">
+
+                        <div class="review-card">
+                            <div class="card-top">
+                                <div>
+                                    <span class="user-name">Derek & Clara Ng</span>
+                                    <span class="user-loc">BTO Renovation</span>
+                                </div>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <p class="review-text">"The carpentry workmanship on the fluted panel feature wall is solid.
+                                They are a reliable HDB licensed contractor that delivered 2 weeks early!"</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="card-top">
+                                <div>
+                                    <span class="user-name">Siti Aishah</span>
+                                    <span class="user-loc">Resale Kitchen</span>
+                                </div>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <p class="review-text">"Hacking the wall for our open concept kitchen was messy, but the
+                                team
+                                cleaned up daily. The quartz countertop looks amazing."</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="card-top">
+                                <div>
+                                    <span class="user-name">Jason Lim</span>
+                                    <span class="user-loc">Condo Interior</span>
+                                </div>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <p class="review-text">"Great experience renovating our condo. They handled the MCST permits
+                                smoothly. The vinyl flooring was done flawlessly."</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="card-top">
+                                <div>
+                                    <span class="user-name">Derek & Clara Ng</span>
+                                    <span class="user-loc">BTO Renovation</span>
+                                </div>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <p class="review-text">"The carpentry workmanship on the fluted panel feature wall is solid.
+                                They are a reliable HDB licensed contractor that delivered 2 weeks early!"</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="card-top">
+                                <div>
+                                    <span class="user-name">Siti Aishah</span>
+                                    <span class="user-loc">Resale Kitchen</span>
+                                </div>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <p class="review-text">"Hacking the wall for our open concept kitchen was messy, but the
+                                team
+                                cleaned up daily. The quartz countertop looks amazing."</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="card-top">
+                                <div>
+                                    <span class="user-name">Jason Lim</span>
+                                    <span class="user-loc">Condo Interior</span>
+                                </div>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                            <p class="review-text">"Great experience renovating our condo. They handled the MCST permits
+                                smoothly. The vinyl flooring was done flawlessly."</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div style="text-align:center; padding: 2rem 1.5rem 0 1.5rem;">
+                    <a href="#form-target"
+                        style="display:inline-flex; align-items:center; gap:8px; padding:14px 32px; background:var(--primary); color:#fff; border-radius:50px; font-weight:600; font-size:1rem; transition: transform 0.3s ease; box-shadow: 0 8px 20px rgba(138,21,20,0.25);">
+                        Get Your Free Quote →
+                    </a>
+                </div>
+            </section>
+
+            <section id="oriental-services">
+                <div class="container">
+                    <div class="svc-header">
+                        <h2 class="svc-title">Direct Factory Contractor</h2>
+                        <p style="color:var(--muted); font-size:1.1rem;">We handle everything in-house, cutting out the
+                            middleman to pass the savings directly to you.</p>
+                    </div>
+                    <div class="svc-grid">
+
+                        <div class="svc-card">
+                            <div class="svc-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                                </svg>
+                            </div>
+                            <h4>Custom Carpentry</h4>
+                            <p>Direct factory fabrication for kitchen cabinets, wardrobes, and living room feature walls.</p>
+                        </div>
+
+                        <div class="svc-card">
+                            <div class="svc-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                            </div>
+                            <h4>Wet Works & Hacking</h4>
+                            <p>HDB-approved hacking, masonry, and tiling with comprehensive waterproofing screeding.</p>
+                        </div>
+
+                        <div class="svc-card">
+                            <div class="svc-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                            </div>
+                            <h4>Electrical & Plumbing</h4>
+                            <p>Certified rewiring, lighting installation, and sanitary piping by licensed professionals.</p>
+                        </div>
+
+                    </div>
+
+                    <div style="text-align:center; padding: 3rem 1.5rem 0 1.5rem;">
+                        <a href="https://wa.me/6596900898?text=Hi%20there,%20I'm%20interested%20in%20your%20renovation%20services!"
+                            target="_blank"
+                            style="display:inline-flex; align-items:center; gap:8px; padding:14px 32px; background:#25D366; color:#fff; border-radius:50px; font-weight:600; font-size:1rem; transition: transform 0.3s ease; box-shadow: 0 8px 20px rgba(37,211,102,0.3);">
+                            <svg width="18" height="18" viewBox="0 0 448 512" fill="white">
+                                <path
+                                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                            </svg>
+                            Discuss Your Project on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section id="oriental-process">
+                <div class="container">
+                    <div class="process-header">
+                        <h2 class="process-title">Our Process</h2>
+                        <p style="color:var(--muted); font-size:1.1rem;">A seamless renovation journey from conceptualization to handover.</p>
+                    </div>
+                    <div class="process-grid">
+                        <div class="step-card">
+                            <div class="step-num">1</div>
+                            <h4 class="step-title">Consultation</h4>
+                            <p class="step-desc">Share your floorplan and design ideas for an initial free consultation.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-num">2</div>
+                            <h4 class="step-title">3D Design</h4>
+                            <p class="step-desc">We produce realistic 3D renders so you can visualize the final look.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-num">3</div>
+                            <h4 class="step-title">Construction</h4>
+                            <p class="step-desc">In-house carpentry and wet works begin with strict timeline adherence.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-num">4</div>
+                            <h4 class="step-title">Handover</h4>
+                            <p class="step-desc">Final cleaning, defects checking, and handing over the keys to your dream home.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section id="oriental-portfolio">
+                <div class="container">
+                    <div class="port-header">
+                        <h2 class="port-title">Curated Spaces</h2>
+                        <p style="color:var(--muted); font-size:1.1rem; max-width: 600px; margin: 1rem auto 0 auto;">
+                            Explore our latest completed projects, from functional HDB spaces to luxurious condominium interiors.
+                        </p>
+                    </div>
+
+                    <div class="portfolio-grid">
+                        <a href="#form-target" class="project-card">
+                            <div class="card-image-wrapper">
+                                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/500764121-122162805278561872-1337864408949636204-n-mmdb9iimwwyv.webp"
+                                    alt="Kitchen Renovation" class="card-image" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div class="proj-num">01</div>
+                                <div class="proj-cat">Kitchen Upgrades</div>
+                                <h3 class="proj-title">Modern Culinary Space</h3>
+                                <p class="proj-desc">A complete kitchen overhaul featuring custom cabinetry, durable countertop installations, and efficient storage solutions tailored for modern living.</p>
+                            </div>
+                        </a>
+
+                        <a href="#form-target" class="project-card">
+                            <div class="card-image-wrapper">
+                                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/583033906-122190785594561872-5452794545472650409-n-mmdb9jnc67sa.webp"
+                                    alt="Living Room Feature Wall" class="card-image" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div class="proj-num">02</div>
+                                <div class="proj-cat">Living Room • Feature Wall</div>
+                                <h3 class="proj-title">Fluted Panel Elegance</h3>
+                                <p class="proj-desc">Bespoke feature wall integrating warm ambient lighting, fluted panel detailing, and floating storage to create a sophisticated living area center piece.</p>
+                            </div>
+                        </a>
+
+                        <a href="#form-target" class="project-card">
+                            <div class="card-image-wrapper">
+                                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/612575552-122198694554561872-6890434456760943563-n-mmdb9kehozl3.webp"
+                                    alt="Modern Custom Carpentry" class="card-image" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div class="proj-num">03</div>
+                                <div class="proj-cat">Custom Carpentry</div>
+                                <h3 class="proj-title">Seamless Integration</h3>
+                                <p class="proj-desc">Sleek, minimalist built-in kitchen cabinets maximizing vertical space with integrated appliances and premium hardware finishes.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div style="text-align:center; padding: 2rem 1.5rem 0 1.5rem;">
+                        <a href="#form-target"
+                            style="display:inline-flex; align-items:center; gap:8px; padding:14px 32px; background:var(--text); color:#fff; border-radius:50px; font-weight:600; font-size:1rem; transition: transform 0.3s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+                            Start Your Renovation →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="oriental-faq">
+                <div class="container faq-container">
+                    <div class="faq-header">
+                        <h2 class="faq-title">Common Questions</h2>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What is the timeline for a renovation project?
+                            <div class="faq-icon"></div>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                For new BTO flats, expect 6 to 8 weeks. For Resale HDBs or Condos involving hacking and
+                                wet works, timelines are generally 8 to 12 weeks.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What are your payment terms?
+                            <div class="faq-icon"></div>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                We use a progressive structure: 10% upon confirmation, 40% at commencement of works
+                                (hacking), 45% upon carpentry measurement, and 5% upon completion.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Do you provide warranties?
+                            <div class="faq-icon"></div>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Yes, we provide a 12-month defects liability warranty on workmanship. Specific materials
+                                like vinyl flooring and premium hardware carry extended manufacturer warranties up to 10
+                                years.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Do you offer free 3D design proposals?
+                            <div class="faq-icon"></div>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Absolutely. We provide an initial space layout and a transparent itemized quotation for
+                                free. If you choose to engage us, we will proceed to final 3D renders so you know exactly what your home will look like before works begin.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Why choose a Direct Factory Contractor?
+                            <div class="faq-icon"></div>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                By handling all carpentry fabrication in our own Singapore factory, we bypass
+                                third-party showrooms and middlemen. This means you enjoy premium materials, strict quality control, and significant cost savings without hidden markups.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="text-align:center; padding: 2rem 1.5rem 0 1.5rem;">
+                    <a href="#form-target"
+                        style="display:inline-flex; align-items:center; gap:8px; padding:16px 36px; background:var(--primary); color:#fff; border-radius:50px; font-weight:700; font-size:1.1rem; transition: transform 0.3s ease; box-shadow: 0 8px 20px rgba(138,21,20,0.25);">
+                        Get Your Free Consultation →
+                    </a>
+                </div>
+            </section>
+
+            <section id="oriental-cta">
+                <div class="container">
+                    <h2>Ready to build your Dream Home?</h2>
+                    <p>Don't miss out. Enjoy a <strong>Complimentary 10ft Kitchen Upgrade</strong><br>when you commit to
+                        a renovation package of $50,000 and above.</p>
+                    <a href="https://wa.me/6596900898?text=Hi%20there,%20I'm%20interested%20in%20the%20free%20kitchen%20carpentry%20promotion!"
+                        target="_blank" class="wa-btn">
+                        <svg width="24" height="24" viewBox="0 0 448 512" fill="currentColor">
+                            <path
+                                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                        </svg>
+                        Claim Offer on WhatsApp
+                    </a>
+                </div>
+            </section>
+            
+            <footer id="oriental-footer">
+                <div class="container">
+                    <nav class="footer-nav">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="contact.html">Contact</a>
+                    </nav>
+                    <p>
+                        &copy; 2026 Oriental System Interior Pte Ltd. All Rights Reserved.<br>
+                        <a href="https://reputifly.com/web-development" target="_blank">Website Design by Reputifly</a>
+                    </p>
+                </div>
+            </footer>
+
+            <a href="https://wa.me/6596900898?text=Hi%20there,%20I'm%20interested%20in%20a%20renovation%20consultation!"
+                target="_blank" id="oriental-floating-wa" aria-label="Chat on WhatsApp">
+                <svg viewBox="0 0 448 512" fill="white">
+                    <path
+                        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                </svg>
+            </a>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // 1. FAQ Accordion Logic
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close others
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+
+                    // Toggle current
+                    if (!isActive) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+
+            // 2. Google Ads Tracking (gtag snippet setup required on host site)
+            function gtag_report_conversion(url) {
+                var callback = function () {
+                    if (typeof (url) != 'undefined') { window.location = url; }
+                };
+                if (typeof gtag === 'function') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-17764512398/OuX8CPuy9swbEI7l45ZC',
+                        'event_callback': callback
+                    });
+                } else {
+                    console.log('Ads conversion bypassed.');
+                    window.location = url;
+                }
+                return false;
+            }
+
+            // 3. Form Submission Logic
+            const form = document.getElementById('renovationForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const spinner = submitBtn.querySelector('.spinner');
+
+            const whatsappNumber = "6596900898";
+            const reputiflyUrl = "https://asia-southeast1-b2b-software.cloudfunctions.net/reputifly";
+            const targetEmail = "renobros88@gmail.com";
+
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // State change
+                    submitBtn.disabled = true;
+                    btnText.textContent = "Processing...";
+                    spinner.style.display = "block";
+
+                    const formData = new FormData(form);
+                    const object = Object.fromEntries(formData);
+
+                    const waMessage = `*New Google Ads Enquiry*\nHi, I am interested in a renovation.\n\n*Name:* ${object['First Name']}\n*Contact:* ${object['Contact Number']}\n*Estate:* ${object['Estate Type']}\n*Budget:* ${object['Budget']}\n\n*Requirements:*\n${object['Message']}`;
+                    const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(waMessage)}`;
+
+                    const payload = {
+                        _to: targetEmail,
+                        _subject: "New Google Ads Lead",
+                        ...object
+                    };
+
+                    fetch(reputiflyUrl, {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(async (response) => {
+                        // Check if the API threw an error
+                        if (!response.ok) {
+                            const errData = await response.json().catch(() => ({}));
+                            console.error("Reputifly API Error:", errData);
+                            throw new Error(errData.error || `HTTP ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        console.log("Success! Lead captured:", data);
+                        gtag_report_conversion(waURL);
+                    })
+                    .catch((error) => {
+                        console.error("Submission Failed:", error);
+                        alert(`API Error: ${error.message}. Redirecting to WhatsApp to preserve the lead.`);
+                        gtag_report_conversion(waURL);
+                    })
+                    .finally(() => {
+                        submitBtn.disabled = false;
+                        btnText.textContent = "Chat on WhatsApp";
+                        spinner.style.display = "none";
+                        form.reset();
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
