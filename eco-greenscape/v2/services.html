@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Ecogreenscape</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* === BRAND DNA & CSS VARIABLES === */
+        :root {
+            --primary: #81c434;
+            --accent: #338a36;
+            --background: #f3faf4;
+            --text: #0c3d19;
+            --gradient-primary: linear-gradient(135deg, #81c434 0%, #2b6513 100%);
+            --gradient-bg: linear-gradient(135deg, #f3faf4 0%, #cceed9 100%);
+            --surface: #eef5ef;
+            --border: #dbe1dc;
+            --muted-text: #082b12;
+            --primary-hover: #000000;
+            --on-primary: #ffffff;
+            --focus-ring: #badf94;
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --radius: 16px;         
+            --radius-pill: 999px;   
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* === RESET & BASE STYLES === */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--text);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--muted-text);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* === REUSABLE COMPONENTS === */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--on-primary);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            color: var(--on-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--on-primary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            font-size: 1.125rem;
+        }
+
+        /* === HEADER & NAVIGATION === */
+        header {
+            background: var(--on-primary);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        /* === PAGE HERO SECTION === */
+        .page-hero {
+            background: var(--gradient-bg);
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1558904541-efa843a96f09?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.10;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+
+        /* === DETAILED SERVICES (ALTERNATING ROWS) === */
+        .service-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .service-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .service-image-wrapper {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .service-image-wrapper img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-row:hover .service-image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .service-content h2 {
+            font-size: 2.25rem;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+
+        .service-content p {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* === CTA SECTION === */
+        .cta-section {
+            background: var(--gradient-primary);
+            padding: 6rem 0;
+            text-align: center;
+            color: var(--on-primary);
+            position: relative;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            color: var(--on-primary);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            color: var(--surface);
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-white {
+            background: var(--on-primary);
+            color: var(--accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-white:hover {
+            background: var(--surface);
+            color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--text); 
+            color: #ffffff;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo-wrapper {
+            background-color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col p {
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 300;
+        }
+
+        .footer-bottom p {
+            color: #ffffff !important;
+        }
+
+        .footer-bottom a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* === FLOATING WHATSAPP BUTTON === */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+            background-color: #1ebe57;
+            color: white;
+        }
+
+        .floating-wa svg {
+            width: 35px;
+            height: 35px;
+            fill: currentColor;
+        }
+
+        /* === MOBILE RESPONSIVENESS === */
+        @media (max-width: 992px) {
+            .service-row { gap: 2rem; }
+            .service-image-wrapper img { height: 300px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--on-primary);
+                flex-direction: column;
+                padding: 1rem 2rem 2rem;
+                box-shadow: 0 10px 10px -10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-cta {
+                display: none; 
+            }
+
+            .page-hero { padding: 4rem 0 3rem; }
+            .page-hero h1 { font-size: 2.25rem; }
+            
+            .service-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .row-reverse .service-image-wrapper {
+                order: -1; 
+            }
+
+            .cta-section { padding: 4rem 2rem; }
+            .cta-content h2 { font-size: 2rem; }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+            .floating-wa {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+            .floating-wa svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/Eco-Greenscape-mmsrr817hik8.webp" alt="Ecogreenscape Logo">
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html" style="color:var(--primary); font-weight:700;">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="mobile-only" style="display:none;"><a href="contact.html" style="color:var(--primary); font-weight:700;">Get a Quote</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary header-cta">Get a Quote</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container page-hero-content">
+            <h1>Our Comprehensive Services</h1>
+            <p>From initial design to ongoing care, we offer a full spectrum of eco-friendly landscaping solutions for residential and commercial properties.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            
+            <div class="service-row">
+                <div class="service-image-wrapper">
+                    <img src="https://www.landscaping.com.sg/wp-content/uploads/2023/05/Lawn-Care-and-Maintenance.jpg" alt="Lawn Care and Maintenance">
+                </div>
+                <div class="service-content">
+                    <h2>Lawn Care & Maintenance</h2>
+                    <p>A lush, green lawn is the foundation of any beautiful landscape. Our specialized lawn care programs are designed to promote robust growth while maintaining ecological balance. We utilize organic treatments and precise techniques to keep your turf healthy year-round.</p>
+                    <ul class="service-features">
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Precision Mowing & Edging
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Eco-Friendly Fertilization
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Core Aeration & Overseeding
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Safe Pest & Weed Control
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Schedule Maintenance</a>
+                </div>
+            </div>
+
+            <div class="service-row row-reverse">
+                <div class="service-content">
+                    <h2>Garden Design & Installation</h2>
+                    <p>Transform your outdoor space into a personal sanctuary. Our expert designers work closely with you to create stunning, sustainable gardens that complement your property's architecture and thrive in the local climate. From concept to reality, we handle every detail.</p>
+                    <ul class="service-features">
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Custom Landscape Architecture
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Native & Drought-Tolerant Plant Selection
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Hardscaping (Patios, Walkways, Retaining Walls)
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Water Features & Lighting Integration
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Consult a Designer</a>
+                </div>
+                <div class="service-image-wrapper">
+                    <img src="https://images.squarespace-cdn.com/content/v1/5dea42a80d60bb6675fdb54c/1619182116698-VM8JQZATNHI2DWZB2RYY/alaster-anderson-garden-design-planting-installation-garden-lighting.jpg?format=2500w" alt="Garden Design and Hardscaping">
+                </div>
+            </div>
+
+            <div class="service-row">
+                <div class="service-image-wrapper">
+                    <img src="https://www.advancedtreecareinc.com/wp-content/uploads/2017/02/shrub-care.jpeg" alt="Tree and Shrub Pruning">
+                </div>
+                <div class="service-content">
+                    <h2>Tree & Shrub Care</h2>
+                    <p>Protect the most valuable assets in your landscape. Our certified arborists provide comprehensive care to ensure the structural integrity, health, and beauty of your trees and shrubs. Proper maintenance prevents diseases and promotes vibrant seasonal blooms.</p>
+                    <ul class="service-features">
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Expert Pruning & Trimming
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Health Assessments & Disease Treatment
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Deep Root Fertilization
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Safe Tree Removal & Stump Grinding
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Request an Assessment</a>
+                </div>
+            </div>
+
+            <div class="service-row row-reverse">
+                <div class="service-content">
+                    <h2>Irrigation Systems</h2>
+                    <p>Efficient watering is critical for a sustainable landscape. We design, install, and maintain smart irrigation systems that deliver the exact amount of water your plants need, reducing waste and saving you money on utility bills while keeping your garden lush.</p>
+                    <ul class="service-features">
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Custom Sprinkler System Design
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Smart Controller Upgrades
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Drip Irrigation for Beds & Shrubs
+                        </li>
+                        <li>
+                            <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Routine Maintenance & Leak Repairs
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Optimize Your Irrigation</a>
+                </div>
+                <div class="service-image-wrapper">
+                    <img src="https://rainripple.co.za/wp-content/uploads/aurora_irrigation_header_photo-1024x576-1.jpg" alt="Smart Irrigation Sprinkler System">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Ready to Transform Your Greenspace?</h2>
+            <p>Let our team of certified professionals bring your vision to life with sustainable, high-quality landscaping solutions. Contact us today for a personalized service estimate.</p>
+            <a href="contact.html" class="btn btn-white">Request a Free Quote</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/Eco-Greenscape-mmsrr817hik8.webp" alt="Ecogreenscape Logo" style="height: 50px; display: block;">
+                    </div>
+                    <p>Ecogreenscape is Singapore's premier eco-conscious landscaping and garden maintenance firm.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>+65 88401181</li>
+                        <li>ecogreenscapepteltd@gmail.com</li>
+                        <li>25 Bukit Batok crescent #10-03<br>Singapore 658066</li>
+                        <li style="margin-top: 10px;">UEN: 202605892E</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Ecogreenscape. All rights reserved.</p>
+                <p style="margin-top: 0.5rem;">Website Designed by <a href="https://reputifly.com/web-development" target="_blank">Reputifly</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6588401181" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const mobileOnlyLink = document.querySelector('.mobile-only');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if(window.innerWidth <= 768) {
+                mobileOnlyLink.style.display = navLinks.classList.contains('active') ? 'block' : 'none';
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
