@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Ecogreenscape</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* === BRAND DNA & CSS VARIABLES === */
+        :root {
+            --primary: #81c434;
+            --accent: #338a36;
+            --background: #f3faf4;
+            --text: #0c3d19;
+            --gradient-primary: linear-gradient(135deg, #81c434 0%, #2b6513 100%);
+            --gradient-bg: linear-gradient(135deg, #f3faf4 0%, #cceed9 100%);
+            --surface: #eef5ef;
+            --border: #dbe1dc;
+            --muted-text: #082b12;
+            --primary-hover: #000000;
+            --on-primary: #ffffff;
+            --focus-ring: #badf94;
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --radius: 16px;         
+            --radius-pill: 999px;   
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* === RESET & BASE STYLES === */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--text);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--muted-text);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* === REUSABLE COMPONENTS === */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--on-primary);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            color: var(--on-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--on-primary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.125rem;
+        }
+
+        /* === HEADER & NAVIGATION === */
+        header {
+            background: var(--on-primary);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        /* === PAGE HERO SECTION === */
+        .page-hero {
+            background: var(--gradient-bg);
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1558904541-efa843a96f09?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.10;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+
+        /* === STORY & MISSION === */
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            color: var(--accent);
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mission-box {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+            margin-top: 2rem;
+        }
+
+        .mission-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* === OUR TEAM === */
+        .team-section {
+            background: var(--on-primary);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Updated to 2 columns since founder is removed */
+            gap: 2rem;
+            max-width: 800px; /* Centered and constrained width for 2 items */
+            margin: 0 auto;
+        }
+
+        .team-member {
+            background: var(--surface);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 1.5rem;
+        }
+
+        .team-info h3 {
+            margin-bottom: 0.25rem;
+            font-size: 1.25rem;
+        }
+
+        .team-title {
+            color: var(--accent);
+            font-weight: 500;
+            font-family: var(--font-body);
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* === PHILOSOPHY & VALUES === */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: var(--on-primary);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--on-primary);
+        }
+
+        .value-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* === CERTIFICATIONS === */
+        .certifications {
+            background: var(--on-primary);
+        }
+
+        .cert-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .cert-item {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cert-item p {
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        /* === COMMUNITY INVOLVEMENT === */
+        .community {
+            background: var(--gradient-bg);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .community-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .community-content {
+            flex: 1;
+        }
+
+        .community-image {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .community-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--text); 
+            color: #ffffff;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo-wrapper {
+            background-color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col p {
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 300;
+        }
+
+        .footer-bottom p {
+            color: #ffffff !important;
+        }
+
+        .footer-bottom a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* === FLOATING WHATSAPP BUTTON === */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+            background-color: #1ebe57;
+            color: white;
+        }
+
+        .floating-wa svg {
+            width: 35px;
+            height: 35px;
+            fill: currentColor;
+        }
+
+        /* === MOBILE RESPONSIVENESS === */
+        @media (max-width: 992px) {
+            .story-section, .community-container { gap: 2rem; }
+            .team-grid, .values-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--on-primary);
+                flex-direction: column;
+                padding: 1rem 2rem 2rem;
+                box-shadow: 0 10px 10px -10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-cta {
+                display: none; 
+            }
+
+            .page-hero { padding: 4rem 0 3rem; }
+            .page-hero h1 { font-size: 2.25rem; }
+            
+            .story-section, .community-container {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            
+            .story-image, .community-image {
+                order: -1; 
+            }
+            
+            .team-grid, .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+            .floating-wa {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+            .floating-wa svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/Eco-Greenscape-mmsrr817hik8.webp" alt="Ecogreenscape Logo">
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" style="color:var(--primary); font-weight:700;">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="mobile-only" style="display:none;"><a href="contact.html" style="color:var(--primary); font-weight:700;">Get a Quote</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary header-cta">Get a Quote</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container page-hero-content">
+            <h1>About Ecogreenscape</h1>
+            <p>Cultivating beautiful, sustainable environments in Singapore through expert landscaping and an unwavering commitment to nature.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container story-section">
+            <div class="story-content">
+                <h2>Our Roots & Vision</h2>
+                <p>Ecogreenscape was founded with a singular vision: to merge aesthetic brilliance with ecological responsibility. What began as a small team of passionate horticulturists has blossomed into Singapore's premier eco-conscious landscaping firm.</p>
+                <p>We believe that outdoor spaces are extensions of our homes and businesses, and they should be nurtured in harmony with the environment. For years, we have pushed the boundaries of traditional landscaping by prioritizing organic practices, water conservation, and native planting.</p>
+                
+                <div class="mission-box">
+                    <h3>Our Mission</h3>
+                    <p>To design, install, and maintain lush environments that elevate our clients' quality of life while actively protecting and enriching the local ecosystem.</p>
+                </div>
+            </div>
+            <div class="story-image">
+                <img src="https://www.helpling.com.sg/wp-content/uploads/2023/06/Helpling-gardening_bg.webp" alt="Landscaping professionals working in a garden">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: var(--background);">
+        <div class="container">
+            <h2 class="section-title">Our Philosophy & Values</h2>
+            <p class="section-subtitle">The core principles that guide every design we draft, every seed we plant, and every client we serve.</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                    </div>
+                    <h3>Sustainability First</h3>
+                    <p>We prioritize organic fertilizers, zero-emission tools where possible, and water-smart irrigation to ensure our footprint remains light and green.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3>Uncompromising Quality</h3>
+                    <p>From the sourcing of robust plants to the precision of our hardscaping, we hold ourselves to the highest standards of craftsmanship.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Client Collaboration</h3>
+                    <p>We listen closely. Your vision combined with our expertise guarantees an outdoor space that perfectly reflects your lifestyle or brand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding team-section">
+        <div class="container">
+            <h2 class="section-title">Meet the Experts</h2>
+            <p class="section-subtitle">Our team consists of certified arborists, experienced landscape architects, and dedicated maintenance professionals.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sarah Lim" class="team-image">
+                    <div class="team-info">
+                        <h3>Sarah Lim</h3>
+                        <p class="team-title">Certified Arborist</p>
+                        <p>Sarah is our resident tree health expert, specializing in disease diagnosis, structural pruning, and urban forestry conservation.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="David Chen" class="team-image">
+                    <div class="team-info">
+                        <h3>David Chen</h3>
+                        <p class="team-title">Head of Maintenance</p>
+                        <p>David oversees all field operations, ensuring every lawn, garden, and estate we manage remains in pristine, healthy condition.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Accreditations</h2>
+            <p class="section-subtitle" style="margin-bottom: 2rem;">We are proud to be recognized by industry leaders for our commitment to excellence and environmental safety.</p>
+            
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <div class="cert-icon">🏆</div>
+                    <p>Excellence in Sustainable Design 2025</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">🛡️</div>
+                    <p>Certified Green Landscape Professional (CGLP)</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">🌳</div>
+                    <p>Singapore Arboriculture Society Member</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">💧</div>
+                    <p>Water-Smart Irrigation Certified</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding community">
+        <div class="container community-container">
+            <div class="community-content">
+                <h2>Growing Together: Our Community Impact</h2>
+                <p>Ecogreenscape is deeply rooted in the Singaporean community. We believe that an eco-friendly future requires education and collective action.</p>
+                <p>Through our <strong>"Green Tomorrow"</strong> initiative, our staff routinely volunteers for local park clean-ups and urban tree planting drives. Additionally, we host free bi-monthly workshops for residential neighborhoods, teaching locals how to start their own organic urban gardens and compost systems.</p>
+                <p>When you hire Ecogreenscape, a portion of our proceeds goes directly into funding green spaces in underserved urban areas.</p>
+            </div>
+            <div class="community-image">
+                <img src="https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community volunteers planting trees">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/Eco-Greenscape-mmsrr817hik8.webp" alt="Ecogreenscape Logo" style="height: 50px; display: block;">
+                    </div>
+                    <p>Ecogreenscape is Singapore's premier eco-conscious landscaping and garden maintenance firm.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>+65 88401181</li>
+                        <li>ecogreenscapepteltd@gmail.com</li>
+                        <li>25 Bukit Batok crescent #10-03<br>Singapore 658066</li>
+                        <li style="margin-top: 10px;">UEN: 202605892E</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Ecogreenscape. All rights reserved.</p>
+                <p style="margin-top: 0.5rem;">Website Designed by <a href="https://reputifly.com/web-development" target="_blank">Reputifly</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6588401181" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const mobileOnlyLink = document.querySelector('.mobile-only');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if(window.innerWidth <= 768) {
+                mobileOnlyLink.style.display = navLinks.classList.contains('active') ? 'block' : 'none';
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
