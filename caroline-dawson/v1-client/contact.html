@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Caroline Dawson</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="components.css">
+
+
+</head>
+
+<body>
+
+    <div id="universal-header"></div>
+
+    <!-- Header Removed -->
+
+    <section id="contact-hero" class="hidden-section">
+        <div class="container">
+            <span class="section-subtitle">Connect With Us</span>
+            <h1 class="section-title">Let's Start a <span class="text-highlight">Conversation</span></h1>
+            <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
+                Whether you have a specific project in mind or just want to explore possibilities, we are here to listen
+                and lead the way.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact-details" class="section-padding" style="padding-bottom: 0;">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 40px;">
+                <span class="section-subtitle">Get in Touch</span>
+                <h2 class="section-title">Contact Details</h2>
+            </div>
+
+            <!-- Details Grid -->
+            <div class="contact-info-wrapper"
+                style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 900px; margin: 0 auto;">
+                <div class="info-card-item stagger-1" style="flex: 1; min-width: 280px; max-width: 400px;">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h4>Email Us</h4>
+                    <a href="mailto:carol@carolinedawson.org">carol@carolinedawson.org</a>
+                    <p>Response time: Within 24 hours</p>
+                </div>
+
+                <div class="info-card-item stagger-2" style="flex: 1; min-width: 280px; max-width: 400px;">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Call Us</h4>
+                    <a href="tel:+6593835310">+65 9383 5310</a>
+                    <p>Mon-Fri, 9am - 6pm (SGT)</p>
+                </div>
+            </div>
+
+            <!-- Social Icons Centered -->
+            <div class="text-center" style="margin-top: 40px;">
+                <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 20px;">Follow Updates</h4>
+                <div class="social-icons" style="justify-content: center;">
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-form-section" class="section-padding">
+        <div class="container">
+            <div class="form-wrapper hidden-section stagger-2">
+                <div class="text-center" style="margin-bottom: 32px;">
+                    <span class="section-subtitle">ENQUIRE ABOUT A PROGRAMME</span>
+                    <h3 style="color: #fff; font-size: 24px;">Let’s Design a Learning Experience</h3>
+                    <p style="color: var(--text-muted); font-size: 15px; margin-top: 16px; line-height: 1.6;">
+                        To ensure thoughtful customisation aligned to your organisational goals, please complete the
+                        enquiry form below.
+                        My team will respond within 1–2 business days.
+                    </p>
+                </div>
+
+                <form id="enquiryForm">
+                    <!-- Section 1: Your Details -->
+                    <div class="form-section" style="margin-bottom: 40px;">
+                        <h4
+                            style="color: var(--accent-gold); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 24px;">
+                            Section 1: Your Details
+                        </h4>
+                        <div class="form-group">
+                            <label>Full Name*</label>
+                            <input type="text" name="full_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Organisation / Company Name*</label>
+                            <input type="text" name="company_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Job Title / Role*</label>
+                            <input type="text" name="job_title" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Work Email Address*</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Number (with country code)</label>
+                            <input type="tel" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label>Country of Programme Delivery*</label>
+                            <input type="text" name="country" required>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Programme Requirements -->
+                    <div class="form-section" style="margin-bottom: 40px;">
+                        <h4
+                            style="color: var(--accent-gold); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 24px;">
+                            Section 2: Programme Requirements
+                        </h4>
+                        <div class="form-group">
+                            <label>Type of Engagement Required*</label>
+                            <select name="engagement_type" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="Presentation & Executive Presence">Presentation & Executive Presence
+                                </option>
+                                <option value="Leadership Development">Leadership Development</option>
+                                <option value="Communication & Influence">Communication & Influence</option>
+                                <option value="Team Effectiveness">Team Effectiveness</option>
+                                <option value="Multi-Generational Workforce">Multi-Generational Workforce</option>
+                                <option value="Business Writing">Business Writing</option>
+                                <option value="Customised Programme">Customised Programme</option>
+                                <option value="Keynote / Conference">Keynote / Conference</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Target Audience Level*</label>
+                            <select name="audience_level" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="C-Suite / Senior Executives">C-Suite / Senior Executives</option>
+                                <option value="Mid-Level Managers">Mid-Level Managers</option>
+                                <option value="High Potentials (HiPos)">High Potentials (HiPos)</option>
+                                <option value="Mixed Groups">Mixed Groups</option>
+                                <option value="Early Career / Graduates">Early Career / Graduates</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Number of Participants (approx.)</label>
+                            <input type="text" name="participants" placeholder="e.g. 15-20">
+                        </div>
+
+                        <div class="form-group">
+                            <label>preferred Delivery Format</label>
+                            <select name="delivery_format">
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="In-Person (Singapore)">In-Person (Singapore)</option>
+                                <option value="In-Person (International)">In-Person (International)</option>
+                                <option value="Virtual (Zoom/Teams)">Virtual (Zoom/Teams)</option>
+                                <option value="Hybrid">Hybrid</option>
+                                <option value="Blended (Online + Live)">Blended (Online + Live)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Proposed Timeline / Dates</label>
+                            <input type="text" name="timeline" placeholder="e.g. Q3 2024 or Specific Dates">
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Strategic Alignment -->
+                    <div class="form-section" style="margin-bottom: 40px;">
+                        <h4
+                            style="color: var(--accent-gold); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 24px;">
+                            Section 3: Strategic Alignment
+                        </h4>
+                        <div class="form-group">
+                            <label>What are the key outcomes or behavioral shifts you wish to see?</label>
+                            <textarea name="outcomes" rows="4"
+                                placeholder="E.g. Improved cross-team collaboration, stronger executive presence, etc."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Budget & Logistics -->
+                    <div class="form-section" style="margin-bottom: 40px;">
+                        <h4
+                            style="color: var(--accent-gold); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 24px;">
+                            Section 4: Budget & Logistics
+                        </h4>
+                        <div class="form-group">
+                            <label>Is there an approved budget for this initiative?</label>
+                            <select name="budget_approved">
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No / Exploring">No / Exploring</option>
+                                <option value="Determined by Proposal">Determined by Proposal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Investment Range (USD/SGD)</label>
+                            <select name="investment_range">
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="Under $5k">Under $5k</option>
+                                <option value="$5k - $10k">$5k - $10k</option>
+                                <option value="$10k - $25k">$10k - $25k</option>
+                                <option value="$25k+">$25k+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Final -->
+                    <div class="form-section" style="margin-bottom: 40px;">
+                        <div class="form-group">
+                            <label>How did you hear about us?</label>
+                            <select name="source">
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="LinkedIn">LinkedIn</option>
+                                <option value="Referral">Referral</option>
+                                <option value="Search Engine">Search Engine</option>
+                                <option value="Event / Speaking Engagement">Event / Speaking Engagement</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="display: flex; align-items: flex-start; gap: 10px;">
+                            <input type="checkbox" name="consent" id="consent" required
+                                style="width: auto; margin-top: 4px;">
+                            <label for="consent" style="font-size: 14px; line-height: 1.5;">
+                                I understand that this form collects my details so that Caroline Dawson International
+                                can
+                                contact me. See our <a href="#" style="color: var(--accent-gold);">Privacy Policy</a>.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn" id="submitBtn" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-check" style="margin-right: 8px;"></i> Request Consultation
+                    </button>
+                    <p id="formStatus" style="margin-top: 16px; font-size: 14px; display: none; text-align: center;">
+                    </p>
+                </form>
+
+                <div class="text-center"
+                    style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                    <p
+                        style="color: var(--accent-gold); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;">
+                        Singapore-based. Globally engaged.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location-map" class="hidden-section">
+        <img src="https://placehold.co/1920x600/ccc/000/png?text=World+Map+Texture" alt="Map" class="map-img">
+        <div class="map-overlay">
+            <h4 style="color: var(--accent-gold); margin-bottom: 5px;">Global Hub</h4>
+            <p style="color: #fff;">Singapore</p>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for Entrance Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-section');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Navbar Scroll Effect REMOVED
+
+        // Trigger Hero Animation Immediately
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const hero = document.getElementById('contact-hero');
+                if (hero) hero.classList.add('show-section');
+            }, 100);
+        });
+
+        const sections = document.querySelectorAll('.hidden-section');
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+    <div id="universal-footer"></div>
+    <script src="components.js"></script>
+
+    <script>
+        document.getElementById('enquiryForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const btn = document.getElementById('submitBtn');
+            const statusMsg = document.getElementById('formStatus');
+            const originalBtnText = btn.innerHTML;
+
+            // 1. Gather Data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            // 2. Prepare Payload for Reputifly API
+            // We map the form fields to custom fields in the JSON body.
+            // Special fields: _to, _subject, _sender_name, _brand_color
+            const payload = {
+                _to: 'Carolinedawson73@yahoo.com.sg',
+                _subject: `New Programme Enquiry: ${data.full_name || 'Visitor'}`,
+                _sender_name: 'Caroline Dawson Website',
+                _brand_color: '#D4AF37',
+
+                // Content Fields
+                "Full Name": data.full_name,
+                "Company": data.company_name,
+                "Job Title": data.job_title,
+                "Email": data.email,
+                "Phone": data.phone,
+                "Country": data.country,
+
+                "Engagement Type": data.engagement_type,
+                "Target Audience": data.audience_level,
+                "Participants": data.participants,
+                "Format": data.delivery_format,
+                "Timeline": data.timeline,
+
+                "Outcomes/Goals": data.outcomes,
+
+                "Budget Approved": data.budget_approved,
+                "Investment Range": data.investment_range,
+
+                "Source": data.source,
+                "Consent": data.consent ? "Granted" : "Not Granted"
+            };
+
+            // 3. UI State: Loading
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            statusMsg.style.display = 'none';
+            statusMsg.style.color = '#fff';
+
+            try {
+                // 4. Send Request
+                const response = await fetch('https://asia-southeast1-b2b-software.cloudfunctions.net/reputifly', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    // 5. Success
+                    btn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully';
+                    btn.style.background = '#28a745'; // Green
+                    btn.style.color = '#fff';
+
+                    statusMsg.textContent = "Thank you! Your enquiry has been sent. We will be in touch shortly.";
+                    statusMsg.style.display = 'block';
+                    statusMsg.style.color = '#4ade80'; // Light green text
+
+                    this.reset();
+
+                    // Reset button after 5 seconds
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.innerHTML = originalBtnText;
+                        btn.style.background = ''; // Revert to CSS gradient
+                        btn.style.color = '';
+                    }, 5000);
+
+                } else {
+                    throw new Error('Server returned ' + response.status);
+                }
+
+            } catch (error) {
+                // 6. Error
+                console.error('Submission Error:', error);
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Try Again';
+
+                statusMsg.textContent = "Something went wrong. Please try again or email us directly at hello@carolinedawson.com";
+                statusMsg.style.display = 'block';
+                statusMsg.style.color = '#ff6b6b'; // Light red text
+            }
+        });
+    </script>
+</body>
+
+
+</html>
