@@ -1,747 +1,763 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Contact Us | Oriental System Interior</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Oriental System Interior</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+#oriental-optimized-landing *,
+#oriental-optimized-landing *::before,
+#oriental-optimized-landing *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+#oriental-optimized-landing {
+  font-family: 'Inter', sans-serif;
+  background: #0a1f14;
+  color: #f0ebe3;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
 
-    <style>
-        /* =========================================
-           GLOBAL OVERRIDES & VARIABLES (Scoped)
-           ========================================= */
-        #oriental-optimized-landing {
-            /* Brand Colors based on JSON Brand DNA */
-            --primary: #8a1514;
-            --accent: #8a1413;
-            --background: #ffffff;
-            --text: #0b0a14;
-            --surface: #fafafa;
-            --border: #e6e6e6;
-            --muted: rgba(8, 7, 14, 0.65);
-            --primary-hover: #751111;
-            --focus-ring: #c58a8a;
-            
-            /* UI Tokens */
-            --radius: 24px;
-            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+#oriental-optimized-landing a {
+  text-decoration: none;
+  color: inherit;
+}
 
-            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+/* ── Header ── */
+#oriental-optimized-landing .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 31, 20, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,169,110,0.12);
+  transition: background 0.3s;
+}
 
-            width: 100% !important;
-            max-width: 100vw !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-            font-family: var(--font-main) !important;
-            color: var(--text) !important;
-            background-color: var(--background) !important;
-            line-height: 1.7 !important;
-            -webkit-font-smoothing: antialiased !important;
-            -moz-osx-font-smoothing: grayscale !important;
-            text-rendering: optimizeLegibility !important;
-        }
+#oriental-optimized-landing .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-        html,
-        body {
-            overflow-x: hidden;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-        }
+#oriental-optimized-landing .header-logo img {
+  height: 44px;
+  width: auto;
+}
 
-        #oriental-optimized-landing h1,
-        #oriental-optimized-landing h2,
-        #oriental-optimized-landing h3,
-        #oriental-optimized-landing h4 {
-            font-family: var(--font-main) !important;
-            letter-spacing: -0.03em;
-            color: var(--text);
-        }
+#oriental-optimized-landing .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-        #oriental-optimized-landing * {
-            box-sizing: border-box !important;
-        }
+#oriental-optimized-landing .header-nav a {
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(240,235,227,0.6);
+  border-radius: 24px;
+  transition: color 0.3s, background 0.3s;
+}
 
-        #oriental-optimized-landing img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+#oriental-optimized-landing .header-nav a:hover {
+  color: #f0ebe3;
+  background: rgba(201,169,110,0.08);
+}
 
-        #oriental-optimized-landing a {
-            text-decoration: none;
-            color: inherit;
-        }
+#oriental-optimized-landing .header-nav a.active {
+  color: #0a1f14;
+  background: #c9a96e;
+  font-weight: 600;
+}
 
-        /* Utility Classes */
-        #oriental-optimized-landing .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        /* =========================================
-           HEADER & NAVIGATION
-           ========================================= */
-        #oriental-header {
-            padding: 1.5rem 0;
-            background: var(--background);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        #oriental-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        #oriental-header img {
-            height: 60px;
-            object-fit: contain;
-        }
+#oriental-optimized-landing .mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
 
-        #oriental-header .main-nav {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
+#oriental-optimized-landing .mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #c9a96e;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
 
-        #oriental-header .main-nav a {
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--text);
-            transition: color 0.3s ease;
-        }
+/* ── Hero Section ── */
+#oriental-optimized-landing .contact-hero {
+  padding: 140px 32px 60px;
+  text-align: center;
+  background: #0a1f14;
+  position: relative;
+  overflow: hidden;
+}
 
-        #oriental-header .main-nav a:hover,
-        #oriental-header .main-nav a.active {
-            color: var(--primary);
-        }
+#oriental-optimized-landing .contact-hero::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
 
-        /* =========================================
-           CONTACT PAGE SPECIFIC STYLES
-           ========================================= */
-        
-        /* Hero */
-        #oriental-contact-hero {
-            background-color: var(--surface);
-            padding: 5rem 0 3rem 0;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
+#oriental-optimized-landing .hero-badge {
+  display: inline-block;
+  padding: 6px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c9a96e;
+  border: 1px solid rgba(201,169,110,0.3);
+  border-radius: 24px;
+  margin-bottom: 24px;
+}
 
-        #oriental-contact-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
-            font-weight: 800;
-            margin: 0 0 1rem 0;
-        }
+#oriental-optimized-landing .contact-hero h1 {
+  font-size: 52px;
+  font-weight: 700;
+  color: #f0ebe3;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
 
-        #oriental-contact-hero p {
-            font-size: 1.15rem;
-            color: var(--muted);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+#oriental-optimized-landing .contact-hero h1 span {
+  color: #c9a96e;
+}
 
-        /* Contact Main Content */
-        #oriental-contact-main {
-            padding: 5rem 0;
-            background: var(--background);
-        }
+#oriental-optimized-landing .contact-hero p {
+  font-size: 17px;
+  color: rgba(240,235,227,0.6);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: flex-start;
-        }
+/* ── Contact Main ── */
+#oriental-optimized-landing .contact-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
 
-        /* Contact Info Column */
-        .contact-info-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
+/* ── Info Cards ── */
+#oriental-optimized-landing .info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-        .info-card {
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-            padding: 2rem;
-            background: var(--surface);
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease;
-        }
+#oriental-optimized-landing .info-card {
+  background: #0d2818;
+  border: 1px solid rgba(201,169,110,0.15);
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
 
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(138, 21, 20, 0.2);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
+#oriental-optimized-landing .info-card:hover {
+  border-color: rgba(201,169,110,0.4);
+  box-shadow: 0 0 24px rgba(201,169,110,0.06);
+}
 
-        .info-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(138, 21, 20, 0.08);
-            color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
+#oriental-optimized-landing .info-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(201,169,110,0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-        .info-content h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
+#oriental-optimized-landing .info-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: #c9a96e;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 
-        .info-content p, .info-content a {
-            color: var(--muted);
-            margin: 0;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
+#oriental-optimized-landing .info-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f0ebe3;
+  margin-bottom: 6px;
+}
 
-        .info-content a:hover {
-            color: var(--primary);
-            text-decoration: underline;
-        }
+#oriental-optimized-landing .info-content p,
+#oriental-optimized-landing .info-content a {
+  font-size: 14px;
+  color: rgba(240,235,227,0.6);
+  line-height: 1.6;
+  transition: color 0.3s;
+}
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
+#oriental-optimized-landing .info-content a:hover {
+  color: #c9a96e;
+}
 
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text);
-            transition: all 0.3s ease;
-        }
+#oriental-optimized-landing .info-content .hours-closed {
+  color: rgba(240,120,120,0.7);
+}
 
-        .social-links a:hover {
-            background: var(--primary);
-            color: #ffffff;
-            transform: translateY(-2px);
-        }
+/* Social Links */
+#oriental-optimized-landing .social-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
 
-        /* Form Column */
-        .contact-form-card {
-            background: var(--background);
-            padding: 3rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
+#oriental-optimized-landing .social-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #132f1e;
+  border: 1px solid rgba(201,169,110,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
 
-        .contact-form-card h2 {
-            font-size: 2rem;
-            margin: 0 0 0.5rem 0;
-            font-weight: 800;
-        }
+#oriental-optimized-landing .social-circle:hover {
+  background: rgba(201,169,110,0.12);
+  border-color: rgba(201,169,110,0.4);
+  transform: translateY(-2px);
+}
 
-        .contact-form-card p {
-            color: var(--muted);
-            margin: 0 0 2.5rem 0;
-        }
+#oriental-optimized-landing .social-circle svg {
+  width: 18px;
+  height: 18px;
+  fill: #c9a96e;
+}
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
+/* ── Form Card ── */
+#oriental-optimized-landing .form-card {
+  background: #0d2818;
+  border: 1px solid rgba(201,169,110,0.15);
+  border-radius: 24px;
+  padding: 40px;
+}
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
+#oriental-optimized-landing .form-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f0ebe3;
+  margin-bottom: 6px;
+}
 
-        .contact-form-card label {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text);
-        }
+#oriental-optimized-landing .form-card .form-subtitle {
+  font-size: 14px;
+  color: rgba(240,235,227,0.5);
+  margin-bottom: 28px;
+}
 
-        .contact-form-card label span {
-            color: var(--primary);
-        }
+#oriental-optimized-landing .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
 
-        .contact-form-card input,
-        .contact-form-card textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-family: var(--font-main) !important;
-            font-size: 16px !important;
-            color: var(--text);
-            background: var(--surface);
-            transition: all 0.2s ease;
-            box-sizing: border-box;
-        }
+#oriental-optimized-landing .form-group {
+  margin-bottom: 16px;
+}
 
-        .contact-form-card input:focus,
-        .contact-form-card textarea:focus {
-            outline: none;
-            border-color: var(--focus-ring);
-            background: var(--background);
-            box-shadow: 0 0 0 4px rgba(197, 138, 138, 0.2);
-        }
+#oriental-optimized-landing .form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(240,235,227,0.7);
+  margin-bottom: 8px;
+}
 
-        .contact-form-card textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
+#oriental-optimized-landing .form-group input,
+#oriental-optimized-landing .form-group textarea,
+#oriental-optimized-landing .form-group select {
+  width: 100%;
+  padding: 14px 18px;
+  background: #132f1e;
+  border: 1px solid rgba(201,169,110,0.12);
+  border-radius: 14px;
+  color: #f0ebe3;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
 
-        .submit-btn {
-            width: 100%;
-            padding: 1.2rem;
-            background-color: var(--primary);
-            color: #ffffff;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 1rem;
-        }
+#oriental-optimized-landing .form-group input::placeholder,
+#oriental-optimized-landing .form-group textarea::placeholder {
+  color: rgba(240,235,227,0.3);
+}
 
-        .submit-btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(138, 21, 20, 0.3);
-        }
+#oriental-optimized-landing .form-group input:focus,
+#oriental-optimized-landing .form-group textarea:focus,
+#oriental-optimized-landing .form-group select:focus {
+  border-color: rgba(201,169,110,0.5);
+  box-shadow: 0 0 0 3px rgba(201,169,110,0.1);
+}
 
-        .spinner {
-            display: none;
-            width: 18px;
-            height: 18px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 0.8s linear infinite;
-        }
+#oriental-optimized-landing .form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+#oriental-optimized-landing .form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c9a96e' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
 
-        /* Map Section */
-        #oriental-map {
-            width: 100%;
-            height: 450px;
-            background: var(--surface);
-            position: relative;
-        }
+#oriental-optimized-landing .form-group select option {
+  background: #132f1e;
+  color: #f0ebe3;
+}
 
-        #oriental-map iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            display: block;
-        }
+#oriental-optimized-landing .submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #c9a96e, #b8944f);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s, opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
 
-        /* =========================================
-           FOOTER & FLOATING CTA
-           ========================================= */
-        #oriental-footer {
-            background-color: var(--surface);
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
+#oriental-optimized-landing .submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,169,110,0.25);
+}
 
-        #oriental-footer .footer-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
+#oriental-optimized-landing .submit-btn:active {
+  transform: translateY(0);
+}
 
-        #oriental-footer .footer-nav a {
-            font-weight: 500;
-            color: var(--text);
-            transition: color 0.3s ease;
-        }
+#oriental-optimized-landing .submit-btn .spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: orientalSpin 0.6s linear infinite;
+}
 
-        #oriental-footer .footer-nav a:hover {
-            color: var(--primary);
-        }
-        
-        #oriental-footer p {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin: 0;
-            line-height: 1.8;
-        }
-        
-        #oriental-footer a {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        #oriental-footer a:hover {
-            color: var(--primary-hover);
-        }
+@keyframes orientalSpin {
+  to { transform: rotate(360deg); }
+}
 
-        #oriental-floating-wa {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            z-index: 10000;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+/* ── Map Section ── */
+#oriental-optimized-landing .map-section {
+  background: #132f1e;
+  padding: 0;
+}
 
-        #oriental-floating-wa:hover {
-            transform: scale(1.1) translateY(-5px);
-        }
+#oriental-optimized-landing .map-section iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  display: block;
+  filter: grayscale(0.3) brightness(0.85);
+}
 
-        #oriental-floating-wa svg {
-            width: 32px;
-            height: 32px;
-        }
+/* ── Footer ── */
+#oriental-optimized-landing .site-footer {
+  background: #0d2818;
+  border-top: 1px solid rgba(201,169,110,0.1);
+  padding: 32px;
+  text-align: center;
+}
 
-        /* =========================================
-           MOBILE RESPONSIVENESS
-           ========================================= */
-        @media (max-width: 900px) {
-            #oriental-header .container {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
+#oriental-optimized-landing .site-footer p {
+  font-size: 13px;
+  color: rgba(240,235,227,0.4);
+}
 
-            #oriental-header .main-nav {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1.5rem;
-            }
+#oriental-optimized-landing .site-footer a {
+  color: #c9a96e;
+  transition: opacity 0.3s;
+}
 
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
+#oriental-optimized-landing .site-footer a:hover {
+  opacity: 0.8;
+}
 
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
+/* ── Floating WhatsApp ── */
+#oriental-optimized-landing .whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
 
-            .contact-form-card {
-                padding: 2rem;
-            }
+#oriental-optimized-landing .whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+}
 
-            #oriental-floating-wa {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-            }
+#oriental-optimized-landing .whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
 
-            #oriental-floating-wa svg {
-                width: 26px;
-                height: 26px;
-            }
-        }
-    </style>
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  #oriental-optimized-landing .header-nav {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 31, 20, 0.97);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    padding: 16px;
+    gap: 4px;
+    border-bottom: 1px solid rgba(201,169,110,0.12);
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: transform 0.35s, opacity 0.35s;
+    pointer-events: none;
+  }
+
+  #oriental-optimized-landing .header-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  #oriental-optimized-landing .header-nav a {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+  }
+
+  #oriental-optimized-landing .mobile-toggle {
+    display: block;
+  }
+
+  #oriental-optimized-landing .contact-hero h1 {
+    font-size: 34px;
+  }
+
+  #oriental-optimized-landing .contact-main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 24px 20px 60px;
+  }
+
+  #oriental-optimized-landing .form-card {
+    padding: 28px 24px;
+  }
+
+  #oriental-optimized-landing .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  #oriental-optimized-landing .contact-hero {
+    padding: 120px 20px 40px;
+  }
+
+  #oriental-optimized-landing .map-section iframe {
+    height: 280px;
+  }
+}
+</style>
 </head>
-
 <body>
+<div id="oriental-optimized-landing">
 
-    <div id="oriental-optimized-landing">
-        <div class="viewport-wrapper">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior">
+      </a>
+      <button class="mobile-toggle" onclick="document.querySelector('#oriental-optimized-landing .header-nav').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-            <header id="oriental-header">
-                <div class="container">
-                    <a href="index.html">
-                        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior Pte Ltd">
-                    </a>
-                    <nav class="main-nav">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="services.html">Services</a>
-                        <a href="contact.html" class="active">Contact</a>
-                    </nav>
-                </div>
-            </header>
+  <!-- Hero -->
+  <section class="contact-hero">
+    <div class="hero-badge">Contact Us</div>
+    <h1>Get in <span>Touch</span></h1>
+    <p>Have a project in mind or need expert advice? We'd love to hear from you. Reach out and let's create something beautiful together.</p>
+  </section>
 
-            <section id="oriental-contact-hero">
-                <div class="container">
-                    <h1>Get in Touch</h1>
-                    <p>Ready to build your dream home? Reach out to our team of direct factory contractors for a free, no-obligation consultation today.</p>
-                </div>
-            </section>
+  <!-- Contact Main -->
+  <section class="contact-main">
 
-            <section id="oriental-contact-main">
-                <div class="container contact-grid">
-                    
-                    <div class="contact-info-wrapper">
-                        
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                </svg>
-                            </div>
-                            <div class="info-content">
-                                <h3>Phone / WhatsApp</h3>
-                                <p><a href="tel:+6588097017">+65 8809 7017</a></p>
-                                <p style="font-size: 0.85rem; margin-top: 5px;">Call or message us for immediate assistance.</p>
-                            </div>
-                        </div>
+    <!-- Left: Info Cards -->
+    <div class="info-column">
 
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                            </div>
-                            <div class="info-content">
-                                <h3>Email</h3>
-                                <p><a href="mailto:askoriental1982@gmail.com">askoriental1982@gmail.com</a></p>
-                                <p style="font-size: 0.85rem; margin-top: 5px;">Send us your floorplans or inquiries.</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                            <div class="info-content">
-                                <h3>Business Hours</h3>
-                                <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
-                                <p>Sunday & Public Holidays: Closed</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="info-content">
-                                <h3>Location</h3>
-                                <p>Singapore</p>
-                                <div class="social-links">
-                                    <a href="#" aria-label="Facebook">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                                    </a>
-                                    <a href="#" aria-label="Instagram">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="contact-form-card">
-                        <h2>Send an Inquiry</h2>
-                        <p>Fill out the form below and we'll get back to you shortly.</p>
-                        
-                        <form id="contactPageForm">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label>First Name <span>*</span></label>
-                                    <input type="text" name="First Name" required placeholder="John">
-                                </div>
-                                <div class="form-group">
-                                    <label>Last Name</label>
-                                    <input type="text" name="Last Name" placeholder="Doe">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label>Email Address <span>*</span></label>
-                                    <input type="email" name="Email" required placeholder="john@example.com">
-                                </div>
-                                <div class="form-group">
-                                    <label>Phone Number <span>*</span></label>
-                                    <input type="tel" name="Contact Number" required placeholder="9123 4567">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Subject</label>
-                                <input type="text" name="Subject" placeholder="e.g. HDB BTO Renovation Query">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Your Message <span>*</span></label>
-                                <textarea name="Message" required placeholder="How can we help you today?"></textarea>
-                            </div>
-
-                            <button type="submit" class="submit-btn" id="submitBtnContact">
-                                <span class="btn-text">Send Message</span>
-                                <div class="spinner"></div>
-                            </button>
-                        </form>
-                    </div>
-
-                </div>
-            </section>
-
-            <section id="oriental-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.19036281522!2d103.7041651817544!3d1.314339396328227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da11238a8b9375%3A0x887869cf52abf5c4!2sSingapore!5e0!3m2!1sen!2ssg!4v1700000000000!5m2!1sen!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </section>
-
-            <footer id="oriental-footer">
-                <div class="container">
-                    <nav class="footer-nav">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="services.html">Services</a>
-                        <a href="contact.html">Contact</a>
-                    </nav>
-                    <p>
-                        &copy; 2026 Oriental System Interior Pte Ltd. All Rights Reserved.<br>
-                        <a href="https://reputifly.com/web-development" target="_blank">Website Design by Reputifly</a>
-                    </p>
-                </div>
-            </footer>
-
-            <a href="https://wa.me/6588097017?text=Hi%20there,%20I'm%20interested%20in%20a%20renovation%20consultation!"
-                target="_blank" id="oriental-floating-wa" aria-label="Chat on WhatsApp">
-                <svg viewBox="0 0 448 512" fill="white">
-                    <path
-                        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-                </svg>
-            </a>
-
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
+        <div class="info-content">
+          <h3>Phone / WhatsApp</h3>
+          <p><a href="tel:+6588097017">+65 8809 7017</a></p>
+          <p><a href="https://wa.me/6588097017" target="_blank">Chat on WhatsApp</a></p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+        </div>
+        <div class="info-content">
+          <h3>Email</h3>
+          <p><a href="mailto:askoriental1982@gmail.com">askoriental1982@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="info-content">
+          <h3>Business Hours</h3>
+          <p>Monday &ndash; Saturday: 9:00 AM &ndash; 6:00 PM</p>
+          <p class="hours-closed">Sunday &amp; Public Holidays: Closed</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="info-content">
+          <h3>Location</h3>
+          <p>Singapore</p>
+          <div class="social-row">
+            <a href="#" class="social-circle" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-circle" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="#c9a96e" stroke-width="1.8"/><circle cx="12" cy="12" r="5" fill="none" stroke="#c9a96e" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.5" fill="#c9a96e" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Google Ads Tracking Wrapper
-            function gtag_report_conversion(url) {
-                var callback = function () {
-                    if (typeof (url) != 'undefined') { window.location = url; }
-                };
-                if (typeof gtag === 'function') {
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-17764512398/OuX8CPuy9swbEI7l45ZC',
-                        'event_callback': callback
-                    });
-                } else {
-                    if (typeof (url) != 'undefined') { window.location = url; }
-                }
-                return false;
-            }
+    <!-- Right: Contact Form -->
+    <div class="form-card">
+      <h2>Send Us a Message</h2>
+      <p class="form-subtitle">Fill in the details below and we'll get back to you shortly.</p>
+      <form id="orientalContactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+65 xxxx xxxx">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>Select a subject</option>
+            <option value="Interior Design Consultation">Interior Design Consultation</option>
+            <option value="Renovation Enquiry">Renovation Enquiry</option>
+            <option value="General Enquiry">General Enquiry</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          <span class="btn-text">Send Message</span>
+          <span class="spinner"></span>
+        </button>
+      </form>
+    </div>
 
-            // Contact Form Submission Logic
-            const form = document.getElementById('contactPageForm');
-            const submitBtn = document.getElementById('submitBtnContact');
-            const btnText = submitBtn.querySelector('.btn-text');
-            const spinner = submitBtn.querySelector('.spinner');
+  </section>
 
-            // Updated WhatsApp Number and Target Email based on user input
-            const whatsappNumber = "6588097017"; 
-            const reputiflyUrl = "https://asia-southeast1-b2b-software.cloudfunctions.net/reputifly";
-            const targetEmail = "askoriental1982@gmail.com";
+  <!-- Google Maps -->
+  <section class="map-section">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.19036281522!2d103.7041651817544!3d1.314339396328227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da11238a8b9375%3A0x887869cf52abf5c4!2sSingapore!5e0!3m2!1sen!2ssg!4v1700000000000!5m2!1sen!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Oriental System Interior Location"></iframe>
+  </section>
 
-            if (form) {
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault();
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Oriental System Interior. Powered by <a href="https://reputifly.com" target="_blank" rel="noopener">Reputifly</a></p>
+  </footer>
 
-                    submitBtn.disabled = true;
-                    btnText.textContent = "Processing...";
-                    spinner.style.display = "block";
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/6588097017" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32"><path d="M16.004 2.002c-7.732 0-14.002 6.27-14.002 14.002 0 2.468.657 4.876 1.904 6.988L2 30l7.195-1.887A13.946 13.946 0 0016.004 30c7.732 0 14.002-6.27 14.002-14.002S23.736 2.002 16.004 2.002zm0 25.61a11.59 11.59 0 01-5.912-1.617l-.424-.252-4.395 1.153 1.174-4.29-.277-.44A11.56 11.56 0 014.4 16.004c0-6.41 5.196-11.606 11.604-11.606 6.41 0 11.604 5.196 11.604 11.606 0 6.41-5.194 11.608-11.604 11.608zm6.363-8.696c-.348-.174-2.063-1.02-2.383-1.137-.32-.117-.553-.174-.785.174-.232.348-.9 1.137-1.104 1.37-.203.233-.406.26-.754.087-.348-.174-1.47-.542-2.8-1.728-1.035-.922-1.733-2.062-1.937-2.41-.203-.348-.022-.536.153-.71.157-.155.348-.406.522-.61.174-.203.232-.347.348-.58.116-.232.058-.435-.03-.61-.087-.174-.785-1.893-1.075-2.592-.283-.68-.57-.588-.785-.6-.203-.01-.435-.012-.668-.012s-.61.087-.93.435c-.32.348-1.22 1.194-1.22 2.912s1.25 3.377 1.424 3.61c.174.233 2.46 3.753 5.96 5.264.833.36 1.483.575 1.99.736.836.265 1.596.228 2.197.138.67-.1 2.063-.844 2.354-1.66.29-.815.29-1.515.203-1.66-.087-.146-.32-.233-.668-.406z"/></svg>
+  </a>
 
-                    const formData = new FormData(form);
-                    const object = Object.fromEntries(formData);
+</div>
 
-                    const waMessage = `*New Contact Page Enquiry*\nHi, I have a query.\n\n*Name:* ${object['First Name']} ${object['Last Name'] || ''}\n*Email:* ${object['Email']}\n*Contact:* ${object['Contact Number']}\n*Subject:* ${object['Subject'] || 'General Inquiry'}\n\n*Message:*\n${object['Message']}`;
-                    const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(waMessage)}`;
+<!-- Google Ads Conversion -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17764512398"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17764512398');
 
-                    const payload = {
-                        _to: targetEmail,
-                        _subject: "New Contact Page Lead",
-                        ...object
-                    };
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17764512398/OuX8CPuy9swbEI7l5ZC',
+      'event_callback': callback
+    });
+    return false;
+  }
+</script>
 
-                    fetch(reputiflyUrl, {
-                        method: 'POST',
-                        headers: { 
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    })
-                    .then(async (response) => {
-                        if (!response.ok) {
-                            const errData = await response.json().catch(() => ({}));
-                            throw new Error(errData.error || `HTTP ${response.status}`);
-                        }
-                        return response.json();
-                    })
-                    .then((data) => {
-                        console.log("Success! Lead captured:", data);
-                        gtag_report_conversion(waURL);
-                    })
-                    .catch((error) => {
-                        console.error("Submission Failed:", error);
-                        alert(`API Error: ${error.message}. Redirecting to WhatsApp to preserve the lead.`);
-                        gtag_report_conversion(waURL);
-                    })
-                    .finally(() => {
-                        submitBtn.disabled = false;
-                        btnText.textContent = "Send Message";
-                        spinner.style.display = "none";
-                        form.reset();
-                    });
-                });
-            }
-        });
-    </script>
+<!-- Form Submission -->
+<script>
+  document.getElementById('orientalContactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var btn = this.querySelector('.submit-btn');
+    var btnText = btn.querySelector('.btn-text');
+    var spinner = btn.querySelector('.spinner');
+
+    btnText.textContent = 'Sending...';
+    spinner.style.display = 'inline-block';
+    btn.disabled = true;
+
+    var firstName = document.getElementById('firstName').value.trim();
+    var lastName = document.getElementById('lastName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var subject = document.getElementById('subject').value;
+    var message = document.getElementById('message').value.trim();
+
+    var formData = {
+      _to: 'askoriental1982@gmail.com',
+      _subject: 'New Contact Page Lead',
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phone: phone,
+      subject: subject,
+      message: message
+    };
+
+    fetch('https://asia-southeast1-b2b-software.cloudfunctions.net/reputifly', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+    .then(function(response) {
+      gtag_report_conversion();
+
+      var waMessage = 'Hi, I just submitted a contact form on your website.%0A%0A'
+        + 'Name: ' + encodeURIComponent(firstName + ' ' + lastName) + '%0A'
+        + 'Email: ' + encodeURIComponent(email) + '%0A'
+        + 'Phone: ' + encodeURIComponent(phone) + '%0A'
+        + 'Subject: ' + encodeURIComponent(subject) + '%0A'
+        + 'Message: ' + encodeURIComponent(message);
+
+      window.open('https://wa.me/6588097017?text=' + waMessage, '_blank');
+
+      btnText.textContent = 'Message Sent!';
+      spinner.style.display = 'none';
+
+      setTimeout(function() {
+        btnText.textContent = 'Send Message';
+        btn.disabled = false;
+        document.getElementById('orientalContactForm').reset();
+      }, 2500);
+    })
+    .catch(function(err) {
+      btnText.textContent = 'Send Message';
+      spinner.style.display = 'none';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or contact us via WhatsApp.');
+    });
+  });
+</script>
 
 </body>
-
 </html>
