@@ -1,905 +1,960 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Our Services | Oriental System Interior</title>
-
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <style>
-        /* =========================================
-           GLOBAL OVERRIDES & VARIABLES (Scoped)
-           ========================================= */
-        #oriental-optimized-landing {
-            /* Brand Colors based on JSON Brand DNA */
-            --primary: #8a1514;
-            --accent: #8a1413;
-            --background: #ffffff;
-            --text: #0b0a14;
-            --surface: #fafafa;
-            --border: #e6e6e6;
-            --muted: rgba(8, 7, 14, 0.65);
-            --primary-hover: #751111;
-            --focus-ring: #c58a8a;
-            
-            /* UI Tokens */
-            --radius: 24px;
-            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-            width: 100% !important;
-            max-width: 100vw !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-            font-family: var(--font-main) !important;
-            color: var(--text) !important;
-            background-color: var(--background) !important;
-            line-height: 1.7 !important;
-            -webkit-font-smoothing: antialiased !important;
-            -moz-osx-font-smoothing: grayscale !important;
-            text-rendering: optimizeLegibility !important;
-        }
-
-        html,
-        body {
-            overflow-x: hidden;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-        }
-
-        #oriental-optimized-landing h1,
-        #oriental-optimized-landing h2,
-        #oriental-optimized-landing h3,
-        #oriental-optimized-landing h4 {
-            font-family: var(--font-main) !important;
-            letter-spacing: -0.03em;
-            color: var(--text);
-            margin-top: 0;
-        }
-
-        #oriental-optimized-landing * {
-            box-sizing: border-box !important;
-        }
-
-        #oriental-optimized-landing img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        #oriental-optimized-landing a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Utility Classes */
-        #oriental-optimized-landing .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        /* =========================================
-           HEADER & NAVIGATION
-           ========================================= */
-        #oriental-header {
-            padding: 1.5rem 0;
-            background: var(--background);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        #oriental-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        #oriental-header img {
-            height: 60px;
-            object-fit: contain;
-        }
-
-        #oriental-header .main-nav {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        #oriental-header .main-nav a {
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--text);
-            transition: color 0.3s ease;
-        }
-
-        #oriental-header .main-nav a:hover,
-        #oriental-header .main-nav a.active {
-            color: var(--primary);
-        }
-
-        /* =========================================
-           1. SERVICES OVERVIEW (HERO)
-           ========================================= */
-        #oriental-services-hero {
-            background-color: var(--surface);
-            padding: 6rem 0;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
-
-        #oriental-services-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin: 0 0 1rem 0;
-        }
-
-        #oriental-services-hero p {
-            font-size: 1.15rem;
-            color: var(--muted);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        /* =========================================
-           2. SERVICE PACKAGES
-           ========================================= */
-        #oriental-packages {
-            background-color: var(--background);
-            padding: 6rem 0;
-        }
-
-        .packages-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .packages-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin: 0 0 1rem 0;
-        }
-
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            align-items: stretch;
-        }
-
-        .package-card {
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 3rem 2rem;
-            border: 1px solid var(--border);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .package-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow);
-            border-color: rgba(138, 21, 20, 0.2);
-        }
-
-        .package-card.popular {
-            border: 2px solid var(--primary);
-            position: relative;
-            transform: scale(1.03);
-            box-shadow: var(--shadow);
-            background: var(--background);
-        }
-
-        .package-card.popular:hover {
-            transform: scale(1.03) translateY(-5px);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: #ffffff;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .package-name {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin: 0 0 0.5rem 0;
-        }
-
-        .package-desc {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin: 0 0 2rem 0;
-            height: 45px;
-        }
-
-        .package-price {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--text);
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2rem;
-        }
-
-        .package-price span {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--muted);
-        }
-
-        .package-includes {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 2.5rem 0;
-            text-align: left;
-            flex-grow: 1;
-        }
-
-        .package-includes li {
-            margin-bottom: 1rem;
-            color: var(--text);
-            font-size: 0.95rem;
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            font-weight: 500;
-        }
-
-        .package-includes svg {
-            width: 18px;
-            height: 18px;
-            color: #25D366;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .package-btn {
-            display: inline-block;
-            width: 100%;
-            padding: 1rem;
-            border-radius: 12px;
-            font-weight: 700;
-            text-align: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            box-sizing: border-box;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--border);
-            color: var(--text);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-solid {
-            background: var(--primary);
-            border: 2px solid var(--primary);
-            color: #ffffff;
-        }
-
-        .btn-solid:hover {
-            background: var(--primary-hover);
-            border-color: var(--primary-hover);
-        }
-
-        /* =========================================
-           3. CORE SERVICES (Res, Com, Consult)
-           ========================================= */
-        #oriental-core-services {
-            background: var(--surface);
-            padding: 6rem 0;
-        }
-
-        .core-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .core-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin: 0 0 1rem 0;
-        }
-
-        .core-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-img-card {
-            background: var(--background);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-img-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(138, 21, 20, 0.2);
-        }
-
-        .service-img-wrapper {
-            width: 100%;
-            height: 240px;
-            overflow: hidden;
-            background: var(--surface);
-        }
-
-        .service-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .service-img-card:hover .service-img {
-            transform: scale(1.05);
-        }
-
-        .service-content-box {
-            padding: 2.5rem 2rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-content-box h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin: 0 0 1rem 0;
-        }
-
-        .service-content-box p {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin: 0 0 1.5rem 0;
-            line-height: 1.6;
-        }
-
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 2rem 0;
-            flex-grow: 1;
-        }
-
-        .service-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 0.8rem;
-        }
-
-        .service-list svg {
-            width: 18px;
-            height: 18px;
-            color: var(--primary);
-            flex-shrink: 0;
-        }
-
-        .service-link {
-            font-weight: 700;
-            color: var(--primary);
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.95rem;
-            transition: gap 0.3s ease;
-        }
-
-        .service-img-card:hover .service-link {
-            gap: 10px;
-        }
-
-        /* =========================================
-           4. OUR PROCESS
-           ========================================= */
-        #oriental-process {
-            background-color: var(--background);
-            padding: 6rem 0;
-        }
-
-        #oriental-process .process-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem auto;
-        }
-
-        #oriental-process .process-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            margin: 0 0 1rem 0;
-        }
-
-        #oriental-process .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            position: relative;
-        }
-
-        @media (min-width: 900px) {
-            #oriental-process .process-grid::before {
-                content: '';
-                position: absolute;
-                top: 40px;
-                left: 10%;
-                right: 10%;
-                height: 2px;
-                background: var(--border);
-                z-index: 0;
-            }
-        }
-
-        #oriental-process .step-card {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            background: var(--background);
-            padding: 0 1rem;
-        }
-
-        #oriental-process .step-num {
-            width: 80px;
-            height: 80px;
-            background: var(--background);
-            border: 2px solid var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin: 0 auto 1.5rem auto;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(138, 21, 20, 0.15);
-        }
-
-        #oriental-process .step-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        #oriental-process .step-desc {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin: 0;
-        }
-
-        /* =========================================
-           5. CTA PROMO
-           ========================================= */
-        #oriental-cta {
-            background-color: var(--text);
-            color: #ffffff;
-            padding: 5rem 0;
-            text-align: center;
-        }
-
-        #oriental-cta h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            color: #ffffff !important;
-            margin: 0 0 1rem 0;
-        }
-
-        #oriental-cta p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        #oriental-cta strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        #oriental-cta .wa-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--primary);
-            color: #ffffff;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
-        }
-
-        #oriental-cta .wa-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(138, 21, 20, 0.4);
-        }
-
-        /* =========================================
-           FOOTER & FLOATING CTA
-           ========================================= */
-        #oriental-footer {
-            background-color: var(--surface);
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
-
-        #oriental-footer .footer-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        #oriental-footer .footer-nav a {
-            font-weight: 500;
-            color: var(--text);
-            transition: color 0.3s ease;
-        }
-
-        #oriental-footer .footer-nav a:hover {
-            color: var(--primary);
-        }
-        
-        #oriental-footer p {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin: 0;
-            line-height: 1.8;
-        }
-        
-        #oriental-footer a {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        #oriental-footer a:hover {
-            color: var(--primary-hover);
-        }
-
-        #oriental-floating-wa {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            z-index: 10000;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        #oriental-floating-wa:hover {
-            transform: scale(1.1) translateY(-5px);
-        }
-
-        #oriental-floating-wa svg {
-            width: 32px;
-            height: 32px;
-        }
-
-        /* =========================================
-           MOBILE RESPONSIVENESS
-           ========================================= */
-        @media (max-width: 900px) {
-            #oriental-header .container {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            #oriental-header .main-nav {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1.5rem;
-            }
-
-            .packages-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .package-card.popular {
-                transform: scale(1);
-            }
-            
-            .package-card.popular:hover {
-                transform: scale(1) translateY(-5px);
-            }
-
-            .core-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            #oriental-floating-wa {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-            }
-
-            #oriental-floating-wa svg {
-                width: 26px;
-                height: 26px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services - Oriental System Interior</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+#oriental-optimized-landing {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0a1f14;
+  color: #f0ebe3;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#oriental-optimized-landing *,
+#oriental-optimized-landing *::before,
+#oriental-optimized-landing *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+#oriental-optimized-landing a {
+  text-decoration: none;
+  color: inherit;
+}
+#oriental-optimized-landing ul {
+  list-style: none;
+}
+
+/* Header */
+#oriental-optimized-landing .osi-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(10, 31, 20, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+  transition: background 0.3s ease;
+}
+#oriental-optimized-landing .osi-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+#oriental-optimized-landing .osi-logo img {
+  height: 44px;
+  width: auto;
+}
+#oriental-optimized-landing .osi-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+#oriental-optimized-landing .osi-nav a {
+  padding: 8px 20px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(240, 235, 227, 0.6);
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
+#oriental-optimized-landing .osi-nav a:hover {
+  color: #f0ebe3;
+  background: rgba(201, 169, 110, 0.08);
+}
+#oriental-optimized-landing .osi-nav a.active {
+  color: #c9a96e;
+  background: rgba(201, 169, 110, 0.12);
+  font-weight: 600;
+}
+#oriental-optimized-landing .osi-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+#oriental-optimized-landing .osi-mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #c9a96e;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hero */
+#oriental-optimized-landing .osi-hero {
+  padding: 160px 32px 100px;
+  text-align: center;
+  background: #0a1f14;
+  position: relative;
+  overflow: hidden;
+}
+#oriental-optimized-landing .osi-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201, 169, 110, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+#oriental-optimized-landing .osi-hero-label {
+  display: inline-block;
+  padding: 8px 24px;
+  border: 1px solid rgba(201, 169, 110, 0.25);
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c9a96e;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+#oriental-optimized-landing .osi-hero h1 {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.15;
+  max-width: 700px;
+  margin: 0 auto 24px;
+  letter-spacing: -0.02em;
+}
+#oriental-optimized-landing .osi-hero h1 span {
+  background: linear-gradient(135deg, #c9a96e, #e0c98f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+#oriental-optimized-landing .osi-hero p {
+  font-size: 18px;
+  color: rgba(240, 235, 227, 0.6);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Packages */
+#oriental-optimized-landing .osi-packages {
+  padding: 100px 32px;
+  background: #0d2818;
+}
+#oriental-optimized-landing .osi-section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+#oriental-optimized-landing .osi-section-tag {
+  display: inline-block;
+  padding: 6px 20px;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c9a96e;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+#oriental-optimized-landing .osi-section-header h2 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+#oriental-optimized-landing .osi-section-header p {
+  font-size: 16px;
+  color: rgba(240, 235, 227, 0.55);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+#oriental-optimized-landing .osi-packages-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+#oriental-optimized-landing .osi-pkg-card {
+  background: #0a1f14;
+  border: 1px solid rgba(201, 169, 110, 0.1);
+  border-radius: 24px;
+  padding: 40px 32px;
+  position: relative;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+#oriental-optimized-landing .osi-pkg-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 169, 110, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+#oriental-optimized-landing .osi-pkg-card.popular {
+  border-color: rgba(201, 169, 110, 0.35);
+  background: linear-gradient(180deg, rgba(201, 169, 110, 0.06) 0%, #0a1f14 100%);
+}
+#oriental-optimized-landing .osi-pkg-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #c9a96e, #b8943f);
+  color: #0a1f14;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 24px;
+  border-radius: 0 0 16px 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+#oriental-optimized-landing .osi-pkg-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+#oriental-optimized-landing .osi-pkg-card.popular .osi-pkg-name {
+  margin-top: 24px;
+}
+#oriental-optimized-landing .osi-pkg-price {
+  font-size: 36px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #c9a96e, #e0c98f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+#oriental-optimized-landing .osi-pkg-price-note {
+  font-size: 13px;
+  color: rgba(240, 235, 227, 0.4);
+  margin-bottom: 28px;
+}
+#oriental-optimized-landing .osi-pkg-divider {
+  height: 1px;
+  background: rgba(201, 169, 110, 0.1);
+  margin-bottom: 28px;
+}
+#oriental-optimized-landing .osi-pkg-includes h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(240, 235, 227, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+#oriental-optimized-landing .osi-pkg-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: rgba(240, 235, 227, 0.8);
+}
+#oriental-optimized-landing .osi-pkg-check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+#oriental-optimized-landing .osi-pkg-check svg {
+  width: 12px;
+  height: 12px;
+}
+#oriental-optimized-landing .osi-pkg-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 32px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  letter-spacing: 0.02em;
+}
+#oriental-optimized-landing .osi-pkg-btn.outline {
+  background: transparent;
+  border: 1.5px solid rgba(201, 169, 110, 0.35);
+  color: #c9a96e;
+}
+#oriental-optimized-landing .osi-pkg-btn.outline:hover {
+  background: rgba(201, 169, 110, 0.08);
+  border-color: #c9a96e;
+}
+#oriental-optimized-landing .osi-pkg-btn.primary {
+  background: linear-gradient(135deg, #c9a96e, #b8943f);
+  color: #0a1f14;
+  border: none;
+}
+#oriental-optimized-landing .osi-pkg-btn.primary:hover {
+  background: linear-gradient(135deg, #d4b87a, #c9a96e);
+  box-shadow: 0 8px 30px rgba(201, 169, 110, 0.25);
+}
+
+/* Expertise */
+#oriental-optimized-landing .osi-expertise {
+  padding: 100px 32px;
+  background: #132f1e;
+}
+#oriental-optimized-landing .osi-expertise-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+#oriental-optimized-landing .osi-exp-card {
+  background: #0d2818;
+  border: 1px solid rgba(201, 169, 110, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+#oriental-optimized-landing .osi-exp-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 169, 110, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+#oriental-optimized-landing .osi-exp-img {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+#oriental-optimized-landing .osi-exp-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+#oriental-optimized-landing .osi-exp-card:hover .osi-exp-img img {
+  transform: scale(1.06);
+}
+#oriental-optimized-landing .osi-exp-img::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, #0d2818, transparent);
+  pointer-events: none;
+}
+#oriental-optimized-landing .osi-exp-category {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  padding: 6px 16px;
+  border-radius: 24px;
+  background: rgba(10, 31, 20, 0.75);
+  backdrop-filter: blur(8px);
+  font-size: 11px;
+  font-weight: 600;
+  color: #c9a96e;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+}
+#oriental-optimized-landing .osi-exp-body {
+  padding: 28px 28px 32px;
+}
+#oriental-optimized-landing .osi-exp-body h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+#oriental-optimized-landing .osi-exp-features {
+  margin-bottom: 24px;
+}
+#oriental-optimized-landing .osi-exp-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 14px;
+  color: rgba(240, 235, 227, 0.7);
+}
+#oriental-optimized-landing .osi-exp-features li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c9a96e;
+  flex-shrink: 0;
+}
+#oriental-optimized-landing .osi-exp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c9a96e;
+  transition: gap 0.3s ease;
+}
+#oriental-optimized-landing .osi-exp-link:hover {
+  gap: 14px;
+}
+
+/* Process */
+#oriental-optimized-landing .osi-process {
+  padding: 100px 32px;
+  background: #0a1f14;
+}
+#oriental-optimized-landing .osi-process-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+#oriental-optimized-landing .osi-process-grid::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(201, 169, 110, 0.08), rgba(201, 169, 110, 0.2), rgba(201, 169, 110, 0.2), rgba(201, 169, 110, 0.08));
+}
+#oriental-optimized-landing .osi-step {
+  text-align: center;
+  position: relative;
+  padding: 0 16px;
+}
+#oriental-optimized-landing .osi-step-num {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #0d2818;
+  border: 2px solid rgba(201, 169, 110, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+#oriental-optimized-landing .osi-step:hover .osi-step-num {
+  border-color: #c9a96e;
+  box-shadow: 0 0 30px rgba(201, 169, 110, 0.15);
+}
+#oriental-optimized-landing .osi-step-num span {
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #c9a96e, #e0c98f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+#oriental-optimized-landing .osi-step h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+#oriental-optimized-landing .osi-step p {
+  font-size: 13px;
+  color: rgba(240, 235, 227, 0.5);
+  line-height: 1.6;
+}
+
+/* CTA */
+#oriental-optimized-landing .osi-cta {
+  padding: 100px 32px;
+  background: #0d2818;
+}
+#oriental-optimized-landing .osi-cta-box {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(201, 169, 110, 0.08), rgba(201, 169, 110, 0.03));
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 24px;
+  padding: 64px 48px;
+  position: relative;
+  overflow: hidden;
+}
+#oriental-optimized-landing .osi-cta-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(201, 169, 110, 0.04), transparent 50%);
+  pointer-events: none;
+}
+#oriental-optimized-landing .osi-cta-box h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+#oriental-optimized-landing .osi-cta-box h2 span {
+  background: linear-gradient(135deg, #c9a96e, #e0c98f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+#oriental-optimized-landing .osi-cta-box p {
+  font-size: 16px;
+  color: rgba(240, 235, 227, 0.6);
+  max-width: 500px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+  position: relative;
+}
+#oriental-optimized-landing .osi-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  position: relative;
+}
+#oriental-optimized-landing .osi-cta-btn {
+  padding: 16px 36px;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+#oriental-optimized-landing .osi-cta-btn.gold {
+  background: linear-gradient(135deg, #c9a96e, #b8943f);
+  color: #0a1f14;
+}
+#oriental-optimized-landing .osi-cta-btn.gold:hover {
+  box-shadow: 0 8px 30px rgba(201, 169, 110, 0.3);
+  background: linear-gradient(135deg, #d4b87a, #c9a96e);
+}
+#oriental-optimized-landing .osi-cta-btn.ghost {
+  background: transparent;
+  border: 1.5px solid rgba(201, 169, 110, 0.3);
+  color: #c9a96e;
+}
+#oriental-optimized-landing .osi-cta-btn.ghost:hover {
+  border-color: #c9a96e;
+  background: rgba(201, 169, 110, 0.08);
+}
+
+/* Footer */
+#oriental-optimized-landing .osi-footer {
+  padding: 48px 32px;
+  background: #071a0e;
+  border-top: 1px solid rgba(201, 169, 110, 0.08);
+  text-align: center;
+}
+#oriental-optimized-landing .osi-footer-logo img {
+  height: 36px;
+  margin-bottom: 20px;
+}
+#oriental-optimized-landing .osi-footer p {
+  font-size: 13px;
+  color: rgba(240, 235, 227, 0.35);
+  line-height: 1.8;
+}
+#oriental-optimized-landing .osi-footer a {
+  color: #c9a96e;
+  transition: opacity 0.3s ease;
+}
+#oriental-optimized-landing .osi-footer a:hover {
+  opacity: 0.8;
+}
+
+/* WhatsApp */
+#oriental-optimized-landing .osi-whatsapp {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+#oriental-optimized-landing .osi-whatsapp:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.45);
+}
+#oriental-optimized-landing .osi-whatsapp svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #oriental-optimized-landing .osi-nav {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 31, 20, 0.97);
+    backdrop-filter: blur(20px);
+    padding: 16px 24px;
+    gap: 4px;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+  }
+  #oriental-optimized-landing .osi-nav.open {
+    display: flex;
+  }
+  #oriental-optimized-landing .osi-mobile-toggle {
+    display: block;
+  }
+  #oriental-optimized-landing .osi-hero {
+    padding: 130px 24px 72px;
+  }
+  #oriental-optimized-landing .osi-hero h1 {
+    font-size: 32px;
+  }
+  #oriental-optimized-landing .osi-hero p {
+    font-size: 16px;
+  }
+  #oriental-optimized-landing .osi-packages {
+    padding: 72px 20px;
+  }
+  #oriental-optimized-landing .osi-packages-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+  #oriental-optimized-landing .osi-section-header h2 {
+    font-size: 28px;
+  }
+  #oriental-optimized-landing .osi-expertise {
+    padding: 72px 20px;
+  }
+  #oriental-optimized-landing .osi-expertise-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  #oriental-optimized-landing .osi-process {
+    padding: 72px 20px;
+  }
+  #oriental-optimized-landing .osi-process-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 20px;
+  }
+  #oriental-optimized-landing .osi-process-grid::before {
+    display: none;
+  }
+  #oriental-optimized-landing .osi-cta {
+    padding: 72px 20px;
+  }
+  #oriental-optimized-landing .osi-cta-box {
+    padding: 40px 24px;
+  }
+  #oriental-optimized-landing .osi-cta-box h2 {
+    font-size: 26px;
+  }
+  #oriental-optimized-landing .osi-cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
 </head>
+<body id="oriental-optimized-landing">
 
-<body>
+<!-- Header -->
+<header class="osi-header">
+  <div class="osi-header-inner">
+    <a href="index.html" class="osi-logo">
+      <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior">
+    </a>
+    <nav class="osi-nav" id="osiNav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="osi-mobile-toggle" onclick="document.getElementById('osiNav').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-    <div id="oriental-optimized-landing">
-        <div class="viewport-wrapper">
+<!-- Hero -->
+<section class="osi-hero">
+  <span class="osi-hero-label">Our Services</span>
+  <h1>Crafting <span>Exceptional</span> Living Spaces</h1>
+  <p>From concept to completion, we deliver bespoke interior design solutions that elevate your home and lifestyle across Singapore.</p>
+</section>
 
-            <header id="oriental-header">
-                <div class="container">
-                    <a href="index.html">
-                        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior Pte Ltd">
-                    </a>
-                    <nav class="main-nav">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="services.html" class="active">Services</a>
-                        <a href="contact.html">Contact</a>
-                    </nav>
-                </div>
-            </header>
+<!-- Renovation Packages -->
+<section class="osi-packages">
+  <div class="osi-section-header">
+    <span class="osi-section-tag">Packages</span>
+    <h2>Renovation Packages</h2>
+    <p>Transparent pricing with no hidden costs. Every package includes project management and warranty coverage.</p>
+  </div>
+  <div class="osi-packages-grid">
 
-            <section id="oriental-services-hero">
-                <div class="container">
-                    <h1>Comprehensive Interior Solutions</h1>
-                    <p>From conceptualization to the final coat of paint, our in-house factory capabilities allow us to manage every aspect of your residential or commercial renovation with unmatched precision and transparency.</p>
-                </div>
-            </section>
-
-            <section id="oriental-packages">
-                <div class="container">
-                    <div class="packages-header">
-                        <h2>Renovation Packages</h2>
-                        <p style="color:var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Standardized bundles designed to give you clarity and value without hidden costs.</p>
-                    </div>
-
-                    <div class="packages-grid">
-                        
-                        <div class="package-card">
-                            <h3 class="package-name">Essential BTO</h3>
-                            <p class="package-desc">Perfect for brand new HDB flats requiring baseline carpentry.</p>
-                            <div class="package-price">From $12,888 <span>/net</span></div>
-                            <ul class="package-includes">
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Kitchen Cabinetry (20ft)</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Quartz Countertop (10ft)</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Painting (Whole House)</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Plumbing Connection</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> General Post-Reno Cleaning</li>
-                            </ul>
-                            <a href="https://wa.me/6588097017?text=Hi%20there,%20I'm%20interested%20in%20the%20Essential%20BTO%20Package!" target="_blank" class="package-btn btn-outline">Inquire via WhatsApp</a>
-                        </div>
-
-                        <div class="package-card popular">
-                            <div class="popular-badge">Most Popular</div>
-                            <h3 class="package-name">Resale Overhaul</h3>
-                            <p class="package-desc">Comprehensive hacking and rebuilding for older resale flats.</p>
-                            <div class="package-price">From $35,000 <span>/net</span></div>
-                            <ul class="package-includes">
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Full Hacking & Dismantling</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Complete Kitchen & 2 Baths Redo</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Master Bedroom Wardrobe (6ft)</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Vinyl Flooring (Living & Beds)</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Electrical & Plumbing Setup</li>
-                            </ul>
-                            <a href="https://wa.me/6588097017?text=Hi%20there,%20I'm%20interested%20in%20the%20Resale%20Overhaul%20Package!" target="_blank" class="package-btn btn-solid">Inquire via WhatsApp</a>
-                        </div>
-
-                        <div class="package-card">
-                            <h3 class="package-name">Kitchen & Bath</h3>
-                            <p class="package-desc">Focused upgrades for the essential wet areas in your home.</p>
-                            <div class="package-price">From $18,500 <span>/net</span></div>
-                            <ul class="package-includes">
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Kitchen & Bath Hacking</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Wall & Floor Tiling</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Waterproofing System</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Sanitary Wares Install</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Kitchen Carpentry Base</li>
-                            </ul>
-                            <a href="https://wa.me/6588097017?text=Hi%20there,%20I'm%20interested%20in%20the%20Kitchen%20and%20Bath%20Package!" target="_blank" class="package-btn btn-outline">Inquire via WhatsApp</a>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section id="oriental-core-services">
-                <div class="container">
-                    <div class="core-header">
-                        <h2>Our Expertise</h2>
-                        <p style="color:var(--muted); font-size:1.1rem; max-width: 600px; margin: 0 auto;">Tailored design and renovation disciplines for every space.</p>
-                    </div>
-
-                    <div class="core-grid">
-                        
-                        <div class="service-img-card">
-                            <div class="service-img-wrapper">
-                                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/500764121-122162805278561872-1337864408949636204-n-mmdb9iimwwyv.webp" alt="Residential Design" class="service-img" loading="lazy">
-                            </div>
-                            <div class="service-content-box">
-                                <h3>Residential Design</h3>
-                                <p>Transforming houses into personalized homes. We specialize in maximizing space, functionality, and aesthetics tailored to your lifestyle, from BTOs to Landed estates.</p>
-                                <ul class="service-list">
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> HDB BTO & Resale Standard Compliant</li>
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Condominium MCST Permit Processing</li>
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Full Scale Home Custom Carpentry</li>
-                                </ul>
-                                <a href="contact.html" class="service-link">
-                                    Start Your Home Project
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="service-img-card">
-                            <div class="service-img-wrapper">
-                                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/583033906-122190785594561872-5452794545472650409-n-mmdb9jnc67sa.webp" alt="Commercial Space Design" class="service-img" loading="lazy">
-                            </div>
-                            <div class="service-content-box">
-                                <h3>Commercial Spaces</h3>
-                                <p>First impressions matter in business. We build commercial spaces that reflect your brand identity, optimize workflow efficiency, and engage your customers.</p>
-                                <ul class="service-list">
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Corporate Office Layouts & Partitions</li>
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Retail Storefronts & Showrooms</li>
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> F&B and Hospitality Interiors</li>
-                                </ul>
-                                <a href="contact.html" class="service-link">
-                                    Upgrade Your Business
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="service-img-card">
-                            <div class="service-img-wrapper">
-                                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/612575552-122198694554561872-6890434456760943563-n-mmdb9kehozl3.webp" alt="Consultation and Planning" class="service-img" loading="lazy">
-                            </div>
-                            <div class="service-content-box">
-                                <h3>Consultation & Planning</h3>
-                                <p>Great spaces begin with meticulous planning. Before a single hammer is swung, our consultants perform feasibility studies, space mapping, and 3D visualization.</p>
-                                <ul class="service-list">
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Initial Floorplan Assessment</li>
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Custom 3D Renders & Material Selection</li>
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Transparent Itemized Quoting</li>
-                                </ul>
-                                <a href="contact.html" class="service-link">
-                                    Book a Consultation
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section id="oriental-process">
-                <div class="container">
-                    <div class="process-header">
-                        <h2 class="process-title">Our Process</h2>
-                        <p style="color:var(--muted); font-size:1.1rem;">A seamless renovation journey from conceptualization to handover.</p>
-                    </div>
-                    <div class="process-grid">
-                        <div class="step-card">
-                            <div class="step-num">1</div>
-                            <h4 class="step-title">Consultation</h4>
-                            <p class="step-desc">Share your floorplan and design ideas for an initial free consultation.</p>
-                        </div>
-                        <div class="step-card">
-                            <div class="step-num">2</div>
-                            <h4 class="step-title">3D Design</h4>
-                            <p class="step-desc">We produce realistic 3D renders so you can visualize the final look.</p>
-                        </div>
-                        <div class="step-card">
-                            <div class="step-num">3</div>
-                            <h4 class="step-title">Construction</h4>
-                            <p class="step-desc">In-house carpentry and wet works begin with strict timeline adherence.</p>
-                        </div>
-                        <div class="step-card">
-                            <div class="step-num">4</div>
-                            <h4 class="step-title">Handover</h4>
-                            <p class="step-desc">Final cleaning, defects checking, and handing over the keys to your dream home.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="oriental-cta">
-                <div class="container">
-                    <h2>Ready to build your Dream Home?</h2>
-                    <p>Don't miss out. Enjoy a <strong>Complimentary 10ft Kitchen Upgrade</strong><br>when you commit to
-                        a renovation package of $50,000 and above.</p>
-                    <a href="https://wa.me/6588097017?text=Hi%20there,%20I'm%20interested%20in%20the%20free%20kitchen%20carpentry%20promotion!"
-                        target="_blank" class="wa-btn">
-                        <svg width="24" height="24" viewBox="0 0 448 512" fill="currentColor">
-                            <path
-                                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-                        </svg>
-                        Claim Offer on WhatsApp
-                    </a>
-                </div>
-            </section>
-            
-            <footer id="oriental-footer">
-                <div class="container">
-                    <nav class="footer-nav">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="services.html">Services</a>
-                        <a href="contact.html">Contact</a>
-                    </nav>
-                    <p>
-                        © 2026 Oriental System Interior Pte Ltd. All Rights Reserved.<br>
-                        <a href="https://reputifly.com/web-development" target="_blank">Website Design by Reputifly</a>
-                    </p>
-                </div>
-            </footer>
-
-            <a href="https://wa.me/6588097017?text=Hi%20there,%20I'm%20interested%20in%20a%20renovation%20consultation!"
-                target="_blank" id="oriental-floating-wa" aria-label="Chat on WhatsApp">
-                <svg viewBox="0 0 448 512" fill="white">
-                    <path
-                        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-                </svg>
-            </a>
-
+    <!-- Essential BTO -->
+    <div class="osi-pkg-card">
+      <div class="osi-pkg-name">Essential BTO</div>
+      <div class="osi-pkg-price">$12,888</div>
+      <div class="osi-pkg-price-note">From / net price</div>
+      <div class="osi-pkg-divider"></div>
+      <div class="osi-pkg-includes">
+        <h4>What's Included</h4>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Kitchen Cabinetry 20ft</span>
         </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Quartz Countertop 10ft</span>
+        </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Painting Whole House</span>
+        </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Plumbing Connection</span>
+        </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Post-Reno Cleaning</span>
+        </div>
+      </div>
+      <a href="https://wa.me/6588097017?text=Hi%2C%20I'm%20interested%20in%20the%20Essential%20BTO%20package" class="osi-pkg-btn outline">Get Quote</a>
     </div>
 
-</body>
+    <!-- Resale Overhaul -->
+    <div class="osi-pkg-card popular">
+      <span class="osi-pkg-badge">Most Popular</span>
+      <div class="osi-pkg-name">Resale Overhaul</div>
+      <div class="osi-pkg-price">$35,000</div>
+      <div class="osi-pkg-price-note">From / net price</div>
+      <div class="osi-pkg-divider"></div>
+      <div class="osi-pkg-includes">
+        <h4>What's Included</h4>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Full Hacking</span>
+        </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Kitchen &amp; 2 Baths</span>
+        </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Wardrobe 6ft</span>
+        </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Vinyl Flooring</span>
+        </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Electrical &amp; Plumbing</span>
+        </div>
+      </div>
+      <a href="https://wa.me/6588097017?text=Hi%2C%20I'm%20interested%20in%20the%20Resale%20Overhaul%20package" class="osi-pkg-btn primary">Get Quote</a>
+    </div>
 
+    <!-- Kitchen & Bath -->
+    <div class="osi-pkg-card">
+      <div class="osi-pkg-name">Kitchen &amp; Bath</div>
+      <div class="osi-pkg-price">$18,500</div>
+      <div class="osi-pkg-price-note">From / net price</div>
+      <div class="osi-pkg-divider"></div>
+      <div class="osi-pkg-includes">
+        <h4>What's Included</h4>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Kitchen &amp; Bath Hacking</span>
+        </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Wall &amp; Floor Tiling</span>
+        </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Waterproofing</span>
+        </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Sanitary Wares</span>
+        </div>
+        <div class="osi-pkg-item">
+          <span class="osi-pkg-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#25D366" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Kitchen Carpentry Base</span>
+        </div>
+      </div>
+      <a href="https://wa.me/6588097017?text=Hi%2C%20I'm%20interested%20in%20the%20Kitchen%20%26%20Bath%20package" class="osi-pkg-btn outline">Get Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- Our Expertise -->
+<section class="osi-expertise">
+  <div class="osi-section-header">
+    <span class="osi-section-tag">Expertise</span>
+    <h2>Our Expertise</h2>
+    <p>Specialised interior design services tailored to every space and vision.</p>
+  </div>
+  <div class="osi-expertise-grid">
+
+    <!-- Residential -->
+    <div class="osi-exp-card">
+      <div class="osi-exp-img">
+        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/500764121-122162805278561872-1337864408949636204-n-mmdb9iimwwyv.webp" alt="Residential Design" loading="lazy">
+        <span class="osi-exp-category">Residential</span>
+      </div>
+      <div class="osi-exp-body">
+        <h3>Residential Design</h3>
+        <ul class="osi-exp-features">
+          <li>HDB &amp; Condo Renovation</li>
+          <li>Space Planning &amp; Layout</li>
+          <li>Custom Carpentry &amp; Cabinetry</li>
+          <li>Material &amp; Finish Selection</li>
+        </ul>
+        <a href="https://wa.me/6588097017?text=Hi%2C%20I'm%20interested%20in%20Residential%20Design%20services" class="osi-exp-link">Learn More <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Commercial -->
+    <div class="osi-exp-card">
+      <div class="osi-exp-img">
+        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/583033906-122190785594561872-5452794545472650409-n-mmdb9jnc67sa.webp" alt="Commercial Spaces" loading="lazy">
+        <span class="osi-exp-category">Commercial</span>
+      </div>
+      <div class="osi-exp-body">
+        <h3>Commercial Spaces</h3>
+        <ul class="osi-exp-features">
+          <li>Office &amp; Retail Fitouts</li>
+          <li>F&amp;B Interior Design</li>
+          <li>Brand-Aligned Environments</li>
+          <li>Functional Space Optimisation</li>
+        </ul>
+        <a href="https://wa.me/6588097017?text=Hi%2C%20I'm%20interested%20in%20Commercial%20Space%20design" class="osi-exp-link">Learn More <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Consultation -->
+    <div class="osi-exp-card">
+      <div class="osi-exp-img">
+        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/612575552-122198694554561872-6890434456760943563-n-mmdb9kehozl3.webp" alt="Consultation & Planning" loading="lazy">
+        <span class="osi-exp-category">Consultation</span>
+      </div>
+      <div class="osi-exp-body">
+        <h3>Consultation &amp; Planning</h3>
+        <ul class="osi-exp-features">
+          <li>On-Site Measurement &amp; Assessment</li>
+          <li>Budget Planning &amp; Quotation</li>
+          <li>3D Visualisation &amp; Rendering</li>
+          <li>Project Timeline &amp; Coordination</li>
+        </ul>
+        <a href="https://wa.me/6588097017?text=Hi%2C%20I'd%20like%20a%20Consultation%20%26%20Planning%20session" class="osi-exp-link">Learn More <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Process -->
+<section class="osi-process">
+  <div class="osi-section-header">
+    <span class="osi-section-tag">How We Work</span>
+    <h2>Our Process</h2>
+    <p>A seamless journey from your first consultation to the final handover.</p>
+  </div>
+  <div class="osi-process-grid">
+    <div class="osi-step">
+      <div class="osi-step-num"><span>01</span></div>
+      <h3>Consultation</h3>
+      <p>We listen to your vision, assess the space, and understand your requirements and budget.</p>
+    </div>
+    <div class="osi-step">
+      <div class="osi-step-num"><span>02</span></div>
+      <h3>3D Design</h3>
+      <p>Our designers create detailed 3D renderings so you can visualise the final outcome.</p>
+    </div>
+    <div class="osi-step">
+      <div class="osi-step-num"><span>03</span></div>
+      <h3>Construction</h3>
+      <p>Skilled craftsmen bring the design to life with quality materials and expert workmanship.</p>
+    </div>
+    <div class="osi-step">
+      <div class="osi-step-num"><span>04</span></div>
+      <h3>Handover</h3>
+      <p>Final inspection, thorough cleaning, and a smooth handover of your transformed space.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="osi-cta">
+  <div class="osi-cta-box">
+    <h2>Ready to Transform <span>Your Space</span>?</h2>
+    <p>Get a free, no-obligation consultation and quote. Let us bring your dream home to life with our expert team.</p>
+    <div class="osi-cta-actions">
+      <a href="https://wa.me/6588097017?text=Hi%2C%20I'd%20like%20a%20free%20consultation%20for%20my%20renovation%20project" class="osi-cta-btn gold">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#0a1f14"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="#0a1f14"/></svg>
+        WhatsApp Us
+      </a>
+      <a href="contact.html" class="osi-cta-btn ghost">View Contact Details</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="osi-footer">
+  <div class="osi-footer-logo">
+    <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior">
+  </div>
+  <p>&copy; 2026 Oriental System Interior. All rights reserved.</p>
+  <p style="margin-top: 8px;">Powered by <a href="https://reputifly.com" target="_blank" rel="noopener">Reputifly</a></p>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/6588097017" class="osi-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.66.72 5.14 1.98 7.28L2 30l6.72-1.98C10.86 29.28 13.34 30 16 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm7.4 19.88c-.32.88-1.86 1.68-2.56 1.78-.7.1-1.34.5-4.48-.94-3.78-1.74-6.18-5.64-6.36-5.9-.18-.26-1.5-2-1.5-3.82 0-1.82.94-2.72 1.28-3.08.34-.36.74-.44.98-.44.24 0 .48.002.7.012.22.01.52-.084.82.62.3.72 1.04 2.52 1.12 2.7.1.18.16.4.04.64-.12.24-.18.38-.36.58-.18.2-.38.44-.54.6-.18.18-.36.36-.16.72.2.36.92 1.52 1.98 2.46 1.36 1.2 2.5 1.58 2.86 1.76.36.18.56.16.78-.08.22-.26.92-1.06 1.16-1.42.24-.36.48-.3.8-.18.32.12 2.06.98 2.42 1.16.36.18.6.26.68.42.1.14.1.86-.22 1.74z"/></svg>
+</a>
+
+</body>
 </html>
