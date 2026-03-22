@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase | Straits Diving Engineering</title>
+    <meta name="description" content="Explore Straits Diving Engineering's portfolio of marine salvage, underwater construction, and engineering projects across Southeast Asia.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #45baba;
+            --accent: #fae227;
+            --text: #0b0a14;
+            --bg-light: #ffffff;
+            --bg-offwhite: #f8f9fa;
+            --bg-dark: #0f172a;
+            --surface: #f5dd26;
+            --border: #e1cb23;
+            --muted-text: rgba(8, 7, 14, 0.7);
+            --primary-hover: #000000;
+            --on-primary: #ffffff;
+            --focus-ring: #a0ce71;
+            --radius: 24px;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --glass-blur: blur(12px);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --font-main: 'Inter', sans-serif;
+            --container-width: 1200px;
+            --section-padding: 100px 20px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-main); color: var(--text); background: var(--bg-light); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.3s; }
+        .header.scrolled { box-shadow: var(--shadow); }
+        .header .container { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+        .logo img { height: 50px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text); transition: color 0.2s; position: relative; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--primary); border-radius: 2px; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: var(--primary); color: var(--on-primary); border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; transition: background 0.3s, transform 0.2s; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 5px; }
+        .hamburger span { width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+        .mobile-menu { display: none; position: fixed; top: 80px; left: 0; right: 0; bottom: 0; background: var(--bg-light); z-index: 999; padding: 40px 20px; }
+        .mobile-menu.active { display: flex; flex-direction: column; gap: 24px; align-items: center; }
+        .mobile-menu a { font-size: 1.2rem; font-weight: 500; color: var(--text); }
+        .mobile-menu a.active { color: var(--primary); }
+
+        .page-hero { position: relative; height: 300px; display: flex; align-items: center; background: var(--bg-dark); padding-top: 80px; }
+        .page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(69,186,186,0.15)); }
+        .page-hero-content { position: relative; z-index: 1; }
+        .page-hero-content h1 { font-size: 2.5rem; font-weight: 800; color: var(--on-primary); margin-bottom: 12px; }
+        .breadcrumb { display: flex; gap: 8px; align-items: center; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+        .breadcrumb a { color: var(--primary); }
+        .breadcrumb a:hover { color: var(--accent); }
+
+        .section-label { display: inline-block; font-size: 0.85rem; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+
+        /* FILTERS */
+        .showcase-section { padding: var(--section-padding); background: var(--bg-offwhite); }
+        .filter-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            background: var(--bg-light);
+            border: 2px solid rgba(0,0,0,0.08);
+            font-family: var(--font-main);
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--text);
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: var(--on-primary);
+            border-color: var(--primary);
+        }
+
+        /* PROJECT GRID */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s, opacity 0.4s;
+        }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 30px 40px -10px rgba(0,0,0,0.15); }
+        .project-card.hidden { display: none; }
+        .project-card-img { position: relative; height: 220px; overflow: hidden; }
+        .project-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .project-card:hover .project-card-img img { transform: scale(1.05); }
+        .project-tag {
+            position: absolute;
+            top: 16px; left: 16px;
+            padding: 6px 14px;
+            background: var(--primary);
+            color: var(--on-primary);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .project-card-body { padding: 24px; }
+        .project-card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .project-card-body p { color: var(--muted-text); font-size: 0.9rem; margin-bottom: 16px; }
+        .project-card-body a {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+        .project-card-body a:hover { gap: 10px; }
+
+        /* CTA */
+        .showcase-cta { padding: 80px 20px; background: var(--accent); text-align: center; }
+        .showcase-cta h2 { font-size: 2rem; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+        .showcase-cta p { color: var(--muted-text); max-width: 500px; margin: 0 auto 30px; font-size: 1.05rem; }
+        .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-dark { display: inline-flex; align-items: center; gap: 8px; padding: 14px 30px; background: var(--bg-dark); color: var(--on-primary); border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; transition: background 0.3s, transform 0.2s; }
+        .btn-dark:hover { background: var(--text); transform: translateY(-2px); }
+        .btn-wa { display: inline-flex; align-items: center; gap: 8px; padding: 14px 30px; background: #25D366; color: var(--on-primary); border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; transition: background 0.3s, transform 0.2s; }
+        .btn-wa:hover { background: #1da851; transform: translateY(-2px); }
+
+        /* FOOTER */
+        .footer { background: var(--bg-dark); padding: 80px 20px 0; color: rgba(255,255,255,0.7); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; max-width: var(--container-width); margin: 0 auto; }
+        .footer-brand img { height: 45px; margin-bottom: 16px; }
+        .footer-brand p { font-size: 0.95rem; line-height: 1.7; }
+        .footer h4 { color: var(--on-primary); font-size: 1rem; margin-bottom: 20px; font-weight: 600; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 10px; }
+        .footer ul a { font-size: 0.9rem; transition: color 0.2s; }
+        .footer ul a:hover { color: var(--primary); }
+        .footer-contact-item { display: flex; gap: 10px; margin-bottom: 14px; font-size: 0.9rem; }
+        .footer-contact-item i { color: var(--primary); margin-top: 3px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; max-width: var(--container-width); margin-left: auto; margin-right: auto; }
+        .footer-bottom p { font-size: 0.85rem; }
+        .footer-bottom a { color: var(--primary); }
+
+        .whatsapp-float { position: fixed; bottom: 28px; right: 28px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.7rem; z-index: 999; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .page-hero-content h1 { font-size: 1.8rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-3-2026-03-24-41-PM-mmaa8seeyovq.webp" alt="Straits Diving Engineering"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="showcase.html" class="active">Showcase</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="btn-primary">Get a Quote</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="showcase.html" class="active">Showcase</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn-primary">Get a Quote</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>Our Project Showcase</h1>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right" style="font-size:0.7rem;"></i>
+                    <span>Showcase</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section class="showcase-section">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:16px;">
+                <span class="section-label">Our Portfolio</span>
+                <h2 style="font-size:2.2rem;font-weight:700;margin-bottom:8px;">Featured Projects</h2>
+                <p style="color:var(--muted-text);max-width:600px;margin:0 auto 40px;font-size:1.05rem;">A selection of our completed projects showcasing our expertise across underwater construction, salvage, engineering, and inspection services.</p>
+            </div>
+
+            <!-- FILTER BUTTONS -->
+            <div class="filter-btns">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="underwater-construction">Underwater Construction</button>
+                <button class="filter-btn" data-filter="salvage">Salvage Operations</button>
+                <button class="filter-btn" data-filter="engineering">Engineering</button>
+                <button class="filter-btn" data-filter="inspection">Inspection</button>
+            </div>
+
+            <!-- PROJECT GRID -->
+            <div class="projects-grid" id="projectsGrid">
+                <div class="project-card fade-in" data-category="underwater-construction">
+                    <div class="project-card-img">
+                        <img src="https://placehold.co/600x400/0f172a/45baba?text=Project+1" alt="Marina Bay Harbour Reinforcement">
+                        <span class="project-tag">Underwater Construction</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Marina Bay Harbour Reinforcement</h3>
+                        <p>Major structural reinforcement of harbour walls and underwater foundations at Marina Bay, ensuring long-term durability against tidal forces.</p>
+                        <a href="#">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="salvage">
+                    <div class="project-card-img">
+                        <img src="https://placehold.co/600x400/0f172a/45baba?text=Project+2" alt="MV Pacific Star Recovery">
+                        <span class="project-tag">Salvage Operations</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>MV Pacific Star Recovery</h3>
+                        <p>Emergency recovery of a 12,000-ton cargo vessel that ran aground in the Singapore Strait. Successful refloating completed within 72 hours.</p>
+                        <a href="#">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="engineering">
+                    <div class="project-card-img">
+                        <img src="https://placehold.co/600x400/0f172a/45baba?text=Project+3" alt="Jurong Island Pipeline Repair">
+                        <span class="project-tag">Engineering</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Jurong Island Pipeline Repair</h3>
+                        <p>Critical subsea pipeline repair for a petrochemical facility at Jurong Island, completed under hyperbaric conditions with zero downtime.</p>
+                        <a href="#">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="inspection">
+                    <div class="project-card-img">
+                        <img src="https://placehold.co/600x400/0f172a/45baba?text=Project+4" alt="Sentosa Coastal Inspection">
+                        <span class="project-tag">Inspection</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Sentosa Coastal Inspection</h3>
+                        <p>Comprehensive ROV-assisted inspection of coastal defence structures around Sentosa Island, including NDT analysis and integrity reporting.</p>
+                        <a href="#">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="salvage">
+                    <div class="project-card-img">
+                        <img src="https://placehold.co/600x400/0f172a/45baba?text=Project+5" alt="Batam Strait Wreck Removal">
+                        <span class="project-tag">Salvage Operations</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Batam Strait Wreck Removal</h3>
+                        <p>Removal of a decommissioned vessel from a busy shipping lane in the Batam Strait, including environmental remediation of the surrounding seabed.</p>
+                        <a href="#">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="underwater-construction">
+                    <div class="project-card-img">
+                        <img src="https://placehold.co/600x400/0f172a/45baba?text=Project+6" alt="Tuas Port Foundation Work">
+                        <span class="project-tag">Underwater Construction</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Tuas Port Foundation Work</h3>
+                        <p>Underwater piling and foundation installation for the Tuas Port expansion project, supporting Singapore's next-generation mega port development.</p>
+                        <a href="#">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="inspection">
+                    <div class="project-card-img">
+                        <img src="https://placehold.co/600x400/0f172a/45baba?text=Project+7" alt="Changi Naval Base Maintenance">
+                        <span class="project-tag">Inspection</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Changi Naval Base Maintenance</h3>
+                        <p>Routine underwater maintenance and cathodic protection survey for critical naval infrastructure at Changi Naval Base.</p>
+                        <a href="#">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="salvage">
+                    <div class="project-card-img">
+                        <img src="https://placehold.co/600x400/0f172a/45baba?text=Project+8" alt="Bintan Cargo Retrieval">
+                        <span class="project-tag">Salvage Operations</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Bintan Cargo Retrieval</h3>
+                        <p>Recovery of high-value cargo from a sunken barge off the coast of Bintan, Indonesia. Diving operations conducted at 35m depth with full environmental safeguards.</p>
+                        <a href="#">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="showcase-cta fade-in">
+        <h2>Ready to Start Your Next Project?</h2>
+        <p>Contact our team for a free consultation and project assessment. We bring decades of experience to every engagement.</p>
+        <div class="cta-btns">
+            <a href="https://wa.me/6584748748" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+            <a href="contact.html" class="btn-dark"><i class="fas fa-envelope"></i> Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-3-2026-03-24-41-PM-mmaa8seeyovq.webp" alt="Straits Diving Engineering">
+                <p>Singapore's trusted partner for underwater construction, marine salvage, and subsea engineering services across Southeast Asia.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Underwater Construction</a></li>
+                    <li><a href="services.html">Vessel Salvage</a></li>
+                    <li><a href="services.html">Inspection & Maintenance</a></li>
+                    <li><a href="services.html">Consulting</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="showcase.html">Project Showcase</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <div class="footer-contact-item"><i class="fas fa-phone"></i><span><a href="tel:+6584748748">+65 8474 8748</a></span></div>
+                <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span><a href="https://wa.me/6584748748">WhatsApp Us</a></span></div>
+                <div class="footer-contact-item"><i class="fas fa-envelope"></i><span><a href="mailto:operations@straitsdiving.example.com">operations@straitsdiving.example.com</a></span></div>
+                <div class="footer-contact-item"><i class="fas fa-location-dot"></i><span>Singapore (Headquarters)</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Straits Diving Engineering. All rights reserved.</p>
+            <p>Website designed by <a href="#">Reputifly</a></p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6584748748" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        // Header scroll
+        window.addEventListener('scroll', () => { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50); });
+
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active'); document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : ''; });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Project filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.classList.remove('hidden');
+                        // Re-trigger animation
+                        card.classList.remove('visible');
+                        setTimeout(() => card.classList.add('visible'), 50);
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
