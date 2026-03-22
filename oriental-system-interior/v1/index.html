@@ -1,1050 +1,1448 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oriental System Interior | Premium Interior Design Singapore</title>
-    <meta name="description" content="Oriental System Interior - Singapore's trusted interior design firm specializing in custom carpentry, wet works, and premium renovation services.">
-    <link rel="icon" type="image/webp" href="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oriental System Interior | Singapore Interior Design & Renovation</title>
+<meta name="description" content="Singapore's trusted direct factory contractor for HDB &amp; Condo renovation. Custom carpentry, wet works, electrical &amp; plumbing. Get your free quote today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0a1f14;
+  font-family: 'Inter', sans-serif;
+  color: #f0ebe3;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
 
-    <!-- Google Ads -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17764512398"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-17764512398');
-    </script>
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { background: #0a1f14; margin: 0; padding: 0; }
+#oriental-optimized-landing {
+  --bg-main: #0a1f14;
+  --bg-card: #0d2818;
+  --bg-alt: #132f1e;
+  --gold: #c9a96e;
+  --text: #f0ebe3;
+  --text-muted: rgba(240,235,227,0.6);
+  --border: rgba(201,169,110,0.15);
+  --radius: 16px;
+  background: var(--bg-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-        #oriental-optimized-landing {
-            --bg-main: #0a1f14;
-            --bg-surface: #0d2818;
-            --bg-light: #132f1e;
-            --gold: #c9a96e;
-            --gold-light: #d4b87a;
-            --gold-dark: #b8954f;
-            --text-main: #f0ebe3;
-            --text-muted: rgba(240,235,227,0.6);
-            --border-gold: rgba(201,169,110,0.15);
-            --border-gold-hover: rgba(201,169,110,0.35);
-            --radius: 24px;
-            --radius-sm: 16px;
-            --radius-xs: 12px;
+#oriental-optimized-landing .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+/* ===== HEADER ===== */
+#oriental-optimized-landing .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10,31,20,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--gold);
+}
 
-        #oriental-optimized-landing img { max-width: 100%; display: block; }
-        #oriental-optimized-landing a { text-decoration: none; color: inherit; }
-        #oriental-optimized-landing ul { list-style: none; }
-        #oriental-optimized-landing button { cursor: pointer; border: none; font-family: inherit; }
-        #oriental-optimized-landing input, #oriental-optimized-landing select, #oriental-optimized-landing textarea { font-family: inherit; }
+#oriental-optimized-landing .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
 
-        /* ===== HEADER ===== */
-        .osi-header {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(10,31,20,0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-gold);
-            transition: background 0.3s ease;
-        }
-        .osi-header-inner {
-            max-width: 1200px; margin: 0 auto;
-            padding: 0 24px;
-            display: flex; align-items: center; justify-content: space-between;
-            height: 72px;
-        }
-        .osi-logo { height: 44px; border-radius: 8px; }
-        .osi-nav { display: flex; gap: 8px; }
-        .osi-nav a {
-            padding: 8px 18px; border-radius: 100px;
-            font-size: 14px; font-weight: 500;
-            color: var(--text-muted);
-            transition: all 0.3s ease;
-        }
-        .osi-nav a:hover, .osi-nav a.active {
-            color: var(--gold);
-            background: rgba(201,169,110,0.08);
-        }
-        .osi-nav a.active { font-weight: 600; }
-        .osi-mobile-toggle {
-            display: none; background: none; border: none;
-            width: 36px; height: 36px;
-            flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-        }
-        .osi-mobile-toggle span {
-            display: block; width: 22px; height: 2px;
-            background: var(--gold); border-radius: 2px;
-            transition: all 0.3s ease;
-        }
+#oriental-optimized-landing .header-logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
 
-        /* ===== HERO ===== */
-        .osi-hero {
-            padding: 120px 24px 80px;
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 420px;
-            gap: 60px; align-items: center;
-            min-height: 100vh;
-        }
-        .osi-hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 8px 18px; border-radius: 100px;
-            background: rgba(201,169,110,0.08);
-            border: 1px solid rgba(201,169,110,0.25);
-            font-size: 13px; font-weight: 500;
-            color: var(--gold); margin-bottom: 24px;
-        }
-        .osi-hero-badge span { font-size: 14px; }
-        .osi-hero h1 {
-            font-size: 52px; font-weight: 800;
-            line-height: 1.1; margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-        .osi-hero h1 .gold { color: var(--gold); }
-        .osi-hero-sub {
-            font-size: 17px; color: var(--text-muted);
-            margin-bottom: 32px; line-height: 1.7;
-            max-width: 480px;
-        }
-        .osi-hero-stats {
-            display: flex; gap: 40px;
-        }
-        .osi-hero-stat strong {
-            display: block; font-size: 28px; font-weight: 700;
-            color: var(--gold);
-        }
-        .osi-hero-stat span {
-            font-size: 13px; color: var(--text-muted); font-weight: 500;
-        }
+#oriental-optimized-landing .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-        /* ===== FORM CARD ===== */
-        .osi-form-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-gold);
-            border-radius: var(--radius);
-            padding: 36px 32px;
-            box-shadow: 0 0 60px rgba(201,169,110,0.06), 0 20px 40px rgba(0,0,0,0.3);
-            position: relative;
-        }
-        .osi-form-card::before {
-            content: ''; position: absolute; inset: -1px;
-            border-radius: var(--radius);
-            background: linear-gradient(135deg, rgba(201,169,110,0.2), transparent 50%, rgba(201,169,110,0.1));
-            z-index: -1;
-            pointer-events: none;
-        }
-        .osi-form-card h3 {
-            font-size: 22px; font-weight: 700; margin-bottom: 4px;
-        }
-        .osi-form-card .form-sub {
-            font-size: 14px; color: var(--text-muted); margin-bottom: 24px;
-        }
-        .osi-form-group { margin-bottom: 16px; }
-        .osi-form-group label {
-            display: block; font-size: 13px; font-weight: 600;
-            color: var(--text-muted); margin-bottom: 6px;
-            text-transform: uppercase; letter-spacing: 0.04em;
-        }
-        .osi-form-group input,
-        .osi-form-group select {
-            width: 100%; padding: 14px 16px;
-            background: rgba(0,0,0,0.25);
-            border: 1px solid rgba(201,169,110,0.12);
-            border-radius: var(--radius-xs);
-            color: var(--text-main); font-size: 15px;
-            transition: all 0.3s ease;
-            outline: none;
-        }
-        .osi-form-group input::placeholder { color: var(--text-muted); }
-        .osi-form-group input:focus,
-        .osi-form-group select:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(201,169,110,0.1);
-        }
-        .osi-form-group select { appearance: none; cursor: pointer; }
-        .osi-form-group select option { background: var(--bg-surface); color: var(--text-main); }
-        .osi-btn-gold {
-            width: 100%; padding: 16px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--bg-main); font-size: 16px; font-weight: 700;
-            border-radius: var(--radius-xs);
-            transition: all 0.3s ease;
-            text-transform: uppercase; letter-spacing: 0.04em;
-            border: none;
-        }
-        .osi-btn-gold:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(201,169,110,0.25);
-        }
-        .osi-btn-gold:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-        .osi-form-trust {
-            display: flex; align-items: center; gap: 8px;
-            margin-top: 16px; font-size: 12px; color: var(--text-muted);
-        }
+#oriental-optimized-landing .header-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
 
-        /* ===== SECTION COMMON ===== */
-        .osi-section {
-            padding: 100px 24px;
-            max-width: 1200px; margin: 0 auto;
-        }
-        .osi-section-label {
-            display: inline-flex; align-items: center; gap: 8px;
-            font-size: 13px; font-weight: 600; color: var(--gold);
-            text-transform: uppercase; letter-spacing: 0.08em;
-            margin-bottom: 12px;
-        }
-        .osi-section-label::before {
-            content: ''; width: 20px; height: 1px; background: var(--gold);
-        }
-        .osi-section-title {
-            font-size: 40px; font-weight: 800;
-            line-height: 1.15; margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-        .osi-section-desc {
-            font-size: 16px; color: var(--text-muted);
-            max-width: 560px; line-height: 1.7;
-        }
-        .osi-separator {
-            height: 1px; max-width: 1200px; margin: 0 auto;
-            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
-        }
+#oriental-optimized-landing .header-nav a:hover {
+  color: var(--gold);
+  background: rgba(201,169,110,0.08);
+}
 
-        /* ===== REVIEWS MARQUEE ===== */
-        .osi-reviews-section {
-            padding: 80px 0;
-            background: var(--bg-surface);
-            overflow: hidden;
-        }
-        .osi-reviews-header {
-            max-width: 1200px; margin: 0 auto 48px;
-            padding: 0 24px;
-        }
-        .osi-marquee-track {
-            display: flex; gap: 24px;
-            animation: osi-marquee 35s linear infinite;
-            width: max-content;
-        }
-        .osi-marquee-track:hover { animation-play-state: paused; }
-        @keyframes osi-marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .osi-review-card {
-            flex-shrink: 0; width: 380px;
-            background: var(--bg-light);
-            border: 1px solid var(--border-gold);
-            border-radius: var(--radius);
-            padding: 32px;
-            position: relative;
-        }
-        .osi-review-quote {
-            position: absolute; top: 16px; right: 24px;
-            font-size: 48px; color: rgba(201,169,110,0.15);
-            font-family: Georgia, serif; line-height: 1;
-        }
-        .osi-review-stars {
-            display: flex; gap: 3px; margin-bottom: 16px;
-        }
-        .osi-review-stars svg { width: 18px; height: 18px; fill: var(--gold); }
-        .osi-review-text {
-            font-size: 15px; line-height: 1.7;
-            color: var(--text-main); margin-bottom: 20px;
-        }
-        .osi-review-author {
-            display: flex; align-items: center; gap: 12px;
-        }
-        .osi-review-avatar {
-            width: 40px; height: 40px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 16px; color: var(--bg-main);
-        }
-        .osi-review-name { font-weight: 600; font-size: 15px; }
-        .osi-review-role { font-size: 13px; color: var(--text-muted); }
+#oriental-optimized-landing .header-nav a.active {
+  background: rgba(201,169,110,0.15);
+  color: var(--gold);
+}
 
-        /* ===== SERVICES ===== */
-        .osi-services-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 24px; margin-top: 48px;
-        }
-        .osi-service-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-gold);
-            border-radius: var(--radius);
-            padding: 40px 32px;
-            transition: all 0.4s ease;
-        }
-        .osi-service-card:hover {
-            border-color: var(--border-gold-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-        }
-        .osi-service-icon {
-            width: 56px; height: 56px; border-radius: 16px;
-            background: rgba(201,169,110,0.1);
-            border: 1px solid rgba(201,169,110,0.2);
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 24px;
-        }
-        .osi-service-icon svg { width: 28px; height: 28px; stroke: var(--gold); fill: none; }
-        .osi-service-card h3 {
-            font-size: 20px; font-weight: 700; margin-bottom: 12px;
-        }
-        .osi-service-card p {
-            font-size: 15px; color: var(--text-muted); line-height: 1.7;
-        }
+#oriental-optimized-landing .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+}
 
-        /* ===== PROCESS ===== */
-        .osi-process-section { background: var(--bg-surface); }
-        .osi-process-inner {
-            max-width: 1200px; margin: 0 auto;
-            padding: 100px 24px;
-        }
-        .osi-process-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            gap: 32px; margin-top: 48px;
-        }
-        .osi-process-step { text-align: center; position: relative; }
-        .osi-process-num {
-            width: 56px; height: 56px; border-radius: 50%;
-            background: rgba(201,169,110,0.1);
-            border: 2px solid var(--gold);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 22px; font-weight: 800; color: var(--gold);
-            margin: 0 auto 20px;
-        }
-        .osi-process-step h4 {
-            font-size: 17px; font-weight: 700; margin-bottom: 8px;
-        }
-        .osi-process-step p {
-            font-size: 14px; color: var(--text-muted); line-height: 1.6;
-        }
-        .osi-process-step:not(:last-child)::after {
-            content: ''; position: absolute;
-            top: 28px; left: calc(50% + 36px);
-            width: calc(100% - 72px); height: 1px;
-            background: linear-gradient(90deg, var(--gold), transparent);
-            opacity: 0.3;
-        }
+#oriental-optimized-landing .hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  transition: all 0.3s ease;
+}
 
-        /* ===== PORTFOLIO ===== */
-        .osi-portfolio-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 24px; margin-top: 48px;
-        }
-        .osi-portfolio-card {
-            border-radius: var(--radius);
-            overflow: hidden; position: relative;
-            aspect-ratio: 4/3;
-            border: 1px solid var(--border-gold);
-            transition: all 0.4s ease;
-        }
-        .osi-portfolio-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-        .osi-portfolio-card img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        .osi-portfolio-card:hover img { transform: scale(1.05); }
-        .osi-portfolio-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(10,31,20,0.9) 0%, transparent 60%);
-            display: flex; flex-direction: column;
-            justify-content: flex-end; padding: 28px;
-        }
-        .osi-portfolio-cat {
-            font-size: 12px; font-weight: 600; color: var(--gold);
-            text-transform: uppercase; letter-spacing: 0.08em;
-            margin-bottom: 6px;
-        }
-        .osi-portfolio-name {
-            font-size: 18px; font-weight: 700;
-        }
+#oriental-optimized-landing .hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
 
-        /* ===== FAQ ===== */
-        .osi-section.osi-faq-section { text-align: center; }
-        .osi-section.osi-faq-section .osi-section-label { justify-content: center; }
-        .osi-faq-list { margin: 48px auto 0; max-width: 800px; text-align: left; }
-        .osi-faq-item {
-            border-bottom: 1px solid var(--border-gold);
-        }
-        .osi-faq-q {
-            width: 100%; padding: 24px 0;
-            background: none; border: none;
-            display: flex; justify-content: space-between; align-items: center;
-            font-size: 17px; font-weight: 600;
-            color: var(--text-main); text-align: left;
-            cursor: pointer; transition: color 0.3s;
-        }
-        .osi-faq-q:hover { color: var(--gold); }
-        .osi-faq-q.active { color: var(--gold); }
-        .osi-faq-icon {
-            width: 28px; height: 28px; flex-shrink: 0;
-            border-radius: 50%;
-            background: rgba(201,169,110,0.1);
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.3s;
-        }
-        .osi-faq-q.active .osi-faq-icon {
-            background: var(--gold);
-        }
-        .osi-faq-icon svg {
-            width: 14px; height: 14px;
-            stroke: var(--gold);
-            transition: transform 0.3s, stroke 0.3s;
-        }
-        .osi-faq-q.active .osi-faq-icon svg {
-            transform: rotate(180deg);
-            stroke: var(--bg-main);
-        }
-        .osi-faq-a {
-            max-height: 0; overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-        }
-        .osi-faq-a.open {
-            max-height: 300px;
-            padding-bottom: 24px;
-        }
-        .osi-faq-a p {
-            font-size: 15px; color: var(--text-muted); line-height: 1.7;
-        }
+#oriental-optimized-landing .hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
 
-        /* ===== CTA ===== */
-        .osi-cta-section {
-            background: var(--bg-surface);
-            border-top: 1px solid var(--border-gold);
-            border-bottom: 1px solid var(--border-gold);
-        }
-        .osi-cta-inner {
-            max-width: 800px; margin: 0 auto;
-            padding: 80px 24px; text-align: center;
-        }
-        .osi-cta-inner h2 {
-            font-size: 36px; font-weight: 800;
-            line-height: 1.2; margin-bottom: 16px;
-        }
-        .osi-cta-inner p {
-            font-size: 17px; color: var(--text-muted);
-            margin-bottom: 32px; line-height: 1.7;
-        }
-        .osi-cta-btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 18px 40px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--bg-main); font-size: 17px; font-weight: 700;
-            border-radius: var(--radius-xs);
-            transition: all 0.3s ease;
-            border: none; text-transform: uppercase; letter-spacing: 0.04em;
-        }
-        .osi-cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(201,169,110,0.3);
-        }
+#oriental-optimized-landing .hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 
-        /* ===== FOOTER ===== */
-        .osi-footer {
-            background: var(--bg-main);
-            border-top: 1px solid var(--border-gold);
-            padding: 48px 24px 32px;
-        }
-        .osi-footer-inner {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center;
-            flex-wrap: wrap; gap: 16px;
-        }
-        .osi-footer p {
-            font-size: 14px; color: var(--text-muted);
-        }
-        .osi-footer a {
-            color: var(--gold); transition: opacity 0.3s;
-        }
-        .osi-footer a:hover { opacity: 0.8; }
+#oriental-optimized-landing .mobile-nav {
+  display: none;
+  background: rgba(10,31,20,0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
 
-        /* ===== WHATSAPP FAB ===== */
-        .osi-whatsapp {
-            position: fixed; bottom: 24px; right: 24px;
-            width: 60px; height: 60px; border-radius: 50%;
-            background: #25D366;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 20px rgba(37,211,102,0.3);
-            z-index: 999; transition: all 0.3s ease;
-        }
-        .osi-whatsapp:hover {
-            transform: scale(1.08);
-            box-shadow: 0 6px 28px rgba(37,211,102,0.4);
-        }
-        .osi-whatsapp svg { width: 32px; height: 32px; fill: #fff; }
+#oriental-optimized-landing .mobile-nav.open {
+  display: block;
+}
 
-        /* ===== FORM SUCCESS ===== */
-        .osi-form-success {
-            text-align: center; padding: 40px 0;
-        }
-        .osi-form-success svg { margin: 0 auto 16px; }
-        .osi-form-success h4 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-        .osi-form-success p { font-size: 14px; color: var(--text-muted); }
+#oriental-optimized-landing .mobile-nav a {
+  display: block;
+  padding: 16px 24px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
 
-        /* ===== MOBILE NAV ===== */
-        .osi-mobile-nav {
-            display: none; position: fixed; top: 72px; left: 0; right: 0;
-            background: rgba(10,31,20,0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-gold);
-            padding: 16px 24px; z-index: 999;
-        }
-        .osi-mobile-nav.open { display: block; }
-        .osi-mobile-nav a {
-            display: block; padding: 14px 0;
-            font-size: 16px; font-weight: 500;
-            color: var(--text-muted);
-            border-bottom: 1px solid rgba(201,169,110,0.08);
-            transition: color 0.3s;
-        }
-        .osi-mobile-nav a:last-child { border-bottom: none; }
-        .osi-mobile-nav a:hover, .osi-mobile-nav a.active { color: var(--gold); }
+#oriental-optimized-landing .mobile-nav a:hover,
+#oriental-optimized-landing .mobile-nav a.active {
+  color: var(--gold);
+  background: rgba(201,169,110,0.05);
+}
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 900px) {
-            .osi-nav { display: none; }
-            .osi-mobile-toggle { display: flex; }
-            .osi-hero {
-                grid-template-columns: 1fr;
-                gap: 40px; padding: 100px 24px 60px;
-                min-height: auto;
-            }
-            .osi-hero h1 { font-size: 38px; }
-            .osi-services-grid { grid-template-columns: 1fr 1fr; }
-            .osi-process-grid { grid-template-columns: 1fr 1fr; }
-            .osi-process-step::after { display: none !important; }
-            .osi-portfolio-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 600px) {
-            .osi-hero h1 { font-size: 30px; }
-            .osi-hero-stats { gap: 24px; }
-            .osi-hero-stat strong { font-size: 22px; }
-            .osi-form-card { padding: 28px 20px; }
-            .osi-section { padding: 64px 16px; }
-            .osi-section-title { font-size: 28px; }
-            .osi-services-grid { grid-template-columns: 1fr; }
-            .osi-process-grid { grid-template-columns: 1fr; }
-            .osi-portfolio-grid { grid-template-columns: 1fr; }
-            .osi-review-card { width: 300px; }
-            .osi-cta-inner h2 { font-size: 26px; }
-            .osi-footer-inner { flex-direction: column; text-align: center; }
-        }
-    </style>
+/* ===== SECTIONS COMMON ===== */
+#oriental-optimized-landing section {
+  background: var(--bg-main);
+  padding: 80px 0;
+}
+
+#oriental-optimized-landing .section-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+#oriental-optimized-landing .section-heading {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 48px 0;
+  line-height: 1.2;
+}
+
+#oriental-optimized-landing .section-center {
+  text-align: center;
+}
+
+/* ===== HERO ===== */
+#oriental-optimized-landing .hero {
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+#oriental-optimized-landing .hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+#oriental-optimized-landing .hero-badge {
+  display: inline-block;
+  background: rgba(201,169,110,0.12);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 8px 20px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+#oriental-optimized-landing .hero-heading {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 20px 0;
+  color: var(--text);
+}
+
+#oriental-optimized-landing .hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+
+#oriental-optimized-landing .hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+#oriental-optimized-landing .hero-stat-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+
+#oriental-optimized-landing .hero-stat-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  display: block;
+}
+
+#oriental-optimized-landing .btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#oriental-optimized-landing .btn-whatsapp:hover {
+  background: #1ebe5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+}
+
+#oriental-optimized-landing .btn-whatsapp svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* ===== FORM CARD ===== */
+#oriental-optimized-landing .form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  box-shadow: 0 0 40px rgba(201,169,110,0.06);
+}
+
+#oriental-optimized-landing .form-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--text);
+  text-align: center;
+}
+
+#oriental-optimized-landing .form-card .form-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+#oriental-optimized-landing .form-group {
+  margin-bottom: 14px;
+}
+
+#oriental-optimized-landing .form-group input,
+#oriental-optimized-landing .form-group select,
+#oriental-optimized-landing .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#oriental-optimized-landing .form-group input::placeholder,
+#oriental-optimized-landing .form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+#oriental-optimized-landing .form-group input:focus,
+#oriental-optimized-landing .form-group select:focus,
+#oriental-optimized-landing .form-group textarea:focus {
+  border-color: var(--gold);
+}
+
+#oriental-optimized-landing .form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a96e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+#oriental-optimized-landing .form-group select option {
+  background: var(--bg-card);
+  color: var(--text);
+}
+
+#oriental-optimized-landing .form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+#oriental-optimized-landing .btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--gold), #b8944e);
+  color: #0a1f14;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 4px;
+}
+
+#oriental-optimized-landing .btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,169,110,0.3);
+}
+
+#oriental-optimized-landing .trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+#oriental-optimized-landing .trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+#oriental-optimized-landing .trust-badge svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--gold);
+}
+
+/* ===== REVIEWS MARQUEE ===== */
+#oriental-optimized-landing .reviews {
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+#oriental-optimized-landing .marquee-track {
+  display: flex;
+  gap: 24px;
+  animation: marqueeScroll 35s linear infinite;
+  width: max-content;
+}
+
+#oriental-optimized-landing .marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+#oriental-optimized-landing .review-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  min-width: 360px;
+  max-width: 360px;
+  flex-shrink: 0;
+}
+
+#oriental-optimized-landing .review-quote {
+  color: var(--gold);
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+#oriental-optimized-landing .review-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 14px;
+}
+
+#oriental-optimized-landing .review-stars svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--gold);
+}
+
+#oriental-optimized-landing .review-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+
+#oriental-optimized-landing .review-author {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+#oriental-optimized-landing .review-project {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ===== WHY CHOOSE US ===== */
+#oriental-optimized-landing .services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+#oriental-optimized-landing .service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+#oriental-optimized-landing .service-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+}
+
+#oriental-optimized-landing .service-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(201,169,110,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+
+#oriental-optimized-landing .service-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#oriental-optimized-landing .service-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: var(--text);
+}
+
+#oriental-optimized-landing .service-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ===== OUR PROCESS ===== */
+#oriental-optimized-landing .process-timeline {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+}
+
+#oriental-optimized-landing .process-timeline::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  right: 28px;
+  height: 2px;
+  background: var(--border);
+}
+
+#oriental-optimized-landing .process-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 0 12px;
+}
+
+#oriental-optimized-landing .process-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0 auto 16px auto;
+  position: relative;
+  z-index: 1;
+}
+
+#oriental-optimized-landing .process-step h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--text);
+}
+
+#oriental-optimized-landing .process-step p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ===== CURATED SPACES ===== */
+#oriental-optimized-landing .portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+#oriental-optimized-landing .portfolio-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  cursor: pointer;
+}
+
+#oriental-optimized-landing .portfolio-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+#oriental-optimized-landing .portfolio-card:hover img {
+  transform: scale(1.06);
+}
+
+#oriental-optimized-landing .portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,31,20,0.9) 0%, rgba(10,31,20,0.2) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+}
+
+#oriental-optimized-landing .portfolio-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+#oriental-optimized-landing .portfolio-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ===== FAQ ===== */
+#oriental-optimized-landing .faq {
+  padding: 80px 0;
+}
+
+#oriental-optimized-landing .faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#oriental-optimized-landing .faq-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: var(--bg-card);
+  transition: border-color 0.3s ease;
+}
+
+#oriental-optimized-landing .faq-item.active {
+  border-color: rgba(201,169,110,0.3);
+}
+
+#oriental-optimized-landing .faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.3s ease;
+}
+
+#oriental-optimized-landing .faq-item.active .faq-question {
+  color: var(--gold);
+}
+
+#oriental-optimized-landing .faq-chevron {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+#oriental-optimized-landing .faq-item.active .faq-chevron {
+  transform: rotate(180deg);
+}
+
+#oriental-optimized-landing .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+#oriental-optimized-landing .faq-answer-inner {
+  padding: 0 24px 20px 24px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ===== CTA PROMO ===== */
+#oriental-optimized-landing .cta-promo {
+  padding: 80px 0;
+  text-align: center;
+}
+
+#oriental-optimized-landing .cta-promo-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 60px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#oriental-optimized-landing .cta-promo-box h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0 0 16px 0;
+}
+
+#oriental-optimized-landing .cta-promo-box p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+#oriental-optimized-landing .btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--gold), #b8944e);
+  color: #0a1f14;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 36px;
+  border-radius: 100px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+#oriental-optimized-landing .btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,169,110,0.3);
+}
+
+/* ===== FOOTER ===== */
+#oriental-optimized-landing .site-footer {
+  background: var(--bg-main);
+  border-top: 1px solid var(--border);
+  padding: 40px 0;
+  text-align: center;
+}
+
+#oriental-optimized-landing .footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#oriental-optimized-landing .footer-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+#oriental-optimized-landing .footer-nav a:hover {
+  color: var(--gold);
+}
+
+#oriental-optimized-landing .footer-copy {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0 0 6px 0;
+}
+
+#oriental-optimized-landing .footer-credit {
+  font-size: 0.72rem;
+  color: rgba(240,235,227,0.35);
+  margin: 0;
+}
+
+#oriental-optimized-landing .footer-credit a {
+  color: rgba(240,235,227,0.45);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#oriental-optimized-landing .footer-credit a:hover {
+  color: var(--gold);
+}
+
+/* ===== FLOATING WHATSAPP ===== */
+#oriental-optimized-landing .floating-wa {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+#oriental-optimized-landing .floating-wa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+}
+
+#oriental-optimized-landing .floating-wa svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+
+/* ===== RESPONSIVE 900px ===== */
+@media (max-width: 900px) {
+  #oriental-optimized-landing .header-nav {
+    display: none;
+  }
+
+  #oriental-optimized-landing .hamburger {
+    display: flex;
+  }
+
+  #oriental-optimized-landing .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  #oriental-optimized-landing .services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #oriental-optimized-landing .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #oriental-optimized-landing .process-timeline {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+
+  #oriental-optimized-landing .process-timeline::before {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+
+  #oriental-optimized-landing .process-step {
+    max-width: 320px;
+  }
+
+  #oriental-optimized-landing .review-card {
+    min-width: 300px;
+    max-width: 300px;
+  }
+}
+
+/* ===== RESPONSIVE 600px ===== */
+@media (max-width: 600px) {
+  #oriental-optimized-landing .container {
+    padding: 0 16px;
+  }
+
+  #oriental-optimized-landing section {
+    padding: 56px 0;
+  }
+
+  #oriental-optimized-landing .hero {
+    padding-top: 96px;
+    padding-bottom: 56px;
+  }
+
+  #oriental-optimized-landing .hero-stats {
+    gap: 20px;
+  }
+
+  #oriental-optimized-landing .hero-stat-num {
+    font-size: 1.5rem;
+  }
+
+  #oriental-optimized-landing .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #oriental-optimized-landing .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #oriental-optimized-landing .form-card {
+    padding: 28px 20px;
+  }
+
+  #oriental-optimized-landing .cta-promo-box {
+    padding: 40px 24px;
+  }
+
+  #oriental-optimized-landing .review-card {
+    min-width: 280px;
+    max-width: 280px;
+  }
+
+  #oriental-optimized-landing .section-heading {
+    margin-bottom: 36px;
+  }
+
+  #oriental-optimized-landing .header-inner {
+    height: 64px;
+  }
+
+  #oriental-optimized-landing .header-logo img {
+    height: 40px;
+  }
+}
+</style>
 </head>
 <body>
 <div id="oriental-optimized-landing">
 
-    <!-- HEADER -->
-    <header class="osi-header">
-        <div class="osi-header-inner">
-            <a href="index.html">
-                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior" class="osi-logo">
-            </a>
-            <nav class="osi-nav">
-                <a href="index.html" class="active">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <button class="osi-mobile-toggle" onclick="document.querySelector('.osi-mobile-nav').classList.toggle('open')" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </header>
-
-    <!-- MOBILE NAV -->
-    <div class="osi-mobile-nav">
-        <a href="index.html" class="active" onclick="document.querySelector('.osi-mobile-nav').classList.remove('open')">Home</a>
-        <a href="about.html" onclick="document.querySelector('.osi-mobile-nav').classList.remove('open')">About</a>
-        <a href="services.html" onclick="document.querySelector('.osi-mobile-nav').classList.remove('open')">Services</a>
-        <a href="contact.html" onclick="document.querySelector('.osi-mobile-nav').classList.remove('open')">Contact</a>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior" loading="eager">
+      </a>
+      <nav class="header-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <!-- HERO -->
-    <section class="osi-hero" id="contact">
-        <div>
-            <div class="osi-hero-badge">
-                <span>&#9733;</span> Singapore's Trusted Interior Design Firm
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <span class="hero-badge">Expert HDB &amp; Condo Renovation</span>
+          <h1 class="hero-heading">Singapore Interior Design &amp; Renovation</h1>
+          <p class="hero-desc">As a Direct Factory Contractor, we handle everything from custom carpentry fabrication to full-scale renovation, delivering quality workmanship at honest prices with no middlemen involved.</p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-num">500+</span>
+              <span class="hero-stat-label">Projects</span>
             </div>
-            <h1>Crafting Spaces That Inspire <span class="gold">Timeless Living</span></h1>
-            <p class="osi-hero-sub">From concept to completion, Oriental System Interior delivers bespoke renovation solutions with meticulous craftsmanship and direct-factory pricing.</p>
-            <div class="osi-hero-stats">
-                <div class="osi-hero-stat">
-                    <strong>500+</strong>
-                    <span>Projects Completed</span>
-                </div>
-                <div class="osi-hero-stat">
-                    <strong>15+</strong>
-                    <span>Years Experience</span>
-                </div>
-                <div class="osi-hero-stat">
-                    <strong>4.9</strong>
-                    <span>Google Rating</span>
-                </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">15+</span>
+              <span class="hero-stat-label">Years</span>
             </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">4.9</span>
+              <span class="hero-stat-label">Rating</span>
+            </div>
+          </div>
+          <a href="https://wa.me/6596900898" target="_blank" rel="noopener" class="btn-whatsapp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
         </div>
-
-        <!-- LEAD FORM -->
-        <div class="osi-form-card">
-            <div id="osiFormContainer">
-                <h3>Get Your Free Quote</h3>
-                <p class="form-sub">Share your renovation needs and we'll get back to you within 24 hours.</p>
-                <form id="osiLeadForm">
-                    <div class="osi-form-group">
-                        <label>Full Name</label>
-                        <input type="text" id="osiName" placeholder="Your full name" required>
-                    </div>
-                    <div class="osi-form-group">
-                        <label>Phone Number</label>
-                        <input type="tel" id="osiPhone" placeholder="e.g. 9123 4567" required>
-                    </div>
-                    <div class="osi-form-group">
-                        <label>Property Type</label>
-                        <select id="osiProperty" required>
-                            <option value="" disabled selected>Select property type</option>
-                            <option value="HDB">HDB</option>
-                            <option value="Condo">Condo</option>
-                            <option value="Landed">Landed</option>
-                            <option value="Commercial">Commercial</option>
-                        </select>
-                    </div>
-                    <div class="osi-form-group">
-                        <label>Budget Range</label>
-                        <select id="osiBudget" required>
-                            <option value="" disabled selected>Select budget range</option>
-                            <option value="Below $30K">Below $30K</option>
-                            <option value="$30K - $50K">$30K - $50K</option>
-                            <option value="$50K - $80K">$50K - $80K</option>
-                            <option value="$80K - $120K">$80K - $120K</option>
-                            <option value="Above $120K">Above $120K</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="osi-btn-gold" id="osiSubmitBtn">Get Free Consultation</button>
-                    <div class="osi-form-trust">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        Your information is secure and never shared.
-                    </div>
-                </form>
+        <div class="hero-right">
+          <div class="form-card">
+            <h3>Get Your Free Quote</h3>
+            <p class="form-sub">No obligation consultation with our design team</p>
+            <form id="leadForm">
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Full Name" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" name="phone" placeholder="Contact Number" required>
+              </div>
+              <div class="form-group">
+                <select name="property" required>
+                  <option value="" disabled selected>Property Type</option>
+                  <option value="HDB BTO">HDB BTO</option>
+                  <option value="HDB Resale">HDB Resale</option>
+                  <option value="Condo">Condo</option>
+                  <option value="Landed">Landed</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select name="budget" required>
+                  <option value="" disabled selected>Budget Range</option>
+                  <option value="Below $30k">Below $30k</option>
+                  <option value="$30k - $50k">$30k - $50k</option>
+                  <option value="$50k - $80k">$50k - $80k</option>
+                  <option value="Above $80k">Above $80k</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <textarea name="requirements" placeholder="Tell us about your renovation requirements" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn-submit">GET FREE CONSULTATION</button>
+            </form>
+            <div class="trust-badges">
+              <div class="trust-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                HDB Licensed
+              </div>
+              <div class="trust-badge">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                CaseTrust
+              </div>
+              <div class="trust-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                Top Ratings
+              </div>
             </div>
-            <div id="osiFormSuccess" class="osi-form-success" style="display:none;">
-                <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="28" fill="rgba(201,169,110,0.15)"/><path d="M18 28l7 7 13-13" stroke="#c9a96e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <h4>Thank You!</h4>
-                <p>We've received your enquiry and will contact you within 24 hours.</p>
-            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <div class="osi-separator"></div>
-
-    <!-- REVIEWS -->
-    <section class="osi-reviews-section" id="about">
-        <div class="osi-reviews-header">
-            <div class="osi-section-label">Client Testimonials</div>
-            <h2 class="osi-section-title">What Our Clients Say</h2>
-            <p class="osi-section-desc">Hear from homeowners who transformed their spaces with Oriental System Interior.</p>
+  <!-- REVIEWS -->
+  <section class="reviews">
+    <div class="container section-center">
+      <span class="section-label">Client Testimonials</span>
+      <h2 class="section-heading">What Our Clients Say</h2>
+    </div>
+    <div class="marquee-track">
+      <div class="review-card">
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <div class="osi-marquee-track" id="osiMarquee">
-            <!-- Card 1 -->
-            <div class="osi-review-card">
-                <div class="osi-review-quote">&ldquo;</div>
-                <div class="osi-review-stars">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                </div>
-                <p class="osi-review-text">We were really impressed with how attentive the team was. From the first consultation to the final walkthrough, everything was handled with care. Our 4-room BTO feels like a completely different home now. Highly recommended!</p>
-                <div class="osi-review-author">
-                    <div class="osi-review-avatar">D</div>
-                    <div>
-                        <div class="osi-review-name">Derek &amp; Clara Ng</div>
-                        <div class="osi-review-role">4-Room BTO, Tampines</div>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="osi-review-card">
-                <div class="osi-review-quote">&ldquo;</div>
-                <div class="osi-review-stars">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                </div>
-                <p class="osi-review-text">I was worried about renovating my resale flat, but the team made the process so smooth. They gave honest advice, stuck to the timeline, and the carpentry quality is top-notch. My kitchen looks amazing now!</p>
-                <div class="osi-review-author">
-                    <div class="osi-review-avatar">S</div>
-                    <div>
-                        <div class="osi-review-name">Siti Aishah</div>
-                        <div class="osi-review-role">5-Room Resale, Woodlands</div>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="osi-review-card">
-                <div class="osi-review-quote">&ldquo;</div>
-                <div class="osi-review-stars">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                </div>
-                <p class="osi-review-text">Professional, responsive, and creative. They turned our condo into something out of a magazine. The 3D rendering they showed us was almost identical to the final result. Great value for the price.</p>
-                <div class="osi-review-author">
-                    <div class="osi-review-avatar">J</div>
-                    <div>
-                        <div class="osi-review-name">Jason Lim</div>
-                        <div class="osi-review-role">Condo, Punggol</div>
-                    </div>
-                </div>
-            </div>
-            <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
-            <div class="osi-review-card">
-                <div class="osi-review-quote">&ldquo;</div>
-                <div class="osi-review-stars">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                </div>
-                <p class="osi-review-text">We were really impressed with how attentive the team was. From the first consultation to the final walkthrough, everything was handled with care. Our 4-room BTO feels like a completely different home now. Highly recommended!</p>
-                <div class="osi-review-author">
-                    <div class="osi-review-avatar">D</div>
-                    <div>
-                        <div class="osi-review-name">Derek &amp; Clara Ng</div>
-                        <div class="osi-review-role">4-Room BTO, Tampines</div>
-                    </div>
-                </div>
-            </div>
-            <div class="osi-review-card">
-                <div class="osi-review-quote">&ldquo;</div>
-                <div class="osi-review-stars">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                </div>
-                <p class="osi-review-text">I was worried about renovating my resale flat, but the team made the process so smooth. They gave honest advice, stuck to the timeline, and the carpentry quality is top-notch. My kitchen looks amazing now!</p>
-                <div class="osi-review-author">
-                    <div class="osi-review-avatar">S</div>
-                    <div>
-                        <div class="osi-review-name">Siti Aishah</div>
-                        <div class="osi-review-role">5-Room Resale, Woodlands</div>
-                    </div>
-                </div>
-            </div>
-            <div class="osi-review-card">
-                <div class="osi-review-quote">&ldquo;</div>
-                <div class="osi-review-stars">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-                </div>
-                <p class="osi-review-text">Professional, responsive, and creative. They turned our condo into something out of a magazine. The 3D rendering they showed us was almost identical to the final result. Great value for the price.</p>
-                <div class="osi-review-author">
-                    <div class="osi-review-avatar">J</div>
-                    <div>
-                        <div class="osi-review-name">Jason Lim</div>
-                        <div class="osi-review-role">Condo, Punggol</div>
-                    </div>
-                </div>
-            </div>
+        <p class="review-text">The carpentry workmanship on the fluted panel feature wall is solid. They are a reliable HDB licensed contractor that delivered 2 weeks early!</p>
+        <p class="review-author">Derek &amp; Clara Ng</p>
+        <p class="review-project">4-Room BTO Tampines</p>
+      </div>
+      <div class="review-card">
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-    </section>
-
-    <div class="osi-separator"></div>
-
-    <!-- SERVICES -->
-    <section class="osi-section" id="services">
-        <div class="osi-section-label">What We Do</div>
-        <h2 class="osi-section-title">Why Choose Us</h2>
-        <p class="osi-section-desc">We combine expert craftsmanship with direct-factory sourcing to deliver exceptional renovation results at competitive prices.</p>
-        <div class="osi-services-grid">
-            <div class="osi-service-card">
-                <div class="osi-service-icon">
-                    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                </div>
-                <h3>Custom Carpentry</h3>
-                <p>Bespoke wardrobes, kitchen cabinets, TV consoles, and storage solutions crafted with precision from our own factory. Direct manufacturing means better quality at better prices.</p>
-            </div>
-            <div class="osi-service-card">
-                <div class="osi-service-icon">
-                    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </div>
-                <h3>Wet Works</h3>
-                <p>Complete bathroom and kitchen overhauls including waterproofing, tiling, plumbing, and flooring. Our experienced team ensures every detail meets the highest standards.</p>
-            </div>
-            <div class="osi-service-card">
-                <div class="osi-service-icon">
-                    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <h3>Electrical</h3>
-                <p>Licensed electrical work including rewiring, power point relocation, lighting design, and smart home installations. Safety-certified and fully compliant with Singapore regulations.</p>
-            </div>
+        <p class="review-text">Hacking the wall for our open concept kitchen was messy, but the team cleaned up daily. The quartz countertop looks amazing.</p>
+        <p class="review-author">Siti Aishah</p>
+        <p class="review-project">5-Room Resale Woodlands</p>
+      </div>
+      <div class="review-card">
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="osi-process-section">
-        <div class="osi-process-inner">
-            <div class="osi-section-label">How It Works</div>
-            <h2 class="osi-section-title">Our Process</h2>
-            <p class="osi-section-desc">A streamlined 4-step journey from your first consultation to your dream home handover.</p>
-            <div class="osi-process-grid">
-                <div class="osi-process-step">
-                    <div class="osi-process-num">1</div>
-                    <h4>Free Consultation</h4>
-                    <p>Share your vision and requirements. We visit your space to understand the layout and discuss possibilities.</p>
-                </div>
-                <div class="osi-process-step">
-                    <div class="osi-process-num">2</div>
-                    <h4>3D Design &amp; Quote</h4>
-                    <p>Receive detailed 3D renders and a transparent quotation so you can visualize your space before committing.</p>
-                </div>
-                <div class="osi-process-step">
-                    <div class="osi-process-num">3</div>
-                    <h4>Renovation Begins</h4>
-                    <p>Our skilled team executes the plan with weekly progress updates and dedicated project management.</p>
-                </div>
-                <div class="osi-process-step">
-                    <div class="osi-process-num">4</div>
-                    <h4>Final Handover</h4>
-                    <p>Thorough inspection and walkthrough to ensure everything meets your expectations before handover.</p>
-                </div>
-            </div>
+        <p class="review-text">Great experience renovating our condo. They handled the MCST permits smoothly. The vinyl flooring was done flawlessly.</p>
+        <p class="review-author">Jason Lim</p>
+        <p class="review-project">Condo Punggol</p>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="review-card">
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-    </section>
-
-    <div class="osi-separator"></div>
-
-    <!-- PORTFOLIO -->
-    <section class="osi-section">
-        <div class="osi-section-label">Our Work</div>
-        <h2 class="osi-section-title">Curated Spaces</h2>
-        <p class="osi-section-desc">A selection of our recent projects showcasing our design philosophy and attention to detail.</p>
-        <div class="osi-portfolio-grid">
-            <div class="osi-portfolio-card">
-                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/500764121-122162805278561872-1337864408949636204-n-mmdb9iimwwyv.webp" alt="Modern HDB Living Room" loading="lazy">
-                <div class="osi-portfolio-overlay">
-                    <div class="osi-portfolio-cat">HDB Renovation</div>
-                    <div class="osi-portfolio-name">Modern Scandinavian Living</div>
-                </div>
-            </div>
-            <div class="osi-portfolio-card">
-                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/583033906-122190785594561872-5452794545472650409-n-mmdb9jnc67sa.webp" alt="Luxury Condo Kitchen" loading="lazy">
-                <div class="osi-portfolio-overlay">
-                    <div class="osi-portfolio-cat">Condo Design</div>
-                    <div class="osi-portfolio-name">Contemporary Elegance</div>
-                </div>
-            </div>
-            <div class="osi-portfolio-card">
-                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/612575552-122198694554561872-6890434456760943563-n-mmdb9kehozl3.webp" alt="Premium Interior Design" loading="lazy">
-                <div class="osi-portfolio-overlay">
-                    <div class="osi-portfolio-cat">Full Renovation</div>
-                    <div class="osi-portfolio-name">Warm Minimalist Retreat</div>
-                </div>
-            </div>
+        <p class="review-text">The carpentry workmanship on the fluted panel feature wall is solid. They are a reliable HDB licensed contractor that delivered 2 weeks early!</p>
+        <p class="review-author">Derek &amp; Clara Ng</p>
+        <p class="review-project">4-Room BTO Tampines</p>
+      </div>
+      <div class="review-card">
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-    </section>
-
-    <div class="osi-separator"></div>
-
-    <!-- FAQ -->
-    <section class="osi-section osi-faq-section">
-        <div class="osi-section-label">Common Questions</div>
-        <h2 class="osi-section-title">Frequently Asked Questions</h2>
-        <div class="osi-faq-list">
-            <div class="osi-faq-item">
-                <button class="osi-faq-q" onclick="toggleFaq(this)">
-                    How long does a typical renovation take?
-                    <div class="osi-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
-                </button>
-                <div class="osi-faq-a">
-                    <p>Most HDB renovations take 6 to 8 weeks, while condo and landed projects may take 10 to 14 weeks depending on scope. We provide a detailed timeline during the quotation stage so you know exactly what to expect.</p>
-                </div>
-            </div>
-            <div class="osi-faq-item">
-                <button class="osi-faq-q" onclick="toggleFaq(this)">
-                    What is your payment schedule?
-                    <div class="osi-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
-                </button>
-                <div class="osi-faq-a">
-                    <p>We follow a transparent milestone-based payment structure. Typically, it's split into 3 to 4 stages: upon confirmation, carpentry stage, installation stage, and final handover. No hidden charges, ever.</p>
-                </div>
-            </div>
-            <div class="osi-faq-item">
-                <button class="osi-faq-q" onclick="toggleFaq(this)">
-                    Do you provide warranties?
-                    <div class="osi-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
-                </button>
-                <div class="osi-faq-a">
-                    <p>Yes. All our carpentry work comes with a 1-year warranty. Wet works and waterproofing carry a 10-year warranty. We stand behind our craftsmanship and use only quality materials from trusted suppliers.</p>
-                </div>
-            </div>
-            <div class="osi-faq-item">
-                <button class="osi-faq-q" onclick="toggleFaq(this)">
-                    Do you offer 3D design visualizations?
-                    <div class="osi-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
-                </button>
-                <div class="osi-faq-a">
-                    <p>Absolutely. Every project includes complimentary 3D renders so you can see exactly how your space will look before renovation begins. We refine the design until you're completely satisfied.</p>
-                </div>
-            </div>
-            <div class="osi-faq-item">
-                <button class="osi-faq-q" onclick="toggleFaq(this)">
-                    Why are your prices more competitive?
-                    <div class="osi-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
-                </button>
-                <div class="osi-faq-a">
-                    <p>We own our carpentry factory and source materials directly. By cutting out middlemen, we pass the savings on to you without compromising on quality. You get premium results at direct-factory prices.</p>
-                </div>
-            </div>
+        <p class="review-text">Hacking the wall for our open concept kitchen was messy, but the team cleaned up daily. The quartz countertop looks amazing.</p>
+        <p class="review-author">Siti Aishah</p>
+        <p class="review-project">5-Room Resale Woodlands</p>
+      </div>
+      <div class="review-card">
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-    </section>
+        <p class="review-text">Great experience renovating our condo. They handled the MCST permits smoothly. The vinyl flooring was done flawlessly.</p>
+        <p class="review-author">Jason Lim</p>
+        <p class="review-project">Condo Punggol</p>
+      </div>
+    </div>
+  </section>
 
-    <div class="osi-separator"></div>
-
-    <!-- CTA -->
-    <section class="osi-cta-section">
-        <div class="osi-cta-inner">
-            <div class="osi-section-label">Limited Time Offer</div>
-            <h2>Complimentary 10ft Kitchen Upgrade</h2>
-            <p>When you commit to $50,000 and above, enjoy a free 10ft kitchen cabinet upgrade. Transform your cooking space with premium carpentry at no extra cost.</p>
-            <a href="contact.html" class="osi-cta-btn">
-                Claim Your Free Upgrade
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
+  <!-- WHY CHOOSE US -->
+  <section class="why-us">
+    <div class="container section-center">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-heading">Why Choose Us</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h4>Custom Carpentry</h4>
+          <p>From feature walls and wardrobes to full kitchen cabinetry, every piece is built in our own Singapore factory for precision fit and premium quality.</p>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="osi-footer">
-        <div class="osi-footer-inner">
-            <p>&copy; 2026 Oriental System Interior Pte Ltd. All Rights Reserved.</p>
-            <p>Website Design by <a href="https://reputifly.com" target="_blank" rel="noopener">Reputifly</a></p>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          </div>
+          <h4>Wet Works &amp; Hacking</h4>
+          <p>Professional hacking, tiling, waterproofing, and plastering services. We handle all structural and wet-work requirements with HDB compliance.</p>
         </div>
-    </footer>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h4>Electrical &amp; Plumbing</h4>
+          <p>Licensed electricians and plumbers for all rewiring, power point relocation, pipe works, and sanitary fitting installations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- WHATSAPP FAB -->
-    <a href="https://wa.me/6596900898" target="_blank" rel="noopener" class="osi-whatsapp" aria-label="Chat on WhatsApp">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
+  <!-- OUR PROCESS -->
+  <section class="process">
+    <div class="container section-center">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-heading">Our Process</h2>
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="process-num">1</div>
+          <h4>Free Consultation</h4>
+          <p>Share your vision and requirements. We visit your space, discuss ideas and provide professional advice at no cost.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">2</div>
+          <h4>3D Design &amp; Quote</h4>
+          <p>Our designers create detailed 3D renders and a transparent, itemised quotation so you know exactly what to expect.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">3</div>
+          <h4>Renovation Begins</h4>
+          <p>Our skilled team handles hacking, wet works, carpentry, electrical and plumbing with daily progress updates.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">4</div>
+          <h4>Final Handover</h4>
+          <p>We conduct a thorough walkthrough, address any touch-ups and hand you the keys to your dream home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURATED SPACES -->
+  <section class="portfolio">
+    <div class="container section-center">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-heading">Curated Spaces</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/500764121-122162805278561872-1337864408949636204-n-mmdb9iimwwyv.webp" alt="HDB Renovation - Modern Scandinavian Living" loading="lazy">
+          <div class="portfolio-overlay">
+            <span class="portfolio-tag">HDB Renovation</span>
+            <p class="portfolio-title">Modern Scandinavian Living</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/583033906-122190785594561872-5452794545472650409-n-mmdb9jnc67sa.webp" alt="Condo Design - Contemporary Elegance" loading="lazy">
+          <div class="portfolio-overlay">
+            <span class="portfolio-tag">Condo Design</span>
+            <p class="portfolio-title">Contemporary Elegance</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/612575552-122198694554561872-6890434456760943563-n-mmdb9kehozl3.webp" alt="Full Renovation - Warm Minimalist Retreat" loading="lazy">
+          <div class="portfolio-overlay">
+            <span class="portfolio-tag">Full Renovation</span>
+            <p class="portfolio-title">Warm Minimalist Retreat</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container section-center">
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What is the timeline for a renovation project?
+            <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">For new BTO flats, expect 6 to 8 weeks. For Resale HDBs or Condos involving hacking and wet works, timelines are generally 8 to 12 weeks.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What are your payment terms?
+            <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We use a progressive structure: 10% upon confirmation, 40% at commencement of works (hacking), 45% upon carpentry measurement, and 5% upon completion.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Do you provide warranties?
+            <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes, we provide a 12-month defects liability warranty on workmanship. Specific materials like vinyl flooring and premium hardware carry extended manufacturer warranties up to 10 years.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Do you offer free 3D design proposals?
+            <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Absolutely. We provide an initial space layout and a transparent itemized quotation for free. If you choose to engage us, we will proceed to final 3D renders so you know exactly what your home will look like before works begin.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Why choose a Direct Factory Contractor?
+            <svg class="faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">By handling all carpentry fabrication in our own Singapore factory, we bypass third-party showrooms and middlemen. This means you enjoy premium materials, strict quality control, and significant cost savings without hidden markups.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA PROMO -->
+  <section class="cta-promo">
+    <div class="container">
+      <div class="cta-promo-box">
+        <h2>Complimentary 10ft Kitchen Upgrade</h2>
+        <p>When you commit to $50,000 and above, enjoy a free 10ft kitchen cabinet upgrade.</p>
+        <a href="https://wa.me/6596900898?text=Hi%2C%20I%E2%80%99m%20interested%20in%20the%2010ft%20kitchen%20upgrade%20promo.%20Can%20I%20find%20out%20more%3F" target="_blank" rel="noopener" class="btn-gold">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Claim Your Free Upgrade
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 Oriental System Interior Pte Ltd. All Rights Reserved.</p>
+      <p class="footer-credit">Website Design by <a href="https://reputifly.com/web-development" target="_blank" rel="noopener">Reputifly</a></p>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/6596900898" target="_blank" rel="noopener" class="floating-wa" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
 </div>
 
 <script>
 (function() {
-    // FAQ Accordion
-    window.toggleFaq = function(btn) {
-        const answer = btn.nextElementSibling;
-        const isOpen = answer.classList.contains('open');
+  'use strict';
 
-        // Close all
-        document.querySelectorAll('.osi-faq-a').forEach(a => a.classList.remove('open'));
-        document.querySelectorAll('.osi-faq-q').forEach(q => q.classList.remove('active'));
+  // Hamburger menu toggle
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
 
-        if (!isOpen) {
-            answer.classList.add('open');
-            btn.classList.add('active');
-        }
-    };
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
 
-    // Lead Form Submission
-    const form = document.getElementById('osiLeadForm');
-    if (form) {
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('osiSubmitBtn');
-            const name = document.getElementById('osiName').value.trim();
-            const phone = document.getElementById('osiPhone').value.trim();
-            const property = document.getElementById('osiProperty').value;
-            const budget = document.getElementById('osiBudget').value;
+  // Close mobile nav on link click
+  var mobileLinks = mobileNav.querySelectorAll('a');
+  mobileLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
 
-            if (!name || !phone || !property || !budget) return;
+  // FAQ accordion
+  var faqItems = document.querySelectorAll('#oriental-optimized-landing .faq-item');
+  faqItems.forEach(function(item) {
+    var question = item.querySelector('.faq-question');
+    question.addEventListener('click', function() {
+      var isActive = item.classList.contains('active');
+      // Close all
+      faqItems.forEach(function(fi) {
+        fi.classList.remove('active');
+        fi.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        fi.querySelector('.faq-answer').style.maxHeight = '0';
+      });
+      // Toggle current
+      if (!isActive) {
+        item.classList.add('active');
+        question.setAttribute('aria-expanded', 'true');
+        var answer = item.querySelector('.faq-answer');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
 
-            btn.disabled = true;
-            btn.textContent = 'Submitting...';
+  // Form submission
+  var form = document.getElementById('leadForm');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-            try {
-                // Send lead via Reputifly API
-                await fetch('https://asia-southeast1-b2b-software.cloudfunctions.net/reputifly', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        _to: 'renobros88@gmail.com',
-                        _subject: 'New Lead from Oriental System Interior Website',
-                        _sender_name: name,
-                        Name: name,
-                        Phone: phone,
-                        'Property Type': property,
-                        'Budget Range': budget,
-                        Source: 'Website Lead Form',
-                        Timestamp: new Date().toLocaleString('en-SG', { timeZone: 'Asia/Singapore' })
-                    })
-                });
+    var name = form.querySelector('[name="name"]').value.trim();
+    var phone = form.querySelector('[name="phone"]').value.trim();
+    var property = form.querySelector('[name="property"]').value;
+    var budget = form.querySelector('[name="budget"]').value;
+    var requirements = form.querySelector('[name="requirements"]').value.trim();
 
-                // Google Ads Conversion
-                if (typeof gtag === 'function') {
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-17764512398/OuX8CPuy9swbEI7l45ZC'
-                    });
-                }
-
-                // Show success
-                document.getElementById('osiFormContainer').querySelector('form').style.display = 'none';
-                document.getElementById('osiFormSuccess').style.display = 'block';
-
-            } catch (err) {
-                btn.disabled = false;
-                btn.textContent = 'Get Free Consultation';
-                alert('Something went wrong. Please try again or WhatsApp us directly.');
-            }
-        });
+    if (!name || !phone || !property || !budget) {
+      alert('Please fill in all required fields.');
+      return;
     }
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('#oriental-optimized-landing a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
+    var submitBtn = form.querySelector('.btn-submit');
+    submitBtn.textContent = 'SENDING...';
+    submitBtn.disabled = true;
 
-    // Header scroll effect
-    let lastScroll = 0;
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('.osi-header');
-        if (window.scrollY > 50) {
-            header.style.background = 'rgba(10,31,20,0.95)';
-        } else {
-            header.style.background = 'rgba(10,31,20,0.85)';
-        }
+    // Google Ads conversion tracking
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17764512398/OuX8CPuy9swbEI7l45ZC'
+      });
+    }
+
+    // API submission
+    var payload = {
+      name: name,
+      phone: phone,
+      property: property,
+      budget: budget,
+      requirements: requirements,
+      targetEmail: 'renobros88@gmail.com',
+      source: 'Oriental System Interior Landing Page'
+    };
+
+    fetch('https://asia-southeast1-b2b-software.cloudfunctions.net/reputifly', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function() {
+      // Redirect to WhatsApp
+      var waMsg = 'Hi, I am ' + name + '. '
+        + 'Phone: ' + phone + '. '
+        + 'Property: ' + property + '. '
+        + 'Budget: ' + budget + '. '
+        + (requirements ? 'Requirements: ' + requirements + '. ' : '')
+        + 'I would like a free consultation.';
+      window.open('https://wa.me/6596900898?text=' + encodeURIComponent(waMsg), '_blank');
+
+      // Reset form
+      form.reset();
+      submitBtn.textContent = 'GET FREE CONSULTATION';
+      submitBtn.disabled = false;
+    })
+    .catch(function() {
+      // Still redirect to WhatsApp on error
+      var waMsg = 'Hi, I am ' + name + '. '
+        + 'Phone: ' + phone + '. '
+        + 'Property: ' + property + '. '
+        + 'Budget: ' + budget + '. '
+        + (requirements ? 'Requirements: ' + requirements + '. ' : '')
+        + 'I would like a free consultation.';
+      window.open('https://wa.me/6596900898?text=' + encodeURIComponent(waMsg), '_blank');
+
+      form.reset();
+      submitBtn.textContent = 'GET FREE CONSULTATION';
+      submitBtn.disabled = false;
     });
+  });
 })();
 </script>
 </body>
