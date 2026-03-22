@@ -1,0 +1,50 @@
+{
+  "project": "Straits Diving Engineering",
+  "domain": "straits-diving.com.sg",
+  "brandColors": {
+    "primary": "#45baba",
+    "accent": "#fae227",
+    "text": "#0b0a14",
+    "bgLight": "#ffffff",
+    "bgOffwhite": "#f8f9fa",
+    "bgDark": "#0f172a",
+    "surface": "#f5dd26",
+    "border": "#e1cb23",
+    "focusRing": "#a0ce71"
+  },
+  "fonts": ["Inter"],
+  "pages": [
+    {
+      "file": "index.html",
+      "page": "Home",
+      "sections": ["Hero Section", "About Us Snippet", "Service Overview", "Review Testimonials", "Service Regions"]
+    },
+    {
+      "file": "about.html",
+      "page": "About",
+      "sections": ["Company Introduction", "Mission Vision & Commitment", "Our Team & Expertise", "Safety & Certifications"]
+    },
+    {
+      "file": "services.html",
+      "page": "Services",
+      "sections": ["Services Overview", "Underwater Construction & Engineering", "Vessel & Cargo Salvage", "Inspection & Maintenance", "Consulting & Project Management", "Service Inquiry CTA"]
+    },
+    {
+      "file": "contact.html",
+      "page": "Contact",
+      "sections": ["Contact Information", "Contact Form", "Location Map", "Business Hours"]
+    },
+    {
+      "file": "showcase.html",
+      "page": "Showcase",
+      "sections": ["Project Categories", "Individual Project Gallery", "Search & Filter Options", "Request a Quote CTA"]
+    }
+  ],
+  "contactInfo": {
+    "phone": "+65 8474 8748",
+    "whatsapp": "https://wa.me/6584748748",
+    "email": "operations@straitsdiving.example.com",
+    "address": "Singapore (Headquarters)"
+  },
+  "logo": "https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-3-2026-03-24-41-PM-mmaa8seeyovq.webp"
+}
