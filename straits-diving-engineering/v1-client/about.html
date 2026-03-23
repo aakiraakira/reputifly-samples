@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Straits Diving Engineering</title>
+    <meta name="description" content="Learn about Straits Diving Engineering - our history, mission, team, and commitment to safety in marine salvage and underwater construction.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #45baba;
+            --accent: #fae227;
+            --text: #0b0a14;
+            --bg-light: #ffffff;
+            --bg-offwhite: #f8f9fa;
+            --bg-dark: #0f172a;
+            --surface: #f5dd26;
+            --border: #e1cb23;
+            --muted-text: rgba(8, 7, 14, 0.7);
+            --primary-hover: #000000;
+            --on-primary: #ffffff;
+            --focus-ring: #a0ce71;
+            --radius: 24px;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --glass-blur: blur(12px);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --font-main: 'Inter', sans-serif;
+            --container-width: 1200px;
+            --section-padding: 100px 20px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-main); color: var(--text); background: var(--bg-light); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.3s; }
+        .header.scrolled { box-shadow: var(--shadow); }
+        .header .container { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+        .logo img { height: 50px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text); transition: color 0.2s; position: relative; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--primary); border-radius: 2px; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: var(--primary); color: var(--on-primary); border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; transition: background 0.3s, transform 0.2s; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: transparent; color: var(--primary); border: 2px solid var(--primary); border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; }
+        .btn-outline:hover { background: var(--primary); color: var(--on-primary); transform: translateY(-2px); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 5px; }
+        .hamburger span { width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+        .mobile-menu { display: none; position: fixed; top: 80px; left: 0; right: 0; bottom: 0; background: var(--bg-light); z-index: 999; padding: 40px 20px; }
+        .mobile-menu.active { display: flex; flex-direction: column; gap: 24px; align-items: center; }
+        .mobile-menu a { font-size: 1.2rem; font-weight: 500; color: var(--text); }
+        .mobile-menu a.active { color: var(--primary); }
+
+        /* PAGE HERO */
+        .page-hero { position: relative; height: 300px; display: flex; align-items: center; background: var(--bg-dark); padding-top: 80px; }
+        .page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(69,186,186,0.15)); }
+        .page-hero-content { position: relative; z-index: 1; }
+        .page-hero-content h1 { font-size: 2.5rem; font-weight: 800; color: var(--on-primary); margin-bottom: 12px; }
+        .breadcrumb { display: flex; gap: 8px; align-items: center; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+        .breadcrumb a { color: var(--primary); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+
+        .section-label { display: inline-block; font-size: 0.85rem; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; }
+        .section-header p { color: var(--muted-text); max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
+
+        /* COMPANY INTRO */
+        .company-intro { padding: var(--section-padding); background: var(--bg-light); }
+        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+        .intro-text h2 { font-size: 2rem; font-weight: 700; margin-bottom: 20px; }
+        .intro-text p { color: var(--muted-text); margin-bottom: 16px; font-size: 1.05rem; }
+        .timeline { position: relative; padding-left: 40px; margin-top: 30px; }
+        .timeline::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: var(--primary); opacity: 0.3; }
+        .timeline-item { position: relative; margin-bottom: 30px; }
+        .timeline-item::before { content: ''; position: absolute; left: -34px; top: 6px; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; border: 3px solid var(--bg-light); box-shadow: 0 0 0 2px var(--primary); }
+        .timeline-item h4 { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+        .timeline-item p { color: var(--muted-text); font-size: 0.95rem; }
+
+        /* MISSION VISION */
+        .mission-vision { padding: var(--section-padding); background: var(--bg-offwhite); }
+        .mv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .mv-card { background: var(--bg-light); border-radius: var(--radius); padding: 40px 30px; box-shadow: var(--shadow); text-align: center; transition: transform 0.3s; }
+        .mv-card:hover { transform: translateY(-6px); }
+        .mv-card-icon { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), rgba(69,186,186,0.3)); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.6rem; color: var(--on-primary); }
+        .mv-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
+        .mv-card p { color: var(--muted-text); font-size: 0.95rem; }
+
+        /* TEAM */
+        .team { padding: var(--section-padding); background: var(--bg-light); }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .team-card { background: var(--bg-offwhite); border-radius: var(--radius); padding: 40px 24px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+        .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+        .team-avatar { width: 90px; height: 90px; border-radius: 50%; background: var(--bg-dark); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.6rem; color: var(--primary); font-weight: 700; }
+        .team-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+        .team-card .role { color: var(--primary); font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
+        .team-card p { color: var(--muted-text); font-size: 0.9rem; }
+
+        /* CERTIFICATIONS */
+        .certifications { padding: var(--section-padding); background: var(--bg-offwhite); }
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 40px; }
+        .cert-badge { background: var(--bg-light); border-radius: var(--radius); padding: 30px 20px; text-align: center; border: 2px solid rgba(0,0,0,0.06); transition: border-color 0.3s, transform 0.3s; }
+        .cert-badge:hover { border-color: var(--primary); transform: translateY(-4px); }
+        .cert-badge i { font-size: 2.2rem; color: var(--primary); margin-bottom: 12px; }
+        .cert-badge h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+        .cert-badge p { font-size: 0.85rem; color: var(--muted-text); }
+        .cert-text { max-width: 700px; margin: 0 auto; text-align: center; }
+        .cert-text p { color: var(--muted-text); font-size: 1.05rem; }
+
+        /* FOOTER */
+        .footer { background: var(--bg-dark); padding: 80px 20px 0; color: rgba(255,255,255,0.7); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; max-width: var(--container-width); margin: 0 auto; }
+        .footer-brand img { height: 45px; margin-bottom: 16px; }
+        .footer-brand p { font-size: 0.95rem; line-height: 1.7; }
+        .footer h4 { color: var(--on-primary); font-size: 1rem; margin-bottom: 20px; font-weight: 600; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 10px; }
+        .footer ul a { font-size: 0.9rem; transition: color 0.2s; }
+        .footer ul a:hover { color: var(--primary); }
+        .footer-contact-item { display: flex; gap: 10px; margin-bottom: 14px; font-size: 0.9rem; }
+        .footer-contact-item i { color: var(--primary); margin-top: 3px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; max-width: var(--container-width); margin-left: auto; margin-right: auto; }
+        .footer-bottom p { font-size: 0.85rem; }
+        .footer-bottom a { color: var(--primary); }
+
+        .whatsapp-float { position: fixed; bottom: 28px; right: 28px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.7rem; z-index: 999; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .intro-grid { grid-template-columns: 1fr; }
+            .mv-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .page-hero-content h1 { font-size: 1.8rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-3-2026-03-24-41-PM-mmaa8seeyovq.webp" alt="Straits Diving Engineering"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="showcase.html">Showcase</a></li>
+                    <li><a href="contact.html" class="btn-primary">Get a Quote</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="services.html">Services</a>
+        <a href="showcase.html">Showcase</a>
+        <a href="contact.html" class="btn-primary">Get a Quote</a>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>About Straits Diving Engineering</h1>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right" style="font-size:0.7rem;"></i>
+                    <span>About Us</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPANY INTRO -->
+    <section class="company-intro fade-in">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <span class="section-label">Our Story</span>
+                    <h2>Building Expertise Beneath the Surface</h2>
+                    <p>Straits Diving Engineering was founded in Singapore with a clear mission: to deliver world-class underwater construction and marine salvage services across Southeast Asia. What began as a small team of passionate commercial divers has grown into one of the region's most trusted marine engineering firms.</p>
+                    <p>Over the decades, we have completed hundreds of complex projects ranging from emergency vessel recovery to large-scale subsea infrastructure development. Our commitment to safety, innovation, and operational excellence has earned us the trust of major shipping companies, port authorities, and offshore operators throughout the ASEAN region.</p>
+                    <p>Today, Straits Diving Engineering operates a fleet of specialized vessels and employs a team of IMCA-certified divers, marine engineers, and project managers who bring unparalleled expertise to every engagement.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Foundation</h4>
+                        <p>Established in Singapore as a specialist commercial diving company serving the local maritime industry.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Regional Expansion</h4>
+                        <p>Extended operations across Malaysia, Indonesia, and Thailand, building a regional presence in marine salvage.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>ISO Certification</h4>
+                        <p>Achieved ISO 9001 and ISO 14001 certifications, reinforcing our commitment to quality and environmental stewardship.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Fleet Modernization</h4>
+                        <p>Invested in state-of-the-art ROV systems, diving support vessels, and subsea construction equipment.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>ASEAN Coverage</h4>
+                        <p>Now operating across 8 Southeast Asian countries with 24/7 emergency response capability throughout the region.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION VISION -->
+    <section class="mission-vision fade-in">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What Drives Us</span>
+                <h2>Mission, Vision & Commitment</h2>
+            </div>
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-card-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To provide safe, reliable, and innovative underwater engineering and marine salvage solutions that protect lives, assets, and the marine environment across Southeast Asia.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="mv-card-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted and technically advanced marine services company in the ASEAN region, setting new standards for safety, quality, and environmental responsibility.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="mv-card-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Our Values</h3>
+                    <p>Safety first in every operation. Integrity in all business dealings. Innovation in technical solutions. Excellence in project delivery. Respect for the marine environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team fade-in">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Leadership</span>
+                <h2>Our Team & Expertise</h2>
+                <p>Led by industry veterans with decades of combined experience in marine engineering and salvage operations.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">AR</div>
+                    <h3>Captain Ahmad Rahman</h3>
+                    <div class="role">Founding Director</div>
+                    <p>Over 30 years of maritime experience. Master Mariner with extensive background in salvage operations and marine project leadership across Southeast Asia.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">LW</div>
+                    <h3>Eng. Li Wei</h3>
+                    <div class="role">Chief Engineer</div>
+                    <p>Chartered marine engineer specializing in subsea construction and structural analysis. Leads all technical engineering operations and innovation initiatives.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">ST</div>
+                    <h3>Sarah Tan</h3>
+                    <div class="role">Operations Manager</div>
+                    <p>Coordinates complex multi-site operations across the region. Expert in logistics planning, resource allocation, and client relationship management.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">JO</div>
+                    <h3>James Ong</h3>
+                    <div class="role">Safety Director</div>
+                    <p>NEBOSH-certified safety professional responsible for HSE compliance across all operations. Champion of our zero-incident safety culture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="certifications fade-in">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Quality Assurance</span>
+                <h2>Safety & Certifications</h2>
+            </div>
+            <div class="cert-text">
+                <p>Safety is the cornerstone of everything we do at Straits Diving Engineering. Our operations are governed by stringent international standards, and every team member is trained to the highest level of competency.</p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-badge">
+                    <i class="fas fa-certificate"></i>
+                    <h4>IMCA</h4>
+                    <p>International Marine Contractors Association Member</p>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-award"></i>
+                    <h4>ISO 9001</h4>
+                    <p>Quality Management System Certified</p>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-leaf"></i>
+                    <h4>ISO 14001</h4>
+                    <p>Environmental Management System Certified</p>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-shield-halved"></i>
+                    <h4>OHSAS 18001</h4>
+                    <p>Occupational Health & Safety Certified</p>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-anchor"></i>
+                    <h4>MPA Licensed</h4>
+                    <p>Maritime and Port Authority of Singapore Licensed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-3-2026-03-24-41-PM-mmaa8seeyovq.webp" alt="Straits Diving Engineering">
+                <p>Singapore's trusted partner for underwater construction, marine salvage, and subsea engineering services across Southeast Asia.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Underwater Construction</a></li>
+                    <li><a href="services.html">Vessel Salvage</a></li>
+                    <li><a href="services.html">Inspection & Maintenance</a></li>
+                    <li><a href="services.html">Consulting</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="showcase.html">Project Showcase</a></li>
+                    </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <div class="footer-contact-item"><i class="fas fa-phone"></i><span><a href="tel:+6584748748">+65 8474 8748</a></span></div>
+                <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span><a href="https://wa.me/6584748748">WhatsApp Us</a></span></div>
+                <div class="footer-contact-item"><i class="fas fa-envelope"></i><span><a href="mailto:operations@straitsdiving.example.com">operations@straitsdiving.example.com</a></span></div>
+                <div class="footer-contact-item"><i class="fas fa-location-dot"></i><span>Singapore (Headquarters)</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Straits Diving Engineering. All rights reserved.</p>
+            <p>Website designed by <a href="#">Reputifly</a></p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6584748748" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        window.addEventListener('scroll', () => { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50); });
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active'); document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : ''; });
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
