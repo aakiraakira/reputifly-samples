@@ -419,7 +419,7 @@
             color: rgba(255,255,255,0.6);
         }
 
-        /* ==========================================================================
+        .mobile-menu-btn { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; background: none; border: none; } /* ==========================================================================
            RESPONSIVE DESIGN
            ========================================================================== */
         @media (max-width: 992px) {
@@ -428,7 +428,7 @@
             #hero h1 { font-size: 3rem; }
         }
         @media (max-width: 768px) {
-            .nav-links { display: none; } 
+            .mobile-menu-btn { display: block; } .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-white); flex-direction: column; padding: 1rem 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); } .nav-links.active { display: flex; } 
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .social-icons { justify-content: center; }
             .newsletter-form { flex-direction: column; }
@@ -513,8 +513,7 @@
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ESG-World-Logo-mmltwdct7szg.webp" alt="ESG World Logo">
-            </a>
-            <ul class="nav-links">
+            </a> <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button> <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -665,5 +664,12 @@
         </div>
     </footer>
 
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav-links');
+            if (btn && nav) btn.addEventListener('click', () => nav.classList.toggle('active'));
+        });
+    </script>
 </body>
 </html>
