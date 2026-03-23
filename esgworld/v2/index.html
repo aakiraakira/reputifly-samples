@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESG World | Sustainable Future for the World</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         /* ==========================================================================
@@ -126,12 +126,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 140px; /* Increased to accommodate larger logo */
+            min-height: 140px; 
             padding: 10px 0;
         }
 
-        /* Logo is now ~2.2x larger */
-        .logo img { height: 130px; }
+        .logo img { height: 130px; object-fit: contain; }
 
         .nav-links { display: flex; gap: 2.5rem; list-style: none; }
         .nav-links a { color: var(--primary); font-weight: 500; }
@@ -144,7 +143,7 @@
             background: linear-gradient(rgba(22, 58, 35, 0.8), rgba(22, 58, 35, 0.9)), 
                         url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
             color: var(--text-light);
-            padding: 14rem 0 8rem; /* Adjusted padding for taller header */
+            padding: 14rem 0 8rem; 
             text-align: center;
             min-height: 90vh;
             display: flex;
@@ -208,7 +207,7 @@
         }
 
         /* ==========================================================================
-           4. FREE ESG ASSESSMENT (Lead Gen)
+           4. FREE ESG ASSESSMENT 
            ========================================================================== */
         #assessment {
             background-color: var(--primary);
@@ -223,26 +222,65 @@
         #assessment p { max-width: 600px; margin: 0 auto 2rem; }
 
         /* ==========================================================================
-           5. INDUSTRY STANDARDS & CERTIFICATIONS
+           5. INDUSTRY STANDARDS & CERTIFICATIONS (CAROUSEL)
            ========================================================================== */
-        #standards { background-color: var(--bg-light); text-align: center; }
-        .standards-grid {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-top: 2rem;
+        #standards { 
+            background-color: var(--bg-light); 
+            text-align: center; 
+            overflow: hidden; 
         }
         
-        .standard-item {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            padding: 1rem 2rem;
-            border: 2px dashed var(--accent);
-            border-radius: 8px;
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 1rem 0;
+        }
+        
+        .carousel-track {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            width: max-content;
+            animation: scrollCarousel 30s linear infinite;
+        }
+        
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        .carousel-item {
+            flex-shrink: 0;
+            width: 220px; 
+            height: 120px;
+            background: var(--bg-white);
+            border-radius: var(--radius-main);
+            border: 1px solid rgba(199, 158, 88, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+
+        .carousel-item:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-main);
+            transform: translateY(-3px);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            object-position: center; 
+            display: block;
+        }
+
+        @keyframes scrollCarousel {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         /* ==========================================================================
@@ -333,8 +371,15 @@
             padding-bottom: 3rem;
         }
 
-        /* Footer logo is now ~2.2x larger */
-        .footer-about img { height: 110px; margin-bottom: 1.5rem; filter: brightness(0) invert(1); }
+        /* Fixed Footer Logo Visibility */
+        .footer-about img { 
+            height: 110px; 
+            margin-bottom: 1.5rem; 
+            background-color: var(--bg-white); /* Added white background */
+            padding: 8px; /* Added padding so logo breathes */
+            border-radius: 8px; /* Rounded corners */
+            object-fit: contain;
+        }
         
         .footer-links h4 { color: var(--accent); font-size: 1.2rem; }
         .footer-links ul { list-style: none; }
@@ -347,7 +392,6 @@
             margin-top: 1.5rem;
         }
         
-        /* Smaller, clickable social icons */
         .social-icons a {
             display: inline-flex;
             align-items: center;
@@ -390,7 +434,7 @@
             .newsletter-form { flex-direction: column; }
             #hero { padding-top: 12rem; }
             .nav-container { min-height: 100px; }
-            .logo img { height: 90px; } /* Slightly smaller logo for mobile screens */
+            .logo img { height: 90px; } 
         }
     </style>
 </head>
@@ -485,12 +529,31 @@
                     <h2>Recognized Industry Standards</h2>
                     <p>We help you navigate and comply with globally recognized sustainability frameworks.</p>
                 </div>
-                <div class="standards-grid">
-                    <div class="standard-item">TCFD</div>
-                    <div class="standard-item">CSRD</div>
-                    <div class="standard-item">ISO 14001</div>
-                    <div class="standard-item">GRI Standards</div>
-                    <div class="standard-item">SASB</div>
+            </div>
+            
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <div class="carousel-item"><img src="https://th.bing.com/th/id/R.9bc0f7074c9560b7aa658202028a3025?rik=%2fAXWRht9VU44ew&riu=http%3a%2f%2fwww.unepfi.org%2fwordpress%2fwp-content%2fuploads%2f2016%2f12%2fTCFD.jpg&ehk=B%2fhUdF5RbFtdWBLi00LYqPCoL%2fVmZb0LHM8kkRtLbeU%3d&risl=&pid=ImgRaw&r=0" alt="TCFD"></div>
+                    <div class="carousel-item"><img src="https://tse3.mm.bing.net/th/id/OIP.sHG5Ne4aqMEWAlTYNrzCswHaEH?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Industry Standard"></div>
+                    <div class="carousel-item"><img src="https://th.bing.com/th/id/R.60fda2150c6e2ab0910ee2b162009c44?rik=leAPycLljv7XOw&riu=http%3a%2f%2fwww.sap.com%2fdam%2fsite%2fsapcom%2fmultimedia%2f2024%2f05%2faa3ca955-be7e-0010-bca6-c68f7e60039b.mp4%2f_jcr_content%2frenditions%2fcq5dam.thumbnail.640.360.jpg&ehk=KnSidqW3iDlklw5kKquaOZE4AUbsHDTfNVipA0G213Y%3d&risl=&pid=ImgRaw&r=0" alt="Industry Standard"></div>
+                    <div class="carousel-item"><img src="https://tse2.mm.bing.net/th/id/OIP.k0jCxlVevrsFOtAxTWUF_gHaE3?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Industry Standard"></div>
+                    <div class="carousel-item"><img src="https://www.synesgy.com/media/lz0dlqs0/sustainability-report.png" alt="Industry Standard (GRI)"></div>
+                    <div class="carousel-item"><img src="https://esg.skgas.co.kr/assets/images/data/Initiatives-sasb.png" alt="SASB"></div>
+                    <div class="carousel-item"><img src="https://www.arenasolutions.com/wp-content/uploads/what-is-iso.png" alt="ISO"></div>
+                    <div class="carousel-item"><img src="https://tse2.mm.bing.net/th/id/OIP.umVnojz4FqHvzr7uiwXUvAHaEY?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Industry Standard"></div>
+                    <div class="carousel-item"><img src="https://www.bryceenergyservices.com/wp-content/uploads/2024/05/Service-ISO50001.png" alt="ISO 50001"></div>
+                    <div class="carousel-item"><img src="https://tse2.mm.bing.net/th/id/OIP.4KzS2mg3odlj9sM5SRQx3gHaHZ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Industry Standard"></div>
+                    
+                    <div class="carousel-item"><img src="https://th.bing.com/th/id/R.9bc0f7074c9560b7aa658202028a3025?rik=%2fAXWRht9VU44ew&riu=http%3a%2f%2fwww.unepfi.org%2fwordpress%2fwp-content%2fuploads%2f2016%2f12%2fTCFD.jpg&ehk=B%2fhUdF5RbFtdWBLi00LYqPCoL%2fVmZb0LHM8kkRtLbeU%3d&risl=&pid=ImgRaw&r=0" alt="TCFD"></div>
+                    <div class="carousel-item"><img src="https://tse3.mm.bing.net/th/id/OIP.sHG5Ne4aqMEWAlTYNrzCswHaEH?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Industry Standard"></div>
+                    <div class="carousel-item"><img src="https://th.bing.com/th/id/R.60fda2150c6e2ab0910ee2b162009c44?rik=leAPycLljv7XOw&riu=http%3a%2f%2fwww.sap.com%2fdam%2fsite%2fsapcom%2fmultimedia%2f2024%2f05%2faa3ca955-be7e-0010-bca6-c68f7e60039b.mp4%2f_jcr_content%2frenditions%2fcq5dam.thumbnail.640.360.jpg&ehk=KnSidqW3iDlklw5kKquaOZE4AUbsHDTfNVipA0G213Y%3d&risl=&pid=ImgRaw&r=0" alt="Industry Standard"></div>
+                    <div class="carousel-item"><img src="https://tse2.mm.bing.net/th/id/OIP.k0jCxlVevrsFOtAxTWUF_gHaE3?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Industry Standard"></div>
+                    <div class="carousel-item"><img src="https://www.synesgy.com/media/lz0dlqs0/sustainability-report.png" alt="Industry Standard (GRI)"></div>
+                    <div class="carousel-item"><img src="https://esg.skgas.co.kr/assets/images/data/Initiatives-sasb.png" alt="SASB"></div>
+                    <div class="carousel-item"><img src="https://www.arenasolutions.com/wp-content/uploads/what-is-iso.png" alt="ISO"></div>
+                    <div class="carousel-item"><img src="https://tse2.mm.bing.net/th/id/OIP.umVnojz4FqHvzr7uiwXUvAHaEY?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Industry Standard"></div>
+                    <div class="carousel-item"><img src="https://www.bryceenergyservices.com/wp-content/uploads/2024/05/Service-ISO50001.png" alt="ISO 50001"></div>
+                    <div class="carousel-item"><img src="https://tse2.mm.bing.net/th/id/OIP.4KzS2mg3odlj9sM5SRQx3gHaHZ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Industry Standard"></div>
                 </div>
             </div>
         </section>
