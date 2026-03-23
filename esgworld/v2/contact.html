@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ESG World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ==========================================================================
+           TWO-COLOR BRAND THEME & VARIABLES
+           ========================================================================== */
+        :root {
+            /* Strict Two-Color Palette */
+            --primary: #163a23; /* Dark Green */
+            --accent: #c79e58;  /* Gold/Tan */
+            
+            /* Neutrals for readability */
+            --bg-white: #ffffff;
+            --bg-light: #f9f9f8;
+            --text-dark: #163a23; 
+            --text-light: #ffffff;
+            
+            /* UI Elements */
+            --radius-main: 12px;
+            --shadow-main: 0 10px 25px rgba(22, 58, 35, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* ==========================================================================
+           RESET & TYPOGRAPHY
+           ========================================================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p { margin-bottom: 1rem; }
+        
+        a { text-decoration: none; color: var(--accent); transition: var(--transition); }
+        a:hover { color: var(--primary); }
+        
+        img { max-width: 100%; height: auto; display: block; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ==========================================================================
+           BUTTONS & UTILITIES
+           ========================================================================== */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary);
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .section-padding { padding: 6rem 0; }
+        
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; }
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 1rem auto 0;
+        }
+
+        /* ==========================================================================
+           HEADER & NAVIGATION
+           ========================================================================== */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 140px; 
+            padding: 10px 0;
+        }
+
+        .logo img { height: 130px; object-fit: contain; }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: var(--primary); font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* ==========================================================================
+           1. HERO SECTION
+           ========================================================================== */
+        #hero {
+            background: linear-gradient(rgba(22, 58, 35, 0.8), rgba(22, 58, 35, 0.9)), 
+                        url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--text-light);
+            padding: 14rem 0 8rem; 
+            text-align: center;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        #hero h1 {
+            color: var(--accent);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #hero p { font-size: 1.25rem; margin-bottom: 2.5rem; max-width: 800px; margin-inline: auto; color: var(--bg-white); }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; }
+
+        /* ==========================================================================
+           2. INTRODUCTION SECTION
+           ========================================================================== */
+        #introduction { background-color: var(--bg-light); }
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .intro-image img {
+            border-radius: var(--radius-main);
+            box-shadow: var(--shadow-main);
+            border: 4px solid var(--accent);
+        }
+
+        /* ==========================================================================
+           3. SERVICES OVERVIEW
+           ========================================================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-white);
+            padding: 3rem 2rem;
+            border-radius: var(--radius-main);
+            border: 1px solid rgba(199, 158, 88, 0.3);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-main);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        /* ==========================================================================
+           4. FREE ESG ASSESSMENT 
+           ========================================================================== */
+        #assessment {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            text-align: center;
+            padding: 5rem 0;
+            border-top: 5px solid var(--accent);
+            border-bottom: 5px solid var(--accent);
+        }
+
+        #assessment h2 { color: var(--accent); }
+        #assessment p { max-width: 600px; margin: 0 auto 2rem; }
+
+        /* ==========================================================================
+           5. INDUSTRY STANDARDS & CERTIFICATIONS (CAROUSEL)
+           ========================================================================== */
+        #standards { 
+            background-color: var(--bg-light); 
+            text-align: center; 
+            overflow: hidden; 
+        }
+        
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 1rem 0;
+        }
+        
+        .carousel-track {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            width: max-content;
+            animation: scrollCarousel 30s linear infinite;
+        }
+        
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        .carousel-item {
+            flex-shrink: 0;
+            width: 220px; 
+            height: 120px;
+            background: var(--bg-white);
+            border-radius: var(--radius-main);
+            border: 1px solid rgba(199, 158, 88, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+
+        .carousel-item:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-main);
+            transform: translateY(-3px);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            object-position: center; 
+            display: block;
+        }
+
+        @keyframes scrollCarousel {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ==========================================================================
+           6. TESTIMONIALS SECTION
+           ========================================================================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 3rem 2rem;
+            border-radius: var(--radius-main);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.5;
+        }
+
+        .testimonial-card h4 { color: var(--accent); margin-bottom: 0.2rem; margin-top: 1.5rem;}
+
+        /* ==========================================================================
+           7 & 8. CALL TO ACTION & NEWSLETTER
+           ========================================================================== */
+        .bottom-action-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        #cta, #newsletter { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+        
+        #cta { background-color: var(--accent); color: var(--primary); }
+        #cta h2 { color: var(--primary); }
+        #cta .btn { border-color: var(--primary); color: var(--primary); }
+        #cta .btn:hover { background-color: var(--primary); color: var(--accent); }
+        
+        #newsletter { background-color: var(--primary); color: var(--bg-white); }
+        #newsletter h2 { color: var(--accent); }
+        
+        .newsletter-form { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
+        .newsletter-form input {
+            padding: 1rem;
+            border-radius: 50px;
+            border: none;
+            flex-grow: 1;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+        }
+        .newsletter-form button {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .newsletter-form button:hover { background-color: var(--bg-white); }
+
+        /* ==========================================================================
+           FOOTER (With Socials)
+           ========================================================================== */
+        footer {
+            background-color: #0d2214; 
+            color: var(--bg-white);
+            padding: 4rem 0 2rem;
+            border-top: 2px solid var(--accent);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            border-bottom: 1px solid rgba(199, 158, 88, 0.2);
+            padding-bottom: 3rem;
+        }
+
+        /* Fixed Footer Logo Visibility */
+        .footer-about img { 
+            height: 110px; 
+            margin-bottom: 1.5rem; 
+            background-color: var(--bg-white); /* Added white background */
+            padding: 8px; /* Added padding so logo breathes */
+            border-radius: 8px; /* Rounded corners */
+            object-fit: contain;
+        }
+        
+        .footer-links h4 { color: var(--accent); font-size: 1.2rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 0.8rem; }
+        .footer-links ul li a { color: var(--bg-white); }
+        
+        .social-icons {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: var(--primary);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--bg-white);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE DESIGN
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .intro-grid, .bottom-action-area { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            #hero h1 { font-size: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; } 
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .social-icons { justify-content: center; }
+            .newsletter-form { flex-direction: column; }
+            #hero { padding-top: 12rem; }
+            .nav-container { min-height: 100px; }
+            .logo img { height: 90px; } 
+        }
+            /* ==========================================================================
+           SUB-PAGE SPECIFIC STYLES
+           ========================================================================== */
+        .page-hero {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            color: var(--text-light);
+            background-color: var(--primary);
+            background-blend-mode: multiply;
+            background-size: cover;
+            background-position: center;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+        }
+        .page-hero h1 { color: var(--accent); font-size: 3.5rem; margin-bottom: 1rem; }
+        .page-hero p { font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--bg-white); }
+        
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .value-card { background: var(--bg-light); padding: 3rem 2rem; border-radius: var(--radius-main); text-align: center; border: 1px solid rgba(199, 158, 88, 0.2); }
+        .value-icon { font-size: 3rem; color: var(--accent); margin-bottom: 1.5rem; }
+        
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .team-card { text-align: center; }
+        .team-card img { width: 100%; height: 350px; object-fit: cover; border-radius: var(--radius-main); margin-bottom: 1.5rem; box-shadow: var(--shadow-main); border: 2px solid transparent; transition: var(--transition); }
+        .team-card:hover img { border-color: var(--accent); transform: translateY(-5px); }
+        .team-card h3 { margin-bottom: 0.5rem; }
+        .team-card p { color: var(--accent); font-weight: 500; font-size: 1.1rem; margin-bottom: 0.5rem;}
+        
+        .service-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 4rem 0; border-bottom: 1px solid rgba(199, 158, 88, 0.2); }
+        .service-detail:last-child { border-bottom: none; }
+        .service-detail:nth-child(even) { direction: rtl; }
+        .service-detail:nth-child(even) > * { direction: ltr; }
+        .service-detail img { border-radius: var(--radius-main); box-shadow: var(--shadow-main); border: 4px solid var(--accent); width: 100%; }
+        .service-content h3 { font-size: 2rem; margin-bottom: 1.5rem; }
+        .service-list { list-style: none; margin-top: 1.5rem; }
+        .service-list li { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; }
+        .service-list li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--accent); position: absolute; left: 0; top: 2px; }
+        
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem; }
+        .contact-form { background: var(--bg-light); padding: 3rem; border-radius: var(--radius-main); box-shadow: var(--shadow-main); border: 1px solid rgba(199, 158, 88, 0.2); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark); }
+        .form-control { width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; font-family: 'Inter', sans-serif; transition: var(--transition); background: var(--bg-white); }
+        .form-control:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(199, 158, 88, 0.2); }
+        textarea.form-control { resize: vertical; min-height: 150px; }
+        
+        .contact-sidebar { display: flex; flex-direction: column; gap: 2rem; }
+        .contact-info-card { background: var(--primary); color: var(--bg-white); padding: 3rem; border-radius: var(--radius-main); box-shadow: var(--shadow-main); border-bottom: 5px solid var(--accent); }
+        .contact-info-card h3 { color: var(--accent); margin-bottom: 2rem; }
+        .contact-info-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; align-items: flex-start; }
+        .contact-info-item:last-child { margin-bottom: 0; }
+        .contact-info-item i { color: var(--accent); font-size: 2rem; background: rgba(199, 158, 88, 0.1); padding: 1rem; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
+        .contact-info-text h4 { color: var(--bg-white); margin-bottom: 0.5rem; font-family: 'Inter', sans-serif; font-size: 1.1rem; }
+        .contact-info-text p { color: rgba(255,255,255,0.8); margin: 0; }
+        
+        .map-container { border-radius: var(--radius-main); overflow: hidden; height: 350px; box-shadow: var(--shadow-main); border: 1px solid rgba(199, 158, 88, 0.2); }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+        
+        .story-section { padding: 6rem 0; }
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .story-img { border-radius: var(--radius-main); border: 4px solid var(--accent); box-shadow: var(--shadow-main); }
+        
+        @media (max-width: 992px) {
+            .story-grid, .service-detail, .contact-grid { grid-template-columns: 1fr; }
+            .service-detail:nth-child(even) { direction: ltr; }
+            .service-detail:nth-child(even) > * { direction: ltr; }
+            .page-hero h1 { font-size: 2.8rem; }
+        }
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ESG-World-Logo-mmltwdct7szg.webp" alt="ESG World Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>        <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Ready to integrate sustainable practices into your business model? Get in touch with our experts today.</p>
+            </div>
+        </section>
+
+        <section class="section-padding bg-white">
+            <div class="container">
+                <div class="contact-grid">
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+                            <h2>Send Us a Message</h2>
+                            <p>Fill out the form below and an ESG specialist will respond promptly.</p>
+                        </div>
+                        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out! We will contact you soon.');">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="+1 (555) 000-0000">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject / Inquiry Type</label>
+                                <select id="subject" class="form-control" required style="appearance: none; background: var(--bg-white) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;">
+                                    <option value="" disabled selected>Select an option...</option>
+                                    <option value="Assessment">Free ESG Assessment</option>
+                                    <option value="Services">Service Inquiry</option>
+                                    <option value="Partnership">Partnership</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" placeholder="How can we help you achieve your sustainability goals?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info Sidebar -->
+                    <div class="contact-sidebar">
+                        <div class="contact-info-card">
+                            <h3>Contact Information</h3>
+                            
+                            <div class="contact-info-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div class="contact-info-text">
+                                    <h4>Corporate Office</h4>
+                                    <p>123 Eco Plaza, Green District<br>Innovation City, IN 40001</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item">
+                                <i class="fa-solid fa-phone"></i>
+                                <div class="contact-info-text">
+                                    <h4>Phone Numbers</h4>
+                                    <p>Main: +1 (800) 123-4567<br>Support: +1 (800) 123-4568</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <div class="contact-info-text">
+                                    <h4>Email Address</h4>
+                                    <p>info@esgworlds.com<br>consults@esgworlds.com</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <i class="fa-solid fa-clock"></i>
+                                <div class="contact-info-text">
+                                    <h4>Business Hours</h4>
+                                    <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday & Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="map-container">
+                            <!-- Placeholder Map for ESG World using Google Maps embed -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282225.79979123!2d73.7250245393691!3d20.750301298393563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section></main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ESG-World-Logo-mmltwdct7szg.webp" alt="ESG World Logo">
+                <p>Your dedicated partner in navigating Environmental, Social, and Governance frameworks. Building a sustainable world, together.</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/esgworld-llp/about/?viewAsMember=true" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61579618170072" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://x.com/esgworldllp" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/esgworlds" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@esgworlds?lang=en-gb" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="services.html#training">ESG Training</a></li>
+                    <li><a href="services.html#waste">Waste Management</a></li>
+                    <li><a href="services.html#transport">Transport</a></li>
+                    <li><a href="services.html#building">Building & Maintenance</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@esgworlds.com">info@esgworlds.com</a></li>
+                    <li><a href="contact.html">Corporate Office</a></li>
+                    <li><a href="contact.html">Support Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 ESG Worlds. All rights reserved.</div>
+            <div>Website Design by Reputifly</div>
+        </div>
+    </footer>
+
+</body>
+</html>
