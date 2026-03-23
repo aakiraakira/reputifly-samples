@@ -311,32 +311,33 @@
 
         .standard-logo-box {
             background-color: var(--white);
-            padding: 1.5rem;
+            padding: 1rem; /* Reduced padding gives the image more room to grow */
             border-radius: 12px;
-            width: 180px; /* Fixed width */
-            height: 120px; /* Fixed height for uniformity */
+            width: 180px; 
+            height: 120px; 
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             border-bottom: 4px solid var(--accent);
             transition: transform 0.3s ease, border-color 0.3s ease;
+            overflow: hidden; /* Prevents overflow */
         }
 
         .standard-logo-box img {
-            max-width: 100%;
-            max-height: 80px;
-            object-fit: contain; /* Keeps logos from stretching */
+            width: 100%; /* Forces images to fill available width */
+            height: 100%; /* Forces images to fill available height */
+            object-fit: contain; /* PERFECT FIT: Upscales small, downscales large, maintains aspect ratio */
             transition: transform 0.3s ease;
         }
 
         .standard-logo-box:hover {
             transform: translateY(-5px);
-            border-bottom: 4px solid var(--primary);
+            border-bottom: 4px solid var(--white);
         }
 
         .standard-logo-box:hover img {
-            transform: scale(1.05); /* Slight zoom on hover */
+            transform: scale(1.08); /* Slight zoom on hover */
         }
 
         /* ==========================================================================
@@ -454,7 +455,6 @@
             /* Increased Logo Size in Footer */
             height: 120px; 
             margin-bottom: 1.5rem;
-            /* Filter removed so the true colors show, assuming the logo works on dark */
             background-color: white; 
             padding: 10px;
             border-radius: 12px;
