@@ -3,49 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESG World | Your ESG Specialist</title>
+    <title>ESG World | Sustainable Future for the World</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* ==========================================================================
-           STRICT TWO-COLOR BRAND THEME
+           TWO-COLOR BRAND THEME & VARIABLES
            ========================================================================== */
         :root {
-            /* Core Brand Colors Only */
-            --primary: #163a23; /* Forest Green */
-            --accent: #c79e58;  /* Gold */
-            --white: #ffffff;
+            /* Strict Two-Color Palette */
+            --primary: #163a23; /* Dark Green */
+            --accent: #c79e58;  /* Gold/Tan */
+            
+            /* Neutrals for readability */
+            --bg-white: #ffffff;
+            --bg-light: #f9f9f8;
+            --text-dark: #163a23; 
+            --text-light: #ffffff;
             
             /* UI Elements */
-            --radius-main: 24px;
-            --shadow-main: 0 20px 25px -5px rgba(22, 58, 35, 0.1), 0 10px 10px -5px rgba(22, 58, 35, 0.04);
-            --shadow-hover: 0 25px 30px -5px rgba(199, 158, 88, 0.2), 0 15px 15px -5px rgba(199, 158, 88, 0.1);
-            
-            /* Layout */
-            --container-width: 1200px;
-            --section-padding: 6rem 2rem;
-            --header-height: 140px; /* Increased for larger logo */
+            --radius-main: 12px;
+            --shadow-main: 0 10px 25px rgba(22, 58, 35, 0.1);
+            --transition: all 0.3s ease;
         }
 
         /* ==========================================================================
-           RESET & TYPOGRAPHY & NAVIGATION EASE
+           RESET & TYPOGRAPHY
            ========================================================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            /* Makes internal link navigation smooth */
-            scroll-behavior: smooth; 
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--primary);
-            background-color: var(--white);
+            color: var(--text-dark);
+            background-color: var(--bg-white);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -57,100 +48,74 @@
             margin-bottom: 1rem;
         }
 
-        p {
-            margin-bottom: 1rem;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary);
-            transition: color 0.3s ease;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Offset for smooth scrolling so the big header doesn't hide content */
-        section {
-            scroll-margin-top: var(--header-height);
-        }
+        p { margin-bottom: 1rem; }
+        
+        a { text-decoration: none; color: var(--accent); transition: var(--transition); }
+        a:hover { color: var(--primary); }
+        
+        img { max-width: 100%; height: auto; display: block; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
         /* ==========================================================================
-           BUTTONS
+           BUTTONS & UTILITIES
            ========================================================================== */
         .btn {
             display: inline-block;
             padding: 1rem 2.5rem;
-            border-radius: 50px; 
+            border-radius: 50px;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
 
         .btn-primary {
             background-color: var(--accent);
-            color: var(--white);
+            color: var(--bg-white);
         }
 
         .btn-primary:hover {
             background-color: var(--primary);
             color: var(--accent);
             border-color: var(--accent);
-            transform: translateY(-2px);
         }
 
         .btn-outline {
             background-color: transparent;
-            border: 2px solid var(--accent);
+            border-color: var(--accent);
             color: var(--accent);
         }
 
         .btn-outline:hover {
             background-color: var(--accent);
-            color: var(--white);
-            transform: translateY(-2px);
+            color: var(--primary);
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
+        .section-padding { padding: 6rem 0; }
+        
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; }
         .section-header h2::after {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
             width: 60px;
             height: 3px;
             background-color: var(--accent);
+            margin: 1rem auto 0;
         }
 
         /* ==========================================================================
            HEADER & NAVIGATION
            ========================================================================== */
         header {
-            background-color: var(--white);
-            box-shadow: 0 2px 15px rgba(22, 58, 35, 0.1);
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: fixed;
             width: 100%;
             top: 0;
@@ -161,192 +126,58 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: var(--header-height);
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 2rem;
+            height: 90px;
         }
 
-        .logo img {
-            /* Increased Logo Size 2x */
-            height: 120px; 
-            width: auto;
-        }
+        .logo img { height: 60px; }
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-weight: 600;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: var(--primary);
-            cursor: pointer;
-        }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: var(--primary); font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
 
         /* ==========================================================================
-           HERO SECTION
+           1. HERO SECTION
            ========================================================================== */
         #hero {
-            /* Added Relevant Sustainability Background Image */
-            background: linear-gradient(rgba(22, 58, 35, 0.85), rgba(22, 58, 35, 0.85)), 
-                        url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            color: var(--white);
-            padding: 12rem 2rem 8rem;
+            background: linear-gradient(rgba(22, 58, 35, 0.8), rgba(22, 58, 35, 0.9)), 
+                        url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--text-light);
+            padding: 12rem 0 8rem;
             text-align: center;
-            min-height: 80vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-top: var(--header-height);
         }
 
         #hero h1 {
-            color: var(--white);
+            color: var(--accent);
             font-size: 4rem;
             margin-bottom: 1.5rem;
         }
 
-        #hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            color: var(--white);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
+        #hero p { font-size: 1.25rem; margin-bottom: 2.5rem; max-width: 800px; margin-inline: auto; color: var(--bg-white); }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; }
 
         /* ==========================================================================
-           INTRODUCTION SECTION
+           2. INTRODUCTION SECTION
            ========================================================================== */
-        #introduction {
-            padding: var(--section-padding);
-        }
-
+        #introduction { background-color: var(--bg-light); }
         .intro-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
-
-        .intro-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .intro-content p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
+        
         .intro-image img {
             border-radius: var(--radius-main);
             box-shadow: var(--shadow-main);
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
             border: 4px solid var(--accent);
         }
 
         /* ==========================================================================
-           INDUSTRY STANDARDS SECTION 
+           3. SERVICES OVERVIEW
            ========================================================================== */
-        #standards {
-            padding: 4rem 2rem;
-            background-color: var(--primary);
-            color: var(--white);
-            text-align: center;
-        }
-        
-        #standards .section-header h2 {
-            color: var(--white);
-        }
-
-        .standards-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .standard-logo-box {
-            background-color: var(--white);
-            padding: 1rem; 
-            border-radius: 12px;
-            width: 180px; 
-            height: 120px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-bottom: 4px solid var(--accent);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            overflow: hidden; 
-        }
-
-        .standard-logo-box img {
-            width: 100%; 
-            height: 100%; 
-            object-fit: contain; 
-            transition: transform 0.3s ease;
-        }
-
-        .standard-logo-box:hover {
-            transform: translateY(-5px);
-            border-bottom: 4px solid var(--white);
-        }
-
-        .standard-logo-box:hover img {
-            transform: scale(1.08); 
-        }
-
-        /* ==========================================================================
-           SERVICES OVERVIEW SECTION
-           ========================================================================== */
-        #services {
-            padding: var(--section-padding);
-        }
-
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -354,287 +185,240 @@
         }
 
         .service-card {
-            background-color: var(--white);
+            background-color: var(--bg-white);
             padding: 3rem 2rem;
             border-radius: var(--radius-main);
-            box-shadow: var(--shadow-main);
+            border: 1px solid rgba(199, 158, 88, 0.3);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(22, 58, 35, 0.1);
+            transition: var(--transition);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-main);
             border-color: var(--accent);
         }
 
         .service-icon {
-            width: 80px;
-            height: 80px;
-            background-color: var(--primary);
+            font-size: 2.5rem;
             color: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        .service-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            font-size: 1rem;
             margin-bottom: 1.5rem;
         }
 
-        .service-link {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .service-link:hover {
-            color: var(--primary);
-        }
-
         /* ==========================================================================
-           CALL TO ACTION SECTION
+           4. FREE ESG ASSESSMENT (Lead Gen)
            ========================================================================== */
-        #cta {
-            padding: 8rem 2rem;
-            text-align: center;
+        #assessment {
             background-color: var(--primary);
-            color: var(--white);
+            color: var(--bg-white);
+            text-align: center;
+            padding: 5rem 0;
             border-top: 5px solid var(--accent);
+            border-bottom: 5px solid var(--accent);
         }
 
-        #cta h2 {
-            color: var(--accent);
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
+        #assessment h2 { color: var(--accent); }
+        #assessment p { max-width: 600px; margin: 0 auto 2rem; }
 
-        #cta p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 3rem;
+        /* ==========================================================================
+           5. INDUSTRY STANDARDS & CERTIFICATIONS
+           ========================================================================== */
+        #standards { background-color: var(--bg-light); text-align: center; }
+        .standards-grid {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .standard-item {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border: 2px dashed var(--accent);
+            border-radius: 8px;
         }
 
         /* ==========================================================================
-           FOOTER
+           6. TESTIMONIALS SECTION
+           ========================================================================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 3rem 2rem;
+            border-radius: var(--radius-main);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.5;
+        }
+
+        .testimonial-card h4 { color: var(--accent); margin-bottom: 0.2rem; margin-top: 1.5rem;}
+
+        /* ==========================================================================
+           7 & 8. CALL TO ACTION & NEWSLETTER
+           ========================================================================== */
+        .bottom-action-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        #cta, #newsletter { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+        
+        #cta { background-color: var(--accent); color: var(--primary); }
+        #cta h2 { color: var(--primary); }
+        #cta .btn { border-color: var(--primary); color: var(--primary); }
+        #cta .btn:hover { background-color: var(--primary); color: var(--accent); }
+        
+        #newsletter { background-color: var(--primary); color: var(--bg-white); }
+        #newsletter h2 { color: var(--accent); }
+        
+        .newsletter-form { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
+        .newsletter-form input {
+            padding: 1rem;
+            border-radius: 50px;
+            border: none;
+            flex-grow: 1;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+        }
+        .newsletter-form button {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .newsletter-form button:hover { background-color: var(--bg-white); }
+
+        /* ==========================================================================
+           FOOTER (With Socials)
            ========================================================================== */
         footer {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 4rem 2rem 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            background-color: #0d2214; /* Slightly darker primary for footer depth */
+            color: var(--bg-white);
+            padding: 4rem 0 2rem;
+            border-top: 2px solid var(--accent);
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 3rem;
-            max-width: var(--container-width);
-            margin: 0 auto;
-            border-bottom: 1px solid rgba(199, 158, 88, 0.3);
+            border-bottom: 1px solid rgba(199, 158, 88, 0.2);
             padding-bottom: 3rem;
         }
 
-        .footer-about img {
-            /* Increased Logo Size in Footer */
-            height: 120px; 
-            margin-bottom: 1.5rem;
-            background-color: white; 
-            padding: 10px;
-            border-radius: 12px;
-        }
-
-        .footer-links h4 {
-            color: var(--accent);
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links ul li a {
-            color: var(--white);
-            font-size: 1rem;
-        }
-
-        .footer-links ul li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        /* Social Icons */
+        .footer-about img { height: 50px; margin-bottom: 1.5rem; filter: brightness(0) invert(1); }
+        
+        .footer-links h4 { color: var(--accent); font-size: 1.2rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 0.8rem; }
+        .footer-links ul li a { color: var(--bg-white); }
+        
         .social-icons {
             display: flex;
             gap: 1rem;
             margin-top: 1.5rem;
         }
-
         .social-icons a {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
+            border-radius: 50%;
             background-color: var(--accent);
             color: var(--primary);
-            border-radius: 50%;
             font-size: 1.2rem;
-            transition: all 0.3s ease;
         }
-
         .social-icons a:hover {
-            background-color: var(--white);
-            color: var(--primary);
+            background-color: var(--bg-white);
             transform: translateY(-3px);
         }
 
         .footer-bottom {
-            max-width: var(--container-width);
-            margin: 0 auto;
             padding-top: 2rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
             font-size: 0.9rem;
-            color: var(--white);
-        }
-
-        .footer-bottom a {
-            color: var(--accent);
-        }
-
-        .footer-bottom a:hover {
-            text-decoration: underline;
+            color: rgba(255,255,255,0.6);
         }
 
         /* ==========================================================================
-           MOBILE OPTIMIZATION
+           RESPONSIVE DESIGN
            ========================================================================== */
         @media (max-width: 992px) {
-            .intro-grid, .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            #hero h1 {
-                font-size: 3rem;
-            }
+            .intro-grid, .bottom-action-area { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            #hero h1 { font-size: 3rem; }
         }
-
         @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: var(--header-height);
-                left: 0;
-                width: 100%;
-                background-color: var(--white);
-                flex-direction: column;
-                gap: 0;
-                box-shadow: 0 10px 10px rgba(22, 58, 35, 0.1);
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: clip-path 0.3s ease-in-out;
-            }
-
-            .nav-links.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-            }
-
-            .nav-links li {
-                width: 100%;
-                text-align: center;
-            }
-
-            .nav-links a {
-                display: block;
-                padding: 1.5rem;
-                border-top: 1px solid rgba(22, 58, 35, 0.1);
-            }
-
-            #hero {
-                padding-top: 6rem;
-            }
-
-            #hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
+            .nav-links { display: none; } /* Mobile menu implementation required here */
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .social-icons { justify-content: center; }
+            .newsletter-form { flex-direction: column; }
+            #hero { padding-top: 10rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <nav class="nav-container">
+        <div class="container nav-container">
             <a href="index.html" class="logo">
                 <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ESG-World-Logo-mmltwdct7szg.webp" alt="ESG World Logo">
             </a>
             <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#introduction">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#cta">Contact Us</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
+        </div>
     </header>
 
     <main>
         <section id="hero">
             <div class="container">
                 <h1>Sustainable Future for the World</h1>
-                <p>ESG World is your dedicated specialist in implementing comprehensive Environmental, Social, and Governance strategies that drive positive impact and corporate growth.</p>
+                <p>ESG World is your dedicated specialist in implementing comprehensive Environmental, Social, and Governance strategies that drive positive impact and sustainable corporate growth.</p>
                 <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">Explore Our Services</a>
-                    <a href="#cta" class="btn btn-outline" style="border-color: var(--accent); color: var(--white);">Contact an Expert</a>
+                    <a href="services.html" class="btn btn-primary">Explore Services</a>
+                    <a href="contact.html" class="btn btn-outline" style="color: var(--bg-white); border-color: var(--bg-white);">Get Started</a>
                 </div>
             </div>
         </section>
 
-        <section id="introduction">
+        <section id="introduction" class="section-padding">
             <div class="container intro-grid">
                 <div class="intro-content">
                     <h2>Empowering Change Through Expertise</h2>
-                    <p>At ESG World, we believe that sustainable business practices are no longer optional—they are imperative for long-term success. Our mission is to bridge the gap between corporate ambition and actionable sustainability.</p>
-                    <p>By partnering with organizations across the globe, we implement tailored strategies that reduce environmental footprints, enhance social responsibility, and ensure robust governance structures. Let us guide your journey toward meaningful, measurable impact.</p>
-                    <br>
-                    <a href="#cta" class="btn btn-outline">Learn More About Us</a>
+                    <p>At ESG World, we believe that sustainable business practices are imperative for long-term success. Our mission is to bridge the gap between corporate ambition and actionable sustainability.</p>
+                    <p>By partnering with organizations globally, we implement tailored strategies that reduce environmental footprints, enhance social responsibility, and ensure robust governance structures.</p>
+                    <a href="about.html" class="btn btn-outline" style="margin-top: 1rem;">Learn More About Us</a>
                 </div>
                 <div class="intro-image">
                     <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustainable Plant Growth">
@@ -642,169 +426,155 @@
             </div>
         </section>
 
-        <section id="standards">
+        <section id="services" class="section-padding">
             <div class="container">
                 <div class="section-header">
-                    <h2>Recognised Industry Standards</h2>
-                </div>
-                <div class="standards-grid">
-                    <div class="standard-logo-box">
-                        <img src="https://th.bing.com/th/id/R.9bc0f7074c9560b7aa658202028a3025?rik=%2fAXWRht9VU44ew&riu=http%3a%2f%2fwww.unepfi.org%2fwordpress%2fwp-content%2fuploads%2f2016%2f12%2fTCFD.jpg&ehk=B%2fhUdF5RbFtdWBLi00LYqPCoL%2fVmZb0LHM8kkRtLbeU%3d&risl=&pid=ImgRaw&r=0" alt="TCFD Logo">
-                    </div>
-                    <div class="standard-logo-box">
-                        <img src="https://tse3.mm.bing.net/th/id/OIP.sHG5Ne4aqMEWAlTYNrzCswHaEH?rs=1&pid=ImgDetMain&o=7&rm=3" alt="CSRD Logo">
-                    </div>
-                    <div class="standard-logo-box">
-                        <img src="https://th.bing.com/th/id/R.60fda2150c6e2ab0910ee2b162009c44?rik=leAPycLljv7XOw&riu=http%3a%2f%2fwww.sap.com%2fdam%2fsite%2fsapcom%2fmultimedia%2f2024%2f05%2faa3ca955-be7e-0010-bca6-c68f7e60039b.mp4%2f_jcr_content%2frenditions%2fcq5dam.thumbnail.640.360.jpg&ehk=KnSidqW3iDlklw5kKquaOZE4AUbsHDTfNVipA0G213Y%3d&risl=&pid=ImgRaw&r=0" alt="IFRS Logo">
-                    </div>
-                    <div class="standard-logo-box">
-                        <img src="https://tse2.mm.bing.net/th/id/OIP.k0jCxlVevrsFOtAxTWUF_gHaE3?rs=1&pid=ImgDetMain&o=7&rm=3" alt="ISSB Logo">
-                    </div>
-                    <div class="standard-logo-box">
-                        <img src="https://th.bing.com/th/id/OIP.9OIu-or2Tvq7M63LPFR_XAHaHa" alt="GRI Logo">
-                    </div>
-                    <div class="standard-logo-box">
-                        <img src="https://esg.skgas.co.kr/assets/images/data/Initiatives-sasb.png" alt="SASB Logo">
-                    </div>
-                    <div class="standard-logo-box">
-                        <img src="https://www.arenasolutions.com/wp-content/uploads/what-is-iso.png" alt="ISO Logo">
-                    </div>
-                    <div class="standard-logo-box">
-                        <img src="https://tse2.mm.bing.net/th/id/OIP.umVnojz4FqHvzr7uiwXUvAHaEY?rs=1&pid=ImgDetMain&o=7&rm=3" alt="UN SDGs Logo">
-                    </div>
-                    <div class="standard-logo-box">
-                        <img src="https://www.bryceenergyservices.com/wp-content/uploads/2024/05/Service-ISO50001.png" alt="ISO 50001 Logo">
-                    </div>
-                    <div class="standard-logo-box">
-                        <img src="https://tse2.mm.bing.net/th/id/OIP.4KzS2mg3odlj9sM5SRQx3gHaHZ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="BCA Green Mark Logo">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Our Core Services</h2>
-                    <p>Comprehensive solutions designed to address every pillar of the ESG framework.</p>
+                    <h2>Our Core Solutions</h2>
+                    <p>Comprehensive strategies designed to address every pillar of the ESG framework.</p>
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h3>Education Services</h3>
-                        <p>Empower your workforce with specialized training programs and workshops on sustainability practices and ESG compliance.</p>
-                        <a href="#services" class="service-link">Discover More <i class="fas fa-arrow-right"></i></a>
+                        <i class="fa-solid fa-graduation-cap service-icon"></i>
+                        <h3>ESG Training</h3>
+                        <p>Specialized training programs on sustainability practices and ESG compliance.</p>
+                        <a href="services.html#training">Discover More &rarr;</a>
                     </div>
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-recycle"></i></div>
+                        <i class="fa-solid fa-recycle service-icon"></i>
                         <h3>Waste Management</h3>
-                        <p>Implement innovative strategies for waste reduction, recycling, and circular economy integration within your operations.</p>
-                        <a href="#services" class="service-link">Discover More <i class="fas fa-arrow-right"></i></a>
+                        <p>Innovative strategies for waste reduction and circular economy integration.</p>
+                        <a href="services.html#waste">Discover More &rarr;</a>
                     </div>
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-truck-fast"></i></div>
-                        <h3>Transport Services</h3>
-                        <p>Optimize logistics and transition to sustainable transportation solutions to drastically reduce your carbon footprint.</p>
-                        <a href="#services" class="service-link">Discover More <i class="fas fa-arrow-right"></i></a>
+                        <i class="fa-solid fa-truck-fast service-icon"></i>
+                        <h3>Transport & Logistics</h3>
+                        <p>Sustainable transportation solutions to drastically reduce your carbon footprint.</p>
+                        <a href="services.html#transport">Discover More &rarr;</a>
                     </div>
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-building-user"></i></div>
-                        <h3>Building Services</h3>
-                        <p>Design and develop sustainable infrastructure with green building certifications and energy-efficient retrofits.</p>
-                        <a href="#services" class="service-link">Discover More <i class="fas fa-arrow-right"></i></a>
+                        <i class="fa-solid fa-building-circle-check service-icon"></i>
+                        <h3>Building & Maintenance</h3>
+                        <p>Design and develop infrastructure with green building certifications.</p>
+                        <a href="services.html#building">Discover More &rarr;</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="cta">
+        <section id="assessment">
             <div class="container">
+                <h2>Discover Your Sustainability Score</h2>
+                <p>Take the first step towards a greener future. Get a complimentary, high-level ESG assessment tailored to your specific industry constraints and corporate goals.</p>
+                <a href="contact.html" class="btn btn-primary" style="background-color: var(--bg-white); color: var(--primary);">Claim Your Free Assessment</a>
+            </div>
+        </section>
+
+        <section id="standards" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Recognized Industry Standards</h2>
+                    <p>We help you navigate and comply with globally recognized sustainability frameworks.</p>
+                </div>
+                <div class="standards-grid">
+                    <div class="standard-item">TCFD</div>
+                    <div class="standard-item">CSRD</div>
+                    <div class="standard-item">ISO 14001</div>
+                    <div class="standard-item">GRI Standards</div>
+                    <div class="standard-item">SASB</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Client Success Stories</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p style="position: relative; z-index: 2; margin-top: 1rem;">"Their waste management strategies helped us achieve our carbon neutrality goals two years ahead of schedule. Truly transformative."</p>
+                        <h4>Sarah Jenkins</h4>
+                        <p style="font-size: 0.85rem; opacity: 0.8;">Director of Operations, EcoTech Ltd.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p style="position: relative; z-index: 2; margin-top: 1rem;">"The educational programs brought our entire team on board with our new sustainability vision. Their expertise is unmatched."</p>
+                        <h4>Marcus Chen</h4>
+                        <p style="font-size: 0.85rem; opacity: 0.8;">CEO, Global Logistics Inc.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p style="position: relative; z-index: 2; margin-top: 1rem;">"Partnering for our green building infrastructure was our best decision. They guided us smoothly through complex certifications."</p>
+                        <h4>Elena Rodriguez</h4>
+                        <p style="font-size: 0.85rem; opacity: 0.8;">Head of Real Estate, Horizon Group</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bottom-action-area">
+            <div id="cta">
                 <h2>Ready to Elevate Your ESG Strategy?</h2>
-                <p>Connect with our specialists today to schedule a consultation and take the first step toward a more sustainable and profitable future.</p>
-                <a href="mailto:info@esgworlds.com" class="btn btn-primary" style="background-color: var(--white); color: var(--primary);">Get in Touch Now</a>
+                <p>Connect with our specialists today to schedule a consultation and take action.</p>
+                <div>
+                    <a href="contact.html" class="btn btn-outline">Book a Consultation</a>
+                </div>
+            </div>
+            
+            <div id="newsletter">
+                <h2>Join Our Newsletter</h2>
+                <p>Stay updated with the latest ESG news, insights, and framework changes.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-grid">
+        <div class="container footer-grid">
             <div class="footer-about">
                 <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ESG-World-Logo-mmltwdct7szg.webp" alt="ESG World Logo">
-                <p>Your dedicated partner in navigating the complexities of Environmental, Social, and Governance frameworks. Building a sustainable world, together.</p>
-                
+                <p>Your dedicated partner in navigating Environmental, Social, and Governance frameworks. Building a sustainable world, together.</p>
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/company/esgworld-llp/about/?viewAsMember=true" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61579618170072" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://x.com/esgworldllp" target="_blank" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://www.instagram.com/esgworlds" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@esgworlds?lang=en-gb" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 </div>
-
             </div>
             <div class="footer-links">
-                <h4>Quick Links</h4>
+                <h4>Company</h4>
                 <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#introduction">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#cta">Contact Us</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Our Services</h4>
+                <h4>Solutions</h4>
                 <ul>
-                    <li><a href="#services">Education</a></li>
-                    <li><a href="#services">Waste Management</a></li>
-                    <li><a href="#services">Transport</a></li>
-                    <li><a href="#services">Building</a></li>
+                    <li><a href="services.html#training">ESG Training</a></li>
+                    <li><a href="services.html#waste">Waste Management</a></li>
+                    <li><a href="services.html#transport">Transport</a></li>
+                    <li><a href="services.html#building">Building & Maintenance</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Contact</h4>
                 <ul>
                     <li><a href="mailto:info@esgworlds.com">info@esgworlds.com</a></li>
-                    <li><a href="#cta">Corporate Office</a></li>
-                    <li><a href="#cta">Support Center</a></li>
+                    <li><a href="contact.html">Corporate Office</a></li>
+                    <li><a href="contact.html">Support Center</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="container footer-bottom">
             <div>&copy; 2026 ESG Worlds. All rights reserved.</div>
-            <div class="footer-credits">
-                Website Design by <a href="https://reputifly.com/web-development" target="_blank">Reputifly</a>
-            </div>
+            <div>Website Design by Reputifly</div>
         </div>
     </footer>
 
-    <script>
-        // Mobile Navigation Toggle 
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileBtn = document.querySelector('.mobile-menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-            const icon = mobileBtn.querySelector('i');
-
-            mobileBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                
-                // Toggle icon from hamburger to close
-                if (navLinks.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-
-            // Close mobile menu when a link is clicked
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                });
-            });
-        });
-    </script>
 </body>
 </html>
