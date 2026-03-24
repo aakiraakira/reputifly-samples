@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Imperial Builder PTE LTD — Renovation Specialists</title>
+    <meta name="description"
+        content="Learn about Imperial Builder's 15+ year legacy in landed, residential, and commercial renovation. Meet our team, discover our vision, and see why Singapore trusts us for quality renovations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #b4933e;
+            --primary-dark: #9a7d34;
+            --primary-light: #d4b96a;
+            --accent: #162f4e;
+            --accent-light: #1e3f66;
+            --bg: #ffffff;
+            --text: #0b0a14;
+            --surface: #f7f7f5;
+            --border: #e6e6e6;
+            --muted: #555;
+            --on-primary: #fff;
+            --heading: 'Montserrat', sans-serif;
+            --body: 'Inter', sans-serif;
+            --radius: 16px;
+            --shadow: 0 20px 40px rgba(0, 0, 0, .08);
+            --glass: blur(14px)
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box !important
+        }
+
+        html {
+            scroll-behavior: smooth !important
+        }
+
+        body {
+            font-family: var(--body) !important;
+            color: var(--text) !important;
+            background: var(--bg) !important;
+            line-height: 1.7 !important;
+            overflow-x: hidden !important;
+            -webkit-font-smoothing: antialiased !important
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--heading) !important;
+            color: var(--accent) !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0 !important
+        }
+
+        a {
+            text-decoration: none !important;
+            color: inherit !important;
+            transition: all .3s ease !important
+        }
+
+        ul {
+            list-style: none !important
+        }
+
+        img {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important
+        }
+
+        .ib-container {
+            width: 100% !important;
+            max-width: 1280px !important;
+            margin: 0 auto !important;
+            padding: 0 24px !important
+        }
+
+        .ib-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 15px 32px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            font-family: var(--body) !important;
+            font-size: .95rem !important;
+            transition: all .35s ease !important;
+            cursor: pointer !important;
+            border: none !important;
+            letter-spacing: .5px !important;
+            text-transform: uppercase !important
+        }
+
+        .ib-btn-primary {
+            background: var(--primary) !important;
+            color: var(--on-primary) !important;
+            box-shadow: 0 4px 20px rgba(180, 147, 62, .35) !important
+        }
+
+        .ib-btn-primary:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 30px rgba(180, 147, 62, .45) !important
+        }
+
+        .ib-section-header {
+            text-align: center !important;
+            margin-bottom: 64px !important
+        }
+
+        .ib-section-header h2 {
+            font-size: 2.8rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-section-header p {
+            color: var(--muted) !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            font-size: 1.1rem !important
+        }
+
+        .ib-gold-line {
+            width: 60px !important;
+            height: 4px !important;
+            background: var(--primary) !important;
+            margin: 0 auto 20px !important;
+            border-radius: 2px !important
+        }
+
+        /* Header */
+        .ib-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 1000 !important;
+            background: rgba(255, 255, 255, .92) !important;
+            backdrop-filter: var(--glass) !important;
+            -webkit-backdrop-filter: var(--glass) !important;
+            border-bottom: 1px solid var(--border) !important
+        }
+
+        .ib-nav {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            height: 130px !important
+        }
+
+        .ib-logo img {
+            height: 120px !important;
+            object-fit: contain !important;
+            padding: 8px 0 !important
+        }
+
+        .ib-nav-links {
+            display: flex !important;
+            gap: 36px !important;
+            align-items: center !important
+        }
+
+        .ib-nav-links a {
+            font-weight: 500 !important;
+            color: var(--accent) !important;
+            font-size: .95rem !important;
+            position: relative !important
+        }
+
+        .ib-nav-links a:not(.ib-btn)::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -4px !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: var(--primary) !important;
+            transition: width .3s ease !important
+        }
+
+        .ib-nav-links a:not(.ib-btn):hover::after {
+            width: 100% !important
+        }
+
+        .ib-nav-links a:hover {
+            color: var(--primary) !important
+        }
+
+        .ib-nav-links a.active {
+            color: var(--primary) !important
+        }
+
+        .ib-mobile-btn {
+            display: none !important;
+            font-size: 1.5rem !important;
+            color: var(--accent) !important;
+            cursor: pointer !important;
+            border: none !important;
+            background: none !important
+        }
+
+        /* Page Hero */
+        .ib-page-hero {
+            padding: 175px 0 100px !important;
+            background: linear-gradient(135deg, rgba(22, 47, 78, .88), rgba(11, 10, 20, .75)), url('assets/WhatsApp%20Image%202026-03-06%20at%202.37.28%20PM%20(2).jpeg') center/cover no-repeat !important;
+            text-align: center !important;
+            color: var(--on-primary) !important
+        }
+
+        .ib-page-hero h1 {
+            color: var(--on-primary) !important;
+            font-size: 3.5rem !important;
+            font-weight: 900 !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-page-hero p {
+            font-size: 1.15rem !important;
+            opacity: .85 !important;
+            max-width: 600px !important;
+            margin: 0 auto !important
+        }
+
+        .ib-page-hero .ib-breadcrumb {
+            margin-top: 20px !important;
+            font-size: .9rem !important;
+            opacity: .6 !important
+        }
+
+        .ib-page-hero .ib-breadcrumb a {
+            color: var(--primary-light) !important;
+            opacity: 1 !important
+        }
+
+        /* Story Section */
+        .ib-story {
+            padding: 120px 0 !important;
+            background: var(--bg) !important
+        }
+
+        .ib-story-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 80px !important;
+            align-items: center !important
+        }
+
+        .ib-story-img {
+            border-radius: var(--radius) !important;
+            overflow: hidden !important;
+            box-shadow: var(--shadow) !important
+        }
+
+        .ib-story-img img {
+            width: 100% !important;
+            height: 500px !important;
+            object-fit: cover !important
+        }
+
+        .ib-story-text h2 {
+            font-size: 2.4rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 20px !important
+        }
+
+        .ib-story-text h2 span {
+            color: var(--primary) !important
+        }
+
+        .ib-story-text p {
+            color: var(--muted) !important;
+            font-size: 1.05rem !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-story-text .ib-values {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 16px !important;
+            margin-top: 24px !important
+        }
+
+        .ib-value-item {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 12px !important
+        }
+
+        .ib-value-item i {
+            color: var(--primary) !important;
+            font-size: 1.2rem !important;
+            margin-top: 3px !important;
+            flex-shrink: 0 !important
+        }
+
+        .ib-value-item span {
+            font-weight: 600 !important;
+            font-size: .95rem !important;
+            color: var(--accent) !important
+        }
+
+        /* Vision Section */
+        .ib-vision {
+            padding: 120px 0 !important;
+            background: var(--accent) !important;
+            color: var(--on-primary) !important;
+            position: relative !important;
+            overflow: hidden !important
+        }
+
+        .ib-vision::before {
+            content: '' !important;
+            position: absolute !important;
+            top: -80px !important;
+            right: -80px !important;
+            width: 350px !important;
+            height: 350px !important;
+            border: 50px solid rgba(180, 147, 62, .08) !important;
+            border-radius: 50% !important;
+            pointer-events: none !important
+        }
+
+        .ib-vision-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 64px !important
+        }
+
+        .ib-vision-card {
+            background: rgba(255, 255, 255, .06) !important;
+            border: 1px solid rgba(255, 255, 255, .1) !important;
+            padding: 48px 36px !important;
+            border-radius: var(--radius) !important
+        }
+
+        .ib-vision-card i {
+            font-size: 2.5rem !important;
+            color: var(--primary-light) !important;
+            margin-bottom: 24px !important;
+            display: block !important
+        }
+
+        .ib-vision-card h3 {
+            color: var(--on-primary) !important;
+            font-size: 1.5rem !important;
+            margin-bottom: 16px !important;
+            font-weight: 700 !important
+        }
+
+        .ib-vision-card p {
+            color: rgba(255, 255, 255, .7) !important;
+            font-size: 1.02rem !important
+        }
+
+        /* Team Section */
+        .ib-team {
+            padding: 120px 0 !important;
+            background: var(--surface) !important
+        }
+
+        .ib-team-grid {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 32px !important
+        }
+
+        .ib-team-card {
+            background: var(--bg) !important;
+            border-radius: var(--radius) !important;
+            overflow: hidden !important;
+            border: 1px solid var(--border) !important;
+            transition: all .35s ease !important;
+            text-align: center !important
+        }
+
+        .ib-team-card:hover {
+            box-shadow: var(--shadow) !important;
+            transform: translateY(-5px) !important
+        }
+
+        .ib-team-avatar {
+            width: 100% !important;
+            height: 260px !important;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light)) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important
+        }
+
+        .ib-team-avatar i {
+            font-size: 4rem !important;
+            color: rgba(255, 255, 255, .4) !important
+        }
+
+        .ib-team-info {
+            padding: 28px 20px !important
+        }
+
+        .ib-team-info h3 {
+            font-size: 1.15rem !important;
+            margin-bottom: 6px !important;
+            font-weight: 700 !important
+        }
+
+        .ib-team-info span {
+            color: var(--primary) !important;
+            font-size: .88rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important
+        }
+
+        .ib-team-info p {
+            color: var(--muted) !important;
+            font-size: .9rem !important;
+            margin-top: 12px !important
+        }
+
+        /* Expertise Section */
+        .ib-expertise {
+            padding: 120px 0 !important;
+            background: var(--bg) !important
+        }
+
+        .ib-exp-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 80px !important;
+            align-items: center !important
+        }
+
+        .ib-exp-img {
+            border-radius: var(--radius) !important;
+            overflow: hidden !important;
+            box-shadow: var(--shadow) !important
+        }
+
+        .ib-exp-img img {
+            width: 100% !important;
+            height: 450px !important;
+            object-fit: cover !important
+        }
+
+        .ib-exp-text h2 {
+            font-size: 2.4rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 20px !important
+        }
+
+        .ib-exp-text h2 span {
+            color: var(--primary) !important
+        }
+
+        .ib-exp-text p {
+            color: var(--muted) !important;
+            font-size: 1.05rem !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-exp-list {
+            margin-top: 24px !important
+        }
+
+        .ib-exp-list li {
+            padding: 10px 0 !important;
+            padding-left: 28px !important;
+            position: relative !important;
+            color: var(--muted) !important;
+            font-size: .98rem !important;
+            border-bottom: 1px solid var(--border) !important
+        }
+
+        .ib-exp-list li:last-child {
+            border-bottom: none !important
+        }
+
+        .ib-exp-list li::before {
+            content: '✦' !important;
+            position: absolute !important;
+            left: 0 !important;
+            color: var(--primary) !important;
+            font-size: .8rem !important
+        }
+
+        /* Awards */
+        .ib-awards {
+            padding: 120px 0 !important;
+            background: var(--surface) !important
+        }
+
+        .ib-awards-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 32px !important
+        }
+
+        .ib-award-card {
+            background: var(--bg) !important;
+            padding: 40px 28px !important;
+            border-radius: var(--radius) !important;
+            text-align: center !important;
+            border: 1px solid var(--border) !important;
+            transition: all .35s ease !important
+        }
+
+        .ib-award-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: var(--shadow) !important;
+            border-color: var(--primary) !important
+        }
+
+        .ib-award-card i {
+            font-size: 3rem !important;
+            color: var(--primary) !important;
+            margin-bottom: 20px !important;
+            display: block !important
+        }
+
+        .ib-award-card h3 {
+            font-size: 1.15rem !important;
+            margin-bottom: 8px !important;
+            font-weight: 700 !important
+        }
+
+        .ib-award-card p {
+            color: var(--muted) !important;
+            font-size: .9rem !important
+        }
+
+        /* CTA */
+        .ib-cta-band {
+            padding: 80px 0 !important;
+            background: linear-gradient(135deg, var(--accent), #0d1f33) !important;
+            text-align: center !important;
+            color: var(--on-primary) !important
+        }
+
+        .ib-cta-band h2 {
+            color: var(--on-primary) !important;
+            font-size: 2.5rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-cta-band p {
+            color: rgba(255, 255, 255, .8) !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 32px !important;
+            max-width: 550px !important;
+            margin-left: auto !important;
+            margin-right: auto !important
+        }
+
+        /* Footer */
+        .ib-footer {
+            background: #0b0a14 !important;
+            color: rgba(255, 255, 255, .7) !important;
+            padding: 80px 0 32px !important
+        }
+
+        .ib-footer-grid {
+            display: grid !important;
+            grid-template-columns: 2fr 1fr 1fr 1fr !important;
+            gap: 48px !important;
+            margin-bottom: 64px !important
+        }
+
+        .ib-footer-col h4 {
+            color: var(--primary) !important;
+            font-size: 1.15rem !important;
+            margin-bottom: 24px !important;
+            font-family: var(--heading) !important;
+            font-weight: 700 !important
+        }
+
+        .ib-footer-col p,
+        .ib-footer-col a {
+            color: rgba(255, 255, 255, .6) !important;
+            margin-bottom: 14px !important;
+            display: block !important;
+            font-size: .95rem !important
+        }
+
+        .ib-footer-col a:hover {
+            color: var(--primary) !important
+        }
+
+        .ib-footer-logo img {
+            height: 120px !important;
+            margin-bottom: 20px !important
+        }
+
+        .ib-footer-social {
+            display: flex !important;
+            gap: 12px !important;
+            margin-top: 20px !important
+        }
+
+        .ib-footer-social a {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            border: 1px solid rgba(255, 255, 255, .15) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: rgba(255, 255, 255, .6) !important;
+            font-size: 1rem !important
+        }
+
+        .ib-footer-social a:hover {
+            background: var(--primary) !important;
+            border-color: var(--primary) !important;
+            color: var(--on-primary) !important
+        }
+
+        .ib-footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .08) !important;
+            padding-top: 32px !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            font-size: .85rem !important;
+            color: rgba(255, 255, 255, .4) !important
+        }
+
+        .ib-footer-bottom a {
+            color: var(--primary) !important;
+            font-weight: 600 !important
+        }
+
+        .ib-wa {
+            position: fixed !important;
+            width: 60px !important;
+            height: 60px !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            background: #25d366 !important;
+            color: #fff !important;
+            border-radius: 50% !important;
+            font-size: 32px !important;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, .4) !important;
+            z-index: 999 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: transform .3s ease !important
+        }
+
+        .ib-wa:hover {
+            transform: scale(1.12) !important
+        }
+
+        /* Animations */
+        .ib-fade-up {
+            opacity: 0 !important;
+            transform: translateY(30px) !important;
+            transition: opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1), transform .8s cubic-bezier(0.165, 0.84, 0.44, 1) !important
+        }
+
+        .ib-fade-up.ib-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important
+        }
+
+        @media(max-width:1024px) {
+
+            .ib-story-grid,
+            .ib-exp-grid,
+            .ib-vision-grid {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important
+            }
+
+            .ib-team-grid {
+                grid-template-columns: repeat(2, 1fr) !important
+            }
+
+            .ib-awards-grid {
+                grid-template-columns: repeat(2, 1fr) !important
+            }
+
+            .ib-footer-grid {
+                grid-template-columns: 1fr 1fr !important
+            }
+
+            .ib-page-hero h1 {
+                font-size: 2.8rem !important
+            }
+
+            .ib-section-header h2 {
+                font-size: 2.2rem !important
+            }
+        }
+
+        @media(max-width:768px) {
+            .ib-nav-links {
+                display: none !important;
+                position: absolute !important;
+                top: 130px !important;
+                left: 0 !important;
+                width: 100% !important;
+                background: var(--bg) !important;
+                flex-direction: column !important;
+                padding: 24px !important;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, .1) !important;
+                gap: 16px !important
+            }
+
+            .ib-nav-links.active {
+                display: flex !important
+            }
+
+            .ib-mobile-btn {
+                display: block !important
+            }
+
+            .ib-page-hero {
+                padding: 140px 0 80px !important
+            }
+
+            .ib-page-hero h1 {
+                font-size: 2.2rem !important
+            }
+
+            .ib-team-grid,
+            .ib-awards-grid {
+                grid-template-columns: 1fr !important
+            }
+
+            .ib-story-img img,
+            .ib-exp-img img {
+                height: 300px !important
+            }
+
+            .ib-story-text .ib-values {
+                grid-template-columns: 1fr !important
+            }
+
+            .ib-footer-grid {
+                grid-template-columns: 1fr !important
+            }
+
+            .ib-footer-bottom {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 12px !important
+            }
+
+            .ib-section-header h2 {
+                font-size: 1.9rem !important
+            }
+
+            .ib-cta-band h2 {
+                font-size: 1.9rem !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="ib-header">
+        <div class="ib-container ib-nav">
+            <a href="index.html" class="ib-logo"><img
+                    src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-6-2026-04-17-52-PM-mmemgrsxe44n.webp"
+                    alt="Imperial Builder Logo"></a>
+            <nav class="ib-nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="ib-btn ib-btn-primary">Get a Quote</a>
+            </nav>
+            <button class="ib-mobile-btn" id="mobile-menu-btn" aria-label="Toggle menu"><i
+                    class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="ib-page-hero">
+        <div class="ib-container">
+            <div class="ib-gold-line"></div>
+            <h1>About Imperial Builder</h1>
+            <p>Over 15 years of transforming landed, residential, and commercial spaces with quality renovation
+                craftsmanship.
+            </p>
+            <div class="ib-breadcrumb"><a href="index.html">Home</a> / About</div>
+        </div>
+    </section>
+
+    <!-- COMPANY STORY & MISSION -->
+    <section class="ib-story">
+        <div class="ib-container ib-story-grid">
+            <div class="ib-story-img">
+                <img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.24%20PM.jpeg" alt="Imperial Builder project">
+            </div>
+            <div class="ib-story-text">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>Our Story & <span>Mission</span></h2>
+                <p>Founded in 2015, Imperial Builder PTE LTD began with a singular vision: to elevate Singapore's
+                    renovation landscape with uncompromising quality and expert craftsmanship. What started as a
+                    small team of passionate renovation specialists has grown into a full-service renovation firm
+                    trusted by
+                    homeowners and businesses across the island.</p>
+                <p>Our mission is simple — to deliver renovation excellence that transforms spaces and exceeds
+                    expectations. Every
+                    project we undertake reflects our commitment to integrity, innovation, and the highest standards of
+                    workmanship.</p>
+                <div class="ib-values">
+                    <div class="ib-value-item"><i class="fas fa-check-circle"></i><span>Integrity First</span></div>
+                    <div class="ib-value-item"><i class="fas fa-check-circle"></i><span>Quality Obsessed</span></div>
+                    <div class="ib-value-item"><i class="fas fa-check-circle"></i><span>Client-Centric</span></div>
+                    <div class="ib-value-item"><i class="fas fa-check-circle"></i><span>Innovation Driven</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISION & PHILOSOPHY -->
+    <section class="ib-vision">
+        <div class="ib-container">
+            <div class="ib-section-header" style="margin-bottom:48px!important">
+                <div class="ib-gold-line" style="background:var(--primary-light)!important"></div>
+                <h2 style="color:var(--on-primary)!important">Our Vision & Philosophy</h2>
+            </div>
+            <div class="ib-vision-grid">
+                <div class="ib-vision-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To be Singapore's most trusted and admired renovation firm — recognized for transforming
+                        homes and commercial spaces into inspiring environments. We aspire to set the gold standard in
+                        residential
+                        and commercial renovation through innovative design, sustainable practices, and relentless
+                        pursuit of perfection.</p>
+                </div>
+                <div class="ib-vision-card">
+                    <i class="fas fa-compass"></i>
+                    <h3>Our Philosophy</h3>
+                    <p>We believe that great renovation is the intersection of design vision and construction expertise.
+                        Every space we
+                        transform must not only function flawlessly but also reflect the personality and aspirations of
+                        our clients. We prioritize lasting relationships over transactions, treating every
+                        client's renovation as if it were our own.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEET THE TEAM -->
+    <section class="ib-team">
+        <div class="ib-container">
+            <div class="ib-section-header">
+                <div class="ib-gold-line"></div>
+                <h2>Meet the Team</h2>
+                <p>Experienced professionals driving every project to success.</p>
+            </div>
+            <div class="ib-team-grid">
+                <div class="ib-team-card">
+                    <div class="ib-team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <div class="ib-team-info">
+                        <h3>Dennis Kuan</h3>
+                        <span>Chief Executive Officer</span>
+                        <p>Visionary leader steering Imperial Builder's growth and strategic direction since founding the company in 2015.</p>
+                    </div>
+                </div>
+                <div class="ib-team-card">
+                    <div class="ib-team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <div class="ib-team-info">
+                        <h3>Levin Seet</h3>
+                        <span>Managing Director</span>
+                        <p>20+ years of experience in renovation, bringing deep industry expertise and operational excellence to every project.</p>
+                    </div>
+                </div>
+                <div class="ib-team-card">
+                    <div class="ib-team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <div class="ib-team-info">
+                        <h3>Anthony Koh</h3>
+                        <span>Head of Design</span>
+                        <p>Creative force behind Imperial Builder's signature design aesthetic, specializing in residential and commercial spaces.</p>
+                    </div>
+                </div>
+                <div class="ib-team-card">
+                    <div class="ib-team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <div class="ib-team-info">
+                        <h3>Kenny Loy</h3>
+                        <span>Project Director</span>
+                        <p>Expert in large-scale renovation management, ensuring every project is delivered on time and to the highest standards.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HDB Registered Badge -->
+            <div style="text-align:center!important;margin-top:48px!important">
+                <div style="display:inline-flex!important;align-items:center!important;gap:16px!important;background:var(--surface)!important;border:2px solid var(--primary)!important;border-radius:16px!important;padding:20px 36px!important;box-shadow:0 4px 20px rgba(180,147,62,.15)!important">
+                    <i class="fas fa-certificate" style="font-size:2rem!important;color:var(--primary)!important"></i>
+                    <div style="text-align:left!important">
+                        <strong style="font-family:var(--heading)!important;color:var(--accent)!important;font-size:1.1rem!important;display:block!important">HDB Registered Renovation Contractor</strong>
+                        <span style="color:var(--muted)!important;font-size:.9rem!important">Officially registered and approved by HDB for residential renovation works</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERTISE & APPROACH -->
+    <section class="ib-expertise">
+        <div class="ib-container ib-exp-grid">
+            <div class="ib-exp-text">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>Our Expertise & <span>Approach</span></h2>
+                <p>What sets Imperial Builder apart is our integrated renovation approach. We don't just renovate — we
+                    consult,
+                    design, engineer, and manage. Every renovation benefits from our multi-disciplinary expertise and
+                    meticulous attention to detail.</p>
+                <p>Our methodology combines proven renovation techniques with modern design tools, ensuring every
+                    project is
+                    structurally sound, aesthetically refined, and delivered on time.</p>
+                <ul class="ib-exp-list">
+                    <li>Residential renovation design & space planning</li>
+                    <li>Commercial fit-out & workspace transformation</li>
+                    <li>Premium material sourcing & procurement</li>
+                    <li>Advanced 3D visualization & renovation planning</li>
+                    <li>End-to-end project management & quality assurance</li>
+                </ul>
+            </div>
+            <div class="ib-exp-img">
+                <img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.30%20PM%20(1).jpeg" alt="Our expertise">
+            </div>
+        </div>
+    </section>
+
+    <!-- AWARDS & RECOGNITION -->
+    <section class="ib-awards">
+        <div class="ib-container">
+            <div class="ib-section-header">
+                <div class="ib-gold-line"></div>
+                <h2>Awards & Recognition</h2>
+                <p>Industry accolades that reflect our commitment to excellence.</p>
+            </div>
+            <div class="ib-awards-grid">
+                <div class="ib-award-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>BCA Renovation Excellence Award</h3>
+                    <p>Recognized for outstanding renovation quality and project delivery standards.</p>
+                </div>
+                <div class="ib-award-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Singapore Business Award</h3>
+                    <p>Honored for business excellence and contribution to the built environment sector.</p>
+                </div>
+                <div class="ib-award-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Best Renovation Firm</h3>
+                    <p>Awarded for innovative landed, residential, and commercial renovation solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="ib-cta-band">
+        <div class="ib-container">
+            <h2>Partner With Singapore's Best Renovation Team</h2>
+            <p>Discover why homeowners and businesses across Singapore trust Imperial Builder for their most important
+                renovation projects.</p>
+            <a href="contact.html" class="ib-btn ib-btn-primary">Start a Conversation</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="ib-footer">
+        <div class="ib-container">
+            <div class="ib-footer-grid">
+                <div class="ib-footer-col">
+                    <div class="ib-footer-logo"><img
+                            src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-6-2026-04-17-52-PM-mmemgrsxe44n.webp"
+                            alt="Imperial Builder Logo"></div>
+                    <p>Imperial Builder PTE LTD is Singapore's trusted renovation specialist, delivering
+                        quality craftsmanship and uncompromising standards for landed, residential, and commercial
+                        spaces since
+                        2015.</p>
+                    <div class="ib-footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Our
+                        Services</a><a href="contact.html">Contact</a>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Services</h4>
+                    <a href="services.html">Residential Renovation</a><a href="services.html">Commercial
+                        Renovation</a><a href="services.html">Interior Design & Renovation</a><a
+                        href="services.html">A&A Works</a>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"
+                            style="color:var(--primary)!important;margin-right:8px!important"></i>123 Builder Avenue,
+                        Singapore 012345</p>
+                    <p><i class="fas fa-phone" style="color:var(--primary)!important;margin-right:8px!important"></i>+65
+                        6789 0123</p>
+                    <p><i class="fas fa-envelope"
+                            style="color:var(--primary)!important;margin-right:8px!important"></i>info@imperialbuilder.com.sg
+                    </p>
+                </div>
+            </div>
+            <div class="ib-footer-bottom">
+                <p>&copy; 2026 Imperial Builder PTE LTD. All Rights Reserved.</p>
+                <p>Website Design by <a href="https://reputifly.com" target="_blank" rel="noopener">Reputifly</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6567890123" class="ib-wa" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+            class="fab fa-whatsapp"></i></a>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn'), navLinks = document.getElementById('nav-links');
+        menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); const i = menuBtn.querySelector('i'); i.classList.toggle('fa-bars'); i.classList.toggle('fa-times') });
+        document.querySelectorAll('.ib-nav-links a').forEach(l => l.addEventListener('click', () => { navLinks.classList.remove('active'); const i = menuBtn.querySelector('i'); i.classList.remove('fa-times'); i.classList.add('fa-bars') }));
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeEls = document.querySelectorAll('.ib-section-header, .ib-hero-content, .ib-trust-item, .ib-about-img, .ib-about-text, .ib-cert-card, .ib-why-card, .ib-svc-card, .ib-port-item, .ib-test-card, .ib-cta h2, .ib-cta p, .ib-form, .ib-page-hero h1, .ib-page-hero p, .ib-svc-intro-text, .ib-svc-intro-img, .ib-svc-row-img, .ib-svc-row-text, .ib-step, .ib-cta-band h2, .ib-cta-band p, .ib-story-img, .ib-story-text, .ib-vision-card, .ib-team-card, .ib-exp-text, .ib-exp-img, .ib-award-card, .ib-contact-info, .ib-contact-form, .ib-hours-card, .ib-social-link, .ib-footer-col');
+            fadeEls.forEach(el => el.classList.add('ib-fade-up'));
+
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) {
+                        setTimeout(() => e.target.classList.add('ib-visible'), (e.target.dataset.delay || 0) * 100);
+                        obs.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            const grids = document.querySelectorAll('.ib-trust-grid, .ib-certs-grid, .ib-why-grid, .ib-services-grid, .ib-port-grid, .ib-test-grid, .ib-process-grid, .ib-vision-grid, .ib-team-grid, .ib-awards-grid, .ib-hours-inner, .ib-social-links, .ib-footer-grid');
+            grids.forEach(g => Array.from(g.children).forEach((c, i) => c.dataset.delay = i + 1));
+
+            fadeEls.forEach(el => obs.observe(el));
+
+            const stats = document.querySelectorAll('.ib-stat .num');
+            if (stats.length > 0) {
+                const statObs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            const t = e.target;
+                            if (t.dataset.counted) return;
+                            t.dataset.counted = true;
+                            const text = t.innerText;
+                            const finalVal = parseInt(text.replace(/[^0-9]/g, ''));
+                            const suffix = text.replace(/[0-9]/g, '');
+                            let start = 0, step = finalVal / 60;
+                            const c = setInterval(() => {
+                                start += step;
+                                if (start >= finalVal) { t.innerText = finalVal + suffix; clearInterval(c); }
+                                else t.innerText = Math.floor(start) + suffix;
+                            }, 25);
+                            statObs.unobserve(t);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                stats.forEach(s => statObs.observe(s));
+            }
+        });
+    </script>
+</body>
+
+</html>
