@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Renovation Services | Imperial Builder PTE LTD</title>
+    <meta name="description"
+        content="Explore Imperial Builder's comprehensive renovation services: Residential Renovation, Commercial Renovation, Interior Design, A&A Works, and Full Project Management for homes and businesses.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #b4933e;
+            --primary-dark: #9a7d34;
+            --primary-light: #d4b96a;
+            --accent: #162f4e;
+            --accent-light: #1e3f66;
+            --bg: #ffffff;
+            --text: #0b0a14;
+            --surface: #f7f7f5;
+            --border: #e6e6e6;
+            --muted: #555;
+            --on-primary: #fff;
+            --heading: 'Montserrat', sans-serif;
+            --body: 'Inter', sans-serif;
+            --radius: 16px;
+            --shadow: 0 20px 40px rgba(0, 0, 0, .08);
+            --glass: blur(14px)
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box !important
+        }
+
+        html {
+            scroll-behavior: smooth !important
+        }
+
+        body {
+            font-family: var(--body) !important;
+            color: var(--text) !important;
+            background: var(--bg) !important;
+            line-height: 1.7 !important;
+            overflow-x: hidden !important;
+            -webkit-font-smoothing: antialiased !important
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--heading) !important;
+            color: var(--accent) !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0 !important
+        }
+
+        a {
+            text-decoration: none !important;
+            color: inherit !important;
+            transition: all .3s ease !important
+        }
+
+        ul {
+            list-style: none !important
+        }
+
+        img {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important
+        }
+
+        .ib-container {
+            width: 100% !important;
+            max-width: 1280px !important;
+            margin: 0 auto !important;
+            padding: 0 24px !important
+        }
+
+        .ib-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 15px 32px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            font-family: var(--body) !important;
+            font-size: .95rem !important;
+            transition: all .35s ease !important;
+            cursor: pointer !important;
+            border: none !important;
+            letter-spacing: .5px !important;
+            text-transform: uppercase !important
+        }
+
+        .ib-btn-primary {
+            background: var(--primary) !important;
+            color: var(--on-primary) !important;
+            box-shadow: 0 4px 20px rgba(180, 147, 62, .35) !important
+        }
+
+        .ib-btn-primary:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 30px rgba(180, 147, 62, .45) !important
+        }
+
+        .ib-btn-outline {
+            background: transparent !important;
+            color: var(--on-primary) !important;
+            border: 2px solid rgba(255, 255, 255, .6) !important
+        }
+
+        .ib-btn-outline:hover {
+            background: var(--on-primary) !important;
+            color: var(--accent) !important;
+            border-color: var(--on-primary) !important
+        }
+
+        .ib-section-header {
+            text-align: center !important;
+            margin-bottom: 64px !important
+        }
+
+        .ib-section-header h2 {
+            font-size: 2.8rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-section-header p {
+            color: var(--muted) !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            font-size: 1.1rem !important
+        }
+
+        .ib-gold-line {
+            width: 60px !important;
+            height: 4px !important;
+            background: var(--primary) !important;
+            margin: 0 auto 20px !important;
+            border-radius: 2px !important
+        }
+
+        /* Header */
+        .ib-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 1000 !important;
+            background: rgba(255, 255, 255, .92) !important;
+            backdrop-filter: var(--glass) !important;
+            -webkit-backdrop-filter: var(--glass) !important;
+            border-bottom: 1px solid var(--border) !important;
+            transition: all .3s ease !important
+        }
+
+        .ib-nav {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            height: 180px !important
+        }
+
+        .ib-logo img {
+            height: 165px !important;
+            object-fit: contain !important;
+            padding: 8px 0 !important
+        }
+
+        .ib-nav-links {
+            display: flex !important;
+            gap: 36px !important;
+            align-items: center !important
+        }
+
+        .ib-nav-links a {
+            font-weight: 500 !important;
+            color: var(--accent) !important;
+            font-size: .95rem !important;
+            position: relative !important
+        }
+
+        .ib-nav-links a:not(.ib-btn)::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -4px !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: var(--primary) !important;
+            transition: width .3s ease !important
+        }
+
+        .ib-nav-links a:not(.ib-btn):hover::after {
+            width: 100% !important
+        }
+
+        .ib-nav-links a:hover {
+            color: var(--primary) !important
+        }
+
+        .ib-nav-links a.active {
+            color: var(--primary) !important
+        }
+
+        .ib-mobile-btn {
+            display: none !important;
+            font-size: 1.5rem !important;
+            color: var(--accent) !important;
+            cursor: pointer !important;
+            border: none !important;
+            background: none !important
+        }
+
+        /* Page Hero */
+        .ib-page-hero {
+            padding: 260px 0 100px !important;
+            background: linear-gradient(135deg, rgba(22, 47, 78, .88), rgba(11, 10, 20, .75)), url('assets/WhatsApp%20Image%202026-03-06%20at%202.37.27%20PM.jpeg') center/cover no-repeat !important;
+            text-align: center !important;
+            color: var(--on-primary) !important
+        }
+
+        .ib-page-hero h1 {
+            color: var(--on-primary) !important;
+            font-size: 3.5rem !important;
+            font-weight: 900 !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-page-hero p {
+            font-size: 1.15rem !important;
+            opacity: .85 !important;
+            max-width: 600px !important;
+            margin: 0 auto !important
+        }
+
+        .ib-page-hero .ib-breadcrumb {
+            margin-top: 20px !important;
+            font-size: .9rem !important;
+            opacity: .6 !important
+        }
+
+        .ib-page-hero .ib-breadcrumb a {
+            color: var(--primary-light) !important;
+            opacity: 1 !important
+        }
+
+        /* Services Intro */
+        .ib-svc-intro {
+            padding: 100px 0 !important;
+            background: var(--surface) !important
+        }
+
+        .ib-svc-intro-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 80px !important;
+            align-items: center !important
+        }
+
+        .ib-svc-intro-text h2 {
+            font-size: 2.4rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 20px !important
+        }
+
+        .ib-svc-intro-text h2 span {
+            color: var(--primary) !important
+        }
+
+        .ib-svc-intro-text p {
+            color: var(--muted) !important;
+            font-size: 1.05rem !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-svc-intro-img {
+            border-radius: var(--radius) !important;
+            overflow: hidden !important;
+            box-shadow: var(--shadow) !important
+        }
+
+        .ib-svc-intro-img img {
+            width: 100% !important;
+            height: 450px !important;
+            object-fit: cover !important
+        }
+
+        /* Service Sections */
+        .ib-svc-section {
+            padding: 100px 0 !important
+        }
+
+        .ib-svc-section:nth-child(even) {
+            background: var(--surface) !important
+        }
+
+        .ib-svc-row {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 80px !important;
+            align-items: center !important
+        }
+
+        .ib-svc-row.reverse {
+            direction: rtl !important
+        }
+
+        .ib-svc-row.reverse>* {
+            direction: ltr !important
+        }
+
+        .ib-svc-row-img {
+            border-radius: var(--radius) !important;
+            overflow: hidden !important;
+            box-shadow: var(--shadow) !important
+        }
+
+        .ib-svc-row-img img {
+            width: 100% !important;
+            height: 400px !important;
+            object-fit: cover !important
+        }
+
+        .ib-svc-row-text h2 {
+            font-size: 2rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-svc-row-text p {
+            color: var(--muted) !important;
+            font-size: 1.02rem !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-svc-row-text ul {
+            margin-top: 16px !important
+        }
+
+        .ib-svc-row-text ul li {
+            padding: 8px 0 !important;
+            padding-left: 28px !important;
+            position: relative !important;
+            color: var(--muted) !important;
+            font-size: .98rem !important
+        }
+
+        .ib-svc-row-text ul li::before {
+            content: '✦' !important;
+            position: absolute !important;
+            left: 0 !important;
+            color: var(--primary) !important;
+            font-size: .8rem !important
+        }
+
+        /* Process */
+        .ib-process {
+            padding: 120px 0 !important;
+            background: var(--accent) !important;
+            color: var(--on-primary) !important
+        }
+
+        .ib-process .ib-section-header h2 {
+            color: var(--on-primary) !important
+        }
+
+        .ib-process .ib-section-header p {
+            color: rgba(255, 255, 255, .7) !important
+        }
+
+        .ib-process .ib-gold-line {
+            background: var(--primary-light) !important
+        }
+
+        .ib-process-grid {
+            display: grid !important;
+            grid-template-columns: repeat(5, 1fr) !important;
+            gap: 24px !important;
+            text-align: center !important;
+            position: relative !important
+        }
+
+        .ib-process-grid::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 40px !important;
+            left: 10% !important;
+            right: 10% !important;
+            height: 2px !important;
+            background: rgba(180, 147, 62, .3) !important
+        }
+
+        .ib-step {
+            position: relative !important;
+            z-index: 2 !important
+        }
+
+        .ib-step-num {
+            width: 60px !important;
+            height: 60px !important;
+            border-radius: 50% !important;
+            background: var(--primary) !important;
+            color: var(--on-primary) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 1.4rem !important;
+            font-weight: 800 !important;
+            font-family: var(--heading) !important;
+            margin: 0 auto 20px !important
+        }
+
+        .ib-step h3 {
+            color: var(--on-primary) !important;
+            font-size: 1.05rem !important;
+            margin-bottom: 8px !important;
+            font-weight: 700 !important
+        }
+
+        .ib-step p {
+            color: rgba(255, 255, 255, .6) !important;
+            font-size: .88rem !important
+        }
+
+        /* CTA */
+        .ib-cta-band {
+            padding: 80px 0 !important;
+            background: var(--surface) !important;
+            text-align: center !important
+        }
+
+        .ib-cta-band h2 {
+            font-size: 2.5rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-cta-band p {
+            color: var(--muted) !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 32px !important;
+            max-width: 550px !important;
+            margin-left: auto !important;
+            margin-right: auto !important
+        }
+
+        /* Footer */
+        .ib-footer {
+            background: #0b0a14 !important;
+            color: rgba(255, 255, 255, .7) !important;
+            padding: 80px 0 32px !important
+        }
+
+        .ib-footer-grid {
+            display: grid !important;
+            grid-template-columns: 2fr 1fr 1fr 1fr !important;
+            gap: 48px !important;
+            margin-bottom: 64px !important
+        }
+
+        .ib-footer-col h4 {
+            color: var(--primary) !important;
+            font-size: 1.15rem !important;
+            margin-bottom: 24px !important;
+            font-family: var(--heading) !important;
+            font-weight: 700 !important
+        }
+
+        .ib-footer-col p,
+        .ib-footer-col a {
+            color: rgba(255, 255, 255, .6) !important;
+            margin-bottom: 14px !important;
+            display: block !important;
+            font-size: .95rem !important
+        }
+
+        .ib-footer-col a:hover {
+            color: var(--primary) !important
+        }
+
+        .ib-footer-logo img {
+            height: 150px !important;
+            margin-bottom: 20px !important
+        }
+
+        .ib-footer-social {
+            display: flex !important;
+            gap: 12px !important;
+            margin-top: 20px !important
+        }
+
+        .ib-footer-social a {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            border: 1px solid rgba(255, 255, 255, .15) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: rgba(255, 255, 255, .6) !important;
+            font-size: 1rem !important;
+            transition: all .3s ease !important
+        }
+
+        .ib-footer-social a:hover {
+            background: var(--primary) !important;
+            border-color: var(--primary) !important;
+            color: var(--on-primary) !important
+        }
+
+        .ib-footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .08) !important;
+            padding-top: 32px !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            font-size: .85rem !important;
+            color: rgba(255, 255, 255, .4) !important
+        }
+
+        .ib-footer-bottom a {
+            color: var(--primary) !important;
+            font-weight: 600 !important
+        }
+
+        .ib-wa {
+            position: fixed !important;
+            width: 60px !important;
+            height: 60px !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            background: #25d366 !important;
+            color: #fff !important;
+            border-radius: 50% !important;
+            font-size: 32px !important;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, .4) !important;
+            z-index: 999 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: transform .3s ease !important
+        }
+
+        .ib-wa:hover {
+            transform: scale(1.12) !important
+        }
+
+        /* Animations */
+        .ib-fade-up {
+            opacity: 0 !important;
+            transform: translateY(30px) !important;
+            transition: opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1), transform .8s cubic-bezier(0.165, 0.84, 0.44, 1) !important
+        }
+
+        .ib-fade-up.ib-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important
+        }
+
+        @media(max-width:1024px) {
+
+            .ib-svc-intro-grid,
+            .ib-svc-row {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important
+            }
+
+            .ib-svc-row.reverse {
+                direction: ltr !important
+            }
+
+            .ib-process-grid {
+                grid-template-columns: repeat(3, 1fr) !important
+            }
+
+            .ib-process-grid::before {
+                display: none !important
+            }
+
+            .ib-footer-grid {
+                grid-template-columns: 1fr 1fr !important
+            }
+
+            .ib-page-hero h1 {
+                font-size: 2.8rem !important
+            }
+
+            .ib-section-header h2 {
+                font-size: 2.2rem !important
+            }
+        }
+
+        @media(max-width:768px) {
+            .ib-nav-links {
+                display: none !important;
+                position: absolute !important;
+                top: 100px !important;
+                left: 0 !important;
+                width: 100% !important;
+                background: var(--bg) !important;
+                flex-direction: column !important;
+                padding: 24px !important;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, .1) !important;
+                gap: 16px !important
+            }
+
+            .ib-nav-links.active {
+                display: flex !important
+            }
+
+            .ib-mobile-btn {
+                display: block !important
+            }
+
+            .ib-page-hero {
+                padding: 140px 0 80px !important
+            }
+
+            .ib-page-hero h1 {
+                font-size: 2.2rem !important
+            }
+
+            .ib-process-grid {
+                grid-template-columns: 1fr 1fr !important
+            }
+
+            .ib-svc-intro-img img,
+            .ib-svc-row-img img {
+                height: 280px !important
+            }
+
+            .ib-footer-grid {
+                grid-template-columns: 1fr !important
+            }
+
+            .ib-footer-bottom {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 12px !important
+            }
+
+            .ib-section-header h2 {
+                font-size: 1.9rem !important
+            }
+
+            .ib-cta-band h2 {
+                font-size: 1.9rem !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="ib-header">
+        <div class="ib-container ib-nav">
+            <a href="index.html" class="ib-logo"><img
+                    src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-6-2026-04-17-52-PM-mmemgrsxe44n.webp"
+                    alt="Imperial Builder Logo"></a>
+            <nav class="ib-nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="ib-btn ib-btn-primary">Get a Quote</a>
+            </nav>
+            <button class="ib-mobile-btn" id="mobile-menu-btn" aria-label="Toggle menu"><i
+                    class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="ib-page-hero">
+        <div class="ib-container">
+            <div class="ib-gold-line"></div>
+            <h1>Our Renovation Services</h1>
+            <p>Comprehensive landed, residential, and commercial renovation solutions tailored for excellence.</p>
+            <div class="ib-breadcrumb"><a href="index.html">Home</a> / Services</div>
+        </div>
+    </section>
+
+    <!-- SERVICES INTRODUCTION -->
+    <section class="ib-svc-intro">
+        <div class="ib-container ib-svc-intro-grid">
+            <div class="ib-svc-intro-text">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>Transforming Spaces With <span>Renovation Excellence</span></h2>
+                <p>Imperial Builder offers a comprehensive range of renovation, design, and project management services.
+                    Whether you're transforming your HDB flat, upgrading your condo, renovating a landed home, or
+                    revamping a commercial space — our team delivers with precision and artistry.</p>
+                <p>Every renovation is guided by our commitment to quality materials, transparent communication, and
+                    on-time delivery. Explore our services below to discover how we can transform your space.</p>
+            </div>
+            <div class="ib-svc-intro-img">
+                <img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.07%20PM.jpeg" alt="Modern interior design">
+            </div>
+        </div>
+    </section>
+
+    <!-- RESIDENTIAL SOLUTIONS -->
+    <section class="ib-svc-section">
+        <div class="ib-container ib-svc-row">
+            <div class="ib-svc-row-img"><img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.25%20PM%20(1).jpeg"
+                    alt="Luxury residential bedroom"></div>
+            <div class="ib-svc-row-text">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>Residential & Landed Renovation</h2>
+                <p>Comprehensive renovation services tailored for homeowners. From complete HDB transformations to
+                    luxury condo upgrades and landed property makeovers, we handle every detail of your home renovation.
+                </p>
+                <ul>
+                    <li>Luxury landed property renovation & remodeling</li>
+                    <li>Condo interior upgrades & makeovers</li>
+                    <li>HDB flat complete renovations</li>
+                    <li>Kitchen & bathroom renovation specialists</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMERCIAL SOLUTIONS -->
+    <section class="ib-svc-section">
+        <div class="ib-container ib-svc-row reverse">
+            <div class="ib-svc-row-img"><img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.09%20PM.jpeg"
+                    alt="Commercial space design"></div>
+            <div class="ib-svc-row-text">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>Commercial Renovation</h2>
+                <p>Expert renovation services designed for businesses. We transform offices, retail outlets, and F&B
+                    spaces into functional, brand-aligned environments while minimizing operational downtime.</p>
+                <ul>
+                    <li>Office renovation & fit-outs</li>
+                    <li>Retail & F&B space makeovers</li>
+                    <li>Commercial property upgrades</li>
+                    <li>Brand-aligned workspace transformation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERIOR DESIGN -->
+    <section class="ib-svc-section">
+        <div class="ib-container ib-svc-row">
+            <div class="ib-svc-row-img"><img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.06%20PM.jpeg"
+                    alt="Interior design showcase"></div>
+            <div class="ib-svc-row-text">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>Interior Design for Renovation</h2>
+                <p>Creative and functional interior planning that enhances every renovation project. Our design team
+                    creates spaces that reflect your personality, lifestyle, or brand identity — down to the finest
+                    material selections.</p>
+                <ul>
+                    <li>Renovation space planning & conceptual design</li>
+                    <li>Material & finish consultation for renovations</li>
+                    <li>3D visualization & renovation renders</li>
+                    <li>Furniture sourcing & post-renovation styling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- RENOVATION SERVICES -->
+    <section class="ib-svc-section">
+        <div class="ib-container ib-svc-row reverse">
+            <div class="ib-svc-row-img"><img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.15%20PM.jpeg"
+                    alt="Renovation project"></div>
+            <div class="ib-svc-row-text">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>Comprehensive Renovation Works</h2>
+                <p>Full-spectrum renovation capabilities for landed, residential, and commercial properties. Whether
+                    it's a
+                    complete overhaul or targeted upgrades, we enhance both functionality and visual appeal.</p>
+                <ul>
+                    <li>Full-home & partial renovations</li>
+                    <li>Structural modifications & hacking works</li>
+                    <li>Electrical & plumbing overhauls</li>
+                    <li>Feature wall, flooring & ceiling treatments</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL PROJECT MANAGEMENT -->
+    <section class="ib-svc-section">
+        <div class="ib-container ib-svc-row">
+            <div class="ib-svc-row-img"><img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.24%20PM%20(1).jpeg"
+                    alt="Project management"></div>
+            <div class="ib-svc-row-text">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>Renovation Project Management</h2>
+                <p>End-to-end oversight and coordination of complex renovation projects. Our dedicated project managers
+                    ensure timely delivery, budget control, and quality assurance at every phase of your renovation.</p>
+                <ul>
+                    <li>Renovation budget planning & cost control</li>
+                    <li>Vendor & subcontractor coordination</li>
+                    <li>Renovation timeline & milestone management</li>
+                    <li>Quality inspections & compliance</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- A&A WORKS -->
+    <section class="ib-svc-section">
+        <div class="ib-container ib-svc-row reverse">
+            <div class="ib-svc-row-img"><img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.27%20PM%20(1).jpeg"
+                    alt="Additions and Alterations"></div>
+            <div class="ib-svc-row-text">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>A&A Works (Additions & Alterations)</h2>
+                <p>Structural modifications and expansions that complement your renovation plans. We handle all BCA
+                    approvals and structural engineering requirements for a seamless experience.</p>
+                <ul>
+                    <li>Landed property extensions & additions</li>
+                    <li>Roof & attic conversions</li>
+                    <li>Basement additions & structural works</li>
+                    <li>BCA submission & approval handling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN & BUILD -->
+    <section class="ib-svc-section">
+        <div class="ib-container ib-svc-row">
+            <div class="ib-svc-row-img"><img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.23%20PM.jpeg"
+                    alt="Design and Build"></div>
+            <div class="ib-svc-row-text">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>Design & Build Renovation</h2>
+                <p>An integrated renovation service offering seamless design and construction from concept to completion
+                    under one roof. This eliminates miscommunication between designers and builders, delivering a
+                    cohesive renovation result.</p>
+                <ul>
+                    <li>Single-point accountability for your renovation</li>
+                    <li>Concept-to-completion renovation delivery</li>
+                    <li>Faster renovation timelines & cost efficiency</li>
+                    <li>Unified design & renovation teams</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE PROCESS -->
+    <section class="ib-process">
+        <div class="ib-container">
+            <div class="ib-section-header">
+                <div class="ib-gold-line"></div>
+                <h2>Our Renovation Process</h2>
+                <p>A proven step-by-step renovation methodology from consultation to handover.</p>
+            </div>
+            <div class="ib-process-grid">
+                <div class="ib-step">
+                    <div class="ib-step-num">1</div>
+                    <h3>Consultation</h3>
+                    <p>Understanding your renovation vision, requirements, and budget.</p>
+                </div>
+                <div class="ib-step">
+                    <div class="ib-step-num">2</div>
+                    <h3>Design & Planning</h3>
+                    <p>Creating detailed renovation designs, 3D renders, and project plans.</p>
+                </div>
+                <div class="ib-step">
+                    <div class="ib-step-num">3</div>
+                    <h3>Quotation & Contract</h3>
+                    <p>Transparent renovation pricing with detailed scope documentation.</p>
+                </div>
+                <div class="ib-step">
+                    <div class="ib-step-num">4</div>
+                    <h3>Renovation</h3>
+                    <p>Expert renovation execution with regular progress updates.</p>
+                </div>
+                <div class="ib-step">
+                    <div class="ib-step-num">5</div>
+                    <h3>Handover</h3>
+                    <p>Final inspection, defect rectification, and handover of your renovated space.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="ib-cta-band">
+        <div class="ib-container">
+            <h2>Let's Discuss Your Renovation</h2>
+            <p>Ready to transform your space? Our renovation team is standing by to bring your vision to life with
+                precision and excellence.</p>
+            <a href="contact.html" class="ib-btn ib-btn-primary">Request a Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="ib-footer">
+        <div class="ib-container">
+            <div class="ib-footer-grid">
+                <div class="ib-footer-col">
+                    <div class="ib-footer-logo"><img
+                            src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-6-2026-04-17-52-PM-mmemgrsxe44n.webp"
+                            alt="Imperial Builder Logo"></div>
+                    <p>Imperial Builder PTE LTD is Singapore's trusted renovation specialist, delivering quality
+                        craftsmanship and uncompromising standards for landed, residential, and commercial spaces since
+                        2010.</p>
+                    <div class="ib-footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Our
+                        Services</a><a href="contact.html">Contact</a>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Services</h4>
+                    <a href="services.html">Residential Renovation</a><a href="services.html">Commercial
+                        Renovation</a><a href="services.html">Interior Design & Renovation</a><a
+                        href="services.html">A&A Works</a>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"
+                            style="color:var(--primary)!important;margin-right:8px!important"></i>123 Builder Avenue,
+                        Singapore 012345</p>
+                    <p><i class="fas fa-phone" style="color:var(--primary)!important;margin-right:8px!important"></i>+65
+                        6789 0123</p>
+                    <p><i class="fas fa-envelope"
+                            style="color:var(--primary)!important;margin-right:8px!important"></i>info@imperialbuilder.com.sg
+                    </p>
+                </div>
+            </div>
+            <div class="ib-footer-bottom">
+                <p>&copy; 2026 Imperial Builder PTE LTD. All Rights Reserved.</p>
+                <p>Website Design by <a href="https://reputifly.com" target="_blank" rel="noopener">Reputifly</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6567890123" class="ib-wa" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+            class="fab fa-whatsapp"></i></a>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn'), navLinks = document.getElementById('nav-links');
+        menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); const i = menuBtn.querySelector('i'); i.classList.toggle('fa-bars'); i.classList.toggle('fa-times') });
+        document.querySelectorAll('.ib-nav-links a').forEach(l => l.addEventListener('click', () => { navLinks.classList.remove('active'); const i = menuBtn.querySelector('i'); i.classList.remove('fa-times'); i.classList.add('fa-bars') }));
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeEls = document.querySelectorAll('.ib-section-header, .ib-hero-content, .ib-trust-item, .ib-about-img, .ib-about-text, .ib-cert-card, .ib-why-card, .ib-svc-card, .ib-port-item, .ib-test-card, .ib-cta h2, .ib-cta p, .ib-form, .ib-page-hero h1, .ib-page-hero p, .ib-svc-intro-text, .ib-svc-intro-img, .ib-svc-row-img, .ib-svc-row-text, .ib-step, .ib-cta-band h2, .ib-cta-band p, .ib-story-img, .ib-story-text, .ib-vision-card, .ib-team-card, .ib-exp-text, .ib-exp-img, .ib-award-card, .ib-contact-info, .ib-contact-form, .ib-hours-card, .ib-social-link, .ib-footer-col');
+            fadeEls.forEach(el => el.classList.add('ib-fade-up'));
+
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) {
+                        setTimeout(() => e.target.classList.add('ib-visible'), (e.target.dataset.delay || 0) * 100);
+                        obs.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            const grids = document.querySelectorAll('.ib-trust-grid, .ib-certs-grid, .ib-why-grid, .ib-services-grid, .ib-port-grid, .ib-test-grid, .ib-process-grid, .ib-vision-grid, .ib-team-grid, .ib-awards-grid, .ib-hours-inner, .ib-social-links, .ib-footer-grid');
+            grids.forEach(g => Array.from(g.children).forEach((c, i) => c.dataset.delay = i + 1));
+
+            fadeEls.forEach(el => obs.observe(el));
+
+            const stats = document.querySelectorAll('.ib-stat .num');
+            if (stats.length > 0) {
+                const statObs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            const t = e.target;
+                            if (t.dataset.counted) return;
+                            t.dataset.counted = true;
+                            const text = t.innerText;
+                            const finalVal = parseInt(text.replace(/[^0-9]/g, ''));
+                            const suffix = text.replace(/[0-9]/g, '');
+                            let start = 0, step = finalVal / 60;
+                            const c = setInterval(() => {
+                                start += step;
+                                if (start >= finalVal) { t.innerText = finalVal + suffix; clearInterval(c); }
+                                else t.innerText = Math.floor(start) + suffix;
+                            }, 25);
+                            statObs.unobserve(t);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                stats.forEach(s => statObs.observe(s));
+            }
+        });
+    </script>
+</body>
+
+</html>
