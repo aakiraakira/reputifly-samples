@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Builder PTE LTD | Premium Construction & Design</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           BRAND DNA & CSS VARIABLES
+           ========================================= */
+        :root {
+            /* Core Palette */
+            --primary: #b4933e;
+            --accent: #162f4e;
+            --background: #ffffff;
+            --text: #0b0a14;
+            
+            /* Semantic Tokens */
+            --surface: #fafafa;
+            --border: #e6e6e6;
+            --muted: #08070e;
+            --primary-hover: #8a712e; /* Darker gold for better hover transition */
+            --on-primary: #ffffff;
+            
+            /* Typography */
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Inter', sans-serif;
+            
+            /* UI Elements */
+            --radius: 24px;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --glass: blur(12px);
+        }
+
+        /* =========================================
+           GLOBAL STYLES & RESET
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text);
+            background-color: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            color: var(--accent);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* =========================================
+           BUTTONS & COMPONENTS
+           ========================================= */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-family: var(--body-font);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            box-shadow: 0 4px 14px rgba(180, 147, 62, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--background);
+            border: 2px solid var(--background);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--background);
+            color: var(--accent);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* =========================================
+           HEADER & NAVIGATION
+           ========================================= */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: var(--glass);
+            -webkit-backdrop-filter: var(--glass);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .logo img {
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--accent);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--accent);
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        #hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(22, 47, 78, 0.7), rgba(22, 47, 78, 0.8)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            padding-top: 90px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: var(--background);
+        }
+
+        .hero-content h1 {
+            color: var(--background);
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* =========================================
+           TRUST BANNER
+           ========================================= */
+        #trust-banner {
+            position: relative;
+            margin-top: -60px;
+            z-index: 10;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: var(--glass);
+            -webkit-backdrop-filter: var(--glass);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            padding: 32px;
+            gap: 24px;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 16px;
+            border-right: 1px solid var(--border);
+        }
+
+        .trust-item:last-child {
+            border-right: none;
+        }
+
+        .trust-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .trust-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .trust-item p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* =========================================
+           ABOUT SECTION
+           ========================================= */
+        #about {
+            padding: 120px 0;
+            background-color: var(--surface);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+
+        .about-content h2 span {
+            color: var(--primary);
+        }
+
+        .about-content p {
+            margin-bottom: 24px;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        /* =========================================
+           SERVICES SECTION
+           ========================================= */
+        #services {
+            padding: 120px 0;
+            background-color: var(--background);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--surface);
+            padding: 48px 32px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+        }
+
+        /* =========================================
+           PORTFOLIO SECTION
+           ========================================= */
+        #portfolio {
+            padding: 120px 0;
+            background-color: var(--surface);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(22, 47, 78, 0.85); /* Accent color overlay */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: var(--background);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay h3 {
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           TESTIMONIALS SECTION
+           ========================================= */
+        #testimonials {
+            padding: 120px 0;
+            background-color: var(--background);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .stars {
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+
+        .client-info h4 {
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+
+        .client-info span {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        /* =========================================
+           CTA / CONTACT SECTION
+           ========================================= */
+        #cta {
+            padding: 120px 0;
+            background-color: var(--accent);
+            color: var(--background);
+            text-align: center;
+        }
+
+        #cta h2 {
+            color: var(--background);
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+
+        #cta p {
+            font-size: 1.2rem;
+            margin-bottom: 48px;
+            opacity: 0.9;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--background);
+            padding: 48px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: var(--body-font);
+            font-size: 1rem;
+            background-color: var(--surface);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(180, 147, 62, 0.2); /* Focus Ring */
+        }
+
+        .contact-form .btn-primary {
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 18px;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            background-color: var(--text);
+            color: var(--surface);
+            padding: 80px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+
+        .footer-col h4 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 16px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 24px;
+            filter: brightness(0) invert(1); /* Make logo white for dark footer */
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* =========================================
+           FLOATING WHATSAPP
+           ========================================= */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN (MOBILE OPTIMIZATION)
+           ========================================= */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .trust-item {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 24px 16px;
+            }
+            .trust-item:last-child {
+                border-bottom: none;
+            }
+            .about-grid, .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .services-grid, .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide for mobile layout, handled by JS toggle */
+                position: absolute;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                padding: 24px;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .services-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+            #cta h2 {
+                font-size: 2.2rem;
+            }
+            .contact-form {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/Screenshot-2026-03-03-185704-mmahvp5tydiz.webp" alt="Imperial Builder Logo">
+            </a>
+            <nav class="nav-links" id="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Projects</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#cta" class="btn btn-primary" style="color: white;">Get a Quote</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>BUILDING LEGACIES.<br>ENGINEERING EXCELLENCE.</h1>
+                <p>Singapore’s premier construction firm specializing in luxury landed properties, commercial renovations, and architectural design & build solutions.</p>
+                <div class="hero-buttons">
+                    <a href="#cta" class="btn btn-primary">Start Your Project</a>
+                    <a href="#portfolio" class="btn btn-outline">View Our Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container" id="trust-banner">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <i class="fas fa-hard-hat"></i>
+                <h3>15+ Years Experience</h3>
+                <p>Proven track record in high-end builds.</p>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-certificate"></i>
+                <h3>BCA Registered</h3>
+                <p>Fully certified and compliant with Singapore standards.</p>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-gem"></i>
+                <h3>The Imperial Standard</h3>
+                <p>Uncompromising material quality and craftsmanship.</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/425133099.jpg?k=6690189171bfc7e68dc87ca57ba0d93d558658c8f3d5e523e8f8dfe3289346f9&o=" alt="Architect reviewing blueprints">
+            </div>
+            <div class="about-content">
+                <h2>Constructing Visions, <span>Delivering Reality.</span></h2>
+                <p>At Imperial Builder PTE LTD, we don't just build structures; we craft environments that elevate lifestyles and businesses. With over a decade of industry leadership, our dedicated team of architects, engineers, and master builders ensure every detail is executed flawlessly.</p>
+                <p>From initial blueprint to final handover, we guarantee structural integrity, transparent communication, and timelines you can depend on. Experience the pinnacle of construction design.</p>
+                <a href="#services" class="btn btn-primary" style="margin-top: 16px;">Discover Our Expertise</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Services</h2>
+                <p>Comprehensive construction solutions tailored for the sophisticated client.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-pen-ruler"></i>
+                    <h3>Design & Build</h3>
+                    <p>A seamless, end-to-end solution. We manage both the architectural design and the physical construction, ensuring your vision is perfectly translated into reality without miscommunication.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Commercial Renovation</h3>
+                    <p>Transforming commercial spaces into highly functional, brand-aligned environments. We minimize downtime so your business can thrive in its new setting immediately.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Landed Property</h3>
+                    <p>Specializing in A&A (Additions & Alterations) and complete rebuilds of luxury landed homes. We navigate regulatory approvals and deliver bespoke residential masterpieces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>A glimpse into our standard of excellence.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Landed Property">
+                    <div class="portfolio-overlay">
+                        <h3>Bukit Timah Residence</h3>
+                        <p>Complete Rebuild</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial Office Build">
+                    <div class="portfolio-overlay">
+                        <h3>CBD Corporate HQ</h3>
+                        <p>Interior Fit-Out</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Interior">
+                    <div class="portfolio-overlay">
+                        <h3>Sentosa Cove Villa</h3>
+                        <p>Design & Build</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Architecture">
+                    <div class="portfolio-overlay">
+                        <h3>East Coast A&A</h3>
+                        <p>Additions & Alterations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Testimonials</h2>
+                <p>Hear from those who have experienced the Imperial Builder difference.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Imperial Builder delivered our dream home right on schedule. The craftsmanship and attention to detail were simply unmatched. Highly recommended."</p>
+                    <div class="client-info">
+                        <h4>Jonathan L.</h4>
+                        <span>Landed Property Owner</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"We hired them for our office renovation. The team was professional, minimized disruption, and the final result completely elevated our brand image."</p>
+                    <div class="client-info">
+                        <h4>Sarah T.</h4>
+                        <span>Corporate Director</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"The Design & Build process was incredibly smooth. They handled everything from permits to the final finishes. A truly stress-free construction experience."</p>
+                    <div class="client-info">
+                        <h4>Marcus W.</h4>
+                        <span>Real Estate Investor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta">
+        <div class="container">
+            <h2>Ready to Build Your Vision?</h2>
+            <p>Request a consultation and let us lay the foundation for your next project.</p>
+            
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Lead captured successfully! (Demo Form)');">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="user@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="+65 8888 8888" required>
+                </div>
+                <div class="form-group">
+                    <label for="project">Project Type</label>
+                    <select id="project" class="form-control" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="landed">Landed Property Rebuild / A&A</option>
+                        <option value="commercial">Commercial Renovation</option>
+                        <option value="design-build">Design & Build</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/Screenshot-2026-03-03-185704-mmahvp5tydiz.webp" alt="Imperial Builder Logo">
+                    </div>
+                    <p>Imperial Builder PTE LTD is Singapore's trusted partner for luxury construction, delivering engineering excellence and uncompromising quality.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#services">Our Services</a>
+                    <a href="#portfolio">Project Portfolio</a>
+                    <a href="#testimonials">Testimonials</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="#services">Design & Build</a>
+                    <a href="#services">Commercial Renovation</a>
+                    <a href="#services">Landed Property</a>
+                    <a href="#services">A&A Works</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Builder Avenue, Singapore 012345</p>
+                    <p><i class="fas fa-phone"></i> +65 6789 0123</p>
+                    <p><i class="fas fa-envelope"></i> info@imperialbuilder.com.sg</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Imperial Builder PTE LTD. All Rights Reserved.</p>
+                <p>Website Design by <a href="https://reputifly.com" target="_blank" rel="noopener">Reputifly</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6588888888" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Toggle icon between bars and times (close)
+            const icon = menuBtn.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.querySelector('i').classList.remove('fa-times');
+                menuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
