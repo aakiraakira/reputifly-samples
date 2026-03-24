@@ -1,3 +1,10 @@
+## [v2] — 2026-03-24 (Update 4)
+- Replaced 3 placeholder team members with 2 real team members: David Leong and Kelvin Tan
+- Both listed as Certified ESG Sustainability Specialist
+- Updated team grid to 2-column layout centered on page
+- Files changed: about.html
+- Agent: Claude Opus 4.6
+
 ## [v2] — 2026-03-24 (Update 3)
 - Fixed hamburger menu button being cut off/covered at top-right on mobile
 - Added proper padding to nav-container (10px 1rem) so hamburger has breathing room
