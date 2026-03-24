@@ -1,3 +1,12 @@
+## [v2] — 2026-03-24 (Update 3)
+- Fixed hamburger menu button being cut off/covered at top-right on mobile
+- Added proper padding to nav-container (10px 1rem) so hamburger has breathing room
+- Increased hamburger button size to 2rem with flex centering for better visibility
+- Increased mobile logo from 90px to 110px
+- Increased mobile nav-container min-height to 120px
+- Files changed: index.html, about.html, services.html, contact.html
+- Agent: Claude Opus 4.6
+
 ## [v2] — 2026-03-24 (Update 2)
 - Fixed hamburger menu button too close to top-right on mobile by adding padding and margin
 - Increased hamburger icon size from 1.5rem to 1.8rem for better tap target
