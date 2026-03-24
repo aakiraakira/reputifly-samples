@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Builder PTE LTD | Premium Construction & Design in Singapore</title>
+    <meta name="description"
+        content="Singapore's premier construction firm specializing in luxury landed properties, commercial renovations, and architectural design & build solutions. Building Legacies. Engineering Excellence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #b4933e;
+            --primary-dark: #9a7d34;
+            --primary-light: #d4b96a;
+            --accent: #162f4e;
+            --accent-light: #1e3f66;
+            --bg: #ffffff;
+            --text: #0b0a14;
+            --surface: #f7f7f5;
+            --border: #e6e6e6;
+            --muted: #555;
+            --on-primary: #fff;
+            --heading: 'Montserrat', sans-serif;
+            --body: 'Inter', sans-serif;
+            --radius: 16px;
+            --shadow: 0 20px 40px rgba(0, 0, 0, .08);
+            --glass: blur(14px)
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box !important
+        }
+
+        html {
+            scroll-behavior: smooth !important
+        }
+
+        body {
+            font-family: var(--body) !important;
+            color: var(--text) !important;
+            background: var(--bg) !important;
+            line-height: 1.7 !important;
+            overflow-x: hidden !important;
+            -webkit-font-smoothing: antialiased !important
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--heading) !important;
+            color: var(--accent) !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0 !important
+        }
+
+        a {
+            text-decoration: none !important;
+            color: inherit !important;
+            transition: all .3s ease !important
+        }
+
+        ul {
+            list-style: none !important
+        }
+
+        img {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important
+        }
+
+        .ib-container {
+            width: 100% !important;
+            max-width: 1280px !important;
+            margin: 0 auto !important;
+            padding: 0 24px !important
+        }
+
+        /* Buttons */
+        .ib-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 15px 32px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            font-family: var(--body) !important;
+            font-size: .95rem !important;
+            transition: all .35s ease !important;
+            cursor: pointer !important;
+            border: none !important;
+            letter-spacing: .5px !important;
+            text-transform: uppercase !important
+        }
+
+        .ib-btn-primary {
+            background: var(--primary) !important;
+            color: var(--on-primary) !important;
+            box-shadow: 0 4px 20px rgba(180, 147, 62, .35) !important
+        }
+
+        .ib-btn-primary:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 30px rgba(180, 147, 62, .45) !important
+        }
+
+        .ib-btn-outline {
+            background: transparent !important;
+            color: var(--on-primary) !important;
+            border: 2px solid rgba(255, 255, 255, .6) !important
+        }
+
+        .ib-btn-outline:hover {
+            background: var(--on-primary) !important;
+            color: var(--accent) !important;
+            border-color: var(--on-primary) !important
+        }
+
+        .ib-btn-accent {
+            background: var(--accent) !important;
+            color: var(--on-primary) !important
+        }
+
+        .ib-btn-accent:hover {
+            background: var(--accent-light) !important;
+            transform: translateY(-3px) !important
+        }
+
+        .ib-section-header {
+            text-align: center !important;
+            margin-bottom: 64px !important
+        }
+
+        .ib-section-header h2 {
+            font-size: 2.8rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-section-header p {
+            color: var(--muted) !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            font-size: 1.1rem !important
+        }
+
+        .ib-gold-line {
+            width: 60px !important;
+            height: 4px !important;
+            background: var(--primary) !important;
+            margin: 0 auto 20px !important;
+            border-radius: 2px !important
+        }
+
+        /* Header */
+        .ib-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 1000 !important;
+            background: rgba(255, 255, 255, .92) !important;
+            backdrop-filter: var(--glass) !important;
+            -webkit-backdrop-filter: var(--glass) !important;
+            border-bottom: 1px solid var(--border) !important;
+            transition: all .3s ease !important
+        }
+
+        .ib-nav {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            height: 100px !important
+        }
+
+        .ib-logo img {
+            height: 80px !important;
+            object-fit: contain !important;
+            padding: 8px 0 !important
+        }
+
+        .ib-nav-links {
+            display: flex !important;
+            gap: 36px !important;
+            align-items: center !important
+        }
+
+        .ib-nav-links a {
+            font-weight: 500 !important;
+            color: var(--accent) !important;
+            font-size: .95rem !important;
+            position: relative !important
+        }
+
+        .ib-nav-links a:not(.ib-btn)::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -4px !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: var(--primary) !important;
+            transition: width .3s ease !important
+        }
+
+        .ib-nav-links a:not(.ib-btn):hover::after {
+            width: 100% !important
+        }
+
+        .ib-nav-links a:hover {
+            color: var(--primary) !important
+        }
+
+        .ib-mobile-btn {
+            display: none !important;
+            font-size: 1.5rem !important;
+            color: var(--accent) !important;
+            cursor: pointer !important;
+            border: none !important;
+            background: none !important
+        }
+
+        /* Hero */
+        .ib-hero {
+            position: relative !important;
+            min-height: 100vh !important;
+            display: flex !important;
+            align-items: center !important;
+            background: linear-gradient(135deg, rgba(22, 47, 78, .82), rgba(11, 10, 20, .7)), url('assets/WhatsApp%20Image%202026-03-06%20at%202.37.23%20PM%20(1).jpeg') center/cover no-repeat !important;
+            padding-top: 100px !important;
+            padding-bottom: 80px !important
+        }
+
+        .ib-hero::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 200px !important;
+            background: linear-gradient(transparent, rgba(22, 47, 78, .3)) !important;
+            pointer-events: none !important
+        }
+
+        .ib-hero-content {
+            max-width: 750px !important;
+            color: var(--on-primary) !important;
+            position: relative !important;
+            z-index: 2 !important
+        }
+
+        .ib-hero-content .ib-eyebrow {
+            font-size: .85rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 4px !important;
+            color: var(--primary-light) !important;
+            font-weight: 600 !important;
+            margin-bottom: 16px !important;
+            display: block !important
+        }
+
+        .ib-hero-content h1 {
+            color: var(--on-primary) !important;
+            font-size: 4.2rem !important;
+            font-weight: 900 !important;
+            margin-bottom: 24px !important;
+            letter-spacing: -1px !important;
+            line-height: 1.1 !important
+        }
+
+        .ib-hero-content p {
+            font-size: 1.2rem !important;
+            margin-bottom: 40px !important;
+            opacity: .9 !important;
+            line-height: 1.8 !important
+        }
+
+        .ib-hero-btns {
+            display: flex !important;
+            gap: 16px !important;
+            flex-wrap: wrap !important
+        }
+
+        /* Trust Banner */
+        .ib-trust {
+            position: relative !important;
+            margin-top: -70px !important;
+            z-index: 10 !important;
+            padding-bottom: 0 !important
+        }
+
+        .ib-trust-grid {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            background: var(--on-primary) !important;
+            border-radius: var(--radius) !important;
+            box-shadow: var(--shadow) !important;
+            border: 1px solid var(--border) !important;
+            overflow: hidden !important
+        }
+
+        .ib-trust-item {
+            text-align: center !important;
+            padding: 40px 24px !important;
+            border-right: 1px solid var(--border) !important;
+            transition: all .3s ease !important
+        }
+
+        .ib-trust-item:last-child {
+            border-right: none !important
+        }
+
+        .ib-trust-item:hover {
+            background: var(--surface) !important
+        }
+
+        .ib-trust-item i {
+            font-size: 2.2rem !important;
+            color: var(--primary) !important;
+            margin-bottom: 16px !important;
+            display: block !important
+        }
+
+        .ib-trust-item h3 {
+            font-size: 1.15rem !important;
+            margin-bottom: 8px !important;
+            font-weight: 700 !important
+        }
+
+        .ib-trust-item p {
+            color: var(--muted) !important;
+            font-size: .9rem !important
+        }
+
+        /* About Snippet */
+        .ib-about {
+            padding: 120px 0 !important;
+            background: var(--surface) !important
+        }
+
+        .ib-about-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 80px !important;
+            align-items: center !important
+        }
+
+        .ib-about-img {
+            position: relative !important;
+            border-radius: var(--radius) !important;
+            overflow: hidden !important;
+            box-shadow: var(--shadow) !important
+        }
+
+        .ib-about-img img {
+            width: 100% !important;
+            height: 500px !important;
+            object-fit: cover !important
+        }
+
+        .ib-about-img .ib-exp-badge {
+            position: absolute !important;
+            bottom: 24px !important;
+            right: 24px !important;
+            background: var(--primary) !important;
+            color: var(--on-primary) !important;
+            padding: 20px 28px !important;
+            border-radius: var(--radius) !important;
+            text-align: center !important
+        }
+
+        .ib-exp-badge .num {
+            font-size: 2.5rem !important;
+            font-weight: 800 !important;
+            font-family: var(--heading) !important;
+            display: block !important;
+            line-height: 1 !important
+        }
+
+        .ib-exp-badge .label {
+            font-size: .75rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important
+        }
+
+        .ib-about-text h2 {
+            font-size: 2.5rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 24px !important
+        }
+
+        .ib-about-text h2 span {
+            color: var(--primary) !important
+        }
+
+        .ib-about-text p {
+            margin-bottom: 20px !important;
+            color: var(--muted) !important;
+            font-size: 1.05rem !important
+        }
+
+        .ib-about-text .ib-stats {
+            display: flex !important;
+            gap: 40px !important;
+            margin-top: 32px !important;
+            margin-bottom: 32px !important;
+            padding-top: 32px !important;
+            border-top: 1px solid var(--border) !important
+        }
+
+        .ib-stat .num {
+            font-size: 2rem !important;
+            font-weight: 800 !important;
+            color: var(--primary) !important;
+            font-family: var(--heading) !important;
+            display: block !important
+        }
+
+        .ib-stat .label {
+            font-size: .85rem !important;
+            color: var(--muted) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important
+        }
+
+        /* Certifications */
+        .ib-certs {
+            padding: 100px 0 !important;
+            background: var(--bg) !important
+        }
+
+        .ib-certs-grid {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 32px !important
+        }
+
+        .ib-cert-card {
+            background: var(--surface) !important;
+            padding: 40px 24px !important;
+            border-radius: var(--radius) !important;
+            text-align: center !important;
+            border: 1px solid var(--border) !important;
+            transition: all .35s ease !important
+        }
+
+        .ib-cert-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: var(--shadow) !important;
+            border-color: var(--primary) !important
+        }
+
+        .ib-cert-card i {
+            font-size: 2.8rem !important;
+            color: var(--primary) !important;
+            margin-bottom: 20px !important;
+            display: block !important
+        }
+
+        .ib-cert-card h3 {
+            font-size: 1.1rem !important;
+            margin-bottom: 8px !important;
+            font-weight: 700 !important
+        }
+
+        .ib-cert-card p {
+            color: var(--muted) !important;
+            font-size: .9rem !important
+        }
+
+        /* Why Choose Us */
+        .ib-why {
+            padding: 120px 0 !important;
+            background: var(--accent) !important;
+            color: var(--on-primary) !important;
+            position: relative !important;
+            overflow: hidden !important
+        }
+
+        .ib-why::before {
+            content: '' !important;
+            position: absolute !important;
+            top: -100px !important;
+            right: -100px !important;
+            width: 400px !important;
+            height: 400px !important;
+            border: 60px solid rgba(180, 147, 62, .1) !important;
+            border-radius: 50% !important;
+            pointer-events: none !important
+        }
+
+        .ib-why .ib-section-header h2 {
+            color: var(--on-primary) !important
+        }
+
+        .ib-why .ib-section-header p {
+            color: rgba(255, 255, 255, .7) !important
+        }
+
+        .ib-why .ib-gold-line {
+            background: var(--primary-light) !important
+        }
+
+        .ib-why-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 32px !important
+        }
+
+        .ib-why-card {
+            background: rgba(255, 255, 255, .06) !important;
+            border: 1px solid rgba(255, 255, 255, .1) !important;
+            padding: 40px 28px !important;
+            border-radius: var(--radius) !important;
+            transition: all .35s ease !important
+        }
+
+        .ib-why-card:hover {
+            background: rgba(255, 255, 255, .12) !important;
+            transform: translateY(-5px) !important
+        }
+
+        .ib-why-card i {
+            font-size: 2.2rem !important;
+            color: var(--primary-light) !important;
+            margin-bottom: 20px !important;
+            display: block !important
+        }
+
+        .ib-why-card h3 {
+            color: var(--on-primary) !important;
+            font-size: 1.2rem !important;
+            margin-bottom: 12px !important;
+            font-weight: 700 !important
+        }
+
+        .ib-why-card p {
+            color: rgba(255, 255, 255, .7) !important;
+            font-size: .95rem !important
+        }
+
+        /* Services */
+        .ib-services {
+            padding: 120px 0 !important;
+            background: var(--bg) !important
+        }
+
+        .ib-services-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 32px !important
+        }
+
+        .ib-svc-card {
+            background: var(--surface) !important;
+            padding: 0 !important;
+            border-radius: var(--radius) !important;
+            border: 1px solid var(--border) !important;
+            overflow: hidden !important;
+            transition: all .35s ease !important
+        }
+
+        .ib-svc-card:hover {
+            box-shadow: var(--shadow) !important;
+            transform: translateY(-5px) !important;
+            border-color: var(--primary) !important
+        }
+
+        .ib-svc-card .ib-svc-img {
+            height: 220px !important;
+            overflow: hidden !important
+        }
+
+        .ib-svc-card .ib-svc-img img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            transition: transform .5s ease !important
+        }
+
+        .ib-svc-card:hover .ib-svc-img img {
+            transform: scale(1.08) !important
+        }
+
+        .ib-svc-body {
+            padding: 32px 28px !important
+        }
+
+        .ib-svc-body h3 {
+            font-size: 1.3rem !important;
+            margin-bottom: 12px !important;
+            font-weight: 700 !important
+        }
+
+        .ib-svc-body p {
+            color: var(--muted) !important;
+            font-size: .95rem !important;
+            margin-bottom: 16px !important
+        }
+
+        .ib-svc-link {
+            color: var(--primary) !important;
+            font-weight: 600 !important;
+            font-size: .9rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important
+        }
+
+        .ib-svc-link:hover {
+            color: var(--primary-dark) !important
+        }
+
+        /* Portfolio */
+        .ib-portfolio {
+            padding: 120px 0 !important;
+            background: var(--surface) !important
+        }
+
+        .ib-port-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 24px !important
+        }
+
+        .ib-port-item {
+            position: relative !important;
+            border-radius: var(--radius) !important;
+            overflow: hidden !important;
+            aspect-ratio: 4/3 !important;
+            cursor: pointer !important
+        }
+
+        .ib-port-item img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            transition: transform .6s ease !important
+        }
+
+        .ib-port-overlay {
+            position: absolute !important;
+            inset: 0 !important;
+            background: linear-gradient(transparent 40%, rgba(22, 47, 78, .9)) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-end !important;
+            padding: 32px !important;
+            opacity: 0 !important;
+            transition: opacity .35s ease !important
+        }
+
+        .ib-port-item:hover img {
+            transform: scale(1.08) !important
+        }
+
+        .ib-port-item:hover .ib-port-overlay {
+            opacity: 1 !important
+        }
+
+        .ib-port-overlay h3 {
+            color: var(--primary-light) !important;
+            font-size: 1.4rem !important;
+            margin-bottom: 4px !important
+        }
+
+        .ib-port-overlay p {
+            color: rgba(255, 255, 255, .8) !important;
+            font-size: .95rem !important
+        }
+
+        /* Testimonials */
+        .ib-test {
+            padding: 120px 0 !important;
+            background: var(--bg) !important
+        }
+
+        .ib-test-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 32px !important
+        }
+
+        .ib-test-card {
+            background: var(--surface) !important;
+            padding: 40px !important;
+            border-radius: var(--radius) !important;
+            border: 1px solid var(--border) !important;
+            position: relative !important;
+            transition: all .3s ease !important
+        }
+
+        .ib-test-card:hover {
+            box-shadow: var(--shadow) !important
+        }
+
+        .ib-test-card .ib-quote {
+            font-size: 3rem !important;
+            color: var(--primary) !important;
+            opacity: .3 !important;
+            position: absolute !important;
+            top: 16px !important;
+            right: 24px !important;
+            font-family: serif !important
+        }
+
+        .ib-stars {
+            color: var(--primary) !important;
+            margin-bottom: 16px !important;
+            font-size: 1rem !important
+        }
+
+        .ib-test-card .ib-review {
+            font-style: italic !important;
+            margin-bottom: 24px !important;
+            color: var(--text) !important;
+            font-size: 1rem !important;
+            line-height: 1.7 !important
+        }
+
+        .ib-client h4 {
+            font-size: 1.05rem !important;
+            color: var(--accent) !important;
+            font-weight: 700 !important;
+            font-family: var(--heading) !important
+        }
+
+        .ib-client span {
+            font-size: .85rem !important;
+            color: var(--muted) !important
+        }
+
+        /* CTA */
+        .ib-cta {
+            padding: 120px 0 !important;
+            background: linear-gradient(135deg, var(--accent) 0%, #0d1f33 100%) !important;
+            color: var(--on-primary) !important;
+            text-align: center !important;
+            position: relative !important;
+            overflow: hidden !important
+        }
+
+        .ib-cta::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            width: 600px !important;
+            height: 600px !important;
+            border: 80px solid rgba(180, 147, 62, .05) !important;
+            border-radius: 50% !important;
+            pointer-events: none !important
+        }
+
+        .ib-cta h2 {
+            color: var(--on-primary) !important;
+            font-size: 3rem !important;
+            margin-bottom: 16px !important;
+            font-weight: 800 !important
+        }
+
+        .ib-cta>div>p {
+            font-size: 1.15rem !important;
+            margin-bottom: 48px !important;
+            opacity: .85 !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important
+        }
+
+        /* Contact Form */
+        .ib-form {
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            background: var(--on-primary) !important;
+            padding: 48px !important;
+            border-radius: var(--radius) !important;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .15) !important;
+            text-align: left !important
+        }
+
+        .ib-form-group {
+            margin-bottom: 24px !important
+        }
+
+        .ib-form-group label {
+            display: block !important;
+            margin-bottom: 8px !important;
+            color: var(--accent) !important;
+            font-weight: 600 !important;
+            font-size: .9rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: .5px !important
+        }
+
+        .ib-form-control {
+            width: 100% !important;
+            padding: 14px 18px !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 12px !important;
+            font-family: var(--body) !important;
+            font-size: 1rem !important;
+            background: var(--surface) !important;
+            transition: all .3s ease !important;
+            color: var(--text) !important
+        }
+
+        .ib-form-control:focus {
+            outline: none !important;
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 3px rgba(180, 147, 62, .15) !important
+        }
+
+        .ib-form .ib-btn {
+            width: 100% !important;
+            font-size: 1rem !important;
+            padding: 16px !important
+        }
+
+        /* Footer */
+        .ib-footer {
+            background: #0b0a14 !important;
+            color: rgba(255, 255, 255, .7) !important;
+            padding: 80px 0 32px !important
+        }
+
+        .ib-footer-grid {
+            display: grid !important;
+            grid-template-columns: 2fr 1fr 1fr 1fr !important;
+            gap: 48px !important;
+            margin-bottom: 64px !important
+        }
+
+        .ib-footer-col h4 {
+            color: var(--primary) !important;
+            font-size: 1.15rem !important;
+            margin-bottom: 24px !important;
+            font-family: var(--heading) !important;
+            font-weight: 700 !important
+        }
+
+        .ib-footer-col p,
+        .ib-footer-col a {
+            color: rgba(255, 255, 255, .6) !important;
+            margin-bottom: 14px !important;
+            display: block !important;
+            font-size: .95rem !important
+        }
+
+        .ib-footer-col a:hover {
+            color: var(--primary) !important
+        }
+
+        .ib-footer-logo img {
+            height: 80px !important;
+            margin-bottom: 20px !important
+        }
+
+        .ib-footer-social {
+            display: flex !important;
+            gap: 12px !important;
+            margin-top: 20px !important
+        }
+
+        .ib-footer-social a {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            border: 1px solid rgba(255, 255, 255, .15) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: rgba(255, 255, 255, .6) !important;
+            font-size: 1rem !important;
+            transition: all .3s ease !important
+        }
+
+        .ib-footer-social a:hover {
+            background: var(--primary) !important;
+            border-color: var(--primary) !important;
+            color: var(--on-primary) !important
+        }
+
+        .ib-footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .08) !important;
+            padding-top: 32px !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            font-size: .85rem !important;
+            color: rgba(255, 255, 255, .4) !important
+        }
+
+        .ib-footer-bottom a {
+            color: var(--primary) !important;
+            font-weight: 600 !important
+        }
+
+        /* WhatsApp */
+        .ib-wa {
+            position: fixed !important;
+            width: 60px !important;
+            height: 60px !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            background: #25d366 !important;
+            color: #fff !important;
+            border-radius: 50% !important;
+            font-size: 32px !important;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, .4) !important;
+            z-index: 999 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: transform .3s ease !important
+        }
+
+        .ib-wa:hover {
+            transform: scale(1.12) !important
+        }
+
+        /* Animations */
+        .ib-fade-up {
+            opacity: 0 !important;
+            transform: translateY(30px) !important;
+            transition: opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1), transform .8s cubic-bezier(0.165, 0.84, 0.44, 1) !important
+        }
+
+        .ib-fade-up.ib-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important
+        }
+
+        /* Responsive */
+        @media(max-width:1024px) {
+            .ib-trust-grid {
+                grid-template-columns: repeat(2, 1fr) !important
+            }
+
+            .ib-trust-item:nth-child(2) {
+                border-right: none !important
+            }
+
+            .ib-certs-grid,
+            .ib-why-grid,
+            .ib-services-grid,
+            .ib-test-grid {
+                grid-template-columns: repeat(2, 1fr) !important
+            }
+
+            .ib-footer-grid {
+                grid-template-columns: 1fr 1fr !important
+            }
+
+            .ib-hero-content h1 {
+                font-size: 3.2rem !important
+            }
+
+            .ib-section-header h2 {
+                font-size: 2.2rem !important
+            }
+        }
+
+        @media(max-width:768px) {
+            .ib-nav-links {
+                display: none !important;
+                position: absolute !important;
+                top: 100px !important;
+                left: 0 !important;
+                width: 100% !important;
+                background: var(--bg) !important;
+                flex-direction: column !important;
+                padding: 24px !important;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, .1) !important;
+                gap: 16px !important
+            }
+
+            .ib-nav-links.active {
+                display: flex !important
+            }
+
+            .ib-mobile-btn {
+                display: block !important
+            }
+
+            .ib-hero-content h1 {
+                font-size: 2.4rem !important
+            }
+
+            .ib-hero-btns {
+                flex-direction: column !important
+            }
+
+            .ib-trust-grid {
+                grid-template-columns: 1fr !important
+            }
+
+            .ib-trust-item {
+                border-right: none !important;
+                border-bottom: 1px solid var(--border) !important;
+                padding: 24px 20px !important
+            }
+
+            .ib-trust-item:last-child {
+                border-bottom: none !important
+            }
+
+            .ib-about-grid {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important
+            }
+
+            .ib-about-img img {
+                height: 350px !important
+            }
+
+            .ib-certs-grid,
+            .ib-why-grid,
+            .ib-services-grid,
+            .ib-test-grid,
+            .ib-port-grid {
+                grid-template-columns: 1fr !important
+            }
+
+            .ib-footer-grid {
+                grid-template-columns: 1fr !important
+            }
+
+            .ib-footer-bottom {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 12px !important
+            }
+
+            .ib-cta h2 {
+                font-size: 2rem !important
+            }
+
+            .ib-form {
+                padding: 32px 20px !important
+            }
+
+            .ib-section-header h2 {
+                font-size: 1.9rem !important
+            }
+
+            .ib-about-text .ib-stats {
+                flex-direction: column !important;
+                gap: 20px !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="ib-header">
+        <div class="ib-container ib-nav">
+            <a href="index.html" class="ib-logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-6-2026-04-17-52-PM-mmemgrsxe44n.webp"
+                    alt="Imperial Builder Logo">
+            </a>
+            <nav class="ib-nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="ib-btn ib-btn-primary">Get a Quote</a>
+            </nav>
+            <button class="ib-mobile-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="ib-hero">
+        <div class="ib-container">
+            <div class="ib-hero-content">
+                <span class="ib-eyebrow">Singapore's Premier Construction Firm</span>
+                <h1>BUILDING LEGACIES.<br>ENGINEERING EXCELLENCE.</h1>
+                <p>Specializing in luxury landed properties, commercial renovations, and bespoke design & build
+                    solutions. From blueprint to handover — experience the Imperial standard.</p>
+                <div class="ib-hero-btns">
+                    <a href="contact.html" class="ib-btn ib-btn-primary">Start Your Project</a>
+                    <a href="services.html" class="ib-btn ib-btn-outline">Explore Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BANNER -->
+    <div class="ib-container ib-trust">
+        <div class="ib-trust-grid">
+            <div class="ib-trust-item">
+                <i class="fas fa-hard-hat"></i>
+                <h3>15+ Years Experience</h3>
+                <p>Proven track record in high-end builds.</p>
+            </div>
+            <div class="ib-trust-item">
+                <i class="fas fa-certificate"></i>
+                <h3>BCA Registered</h3>
+                <p>Fully certified and compliant with Singapore standards.</p>
+            </div>
+            <div class="ib-trust-item">
+                <i class="fas fa-gem"></i>
+                <h3>The Imperial Standard</h3>
+                <p>Uncompromising material quality & craftsmanship.</p>
+            </div>
+            <div class="ib-trust-item">
+                <i class="fas fa-handshake"></i>
+                <h3>Trusted Partner</h3>
+                <p>Transparent pricing with no hidden costs.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT SNIPPET -->
+    <section class="ib-about">
+        <div class="ib-container ib-about-grid">
+            <div class="ib-about-img">
+                <img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.07%20PM%20(1).jpeg"
+                    alt="Luxury living room designed by Imperial Builder">
+                <div class="ib-exp-badge">
+                    <span class="num">15+</span>
+                    <span class="label">Years of Excellence</span>
+                </div>
+            </div>
+            <div class="ib-about-text">
+                <div class="ib-gold-line" style="margin-left:0!important"></div>
+                <h2>Constructing Visions, <span>Delivering Reality.</span></h2>
+                <p>At Imperial Builder PTE LTD, we don't just build structures; we craft environments that elevate
+                    lifestyles and businesses. With over a decade of industry leadership, our dedicated team of
+                    architects, engineers, and master builders ensure every detail is executed flawlessly.</p>
+                <p>From initial blueprint to final handover, we guarantee structural integrity, transparent
+                    communication, and timelines you can depend on.</p>
+                <div class="ib-stats">
+                    <div class="ib-stat"><span class="num">500+</span><span class="label">Projects Completed</span>
+                    </div>
+                    <div class="ib-stat"><span class="num">98%</span><span class="label">Client Satisfaction</span>
+                    </div>
+                    <div class="ib-stat"><span class="num">50+</span><span class="label">Team Members</span></div>
+                </div>
+                <a href="about.html" class="ib-btn ib-btn-primary">Learn More About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="ib-certs">
+        <div class="ib-container">
+            <div class="ib-section-header">
+                <div class="ib-gold-line"></div>
+                <h2>Certifications & Accreditations</h2>
+                <p>Industry recognitions that validate our commitment to excellence and safety.</p>
+            </div>
+            <div class="ib-certs-grid">
+                <div class="ib-cert-card">
+                    <i class="fas fa-award"></i>
+                    <h3>BCA Registered</h3>
+                    <p>Building & Construction Authority certified contractor.</p>
+                </div>
+                <div class="ib-cert-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>ISO 9001:2015</h3>
+                    <p>Quality Management System certified.</p>
+                </div>
+                <div class="ib-cert-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>BCA Green Mark</h3>
+                    <p>Committed to sustainable building practices.</p>
+                </div>
+                <div class="ib-cert-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>OHSAS 18001</h3>
+                    <p>Occupational health & safety management certified.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="ib-why">
+        <div class="ib-container">
+            <div class="ib-section-header">
+                <div class="ib-gold-line"></div>
+                <h2>Why Choose Imperial Builder?</h2>
+                <p>We deliver value through precision, transparency, and relentless quality.</p>
+            </div>
+            <div class="ib-why-grid">
+                <div class="ib-why-card">
+                    <i class="fas fa-drafting-compass"></i>
+                    <h3>Bespoke Design Solutions</h3>
+                    <p>Every project is custom-crafted to your exact vision, lifestyle needs, and architectural
+                        preferences — no cookie-cutter templates.</p>
+                </div>
+                <div class="ib-why-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>On-Time Delivery</h3>
+                    <p>We maintain disciplined project timelines with milestone tracking, so your space is ready when
+                        promised.</p>
+                </div>
+                <div class="ib-why-card">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden charges, no last-minute add-ons. Clear, detailed quotations so you know exactly what
+                        you're investing.</p>
+                </div>
+                <div class="ib-why-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Master Craftsmanship</h3>
+                    <p>Our experienced tradesmen use premium materials and techniques passed down from years of refined
+                        expertise.</p>
+                </div>
+                <div class="ib-why-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Dedicated Project Manager</h3>
+                    <p>A single point of contact who coordinates every aspect, keeping you informed and stress-free
+                        throughout.</p>
+                </div>
+                <div class="ib-why-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Warranty & Aftercare</h3>
+                    <p>Comprehensive defect liability period and responsive post-completion support for total peace of
+                        mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES -->
+    <section class="ib-services">
+        <div class="ib-container">
+            <div class="ib-section-header">
+                <div class="ib-gold-line"></div>
+                <h2>Our Core Services</h2>
+                <p>Comprehensive construction solutions tailored for the sophisticated client.</p>
+            </div>
+            <div class="ib-services-grid">
+                <div class="ib-svc-card">
+                    <div class="ib-svc-img"><img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.23%20PM.jpeg"
+                            alt="Design & Build"></div>
+                    <div class="ib-svc-body">
+                        <h3>Design & Build</h3>
+                        <p>A seamless end-to-end solution managing both architectural design and construction under one
+                            roof.</p>
+                        <a href="services.html" class="ib-svc-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="ib-svc-card">
+                    <div class="ib-svc-img"><img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.09%20PM.jpeg"
+                            alt="Commercial Solutions"></div>
+                    <div class="ib-svc-body">
+                        <h3>Commercial Solutions</h3>
+                        <p>Transforming commercial spaces into functional, brand-aligned environments that elevate your
+                            business.</p>
+                        <a href="services.html" class="ib-svc-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="ib-svc-card">
+                    <div class="ib-svc-img"><img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.11%20PM.jpeg"
+                            alt="Residential Solutions"></div>
+                    <div class="ib-svc-body">
+                        <h3>Residential Solutions</h3>
+                        <p>Specializing in luxury landed homes, complete rebuilds, A&A works, and premium interior
+                            renovations.</p>
+                        <a href="services.html" class="ib-svc-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="ib-portfolio">
+        <div class="ib-container">
+            <div class="ib-section-header">
+                <div class="ib-gold-line"></div>
+                <h2>Featured Projects</h2>
+                <p>A glimpse into our standard of excellence.</p>
+            </div>
+            <div class="ib-port-grid">
+                <div class="ib-port-item">
+                    <img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.15%20PM.jpeg" alt="Modern Living Room">
+                    <div class="ib-port-overlay">
+                        <h3>Modern Landed Interiors</h3>
+                        <p>Full Interior Renovation</p>
+                    </div>
+                </div>
+                <div class="ib-port-item">
+                    <img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.24%20PM.jpeg" alt="Contemporary Kitchen">
+                    <div class="ib-port-overlay">
+                        <h3>Sentosa Cove Villa</h3>
+                        <p>Design & Build</p>
+                    </div>
+                </div>
+                <div class="ib-port-item">
+                    <img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.25%20PM%20(1).jpeg" alt="Luxury Bedroom">
+                    <div class="ib-port-overlay">
+                        <h3>East Coast Residence</h3>
+                        <p>A&A Works</p>
+                    </div>
+                </div>
+                <div class="ib-port-item">
+                    <img src="assets/WhatsApp%20Image%202026-03-06%20at%202.37.22%20PM%20(1).jpeg"
+                        alt="Premium Wardrobe">
+                    <div class="ib-port-overlay">
+                        <h3>Bukit Timah Estate</h3>
+                        <p>Complete Rebuild</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="ib-test">
+        <div class="ib-container">
+            <div class="ib-section-header">
+                <div class="ib-gold-line"></div>
+                <h2>Client Testimonials</h2>
+                <p>Hear from those who have experienced the Imperial Builder difference.</p>
+            </div>
+            <div class="ib-test-grid">
+                <div class="ib-test-card">
+                    <span class="ib-quote">"</span>
+                    <div class="ib-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="ib-review">Imperial Builder delivered our dream home right on schedule. The craftsmanship
+                        and attention to detail were simply unmatched. Highly recommended.</p>
+                    <div class="ib-client">
+                        <h4>Jonathan L.</h4><span>Landed Property Owner</span>
+                    </div>
+                </div>
+                <div class="ib-test-card">
+                    <span class="ib-quote">"</span>
+                    <div class="ib-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="ib-review">We hired them for our office renovation. The team was professional, minimized
+                        disruption, and the final result completely elevated our brand image.</p>
+                    <div class="ib-client">
+                        <h4>Sarah T.</h4><span>Corporate Director</span>
+                    </div>
+                </div>
+                <div class="ib-test-card">
+                    <span class="ib-quote">"</span>
+                    <div class="ib-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="ib-review">The Design & Build process was incredibly smooth. They handled everything from
+                        permits to finishes. A truly stress-free construction experience.</p>
+                    <div class="ib-client">
+                        <h4>Marcus W.</h4><span>Real Estate Investor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA + CONTACT FORM -->
+    <section class="ib-cta">
+        <div class="ib-container">
+            <h2>Ready to Build Your Vision?</h2>
+            <p>Request a consultation and let us lay the foundation for your next project.</p>
+            <form class="ib-form" onsubmit="event.preventDefault(); alert('Thank you! We will be in touch shortly.');">
+                <div class="ib-form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" class="ib-form-control" placeholder="John Doe" required>
+                </div>
+                <div class="ib-form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="ib-form-control" placeholder="you@example.com" required>
+                </div>
+                <div class="ib-form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="ib-form-control" placeholder="+65 8888 8888" required>
+                </div>
+                <div class="ib-form-group">
+                    <label for="project">Project Type</label>
+                    <select id="project" class="ib-form-control" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="landed">Landed Property Rebuild / A&A</option>
+                        <option value="commercial">Commercial Renovation</option>
+                        <option value="design-build">Design & Build</option>
+                        <option value="interior">Interior Design</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="ib-form-group">
+                    <label for="message">Tell Us About Your Project</label>
+                    <textarea id="message" class="ib-form-control" rows="4"
+                        placeholder="Brief description of your project..."></textarea>
+                </div>
+                <button type="submit" class="ib-btn ib-btn-primary">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="ib-footer">
+        <div class="ib-container">
+            <div class="ib-footer-grid">
+                <div class="ib-footer-col">
+                    <div class="ib-footer-logo">
+                        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-6-2026-04-17-52-PM-mmemgrsxe44n.webp"
+                            alt="Imperial Builder Logo">
+                    </div>
+                    <p>Imperial Builder PTE LTD is Singapore's trusted partner for luxury construction, delivering
+                        engineering excellence and uncompromising quality since 2010.</p>
+                    <div class="ib-footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Our Services</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Services</h4>
+                    <a href="services.html">Design & Build</a>
+                    <a href="services.html">Commercial Renovation</a>
+                    <a href="services.html">Residential Solutions</a>
+                    <a href="services.html">A&A Works</a>
+                </div>
+                <div class="ib-footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"
+                            style="color:var(--primary)!important;margin-right:8px!important"></i>123 Builder Avenue,
+                        Singapore 012345</p>
+                    <p><i class="fas fa-phone" style="color:var(--primary)!important;margin-right:8px!important"></i>+65
+                        6789 0123</p>
+                    <p><i class="fas fa-envelope"
+                            style="color:var(--primary)!important;margin-right:8px!important"></i>info@imperialbuilder.com.sg
+                    </p>
+                </div>
+            </div>
+            <div class="ib-footer-bottom">
+                <p>&copy; 2026 Imperial Builder PTE LTD. All Rights Reserved.</p>
+                <p>Website Design by <a href="https://reputifly.com" target="_blank" rel="noopener">Reputifly</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6567890123" class="ib-wa" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn'), navLinks = document.getElementById('nav-links');
+        menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); const i = menuBtn.querySelector('i'); i.classList.toggle('fa-bars'); i.classList.toggle('fa-times') });
+        document.querySelectorAll('.ib-nav-links a').forEach(l => l.addEventListener('click', () => { navLinks.classList.remove('active'); const i = menuBtn.querySelector('i'); i.classList.remove('fa-times'); i.classList.add('fa-bars') }));
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeEls = document.querySelectorAll('.ib-section-header, .ib-hero-content, .ib-trust-item, .ib-about-img, .ib-about-text, .ib-cert-card, .ib-why-card, .ib-svc-card, .ib-port-item, .ib-test-card, .ib-cta h2, .ib-cta p, .ib-form, .ib-page-hero h1, .ib-page-hero p, .ib-svc-intro-text, .ib-svc-intro-img, .ib-svc-row-img, .ib-svc-row-text, .ib-step, .ib-cta-band h2, .ib-cta-band p, .ib-story-img, .ib-story-text, .ib-vision-card, .ib-team-card, .ib-exp-text, .ib-exp-img, .ib-award-card, .ib-contact-info, .ib-contact-form, .ib-hours-card, .ib-social-link, .ib-footer-col');
+            fadeEls.forEach(el => el.classList.add('ib-fade-up'));
+
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) {
+                        setTimeout(() => e.target.classList.add('ib-visible'), (e.target.dataset.delay || 0) * 100);
+                        obs.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            const grids = document.querySelectorAll('.ib-trust-grid, .ib-certs-grid, .ib-why-grid, .ib-services-grid, .ib-port-grid, .ib-test-grid, .ib-process-grid, .ib-vision-grid, .ib-team-grid, .ib-awards-grid, .ib-hours-inner, .ib-social-links, .ib-footer-grid');
+            grids.forEach(g => Array.from(g.children).forEach((c, i) => c.dataset.delay = i + 1));
+
+            fadeEls.forEach(el => obs.observe(el));
+
+            const stats = document.querySelectorAll('.ib-stat .num');
+            if (stats.length > 0) {
+                const statObs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            const t = e.target;
+                            if (t.dataset.counted) return;
+                            t.dataset.counted = true;
+                            const text = t.innerText;
+                            const finalVal = parseInt(text.replace(/[^0-9]/g, ''));
+                            const suffix = text.replace(/[0-9]/g, '');
+                            let start = 0, step = finalVal / 60;
+                            const c = setInterval(() => {
+                                start += step;
+                                if (start >= finalVal) { t.innerText = finalVal + suffix; clearInterval(c); }
+                                else t.innerText = Math.floor(start) + suffix;
+                            }, 25);
+                            statObs.unobserve(t);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                stats.forEach(s => statObs.observe(s));
+            }
+        });
+    </script>
+</body>
+
+</html>
