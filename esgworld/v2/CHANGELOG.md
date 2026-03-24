@@ -1,8 +1,8 @@
-## [v2] — 2026-03-24 (Update 4)
-- Replaced 3 placeholder team members with 2 real team members: David Leong and Kelvin Tan
-- Both listed as Certified ESG Sustainability Specialist
-- Updated team grid to 2-column layout centered on page
-- Files changed: about.html
+## [v2] — 2026-03-24 (Update 5)
+- Replaced 3 placeholder team members with David Leong and Kelvin Tan
+- Added team photos as local project files (images/david-leong.jpg, images/kelvin-tan.jpg)
+- Updated team grid to centered 2-column layout
+- Files changed: about.html, images/david-leong.jpg (new), images/kelvin-tan.jpg (new)
 - Agent: Claude Opus 4.6
 
 ## [v2] — 2026-03-24 (Update 3)
