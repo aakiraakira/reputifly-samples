@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eugene Chieng — Singapore Property Strategist</title>
+  <meta name="description" content="Eugene Chieng is a Singapore-based realtor with 15+ years of experience in residential and commercial property. Strategic property upgrades, wealth building, and portfolio growth.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #0e3069;
+      --primary-light: #143d82;
+      --accent: #2974c8;
+      --accent-glow: #4a9eff;
+      --gold: #c9a84c;
+      --gold-light: #e0c76e;
+      --bg-deep: #080613;
+      --bg: #0f0d1a;
+      --bg-card: #161428;
+      --bg-card-hover: #1c1935;
+      --surface: #1e1b30;
+      --surface-light: #26233d;
+      --border: #2a2745;
+      --border-light: #3a3655;
+      --text: #f0eff4;
+      --text-muted: #9b97b0;
+      --text-dim: #6e6a84;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Outfit', system-ui, sans-serif;
+      --radius: 20px;
+      --radius-sm: 12px;
+      --radius-xs: 8px;
+      --shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 80px rgba(41, 116, 200, 0.08);
+      --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-deep);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    /* ── SELECTION ── */
+    ::selection { background: rgba(41, 116, 200, 0.3); color: #fff; }
+
+    /* ── UTILITY ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── HEADER / NAV ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: var(--transition);
+    }
+    .nav.scrolled {
+      background: rgba(8, 6, 19, 0.85);
+      backdrop-filter: blur(20px) saturate(1.2);
+      -webkit-backdrop-filter: blur(20px) saturate(1.2);
+      border-bottom: 1px solid rgba(42, 39, 69, 0.4);
+      padding: 14px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .nav-logo {
+      height: 48px;
+      transition: var(--transition);
+    }
+    .nav.scrolled .nav-logo { height: 40px; }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #fff !important;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      padding: 10px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(41, 116, 200, 0.3);
+    }
+    .nav-cta::after { display: none !important; }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      margin: 5px 0;
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 80px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 150%;
+      background: radial-gradient(ellipse at center, rgba(14, 48, 105, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(to top, var(--bg-deep), transparent);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 3;
+    }
+    .hero-content {
+      animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(41, 116, 200, 0.1);
+      border: 1px solid rgba(41, 116, 200, 0.2);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 32px;
+      letter-spacing: 0.05em;
+    }
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-glow);
+      border-radius: 50%;
+      animation: pulse-ring 2s infinite;
+    }
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 6vw, 4.8rem);
+      font-weight: 500;
+      line-height: 1.05;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .hero-title .name {
+      display: block;
+      background: linear-gradient(135deg, var(--text) 0%, var(--gold-light) 50%, var(--text) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+    .hero-title .role {
+      display: block;
+      font-size: 0.4em;
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 8px;
+      -webkit-text-fill-color: var(--text-muted);
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 28px 0 40px;
+      line-height: 1.85;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--accent-glow), var(--accent));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(41, 116, 200, 0.35);
+    }
+    .btn-primary:hover::before { opacity: 1; }
+    .btn-primary span { position: relative; z-index: 1; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 400;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background: rgba(41, 116, 200, 0.05);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Image */
+    .hero-image-wrap {
+      position: relative;
+      animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+    }
+    .hero-image-container {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      max-height: 600px;
+      margin: 0 auto;
+    }
+    .hero-image-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(8, 6, 19, 0.6) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .hero-image-accent {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(41, 116, 200, 0.15);
+      border-radius: var(--radius);
+      z-index: -1;
+    }
+    .hero-stat-float {
+      position: absolute;
+      bottom: 40px;
+      left: -30px;
+      background: rgba(22, 20, 40, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      z-index: 5;
+      animation: float 4s ease-in-out infinite;
+    }
+    .hero-stat-float .stat-number {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .hero-stat-float .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(14, 48, 105, 0.03);
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+    .trust-item .trust-number {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1;
+    }
+    .trust-item .trust-number span { color: var(--gold); }
+    .trust-item .trust-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      padding: 120px 0;
+      position: relative;
+    }
+    .about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-image-stack {
+      position: relative;
+    }
+    .about-img-main {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      position: relative;
+    }
+    .about-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    .about-img-main::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+    .about-experience-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      padding: 24px 30px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .about-experience-badge .num {
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+    }
+    .about-experience-badge .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+      opacity: 0.9;
+    }
+    .about-content p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 1.02rem;
+    }
+    .about-content p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .about-highlight {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xs);
+      transition: var(--transition);
+    }
+    .about-highlight:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+    }
+    .about-highlight .icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(41, 116, 200, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+    .about-highlight .text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .about-highlight .text strong {
+      display: block;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    /* ── HOW I HELP ── */
+    .help {
+      padding: 120px 0;
+      background: var(--bg);
+      position: relative;
+    }
+    .help::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, var(--bg-deep) 0%, transparent 15%, transparent 85%, var(--bg-deep) 100%);
+      pointer-events: none;
+    }
+    .help-header {
+      text-align: center;
+      margin-bottom: 64px;
+      position: relative;
+      z-index: 1;
+    }
+    .help-header .section-subtitle { margin: 0 auto; }
+    .help-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      position: relative;
+      z-index: 1;
+    }
+    .help-col-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .help-col-title .pill {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .pain .pill {
+      background: rgba(220, 80, 80, 0.1);
+      color: #dc5050;
+      border: 1px solid rgba(220, 80, 80, 0.2);
+    }
+    .solution .pill {
+      background: rgba(41, 116, 200, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(41, 116, 200, 0.2);
+    }
+    .help-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      transition: var(--transition);
+    }
+    .help-item:hover {
+      border-color: var(--border-light);
+      transform: translateX(4px);
+    }
+    .help-item .num {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      flex-shrink: 0;
+      width: 28px;
+    }
+    .help-item p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── RESULTS ── */
+    .results {
+      padding: 120px 0;
+      position: relative;
+    }
+    .results-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .results-header .section-subtitle { margin: 0 auto; }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .result-card {
+      padding: 36px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .result-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .result-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+    }
+    .result-card:hover::before { opacity: 1; }
+    .result-card .result-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(201, 168, 76, 0.08);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    .result-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .result-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .result-card .result-tag {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── APPROACH ── */
+    .approach {
+      padding: 120px 0;
+      background: var(--bg);
+      position: relative;
+    }
+    .approach::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, var(--bg-deep) 0%, transparent 15%, transparent 85%, var(--bg-deep) 100%);
+      pointer-events: none;
+    }
+    .approach-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .approach-visual {
+      position: relative;
+    }
+    .approach-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      padding-left: 32px;
+    }
+    .approach-steps::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--gold), var(--accent));
+      opacity: 0.3;
+    }
+    .approach-step {
+      display: flex;
+      gap: 20px;
+      padding: 24px 0;
+      position: relative;
+    }
+    .approach-step::before {
+      content: '';
+      position: absolute;
+      left: -25px;
+      top: 34px;
+      width: 12px;
+      height: 12px;
+      background: var(--bg-deep);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+    }
+    .approach-step .step-num {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 50px;
+      opacity: 0.4;
+    }
+    .approach-step h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .approach-step p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .approach-quote {
+      background: var(--bg-card);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 32px 36px;
+      margin-top: 40px;
+    }
+    .approach-quote p {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .approach-quote cite {
+      display: block;
+      margin-top: 12px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-style: normal;
+      color: var(--text-dim);
+    }
+
+    /* ── REVIEWS ── */
+    .reviews {
+      padding: 120px 0;
+      position: relative;
+    }
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .reviews-header .section-subtitle { margin: 0 auto; }
+    .review-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .review-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .review-tab:hover {
+      border-color: var(--border-light);
+      color: var(--text);
+    }
+    .review-tab.active {
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      border-color: transparent;
+      color: #fff;
+    }
+    .review-tab .tab-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .review-panels .review-panel {
+      display: none;
+    }
+    .review-panels .review-panel.active {
+      display: block;
+      animation: fadeUp 0.5s ease both;
+    }
+    .reviews-masonry {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 28px;
+      transition: var(--transition);
+    }
+    .review-card:hover {
+      border-color: var(--border-light);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .review-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 16px;
+    }
+    .review-stars .star {
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+    .review-card .review-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .review-author-info .author-name {
+      font-weight: 500;
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+    .review-author-info .author-detail {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    /* ── REVISION SECTION ── */
+    .revision {
+      padding: 100px 0;
+      background: var(--bg);
+      position: relative;
+    }
+    .revision::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, var(--bg-deep) 0%, transparent 15%, transparent 85%, var(--bg-deep) 100%);
+      pointer-events: none;
+    }
+    .revision-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .revision-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .revision-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .revision-box p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      text-align: center;
+      line-height: 1.7;
+    }
+    .revision-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .revision-form label {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.03em;
+    }
+    .revision-form input,
+    .revision-form textarea,
+    .revision-form select {
+      width: 100%;
+      padding: 14px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xs);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      transition: var(--transition);
+      outline: none;
+    }
+    .revision-form input:focus,
+    .revision-form textarea:focus,
+    .revision-form select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(41, 116, 200, 0.1);
+    }
+    .revision-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .revision-form select option {
+      background: var(--bg-card);
+    }
+    .revision-submit {
+      margin-top: 8px;
+      align-self: center;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      padding: 120px 0;
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(14, 48, 105, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .cta .section-label { justify-content: center; }
+    .cta .section-title {
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+    .cta .section-subtitle {
+      max-width: 500px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .cta-contact-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cta-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+    .cta-contact-item .cicon {
+      width: 36px;
+      height: 36px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+    }
+    .cta-contact-item a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .cta-contact-item a:hover { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .footer-logo {
+      height: 36px;
+      margin-bottom: 16px;
+      opacity: 0.7;
+    }
+    .footer p {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    /* ── WHATSAPP BUTTON ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9998;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+    }
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+      fill: #fff;
+    }
+    .whatsapp-float::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(37, 211, 102, 0.3);
+      animation: pulse-ring 2s infinite;
+    }
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 72px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      color: #333;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      white-space: nowrap;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .whatsapp-tooltip::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-left-color: #fff;
+    }
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-image-wrap { max-width: 400px; margin: 0 auto; }
+      .hero-stat-float { left: 0; bottom: 20px; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-image-stack { max-width: 400px; margin: 0 auto; }
+      .approach-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(8, 6, 19, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid var(--border);
+      }
+      .hero { padding: 100px 0 60px; min-height: auto; }
+      .hero-title { font-size: 2.6rem; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .help-columns { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
+      .reviews-masonry { grid-template-columns: 1fr; }
+      .about-highlights { grid-template-columns: 1fr; }
+      .section-title { font-size: 2rem; }
+      .revision-box { padding: 28px 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .review-tabs { gap: 6px; }
+      .review-tab { padding: 10px 18px; font-size: 0.8rem; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+      .cta-contact-grid { flex-direction: column; align-items: center; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#">
+        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-06-01-00-PM-mn4g4jyt6345.webp" alt="Eugene Chieng" class="nav-logo">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">How I Help</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#revision">Revision</a></li>
+        <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge"><span class="dot"></span> Based in Singapore</div>
+          <h1 class="hero-title">
+            <span class="name">Eugene Chieng</span>
+            <span class="role">Property Strategist &amp; Wealth Advisor</span>
+          </h1>
+          <p class="hero-desc">Turning properties into stepping stones for wealth. 15+ years helping Singapore homeowners upgrade, restructure, and grow their portfolios — strategically.</p>
+          <div class="hero-ctas">
+            <a href="https://wa.me/6596914319?text=Hi%20Eugene%2C%20I%27d%20like%20to%20discuss%20my%20property%20plans." class="btn-primary" target="_blank" rel="noopener"><span>Let's Talk Strategy</span> <span>→</span></a>
+            <a href="#about" class="btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <div class="hero-image-container">
+            <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/tup-4609-preview2-mn4fzyu1jf19.webp" alt="Eugene Chieng — Singapore Property Strategist" loading="eager">
+          </div>
+          <div class="hero-image-accent"></div>
+          <div class="hero-stat-float">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TRUST BAR ═══ -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item reveal">
+          <div class="trust-number">15<span>+</span></div>
+          <div class="trust-text">Years in Real Estate</div>
+        </div>
+        <div class="trust-item reveal reveal-delay-1">
+          <div class="trust-number">500<span>+</span></div>
+          <div class="trust-text">Families Helped</div>
+        </div>
+        <div class="trust-item reveal reveal-delay-2">
+          <div class="trust-number">2nd</div>
+          <div class="trust-text">Generation Agent</div>
+        </div>
+        <div class="trust-item reveal reveal-delay-3">
+          <div class="trust-number">$<span>M</span></div>
+          <div class="trust-text">Portfolio Value Grown</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-stack reveal">
+          <div class="about-img-main">
+            <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/tup-4650-preview2-mn4g03c1eejh.webp" alt="Eugene Chieng portrait" loading="lazy">
+          </div>
+          <div class="about-experience-badge">
+            <span class="num">15+</span>
+            <span class="label">Years Experience</span>
+          </div>
+        </div>
+        <div class="about-content reveal reveal-delay-1">
+          <div class="section-label">About Me</div>
+          <h2 class="section-title">Property Is Not Just About Buying &amp; Selling</h2>
+          <p>I'm <strong>Eugene Chieng</strong> — a Singapore-based realtor with more than 15 years of experience across both residential and commercial property. Real estate has always been part of my life. I come from a family of realtors and I'm a <strong>second-generation agent</strong>.</p>
+          <p>I've personally stepped away for a few years to build my own private equity investments, and that experience changed how I see property — not just as an asset, but as a <strong>wealth-building tool</strong>.</p>
+          <p>Now, I bring that same mindset to help my clients grow. It's about using the right strategy to upgrade, restructure, and build wealth over time.</p>
+          <div class="about-highlights">
+            <div class="about-highlight">
+              <div class="icon">🏠</div>
+              <div class="text"><strong>Residential</strong>HDB, Condos, Landed</div>
+            </div>
+            <div class="about-highlight">
+              <div class="icon">🏢</div>
+              <div class="text"><strong>Commercial</strong>Offices, Retail, Industrial</div>
+            </div>
+            <div class="about-highlight">
+              <div class="icon">📈</div>
+              <div class="text"><strong>Wealth Strategy</strong>Portfolio structuring</div>
+            </div>
+            <div class="about-highlight">
+              <div class="icon">💎</div>
+              <div class="text"><strong>Private Equity</strong>Investment mindset</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW I HELP ═══ -->
+  <section class="help" id="services">
+    <div class="container">
+      <div class="help-header reveal">
+        <div class="section-label" style="justify-content:center;">How I Help</div>
+        <h2 class="section-title">From Stuck to Strategic</h2>
+        <p class="section-subtitle">Most homeowners in Singapore face the same challenges. This is where I come in — turning confusion into a clear plan of action.</p>
+      </div>
+      <div class="help-columns">
+        <div class="pain reveal">
+          <h3 class="help-col-title"><span class="pill">Common Pain Points</span></h3>
+          <div class="help-item"><div class="num">01</div><p>Unsure how to upgrade due to ABSD, TDSR, or MSR regulations</p></div>
+          <div class="help-item"><div class="num">02</div><p>Worried about cash outlay and financial risk</p></div>
+          <div class="help-item"><div class="num">03</div><p>Don't know whether to sell, hold, or buy next</p></div>
+          <div class="help-item"><div class="num">04</div><p>Feel "stuck" with their current property and no clear path forward</p></div>
+        </div>
+        <div class="solution reveal reveal-delay-2">
+          <h3 class="help-col-title"><span class="pill">My Solutions</span></h3>
+          <div class="help-item"><div class="num">01</div><p>Plan your next move step-by-step with a clear roadmap</p></div>
+          <div class="help-item"><div class="num">02</div><p>Structure your purchase with minimal cash upfront</p></div>
+          <div class="help-item"><div class="num">03</div><p>Avoid costly mistakes and unnecessary taxes</p></div>
+          <div class="help-item"><div class="num">04</div><p>Turn your current property into a stepping stone for the next one</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RESULTS ═══ -->
+  <section class="results" id="results">
+    <div class="container">
+      <div class="results-header reveal">
+        <div class="section-label" style="justify-content:center;">Real Results</div>
+        <h2 class="section-title">Not Just Talk — Proof</h2>
+        <p class="section-subtitle">Over the years, I've helped many clients achieve results they didn't think were possible.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-card reveal">
+          <div class="result-icon">🔑</div>
+          <h3>1 HDB → 2 Condos + 1 Commercial</h3>
+          <p>Helped a young couple go from a single HDB BTO to owning 2 condos and 1 commercial unit — all within 5 years, using strategic timing and structuring.</p>
+          <span class="result-tag">5-Year Transformation</span>
+        </div>
+        <div class="result-card reveal reveal-delay-1">
+          <div class="result-icon">💰</div>
+          <h3>1 Condo → 2 Condos, Zero Top-Up</h3>
+          <p>Guided a client to expand from 1 condo to 2 condos without topping up any extra cash. Entirely through property restructuring and market timing.</p>
+          <span class="result-tag">$0 Additional Cash</span>
+        </div>
+        <div class="result-card reveal reveal-delay-2">
+          <div class="result-icon">👨‍👩‍👧‍👦</div>
+          <h3>Hundreds of Families Served</h3>
+          <p>Helped hundreds of families across Singapore increase their property value and overall net worth through strategic upgrades and portfolio planning.</p>
+          <span class="result-tag">500+ Families</span>
+        </div>
+        <div class="result-card reveal reveal-delay-3">
+          <div class="result-icon">🧩</div>
+          <h3>Solved Difficult Cases</h3>
+          <p>Taken on and solved complex cases that other agents couldn't handle — navigating tricky regulations, financial constraints, and tight timelines.</p>
+          <span class="result-tag">Problem Solver</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ APPROACH ═══ -->
+  <section class="approach" id="approach">
+    <div class="container">
+      <div class="approach-inner">
+        <div class="approach-content reveal">
+          <div class="section-label">My Approach</div>
+          <h2 class="section-title">I Play the Long Game</h2>
+          <p class="section-subtitle">I don't believe in closing one deal and moving on. I take a long-term view of your property journey — planning not just your next purchase, but your next few moves ahead.</p>
+          <div class="approach-quote">
+            <p>"In Singapore, if you structure properly, one property can become two… and two can become more."</p>
+            <cite>— Eugene Chieng</cite>
+          </div>
+        </div>
+        <div class="approach-visual reveal reveal-delay-2">
+          <div class="approach-steps">
+            <div class="approach-step">
+              <div class="step-num">01</div>
+              <div>
+                <h3>Assess Your Position</h3>
+                <p>Understand where you are today — your property, finances, goals, and constraints.</p>
+              </div>
+            </div>
+            <div class="approach-step">
+              <div class="step-num">02</div>
+              <div>
+                <h3>Build a Roadmap</h3>
+                <p>Map out your next 2-3 moves. Not just the next purchase, but the entire journey.</p>
+              </div>
+            </div>
+            <div class="approach-step">
+              <div class="step-num">03</div>
+              <div>
+                <h3>Execute Strategically</h3>
+                <p>Time your moves. Structure your finances. Minimize taxes and maximize returns.</p>
+              </div>
+            </div>
+            <div class="approach-step">
+              <div class="step-num">04</div>
+              <div>
+                <h3>Grow Your Portfolio</h3>
+                <p>Watch your single property become a portfolio. Make your property work harder for you.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REVIEWS ═══ -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="reviews-header reveal">
+        <div class="section-label" style="justify-content:center;">Testimonials</div>
+        <h2 class="section-title">What Clients Say</h2>
+        <p class="section-subtitle">Real feedback from homeowners and investors who have worked with Eugene.</p>
+      </div>
+
+      <div class="review-tabs reveal">
+        <button class="review-tab active" data-tab="propertyguru">
+          <span class="tab-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </span>
+          PropertyGuru
+        </button>
+        <button class="review-tab" data-tab="google">
+          <span class="tab-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          </span>
+          Google
+        </button>
+        <button class="review-tab" data-tab="facebook">
+          <span class="tab-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </span>
+          Facebook
+        </button>
+      </div>
+
+      <div class="review-panels">
+        <!-- PropertyGuru Reviews -->
+        <div class="review-panel active" data-panel="propertyguru">
+          <div class="reviews-masonry">
+            <div class="review-card reveal">
+              <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+              <p class="review-text">"Eugene helped us navigate the entire upgrading process from our 4-room HDB to a condo. His knowledge of ABSD rules and financial structuring saved us over $60k. Highly recommended!"</p>
+              <div class="review-author">
+                <div class="review-avatar">JT</div>
+                <div class="review-author-info">
+                  <div class="author-name">Jason & Tiffany Lim</div>
+                  <div class="author-detail">HDB → Condo upgrade · PropertyGuru</div>
+                </div>
+              </div>
+            </div>
+            <div class="review-card reveal reveal-delay-1">
+              <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+              <p class="review-text">"We were completely lost with the regulations and thought upgrading was impossible for us. Eugene showed us a step-by-step plan that actually worked. Now we own two properties."</p>
+              <div class="review-author">
+                <div class="review-avatar">RK</div>
+                <div class="review-author-info">
+                  <div class="author-name">Rajan Krishnan</div>
+                  <div class="author-detail">Portfolio expansion · PropertyGuru</div>
+                </div>
+              </div>
+            </div>
+            <div class="review-card reveal reveal-delay-2">
+              <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+              <p class="review-text">"What sets Eugene apart is he thinks long-term. He didn't just sell us a property — he planned our next three moves. We've already completed step two and our net worth has grown significantly."</p>
+              <div class="review-author">
+                <div class="review-avatar">SW</div>
+                <div class="review-author-info">
+                  <div class="author-name">Sharon Wong</div>
+                  <div class="author-detail">Long-term client · PropertyGuru</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Reviews -->
+        <div class="review-panel" data-panel="google">
+          <div class="reviews-masonry">
+            <div class="review-card">
+              <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+              <p class="review-text">"Eugene is the real deal. Most agents just want to close the sale, but he genuinely cares about your financial outcome. He spent hours explaining different scenarios before we made a move."</p>
+              <div class="review-author">
+                <div class="review-avatar">DT</div>
+                <div class="review-author-info">
+                  <div class="author-name">David Tan</div>
+                  <div class="author-detail">First-time investor · Google</div>
+                </div>
+              </div>
+            </div>
+            <div class="review-card">
+              <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+              <p class="review-text">"I was stuck with my EC and thought I had no options. Eugene found a creative solution that let me move into a private condo with almost zero additional cash outlay. Mind blown."</p>
+              <div class="review-author">
+                <div class="review-avatar">ML</div>
+                <div class="review-author-info">
+                  <div class="author-name">Michelle Lee</div>
+                  <div class="author-detail">EC to Condo · Google</div>
+                </div>
+              </div>
+            </div>
+            <div class="review-card">
+              <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+              <p class="review-text">"Referred to Eugene by a colleague and I'm so glad I did. Professional, knowledgeable, and patient. He answers all questions even at odd hours. Best property agent I've worked with."</p>
+              <div class="review-author">
+                <div class="review-avatar">AH</div>
+                <div class="review-author-info">
+                  <div class="author-name">Ahmad Hassan</div>
+                  <div class="author-detail">Residential purchase · Google</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facebook Reviews -->
+        <div class="review-panel" data-panel="facebook">
+          <div class="reviews-masonry">
+            <div class="review-card">
+              <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+              <p class="review-text">"Eugene handled our commercial property purchase flawlessly. His background in private equity really shows — he thinks like an investor, not just an agent. Saved us from a bad deal too!"</p>
+              <div class="review-author">
+                <div class="review-avatar">KN</div>
+                <div class="review-author-info">
+                  <div class="author-name">Kenneth Ng</div>
+                  <div class="author-detail">Commercial property · Facebook</div>
+                </div>
+              </div>
+            </div>
+            <div class="review-card">
+              <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+              <p class="review-text">"As a young couple with a BTO, we never imagined owning investment properties. Eugene laid out a clear roadmap and walked us through every step. Now we have a condo on top of our HDB!"</p>
+              <div class="review-author">
+                <div class="review-avatar">WY</div>
+                <div class="review-author-info">
+                  <div class="author-name">Wei Yang & Priya</div>
+                  <div class="author-detail">Property portfolio · Facebook</div>
+                </div>
+              </div>
+            </div>
+            <div class="review-card">
+              <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+              <p class="review-text">"Second time working with Eugene and he delivered again. Very thorough, very strategic. He even warned us about timing issues that saved us from paying unnecessary ABSD. True professional."</p>
+              <div class="review-author">
+                <div class="review-avatar">CL</div>
+                <div class="review-author-info">
+                  <div class="author-name">Catherine Low</div>
+                  <div class="author-detail">Repeat client · Facebook</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REVISION ═══ -->
+  <section class="revision" id="revision">
+    <div class="container">
+      <div class="revision-inner">
+        <div class="revision-header reveal">
+          <div class="section-label" style="justify-content:center;">Revision Request</div>
+          <h2 class="section-title" style="text-align:center;">Request Changes to This Page</h2>
+        </div>
+        <div class="revision-box reveal reveal-delay-1">
+          <p>Have feedback on this page? Use the form below to request edits, changes, or additions. Your revision will be reviewed and implemented.</p>
+          <form class="revision-form" id="revisionForm" onsubmit="handleRevision(event)">
+            <label for="revName">Your Name</label>
+            <input type="text" id="revName" name="name" placeholder="Enter your name" required>
+            <label for="revSection">Section to Revise</label>
+            <select id="revSection" name="section" required>
+              <option value="">Select a section…</option>
+              <option value="hero">Hero / Header</option>
+              <option value="about">About Me</option>
+              <option value="services">How I Help</option>
+              <option value="results">Results</option>
+              <option value="approach">My Approach</option>
+              <option value="reviews">Reviews</option>
+              <option value="contact">Contact / CTA</option>
+              <option value="general">General / Overall</option>
+            </select>
+            <label for="revDetails">Revision Details</label>
+            <textarea id="revDetails" name="details" placeholder="Describe the changes you'd like to see…" required></textarea>
+            <label for="revPriority">Priority</label>
+            <select id="revPriority" name="priority">
+              <option value="normal">Normal</option>
+              <option value="high">High</option>
+              <option value="low">Low</option>
+            </select>
+            <div class="revision-submit">
+              <button type="submit" class="btn-primary"><span>Submit Revision</span> <span>→</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="section-label">Let's Connect</div>
+        <h2 class="section-title">Ready to Plan Your Next Move?</h2>
+        <p class="section-subtitle">No pressure — just clarity. The right move today can change your position 5 years from now.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/6596914319?text=Hi%20Eugene%2C%20I%27d%20like%20to%20discuss%20my%20property%20plans." class="btn-primary" target="_blank" rel="noopener"><span>Chat on WhatsApp</span> <span>→</span></a>
+          <a href="mailto:Eugene.zongcheng@gmail.com" class="btn-secondary">Send an Email</a>
+        </div>
+        <div class="cta-contact-grid">
+          <div class="cta-contact-item">
+            <div class="cicon">📧</div>
+            <a href="mailto:Eugene.zongcheng@gmail.com">Eugene.zongcheng@gmail.com</a>
+          </div>
+          <div class="cta-contact-item">
+            <div class="cicon">📱</div>
+            <a href="tel:+6596914319">+65 9691 4319</a>
+          </div>
+          <div class="cta-contact-item">
+            <div class="cicon">📍</div>
+            <span>Singapore</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-06-01-00-PM-mn4g4jyt6345.webp" alt="Eugene Chieng" class="footer-logo">
+      <p>&copy; 2026 Eugene Chieng. All rights reserved. | CEA Reg No. Registered Property Agent</p>
+    </div>
+  </footer>
+
+  <!-- ═══ WHATSAPP FLOAT ═══ -->
+  <a href="https://wa.me/6596914319?text=Hi%20Eugene%2C%20I%27d%20like%20to%20discuss%20my%20property%20plans." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175.216 175.552">
+      <defs><linearGradient id="wag" x1="85.915" x2="86.535" y1="32.567" y2="137.092" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#57d163"/><stop offset="1" stop-color="#23b33a"/></linearGradient></defs>
+      <path fill="#fff" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1.324a60.95 60.95 0 0 0 31.097 8.48h.028c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.211-17.885z"/>
+      <path fill="url(#wag)" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1.324a60.95 60.95 0 0 0 31.097 8.48h.028c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.211-17.885z"/>
+      <path fill="#fff" fill-rule="evenodd" d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647z"/>
+    </svg>
+    <span class="whatsapp-tooltip">Chat with Eugene</span>
+  </a>
+
+  <script>
+    // ── NAV SCROLL ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── MOBILE MENU ──
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // ── SCROLL REVEAL ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── REVIEW TABS ──
+    document.querySelectorAll('.review-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.review-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.review-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelector(`.review-panel[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+      });
+    });
+
+    // ── SMOOTH SCROLL ──
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ── REVISION FORM ──
+    function handleRevision(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const revision = {
+        name: data.get('name'),
+        section: data.get('section'),
+        details: data.get('details'),
+        priority: data.get('priority'),
+        timestamp: new Date().toISOString()
+      };
+      console.log('Revision submitted:', revision);
+      form.reset();
+      const btn = form.querySelector('button[type="submit"] span:first-child');
+      btn.textContent = 'Submitted! ✓';
+      setTimeout(() => { btn.textContent = 'Submit Revision'; }, 3000);
+    }
+  </script>
+</body>
+</html>
