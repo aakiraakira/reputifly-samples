@@ -189,10 +189,19 @@ body::before{
 .hero-badge svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:2}
 .hero-title{
   font-size:clamp(2.6rem,5.5vw,4.2rem);margin-bottom:20px;
-  background:linear-gradient(135deg,var(--text) 40%,var(--gold));
+  color:var(--text);
+}
+.hero-title span{
+  background:linear-gradient(135deg,var(--text) 30%,var(--gold) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
 }
+/* Force hero reveals to be visible immediately via animation */
+.hero .reveal{opacity:0;animation:heroFadeIn .8s var(--ease) forwards}
+.hero .reveal-delay-1{animation-delay:.15s}
+.hero .reveal-delay-2{animation-delay:.3s}
+.hero .reveal-delay-3{animation-delay:.45s}
+@keyframes heroFadeIn{to{opacity:1;transform:translateY(0)}}
 .hero-sub{font-size:1.15rem;color:var(--muted);margin-bottom:36px;max-width:520px;line-height:1.8}
 .hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
 .hero-image-wrap{position:relative;display:flex;justify-content:center}
@@ -528,16 +537,16 @@ body::before{
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-06-01-00-PM-mn4g4jyt6345.webp" alt="Eugene Chieng Logo">
-      <span>Eugene Chieng</span>
     </a>
     <div class="nav-links" id="navLinks">
+      <a href="/">Home</a>
       <a href="#about">About</a>
       <a href="#help">How I Help</a>
       <a href="#results">Results</a>
-      <a href="#approach">Approach</a>
       <a href="#reviews">Reviews</a>
+      <a href="/blog/">Blog</a>
       <a href="https://wa.me/6596914319" target="_blank" class="nav-cta">Let's Talk</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -556,7 +565,7 @@ body::before{
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
           Singapore Property Strategist
         </div>
-        <h1 class="hero-title reveal reveal-delay-1">Strategic Moves,<br>Lasting Wealth</h1>
+        <h1 class="hero-title reveal reveal-delay-1"><span>Strategic Moves,</span><br><span>Lasting Wealth</span></h1>
         <p class="hero-sub reveal reveal-delay-2">
           I don't just help you buy or sell property. I engineer multi-step strategies
           that build generational wealth through Singapore's property market,
@@ -1111,14 +1120,13 @@ body::before{
   <div class="container">
     <div class="footer-logo">
       <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-24-2026-06-01-00-PM-mn4g4jyt6345.webp" alt="Eugene Chieng Logo">
-      <span>Eugene Chieng</span>
     </div>
     <div class="footer-links">
       <a href="#about">About</a>
       <a href="#help">How I Help</a>
       <a href="#results">Results</a>
-      <a href="#approach">Approach</a>
       <a href="#reviews">Reviews</a>
+      <a href="/blog/">Blog</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="footer-legal">
