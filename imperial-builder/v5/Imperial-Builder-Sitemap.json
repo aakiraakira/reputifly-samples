@@ -1,0 +1,138 @@
+{
+  "project": "Imperial Builder",
+  "domain": "imperialbuilder.com",
+  "structure": [
+    {
+      "page": "Home",
+      "sections": [
+        {
+          "name": "Hero Section",
+          "purpose": "Displays a prominent banner showcasing the company's brand and key message: BUILDING LEGACIES. ENGINEERING EXCELLENCE."
+        },
+        {
+          "name": "About Us Snippet",
+          "purpose": "Provides a brief introduction to the company's mission and expertise."
+        },
+        {
+          "name": "Certifications",
+          "purpose": "Highlights industry recognitions and official accreditations of the company."
+        },
+        {
+          "name": "Why Choose Us",
+          "purpose": "Explains the unique benefits and value proposition the company offers to clients."
+        },
+        {
+          "name": "Core Services Overview",
+          "purpose": "Showcases the main services offered with quick links to detailed pages."
+        },
+        {
+          "name": "Featured Projects",
+          "purpose": "Displays a curated selection of successful past projects to demonstrate capabilities."
+        },
+        {
+          "name": "Client Testimonials",
+          "purpose": "Presents feedback and endorsements from satisfied clients."
+        },
+        {
+          "name": "Call to Action",
+          "purpose": "Encourages visitors to take the next step, such as requesting a quote or learning more."
+        },
+        {
+          "name": "Contact Form",
+          "purpose": "Allows visitors to easily submit inquiries directly from the homepage."
+        }
+      ]
+    },
+    {
+      "page": "About",
+      "sections": [
+        {
+          "name": "Company Story & Mission",
+          "purpose": "Narrates the company's history, core values, and overall purpose in the industry."
+        },
+        {
+          "name": "Our Vision & Philosophy",
+          "purpose": "Articulates the company's future aspirations and guiding principles for all projects."
+        },
+        {
+          "name": "Meet the Team",
+          "purpose": "Introduces the experienced professionals and leadership behind the company's success."
+        },
+        {
+          "name": "Our Expertise & Approach",
+          "purpose": "Explains the unique methods and specialized skills the company employs to deliver excellence."
+        },
+        {
+          "name": "Awards & Recognition",
+          "purpose": "Showcases any significant achievements, industry accolades, or special recognitions received."
+        }
+      ]
+    },
+    {
+      "page": "Services",
+      "sections": [
+        {
+          "name": "Services Introduction",
+          "purpose": "Provides an overview of the comprehensive range of construction, design, and project management services."
+        },
+        {
+          "name": "Residential Solutions",
+          "purpose": "Details specialized services tailored for home owners, including interior design, renovation, and A&A works for residential properties."
+        },
+        {
+          "name": "Commercial Solutions",
+          "purpose": "Outlines expert services designed for businesses and commercial developments, covering design, build, and project management."
+        },
+        {
+          "name": "Interior Design",
+          "purpose": "Explains the creative and functional interior planning and execution services, focusing on aesthetics and usability."
+        },
+        {
+          "name": "Renovation Services",
+          "purpose": "Describes comprehensive remodeling and upgrading solutions for various spaces, enhancing functionality and appeal."
+        },
+        {
+          "name": "Full Project Management",
+          "purpose": "Details the end-to-end oversight and coordination of complex projects, ensuring timely and budget-conscious completion."
+        },
+        {
+          "name": "A&A Works (Additions & Alterations)",
+          "purpose": "Focuses on modifying and expanding existing structures efficiently, meeting evolving client needs."
+        },
+        {
+          "name": "Design & Build",
+          "purpose": "Presents an integrated service offering seamless design and construction from concept to completion under one roof."
+        },
+        {
+          "name": "Our Service Process",
+          "purpose": "Illustrates the step-by-step methodology used to deliver projects successfully, from consultation to handover."
+        }
+      ]
+    },
+    {
+      "page": "Contact",
+      "sections": [
+        {
+          "name": "Get in Touch",
+          "purpose": "Provides all necessary contact information including phone numbers, email addresses, and physical address for easy communication."
+        },
+        {
+          "name": "Contact Form",
+          "purpose": "Offers a direct way for clients to send inquiries or requests conveniently from the website."
+        },
+        {
+          "name": "Office Location & Map",
+          "purpose": "Displays the company's physical address and an interactive map for easy navigation."
+        },
+        {
+          "name": "Business Hours",
+          "purpose": "Specifies the operational timings and days for client convenience and planned visits."
+        },
+        {
+          "name": "Social Media",
+          "purpose": "Links to the company's official social media profiles for engagement and updates."
+        }
+      ]
+    }
+  ]
+}
