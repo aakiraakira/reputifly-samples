@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - SG Consultants | Singapore</title>
+    <meta name="description" content="SG Consultants - Cultivating Sustainability in our Growth">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .brand-blue {
+            color: #171848;
+        }
+        .bg-brand-blue {
+            background-color: #171848;
+        }
+        .hover-brand-blue:hover {
+            background-color: #171848;
+            color: white;
+        }
+        
+        /* Marquee Animation CSS */
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes scroll-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        .marquee-track-left {
+            display: flex;
+            width: max-content;
+            animation: scroll-left 40s linear infinite;
+        }
+        .marquee-track-right {
+            display: flex;
+            width: max-content;
+            animation: scroll-right 40s linear infinite;
+        }
+        .marquee-track-left:hover, .marquee-track-right:hover {
+            animation-play-state: paused;
+        }
+
+        /* Hide scrollbar for seamless look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        /* FAQ Accordion Styling */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#">
+                        <img class="h-12 w-auto" src="https://sgconsultants.com.sg/wp-content/uploads/2025/07/logo-header-scaled.png" alt="SG Consultants Logo">
+                    </a>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-gray-800 hover:text-blue-900 font-semibold px-3 py-2 text-sm uppercase tracking-wide transition-colors">Home</a>
+                    <a href="#about" class="text-gray-800 hover:text-blue-900 font-semibold px-3 py-2 text-sm uppercase tracking-wide transition-colors">About Us</a>
+                    <a href="#why-us" class="text-gray-800 hover:text-blue-900 font-semibold px-3 py-2 text-sm uppercase tracking-wide transition-colors">Why Us</a>
+                    <a href="#services" class="text-gray-800 hover:text-blue-900 font-semibold px-3 py-2 text-sm uppercase tracking-wide transition-colors">Services</a>
+                    <a href="#reviews" class="text-gray-800 hover:text-blue-900 font-semibold px-3 py-2 text-sm uppercase tracking-wide transition-colors">Reviews</a>
+                    <a href="#faq" class="text-gray-800 hover:text-blue-900 font-semibold px-3 py-2 text-sm uppercase tracking-wide transition-colors">FAQ</a>
+                    <a href="#contact-section" class="bg-brand-blue text-white px-6 py-2.5 rounded hover:bg-blue-800 font-semibold text-sm uppercase tracking-wide transition-colors">Contact</a>
+                </nav>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-800 hover:text-blue-900 focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 h-screen overflow-y-auto">
+            <div class="px-4 pt-2 pb-32 space-y-1 shadow-lg">
+                <a href="#" class="block px-3 py-3 text-base font-semibold text-gray-800 uppercase hover:bg-gray-50 border-b border-gray-100">Home</a>
+                <a href="#about" class="block px-3 py-3 text-base font-semibold text-gray-800 uppercase hover:bg-gray-50 border-b border-gray-100">About Us</a>
+                <a href="#why-us" class="block px-3 py-3 text-base font-semibold text-gray-800 uppercase hover:bg-gray-50 border-b border-gray-100">Why Us</a>
+                <a href="#services" class="block px-3 py-3 text-base font-semibold text-gray-800 uppercase hover:bg-gray-50 border-b border-gray-100">Services</a>
+                <a href="#reviews" class="block px-3 py-3 text-base font-semibold text-gray-800 uppercase hover:bg-gray-50 border-b border-gray-100">Reviews</a>
+                <a href="#faq" class="block px-3 py-3 text-base font-semibold text-gray-800 uppercase hover:bg-gray-50 border-b border-gray-100">FAQ</a>
+                <a href="#contact-section" class="block px-3 py-3 text-base font-semibold text-brand-blue uppercase hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative h-screen flex items-center justify-center overflow-hidden pt-24">
+        <div class="absolute inset-0 z-0 bg-brand-blue">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-80">
+                <source src="https://sgconsultants.com.sg/wp-content/uploads/2025/08/Banner-Video-Ver-2.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
+                “Cultivating <span class="text-blue-400">S</span>ustainability in our <span class="text-blue-400">G</span>rowth”
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto drop-shadow-md">
+                We deliver high-quality design, development, and project management solutions built on trust, transparency, and advanced technologies.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#services" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded text-lg transition-colors shadow-lg text-center">Explore Our Services</a>
+                <a href="#contact-section" class="bg-white hover:bg-gray-100 text-gray-900 font-bold py-4 px-8 rounded text-lg transition-colors shadow-lg text-center">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold brand-blue mb-4">Our Core Pillars</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-blue-600">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-gem"></i></div>
+                    <h3 class="text-xl font-bold mb-3 brand-blue">Values</h3>
+                    <p class="text-gray-600 leading-relaxed">We are driven by sustainability, innovation, excellence, collaboration, and integrity, delivering high-quality solutions built on trust and transparency.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-blue-600">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-route"></i></div>
+                    <h3 class="text-xl font-bold mb-3 brand-blue">Approach</h3>
+                    <p class="text-gray-600 leading-relaxed">We focus on clarity, creativity, and collaboration, using advanced technologies and strategic planning to guide projects from vision to completion.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-blue-600">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="text-xl font-bold mb-3 brand-blue">Technology</h3>
+                    <p class="text-gray-600 leading-relaxed">We harness BIM, AI, GIS, and VR to deliver precise designs, optimize planning, and create immersive, innovative solutions.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-blue-600">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-handshake"></i></div>
+                    <h3 class="text-xl font-bold mb-3 brand-blue">Commitment</h3>
+                    <p class="text-gray-600 leading-relaxed">We cultivate sustainability in all we do, creating lasting value for clients while positively impacting communities and the environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold brand-blue mb-4">Why Choose SG Consultants?</h2>
+                    <div class="w-24 h-1 bg-blue-600 mb-8"></div>
+                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                        With a strong foothold across Singapore, Vietnam, and Thailand, we bring regional expertise paired with international standards. Our holistic approach ensures that every phase of your project is meticulously managed.
+                    </p>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold">
+                                1
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold brand-blue">Proven Track Record</h4>
+                                <p class="text-gray-600 mt-1">Decades of combined experience successfully delivering high-stakes developments across Southeast Asia.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold">
+                                2
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold brand-blue">Sustainable First</h4>
+                                <p class="text-gray-600 mt-1">Dedicated 'Sustainahaus' methodologies ensuring your projects meet tomorrow's environmental standards today.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold">
+                                3
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold brand-blue">End-to-End Solutions</h4>
+                                <p class="text-gray-600 mt-1">From initial investment advisory to final design and build, we act as your single point of accountability.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" alt="Why Choose Us" class="rounded-lg shadow-2xl z-10 relative">
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-600 rounded-lg -z-10"></div>
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-gray-200 rounded-lg -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold brand-blue mb-4">Our Services</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="#" class="group block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" alt="Architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brand-blue/20 group-hover:bg-brand-blue/10 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold brand-blue mb-2 flex items-center justify-between">
+                            SG Design & Architecture
+                            <i class="fas fa-arrow-right text-sm text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </h3>
+                    </div>
+                </a>
+
+                <a href="#" class="group block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541888086225-f6740f9c424a?q=80&w=800&auto=format&fit=crop" alt="Project Management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brand-blue/20 group-hover:bg-brand-blue/10 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold brand-blue mb-2 flex items-center justify-between">
+                            SG Development & Project Management
+                            <i class="fas fa-arrow-right text-sm text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </h3>
+                    </div>
+                </a>
+
+                <a href="#" class="group block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop" alt="Sustainahaus" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brand-blue/20 group-hover:bg-brand-blue/10 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold brand-blue mb-2 flex items-center justify-between">
+                            SG Sustainahaus
+                            <i class="fas fa-arrow-right text-sm text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </h3>
+                    </div>
+                </a>
+
+                <a href="#" class="group block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" alt="Design & Build" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brand-blue/20 group-hover:bg-brand-blue/10 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold brand-blue mb-2 flex items-center justify-between">
+                            SG Design & Build
+                            <i class="fas fa-arrow-right text-sm text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </h3>
+                    </div>
+                </a>
+
+                <a href="#" class="group block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop" alt="Investment Advisory" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brand-blue/20 group-hover:bg-brand-blue/10 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold brand-blue mb-2 flex items-center justify-between">
+                            SG Investment Advisory
+                            <i class="fas fa-arrow-right text-sm text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-20 bg-brand-blue overflow-hidden text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+            <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+        </div>
+
+        <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-brand-blue to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-brand-blue to-transparent z-10 pointer-events-none"></div>
+
+        <div class="mb-6 flex overflow-hidden no-scrollbar">
+            <div class="marquee-track-left">
+                <div class="flex gap-6 pr-6">
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"SG Consultants brought an unmatched level of precision to our commercial build in Bangkok. Highly recommended."</p>
+                        <p class="font-bold text-blue-300">- Marcus T., CEO</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"Their Sustainahaus methodology saved us 15% on long-term energy costs. Visionary approach to architecture."</p>
+                        <p class="font-bold text-blue-300">- Sarah L., Developer</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"The investment advisory team was instrumental in helping us navigate the Vietnamese property market safely."</p>
+                        <p class="font-bold text-blue-300">- David K., Investor</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"Flawless execution from design to handover. The project management team was communicative and transparent."</p>
+                        <p class="font-bold text-blue-300">- Elena R., Operations Dir.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 pr-6">
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"SG Consultants brought an unmatched level of precision to our commercial build in Bangkok. Highly recommended."</p>
+                        <p class="font-bold text-blue-300">- Marcus T., CEO</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"Their Sustainahaus methodology saved us 15% on long-term energy costs. Visionary approach to architecture."</p>
+                        <p class="font-bold text-blue-300">- Sarah L., Developer</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"The investment advisory team was instrumental in helping us navigate the Vietnamese property market safely."</p>
+                        <p class="font-bold text-blue-300">- David K., Investor</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"Flawless execution from design to handover. The project management team was communicative and transparent."</p>
+                        <p class="font-bold text-blue-300">- Elena R., Operations Dir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex overflow-hidden no-scrollbar">
+            <div class="marquee-track-right">
+                <div class="flex gap-6 pl-6">
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"A true partner in development. They managed our Singapore HQ renovation under tight deadlines perfectly."</p>
+                        <p class="font-bold text-blue-300">- Wei C., Managing Partner</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"Integrating BIM and AI into the planning phase gave us incredible foresight into the build process."</p>
+                        <p class="font-bold text-blue-300">- Jonathan M., Lead Architect</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"They truly live up to their name. Sustainable growth is evident in every architectural draft they provide."</p>
+                        <p class="font-bold text-blue-300">- Anna P., City Planner</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"Professional, highly skilled, and reliable. SG Consultants is our go-to for all Southeast Asia projects."</p>
+                        <p class="font-bold text-blue-300">- Richard F., Board Member</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 pl-6">
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"A true partner in development. They managed our Singapore HQ renovation under tight deadlines perfectly."</p>
+                        <p class="font-bold text-blue-300">- Wei C., Managing Partner</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"Integrating BIM and AI into the planning phase gave us incredible foresight into the build process."</p>
+                        <p class="font-bold text-blue-300">- Jonathan M., Lead Architect</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"They truly live up to their name. Sustainable growth is evident in every architectural draft they provide."</p>
+                        <p class="font-bold text-blue-300">- Anna P., City Planner</p>
+                    </div>
+                    <div class="w-80 bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                        <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-200 italic mb-4">"Professional, highly skilled, and reliable. SG Consultants is our go-to for all Southeast Asia projects."</p>
+                        <p class="font-bold text-blue-300">- Richard F., Board Member</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold brand-blue mb-4">Frequently Asked Questions</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+
+            <div class="space-y-4">
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-bold brand-blue text-lg">
+                        What regions do you serve?
+                        <span class="transition-transform duration-300 group-open:-rotate-180">
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        <p>We have a strong presence across Southeast Asia, with established headquarters in Singapore and key regional offices located in Hanoi and Ho Chi Minh City (Vietnam), as well as Bangkok (Thailand).</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-bold brand-blue text-lg">
+                        What does "Sustainahaus" mean?
+                        <span class="transition-transform duration-300 group-open:-rotate-180">
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        <p>Sustainahaus is our proprietary approach to integrating sustainable, eco-friendly practices into building design and construction. It focuses on energy efficiency, reduced carbon footprints, and creating spaces that promote long-term environmental health.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-bold brand-blue text-lg">
+                        Do you handle both design and construction?
+                        <span class="transition-transform duration-300 group-open:-rotate-180">
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        <p>Yes, through our "SG Design & Build" service, we offer comprehensive end-to-end solutions. This allows us to maintain strict quality control, streamline communication, and deliver projects on time and within budget.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-6 font-bold brand-blue text-lg">
+                        How does your Investment Advisory service work?
+                        <span class="transition-transform duration-300 group-open:-rotate-180">
+                            <i class="fas fa-chevron-down text-blue-600"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        <p>Our investment advisory team provides strategic insights into regional property markets, risk assessment, portfolio management, and feasibility studies to ensure your capital is deployed effectively for maximum ROI.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-section" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold brand-blue mb-4">Let's Discuss Your Next Project</h2>
+                    <div class="w-24 h-1 bg-blue-600 mb-8"></div>
+                    <p class="text-gray-600 mb-8 text-lg">
+                        Whether you are looking for architectural design, project management, or strategic investment advice across Southeast Asia, our experts are ready to assist you. Fill out the form, and our team will get back to you promptly.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xl mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold brand-blue">Email Us</h4>
+                                <p class="text-gray-600">info@sgconsultants.com.sg</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xl mr-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold brand-blue">Business Hours</h4>
+                                <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 md:p-10 rounded-xl shadow-sm border border-gray-100">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                                <input type="text" name="first-name" id="first-name" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" placeholder="John">
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                                <input type="text" name="last-name" id="last-name" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" placeholder="Doe">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" name="email" id="email" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" name="phone" id="phone" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" placeholder="+65 9123 4567">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">How can we help?</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow resize-none" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-blue text-white font-bold py-4 px-8 rounded-md hover:bg-blue-800 transition-colors shadow-md">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-blue text-white pt-16 pb-8 border-t-[6px] border-blue-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="mb-12">
+                <img class="h-16 w-auto brightness-0 invert" src="https://sgconsultants.com.sg/wp-content/uploads/2025/07/logo-header-scaled.png" alt="SG Consultants Logo White">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-blue-400 border-b border-white/20 pb-2">Singapore (HQ)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1.5 mr-3 text-blue-400 w-5 text-center"></i>
+                            <span class="text-gray-300 leading-relaxed">73 Ubi Road 1, #10-51<br>Oxley Lobby 6 Bizhub<br>Singapore 408733</span>
+                        </li>
+                        <li>
+                            <a href="tel:+6568873317" class="flex items-center text-gray-300 hover:text-white transition-colors">
+                                <i class="fas fa-phone mr-3 text-blue-400 w-5 text-center"></i>
+                                T: +65 68873317
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+6594792080" class="flex items-center text-gray-300 hover:text-white transition-colors">
+                                <i class="fas fa-mobile-alt mr-3 text-blue-400 w-5 text-center"></i>
+                                HP: +65 94792080
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-6 flex space-x-4">
+                        <a href="https://www.facebook.com/share/16pYAejob3/?mibextid=wwXIfr" target="_blank" class="w-10 h-10 rounded bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/sg-consultantsandmanagement/" target="_blank" class="w-10 h-10 rounded bg-white/10 flex items-center justify-center hover:bg-blue-500 transition-colors">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="https://wa.me/6594792080" target="_blank" class="w-10 h-10 rounded bg-white/10 flex items-center justify-center hover:bg-green-500 transition-colors">
+                            <i class="fab fa-whatsapp text-white text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-blue-400 border-b border-white/20 pb-2">Vietnam</h3>
+                    <ul class="space-y-6">
+                        <li>
+                            <strong class="block text-white mb-1">HANOI</strong>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400 w-5 text-center"></i>
+                                <span class="text-gray-300 leading-relaxed">7th Floor, Geleximco Building<br>36 Hoang Cau Street, O Cho Dua Ward<br>Hanoi, Vietnam</span>
+                            </div>
+                        </li>
+                        <li>
+                            <strong class="block text-white mb-1">HO CHI MINH</strong>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400 w-5 text-center"></i>
+                                <span class="text-gray-300 leading-relaxed">18th Floor, ROX Tower<br>180-192 Nguyen Cong Tru Street<br>Ben Thanh Ward, Ho Chi Minh City</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-blue-400 border-b border-white/20 pb-2">Thailand</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <strong class="block text-white mb-1">BANGKOK</strong>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400 w-5 text-center"></i>
+                                <span class="text-gray-300 leading-relaxed">985 Soi Mooban Sinthorn<br>Khlong Chan Subdistrict<br>Bang Kapi District, Bangkok 10240</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p>&copy; 2025 SG Consultants. All Rights Reserved.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            const icon = btn.querySelector('i');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                if (menu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                    document.body.style.overflow = 'auto';
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+
+            // Close menu when a link is clicked
+            const mobileLinks = menu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // Auto-pause marquee animation if user prefers reduced motion
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if(prefersReducedMotion) {
+                document.querySelectorAll('.marquee-track-left, .marquee-track-right').forEach(el => {
+                    el.style.animationPlayState = 'paused';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
