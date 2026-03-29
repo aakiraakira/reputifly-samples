@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>JY KOREA COMPANY | Elite Event Management & K-Pop Concerts</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* === CSS VARIABLES & RESET === */
+        :root {
+            --bg-dark: #050505;
+            --surface: rgba(255, 255, 255, 0.03);
+            --surface-hover: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #d4af37; /* Champagne Gold */
+            --accent-hover: #f1c40f;
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-pill: 9999px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .section-pad {
+            padding: 120px 0;
+        }
+
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        .mb-5 { margin-bottom: 3rem; }
+
+        /* === BUTTONS === */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: var(--radius-pill);
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--surface-hover);
+            border-color: #fff;
+        }
+
+        /* === 1. GLOBAL HEADER === */
+        header.site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        header.site-header.scrolled {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1); /* Makes the black logo white for dark theme */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* === 2. HERO SECTION === */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('http://jykoreacompany.com/wp/wp-content/uploads/2014/02/main_visual_01.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* === 3. TRUST BAR (Marquee) === */
+        .trust-bar {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 30px 0;
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-content span {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin: 0 50px;
+            font-style: italic;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* === 4. AUTHORITY & VISION === */
+        .authority-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .authority-grid h2 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        .authority-grid p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* === 5. CORE SERVICES (Glassmorphic Bento) === */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--surface);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .service-img-wrapper {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .service-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+            filter: brightness(0.7);
+        }
+
+        .service-card:hover .service-img-wrapper img {
+            transform: scale(1.08);
+            filter: brightness(1);
+        }
+
+        .service-content {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover h3 {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .service-content ul {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .service-content ul li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-content ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Make grid asymmetrical */
+        .bento-grid .service-card:nth-child(1),
+        .bento-grid .service-card:nth-child(6) {
+            grid-column: span 2;
+        }
+
+        /* === 6. EXECUTION PROCESS === */
+        .process-wrap {
+            background: rgba(255,255,255,0.02);
+            border-radius: var(--radius-lg);
+            padding: 80px;
+            border: 1px solid var(--border);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .process-step {
+            position: relative;
+        }
+
+        .step-num {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            color: rgba(255,255,255,0.05);
+            font-weight: 700;
+            position: absolute;
+            top: -40px;
+            left: -20px;
+            z-index: 0;
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-num {
+            color: rgba(212, 175, 55, 0.15);
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-step p {
+            color: var(--text-muted);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* === 7. STATS / IMPACT === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* === 8. PORTFOLIO MASONRY === */
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 20px;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            border-radius: var(--radius-md);
+            filter: grayscale(100%) brightness(0.6);
+            transition: all 0.5s ease;
+        }
+
+        .masonry-item:hover img {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.03);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 20px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .masonry-item:hover .portfolio-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        /* === 9. MEDIA & VIDEO === */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            cursor: pointer;
+            border: 1px solid var(--border);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .video-card:hover img {
+            opacity: 0.4;
+            transform: scale(1.05);
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: var(--transition);
+        }
+
+        .play-btn i {
+            color: #fff;
+            font-size: 24px;
+            margin-left: 5px;
+        }
+
+        .video-card:hover .play-btn {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-card:hover .play-btn i {
+            color: #000;
+        }
+        
+        .video-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        /* === 10. GLOBAL FOOTPRINT (Locations) === */
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .location-card {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .location-card:hover {
+            border-color: rgba(255,255,255,0.2);
+            background: var(--surface-hover);
+        }
+
+        .location-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .location-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .location-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        /* === 11. PRE-FOOTER CTA === */
+        .cta-section {
+            background: linear-gradient(to top, rgba(212, 175, 55, 0.05), transparent);
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px;
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-box h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* === 12. FAT FOOTER === */
+        footer {
+            background: #020202;
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand img {
+            height: 35px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: var(--text-muted);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: #fff;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #000;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .agency-credit {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.3);
+            transition: var(--transition);
+        }
+
+        .agency-credit a {
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+        }
+
+        .agency-credit:hover, .agency-credit:hover a {
+            color: var(--text-main);
+        }
+
+        /* === RESPONSIVE MOBILE OPTIMIZATION === */
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .bento-grid .service-card:nth-child(1),
+            .bento-grid .service-card:nth-child(6) {
+                grid-column: span 1;
+            }
+            .process-grid, .stats-grid {
+                gap: 20px;
+            }
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* In production, add a JS mobile menu toggle here */
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .authority-grid, .bento-grid, .process-grid, .stats-grid, .video-grid, .location-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .bento-grid .service-card:nth-child(1),
+            .bento-grid .service-card:nth-child(6) {
+                grid-column: span 1;
+            }
+            .process-wrap {
+                padding: 40px 20px;
+            }
+            .masonry-grid {
+                column-count: 1;
+            }
+            .cta-box {
+                padding: 40px 20px;
+            }
+            .cta-box h2 {
+                font-size: 2.5rem;
+            }
+            .section-pad {
+                padding: 80px 0;
+            }
+            .footer-grid {
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header" id="header">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <img src="http://jykoreacompany.com/wp/wp-content/uploads/2023/06/JY_LOGO.png" alt="JY Korea Company">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#media">Media</a></li>
+                    <li><a href="#locations">Global</a></li>
+                </ul>
+            </nav>
+            <a href="#cta" class="btn btn-primary">Start Your Project</a>
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <canvas id="particle-canvas"></canvas>
+        <div class="container hero-content">
+            <h1>We Organize the Space We Want.</h1>
+            <p>World-Class K-Pop Concerts, Elite Corporate Parties & Global Artist Management across Singapore, Korea, and Indonesia.</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn btn-primary">Explore Services</a>
+                <a href="#media" class="btn btn-outline"><i class="fas fa-play" style="margin-right: 8px;"></i> Watch Showreel</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="trust-bar">
+        <div class="marquee-content">
+            <span>SMTOWN World Tour</span>
+            <span>Hanwha Techwin</span>
+            <span>World Cities Summit</span>
+            <span>Scorpions World Tour</span>
+            <span>KLPG-LET Tour</span>
+            <span>Singapore EXPO</span>
+            <span>SMTOWN World Tour</span>
+            <span>Hanwha Techwin</span>
+            <span>World Cities Summit</span>
+            <span>Scorpions World Tour</span>
+            <span>KLPG-LET Tour</span>
+            <span>Singapore EXPO</span>
+        </div>
+    </div>
+
+    <section id="about" class="section-pad">
+        <div class="container authority-grid">
+            <div>
+                <h2>Bridging the <br>Global Stage.</h2>
+            </div>
+            <div>
+                <p>JY KOREA COMPANY is the premier nexus for high-end event orchestration in Asia. We do not just plan events; we engineer unforgettable spaces.</p>
+                <p>From producing monumental K-Pop concerts and VIP Gala dinners to facilitating global celebrity casting and broadcasting media connections, our meticulous execution ensures your vision dominates the stage.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-pad" style="background: #020202;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expertise</h2>
+                <p style="color: var(--text-muted);">End-to-end management for elite experiences.</p>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="http://jykoreacompany.com/wp/wp-content/uploads/2023/06/img_service_stage.png" alt="Stage Directing">
+                    </div>
+                    <div class="service-content">
+                        <h3>Stage Directing</h3>
+                        <ul>
+                            <li>Exhibition concept design</li>
+                            <li>Bespoke stage architecture</li>
+                            <li>Space decoration & mapping</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="http://jykoreacompany.com/wp/wp-content/uploads/2023/06/img_service_party.png" alt="Party & Event">
+                    </div>
+                    <div class="service-content">
+                        <h3>Party & Event</h3>
+                        <ul>
+                            <li>Corporate & Brand Launching</li>
+                            <li>VIP & GALA Shows</li>
+                            <li>Private Luxury Events</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="http://jykoreacompany.com/wp/wp-content/uploads/2023/06/img_service_video.png" alt="Video Production">
+                    </div>
+                    <div class="service-content">
+                        <h3>Video Production</h3>
+                        <ul>
+                            <li>Commercial advertisement</li>
+                            <li>Corporate identity films</li>
+                            <li>High-end memorial capture</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="http://jykoreacompany.com/wp/wp-content/uploads/2023/06/img_service_casting.png" alt="Celebrity Casting">
+                    </div>
+                    <div class="service-content">
+                        <h3>Celebrity Casting</h3>
+                        <ul>
+                            <li>Korean A-List sourcing</li>
+                            <li>K-Pop Idol booking</li>
+                            <li>Contract negotiation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="http://jykoreacompany.com/wp/wp-content/uploads/2023/06/img_service_connecting.png" alt="Broadcasting">
+                    </div>
+                    <div class="service-content">
+                        <h3>Media & Broadcast</h3>
+                        <ul>
+                            <li>Model agency coordination</li>
+                            <li>TV & Online show routing</li>
+                            <li>Multi-lingual voice dubbing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="http://jykoreacompany.com/wp/wp-content/uploads/2023/06/img_service_technical.png" alt="Technical Systems">
+                    </div>
+                    <div class="service-content">
+                        <h3>Technical Systems</h3>
+                        <ul>
+                            <li>AV Sound & LED Wall mapping</li>
+                            <li>Emcee & DJ Services</li>
+                            <li>Complete event logistics & catering</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section-pad">
+        <div class="container">
+            <div class="process-wrap">
+                <div class="section-header">
+                    <h2>The JY Blueprint</h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-num">01</div>
+                        <h3>Concept & Strategy</h3>
+                        <p>We align with your brand's vision to architect a comprehensive event blueprint, defining the aesthetic, scale, and technical requirements.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">02</div>
+                        <h3>Casting & Logistics</h3>
+                        <p>Leveraging our global network to secure top-tier talent, state-of-the-art AV equipment, and flawless venue coordination.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">03</div>
+                        <h3>Stage & Execution</h3>
+                        <p>Our directors take the helm, managing the live flow, technical systems, and talent to deliver a masterful, seamless experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="section-pad" style="background: #020202;">
+        <div class="container stats-grid" id="counter-section">
+            <div class="stat-item">
+                <h3 class="counter" data-target="15">0</h3>
+                <p>Years Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="counter" data-target="250">0</h3>
+                <p>Global Events</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="counter" data-target="50">0</h3>
+                <p>K-Pop Concerts</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="counter" data-target="3">0</h3>
+                <p>International Hubs</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section-pad">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Archive</h2>
+                <p style="color: var(--text-muted);">A glimpse into our legacy of global execution.</p>
+            </div>
+            
+            <div class="masonry-grid">
+                <div class="masonry-item">
+                    <img src="http://jykoreacompany.com/wp/wp-content/uploads/2015/07/Picture3-440x550.png" alt="SMTOWN World Tour">
+                    <div class="portfolio-overlay">
+                        <h3>SMTOWN World Tour</h3>
+                        <p style="font-size: 0.85rem; color: var(--accent);">Concert Management</p>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <img src="http://jykoreacompany.com/wp/wp-content/uploads/2023/03/KakaoTalk_20230328_222631846-440x380.jpg" alt="World Cities Summit">
+                    <div class="portfolio-overlay">
+                        <h3>World Cities Summit 2022</h3>
+                        <p style="font-size: 0.85rem; color: var(--accent);">Corporate Event</p>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <img src="http://jykoreacompany.com/wp/wp-content/uploads/2015/10/20070914_scorpions-440x550.jpg" alt="Scorpions World Tour">
+                    <div class="portfolio-overlay">
+                        <h3>Scorpions World Tour Korea</h3>
+                        <p style="font-size: 0.85rem; color: var(--accent);">Global Stage Directing</p>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <img src="http://jykoreacompany.com/wp/wp-content/uploads/2015/07/cencert-3-440x550.jpg" alt="Indonesia Kimchi Concert">
+                    <div class="portfolio-overlay">
+                        <h3>Indonesia Kimchi Concert</h3>
+                        <p style="font-size: 0.85rem; color: var(--accent);">K-Pop Execution</p>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <img src="http://jykoreacompany.com/wp/wp-content/uploads/2023/03/KakaoTalk_20230328_222624605-397x550.png" alt="Korean Annual Dinner">
+                    <div class="portfolio-overlay">
+                        <h3>Korean Annual Dinner</h3>
+                        <p style="font-size: 0.85rem; color: var(--accent);">VIP Gala</p>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <img src="http://jykoreacompany.com/wp/wp-content/uploads/2017/04/img_20170423_2-440x550.png" alt="Neungheodae Festival">
+                    <div class="portfolio-overlay">
+                        <h3>Incheon Neungheodae Festival</h3>
+                        <p style="font-size: 0.85rem; color: var(--accent);">Public Festival Directing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="media" class="section-pad" style="background: #020202;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cinematic Output</h2>
+                <p style="color: var(--text-muted);">High-fidelity video production and live event capture.</p>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-card">
+                    <img src="http://jykoreacompany.com/wp/wp-content/uploads/kboard_thumbnails/4/202306/649ae06ed67878048428-1748x880.png" alt="IR Promo">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="video-title">2023 Financial IR Promo Video</div>
+                </div>
+                <div class="video-card">
+                    <img src="http://jykoreacompany.com/wp/wp-content/uploads/kboard_thumbnails/4/202306/64998e338cc096536165-1748x880.png" alt="Liberation Day">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="video-title">75th Liberation Day Online Ceremony</div>
+                </div>
+                <div class="video-card">
+                    <img src="http://jykoreacompany.com/wp/wp-content/uploads/kboard_thumbnails/4/202306/649c31d045c138797482-1748x880.png" alt="National Day">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="video-title">Korean National Day Celebration</div>
+                </div>
+                <div class="video-card">
+                    <img src="http://jykoreacompany.com/wp/wp-content/uploads/kboard_thumbnails/4/202306/649c31e1e3fef1934671-1748x880.png" alt="Happy Fund">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="video-title">HAPPY FUND Commercial</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="locations" class="section-pad">
+        <div class="container">
+            <div class="section-header">
+                <h2>Global Operations</h2>
+            </div>
+            
+            <div class="location-grid">
+                <div class="location-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Singapore</h3>
+                    <p>39 Bendemeer Road #03-808</p>
+                    <p>Singapore 331039</p>
+                    <p style="color: var(--accent); margin-top: 15px;">+65 6528 3058</p>
+                </div>
+                <div class="location-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Korea</h3>
+                    <p>4F, 73 Hwarang-ro 19-gil</p>
+                    <p>Seongbuk-gu, Seoul</p>
+                    <p style="color: var(--accent); margin-top: 15px;">+82 (0) 10 5315 8662</p>
+                </div>
+                <div class="location-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Indonesia</h3>
+                    <p>W Productions Partner</p>
+                    <p>Jakarta, Indonesia</p>
+                    <p style="color: var(--accent); margin-top: 15px;">+62 812 91 5909</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="section-pad cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to orchestrate your next major event?</h2>
+                <p style="color: var(--text-muted); margin-bottom: 40px;">Contact our elite planning team to conceptualize your space.</p>
+                <a href="mailto:jykoreacompany@gmail.com" class="btn btn-primary" style="font-size: 1.2rem; padding: 18px 40px;">Contact Our Directors</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="http://jykoreacompany.com/wp/wp-content/uploads/2023/06/JY_LOGO.png" alt="JY Korea Company">
+                    <p>Premier K-Pop concert and VIP event management, bridging the gap between Korea, Singapore, and Indonesia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:jykoreacompany@gmail.com"><i class="far fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#media">Media Hub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#locations">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 JY KOREA COMPANY Pte Ltd. All Rights Reserved.</p>
+                
+                <div class="agency-credit">
+                    Website Design by <a href="https://reputifly.com/web-development" target="_blank" rel="noopener">Reputifly</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Sticky Header Logic
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Number Counter Animation (Intersection Observer)
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // The lower the slower
+
+        const animateCounters = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 15);
+                        } else {
+                            counter.innerText = target + (target > 50 ? '+' : ''); // Adds '+' for large numbers
+                        }
+                    };
+
+                    updateCount();
+                    observer.unobserve(counter); // Only animate once
+                }
+            });
+        };
+
+        const counterObserver = new IntersectionObserver(animateCounters, {
+            threshold: 0.5
+        });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // 3. Custom HTML5 Canvas Particle Engine (Elegant & Lightweight)
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
+
+        // Set canvas size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+            // Draw individual particle
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            // Check canvas bounds and move particle
+            update() {
+                if (this.x > canvas.width || this.x < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.directionY = -this.directionY;
+                }
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        // Create particle array
+        function initParticles() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 12000;
+            // Cap the amount of particles for performance
+            if (numberOfParticles > 80) numberOfParticles = 80;
+
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 0.5;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                // Slow movement for elegance
+                let directionX = (Math.random() * 0.4) - 0.2;
+                let directionY = (Math.random() * 0.4) - 0.2;
+                let color = 'rgba(212, 175, 55, 0.4)'; // Champagne Gold faint
+
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        // Animation Loop & Line Drawing
+        function animateParticles() {
+            requestAnimationFrame(animateParticles);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            connectParticles();
+        }
+
+        // Draw lines between close particles
+        function connectParticles() {
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
+                                 + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                    
+                    if (distance < (canvas.width / 10) * (canvas.height / 10)) {
+                        opacityValue = 1 - (distance / 20000);
+                        ctx.strokeStyle = 'rgba(255, 255, 255,' + opacityValue * 0.15 + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // Initialize
+        initParticles();
+        animateParticles();
+    </script>
+</body>
+</html>
