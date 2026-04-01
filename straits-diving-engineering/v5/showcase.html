@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Showcase | Straits Diving Engineering</title>
     <meta name="description" content="Explore Straits Diving Engineering's portfolio of marine salvage, underwater construction, and engineering projects across Southeast Asia.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -86,7 +86,7 @@
         /* PROJECT GRID */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 30px;
         }
         .project-card {
@@ -94,11 +94,12 @@
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s, opacity 0.4s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
         }
         .project-card:hover { transform: translateY(-8px); box-shadow: 0 30px 40px -10px rgba(0,0,0,0.15); }
         .project-card.hidden { display: none; }
-        .project-card-img { position: relative; height: 220px; overflow: hidden; }
+        .project-card-img { position: relative; height: 240px; overflow: hidden; }
         .project-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
         .project-card:hover .project-card-img img { transform: scale(1.05); }
         .project-tag {
@@ -113,19 +114,139 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        .img-count {
+            position: absolute;
+            bottom: 12px; right: 12px;
+            padding: 6px 12px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            border-radius: 16px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            backdrop-filter: blur(4px);
+        }
         .project-card-body { padding: 24px; }
-        .project-card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-        .project-card-body p { color: var(--muted-text); font-size: 0.9rem; margin-bottom: 16px; }
-        .project-card-body a {
+        .project-card-body h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+        .project-card-body p { color: var(--muted-text); font-size: 0.9rem; margin-bottom: 12px; }
+        .project-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+        .project-year { font-size: 0.82rem; color: var(--muted-text); font-weight: 500; }
+        .project-view-btn {
             font-weight: 600;
             color: var(--primary);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             transition: gap 0.2s;
         }
-        .project-card-body a:hover { gap: 10px; }
+        .project-card:hover .project-view-btn { gap: 10px; }
+
+        /* LIGHTBOX */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-overlay.active { display: flex; }
+        .lightbox-close {
+            position: absolute;
+            top: 16px; right: 20px;
+            width: 44px; height: 44px;
+            background: rgba(255,255,255,0.12);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 10;
+        }
+        .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+        .lightbox-header {
+            position: absolute;
+            top: 16px; left: 20px; right: 80px;
+            color: #fff;
+            z-index: 10;
+        }
+        .lightbox-header h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
+        .lightbox-header .lb-counter { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+        .lightbox-main {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 70px 60px 100px;
+        }
+        .lightbox-main img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            transition: opacity 0.25s;
+        }
+        .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px; height: 48px;
+            background: rgba(255,255,255,0.12);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            z-index: 10;
+        }
+        .lb-nav:hover { background: rgba(255,255,255,0.25); transform: translateY(-50%) scale(1.1); }
+        .lb-prev { left: 12px; }
+        .lb-next { right: 12px; }
+        .lb-thumbnails {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            padding: 10px 16px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            max-width: 90vw;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .lb-thumb {
+            width: 52px; height: 52px;
+            border-radius: 8px;
+            object-fit: cover;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.2s, outline 0.2s;
+            flex-shrink: 0;
+            border: 2px solid transparent;
+        }
+        .lb-thumb.active { opacity: 1; border-color: var(--primary); }
+        .lb-thumb:hover { opacity: 0.85; }
 
         /* CTA */
         .showcase-cta { padding: 80px 20px; background: var(--accent); text-align: center; }
@@ -159,6 +280,7 @@
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+        /* MOBILE */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
@@ -167,15 +289,29 @@
             .footer-bottom { flex-direction: column; text-align: center; }
             .filter-btns { gap: 8px; }
             .filter-btn { padding: 8px 16px; font-size: 0.82rem; }
-            .projects-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+            .projects-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
             .showcase-section { padding: 60px 16px; }
+            .project-card-img { height: 200px; }
+            .lightbox-main { padding: 60px 16px 90px; }
+            .lb-nav { width: 40px; height: 40px; font-size: 0.95rem; }
+            .lb-prev { left: 4px; }
+            .lb-next { right: 4px; }
+            .lightbox-header { left: 12px; right: 60px; }
+            .lightbox-header h3 { font-size: 0.95rem; }
+            .lb-thumbnails { gap: 6px; padding: 8px 12px; }
+            .lb-thumb { width: 42px; height: 42px; }
         }
         @media (max-width: 480px) {
             .footer-grid { grid-template-columns: 1fr; }
             .projects-grid { grid-template-columns: 1fr; }
             .filter-btns { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
             .filter-btn { white-space: nowrap; flex-shrink: 0; }
-            .project-card-img { height: 180px; }
+            .project-card-img { height: 220px; }
+            .lightbox-main { padding: 56px 8px 85px; }
+            .lb-nav { width: 36px; height: 36px; font-size: 0.85rem; }
+            .lightbox-header h3 { font-size: 0.85rem; }
+            .lb-thumbnails { gap: 5px; padding: 6px 10px; }
+            .lb-thumb { width: 36px; height: 36px; border-radius: 6px; }
         }
     </style>
 </head>
@@ -223,7 +359,7 @@
             <div style="text-align:center;margin-bottom:16px;">
                 <span class="section-label">Our Portfolio</span>
                 <h2 style="font-size:2.2rem;font-weight:700;margin-bottom:8px;">Featured Projects</h2>
-                <p style="color:var(--muted-text);max-width:600px;margin:0 auto 40px;font-size:1.05rem;">A selection of our completed projects showcasing our expertise across underwater construction, salvage, engineering, and inspection services.</p>
+                <p style="color:var(--muted-text);max-width:600px;margin:0 auto 40px;font-size:1.05rem;">A selection of our completed projects showcasing our expertise across cathodic protection, pile works, underwater construction, and demolition services.</p>
             </div>
 
             <!-- FILTER BUTTONS -->
@@ -237,119 +373,123 @@
 
             <!-- PROJECT GRID -->
             <div class="projects-grid" id="projectsGrid">
-                <div class="project-card fade-in visible" data-category="cathodic-protection">
+
+                <!-- PROJECT 1: Cathodic Protection — Sacrificial Anode Installation -->
+                <div class="project-card fade-in" data-category="cathodic-protection"
+                     data-gallery='["images/img1.jpg","images/img2.jpg","images/img3.jpg","images/img4.jpg","images/img5.jpg"]'
+                     data-title="Cathodic Protection &mdash; Sacrificial Anode Installation">
                     <div class="project-card-img">
-                        <img src="images/project1.jpg" alt="Sacrificial Anode Installation - West Port, Selangor">
+                        <img src="images/img4.jpg" alt="Sacrificial Anode Installation across multiple locations">
                         <span class="project-tag">Cathodic Protection</span>
+                        <span class="img-count"><i class="fas fa-images"></i> 5 Photos</span>
                     </div>
                     <div class="project-card-body">
-                        <h3>Sacrificial Anode Installation &mdash; West Port, Selangor</h3>
-                        <p>Installation of sacrificial anodes at West Port, Pulau Indah, Malaysia as part of a cathodic protection programme to safeguard marine structures against corrosion.</p>
-                        <span style="font-size:0.8rem;color:var(--muted-text);display:block;margin-top:4px;">Year 2021</span>
+                        <h3>Sacrificial Anode Installation</h3>
+                        <p>Installation of sacrificial anodes across multiple locations including West Port (Selangor), Sweeterham Port (Penang), Pulau Sebarok (Singapore), Republic of Singapore Yacht Club, and Harbour Front (Singapore).</p>
+                        <div class="project-meta">
+                            <span class="project-year"><i class="far fa-calendar"></i> 2021 &ndash; 2025</span>
+                            <span class="project-view-btn"><i class="fas fa-images"></i> View Gallery <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in visible" data-category="cathodic-protection">
+                <!-- PROJECT 2: Pile Strengthening — Johor Port Berhad -->
+                <div class="project-card fade-in" data-category="pile-works"
+                     data-gallery='["images/img6.jpg","images/img7.jpg","images/img8.jpg","images/img9.jpg","images/img10.jpg"]'
+                     data-title="Pile Strengthening &mdash; Johor Port Berhad">
                     <div class="project-card-img">
-                        <img src="images/project2.jpg" alt="Sacrificial Anode Installation - Republic of Singapore Yacht Club">
-                        <span class="project-tag">Cathodic Protection</span>
-                    </div>
-                    <div class="project-card-body">
-                        <h3>Sacrificial Anode Installation &mdash; Republic of Singapore Yacht Club</h3>
-                        <p>Installation of sacrificial anodes at the Republic of Singapore Yacht Club to protect berthing structures and underwater piles from marine corrosion.</p>
-                        <span style="font-size:0.8rem;color:var(--muted-text);display:block;margin-top:4px;">Year 2023</span>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in visible" data-category="cathodic-protection">
-                    <div class="project-card-img">
-                        <img src="images/project9.jpg" alt="Sacrificial Anode Installation - Harbour Front, Singapore">
-                        <span class="project-tag">Cathodic Protection</span>
-                    </div>
-                    <div class="project-card-body">
-                        <h3>Sacrificial Anode Installation &mdash; Harbour Front, Singapore</h3>
-                        <p>Installation of sacrificial anodes at Harbour Front, Singapore to provide long-term cathodic protection for critical port infrastructure.</p>
-                        <span style="font-size:0.8rem;color:var(--muted-text);display:block;margin-top:4px;">Year 2025</span>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in visible" data-category="pile-works">
-                    <div class="project-card-img">
-                        <img src="images/project3.jpg" alt="Pile Strengthening - Johor Port Berhad">
+                        <img src="images/img9.jpg" alt="Pile Strengthening at Johor Port Berhad">
                         <span class="project-tag">Pile Works</span>
+                        <span class="img-count"><i class="fas fa-images"></i> 5 Photos</span>
                     </div>
                     <div class="project-card-body">
                         <h3>Pile Strengthening &mdash; Johor Port Berhad</h3>
-                        <p>Installation of semi-cylindrical sleeves below seabed level onto existing pile caps, with full wet welding from seabed to pile cap to ensure structural integrity and durability.</p>
-                        <span style="font-size:0.8rem;color:var(--muted-text);display:block;margin-top:4px;">Year 2018</span>
+                        <p>Installation of semi-cylindrical sleeves at approximately -1.0m below seabed level onto existing pile caps, with full wet welding works from seabed level up to the pile cap to ensure structural integrity.</p>
+                        <div class="project-meta">
+                            <span class="project-year"><i class="far fa-calendar"></i> 2018</span>
+                            <span class="project-view-btn"><i class="fas fa-images"></i> View Gallery <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in visible" data-category="underwater-construction">
+                <!-- PROJECT 3: Dry Dock Construction + Demolition — Malaysia -->
+                <div class="project-card fade-in" data-category="underwater-construction"
+                     data-gallery='["images/img11.jpg","images/img12.jpg","images/img13.jpg","images/img14.jpg","images/img15.jpg"]'
+                     data-title="Dry Dock Construction &amp; Demolition &mdash; Malaysia">
                     <div class="project-card-img">
-                        <img src="images/project4.jpg" alt="Dry Dock Construction - Malaysia Marine Heavy Equipment">
+                        <img src="images/img13.jpg" alt="Dry Dock Construction - Malaysia Marine Heavy Equipment">
                         <span class="project-tag">Underwater Construction</span>
+                        <span class="img-count"><i class="fas fa-images"></i> 5 Photos</span>
                     </div>
                     <div class="project-card-body">
                         <h3>Dry Dock Construction &mdash; Malaysia Marine Heavy Equipment</h3>
-                        <p>Design, fabrication and installation of working platforms on tubular piles for wire saw cutting operations, including underwater welding and support bracket installation.</p>
-                        <span style="font-size:0.8rem;color:var(--muted-text);display:block;margin-top:4px;">Year 2019&ndash;2020</span>
+                        <p>Design, fabrication and installation of working platforms on tubular piles for wire saw cutting operations, including demolition by wire saw and thermal Brocco cutting, during the Covid era.</p>
+                        <div class="project-meta">
+                            <span class="project-year"><i class="far fa-calendar"></i> 2019 &ndash; 2020</span>
+                            <span class="project-view-btn"><i class="fas fa-images"></i> View Gallery <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in visible" data-category="demolition">
+                <!-- PROJECT 4: Quay Wall & Combi-Wall — Mozambique -->
+                <div class="project-card fade-in" data-category="demolition"
+                     data-gallery='["images/img16.jpg","images/img17.jpg","images/img18.jpg","images/img19.jpg","images/img20.jpg"]'
+                     data-title="Quay Wall &amp; Combi-Wall Works &mdash; Mozambique, Africa">
                     <div class="project-card-img">
-                        <img src="images/project5.jpg" alt="Wire Saw & Thermal Brocco Cutting">
+                        <img src="images/img16.jpg" alt="Quay Wall Works in Mozambique, Africa">
                         <span class="project-tag">Demolition &amp; Cutting</span>
-                    </div>
-                    <div class="project-card-body">
-                        <h3>Demolition by Wire Saw &amp; Thermal Brocco Cutting</h3>
-                        <p>Precision demolition work using wire saw and thermal Brocco cutting techniques for controlled underwater structural removal operations.</p>
-                        <span style="font-size:0.8rem;color:var(--muted-text);display:block;margin-top:4px;">Year 2019&ndash;2020</span>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in visible" data-category="underwater-construction">
-                    <div class="project-card-img">
-                        <img src="images/project6.jpg" alt="Quay Wall Works - Mozambique, Africa">
-                        <span class="project-tag">Underwater Construction</span>
+                        <span class="img-count"><i class="fas fa-images"></i> 5 Photos</span>
                     </div>
                     <div class="project-card-body">
                         <h3>Quay Wall &amp; Combi-Wall Works &mdash; Mozambique, Africa</h3>
-                        <p>Underwater pre-drilling, removal of concrete quay wall blocks (~55 tonnes each), inclined thermal cutting through combi-wall piles, and installation of steel pipes with full wet welding.</p>
-                        <span style="font-size:0.8rem;color:var(--muted-text);display:block;margin-top:4px;">Year 2022</span>
+                        <p>Underwater pre-drilling, removal of existing quay wall concrete blocks (~55 tonnes each), inclined thermal cutting through combi-wall piles, and installation of steel pipes with full wet welding.</p>
+                        <div class="project-meta">
+                            <span class="project-year"><i class="far fa-calendar"></i> 2022</span>
+                            <span class="project-view-btn"><i class="fas fa-images"></i> View Gallery <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in visible" data-category="pile-works">
+                <!-- PROJECT 5: Pile Repair & Underwater Works — Singapore Port -->
+                <div class="project-card fade-in" data-category="pile-works"
+                     data-gallery='["images/img21.jpg","images/img22.jpg","images/img23.jpg","images/img24.jpg","images/img25.jpg","images/img26.jpg"]'
+                     data-title="Pile Repair &amp; Underwater Works &mdash; Port, Singapore">
                     <div class="project-card-img">
-                        <img src="images/project7.jpg" alt="RC Formwork Pile Repair - Singapore Port">
+                        <img src="images/img22.jpg" alt="RC Formwork Pile Repair - Singapore Port">
                         <span class="project-tag">Pile Works</span>
+                        <span class="img-count"><i class="fas fa-images"></i> 6 Photos</span>
                     </div>
                     <div class="project-card-body">
-                        <h3>RC Formwork for Pile Repair &mdash; Port, Singapore</h3>
-                        <p>Surface preparation with high-pressure water jetting, installation of base circular plate, reinforcement cage fabrication, steel mandrel installation and grouting works for pile repair.</p>
-                        <span style="font-size:0.8rem;color:var(--muted-text);display:block;margin-top:4px;">Year 2024</span>
+                        <h3>Pile Repair &amp; Underwater Works &mdash; Port, Singapore</h3>
+                        <p>RC formwork for pile repair including high-pressure water jetting, reinforcement cage fabrication, steel mandrel installation, grouting works, underwater pre-drilling and full wet welding.</p>
+                        <div class="project-meta">
+                            <span class="project-year"><i class="far fa-calendar"></i> 2024</span>
+                            <span class="project-view-btn"><i class="fas fa-images"></i> View Gallery <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in visible" data-category="underwater-construction">
-                    <div class="project-card-img">
-                        <img src="images/project8.jpg" alt="Underwater Pre-drilling & Welding - Singapore Port">
-                        <span class="project-tag">Underwater Construction</span>
-                    </div>
-                    <div class="project-card-body">
-                        <h3>Underwater Pre-drilling &amp; Welding &mdash; Port, Singapore</h3>
-                        <p>Underwater pre-drilling of &empty;38mm holes into concrete blocks for U-shaped rebar hook insertion, quay wall block removal, and inclined thermal cutting with full wet welding works.</p>
-                        <span style="font-size:0.8rem;color:var(--muted-text);display:block;margin-top:4px;">Year 2024</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
+    <!-- LIGHTBOX -->
+    <div class="lightbox-overlay" id="lightbox">
+        <div class="lightbox-header">
+            <h3 id="lbTitle"></h3>
+            <span class="lb-counter" id="lbCounter"></span>
+        </div>
+        <button class="lightbox-close" id="lbClose" aria-label="Close gallery"><i class="fas fa-times"></i></button>
+        <div class="lightbox-main">
+            <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+            <img id="lbImage" src="" alt="Project photo">
+            <button class="lb-nav lb-next" id="lbNext" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="lb-thumbnails" id="lbThumbs"></div>
+    </div>
+
     <!-- CTA -->
-    <section class="showcase-cta fade-in visible">
+    <section class="showcase-cta fade-in">
         <h2>Ready to Start Your Next Project?</h2>
         <p>Contact our team for a free consultation and project assessment. We bring decades of experience to every engagement.</p>
         <div class="cta-btns">
@@ -390,7 +530,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Â© 2026 Straits Diving &amp; Engineering Pte Ltd. All rights reserved.</p>
+            <p>&copy; 2026 Straits Diving &amp; Engineering Pte Ltd. All rights reserved.</p>
             <p>Website designed by <a href="#">Reputifly</a></p>
         </div>
     </footer>
@@ -416,16 +556,12 @@
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Update active button
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-
                 const filter = btn.getAttribute('data-filter');
-
                 projectCards.forEach(card => {
                     if (filter === 'all' || card.getAttribute('data-category') === filter) {
                         card.classList.remove('hidden');
-                        // Re-trigger animation
                         card.classList.remove('visible');
                         setTimeout(() => card.classList.add('visible'), 50);
                     } else {
@@ -434,6 +570,104 @@
                 });
             });
         });
+
+        // ========== LIGHTBOX ==========
+        const lightbox = document.getElementById('lightbox');
+        const lbImage = document.getElementById('lbImage');
+        const lbTitle = document.getElementById('lbTitle');
+        const lbCounter = document.getElementById('lbCounter');
+        const lbThumbs = document.getElementById('lbThumbs');
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        function openLightbox(gallery, title, startIndex) {
+            currentGallery = gallery;
+            currentIndex = startIndex || 0;
+            lbTitle.innerHTML = title;
+            renderThumbnails();
+            showImage(currentIndex);
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showImage(idx) {
+            currentIndex = idx;
+            lbImage.style.opacity = '0';
+            setTimeout(() => {
+                lbImage.src = currentGallery[idx];
+                lbImage.onload = () => { lbImage.style.opacity = '1'; };
+            }, 120);
+            lbCounter.textContent = (idx + 1) + ' / ' + currentGallery.length;
+            // Update thumb active
+            document.querySelectorAll('.lb-thumb').forEach((t, i) => {
+                t.classList.toggle('active', i === idx);
+            });
+            // Scroll active thumb into view
+            const activeThumb = document.querySelector('.lb-thumb.active');
+            if (activeThumb) activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+
+        function nextImage() { showImage((currentIndex + 1) % currentGallery.length); }
+        function prevImage() { showImage((currentIndex - 1 + currentGallery.length) % currentGallery.length); }
+
+        function renderThumbnails() {
+            lbThumbs.innerHTML = '';
+            currentGallery.forEach((src, i) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Thumbnail ' + (i + 1);
+                img.className = 'lb-thumb' + (i === currentIndex ? ' active' : '');
+                img.addEventListener('click', () => showImage(i));
+                lbThumbs.appendChild(img);
+            });
+        }
+
+        // Click on card opens lightbox
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const galleryData = card.getAttribute('data-gallery');
+                const title = card.getAttribute('data-title');
+                if (galleryData) {
+                    const gallery = JSON.parse(galleryData);
+                    openLightbox(gallery, title, 0);
+                }
+            });
+        });
+
+        document.getElementById('lbClose').addEventListener('click', closeLightbox);
+        document.getElementById('lbPrev').addEventListener('click', prevImage);
+        document.getElementById('lbNext').addEventListener('click', nextImage);
+
+        // Close on overlay click (not on image/buttons)
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-main')) closeLightbox();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        lightbox.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextImage();
+                else prevImage();
+            }
+        }, { passive: true });
     </script>
 
 </body></html>

@@ -2,11 +2,11 @@ Below is the client comments
 
 
 
-hi julian, i am done with editing for now. showcase i have to wait to see my boss if he’s in next week to finalise the 5 we are gonna put.
+hi julian, i am done with editing for now. showcase i have to wait to see my boss if heâ€™s in next week to finalise the 5 we are gonna put.
 
 
 
-for now, i would need your help in removing those that is marked ‘to remove’ and these following stuff:
+for now, i would need your help in removing those that is marked â€˜to removeâ€™ and these following stuff:
 
 
 
@@ -14,7 +14,7 @@ for now, i would need your help in removing those that is marked ‘to remove’
 
 
 
-under what our clients say, ‘testimonials’: the wordings for those three reviews, can it be all white? i don’t know how the wordings became black, can’t fix it
+under what our clients say, â€˜testimonialsâ€™: the wordings for those three reviews, can it be all white? i donâ€™t know how the wordings became black, canâ€™t fix it
 
 
 
@@ -54,7 +54,7 @@ emergency salvage 24/7 available to change to contact us, and our team will arra
 
 
 
-*bottom page of every tab: can you help me to align the font size of the wordings for the ‘service’ column & make it a single line if possible pls?*
+*bottom page of every tab: can you help me to align the font size of the wordings for the â€˜serviceâ€™ column & make it a single line if possible pls?*
 
 
 
