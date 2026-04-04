@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Days Housekeeper | Hands That Cares</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS VARIABLES */
+        :root {
+            --primary-color: #005a87; /* Deep Trust Blue */
+            --primary-dark: #004263;
+            --secondary-color: #75d1ff; /* Light Blue */
+            --accent-color: #da053e; /* Action Red/Pink */
+            --accent-hover: #b00432;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --bg-blue-tint: #def4fc;
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: var(--border-radius);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-light {
+            background-color: var(--bg-white);
+        }
+
+        .section-tint {
+            background-color: var(--bg-blue-tint);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent-color);
+            color: var(--bg-white);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(218, 5, 62, 0.25);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(218, 5, 62, 0.35);
+            color: var(--bg-white);
+        }
+
+        /* NAVIGATION */
+        nav {
+            background-color: var(--bg-white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links .btn {
+            color: var(--bg-white);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary-color);
+            padding: 5px;
+        }
+
+        .mobile-menu-btn svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            background-image: url('https://newdays.sg/wp-content/uploads/2022/10/Happy-maid-baby-scaled.jpg');
+            background-size: cover;
+            background-position: center 20%;
+            background-attachment: fixed;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 90, 135, 0.95) 0%, rgba(0, 40, 70, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--bg-white);
+            max-width: 650px;
+        }
+
+        .hero-content h1 {
+            color: var(--bg-white);
+            font-size: 4rem;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-content p {
+            color: #f3f4f6;
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+
+        /* ABOUT / VIDEO SECTION */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            border: 8px solid var(--bg-white);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* NEW SECTION 1: WHY CHOOSE US */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,90,135,0.08);
+            border-color: var(--secondary-color);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--bg-blue-tint);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .feature-icon svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        /* SERVICES SECTION (POLISHED) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,90,135,0.12);
+        }
+
+        .service-image-wrap {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.35rem;
+            color: var(--primary-color);
+        }
+
+        .service-content p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* COURSE LIST */
+        .course-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .course-list li {
+            background: var(--bg-blue-tint);
+            color: var(--primary-dark);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid var(--secondary-color);
+        }
+
+        /* NEW SECTION 2: HOW IT WORKS */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: var(--bg-white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 20px rgba(0,90,135,0.2);
+        }
+
+        .process-step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        /* REVIEW MARQUEE */
+        .reviews-section {
+            background-color: var(--primary-dark);
+            color: var(--bg-white);
+            overflow: hidden;
+            padding: 100px 0;
+        }
+
+        .reviews-section h2, .reviews-section .subtitle {
+            color: var(--bg-white);
+        }
+
+        .reviews-section .subtitle {
+            opacity: 0.8;
+        }
+
+        .marquee-wrapper {
+            display: flex;
+            width: fit-content;
+            animation: marquee 35s linear infinite;
+        }
+
+        .marquee-wrapper:hover {
+            animation-play-state: paused;
+        }
+
+        .review-card {
+            width: 380px;
+            background: var(--bg-white);
+            color: var(--text-main);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin: 0 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 55px;
+            height: 55px;
+            background-color: var(--bg-blue-tint);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            margin-top: 4px;
+        }
+
+        .review-card p {
+            font-style: italic;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* FAQ SECTION (FIXED & POLISHED) */
+        .faq-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.04);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 24px 30px;
+            background: none;
+            border: none;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--bg-blue-tint);
+            color: var(--primary-color);
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+            background: var(--bg-white);
+        }
+
+        .faq-answer-inner {
+            padding: 0 30px 24px 30px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            background: var(--accent-color);
+            color: var(--bg-white);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        /* NEW SECTION 3: CTA BANNER */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            padding: 80px 0;
+            color: var(--bg-white);
+            text-align: center;
+            margin: 40px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0,90,135,0.3);
+        }
+
+        .cta-banner h2 {
+            color: var(--bg-white);
+            margin-bottom: 20px;
+        }
+
+        .cta-banner p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--bg-white);
+            color: var(--bg-white);
+        }
+
+        .btn-outline:hover {
+            background: var(--bg-white);
+            color: var(--primary-color);
+            box-shadow: none;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #111827;
+            color: #d1d5db;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            color: var(--bg-white);
+            margin-bottom: 25px;
+            font-size: 1.25rem;
+        }
+
+        .footer-col p {
+            color: #9ca3af;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            font-size: 0.95rem;
+        }
+
+        /* FLOATING WHATSAPP */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px);
+            background-color: #1ebc5a;
+            color: white;
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .hero-content h1 { font-size: 3.5rem; }
+            .about-grid { gap: 40px; }
+            h2 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-white);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li { width: 100%; text-align: center; }
+            .nav-links a { display: block; padding: 15px 0; }
+            
+            .mobile-menu-btn { display: block; }
+            
+            .hero { min-height: 550px; text-align: center; }
+            .hero-content { margin: 0 auto; }
+            .hero-content h1 { font-size: 2.75rem; }
+            
+            .about-grid { grid-template-columns: 1fr; }
+            .video-wrapper { order: -1; }
+            
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            
+            .cta-banner { margin: 20px 10px; padding: 60px 20px; }
+            .cta-buttons { flex-direction: column; }
+            .cta-buttons .btn { width: 100%; }
+
+            .section { padding: 70px 0; }
+        }
+
+        @media (max-width: 480px) {
+            h2 { font-size: 2.2rem; }
+            .services-grid, .features-grid, .process-grid { grid-template-columns: 1fr; }
+            .whatsapp-float { bottom: 20px; right: 20px; padding: 12px 20px; font-size: 1rem; }
+            .faq-question { padding: 20px; font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="https://newdays.sg/wp-content/uploads/2022/10/cropped-logo.jpg" alt="New Days Housekeeper Logo">
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services" onclick="toggleMenu()">Our Services</a></li>
+                <li><a href="#about" onclick="toggleMenu()">About Us</a></li>
+                <li><a href="#reviews" onclick="toggleMenu()">Reviews</a></li>
+                <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
+                <li><a href="#contact" class="btn" onclick="toggleMenu()">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>"Hands That Cares" with New Days Housekeeper</h1>
+            <p>We provide carefully-screened, well-trained domestic helpers tailored to your family's unique household requirements and expectations. Experience total peace of mind today.</p>
+            <a href="#services" class="btn">Explore Our Services</a>
+        </div>
+    </header>
+
+    <section id="about" class="section section-light">
+        <div class="container about-grid">
+            <div class="about-text">
+                <h2>Peace of Mind for Your Family</h2>
+                <p>As we wear more hats in life, it becomes an increasingly difficult strain for us to find time to take care of our children or elderly loved ones. If it seems like you have overstretched, perhaps it is time to let New Days Housekeeper lend a helping hand.</p>
+                <p>The agency believes in matching the right domestic helper according to each family’s household requirements. We boast a team of carefully-screened helpers direct from our overseas training centers that have relevant qualifications and working experiences.</p>
+                <p>Migrant domestic workers leave their families to work here in Singapore to give their loved ones better lives. Many become strong pillars of support for our families with their dedication and hard work.</p>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/IpuCgkHKBo0" title="New Days Housekeeper Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-tint">
+        <div class="container">
+            <div class="text-center">
+                <h2>Why Choose New Days?</h2>
+                <p class="subtitle">We go beyond simple placements. We build lasting relationships based on trust, rigorous training, and exceptional support.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3>Rigorous Screening</h3>
+                    <p>Every helper is carefully vetted, background-checked, and selected directly from our trusted overseas training centers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </div>
+                    <h3>Unlimited Replacements</h3>
+                    <p>We stand by our placements. If the match isn't perfect, we offer unlimited replacements and unwavering support.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees or surprise costs. Our price packages are straightforward, clear, and fully transparent from day one.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section section-light">
+        <div class="container">
+            <div class="text-center">
+                <h2>Our Core Services</h2>
+                <p class="subtitle">We are here to take away your stress with comprehensive household and care solutions designed for modern families.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image-wrap">
+                        <img src="https://newdays.sg/wp-content/uploads/2022/10/Cleaning-pic-5-2-1024x684.jpg" alt="Home Cleaning">
+                    </div>
+                    <div class="service-content">
+                        <h3>Home Cleaning</h3>
+                        <p>Meticulous daily and deep cleaning services to keep your home spotless, hygienic, and comfortable.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image-wrap">
+                        <img src="https://newdays.sg/wp-content/uploads/2022/10/Hugging-baby-2.webp" alt="Childcare">
+                    </div>
+                    <div class="service-content">
+                        <h3>Childcare & Infant Care</h3>
+                        <p>Compassionate, trained caregivers providing a safe and nurturing environment for your little ones.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image-wrap">
+                        <img src="https://newdays.sg/wp-content/uploads/2022/10/Eldercare.jpg" alt="Eldercare">
+                    </div>
+                    <div class="service-content">
+                        <h3>Eldercare & Nursing Aid</h3>
+                        <p>Respectful and patient assistance tailored to the physical and emotional needs of your elderly loved ones.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image-wrap">
+                        <img src="https://newdays.sg/wp-content/uploads/2022/10/Cooking-pic-2-1024x684.jpg" alt="Basic Cooking">
+                    </div>
+                    <div class="service-content">
+                        <h3>Basic Cooking</h3>
+                        <p>Healthy, home-cooked meals prepared daily, customized to your family's dietary preferences.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image-wrap">
+                        <img src="https://newdays.sg/wp-content/uploads/2024/01/Infant-care.png" alt="Infant Care Course">
+                    </div>
+                    <div class="service-content">
+                        <h3>Infant Care Training</h3>
+                        <p>Specialized courses equipping helpers with modern infant safety, hygiene, and developmental care skills.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image-wrap">
+                        <img src="https://newdays.sg/wp-content/uploads/2022/11/handling-newborn-bathtime.jpg" alt="Confinement Nannies">
+                    </div>
+                    <div class="service-content">
+                        <h3>Confinement Nannies</h3>
+                        <p>Expert post-natal care for mothers and newborns during the crucial first month of recovery.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 60px;">
+                <h3 style="color: var(--text-main); font-size: 1.5rem;">Helper Enhancement Courses</h3>
+                <p>We ensure our helpers are fully equipped to address your needs effectively.</p>
+                <ul class="course-list">
+                    <li>Infant Care Course</li>
+                    <li>Elder Care Course</li>
+                    <li>Basic English Course</li>
+                    <li>Basic Cooking Class</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-tint">
+        <div class="container text-center">
+            <h2>Our Simple Process</h2>
+            <p class="subtitle">We make hiring the perfect helper a seamless, stress-free experience from start to finish.</p>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We discuss your family's specific needs, budget, and expectations to understand exactly what you require.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3>Selection</h3>
+                    <p>We provide curated profiles and arrange interviews so you can choose the best match for your home.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3>Paperwork & Training</h3>
+                    <p>We handle all MOM documentation, insurance, and necessary enhancement courses for your helper.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h3>Deployment</h3>
+                    <p>Your helper arrives ready to assist. We continue to provide unwavering support throughout their employment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="section reviews-section">
+        <div class="container text-center" style="margin-bottom: 50px;">
+            <h2>What Our Customers Say</h2>
+            <p class="subtitle">Based on 19 Excellent Google Reviews from satisfied families.</p>
+        </div>
+        
+        <div class="marquee-wrapper">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">YF</div>
+                    <div>
+                        <h4 style="margin:0; color: var(--text-main); font-size: 1.1rem;">Yiling Foo</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"Sg agent (zou) has been of great help and supportive throughout my first helper 2 years contract. Renewal and back end claim are handled swiftly. Excellent agency and highly recommend!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">KY</div>
+                    <div>
+                        <h4 style="margin:0; color: var(--text-main); font-size: 1.1rem;">King yuling</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"Zoe is a good and friendly agent. She always prompt replied and provide solution if have any question / issue. Thanks Zoe."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">AA</div>
+                    <div>
+                        <h4 style="margin:0; color: var(--text-main); font-size: 1.1rem;">ange aa</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"Ms Zou is very professional and thorough with all the documentation and training. My helper is humble and has a good attitude. Am happy with the service."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">DT</div>
+                    <div>
+                        <h4 style="margin:0; color: var(--text-main); font-size: 1.1rem;">Design Toolbox</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"First time engaging a helper for our father. Zou was very understanding about our worries, budget and needs. She was very patient in helping us select an appropriate helper."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">VN</div>
+                    <div>
+                        <h4 style="margin:0; color: var(--text-main); font-size: 1.1rem;">Velle Ng</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"Exceptional service from start to finish! Zoulla was very willing to share advices when I needed help and went above and beyond to match me with the perfect helper."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">YF</div>
+                    <div>
+                        <h4 style="margin:0; color: var(--text-main); font-size: 1.1rem;">Yiling Foo</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"Sg agent (zou) has been of great help and supportive throughout my first helper 2 years contract. Renewal and back end claim are handled swiftly. Excellent agency and highly recommend!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">KY</div>
+                    <div>
+                        <h4 style="margin:0; color: var(--text-main); font-size: 1.1rem;">King yuling</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"Zoe is a good and friendly agent. She always prompt replied and provide solution if have any question / issue. Thanks Zoe."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">AA</div>
+                    <div>
+                        <h4 style="margin:0; color: var(--text-main); font-size: 1.1rem;">ange aa</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"Ms Zou is very professional and thorough with all the documentation and training. My helper is humble and has a good attitude. Am happy with the service."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">DT</div>
+                    <div>
+                        <h4 style="margin:0; color: var(--text-main); font-size: 1.1rem;">Design Toolbox</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"First time engaging a helper for our father. Zou was very understanding about our worries, budget and needs. She was very patient in helping us select an appropriate helper."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">VN</div>
+                    <div>
+                        <h4 style="margin:0; color: var(--text-main); font-size: 1.1rem;">Velle Ng</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"Exceptional service from start to finish! Zoulla was very willing to share advices when I needed help and went above and beyond to match me with the perfect helper."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section section-light">
+        <div class="container text-center">
+            <h2>Frequently Asked Questions</h2>
+            <p class="subtitle">Everything you need to know about hiring a domestic helper with us.</p>
+            
+            <div class="faq-container" style="margin-top: 50px;">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                        <span>Are your helpers properly trained?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Yes. Our helpers come direct from our overseas training centers and undergo skill enhancement training, including English communication, Infant Care, Elder Care, and Basic Cooking to ensure they meet your household expectations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                        <span>Do you offer replacements if the helper is not suitable?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Absolutely. We offer unlimited replacements and unwavering support throughout your helper's employment to ensure you have complete peace of mind.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                        <span>What services do your helpers cover?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Our helpers can be assigned to home cleaning, infant and childcare, elderly care, nursing aid, and basic cooking based on your specific family needs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                        <span>Are your prices transparent?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Yes, our price packages are straightforward, clear, and transparent with no hidden fees. We believe in building trust right from the start.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="cta-banner">
+            <h2>Ready to Find Your Perfect Helper?</h2>
+            <p>Let us take the stress out of managing your household. Get in touch with our friendly team today for a free consultation.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/6588030818" class="btn" target="_blank">WhatsApp Us Now</a>
+                <a href="#contact" class="btn btn-outline">View Contact Details</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About This Site</h4>
+                    <p>Our goal is to be the TRUSTED MAID AGENCY IN SINGAPORE.</p>
+                    <p>We offer Unlimited Replacements and Unwavering support throughout your helper's employment. Price package is straightforward, clear & transparent.</p>
+                    <p style="margin-top: 20px; color: var(--secondary-color); font-weight: 600;">MOM Licensed Agency: 22C1356</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Find Us</h4>
+                    <p><strong>Admin Office:</strong><br>2 Balestier Road, Balestier Hill Shopping Centre, #03-685 Singapore 320002</p>
+                    <p style="margin-top:15px;">170 Bukit Timah Road, Bukit Timah Shopping Centre, Singapore 588179</p>
+                    <p style="margin-top:20px; color: var(--secondary-color); font-weight: 600;">*HOME SERVICE AVAILABLE*</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><strong>WhatsApp:</strong> (+65) 8803 0818</p>
+                    <p><strong>Email:</strong> admin@newdays.sg</p>
+                    <h4 style="margin-top: 30px; margin-bottom:15px;">Hours</h4>
+                    <p>Monday–Friday: 11:00 AM – 7:00 PM<br>Saturday & Sunday: 11:00 AM – 3:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 New Days Housekeeper. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6588030818" class="whatsapp-float" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.01 2.002c-5.523 0-10 4.477-10 10.002 0 1.996.586 3.86 1.605 5.438L2 22l4.685-1.554a9.96 9.96 0 005.325 1.556c5.522 0 10-4.477 10-10.002s-4.478-10-10-10zm0 18.337a8.307 8.307 0 01-4.43-1.272l-.318-.188-3.292 1.092 1.11-3.21-.206-.328A8.306 8.306 0 013.67 12.004c0-4.606 3.743-8.347 8.34-8.347 4.6 0 8.34 3.74 8.34 8.347 0 4.605-3.74 8.335-8.34 8.335zm4.58-6.24c-.25-.125-1.488-.735-1.718-.82-.23-.084-.398-.125-.566.125-.168.25-.65 .82-.797.986-.148.167-.297.188-.548.063-.25-.125-1.06-.39-2.02-1.246-.747-.666-1.25-1.49-1.4-1.74-.15-.25-.016-.385.11-.51.112-.112.25-.292.375-.438.125-.146.167-.25.25-.417.083-.167.042-.313-.02-.438-.063-.125-.567-1.366-.777-1.87-.203-.49-.41-.424-.566-.432-.148-.008-.318-.01-.488-.01s-.448.063-.682.313c-.234.25-.895.875-.895 2.135s.917 2.478 1.043 2.646c.125.166 1.804 2.754 4.368 3.86.61.263 1.087.42 1.46.537.613.195 1.17.167 1.61.102.492-.074 1.488-.608 1.698-1.196.21-.588.21-1.092.148-1.196-.062-.104-.232-.167-.482-.292z"/>
+        </svg>
+        WhatsApp Us
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // FAQ Accordion Logic
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const isCurrentlyActive = item.classList.contains('active');
+            
+            // Close all others
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
+                faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+            
+            // Toggle current
+            if (!isCurrentlyActive) {
+                item.classList.add('active');
+                element.setAttribute('aria-expanded', 'true');
+            }
+        }
+    </script>
+</body>
+</html>
