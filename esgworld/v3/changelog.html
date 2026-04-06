@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog | ESG World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #163a23;
+            --accent: #c79e58;
+            --brand-green: #6BBE53;
+            --bg-white: #ffffff;
+            --bg-light: #f9f9f8;
+            --text-dark: #163a23;
+            --text-light: #ffffff;
+            --radius-main: 12px;
+            --shadow-main: 0 10px 25px rgba(22, 58, 35, 0.1);
+            --transition: all 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); background-color: var(--bg-white); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; color: var(--brand-green); line-height: 1.2; margin-bottom: 1rem; }
+        p { margin-bottom: 1rem; }
+        a { text-decoration: none; color: var(--accent); transition: var(--transition); }
+        a:hover { color: var(--primary); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        header { background-color: var(--bg-white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; min-height: 170px; padding: 10px 1rem; }
+        .logo img { height: 160px; object-fit: contain; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: var(--brand-green); font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; font-size: 2rem; padding: 0.75rem; color: var(--primary); cursor: pointer; background: none; border: none; z-index: 1001; }
+
+        .page-hero { padding: 12rem 0 6rem; text-align: center; color: var(--text-light); background-color: var(--primary); min-height: 40vh; display: flex; align-items: center; }
+        .page-hero h1 { color: var(--accent); font-size: 3.5rem; margin-bottom: 1rem; }
+        .page-hero p { font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--bg-white); }
+
+        .changelog-section { padding: 4rem 0; }
+
+        .revision-entry {
+            background: var(--bg-light);
+            border-radius: var(--radius-main);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border-left: 5px solid var(--brand-green);
+            box-shadow: var(--shadow-main);
+        }
+        .revision-entry h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .revision-date { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-bottom: 1.5rem; display: block; }
+
+        .feedback-block {
+            background: var(--bg-white);
+            border: 1px solid rgba(199, 158, 88, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .feedback-block .client-said {
+            font-style: italic;
+            color: #666;
+            padding: 1rem;
+            background: #f0f0f0;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .feedback-block .client-said::before { content: 'Client feedback: '; font-weight: 600; color: var(--accent); font-style: normal; }
+        .feedback-block .action-taken { padding-left: 0; }
+        .feedback-block .action-taken::before { content: 'What we did: '; font-weight: 600; color: var(--brand-green); }
+        .feedback-block .interpretation {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.5rem;
+            padding: 0.75rem;
+            background: #fafafa;
+            border-radius: 4px;
+        }
+        .feedback-block .interpretation::before { content: 'Interpretation note: '; font-weight: 600; color: var(--accent); }
+
+        .page-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        .tag-home { background: rgba(107, 190, 83, 0.15); color: var(--brand-green); }
+        .tag-about { background: rgba(199, 158, 88, 0.15); color: var(--accent); }
+        .tag-services { background: rgba(22, 58, 35, 0.1); color: var(--primary); }
+        .tag-contact { background: rgba(107, 190, 83, 0.1); color: #2a7d2e; }
+
+        .files-changed {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(199, 158, 88, 0.2);
+            font-size: 0.85rem;
+            color: #888;
+        }
+        .files-changed strong { color: var(--text-dark); }
+
+        footer { background-color: #0d2214; color: var(--bg-white); padding: 4rem 0 2rem; border-top: 2px solid var(--accent); }
+        .footer-bottom { padding-top: 2rem; display: flex; justify-content: space-between; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: flex; align-items: center; justify-content: center; padding: 0.75rem; margin-right: 0.5rem; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-white); flex-direction: column; padding: 1rem 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+            .nav-container { min-height: 140px; padding: 10px 1rem; }
+            .logo img { height: 130px; }
+            .page-hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ESG-World-Logo-mmltwdct7szg.webp" alt="ESG World Logo">
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Revision Changelog</h1>
+                <p>A transparent record of all client-requested changes, what was asked, and how we interpreted and executed each request.</p>
+            </div>
+        </section>
+
+        <section class="changelog-section">
+            <div class="container">
+
+                <div class="revision-entry">
+                    <h3>Revision Round 1 — Client Feedback Implementation</h3>
+                    <span class="revision-date">April 6, 2026 | Version: v3</span>
+
+                    <!-- HOME PAGE CHANGES -->
+                    <span class="page-tag tag-home">Home Page</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"The Company logo at the top left still looks too small."</div>
+                        <div class="action-taken">Increased logo height from 130px to 160px across all pages. Navigation bar height adjusted proportionally from 140px to 170px. Mobile logo also increased from 110px to 130px.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"The 'picture of leaves' is not preferred; can we have a better picture eg which includes human and depict Sustainability?"</div>
+                        <div class="action-taken">Replaced the hero background image with a photograph of a diverse group of people in a natural outdoor setting, depicting human connection and sustainability. The previous image was a generic plant/nature stock photo.</div>
+                        <div class="interpretation">We selected a people-focused sustainability image since the feedback specifically requested "human" elements. If a different type of image is preferred, please provide a specific image or a more detailed description of the desired scene.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Overall, the font colour 'Blue' is not preferred. Let's have light green colour as what is shown in our current website."</div>
+                        <div class="action-taken">Added the client's brand green (#6BBE53) from their existing website as a new CSS variable. Applied it to all heading elements (h1-h6) and navigation links across all 4 pages.</div>
+                        <div class="interpretation">The existing dark green (#163a23) can appear blue-ish on certain displays. We matched the exact green (#6BBE53) from the client's current Google Sites website. Body text remains dark for accessibility and readability.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Under 'Our Core Solutions', for each of the category, can you add a 'picture background' relevant for that category?"</div>
+                        <div class="action-taken">Added relevant background images to all 4 service cards (ESG Training, Waste Management, Transport &amp; Logistics, Building &amp; Maintenance) with a dark overlay for text readability. Each image matches the category's subject matter.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"When I click 'Waste Management' &amp; 'Transport Logistics', it does not go to the specific location of that next page for that category."</div>
+                        <div class="action-taken">Fixed the anchor link target. The Waste Management section in services.html previously had id="packaging" which didn't match the link href="#waste". Updated the section ID to "waste" so the navigation works correctly. Also added scroll-margin-top (180px) to all anchored sections across all pages to account for the fixed header.</div>
+                        <div class="interpretation">The Transport link was already working correctly (id="transport" matched). The Waste Management link was simply pointing to a non-existent anchor ID. This was a code-side mismatch, not a design issue.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"The logo for ISSB and SASB are too small. Can you make bigger?"</div>
+                        <div class="action-taken">Increased all carousel item dimensions from 220x120px to 280x160px. This affects all logos in the certification carousel, including ISSB and SASB, giving them significantly more visual presence.</div>
+                        <div class="interpretation">Since the carousel uses uniform sizing, all certification logos were enlarged equally. If only specific logos need to be larger, individual logo images would need to be resized at the source, which would require specific assets to be provided.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"The background - blue for 'Ready to elevate your ESG Strategy' is not preferred; can we use the same light green colour from our existing website?"</div>
+                        <div class="action-taken">Changed the CTA section background from the gold accent color to the client's brand green (#6BBE53). Updated all text within the section to white for proper contrast and readability.</div>
+                        <div class="interpretation">The CTA section was actually using a gold/tan color (#c79e58), not blue. We applied the same light green the client referenced from their current website.</div>
+                    </div>
+
+                    <div class="files-changed">
+                        <strong>Files changed:</strong> index.html
+                    </div>
+
+                    <!-- ABOUT PAGE CHANGES -->
+                    <br>
+                    <span class="page-tag tag-about">About Us Page</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Can you take out the 2 photos? Can you refer to our website? there is another team member called Annette..."</div>
+                        <div class="action-taken">Removed both team member photos (David Leong and Kelvin Tan). Replaced photo elements with styled icon placeholders using a gradient background. Added third team member: Dr. Annette S Vincent, PhD — Lead Consultant &amp; Certified ILO Gender Audit Facilitator. Updated grid from 2-column to 3-column layout to accommodate all three members.</div>
+                        <div class="interpretation">We cross-referenced the client's live website (esgworlds.com/about-us) and found three team members listed: David Leong, Kelvin Tan, and Dr. Annette S Vincent, PhD. Since the instruction was to "take out the photos" but keep the members, we replaced images with styled placeholders. If actual replacement photos are available, please provide them and we will swap them in.</div>
+                    </div>
+
+                    <div class="files-changed">
+                        <strong>Files changed:</strong> about.html
+                    </div>
+
+                    <!-- SERVICES PAGE CHANGES -->
+                    <br>
+                    <span class="page-tag tag-services">Services Page</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Can you go to our website and add on the relevant info?" (repeated for all 4 service sections: Services Introduction, Service Methodology, ESG Training, and Education)</div>
+                        <div class="action-taken">Visited the client's live website (esgworlds.com) and extracted all relevant service information. Updated the Methodology &amp; Introduction section with their actual service offerings (Strategy Consulting, Grant Proposals, Implementation, Reporting Advisory, Training Programs, Assessment). Updated ESG Training with their 5 specific programs. Updated Education with their early childhood and school-focused initiatives. Updated Transport &amp; Logistics and Building &amp; Maintenance with enhanced descriptions aligned to their actual offerings.</div>
+                        <div class="interpretation">The instruction "go to our website and add on the relevant info" was applied uniformly across all service sections. We pulled real content from the client's live Google Sites pages under /what-we-do/ and adapted it to fit the existing design structure. The scope of content added was kept proportional to the existing section sizes — we did not restructure the page layout or add new sections, as the brief specified that the number of pages and sections stays the same.</div>
+                    </div>
+
+                    <div class="files-changed">
+                        <strong>Files changed:</strong> services.html
+                    </div>
+
+                    <!-- CONTACT PAGE CHANGES -->
+                    <br>
+                    <span class="page-tag tag-contact">Contact Us Page</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Address: 60 Paya Lebar Road, #06-28, Paya Lebar Square, S(409051)"</div>
+                        <div class="action-taken">Updated the Corporate Office address from the placeholder (123 Eco Plaza, Green District, Innovation City) to the correct address: 60 Paya Lebar Road, #06-28, Paya Lebar Square, S(409051).</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Please take out the phone no"</div>
+                        <div class="action-taken">Completely removed the Phone Numbers contact info block (Main and Support numbers). The contact card now shows: Address, Email, and Business Hours only.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Email: enquiry@esgworlds.com"</div>
+                        <div class="action-taken">Updated the email from the previous dual listing (info@esgworlds.com / consults@esgworlds.com) to the single address: enquiry@esgworlds.com. Also updated the footer email across all 4 pages to match.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Address: 60 Paya Lebar Road, #06-28, Paya Lebar Square, S(409051); pls update map"</div>
+                        <div class="action-taken">Updated the embedded Google Maps iframe from the previous placeholder (showing India) to Paya Lebar Square, Singapore.</div>
+                        <div class="interpretation">The previous map was showing the entire country of India as a placeholder — clearly not the intended location. The new embed centers on Paya Lebar Square at the specified address in Singapore.</div>
+                    </div>
+
+                    <div class="files-changed">
+                        <strong>Files changed:</strong> contact.html
+                    </div>
+
+                    <!-- GLOBAL CHANGES -->
+                    <br>
+                    <span class="page-tag tag-home">All Pages</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">(Applied globally based on individual page feedback)</div>
+                        <div class="action-taken">The following changes were applied consistently to all 4 pages (index.html, about.html, services.html, contact.html): brand green (#6BBE53) added as CSS variable, heading colors updated, navigation link colors updated, logo size increased, mobile-responsive sizes adjusted, scroll-margin-top added for anchor navigation, and footer contact email updated to enquiry@esgworlds.com.</div>
+                    </div>
+
+                    <div class="files-changed">
+                        <strong>Files changed:</strong> index.html, about.html, services.html, contact.html, changelog.html (new)
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 ESG Worlds. All rights reserved.</div>
+            <div>Website Design by Reputifly</div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav-links');
+            if (btn && nav) btn.addEventListener('click', () => nav.classList.toggle('active'));
+        });
+    </script>
+</body>
+</html>
