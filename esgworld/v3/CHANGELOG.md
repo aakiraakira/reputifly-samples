@@ -1,3 +1,10 @@
+## [v3] — 2026-04-06 (Amendment v2 — SG Eco Fund)
+- SERVICES: Added "Little Green Steps" SG Eco Fund section below Education Initiatives with logo, write-up, and Google Form registration button
+- HOME: Added SG Eco Fund logo to the industry standards certification carousel
+- NEW ASSET: images/sg-eco-fund.png (SG Eco Fund logo)
+- Files changed: services.html, index.html, images/sg-eco-fund.png (new), CHANGELOG.md
+- Agent: Claude Opus 4.6
+
 ## [v3] — 2026-04-06 (Revision Round 1)
 - Applied client revision feedback across all 4 pages
 - HOME: Increased logo size (130px→160px), changed hero image to human/sustainability theme, added brand green (#6BBE53) to headings/nav, added background images to service cards, enlarged carousel items (220x120→280x160), changed CTA background to brand green, fixed Waste Management anchor link
