@@ -1,3 +1,8 @@
+## v6 (override) — 2026-04-07
+- Cropped Pile Repair showcase image (img21.jpg) to remove worker and blue machine logo as per client request, using crop reference from PPTX presentation
+- Files changed: images/img21.jpg, CHANGELOG.md
+- Agent: Claude Opus 4.6 (1M context)
+
 ## v6 — 2026-04-07
 - Enlarged company logo across all pages (header: 50px → 65px, footer: 45px → 55px)
 - Fixed footer copyright encoding (removed garbled `Â` character before ©) across all pages
