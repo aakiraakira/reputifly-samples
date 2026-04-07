@@ -1,0 +1,13 @@
+## [v2] — 2026-04-07
+- Removed "Featured Highlights" section from homepage
+- Added "About Dr. Caroline Josephine Dawson" bio section with full credentials
+- Added description paragraph to Awards & Accolades section with increased font size
+- Added white/light-grey tiles with rounded corners to all brand logos for visibility
+- Updated all testimonials to include Country (Singapore) in Name, Company | Country format
+- Added new S.M.A.R.T. Framework section (Skills-Based, Mentally-Challenging, Active-Learning Oriented, Realistic, Training with Fun)
+- Professional Services section retained as-is (original site down for cross-reference)
+- Fixed dead #portfolio hero link to point to #about-bio
+- Created changelog.html page documenting all client revision requests and actions taken
+- Added CSS styles: brand-tile, smart-grid/card/letter, awards-description, testi-country
+- Files changed: index.html, components.css, changelog.html, CHANGELOG.md
+- Agent: Claude Opus 4.6

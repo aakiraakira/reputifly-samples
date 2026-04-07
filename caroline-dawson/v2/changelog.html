@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog - Caroline Dawson International</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="components.css">
+<style>
+.changelog-container{max-width:900px;margin:0 auto;padding:140px 32px 80px}
+.changelog-header{text-align:center;margin-bottom:60px}
+.changelog-entry{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;margin-bottom:24px;transition:all .3s ease}
+.changelog-entry:hover{border-color:rgba(212,175,55,.3);background:rgba(255,255,255,.05)}
+.entry-number{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#D4AF37 0%,#F2D06B 50%,#B8933a 100%);color:#050505;font-weight:800;font-size:.9rem;margin-bottom:16px}
+.entry-title{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:12px}
+.client-comment{background:rgba(0,0,0,.3);border-left:3px solid #D4AF37;padding:16px 20px;border-radius:0 8px 8px 0;margin-bottom:16px}
+.client-comment p{color:#aaa;font-size:.95rem;line-height:1.7;font-style:italic}
+.action-taken{padding:12px 0 0}
+.action-taken h4{color:#4caf50;font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.action-taken p{color:#888;font-size:.95rem;line-height:1.7}
+.status-badge{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.status-done{background:rgba(76,175,80,.15);color:#4caf50;border:1px solid rgba(76,175,80,.3)}
+.status-partial{background:rgba(255,193,7,.15);color:#ffc107;border:1px solid rgba(255,193,7,.3)}
+.version-tag{display:inline-block;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.25em;color:#D4AF37;margin-bottom:16px;border:1px solid rgba(212,175,55,.2);padding:8px 16px;border-radius:100px;background:rgba(212,175,55,.05)}
+</style>
+</head>
+<body>
+<div id="universal-header"></div>
+<div class="changelog-container">
+<div class="changelog-header">
+<span class="version-tag">Revision Log</span>
+<h1 style="font-size:2.5rem;margin-bottom:12px">Website Changelog</h1>
+<p style="color:#888;font-size:1.1rem">Client revision requests and actions taken &mdash; April 2026</p>
+</div>
+<div class="changelog-entry"><div class="entry-number">1</div><div class="entry-title">Professional Services</div><span class="status-badge status-partial">Pending Original Site</span><div class="client-comment"><p>To maintain consistency, please mirror the structure from the previous site. Keep the header Professional Services but ensure the original course names are kept exactly as they appear on that page.</p></div><div class="action-taken"><h4>Action Taken</h4><p>The Professional Services header has been retained. The current course names (Strategic Leadership, Change Management, Global Management) remain as-is. The original website is currently down, so we were unable to cross-reference the exact course names. Once accessible or the client provides names, these can be updated immediately.</p></div></div>
+<div class="changelog-entry"><div class="entry-number">2</div><div class="entry-title">Awards &amp; Accolades</div><span class="status-badge status-done">Completed</span><div class="client-comment"><p>The current font is a bit small for comfortable reading. Could we increase the size? Also, please use the provided description. The logo used on the original website was quite good.</p></div><div class="action-taken"><h4>Action Taken</h4><p>Font size increased for improved readability. The new description has been added below the Awards &amp; Accolades heading. Regarding the logo from the original website - since the original site is currently down, this can be revisited once accessible.</p></div></div>
+<div class="changelog-entry"><div class="entry-number">3</div><div class="entry-title">Brands We Work With (Logo Visibility)</div><span class="status-badge status-done">Completed</span><div class="client-comment"><p>A few of the logos are currently getting lost against the black background. Could we try a White Logo Grid? Placing each logo inside a uniform white or light-grey tile with rounded corners.</p></div><div class="action-taken"><h4>Action Taken</h4><p>Each brand logo is now placed inside a white tile with rounded corners (12px radius). The tiles have a clean white background (95% opacity) with subtle shadow, and scale up slightly on hover.</p></div></div>
+<div class="changelog-entry"><div class="entry-number">4</div><div class="entry-title">Testimonials (International Reach)</div><span class="status-badge status-done">Completed</span><div class="client-comment"><p>To appeal to our global clients, please format these to include Name, Company, and Country.</p></div><div class="action-taken"><h4>Action Taken</h4><p>All existing testimonials updated to include Country in the format: Name, Company | Country. Layout ready for additional international testimonials.</p></div></div>
+<div class="changelog-entry"><div class="entry-number">5</div><div class="entry-title">New Section: S.M.A.R.T. Framework</div><span class="status-badge status-done">Completed</span><div class="client-comment"><p>Please add a new section highlighting our unique S.M.A.R.T. approach with descriptions for each pillar.</p></div><div class="action-taken"><h4>Action Taken</h4><p>A new S.M.A.R.T. Framework section added to the homepage with five responsive cards, each displaying the letter initial in a gold badge, pillar name, and description.</p></div></div>
+<div class="changelog-entry"><div class="entry-number">6</div><div class="entry-title">Adjustments &amp; New Bio</div><span class="status-badge status-done">Completed</span><div class="client-comment"><p>Remove the Featured Highlights section. Add the About Dr. Caroline Josephine Dawson bio section with the provided text.</p></div><div class="action-taken"><h4>Action Taken</h4><p>Featured Highlights section completely removed. New About Dr. Caroline Josephine Dawson section added with full bio text covering qualifications, experience, and certifications.</p></div></div>
+</div>
+<div id="universal-footer"></div>
+<script src="components.js"></script>
+</body>
+</html>
