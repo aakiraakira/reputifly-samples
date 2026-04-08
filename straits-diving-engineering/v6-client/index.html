@@ -1,0 +1,804 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Straits Diving Engineering | Marine Salvage &amp; Underwater Construction</title>
+    <meta name="description" content="Straits Diving Engineering - Singapore's leading marine salvage and underwater construction company. 24/7 emergency salvage, underwater engineering, and vessel recovery services across Southeast Asia.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #45baba;
+            --accent: #fae227;
+            --text: #0b0a14;
+            --bg-light: #ffffff;
+            --bg-offwhite: #f8f9fa;
+            --bg-dark: #0f172a;
+            --surface: #f5dd26;
+            --border: #e1cb23;
+            --muted-text: rgba(8, 7, 14, 0.7);
+            --primary-hover: #000000;
+            --on-primary: #ffffff;
+            --focus-ring: #a0ce71;
+            --radius: 24px;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --glass-blur: blur(12px);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --font-main: 'Inter', sans-serif;
+            --container-width: 1200px;
+            --section-padding: 100px 20px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text);
+            background: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: box-shadow 0.3s;
+        }
+        .header.scrolled { box-shadow: var(--shadow); }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        .logo img { height: 50px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text);
+            transition: color 0.2s;
+            position: relative;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0; right: 0;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: var(--on-primary);
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .btn-accent {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--accent);
+            color: var(--text);
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn-accent:hover { background: var(--border); transform: translateY(-2px); }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover { background: var(--primary); color: var(--on-primary); transform: translateY(-2px); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+        .hamburger span {
+            width: 28px; height: 3px;
+            background: var(--text);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px; left: 0; right: 0; bottom: 0;
+            background: var(--bg-light);
+            z-index: 999;
+            padding: 40px 20px;
+        }
+        .mobile-menu.active { display: flex; flex-direction: column; gap: 24px; align-items: center; }
+        .mobile-menu a {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+        .mobile-menu a.active { color: var(--primary); }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url('https://img.freepik.com/free-photo/beautiful-view-construction-site-city-sunset_181624-9347.jpg?semt=ais_rp_progressive&w=740&q=80') center/cover no-repeat;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(15,23,42,0.85), rgba(15,23,42,0.6));
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            padding-top: 80px;
+        }
+        .hero-content h1 {
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 800;
+            color: var(--on-primary);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 span { color: var(--primary); }
+        .hero-content p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        /* ABOUT SNIPPET */
+        .about-snippet { padding: var(--section-padding); background: var(--bg-light); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-img {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .about-img img { width: 100%; height: 400px; object-fit: cover; display: block; }
+        .section-label {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .about-text h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.25;
+        }
+        .about-text p {
+            color: var(--muted-text);
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+
+        /* SERVICES OVERVIEW */
+        .services-overview { padding: var(--section-padding); background: var(--bg-offwhite); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 16px; }
+        .section-header p { color: var(--muted-text); max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 30px 40px -10px rgba(0,0,0,0.15); }
+        .service-card-img { position: relative; height: 200px; overflow: hidden; }
+        .service-card-img img { width: 100%; height: 100%; object-fit: cover; }
+        .service-card-icon {
+            position: absolute;
+            bottom: -24px; left: 24px;
+            width: 48px; height: 48px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--on-primary);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(69,186,186,0.4);
+        }
+        .service-card-body { padding: 36px 24px 24px; }
+        .service-card-body h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+        .service-card-body p { color: var(--muted-text); font-size: 0.95rem; margin-bottom: 16px; }
+        .service-card-body a {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+        .service-card-body a:hover { gap: 10px; }
+
+        /* TESTIMONIALS */
+        .testimonials { padding: var(--section-padding); background: var(--bg-dark); }
+        .testimonials .section-header h2 { color: var(--on-primary); }
+        .testimonials .section-header p { color: rgba(255,255,255,0.6); }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 clamp(16px, 3vw, 40px);
+        }
+        .testimonial-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: var(--radius);
+            padding: 36px 32px 32px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255,255,255,0.15);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+        .testimonial-card .quote-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            opacity: 0.3;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+        .testimonial-stars { color: var(--accent); margin-bottom: 16px; font-size: 0.85rem; flex-shrink: 0; }
+        .review-text {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.94rem;
+            line-height: 1.75;
+            flex: 1;
+            position: relative;
+        }
+        .review-text p {
+            margin-bottom: 12px;
+            color: rgba(255,255,255,0.85);
+        }
+        .review-text p:last-child { margin-bottom: 0; }
+        .review-text.clamped { max-height: 180px; overflow: hidden; }
+        .review-text.clamped::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, rgba(13,20,36,0.98));
+            pointer-events: none;
+        }
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.84rem;
+            cursor: pointer;
+            padding: 10px 0 0;
+            margin: 0;
+            font-family: var(--font-main);
+            flex-shrink: 0;
+            display: block;
+            transition: color 0.2s;
+            text-align: left;
+        }
+        .read-more-btn:hover { color: var(--accent); }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: auto;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            flex-shrink: 0;
+        }
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            min-height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--on-primary);
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+        .testimonial-author-info { min-width: 0; }
+        .testimonial-author-info h4 { color: var(--on-primary); font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
+        .testimonial-author-info span { color: rgba(255,255,255,0.45); font-size: 0.82rem; display: block; line-height: 1.4; }
+
+        /* REGIONS */
+        .regions { padding: var(--section-padding); background: var(--bg-light); }
+        .regions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+        }
+        .region-card {
+            text-align: center;
+            padding: 32px 16px;
+            border-radius: var(--radius);
+            background: var(--bg-offwhite);
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .region-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+        .region-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .region-card h4 { font-size: 0.95rem; font-weight: 600; }
+
+        /* FOOTER */
+        .footer { background: var(--bg-dark); padding: 80px 20px 0; color: rgba(255,255,255,0.7); }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+        .footer-brand img { height: 45px; margin-bottom: 16px; }
+        .footer-brand p { font-size: 0.95rem; line-height: 1.7; }
+        .footer h4 {
+            color: var(--on-primary);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 10px; }
+        .footer ul a { font-size: 0.9rem; transition: color 0.2s; }
+        .footer ul a:hover { color: var(--primary); }
+        .footer-contact-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 14px;
+            font-size: 0.9rem;
+        }
+        .footer-contact-item i { color: var(--primary); margin-top: 3px; }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 60px;
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: var(--container-width);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer-bottom p { font-size: 0.85rem; }
+        .footer-bottom a { color: var(--primary); }
+
+        /* WHATSAPP */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.7rem;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .testimonials-grid { grid-template-columns: 1fr; max-width: 600px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .about-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero-content h1 { font-size: 2rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .services-grid { grid-template-columns: 1fr; }
+            .testimonial-card { padding: 28px 24px 24px; }
+            .review-text.clamped { max-height: 150px; }
+        }
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .regions-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-btns { flex-direction: column; }
+            .testimonial-card { padding: 24px 20px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header scrolled" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-3-2026-03-24-41-PM-mmaa8seeyovq.webp" alt="Straits Diving Engineering">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="showcase.html">Showcase</a></li>
+                    <li><a href="contact.html" class="btn-primary">Get a Quote</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="showcase.html">Showcase</a>
+        <a href="contact.html" class="btn-primary">Get a Quote</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1><span>Underwater Construction &amp; Engineering Work</span></h1>
+                <p>Singapore's trusted partner for underwater construction and marine engineering. Delivering safe, reliable solutions across Singapore, West Malaysia, Vietnam, Bangladesh and Africa (Mozambique) with operational excellence.</p>
+                <div class="hero-btns">
+                    <a href="services.html" class="btn-primary"><i class="fas fa-anchor"></i> Our Services</a>
+                    <a href="contact.html" class="btn-accent"><i class="fas fa-phone"></i>Emergency Salvage</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SNIPPET -->
+    <section class="about-snippet fade-in visible">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img">
+                    <img src="https://www.rib-software.com/app/uploads/2021/09/coral-greenhouse.webp" alt="Underwater construction operations">
+                </div>
+                <div class="about-text">
+                    <span class="section-label">About Us</span>
+                    <h2>Decades of Experience&nbsp;</h2>
+                    <p>Straits Diving &amp; Engineering is a Singapore-based commercial diving company specializing in underwater construction and engineering. With our headquarters in Singapore and a branch in Johor, Malaysia, we bring a team of certified divers and skilled engineers dedicated to delivering expertise and excellence on every project.</p>
+                    <p>From infrastructure to steel structural works projects, we deliver results that exceed expectations while maintaining the highest safety standards in the industry.</p>
+                    <a href="about.html" class="btn-outline" style="margin-top: 12px;"><i class="fas fa-arrow-right"></i> Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES OVERVIEW -->
+    <section class="services-overview fade-in visible">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What We Do</span>
+                <h2>Our Specialized Services</h2>
+                <p>Comprehensive marine solutions tailored to meet the demands of the maritime industry.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card-img">
+                        <img src="https://www.rib-software.com/app/uploads/2021/09/coral-greenhouse.webp" alt="Underwater Construction">
+                        <div class="service-card-icon"><i class="fas fa-water"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Underwater Construction &amp; Engineering</h3>
+                        <p>Subsea welding, pipeline installation, structural repair, and harbor development executed with precision.</p>
+                        <a href="services.html">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-img">
+                        <img src="https://tconglobal.com/wp-content/uploads/2019/10/ewp_blog_header.jpg" alt="Engineering Works">
+                        <div class="service-card-icon"><i class="fas fa-cogs"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Engineering Works</h3>
+                        <p>Advanced marine engineering solutions for port infrastructure, offshore platforms, and coastal structures.</p>
+                        <a href="services.html">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-img">
+                        <img src="https://dexteroffshore.com/wp-content/uploads/2023/02/marine-salvage-types.jpg" alt="Vessel Salvaging">
+                        <div class="service-card-icon"><i class="fas fa-ship"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Small to Mid-sized Vessel &amp; Cargo Salvaging</h3>
+                        <p>Emergency vessel recovery, wreck removal, and refloating operations available around the clock.</p>
+                        <a href="services.html">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-img">
+                        <img src="https://www.clydeco.com/getattachment/30d08b0a-a5de-4e70-8ea0-267334b32464/facebook-image?variant=introbannerdesktopvarient" alt="Cargo Recovery">
+                        <div class="service-card-icon"><i class="fas fa-boxes-stacked"></i></div>
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Cargo Recovery</h3>
+                        <p>Professional cargo retrieval from sunken or damaged vessels with minimal environmental impact.</p>
+                        <a href="services.html">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials fade-in visible">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" style="color:var(--accent);">Testimonials</span>
+                <h2>What Our Clients Say</h2>
+                <p>Trusted by leading maritime companies.</p>
+            </div>
+        </div>
+        <div class="testimonials-grid">
+            <!-- Card 1: Kang Lim -->
+            <div class="testimonial-card">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="review-text clamped" id="review1">
+                    <p>"Mr. Ryan Delaney Tan conducted diving work (underwater structure rehabilitation and inspection work) in a professional and pleasant manner.</p>
+                    <p>He is a very responsible person in his profession as competent diver.</p>
+                    <p>He takes the initiative to identify problems and devise solutions. His role requires strong communication skills, and he has shown that he not only has these skills, but he also has the ability to inspire respect and coordination in teammates. He leaded a size of 17 divers in our jetty rehabilitation work.</p>
+                    <p>He helped us to implement Lockout-tagout (LOTO), a safety procedure during underwater rehabilitation work at an operational jetty.</p>
+                    <p>We would gladly recommend Mr. Ryan Delaney Tan to anyone asking for reference. Well done."</p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReview('review1', this)">Read More</button>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">TWS</div>
+                    <div class="testimonial-author-info">
+                        <h4>Tan Weng Soon</h4>
+                        <span>Project Manager, Geolab (M) Sdn. Bhd.</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2: Goh Poh Khim -->
+            <div class="testimonial-card">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="review-text clamped" id="review2">
+                    <p>"Ryan has worked at the Barrage construction site from late 2005 till May 2011.</p>
+                    <p>Ryan has come across as a responsible and reliable person to work with. He is always in control of his diving team and he works very well with his team. Further, he cooperates very well with our staff at site.</p>
+                    <p>Ryan is unassuming and self assured. He is willing to take on challenges that were posed to him. I find him a good working colleague as well as a good friend."</p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReview('review2', this)">Read More</button>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">GPK</div>
+                    <div class="testimonial-author-info">
+                        <h4>Goh Poh Khim</h4>
+                        <span>Senior Project Manager, Koh Brothers Building &amp; Civil Engineering Contractor (PTE.) LTD.</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3: Martin Chu -->
+            <div class="testimonial-card">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="review-text clamped" id="review3">
+                    <p>"We are pleased to provide this letter to express our satisfaction on the professionalism and integrity shown by Straits Diving Contractor Pte Ltd (SDC) for their role as "Third Parties Divers" for Tuas Finger 1 Reclamation Project from 2017 to 2018.</p>
+                    <p>Ryan and his professional dive team have performed under water inspection works on behalf of the Surbana Jurong supervision team to ensure works completed by the contractor are in accordance to the design and maintaining the high quality control of the project.</p>
+                    <p>We look forward to their future cooperation."</p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReview('review3', this)">Read More</button>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MC</div>
+                    <div class="testimonial-author-info">
+                        <h4>Martin Chu Boon Hor</h4>
+                        <span>Senior Resident Engineer, Surbana Jurong Consultants Pte. Ltd.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE REGIONS -->
+    <section class="regions fade-in visible">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Where We Operate</span>
+                <h2>Service Regions</h2>
+                <p>Our operational reach spans Singapore, West Malaysia, Vietnam, Bangladesh, and Africa (Mozambique), delivering expert underwater solutions across diverse maritime regions.</p>
+            </div>
+            <div class="regions-grid">
+                <div class="region-card"><i class="fas fa-location-dot"></i><h4>Singapore</h4></div>
+                <div class="region-card"><i class="fas fa-location-dot"></i><h4>West Malaysia</h4></div>
+                <div class="region-card"><i class="fas fa-location-dot"></i><h4>Vietnam</h4></div>
+                <div class="region-card"><i class="fas fa-location-dot"></i><h4>Bangladesh</h4></div>
+                <div class="region-card"><i class="fas fa-location-dot"></i><h4>Africa (Mozambique)</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-3-2026-03-24-41-PM-mmaa8seeyovq.webp" alt="Straits Diving Engineering">
+                <p>Singapore's trusted partner for underwater construction and marine engineering. Delivering safe, reliable solutions across Singapore, West Malaysia, Vietnam, Bangladesh and Africa (Mozambique) with operational excellence.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Underwater Construction &amp; Engineering</a></li>
+                    <li><a href="services.html">Small to Mid-sized Vessel &amp; Cargo Salvage</a></li>
+                    <li><a href="services.html">Inspection &amp; Maintenance</a></li>
+                    <li><a href="services.html">Consulting &amp; Project Management</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="showcase.html">Project Showcase</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span><a href="tel:+6590011619">+65 9001 1619</a></span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span><a href="https://wa.me/6590011619">WhatsApp Us</a></span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span><a href="mailto:technical@straits-diving.com.sg">technical@straits-diving.com.sg</a></span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-location-dot"></i>
+                    <span>Singapore (Headquarters)<br>Malaysia (Johor) (Branch)</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Straits Diving &amp; Engineering Pte Ltd. All rights reserved.</p>
+            <p>Website designed by <a href="#">Reputifly</a></p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/6584748748" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Read More toggle for testimonials
+        function toggleReview(id, btn) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('clamped')) {
+                el.classList.remove('clamped');
+                btn.textContent = 'Read Less';
+            } else {
+                el.classList.add('clamped');
+                btn.textContent = 'Read More';
+            }
+        }
+    </script>
+
+</body></html>
