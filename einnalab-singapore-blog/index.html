@@ -1,0 +1,3374 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EINNALAB.com Singapore Market Blog Content Strategy & Calendar Report</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a2e;
+      line-height: 1.6;
+      background: #fff;
+      font-size: 11pt;
+      width: 100%;
+      max-width: 100vw;
+      position: relative;
+    }
+
+    p, h1, h2, h3, h4, h5, h6, li, td, th, span, a, blockquote {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    /* COVER PAGE */
+    .cover {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(0, 206, 209, 0.1) 0%, transparent 50%);
+    }
+
+    .cover * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover .badge {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-size: 11pt;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .cover h1 {
+      font-size: 38pt;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff, #a8edea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover .subtitle {
+      font-size: 16pt;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 50px;
+      max-width: 600px;
+    }
+
+    .cover .meta-row {
+      display: flex;
+      gap: 40px;
+      font-size: 10pt;
+      opacity: 0.7;
+    }
+
+    .cover .meta-row span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cover .client-logo {
+      font-size: 24pt;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+      color: #a8edea;
+    }
+
+    .cover .data-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 36px 0 20px 0;
+      max-width: 720px;
+      width: 100%;
+    }
+
+    .cover .data-stat {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 14px 10px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .cover .data-stat .ds-val {
+      font-size: 22pt;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover .data-stat .ds-label {
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    .cover .prepared-by {
+      margin-top: 32px;
+      font-size: 9pt;
+      opacity: 0.55;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .cover .prepared-by strong {
+      opacity: 1;
+      font-size: 11pt;
+      display: block;
+      margin-top: 4px;
+      letter-spacing: 2px;
+      color: #a8edea;
+    }
+
+    @media (max-width: 900px) {
+      .cover .data-stats {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cover .data-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px;
+      }
+
+      .cover .data-stat .ds-val {
+        font-size: 16pt;
+      }
+
+      .cover .data-stat .ds-label {
+        font-size: 6.5pt;
+      }
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 50px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 22pt;
+      font-weight: 800;
+      color: #0f0c29;
+      margin-bottom: 8px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid #302b63;
+    }
+
+    h2 .num {
+      color: #302b63;
+      font-size: 14pt;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    h3 {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #302b63;
+      margin: 24px 0 10px 0;
+    }
+
+    h4 {
+      font-size: 12pt;
+      font-weight: 600;
+      color: #444;
+      margin: 16px 0 8px 0;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    /* KPI CARDS */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .kpi-card {
+      background: linear-gradient(135deg, #f8f9ff, #eef0ff);
+      border: 1px solid #d4d8f0;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .kpi-card .value {
+      font-size: 28pt;
+      font-weight: 800;
+      color: #302b63;
+      line-height: 1;
+    }
+
+    .kpi-card .label {
+      font-size: 9pt;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 6px;
+    }
+
+    .kpi-card .change {
+      font-size: 9pt;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .kpi-card .change.up {
+      color: #10b981;
+    }
+
+    .kpi-card .change.down {
+      color: #ef4444;
+    }
+
+    /* TABLES */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 9.5pt;
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+    }
+
+    thead th {
+      background: #302b63;
+      color: white;
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    thead th:first-child {
+      border-radius: 8px 0 0 0;
+    }
+
+    thead th:last-child {
+      border-radius: 0 8px 0 0;
+    }
+
+    tbody td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f9f9fc;
+    }
+
+    tbody tr:hover {
+      background: #f0f0ff;
+    }
+
+    .highlight-row {
+      background: #fff3cd !important;
+      font-weight: 600;
+    }
+
+    /* CALLOUT BOXES */
+    .callout {
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .callout-insight {
+      background: #eef0ff;
+      border-left: 4px solid #302b63;
+    }
+
+    .callout-warning {
+      background: #fff3cd;
+      border-left: 4px solid #f59e0b;
+    }
+
+    .callout-success {
+      background: #d1fae5;
+      border-left: 4px solid #10b981;
+    }
+
+    .callout-critical {
+      background: #fee2e2;
+      border-left: 4px solid #ef4444;
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 10pt;
+    }
+
+    /* CONTENT CALENDAR TABLE */
+    .cal-table {
+      font-size: 8.5pt;
+    }
+
+    .cal-table thead th {
+      font-size: 7.5pt;
+      padding: 8px 6px;
+    }
+
+    .cal-table tbody td {
+      padding: 6px;
+      vertical-align: top;
+    }
+
+    .cal-table .week-num {
+      background: #302b63;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 8pt;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .cal-table .phase-header {
+      background: #24243e;
+      color: white;
+      font-weight: 700;
+      font-size: 10pt;
+      padding: 10px 12px;
+    }
+
+    .cal-table .priority-high {
+      color: #ef4444;
+      font-weight: 700;
+    }
+
+    .cal-table .priority-med {
+      color: #f59e0b;
+      font-weight: 600;
+    }
+
+    .cal-table .priority-low {
+      color: #10b981;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 7.5pt;
+      font-weight: 600;
+    }
+
+    .tag-redirect {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+
+    .tag-new {
+      background: #d1fae5;
+      color: #059669;
+    }
+
+    .tag-competitor {
+      background: #dbeafe;
+      color: #2563eb;
+    }
+
+    .tag-ingredient {
+      background: #fef3c7;
+      color: #d97706;
+    }
+
+    .tag-science {
+      background: #ede9fe;
+      color: #7c3aed;
+    }
+
+    .tag-ai {
+      background: #fce7f3;
+      color: #db2777;
+    }
+
+    .tag-sg {
+      background: #d1fae5;
+      color: #0d9488;
+    }
+
+    /* LISTS */
+    ul,
+    ol {
+      margin: 8px 0 16px 24px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 30px;
+      color: #999;
+      font-size: 8pt;
+      border-top: 1px solid #eee;
+      margin-top: 40px;
+    }
+
+    code {
+      word-break: break-all;
+      font-size: 0.9em;
+      background: #f3f3f3;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    td,
+    th {
+      word-break: normal;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 900px) {
+      .section {
+        padding: 30px 20px;
+      }
+
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .kpi-card .value {
+        font-size: 22pt;
+      }
+
+      .cover h1 {
+        font-size: 24pt;
+      }
+
+      .cover .subtitle {
+        font-size: 13pt;
+      }
+
+      .cover .meta-row {
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+
+      .cover {
+        padding: 40px 20px;
+      }
+
+      h2 {
+        font-size: 18pt;
+      }
+
+      h3 {
+        font-size: 13pt;
+      }
+
+      table td,
+      table th {
+        white-space: nowrap;
+      }
+
+      .cal-table td,
+      .cal-table th {
+        min-width: 60px;
+      }
+
+      .cal-table td:nth-child(3) {
+        min-width: 160px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section {
+        padding: 20px 14px;
+      }
+
+      .kpi-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .kpi-card {
+        padding: 14px 10px;
+      }
+
+      .kpi-card .value {
+        font-size: 18pt;
+      }
+
+      .kpi-card .label {
+        font-size: 8pt;
+      }
+
+      .cover h1 {
+        font-size: 20pt;
+      }
+
+      .cover .subtitle {
+        font-size: 11pt;
+      }
+
+      .cover .badge {
+        font-size: 9pt;
+        padding: 6px 16px;
+      }
+
+      h2 {
+        font-size: 16pt;
+      }
+
+      h3 {
+        font-size: 12pt;
+      }
+
+      body {
+        font-size: 10pt;
+      }
+
+      .callout {
+        padding: 14px 16px;
+      }
+
+      .callout strong {
+        font-size: 9.5pt;
+      }
+
+      ol,
+      ul {
+        margin-left: 32px;
+        padding-left: 8px;
+      }
+    }
+
+    @media print {
+      .cover {
+        min-height: auto;
+        padding: 120px 40px;
+      }
+
+      .section {
+        padding: 30px 40px;
+      }
+
+      .page-break {
+        page-break-before: always;
+      }
+
+      body {
+        font-size: 10pt;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== COVER PAGE ==================== -->
+  <div class="cover">
+    <div class="badge">Singapore Market Content Report</div>
+    <div class="client-logo">EINNALAB</div>
+    <h1>Blog Content Strategy<br>&amp; 50-Week Calendar</h1>
+    <p class="subtitle">Data-driven SEO blog strategy based on 16 months of Google Search Console data filtered to Singapore, competitor analysis, and AI visibility optimisation for the Singapore deer placenta supplement market.</p>
+
+    <div class="data-stats" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="data-stat">
+        <div class="ds-val">8,283+</div>
+        <div class="ds-label">Impressions Analysed</div>
+      </div>
+      <div class="data-stat">
+        <div class="ds-val">121+</div>
+        <div class="ds-label">Keywords Analysed</div>
+      </div>
+      <div class="data-stat">
+        <div class="ds-val">28</div>
+        <div class="ds-label">Pages Tracked</div>
+      </div>
+      <div class="data-stat">
+        <div class="ds-val">487</div>
+        <div class="ds-label">Days of Search Data</div>
+      </div>
+      <div class="data-stat">
+        <div class="ds-val">100</div>
+        <div class="ds-label">Blog Posts Proposed</div>
+      </div>
+    </div>
+
+    <div class="meta-row">
+      <span>Date: April 9, 2026</span>
+      <span>Domain: EINNALAB.com</span>
+      <span>Target: Singapore Market</span>
+      <span>Posts Proposed: 100</span>
+    </div>
+
+    <div class="prepared-by">
+      Prepared by<br>
+      <strong>Reputifly Pte Ltd</strong>
+    </div>
+  </div>
+
+  <!-- ==================== COMPETITOR DEEP DIVE ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Competitor Intelligence</span>Singapore Market: How EINNALAB Compares</h2>
+
+    <p>Based on analysis of <strong>30+ search queries across Google.sg, Lazada, Shopee, and Amazon.sg</strong>, here is exactly where EINNALAB stands against every significant competitor in the Singapore deer placenta market.</p>
+
+    <h3>At a Glance: EINNALAB vs Singapore Market</h3>
+    <div class="kpi-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="kpi-card">
+        <div class="value" style="font-size:16pt; color:#10b981;">30,000mg</div>
+        <div class="label">EINNALAB Concentration</div>
+        <div class="change up">Highest in market</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value" style="font-size:16pt; color:#ef4444;">Page 2</div>
+        <div class="label">EINNALAB SG Ranking</div>
+        <div class="change down">Avg position 19.79</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value" style="font-size:16pt; color:#ef4444;">0</div>
+        <div class="label">SG-Specific Blog Posts</div>
+        <div class="change down">Competitors have 6-50+ each</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value" style="font-size:16pt; color:#ef4444;">None</div>
+        <div class="label">Lazada / Shopee Presence</div>
+        <div class="change down">Competitors all listed</div>
+      </div>
+    </div>
+
+    <!-- TIER 1 -->
+    <h3>Tier 1: Dominant Competitors (Page 1 Rankings)</h3>
+    <p>These brands consistently rank on page 1 of Google.sg for multiple deer placenta queries. They set the bar EINNALAB must clear.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:130px">Competitor</th>
+          <th>Domain</th>
+          <th>Blog Posts</th>
+          <th>SGD Price</th>
+          <th>Concentration</th>
+          <th>Distribution</th>
+          <th>Why They Win</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>Nano Singapore</strong></td>
+          <td>nanosingaporeshop.com</td>
+          <td>6+</td>
+          <td>$69.90</td>
+          <td>20,000mg</td>
+          <td>NTUC FairPrice, Guardian, Shopee, Amazon.sg</td>
+          <td>"Singapore" in brand name, physical retail, aggressive blog (beauty + TCM + immune angles), TikTok presence</td>
+        </tr>
+        <tr>
+          <td><strong>Holistic Way</strong></td>
+          <td>holisticway.com.sg</td>
+          <td>1-2</td>
+          <td>$150.80</td>
+          <td>9,000mg</td>
+          <td>Watsons, Guardian</td>
+          <td>.sg domain = geo-ranking boost. Pharmacy shelf presence = instant trust. Product listings on watsons.com.sg (DR 70+)</td>
+        </tr>
+        <tr>
+          <td><strong>GreenLife</strong></td>
+          <td>greenlife.sg</td>
+          <td>0-1</td>
+          <td>~$120</td>
+          <td>15,000mg</td>
+          <td>Watsons</td>
+          <td>.sg domain, established SG brand. Relies on Watsons product pages for rankings. Almost zero blog content.</td>
+        </tr>
+        <tr>
+          <td><strong>Watsons.com.sg</strong></td>
+          <td>watsons.com.sg</td>
+          <td>N/A</td>
+          <td>Various</td>
+          <td>N/A</td>
+          <td>100+ physical stores</td>
+          <td>DR 70+, Product schema markup, SGD pricing, user reviews. Nearly impossible to outrank for transactional queries.</td>
+        </tr>
+        <tr>
+          <td><strong>Guardian.com.sg</strong></td>
+          <td>guardian.com.sg</td>
+          <td>N/A</td>
+          <td>Various</td>
+          <td>N/A</td>
+          <td>60+ physical stores</td>
+          <td>DR 60+, Singapore's second-largest pharmacy chain, structured product data.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- TIER 2 -->
+    <h3>Tier 2: Strong Competitors</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:130px">Competitor</th>
+          <th>Domain</th>
+          <th>Blog Posts</th>
+          <th>SGD Price</th>
+          <th>Concentration</th>
+          <th>Why They Rank</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>Purtier (RIWAY)</strong></td>
+          <td>purtier.com + 50+ distributor sites (garyng.co, sgstemcell.com, etc.)</td>
+          <td>50+ (network)</td>
+          <td>$760/bottle</td>
+          <td>Undisclosed</td>
+          <td>Massive brand awareness. Distributor blogs create a content network. <strong>BUT: HSA convicted RIWAY in 2021, fined SGD 3,000 for false claims about cancer and diabetes treatment.</strong></td>
+        </tr>
+        <tr>
+          <td><strong>CellLabs</strong></td>
+          <td>celllabs.co</td>
+          <td>10+</td>
+          <td>~$100-180</td>
+          <td>Various</td>
+          <td>Malaysian brand with strong educational blog. "Beginner's Guide to Deer Placenta" ranks for informational queries. Covers extraction ratios and ingredient science.</td>
+        </tr>
+        <tr>
+          <td><strong>Lazada.sg</strong></td>
+          <td>lazada.sg (DR 80+)</td>
+          <td>N/A</td>
+          <td>Various</td>
+          <td>N/A</td>
+          <td>Tag pages (/tag/purtier/, /tag/placenta-supplement/) rank for generic + branded queries. EINNALAB is NOT listed.</td>
+        </tr>
+        <tr>
+          <td><strong>Shopee.sg</strong></td>
+          <td>shopee.sg (DR 80+)</td>
+          <td>N/A</td>
+          <td>Various</td>
+          <td>N/A</td>
+          <td>Dominant SE Asia marketplace. Search result pages rank for commercial queries. EINNALAB is NOT listed.</td>
+        </tr>
+        <tr>
+          <td><strong>Amazon.sg</strong></td>
+          <td>amazon.sg (DR 90+)</td>
+          <td>N/A</td>
+          <td>Various</td>
+          <td>N/A</td>
+          <td>Highest domain authority. Nano Singapore listed with Prime delivery. EINNALAB on Amazon.com (US) but NOT Amazon.sg.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- TIER 3 -->
+    <h3>Tier 3: Niche Competitors</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>Domain</th>
+          <th>Why They Appear</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Omnidefood</strong></td>
+          <td>omnidefood.com</td>
+          <td>Made-in-Singapore, HSA verified, SGS Lab tested (350 substances). GMP/HACCP/ISO certified SG factory.</td>
+        </tr>
+        <tr>
+          <td><strong>NZ Vita For Life</strong></td>
+          <td>nzvitaforlife.com</td>
+          <td>NZ-origin comparison content (deer vs sheep vs velvet). Ranks for "best deer placenta supplement New Zealand".</td>
+        </tr>
+        <tr>
+          <td><strong>CARiNG Pharmacy</strong></td>
+          <td>caring2u.com</td>
+          <td>One comparison article ("Collagen vs Stem Cells vs Sheep vs Deer Placenta") ranks well due to pharmacy domain authority.</td>
+        </tr>
+        <tr>
+          <td><strong>VMB / Easy Wellness / Miracell</strong></td>
+          <td>Various</td>
+          <td>Brand-name queries from SG searchers. Low volume but present in GSC data.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- PRICING -->
+    <h3>SGD Price Comparison: Where EINNALAB Sits</h3>
+    <p>Singapore consumers are <strong>price-conscious</strong> and actively compare on Lazada/Shopee before buying. Here is how EINNALAB's product compares in SGD terms:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Brand</th>
+          <th>Product</th>
+          <th>Concentration</th>
+          <th>SGD Price</th>
+          <th>Per Capsule</th>
+          <th>Per 1,000mg</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nano Singapore</td>
+          <td>Deer Placenta Prestige</td>
+          <td>20,000mg</td>
+          <td>$69.90 (60 caps)</td>
+          <td>$1.17</td>
+          <td>$0.06</td>
+        </tr>
+        <tr>
+          <td>GreenLife</td>
+          <td>Derma Youth Deer Placenta</td>
+          <td>15,000mg</td>
+          <td>~$120 (60 caps)</td>
+          <td>~$2.00</td>
+          <td>~$0.13</td>
+        </tr>
+        <tr>
+          <td>Holistic Way</td>
+          <td>Premium Deer Placenta Fresh</td>
+          <td>9,000mg</td>
+          <td>$150.80 (60 caps)</td>
+          <td>$2.51</td>
+          <td>$0.28</td>
+        </tr>
+        <tr>
+          <td>Holistic Way</td>
+          <td>Premium Gold Deer Placenta</td>
+          <td>15,000mg</td>
+          <td>~$180+ (60 caps)</td>
+          <td>~$3.00+</td>
+          <td>~$0.20</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>EINNALAB</strong></td>
+          <td><strong>Deer Placenta Premium</strong></td>
+          <td><strong>30,000mg</strong></td>
+          <td><strong>No SGD pricing displayed</strong></td>
+          <td><strong>TBD</strong></td>
+          <td><strong>TBD</strong></td>
+        </tr>
+        <tr>
+          <td>Purtier (RIWAY)</td>
+          <td>7th Edition</td>
+          <td>Undisclosed (MLM)</td>
+          <td>$760 / bottle</td>
+          <td>$12.67</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Purtier (RIWAY)</td>
+          <td>7th Edition (7-pack)</td>
+          <td>Undisclosed (MLM)</td>
+          <td>$3,988 (420 caps)</td>
+          <td>$9.50</td>
+          <td>N/A</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-success">
+      <strong>EINNALAB's Unfair Advantage: Highest Concentration in Market</strong>
+      At 30,000mg, EINNALAB is 50% higher than Nano Singapore (20,000mg), double GreenLife (15,000mg), and more than 3x Holistic Way (9,000mg). Once SGD pricing is displayed, this concentration advantage makes EINNALAB the clear value leader. <strong>This must be the #1 message in every blog post.</strong>
+    </div>
+
+    <!-- WHAT COMPETITORS DO THAT EINNALAB DOESN'T -->
+    <h3>Content Strategy: What Competitors Do That EINNALAB Does Not</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Content / Strategy</th>
+          <th>Nano SG</th>
+          <th>Holistic Way</th>
+          <th>Purtier Network</th>
+          <th>CellLabs</th>
+          <th style="background:#ef4444">EINNALAB</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Singapore-specific blog posts</td>
+          <td>6+</td>
+          <td>1-2</td>
+          <td>20+</td>
+          <td>0</td>
+          <td style="color:#ef4444; font-weight:700">0</td>
+        </tr>
+        <tr>
+          <td>SGD pricing displayed</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td style="color:#ef4444; font-weight:700">No</td>
+        </tr>
+        <tr>
+          <td>.sg domain</td>
+          <td>No (.com)</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>No</td>
+          <td style="color:#ef4444; font-weight:700">No</td>
+        </tr>
+        <tr>
+          <td>Pharmacy/retail distribution</td>
+          <td>FairPrice, Guardian</td>
+          <td>Watsons, Guardian</td>
+          <td>MLM only</td>
+          <td>Online only</td>
+          <td style="color:#ef4444; font-weight:700">Online only</td>
+        </tr>
+        <tr>
+          <td>Lazada.sg store</td>
+          <td>Yes</td>
+          <td>Via retailers</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td style="color:#ef4444; font-weight:700">No</td>
+        </tr>
+        <tr>
+          <td>Shopee.sg store</td>
+          <td>Yes</td>
+          <td>Via retailers</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td style="color:#ef4444; font-weight:700">No</td>
+        </tr>
+        <tr>
+          <td>Product schema markup</td>
+          <td>Partial</td>
+          <td>Via Watsons</td>
+          <td>No</td>
+          <td>Partial</td>
+          <td style="color:#ef4444; font-weight:700">No</td>
+        </tr>
+        <tr>
+          <td>FAQ schema</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Yes (garyng.co)</td>
+          <td>No</td>
+          <td style="color:#ef4444; font-weight:700">No</td>
+        </tr>
+        <tr>
+          <td>Author bios / E-E-A-T</td>
+          <td>Partial</td>
+          <td>No</td>
+          <td>Distributor profiles</td>
+          <td>Yes</td>
+          <td style="color:#ef4444; font-weight:700">No</td>
+        </tr>
+        <tr>
+          <td>TikTok / social content</td>
+          <td>Active (@nanosingaporesg)</td>
+          <td>Minimal</td>
+          <td>Distributor network</td>
+          <td>Minimal</td>
+          <td style="color:#ef4444; font-weight:700">Unknown</td>
+        </tr>
+        <tr>
+          <td>HSA / compliance mentions</td>
+          <td>Product level</td>
+          <td>Yes</td>
+          <td>Convicted by HSA</td>
+          <td>No</td>
+          <td style="color:#ef4444; font-weight:700">No</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>Concentration (mg)</strong></td>
+          <td>20,000</td>
+          <td>9,000-15,000</td>
+          <td>Undisclosed</td>
+          <td>Various</td>
+          <td style="color:#10b981; font-weight:700">30,000 (BEST)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- COMPETITOR STRATEGIES -->
+    <h3>How Each Competitor Wins (And Their Weaknesses)</h3>
+
+    <h4>1. Nano Singapore: "Local-First" Branding</h4>
+    <div class="callout callout-insight">
+      <strong>Strategy:</strong> Brand name includes "Singapore." Physical retail at NTUC FairPrice (grassroots trust). Aggressive blog covering beauty, TCM, and immune angles. Active TikTok (@nanosingaporesg). Separate health blog domain (healthhub.nanosingaporeshop.com).<br>
+      <strong>Weakness:</strong> Lower concentration (20,000mg vs EINNALAB's 30,000mg). Shopify-based site with limited technical SEO. No .sg domain.
+    </div>
+
+    <h4>2. Purtier / RIWAY: Volume Through MLM Network</h4>
+    <div class="callout callout-warning">
+      <strong>Strategy:</strong> 50+ distributor sites create massive keyword coverage (garyng.co, sgstemcell.com, purtiermart.com, multiple Blogspot sites). Massive brand recognition in Singapore and Asia.<br>
+      <strong>Weakness:</strong> <strong>HSA convicted RIWAY in July 2021, fined SGD 3,000 for false claims about cancer and diabetes treatment.</strong> HSA issued a consumer advisory warning about Purtier. MLM pricing ($760/bottle) is 10x market average. Concentration not disclosed on label.
+    </div>
+
+    <h4>3. Holistic Way / GreenLife: Pharmacy Shelf Trust</h4>
+    <div class="callout callout-insight">
+      <strong>Strategy:</strong> .sg domains give inherent geo-ranking advantage. Watsons and Guardian product listings generate high-authority backlinks (DR 60-70+). Consumers trust what they see on pharmacy shelves.<br>
+      <strong>Weakness:</strong> Almost zero blog content. Holistic Way has 1-2 blog posts; GreenLife has 0-1. Lower concentration (9,000-15,000mg). They rely entirely on retail trust, not educational authority.
+    </div>
+
+    <h4>4. CellLabs: Educational Authority</h4>
+    <div class="callout callout-insight">
+      <strong>Strategy:</strong> "Beginner's Guide to Deer Placenta" ranks for informational queries. Covers extraction ratios, ingredient science. Well-structured blog categories.<br>
+      <strong>Weakness:</strong> Malaysian brand, not Singapore-specific. No physical SG presence. Content depth is strong but volume is moderate (10+ articles).
+    </div>
+
+    <!-- 7 CRITICAL GAPS -->
+    <h3>7 Reasons EINNALAB Loses to Competitors in Singapore</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:30px">#</th>
+          <th>Gap</th>
+          <th>Impact</th>
+          <th>Fix (This Report)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>1</td>
+          <td><strong>Zero Singapore Content</strong></td>
+          <td>Cannot rank for "deer placenta Singapore" or any SG-specific query</td>
+          <td>55 SG-targeted blog posts in Phases 1-5</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>2</td>
+          <td><strong>No SGD Pricing</strong></td>
+          <td>SG buyers see USD, assume it is a foreign brand, and leave</td>
+          <td>Price guide blog posts + recommendation to add SGD</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>No Lazada / Shopee Store</strong></td>
+          <td>Missing from Singapore's two largest e-commerce platforms entirely</td>
+          <td>Beyond blog scope; flagged as critical recommendation</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>Thin Content vs Competitors</strong></td>
+          <td>~7-9 blog posts vs Nano SG (6+), CellLabs (10+), Purtier network (50+)</td>
+          <td>100 new blog posts over 50 weeks</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>No Local Trust Signals</strong></td>
+          <td>No .sg domain, no SG address, no HSA mention, no SGS testing certs</td>
+          <td>HSA compliance content + trust-building blog posts</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>No Schema Markup</strong></td>
+          <td>Missing Product, FAQ, Article, and Organization structured data</td>
+          <td>AI/LLM strategy section covers implementation</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>No E-E-A-T Signals</strong></td>
+          <td>No author bios, no clinical citations, no expert endorsements</td>
+          <td>Science content + E-E-A-T strategy in report</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- CONTENT GAPS -->
+    <h3>Content Gaps: What Competitors Cover That EINNALAB Does Not</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Who Covers It</th>
+          <th>EINNALAB Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Singapore-specific buying guides</td>
+          <td>Nano Singapore, retailer product pages</td>
+          <td style="color:#ef4444; font-weight:600">MISSING</td>
+        </tr>
+        <tr>
+          <td>"Where to buy" in Singapore</td>
+          <td>Watsons, Guardian, FairPrice pages</td>
+          <td style="color:#ef4444; font-weight:600">MISSING</td>
+        </tr>
+        <tr>
+          <td>HSA regulations explained</td>
+          <td>HSA.gov.sg referenced by some sites</td>
+          <td style="color:#ef4444; font-weight:600">MISSING</td>
+        </tr>
+        <tr>
+          <td>SGD price comparison content</td>
+          <td>Retailer listings, marketplace pages</td>
+          <td style="color:#ef4444; font-weight:600">MISSING</td>
+        </tr>
+        <tr>
+          <td>TCM heritage angle</td>
+          <td>Nano Singapore, CellLabs</td>
+          <td style="color:#f59e0b; font-weight:600">MINIMAL</td>
+        </tr>
+        <tr>
+          <td>Deer placenta vs NMN / collagen</td>
+          <td>CARiNG Pharmacy (surface-level)</td>
+          <td style="color:#ef4444; font-weight:600">MISSING</td>
+        </tr>
+        <tr>
+          <td>Deer placenta for men</td>
+          <td>No competitor covers this</td>
+          <td style="color:#ef4444; font-weight:600">MISSING (OPPORTUNITY)</td>
+        </tr>
+        <tr>
+          <td>Halal certification content</td>
+          <td>Deep Blue Health, VMB (partial)</td>
+          <td style="color:#ef4444; font-weight:600">MISSING</td>
+        </tr>
+        <tr>
+          <td>FAQ / People Also Ask content</td>
+          <td>garyng.co (Purtier distributor)</td>
+          <td style="color:#ef4444; font-weight:600">MISSING</td>
+        </tr>
+        <tr>
+          <td>Video content (TikTok/YouTube)</td>
+          <td>Nano Singapore (@nanosingaporesg)</td>
+          <td style="color:#ef4444; font-weight:600">MISSING</td>
+        </tr>
+        <tr>
+          <td>Clinical studies / science</td>
+          <td>einnalab has 1 article (strength)</td>
+          <td style="color:#f59e0b; font-weight:600">PARTIAL (needs expansion)</td>
+        </tr>
+        <tr>
+          <td>Ingredient deep dives</td>
+          <td>CellLabs, Purtier network</td>
+          <td style="color:#f59e0b; font-weight:600">PARTIAL (borage oil, lycopene exist)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-critical">
+      <strong>Bottom Line for EINNALAB</strong>
+      EINNALAB has the <strong>best product</strong> (highest concentration at 30,000mg, NZ-sourced, enteric-coated) but the <strong>worst Singapore visibility</strong>. Every competitor — even those with inferior products — outranks EINNALAB because they have Singapore-specific content, local trust signals, and marketplace presence. This 100-post content calendar fixes the content gap. The marketplace gap (Lazada/Shopee) and trust signal gap (SGD pricing, SG address) must be addressed in parallel.
+    </div>
+  </div>
+
+  <!-- ==================== TABLE OF CONTENTS ==================== -->
+  <div class="section">
+    <h2><span class="num">Contents</span>Table of Contents</h2>
+    <ol style="font-size: 11pt; line-height: 2.2;">
+      <li><strong>Executive Summary</strong></li>
+      <li><strong>GSC Data Analysis: 16-Month Singapore Overview</strong></li>
+      <li><strong>Top Performing Content in Singapore</strong></li>
+      <li><strong>Singapore Keyword Clusters &amp; Opportunities</strong></li>
+      <li><strong>URL Redirect Strategy (Critical)</strong></li>
+      <li><strong>Device Breakdown</strong></li>
+      <li><strong>Deep Competitor Landscape</strong></li>
+      <li><strong>AI/LLM Visibility Strategy</strong></li>
+      <li><strong>Content Pillar Framework</strong></li>
+      <li><strong>50-Week Content Calendar (100 Blog Posts)</strong></li>
+      <li><strong>Implementation Roadmap &amp; Priorities</strong></li>
+    </ol>
+  </div>
+
+  <!-- ==================== 1. EXECUTIVE SUMMARY ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 1</span>Executive Summary</h2>
+
+    <p>EINNALAB.com is an emerging deer placenta supplement brand with <strong>zero Singapore-specific content</strong> on its current website. Despite this, the site has organically attracted <strong>195 clicks and 8,283 impressions</strong> from Singapore searchers over 16 months of Google Search Console data, demonstrating clear untapped demand in this market.</p>
+
+    <p>This report proposes a <strong>100-blog-post content calendar spanning 50 weeks (2 posts/week)</strong>, built entirely on actual GSC data filtered to Singapore, local competitor analysis, and AI visibility optimisation tailored for Singaporean searchers.</p>
+
+    <div class="callout callout-critical">
+      <strong>URGENT: Singapore-Specific Content Gap</strong>
+      EINNALAB has zero Singapore-specific content. The keyword "placenta supplement singapore" alone generated 119 impressions at position 72.61 -- meaning Google already associates the site with this market but cannot rank it because no locally targeted content exists. Competitors like Purtier, Holistic Way, and GreenLife dominate because they have Singapore-specific pages with SGD pricing, local delivery details, and HSA-aligned messaging.
+    </div>
+
+    <div class="callout callout-warning">
+      <strong>HSA Compliance Notice (Singapore Health Sciences Authority)</strong>
+      All 100 blog posts in this calendar are designed to comply with Singapore's strict supplement advertising guidelines. No post makes disease-treatment or cure claims. Content uses evidence-based framing ("what research suggests", "what studies indicate") and avoids prohibited terms like "cure", "treat", "prevent disease", or "remedy". Every post must include a standard HSA disclaimer: <em>"This product is not intended to diagnose, treat, cure, or prevent any disease."</em> Competitor comparison content must remain factual and avoid disparagement. All health claims must cite peer-reviewed sources.
+    </div>
+
+    <h3>Key Findings</h3>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="value">195</div>
+        <div class="label">Total Clicks (16mo)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">8,283</div>
+        <div class="label">Total Impressions (16mo)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">2.35%</div>
+        <div class="label">Average CTR</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">19.79</div>
+        <div class="label">Average Position</div>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="value">137</div>
+        <div class="label">Clicks (Last 6mo)</div>
+        <div class="change up">70% of all-time clicks</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">5,146</div>
+        <div class="label">Impressions (Last 6mo)</div>
+        <div class="change up">62% of all-time</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">22.1</div>
+        <div class="label">Recent Avg Position</div>
+        <div class="change down">Page 2-3 average</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">121+</div>
+        <div class="label">Unique Keywords</div>
+        <div class="change">Ranking in Google SG</div>
+      </div>
+    </div>
+
+    <h3>Strategic Priorities</h3>
+    <ol>
+      <li><strong>Redirect Recovery (Weeks 1-8):</strong> Recreate 16 old high-performing blog posts and set up 301 redirects. The old URLs still generate significant impressions in Singapore -- the sheep placenta comparison page alone had 1,606 impressions from SG searchers.</li>
+      <li><strong>Singapore Localisation (Weeks 9-18):</strong> Create 20 Singapore-specific posts targeting local keywords, SGD pricing, HSA compliance, and TCM-aligned messaging. The keyword "placenta supplement singapore" at position 72 is the single biggest opportunity.</li>
+      <li><strong>Comparison &amp; Buyer Education (Weeks 19-28):</strong> Category comparison content (deer vs sheep placenta, deer placenta vs NMN, vs bird's nest, vs collagen) plus buyer education guides on pricing, quality, and capsule technology.</li>
+      <li><strong>Ingredient &amp; Science Authority (Weeks 29-38):</strong> Deep science content on dendrobium (382 impressions, position 9.25), deer placenta bioactives, and clinical research to build E-E-A-T.</li>
+      <li><strong>AI Visibility &amp; Lifestyle (Weeks 39-50):</strong> FAQ-rich, schema-marked content designed for Google AI Overviews and LLM responses, plus seasonal wellness content for Singapore.</li>
+    </ol>
+  </div>
+
+  <!-- ==================== WHY SINGAPORE NEEDS ITS OWN STRATEGY ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Why Singapore</span>How This Strategy Differs from a Global Approach</h2>
+
+    <p>Singapore is not simply a smaller version of the US market. It has <strong>fundamentally different search behaviour, regulatory requirements, competitive dynamics, and cultural expectations</strong>. A generic global SEO strategy fails in Singapore for these reasons:</p>
+
+    <div class="kpi-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="kpi-card">
+        <div class="value" style="font-size:14pt; color:#ef4444;">72.61</div>
+        <div class="label">Position for "placenta supplement singapore"</div>
+        <div class="change down">No SG-specific content exists</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value" style="font-size:14pt; color:#302b63;">0</div>
+        <div class="label">Singapore-targeted blog posts on site</div>
+        <div class="change down">Competitors have 20+ each</div>
+      </div>
+    </div>
+
+    <h3>Singapore vs USA: 7 Critical Differences</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Factor</th>
+          <th>USA Strategy</th>
+          <th>Singapore Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Regulatory Environment</strong></td>
+          <td>FDA with flexible supplement claims</td>
+          <td>HSA with strict advertising guidelines — no disease claims, no "cure/treat" language</td>
+        </tr>
+        <tr>
+          <td><strong>Dominant Competitor</strong></td>
+          <td>Amazon reviews, generic health blogs</td>
+          <td>Purtier (RIWAY MLM), Holistic Way/GreenLife (pharmacy shelf brands), Lazada/Shopee</td>
+        </tr>
+        <tr>
+          <td><strong>Cultural Context</strong></td>
+          <td>Western wellness, biohacking angle</td>
+          <td>TCM heritage (Lu Tai Su), CNY gifting, multi-racial market (Chinese, Malay, Indian)</td>
+        </tr>
+        <tr>
+          <td><strong>Purchase Behaviour</strong></td>
+          <td>Direct-to-consumer, Amazon</td>
+          <td>Price comparison on Lazada/Shopee, pharmacy trust (Guardian/Watsons), MLM scepticism</td>
+        </tr>
+        <tr>
+          <td><strong>Device Split</strong></td>
+          <td>68% mobile, 30% desktop</td>
+          <td>57% mobile, 43% desktop — more desktop research before purchase</td>
+        </tr>
+        <tr>
+          <td><strong>Content Tone</strong></td>
+          <td>American English, casual, benefits-led</td>
+          <td>Singapore English, authoritative, evidence-first, HSA-compliant</td>
+        </tr>
+        <tr>
+          <td><strong>Unique Content Angles</strong></td>
+          <td>General deer placenta education</td>
+          <td>HSA guides, SGD pricing, haze season wellness, TCM practitioner perspectives, halal considerations, Bird's Nest vs Deer Placenta</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-success">
+      <strong>55 out of 100 posts are uniquely Singapore</strong>
+      This calendar contains 55 blog posts that would never appear in a USA-targeted strategy. They cover Singapore-specific topics including HSA compliance, Guardian/Watsons retail, Lazada vs Shopee, TCM heritage, haze season wellness, CNY gifting, halal/vegetarian options, active ageing, and local competitor reviews. The remaining 45 posts cover universal topics but are reframed with Singapore data, SGD pricing, and HSA-compliant language.
+    </div>
+  </div>
+
+  <!-- ==================== 2. GSC DATA ANALYSIS ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 2</span>GSC Data Analysis: 16-Month Singapore Overview</h2>
+
+    <p>Data spans from <strong>8 December 2024 through 7 April 2026</strong> (487 days), filtered exclusively to searchers in Singapore. A significant gap exists from approximately <strong>20 January to 1 June 2025</strong>, representing the website migration period.</p>
+
+    <h3>Traffic Timeline (Singapore)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Period</th>
+          <th>Phase</th>
+          <th>Avg Daily Clicks</th>
+          <th>Avg Daily Impressions</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dec 2024</td>
+          <td>Old Site (final month)</td>
+          <td>0-1</td>
+          <td>0-3</td>
+          <td>Minimal SG visibility</td>
+        </tr>
+        <tr>
+          <td>Jan 1-20, 2025</td>
+          <td>Old Site (winding down)</td>
+          <td>~0.1</td>
+          <td>~2</td>
+          <td>First SG click on Jan 3</td>
+        </tr>
+        <tr>
+          <td>Jan 21 - May 31, 2025</td>
+          <td>Migration Gap</td>
+          <td colspan="3" style="text-align:center;color:#999;">No data / Site offline</td>
+        </tr>
+        <tr>
+          <td>Jun 2025</td>
+          <td>Recovery Begins</td>
+          <td>~0.3</td>
+          <td>10-20</td>
+          <td>New site indexed for SG</td>
+        </tr>
+        <tr>
+          <td>Jul-Aug 2025</td>
+          <td>Growth Phase</td>
+          <td>0.5-1</td>
+          <td>20-40</td>
+          <td>Occasional 2-4 click days</td>
+        </tr>
+        <tr>
+          <td>Sep-Dec 2025</td>
+          <td>Steady State</td>
+          <td>0.5-1</td>
+          <td>20-40</td>
+          <td>Consistent SG impressions</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>Jan-Mar 2026</td>
+          <td>Strongest Period</td>
+          <td>1-2</td>
+          <td>30-50</td>
+          <td>Peak SG performance, 3-4 click days</td>
+        </tr>
+        <tr>
+          <td>Apr 2026</td>
+          <td>Current</td>
+          <td>~1</td>
+          <td>30-40</td>
+          <td>Continued upward trajectory</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-insight">
+      <strong>Key Insight: 70% of Clicks in Last 6 Months</strong>
+      The Singapore market is growing rapidly for EINNALAB despite zero localised content. 137 of 195 total clicks (70%) occurred in the most recent 6-month window, confirming accelerating organic demand. This growth is entirely on autopilot -- dedicated Singapore content could multiply these numbers by 5-10x.
+    </div>
+
+    <h3>Singapore vs Global Context</h3>
+    <p>Singapore accounts for approximately <strong>13% of global clicks</strong> and <strong>14% of global impressions</strong> for einnalab.com. For a site with zero Singapore-specific content, this is a remarkably strong signal of market demand. The average position of 19.79 (page 2) means most Singapore searchers never see the results -- improving to page 1 (position 1-10) could increase clicks by 400-800%.</p>
+
+    <div class="callout callout-warning">
+      <strong>Position 19.79 = Invisible to Most Searchers</strong>
+      An average position of 19.79 means EINNALAB results appear on page 2 of Google for most Singapore queries. Research shows page 2 results receive less than 1% of all clicks. Moving just 10 positions higher through localised content would dramatically change the traffic picture.
+    </div>
+  </div>
+
+  <!-- ==================== 3. TOP PERFORMING CONTENT ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 3</span>Top Performing Content in Singapore</h2>
+
+    <p>These are the pages that have generated the most search visibility from Singapore searchers. The data reveals that informational content (comparison guides, benefit articles) drives the vast majority of Singapore impressions, while brand queries drive the most clicks.</p>
+
+    <h3>Top Pages by Clicks (Singapore, 16 Months)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Page (URL Slug)</th>
+          <th>Clicks</th>
+          <th>Impressions</th>
+          <th>CTR</th>
+          <th>Avg Pos</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>Homepage (/)</td>
+          <td>81</td>
+          <td>2,017</td>
+          <td>4.02%</td>
+          <td>23.85</td>
+          <td><span class="tag tag-new">Active</span></td>
+        </tr>
+        <tr>
+          <td>/what-is-deer-placenta-supplement/</td>
+          <td>7</td>
+          <td>804</td>
+          <td>0.87%</td>
+          <td>26.08</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/deer-placenta-supplement-side-effects/</td>
+          <td>6</td>
+          <td>283</td>
+          <td>2.12%</td>
+          <td>33.25</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/top-10-deer-placenta-benefits-for-women/</td>
+          <td>5</td>
+          <td>511</td>
+          <td>0.98%</td>
+          <td>24.81</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/articles/</td>
+          <td>5</td>
+          <td>296</td>
+          <td>1.69%</td>
+          <td>2.48</td>
+          <td><span class="tag tag-new">Active</span></td>
+        </tr>
+        <tr>
+          <td>/sheep-placenta-vs-deer-placenta-supplement-review/</td>
+          <td>4</td>
+          <td>1,606</td>
+          <td>0.25%</td>
+          <td>39.70</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/benefits-of-dendrobium/</td>
+          <td>4</td>
+          <td>426</td>
+          <td>0.94%</td>
+          <td>9.26</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/einnalab-deer-placenta-to-redefine.../</td>
+          <td>3</td>
+          <td>205</td>
+          <td>1.46%</td>
+          <td>1.16</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/einnalab-deer-placenta-new-zealand.../</td>
+          <td>2</td>
+          <td>252</td>
+          <td>0.79%</td>
+          <td>27.40</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-critical">
+      <strong>1,606 Impressions from One Comparison Page</strong>
+      The sheep placenta vs deer placenta comparison page generated 1,606 impressions from Singapore alone but only 4 clicks (0.25% CTR) due to a position of 39.70. This single page, if recreated with Singapore-specific content and improved to page 1, could generate 50+ clicks per month from SG searchers.
+    </div>
+
+    <h3>Top Queries (Singapore, 16 Months)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Query</th>
+          <th>Clicks</th>
+          <th>Impressions</th>
+          <th>CTR</th>
+          <th>Avg Pos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>1</td>
+          <td>einnalab</td>
+          <td>68</td>
+          <td>372</td>
+          <td>18.28%</td>
+          <td>1.35</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>2</td>
+          <td>einnalab deer placenta</td>
+          <td>18</td>
+          <td>36</td>
+          <td>50.00%</td>
+          <td>1.00</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>deer placenta benefits</td>
+          <td>4</td>
+          <td>939</td>
+          <td>0.43%</td>
+          <td>19.38</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>dendrobium benefits</td>
+          <td>3</td>
+          <td>382</td>
+          <td>0.79%</td>
+          <td>9.25</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>site:einnalab.com</td>
+          <td>3</td>
+          <td>8</td>
+          <td>37.50%</td>
+          <td>--</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>deer placenta benefits for women</td>
+          <td>2</td>
+          <td>77</td>
+          <td>2.60%</td>
+          <td>6.35</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>best deer placenta supplement</td>
+          <td>2</td>
+          <td>56</td>
+          <td>3.57%</td>
+          <td>6.55</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>deer placenta new zealand</td>
+          <td>2</td>
+          <td>42</td>
+          <td>4.76%</td>
+          <td>5.43</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>deer placenta</td>
+          <td>1</td>
+          <td>461</td>
+          <td>0.22%</td>
+          <td>38.13</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>best sheep placenta supplement</td>
+          <td>1</td>
+          <td>251</td>
+          <td>0.40%</td>
+          <td>30.19</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 4. KEYWORD CLUSTERS ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 4</span>Singapore Keyword Clusters &amp; Opportunities</h2>
+
+    <p>The highest-value opportunities in Singapore are <strong>high-impression, zero-click keywords</strong> -- queries where Google shows EINNALAB in results but no searcher clicks because the position is too low. These represent immediate growth potential if targeted with dedicated content.</p>
+
+    <h3>High-Volume Zero-Click Keywords (Singapore)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Impressions</th>
+          <th>Clicks</th>
+          <th>Avg Position</th>
+          <th>Opportunity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>deer placenta supplement</td>
+          <td>404</td>
+          <td>0</td>
+          <td>31.06</td>
+          <td><span class="tag tag-redirect">Dedicated page needed</span></td>
+        </tr>
+        <tr class="highlight-row">
+          <td>benefits of sheep placenta supplements</td>
+          <td>261</td>
+          <td>0</td>
+          <td>39.14</td>
+          <td><span class="tag tag-redirect">Comparison page needed</span></td>
+        </tr>
+        <tr class="highlight-row">
+          <td>the best placenta supplement</td>
+          <td>232</td>
+          <td>0</td>
+          <td>30.81</td>
+          <td><span class="tag tag-sg">SG buyer guide</span></td>
+        </tr>
+        <tr>
+          <td>best placenta supplement</td>
+          <td>216</td>
+          <td>0</td>
+          <td>33.75</td>
+          <td><span class="tag tag-sg">SG buyer guide</span></td>
+        </tr>
+        <tr>
+          <td>best sheep placenta</td>
+          <td>182</td>
+          <td>0</td>
+          <td>29.77</td>
+          <td><span class="tag tag-competitor">Comparison content</span></td>
+        </tr>
+        <tr>
+          <td>sheep placenta supplement benefits</td>
+          <td>179</td>
+          <td>0</td>
+          <td>50.27</td>
+          <td><span class="tag tag-science">Educational content</span></td>
+        </tr>
+        <tr>
+          <td>sheep placenta benefits</td>
+          <td>178</td>
+          <td>0</td>
+          <td>58.44</td>
+          <td><span class="tag tag-science">Educational content</span></td>
+        </tr>
+        <tr class="highlight-row">
+          <td>placenta supplement singapore</td>
+          <td>119</td>
+          <td>0</td>
+          <td>72.61</td>
+          <td><span class="tag tag-sg">CRITICAL: SG Local Page</span></td>
+        </tr>
+        <tr>
+          <td>sheep placenta supplement</td>
+          <td>98</td>
+          <td>0</td>
+          <td>40.82</td>
+          <td><span class="tag tag-competitor">Comparison content</span></td>
+        </tr>
+        <tr>
+          <td>placenta of deer</td>
+          <td>87</td>
+          <td>0</td>
+          <td>46.38</td>
+          <td><span class="tag tag-new">Educational content</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-success">
+      <strong>Combined Opportunity: 1,956 Zero-Click Impressions</strong>
+      The 10 keywords above generate 1,956 impressions from Singapore with ZERO clicks. That is nearly 24% of all Singapore impressions going entirely to waste. Dedicated, Singapore-optimised content for these keywords alone could generate 50-100+ additional clicks per month.
+    </div>
+
+    <h3>Keyword Clusters</h3>
+
+    <h4>Cluster 1: Deer Placenta Core (1,900+ SG impressions)</h4>
+    <p>Keywords: deer placenta benefits (939 imp), deer placenta (461 imp), deer placenta supplement (404 imp), placenta of deer (87 imp). These fundamental queries need authoritative, long-form content with Singapore-specific trust signals.</p>
+
+    <h4>Cluster 2: Sheep Placenta / Comparison (900+ SG impressions)</h4>
+    <p>Keywords: benefits of sheep placenta supplements (261 imp), best sheep placenta (182 imp), sheep placenta supplement benefits (179 imp), sheep placenta benefits (178 imp), sheep placenta supplement (98 imp). Singapore searchers heavily compare sheep vs deer placenta -- this cluster needs a comprehensive comparison hub.</p>
+
+    <h4>Cluster 3: Best / Buyer Intent (500+ SG impressions)</h4>
+    <p>Keywords: the best placenta supplement (232 imp), best placenta supplement (216 imp), best deer placenta supplement (56 imp). These transactional queries need "Best Placenta Supplements in Singapore" style buyer guide content with SGD pricing.</p>
+
+    <h4>Cluster 4: Singapore Local (119+ SG impressions)</h4>
+    <p>Keywords: placenta supplement singapore (119 imp). This is the most critical single keyword -- it directly signals Singapore purchase intent. Currently at position 72.61, meaning EINNALAB is barely visible. A dedicated Singapore landing page could rank top 10 within 3-4 months.</p>
+
+    <h4>Cluster 5: Dendrobium &amp; Ingredients (400+ SG impressions)</h4>
+    <p>Keywords: dendrobium benefits (382 imp, pos 9.25 -- already near page 1). The dendrobium page is the closest to page 1 for any non-brand keyword in Singapore and should be a priority for optimisation.</p>
+  </div>
+
+  <!-- ==================== 5. URL REDIRECT STRATEGY ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 5</span>URL Redirect Strategy (Critical)</h2>
+
+    <p>The old einnalab.com website had several blog pages that were generating significant impressions in Singapore. These URLs no longer exist on the new site, causing Google to serve 404 errors and gradually lose the search equity built over months. Implementing 301 redirects is the <strong>single highest-impact action</strong> for immediate Singapore traffic recovery.</p>
+
+    <h3>Priority Redirects for Singapore Traffic</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Old URL (Slug)</th>
+          <th>SG Impressions</th>
+          <th>SG Clicks</th>
+          <th>Avg Pos</th>
+          <th>Action Required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>/sheep-placenta-vs-deer-placenta-supplement-review/</td>
+          <td>1,606</td>
+          <td>4</td>
+          <td>39.70</td>
+          <td><span class="tag tag-redirect">Recreate + 301 Redirect</span></td>
+        </tr>
+        <tr class="highlight-row">
+          <td>/what-is-deer-placenta-supplement/</td>
+          <td>804</td>
+          <td>7</td>
+          <td>26.08</td>
+          <td><span class="tag tag-redirect">Recreate + 301 Redirect</span></td>
+        </tr>
+        <tr class="highlight-row">
+          <td>/top-10-deer-placenta-benefits-for-women/</td>
+          <td>511</td>
+          <td>5</td>
+          <td>24.81</td>
+          <td><span class="tag tag-redirect">Recreate + 301 Redirect</span></td>
+        </tr>
+        <tr>
+          <td>/benefits-of-dendrobium/</td>
+          <td>426</td>
+          <td>4</td>
+          <td>9.26</td>
+          <td><span class="tag tag-redirect">Recreate + 301 Redirect</span></td>
+        </tr>
+        <tr>
+          <td>/deer-placenta-supplement-side-effects/</td>
+          <td>283</td>
+          <td>6</td>
+          <td>33.25</td>
+          <td><span class="tag tag-redirect">Recreate + 301 Redirect</span></td>
+        </tr>
+        <tr>
+          <td>/einnalab-deer-placenta-new-zealand-premium-immune-supplement/</td>
+          <td>252</td>
+          <td>2</td>
+          <td>27.40</td>
+          <td><span class="tag tag-redirect">Recreate + 301 Redirect</span></td>
+        </tr>
+        <tr>
+          <td>/einnalab-deer-placenta-to-redefine-the-wellness-supplements-experience/</td>
+          <td>205</td>
+          <td>3</td>
+          <td>1.16</td>
+          <td><span class="tag tag-redirect">Recreate + 301 Redirect</span></td>
+        </tr>
+        <tr>
+          <td>/only-enteric-coating-deer-placenta-capsules-get-real-results/</td>
+          <td>133</td>
+          <td>0</td>
+          <td>--</td>
+          <td><span class="tag tag-redirect">Recreate + 301 Redirect</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-critical">
+      <strong>4,220 Singapore Impressions at Risk</strong>
+      These 8 old URLs generated 4,220 impressions from Singapore alone. Every day without 301 redirects, Google's trust in these URLs erodes further. The sheep placenta comparison page (1,606 SG impressions) is the single most urgent redirect.
+    </div>
+
+    <h3>Redirect Implementation</h3>
+    <ol>
+      <li><strong>Step 1:</strong> Create equivalent new blog posts for each old URL (Phase 1 of the content calendar)</li>
+      <li><strong>Step 2:</strong> Implement 301 (permanent) redirects from each old URL to the corresponding new post</li>
+      <li><strong>Step 3:</strong> Submit updated sitemap to Google Search Console</li>
+      <li><strong>Step 4:</strong> Monitor redirect performance in GSC for 4-6 weeks</li>
+    </ol>
+  </div>
+
+  <!-- ==================== 6. DEVICE BREAKDOWN ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 6</span>Device Breakdown</h2>
+
+    <p>Singapore has one of the world's highest smartphone penetration rates. The device breakdown confirms that <strong>mobile is the primary channel</strong> for Singapore searchers discovering EINNALAB, with 57% of all clicks coming from mobile devices.</p>
+
+    <h3>Device Performance (Singapore, 16 Months)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Device</th>
+          <th>Clicks</th>
+          <th>Click Share</th>
+          <th>Impressions</th>
+          <th>CTR</th>
+          <th>Avg Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>Mobile</td>
+          <td>111</td>
+          <td>56.9%</td>
+          <td>3,329</td>
+          <td>3.33%</td>
+          <td>10.22</td>
+        </tr>
+        <tr>
+          <td>Desktop</td>
+          <td>83</td>
+          <td>42.6%</td>
+          <td>4,920</td>
+          <td>1.69%</td>
+          <td>26.34</td>
+        </tr>
+        <tr>
+          <td>Tablet</td>
+          <td>1</td>
+          <td>0.5%</td>
+          <td>34</td>
+          <td>2.94%</td>
+          <td>8.21</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-insight">
+      <strong>Key Insight: Mobile Position 10.22 vs Desktop 26.34</strong>
+      EINNALAB ranks dramatically better on mobile (position 10.22, near page 1) than desktop (position 26.34, page 3) in Singapore. Mobile also has nearly double the CTR (3.33% vs 1.69%). This means: (1) mobile experience optimisation is the top priority, (2) Google's mobile-first index already favours the site on mobile, and (3) desktop-specific SEO improvements have the highest growth potential.
+    </div>
+
+    <h3>Strategic Implications for Singapore</h3>
+    <ul>
+      <li><strong>Mobile-First Content Design:</strong> All new blog posts must be optimised for mobile reading -- short paragraphs, clear headings, scannable bullet points, and fast-loading images</li>
+      <li><strong>Desktop Gap Opportunity:</strong> Desktop has more impressions (4,920) but far fewer clicks (83) due to poor position (26.34). Improving desktop ranking by 15 positions could unlock hundreds of additional clicks</li>
+      <li><strong>AMP or Lightweight Pages:</strong> Consider AMP or extremely lightweight page design for key Singapore landing pages to improve mobile page speed</li>
+      <li><strong>Tablet Negligible:</strong> Tablet traffic is negligible (1 click, 34 impressions) and does not warrant specific optimisation efforts</li>
+    </ul>
+  </div>
+
+  <!-- ==================== 7. COMPETITOR LANDSCAPE ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 7</span>Deep Competitor Landscape</h2>
+
+    <p>The Singapore deer placenta supplement market is highly competitive, with established local brands leveraging physical retail distribution through Watsons, Guardian, and NTUC FairPrice, alongside aggressive SEO content strategies. Purtier Placenta (via MLM distributor Riway) holds massive brand recognition but carries regulatory baggage from its <strong>2021 HSA conviction</strong>. Based on 30+ search queries analysed across Google.sg, Lazada, Shopee, and Amazon.sg, here are the top competitors ranked by search visibility.</p>
+
+    <h3>Tier 1: Dominant Competitors (Page 1 for Multiple Queries)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>Domain</th>
+          <th>Blog Posts</th>
+          <th>SGD Price</th>
+          <th>Key Advantage</th>
+          <th>Vulnerability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>Nano Singapore</strong></td>
+          <td>nanosingaporeshop.com</td>
+          <td>6+</td>
+          <td>$69.90</td>
+          <td>SG-first brand, sold at NTUC FairPrice + Guardian + Shopee. Aggressive blog: beauty, TCM, immune angles</td>
+          <td>Lower concentration (20,000mg vs EINNALAB's 30,000mg)</td>
+        </tr>
+        <tr>
+          <td><strong>Holistic Way</strong></td>
+          <td>holisticway.com.sg</td>
+          <td>1-2</td>
+          <td>$150.80</td>
+          <td>.sg domain + Watsons &amp; Guardian distribution = massive trust</td>
+          <td>Limited blog content, generic branding, lower potency (9,000mg)</td>
+        </tr>
+        <tr>
+          <td><strong>GreenLife</strong></td>
+          <td>greenlife.sg</td>
+          <td>0-1</td>
+          <td>~$120</td>
+          <td>.sg domain, Watsons distribution, Derma Youth Deer Placenta 15,000mg</td>
+          <td>Weak digital presence, almost zero blog content</td>
+        </tr>
+        <tr>
+          <td><strong>Watsons.com.sg</strong></td>
+          <td>watsons.com.sg (DR 70+)</td>
+          <td>N/A</td>
+          <td>Various</td>
+          <td>Highest domain authority among SG health retailers, Product schema markup</td>
+          <td>No educational content, just product listings</td>
+        </tr>
+        <tr>
+          <td><strong>Guardian.com.sg</strong></td>
+          <td>guardian.com.sg (DR 60+)</td>
+          <td>N/A</td>
+          <td>Various</td>
+          <td>Second-largest pharmacy chain, product structured data</td>
+          <td>No blog content at all</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Tier 2: Strong Competitors (Ranking for Specific Queries)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>Domain</th>
+          <th>Blog Posts</th>
+          <th>SGD Price</th>
+          <th>Key Advantage</th>
+          <th>Vulnerability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>Purtier (RIWAY)</strong></td>
+          <td>purtier.com + 50+ distributor sites</td>
+          <td>50+ (network)</td>
+          <td>$760/bottle</td>
+          <td>Massive brand awareness, distributor content network (garyng.co, sgstemcell.com)</td>
+          <td><strong>HSA convicted in 2021, fined SGD 3,000 for false claims about cancer/diabetes.</strong> MLM pricing, regulatory baggage</td>
+        </tr>
+        <tr>
+          <td><strong>CellLabs</strong></td>
+          <td>celllabs.co (Malaysian)</td>
+          <td>10+</td>
+          <td>~$100-180</td>
+          <td>Comprehensive educational blog (extraction ratios, lycopene, beginner guides)</td>
+          <td>Malaysian brand, not SG-specific</td>
+        </tr>
+        <tr>
+          <td><strong>Lazada.sg</strong></td>
+          <td>lazada.sg (DR 80+)</td>
+          <td>N/A</td>
+          <td>Various</td>
+          <td>Tag pages rank for generic + branded queries. Price comparison drives traffic</td>
+          <td>Algorithm-driven, no educational trust content</td>
+        </tr>
+        <tr>
+          <td><strong>Shopee.sg</strong></td>
+          <td>shopee.sg (DR 80+)</td>
+          <td>N/A</td>
+          <td>Various</td>
+          <td>Dominant SE Asia marketplace, review ecosystem</td>
+          <td>No editorial content</td>
+        </tr>
+        <tr>
+          <td><strong>Amazon.sg</strong></td>
+          <td>amazon.sg (DR 90+)</td>
+          <td>N/A</td>
+          <td>Various</td>
+          <td>Highest domain authority, Nano SG listed with Prime delivery</td>
+          <td>EINNALAB listed on Amazon.com (US) but NOT on Amazon.sg</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Tier 3: Niche Competitors</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>Domain</th>
+          <th>Why They Rank</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Omnidefood</strong></td>
+          <td>omnidefood.com</td>
+          <td>Made-in-Singapore, HSA verified, SGS Lab tested for 350 substances</td>
+        </tr>
+        <tr>
+          <td><strong>NZ Vita For Life</strong></td>
+          <td>nzvitaforlife.com</td>
+          <td>NZ-origin comparison blog content (deer vs sheep vs velvet)</td>
+        </tr>
+        <tr>
+          <td><strong>CARiNG Pharmacy</strong></td>
+          <td>caring2u.com</td>
+          <td>One comparison article (Collagen vs Stem Cells vs Sheep vs Deer Placenta) ranks well</td>
+        </tr>
+        <tr>
+          <td><strong>VMB / Easy Wellness / Miracell</strong></td>
+          <td>Various</td>
+          <td>Brand-name queries from SG searchers (low volume but present in GSC data)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>SGD Price Comparison</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Brand</th>
+          <th>Product</th>
+          <th>Concentration</th>
+          <th>SGD Price</th>
+          <th>Price/Capsule</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nano Singapore</td>
+          <td>Deer Placenta Prestige</td>
+          <td>20,000mg</td>
+          <td>$69.90 (60 caps)</td>
+          <td>$1.17</td>
+        </tr>
+        <tr>
+          <td>Holistic Way</td>
+          <td>Premium Deer Placenta Fresh</td>
+          <td>9,000mg</td>
+          <td>$150.80 (60 caps)</td>
+          <td>$2.51</td>
+        </tr>
+        <tr>
+          <td>GreenLife</td>
+          <td>Derma Youth Deer Placenta</td>
+          <td>15,000mg</td>
+          <td>~$120 (60 caps)</td>
+          <td>~$2.00</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>EINNALAB</strong></td>
+          <td>Deer Placenta Premium</td>
+          <td><strong>30,000mg</strong></td>
+          <td>TBD (no SGD pricing)</td>
+          <td>TBD</td>
+        </tr>
+        <tr>
+          <td>Purtier (RIWAY)</td>
+          <td>7th Edition</td>
+          <td>Undisclosed</td>
+          <td>$760/bottle (MLM)</td>
+          <td>~$12.67</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-success">
+      <strong>EINNALAB's Hidden Advantage: Highest Concentration at 30,000mg</strong>
+      EINNALAB's 30,000mg concentration is 50% higher than Nano Singapore (20,000mg), double GreenLife (15,000mg), and over 3x Holistic Way (9,000mg). Once SGD pricing is added to the website, this becomes a powerful value proposition. Content should consistently highlight this concentration advantage.
+    </div>
+
+    <h3>Why Competitors Outrank EINNALAB in Singapore</h3>
+    <div class="callout callout-warning">
+      <strong>7 Critical Gaps vs Singapore Competitors</strong>
+      <ol>
+        <li><strong>Zero Singapore Content:</strong> No pages mention Singapore, SGD pricing, local delivery, or HSA compliance. Nano Singapore has "Singapore" in its brand name.</li>
+        <li><strong>No Retail Trust Signals:</strong> No .sg domain, no Singapore address, no HSA registration mentioned, no SGS testing certificates displayed. Holistic Way has .sg + Guardian/Watsons.</li>
+        <li><strong>No Marketplace Presence:</strong> EINNALAB has NO Lazada.sg store, NO Shopee.sg store, and is NOT prominently listed on Amazon.sg. This is the single biggest competitive disadvantage.</li>
+        <li><strong>Thin Content vs Competitor Depth:</strong> ~7-9 blog posts vs Nano Singapore (6+), CellLabs (10+), Purtier distributor network (50+ across multiple domains).</li>
+        <li><strong>Purtier Brand Vulnerability Unexploited:</strong> Purtier was convicted by HSA in 2021 (fined SGD 3,000 for false claims about cancer/diabetes). This is a content opportunity EINNALAB is not capitalising on.</li>
+        <li><strong>Missing Schema Markup:</strong> Watsons.com.sg uses Product schema with pricing and reviews. Purtier distributors use FAQ schema. EINNALAB likely lacks structured data.</li>
+        <li><strong>Position 19.79:</strong> Average page 2-3 ranking means EINNALAB is invisible for most Singapore queries.</li>
+      </ol>
+    </div>
+
+    <h3>Competitive Strategy</h3>
+    <p>EINNALAB can differentiate by becoming the most <strong>authoritative, science-backed, transparent</strong> deer placenta brand in Singapore's search results. The strategy targets three angles:</p>
+    <ol>
+      <li><strong>Content Authority:</strong> Out-produce all competitors with 100 blog posts covering every deer placenta query. No SG competitor has more than 10-15 content pages.</li>
+      <li><strong>Category Comparison:</strong> Create "vs sheep placenta", "vs NMN", "vs bird's nest", "vs collagen" pages that capture comparison traffic while positioning EINNALAB as the transparent, science-first choice.</li>
+      <li><strong>Local Trust Signals:</strong> Add Singapore office address, SGD pricing, local delivery options, HSA-compliant language, and TCM heritage messaging throughout all content.</li>
+    </ol>
+  </div>
+
+  <!-- ==================== 8. AI/LLM VISIBILITY STRATEGY ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 8</span>AI/LLM Visibility Strategy</h2>
+
+    <p>As Singaporean consumers increasingly use AI tools (ChatGPT, Google AI Overviews, Perplexity) to research supplements, EINNALAB must optimise content not just for traditional search but for AI-powered discovery. This is especially important in Singapore, where tech adoption is among the highest in Southeast Asia.</p>
+
+    <h3>AI Optimisation Framework</h3>
+
+    <h4>1. FAQ Schema on Every Post</h4>
+    <p>Every blog post should include FAQ schema markup with 3-5 questions that Singapore searchers ask. These feed directly into Google's AI Overviews and are cited by LLMs like ChatGPT and Claude when answering supplement queries.</p>
+
+    <h4>2. E-E-A-T Signals (Singapore Context)</h4>
+    <ul>
+      <li><strong>Author Bios:</strong> Include author credentials with Singapore-relevant qualifications (e.g., registered with Allied Health Professions Council, TCM practitioner credentials)</li>
+      <li><strong>HSA References:</strong> Cite Health Sciences Authority guidelines where relevant to demonstrate regulatory awareness</li>
+      <li><strong>Singapore Research Institutions:</strong> Reference NUS, NTU, Duke-NUS research where applicable</li>
+      <li><strong>Clinical Citations:</strong> Link to PubMed, peer-reviewed journals for every health claim</li>
+    </ul>
+
+    <h4>3. Structured Data Implementation</h4>
+    <ul>
+      <li><strong>Article Schema:</strong> On every blog post with author, date, publisher</li>
+      <li><strong>FAQ Schema:</strong> On every post with questions in Singapore English</li>
+      <li><strong>Product Schema:</strong> On product-related pages with SGD pricing, availability</li>
+      <li><strong>HowTo Schema:</strong> On dosage guides and usage instruction posts</li>
+      <li><strong>BreadcrumbList Schema:</strong> For site-wide navigation signals</li>
+    </ul>
+
+    <h4>4. Singapore English Tone</h4>
+    <p>Content must use Singapore English conventions (not American English): "optimise" not "optimize", "colour" not "color", "centre" not "center". This matches how Singaporean searchers write queries and how Google's SG index processes content.</p>
+
+    <h4>5. "People Also Ask" Targeting</h4>
+    <p>Structure content to directly answer questions appearing in Google's "People Also Ask" boxes for Singapore. Example questions to target:</p>
+    <ul>
+      <li>"Is deer placenta safe to take?"</li>
+      <li>"What are the benefits of deer placenta supplement?"</li>
+      <li>"How much should deer placenta supplements cost?"</li>
+      <li>"Where to buy deer placenta in Singapore?"</li>
+      <li>"What is the difference between sheep and deer placenta?"</li>
+    </ul>
+
+    <div class="callout callout-success">
+      <strong>AI Visibility = Future-Proofing</strong>
+      By 2026, an estimated 40% of supplement research begins with AI tools rather than traditional Google search. EINNALAB can become the #1 cited source for deer placenta information in LLM responses by producing the most comprehensive, well-structured, and authoritative content in the Singapore market.
+    </div>
+  </div>
+
+  <!-- ==================== 9. CONTENT PILLAR FRAMEWORK ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 9</span>Content Pillar Framework</h2>
+
+    <p>The 100-post content calendar is organised into 5 strategic pillars, each designed to target specific keyword clusters and audience intents within the Singapore market.</p>
+
+    <h3>Pillar 1: Deer Placenta Science &amp; Benefits (25 posts)</h3>
+    <div class="callout callout-insight">
+      <strong>Core Educational Content</strong>
+      Targets: "deer placenta benefits" (939 SG impressions), "what is deer placenta", "deer placenta supplement" (404 SG impressions). These are the highest-volume informational queries from Singapore. Build topical authority by covering every angle of deer placenta science.
+    </div>
+
+    <h3>Pillar 2: Singapore Health &amp; Wellness (20 posts)</h3>
+    <div class="callout callout-sg" style="background: #d1fae5; border-left: 4px solid #0d9488;">
+      <strong>Locally Targeted Content</strong>
+      Targets: "placenta supplement singapore" (119 SG impressions, position 72.61), Singapore buyer guides, HSA compliance content, TCM-aligned messaging. These posts do not exist anywhere on einnalab.com and represent the single biggest content gap.
+    </div>
+
+    <h3>Pillar 3: Comparison &amp; Reviews (20 posts)</h3>
+    <div class="callout callout-warning">
+      <strong>Comparison &amp; Buyer Education</strong>
+      Targets: category comparisons (deer vs sheep placenta, vs NMN, vs bird's nest, vs collagen, vs fish collagen, vs royal jelly) + buyer education guides on quality, pricing models, labelling transparency, and capsule technology. Position EINNALAB as the most informed choice without naming competitors.
+    </div>
+
+    <h3>Pillar 4: Ingredient Science &amp; Supporting Nutrients (15 posts)</h3>
+    <div class="callout" style="background: #fef3c7; border-left: 4px solid #d97706;">
+      <strong>Ingredient Authority</strong>
+      Targets: "dendrobium benefits" (382 SG impressions, position 9.25 -- already near page 1), borage oil, lycopene, grape seed extract, aloe vera. Deep-dive content that builds scientific credibility and supports E-E-A-T.
+    </div>
+
+    <h3>Pillar 5: Anti-Aging, Beauty &amp; Lifestyle (20 posts)</h3>
+    <div class="callout" style="background: #fce7f3; border-left: 4px solid #db2777;">
+      <strong>Lifestyle &amp; AI-Optimised Content</strong>
+      Targets: skin benefits, fertility, immune support, anti-aging, seasonal wellness for Singapore. These posts are designed for AI citation with comprehensive FAQ schema and "People Also Ask" targeting.
+    </div>
+
+    <h3>Pillar Distribution</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Pillar</th>
+          <th>Posts</th>
+          <th>Primary Audience Intent</th>
+          <th>SG Impression Pool</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Deer Placenta Science &amp; Benefits</td>
+          <td>25</td>
+          <td>Informational / Research</td>
+          <td>2,800+</td>
+        </tr>
+        <tr>
+          <td>Singapore Health &amp; Wellness</td>
+          <td>20</td>
+          <td>Local / Purchase Intent</td>
+          <td>500+ (growing)</td>
+        </tr>
+        <tr>
+          <td>Comparison &amp; Reviews</td>
+          <td>20</td>
+          <td>Comparison / Commercial</td>
+          <td>2,400+</td>
+        </tr>
+        <tr>
+          <td>Ingredient Science</td>
+          <td>15</td>
+          <td>Educational / E-E-A-T</td>
+          <td>800+</td>
+        </tr>
+        <tr>
+          <td>Anti-Aging, Beauty &amp; Lifestyle</td>
+          <td>20</td>
+          <td>Lifestyle / AI Visibility</td>
+          <td>1,200+</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>Total</strong></td>
+          <td><strong>100</strong></td>
+          <td></td>
+          <td><strong>7,700+</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 10. CONTENT CALENDAR ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 10</span>50-Week Content Calendar (100 Blog Posts)</h2>
+
+    <p>Two posts per week across 50 weeks, organised into 5 phases. Each post is tagged by pillar, priority, and type. All titles are SEO-optimised for Singapore searchers.</p>
+
+    <!-- ===== PHASE 1 ===== -->
+    <h3>Phase 1: Foundation &amp; Redirect Recovery (Weeks 1-8, 16 posts)</h3>
+    <p>Recreate old high-performing content and set up 301 redirects. These URLs still have significant impressions from Singapore.</p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th style="width:55px">Week</th>
+          <th style="width:30px">#</th>
+          <th>Blog Post Title</th>
+          <th>Target Keyword(s)</th>
+          <th>SG Data</th>
+          <th style="width:90px">Tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="6" class="phase-header">PHASE 1: Foundation &amp; Redirect Recovery (Weeks 1-8)</td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 1</span></td>
+          <td>1</td>
+          <td><strong>Sheep Placenta vs Deer Placenta: The Complete Singapore Comparison Guide</strong><br><em>Comprehensive side-by-side review covering bioactive content, absorption, sourcing, SGD pricing, and scientific evidence for Singapore buyers.</em></td>
+          <td>sheep placenta vs deer placenta, deer placenta vs sheep placenta</td>
+          <td>1,606 imp, 4 clicks, pos 39.70</td>
+          <td><span class="tag tag-redirect">Redirect</span> <span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 1</span></td>
+          <td>2</td>
+          <td><strong>What Is Deer Placenta Supplement? A Comprehensive Guide for Singapore Consumers</strong><br><em>Everything Singaporean consumers need to know about deer placenta supplements, from TCM origins to modern science.</em></td>
+          <td>what is deer placenta supplement, deer placenta supplement</td>
+          <td>804 imp, 7 clicks, pos 26.08</td>
+          <td><span class="tag tag-redirect">Redirect</span> <span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 2</span></td>
+          <td>3</td>
+          <td><strong>Top 10 Deer Placenta Benefits for Women: What Research Shows</strong><br><em>Evidence-based guide to the top health benefits of deer placenta for women, from skin health to hormonal balance.</em></td>
+          <td>deer placenta benefits for women, deer placenta benefits</td>
+          <td>511 imp, 5 clicks, pos 24.81</td>
+          <td><span class="tag tag-redirect">Redirect</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 2</span></td>
+          <td>4</td>
+          <td><strong>Benefits of Dendrobium: The TCM Orchid Backed by Modern Science</strong><br><em>Deep dive into dendrobium benefits from traditional Chinese medicine heritage to clinical research on immune and digestive support.</em></td>
+          <td>dendrobium benefits, benefits of dendrobium</td>
+          <td>426 imp, 4 clicks, pos 9.26</td>
+          <td><span class="tag tag-redirect">Redirect</span> <span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 3</span></td>
+          <td>5</td>
+          <td><strong>Deer Placenta Supplement Side Effects: Safety, Risks, and What to Know</strong><br><em>Comprehensive safety guide covering all known side effects, contraindications, and drug interactions based on clinical research.</em></td>
+          <td>deer placenta supplement side effects, deer placenta side effects</td>
+          <td>283 imp, 6 clicks, pos 33.25</td>
+          <td><span class="tag tag-redirect">Redirect</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 3</span></td>
+          <td>6</td>
+          <td><strong>EINNALAB Deer Placenta New Zealand: Why Premium Sourcing Matters for Immune Health</strong><br><em>Exploring why New Zealand deer farms produce the world's highest quality placenta and how EINNALAB's sourcing ensures potency.</em></td>
+          <td>deer placenta new zealand, einnalab deer placenta</td>
+          <td>252 imp, 2 clicks, pos 27.40</td>
+          <td><span class="tag tag-redirect">Redirect</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 4</span></td>
+          <td>7</td>
+          <td><strong>EINNALAB Deer Placenta: Redefining the Wellness Supplement Experience</strong><br><em>Brand story of EINNALAB's mission to bring transparent, science-backed deer placenta supplements to discerning consumers.</em></td>
+          <td>einnalab deer placenta, einnalab</td>
+          <td>205 imp, 3 clicks, pos 1.16</td>
+          <td><span class="tag tag-redirect">Redirect</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 4</span></td>
+          <td>8</td>
+          <td><strong>Why Enteric-Coated Deer Placenta Capsules Get Real Results</strong><br><em>The science behind enteric coating technology and why standard capsules waste up to 80% of deer placenta bioactives in stomach acid.</em></td>
+          <td>enteric coated deer placenta, deer placenta capsules</td>
+          <td>133 imp, 0 clicks (old URL)</td>
+          <td><span class="tag tag-redirect">Redirect</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 5</span></td>
+          <td>9</td>
+          <td><strong>Deer Placenta Benefits: The Definitive 2026 Guide</strong><br><em>Comprehensive guide covering all benefit categories with scientific evidence, user experiences, and dosage recommendations.</em></td>
+          <td>deer placenta benefits, benefits of deer placenta</td>
+          <td>939 imp, 4 clicks, pos 19.38</td>
+          <td><span class="tag tag-new">New</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 5</span></td>
+          <td>10</td>
+          <td><strong>Best Deer Placenta Supplement: How to Choose the Right One in 2026</strong><br><em>Buyer's guide covering what to look for in a quality deer placenta supplement, with ingredient comparison tables.</em></td>
+          <td>best deer placenta supplement, deer placenta supplement</td>
+          <td>404 imp + 56 imp, pos 6.55-31</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 6</span></td>
+          <td>11</td>
+          <td><strong>Deer Placenta for Skin: Can It Really Reduce Wrinkles and Improve Complexion?</strong><br><em>Clinical evidence behind deer placenta's skin benefits including collagen production, anti-aging effects, and before/after expectations.</em></td>
+          <td>deer placenta for skin, deer placenta skin benefits</td>
+          <td>Related to "benefits" cluster</td>
+          <td><span class="tag tag-new">New</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 6</span></td>
+          <td>12</td>
+          <td><strong>Deer Placenta vs Collagen: Which Anti-Aging Supplement Is Better?</strong><br><em>Head-to-head comparison of deer placenta and collagen supplements for anti-aging, covering mechanisms, absorption, and cost-effectiveness.</em></td>
+          <td>deer placenta vs collagen, placenta vs collagen supplement</td>
+          <td>SG comparison demand</td>
+          <td><span class="tag tag-new">New</span> <span class="tag tag-competitor">Competitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 7</span></td>
+          <td>13</td>
+          <td><strong>Is Deer Placenta Safe? What Doctors and Researchers Say</strong><br><em>Medical perspective on deer placenta safety with clinical trial data, contraindications, and expert opinions.</em></td>
+          <td>is deer placenta safe, deer placenta safety</td>
+          <td>Safety queries in SG data</td>
+          <td><span class="tag tag-new">New</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 7</span></td>
+          <td>14</td>
+          <td><strong>How Deer Placenta Supplements Are Made: From Farm to Capsule</strong><br><em>Transparent look at the manufacturing process from New Zealand deer farming to freeze-drying, encapsulation, and quality testing.</em></td>
+          <td>how deer placenta supplements are made, deer placenta manufacturing</td>
+          <td>E-E-A-T building content</td>
+          <td><span class="tag tag-new">New</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 8</span></td>
+          <td>15</td>
+          <td><strong>Deer Placenta for Immune Support: What the Clinical Evidence Shows</strong><br><em>Review of clinical studies on deer placenta's immunomodulatory effects, including growth factors, cytokine regulation, and immune cell activation.</em></td>
+          <td>deer placenta immune support, deer placenta immunity</td>
+          <td>Immune interest cluster</td>
+          <td><span class="tag tag-new">New</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 8</span></td>
+          <td>16</td>
+          <td><strong>Deer Placenta Dosage Guide: How Much Should You Take Daily?</strong><br><em>Practical dosage guide covering optimal timing, dose by age and health goal, cycling protocols, and combining with other supplements.</em></td>
+          <td>deer placenta dosage, how much deer placenta to take</td>
+          <td>Practical query cluster</td>
+          <td><span class="tag tag-new">New</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ===== PHASE 2 ===== -->
+    <h3 class="page-break">Phase 2: Singapore Localisation (Weeks 9-18, 20 posts)</h3>
+    <p>Create Singapore-specific content that does not exist anywhere on einnalab.com. Target "placenta supplement singapore", local buyer guides, HSA compliance, SGD pricing, and TCM-aligned messaging.</p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th style="width:55px">Week</th>
+          <th style="width:30px">#</th>
+          <th>Blog Post Title</th>
+          <th>Target Keyword(s)</th>
+          <th>SG Data / Justification</th>
+          <th style="width:90px">Tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="6" class="phase-header">PHASE 2: Singapore Localisation (Weeks 9-18)</td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 9</span></td>
+          <td>17</td>
+          <td><strong>Best Placenta Supplements in Singapore: 2026 Buyer's Guide</strong><br><em>Comprehensive Singapore buyer's guide comparing every major placenta supplement available locally, with SGD pricing, where to buy, and HSA compliance status.</em></td>
+          <td>placenta supplement singapore, best placenta supplement singapore</td>
+          <td>119 imp at pos 72.61 -- CRITICAL gap</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 9</span></td>
+          <td>18</td>
+          <td><strong>Where to Buy Deer Placenta in Singapore: Online &amp; Retail Options</strong><br><em>Complete guide to purchasing deer placenta supplements in Singapore including online stores, pharmacy chains, and what to watch out for.</em></td>
+          <td>where to buy deer placenta singapore, deer placenta singapore</td>
+          <td>Transactional SG intent</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 10</span></td>
+          <td>19</td>
+          <td><strong>Deer Placenta Supplements and HSA Singapore: What You Need to Know</strong><br><em>Guide to Singapore's Health Sciences Authority regulations on placenta supplements, permitted health claims, and how to verify product compliance.</em></td>
+          <td>HSA singapore supplements, deer placenta HSA</td>
+          <td>Trust signal for SG market</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 10</span></td>
+          <td>20</td>
+          <td><strong>The Best Sheep Placenta Supplements Available in Singapore</strong><br><em>Review and comparison of sheep placenta supplements sold in Singapore, from Guardian pharmacy brands to online options, with pricing in SGD.</em></td>
+          <td>best sheep placenta supplement, sheep placenta singapore</td>
+          <td>251 imp + 182 imp, pos 29-30</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-competitor">Competitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 11</span></td>
+          <td>21</td>
+          <td><strong>Deer Placenta in Traditional Chinese Medicine: Why Singapore Trusts This Heritage Ingredient</strong><br><em>Exploring the TCM heritage of deer placenta (Lu Tai Su) and why it resonates with Singapore's multi-cultural wellness traditions.</em></td>
+          <td>deer placenta TCM, deer placenta traditional chinese medicine</td>
+          <td>TCM influence in SG market</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 11</span></td>
+          <td>22</td>
+          <td><strong>Singapore Supplement Safety: How to Spot Fake or Low-Quality Placenta Products</strong><br><em>Consumer protection guide for Singaporean buyers on identifying counterfeit supplements, reading labels, and checking HSA product listings.</em></td>
+          <td>fake supplements singapore, supplement safety singapore</td>
+          <td>Consumer trust content</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 12</span></td>
+          <td>23</td>
+          <td><strong>Deer Placenta Price Guide Singapore: What Should You Pay?</strong><br><em>SGD price guide for deer placenta supplements in Singapore, covering typical price ranges, what drives cost differences, and how to calculate value-per-capsule.</em></td>
+          <td>deer placenta price singapore, deer placenta cost</td>
+          <td>Price-conscious SG market</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-competitor">Competitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 12</span></td>
+          <td>24</td>
+          <td><strong>Singapore Wellness Trends 2026: Why Placenta Supplements Are Growing</strong><br><em>Market analysis of Singapore's post-COVID wellness supplement boom, with focus on placenta supplements, TCM revival, and anti-aging demand.</em></td>
+          <td>singapore wellness trends, supplement trends singapore 2026</td>
+          <td>Market context content</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 13</span></td>
+          <td>25</td>
+          <td><strong>Benefits of Sheep Placenta Supplements: A Singapore Consumer's Guide</strong><br><em>Evidence-based overview of sheep placenta benefits including skin, immune, and hormonal effects, tailored for Singapore buyers.</em></td>
+          <td>benefits of sheep placenta supplements, sheep placenta benefits</td>
+          <td>261 imp + 178 imp, pos 39-58</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 13</span></td>
+          <td>26</td>
+          <td><strong>Deer Placenta for Fertility: What Singapore Women Should Know</strong><br><em>Exploring the evidence behind deer placenta for reproductive health, fertility support, and hormonal balance in the Singapore context.</em></td>
+          <td>deer placenta fertility, placenta supplement fertility</td>
+          <td>Fertility intent cluster</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 14</span></td>
+          <td>27</td>
+          <td><strong>Guardian vs Watsons: Which Singapore Pharmacy Has Better Supplement Options?</strong><br><em>Comparison of Singapore's top pharmacy chains for supplement shopping, including deer placenta availability, pricing, and loyalty programmes.</em></td>
+          <td>guardian singapore supplements, watsons supplements singapore</td>
+          <td>Retail trust builder for SG</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 14</span></td>
+          <td>28</td>
+          <td><strong>How to Read Supplement Labels in Singapore: An HSA-Aligned Guide</strong><br><em>Practical guide for Singaporean consumers on understanding supplement labels, nutrition panels, and ingredient lists per HSA requirements.</em></td>
+          <td>how to read supplement labels, supplement labels singapore</td>
+          <td>Educational trust content</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 15</span></td>
+          <td>29</td>
+          <td><strong>Best Anti-Aging Supplements in Singapore: Expert-Backed Picks for 2026</strong><br><em>Expert-curated guide to the most effective anti-aging supplements available in Singapore, featuring deer placenta, collagen, and NMN.</em></td>
+          <td>best anti aging supplements singapore, anti aging supplements</td>
+          <td>Lifestyle + SG intent</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 15</span></td>
+          <td>30</td>
+          <td><strong>Lazada vs Shopee for Supplements in Singapore: Where to Get the Best Deals</strong><br><em>Comparison of Singapore's two largest e-commerce platforms for supplement shopping, with tips on spotting authentic products and avoiding fakes.</em></td>
+          <td>lazada supplements singapore, shopee supplements singapore</td>
+          <td>Marketplace competitor content</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-competitor">Competitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 16</span></td>
+          <td>31</td>
+          <td><strong>Placenta Supplements for Menopause: What Singapore Women Over 40 Need to Know</strong><br><em>Guide to using placenta supplements for menopause symptom relief, with clinical evidence and Singapore-specific healthcare considerations.</em></td>
+          <td>placenta supplement menopause, menopause supplements singapore</td>
+          <td>Women's health SG intent</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 16</span></td>
+          <td>32</td>
+          <td><strong>Why New Zealand Deer Placenta Is Considered the Gold Standard Worldwide</strong><br><em>Exploring New Zealand's strict farming standards, grass-fed deer welfare, and why NZ-sourced placenta is preferred by discerning Singapore consumers.</em></td>
+          <td>new zealand deer placenta, deer placenta new zealand</td>
+          <td>42 imp, 2 clicks, pos 5.43</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 17</span></td>
+          <td>33</td>
+          <td><strong>Singapore's Ageing Population and the Rise of Preventive Supplements</strong><br><em>Analysis of Singapore's demographic shift and why preventive health supplements like deer placenta are seeing record demand.</em></td>
+          <td>singapore ageing population supplements, preventive health singapore</td>
+          <td>Market context + thought leadership</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 17</span></td>
+          <td>34</td>
+          <td><strong>Deer Placenta and Chinese New Year Gifting: Premium Health Gifts in Singapore</strong><br><em>Guide to gifting premium deer placenta supplements during CNY and other festive occasions in Singapore's gift-giving culture.</em></td>
+          <td>CNY health gifts singapore, premium supplement gifts</td>
+          <td>Seasonal SG content</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 18</span></td>
+          <td>35</td>
+          <td><strong>Deer Placenta Supplement Reviews: What Real Singapore Users Say</strong><br><em>Compilation of authentic Singapore user experiences with deer placenta supplements, covering expectations, results timeline, and honest feedback.</em></td>
+          <td>deer placenta supplement review, deer placenta reviews singapore</td>
+          <td>Review intent from SG</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 18</span></td>
+          <td>36</td>
+          <td><strong>Shipping Supplements to Singapore: Import Rules, GST, and What to Expect</strong><br><em>Practical guide for Singapore buyers on importing health supplements, including GST thresholds, HSA import regulations, and delivery timelines.</em></td>
+          <td>import supplements singapore, shipping supplements to singapore</td>
+          <td>Purchase barrier removal</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ===== PHASE 3 ===== -->
+    <h3 class="page-break">Phase 3: Comparison &amp; Buyer Education (Weeks 19-28, 20 posts)</h3>
+    <p>Category comparison and buyer education content. These posts help Singapore consumers make informed decisions by comparing supplement <em>types</em>, explaining quality markers, and addressing common concerns — without naming specific competitor brands.</p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th style="width:55px">Week</th>
+          <th style="width:30px">#</th>
+          <th>Blog Post Title</th>
+          <th>Target Keyword(s)</th>
+          <th>SG Data / Justification</th>
+          <th style="width:90px">Tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="6" class="phase-header">PHASE 3: Comparison &amp; Buyer Education (Weeks 19-28)</td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 19</span></td>
+          <td>37</td>
+          <td><strong>How to Evaluate Deer Placenta Supplement Quality: A Buyer's Checklist</strong><br><em>Comprehensive checklist for Singapore consumers covering concentration, sourcing, certifications, capsule technology, and value-per-capsule analysis.</em></td>
+          <td>how to choose deer placenta supplement, deer placenta quality checklist</td>
+          <td>Buyer education for SG market</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 19</span></td>
+          <td>38</td>
+          <td><strong>Understanding Deer Placenta Concentration: Why Milligrams Matter</strong><br><em>Explaining what "mg" means on deer placenta labels, why higher concentration delivers more bioactives, and how to compare products fairly.</em></td>
+          <td>deer placenta concentration, deer placenta mg explained</td>
+          <td>EINNALAB 30,000mg is highest in market</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 20</span></td>
+          <td>39</td>
+          <td><strong>MLM Supplements vs Direct-to-Consumer: What Singapore Buyers Should Know</strong><br><em>Explaining the difference between MLM distribution and direct-to-consumer models, how pricing works in each, and what Singapore buyers should consider.</em></td>
+          <td>MLM supplements singapore, direct to consumer supplements</td>
+          <td>Buyer education on pricing models</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 20</span></td>
+          <td>40</td>
+          <td><strong>Pharmacy Supplements vs Online Supplements: Which Offers Better Value in Singapore?</strong><br><em>Comparing the pros and cons of buying supplements from Guardian/Watsons vs online platforms, covering pricing, authenticity, and convenience.</em></td>
+          <td>pharmacy vs online supplements singapore, where to buy supplements</td>
+          <td>Purchase channel education</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 21</span></td>
+          <td>41</td>
+          <td><strong>Red Flags in Supplement Marketing: How to Spot Misleading Health Claims</strong><br><em>Guide for Singapore consumers on identifying false or exaggerated supplement claims, with examples of what HSA considers non-compliant advertising.</em></td>
+          <td>misleading supplement claims, fake supplement marketing</td>
+          <td>Consumer protection + trust building</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 21</span></td>
+          <td>42</td>
+          <td><strong>Why Transparent Labelling Matters: What Your Deer Placenta Supplement Should Tell You</strong><br><em>What an honest supplement label looks like, covering ingredient disclosure, concentration claims, origin sourcing, and third-party testing.</em></td>
+          <td>supplement labelling transparency, deer placenta label guide</td>
+          <td>Transparency positioning</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 22</span></td>
+          <td>43</td>
+          <td><strong>What to Look for When Buying Deer Placenta Online in Singapore</strong><br><em>Practical guide for Singapore online shoppers covering authenticity verification, payment security, import considerations, and return policies.</em></td>
+          <td>buy deer placenta online singapore, online supplement safety</td>
+          <td>E-commerce buyer education</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 22</span></td>
+          <td>44</td>
+          <td><strong>New Zealand vs Other Origins: Why Deer Placenta Sourcing Matters</strong><br><em>Comparing deer placenta from New Zealand, Australia, China, and other origins — covering farming standards, regulations, and bioactive quality.</em></td>
+          <td>deer placenta sourcing, new zealand deer placenta quality</td>
+          <td>Origin education (NZ = EINNALAB strength)</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 23</span></td>
+          <td>45</td>
+          <td><strong>Why Some Deer Placenta Supplements Cost 10x More Than Others</strong><br><em>Breaking down the factors that drive deer placenta pricing: concentration, manufacturing method, sourcing, distribution model, and marketing overhead.</em></td>
+          <td>deer placenta price difference, why deer placenta expensive</td>
+          <td>Price education for SG buyers</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 23</span></td>
+          <td>46</td>
+          <td><strong>How SGD Pricing Affects Supplement Choice: A Value-Per-Capsule Analysis</strong><br><em>Teaching Singapore consumers to evaluate supplements by value-per-capsule and cost-per-mg rather than sticker price alone.</em></td>
+          <td>supplement value per capsule, SGD supplement comparison</td>
+          <td>SGD pricing education</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 24</span></td>
+          <td>47</td>
+          <td><strong>Deer Placenta vs Sheep Placenta: Which Is Better for Anti-Aging?</strong><br><em>Focused comparison of deer and sheep placenta specifically for anti-aging results, with bioactive compound analysis and clinical evidence.</em></td>
+          <td>deer placenta vs sheep placenta anti aging, best placenta for skin</td>
+          <td>1,606 imp on old comparison page + beauty focus</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 24</span></td>
+          <td>48</td>
+          <td><strong>Sheep Placenta vs Deer Placenta for Singapore Buyers: An Ingredient-by-Ingredient Analysis</strong><br><em>Singapore-focused comparison guide with local pricing in SGD, availability at pharmacies, and ingredient-by-ingredient analysis.</em></td>
+          <td>best sheep placenta, sheep placenta supplement benefits</td>
+          <td>182 imp + 179 imp, pos 29-50</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 25</span></td>
+          <td>49</td>
+          <td><strong>Deer Placenta vs NMN: Comparing Two Premium Anti-Aging Supplements</strong><br><em>Comparison of deer placenta and NMN (nicotinamide mononucleotide) for longevity, cellular repair, and anti-aging support.</em></td>
+          <td>deer placenta vs NMN, NMN vs placenta supplement</td>
+          <td>NMN trending in SG wellness market</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 25</span></td>
+          <td>50</td>
+          <td><strong>Deer Placenta vs Bird's Nest: Singapore's Favourite Health Tonics Compared</strong><br><em>Culturally relevant comparison of two premium TCM-rooted supplements popular in Singapore, covering benefits, pricing, and which is right for you.</em></td>
+          <td>deer placenta vs bird nest, bird nest vs placenta</td>
+          <td>Bird's nest is iconic in SG wellness</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 26</span></td>
+          <td>51</td>
+          <td><strong>Deer Placenta vs Fish Collagen: Which Singapore Women Prefer and Why</strong><br><em>Comparison targeting Singapore women deciding between deer placenta and marine collagen for skin health and anti-aging.</em></td>
+          <td>deer placenta vs fish collagen, collagen vs placenta</td>
+          <td>Collagen is a major SG supplement category</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 26</span></td>
+          <td>52</td>
+          <td><strong>Deer Placenta vs Royal Jelly: Two Premium TCM Supplements Face Off</strong><br><em>Comparing deer placenta and royal jelly for anti-aging, immune support, and overall wellness — two premium supplements with TCM heritage.</em></td>
+          <td>deer placenta vs royal jelly, royal jelly vs placenta</td>
+          <td>Royal jelly popular in SG TCM market</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 27</span></td>
+          <td>53</td>
+          <td><strong>The Informed Buyer's Guide to Premium Supplements in Singapore</strong><br><em>Comprehensive guide for Singapore consumers on evaluating premium supplement purchases, covering certifications, pricing, sourcing, and what questions to ask.</em></td>
+          <td>premium supplements singapore guide, how to buy supplements singapore</td>
+          <td>Buyer confidence content</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 27</span></td>
+          <td>54</td>
+          <td><strong>Capsule Types Explained: Softgel vs Enteric-Coated vs Standard for Supplements</strong><br><em>Educational guide comparing supplement delivery methods and why capsule technology affects how much your body actually absorbs.</em></td>
+          <td>enteric coated vs softgel, supplement capsule types</td>
+          <td>Tech differentiation (EINNALAB uses enteric coating)</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 28</span></td>
+          <td>55</td>
+          <td><strong>Sheep Placenta Supplement Benefits: What Science Actually Supports</strong><br><em>Evidence-based review of sheep placenta's documented benefits, covering clinical studies, bioactive profiles, and realistic expectations.</em></td>
+          <td>sheep placenta supplement benefits, sheep placenta benefits</td>
+          <td>179 imp + 178 imp, pos 50-58</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 28</span></td>
+          <td>56</td>
+          <td><strong>The Truth About Placenta Supplement Claims: What Is and Is Not Supported by Research</strong><br><em>Myth-busting guide separating evidence-based placenta supplement benefits from unsubstantiated marketing claims.</em></td>
+          <td>placenta supplement claims, deer placenta research</td>
+          <td>Trust-building E-E-A-T content</td>
+          <td><span class="tag tag-science">Science</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ===== PHASE 4 ===== -->
+    <h3 class="page-break">Phase 4: Ingredient Science &amp; Authority (Weeks 29-38, 20 posts)</h3>
+    <p>Deep science content on supporting ingredients, clinical studies, and research summaries. Build E-E-A-T and topical authority for EINNALAB in the Singapore market.</p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th style="width:55px">Week</th>
+          <th style="width:30px">#</th>
+          <th>Blog Post Title</th>
+          <th>Target Keyword(s)</th>
+          <th>SG Data / Justification</th>
+          <th style="width:90px">Tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="6" class="phase-header">PHASE 4: Ingredient Science &amp; Authority (Weeks 29-38)</td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 29</span></td>
+          <td>57</td>
+          <td><strong>Dendrobium Orchid Benefits: From TCM Heritage to Clinical Proof</strong><br><em>Comprehensive deep dive into dendrobium's history in traditional Chinese medicine and modern scientific validation of its health benefits.</em></td>
+          <td>dendrobium orchid benefits, dendrobium health benefits</td>
+          <td>382 imp, 3 clicks, pos 9.25 -- near page 1</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 29</span></td>
+          <td>58</td>
+          <td><strong>TCM Supplement Stacks: How Singapore Practitioners Combine Deer Placenta with Herbs</strong><br><em>How traditional Chinese medicine practitioners in Singapore pair deer placenta with complementary herbs like goji, astragalus, and cordyceps for holistic wellness.</em></td>
+          <td>TCM supplement combinations, deer placenta TCM stack singapore</td>
+          <td>TCM practitioner angle unique to SG</td>
+          <td><span class="tag tag-ingredient">Ingredient</span> <span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 30</span></td>
+          <td>59</td>
+          <td><strong>Grape Seed Extract Benefits: What Research Says About OPC Antioxidants</strong><br><em>Comprehensive review of grape seed extract's cardiovascular, skin, and antioxidant benefits with clinical study citations.</em></td>
+          <td>grape seed extract benefits, grape seed OPC</td>
+          <td>Key EINNALAB ingredient</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 30</span></td>
+          <td>60</td>
+          <td><strong>Lycopene Benefits: The Tomato Antioxidant That Protects Your Cells</strong><br><em>Review of lycopene's clinical evidence for prostate health, skin protection, cardiovascular support, and cellular antioxidant defence.</em></td>
+          <td>lycopene benefits, lycopene supplement benefits</td>
+          <td>EINNALAB ingredient deep dive</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 31</span></td>
+          <td>61</td>
+          <td><strong>Aloe Vera in Supplements: Beyond Skincare to Internal Health Benefits</strong><br><em>Guide to aloe vera's internal health benefits when included in supplement formulations, covering digestive support and immune modulation.</em></td>
+          <td>aloe vera supplement benefits, aloe vera internal benefits</td>
+          <td>EINNALAB ingredient</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 31</span></td>
+          <td>62</td>
+          <td><strong>Why Singaporeans Are Spending More on Premium Supplements: Market Insight Report</strong><br><em>Data-driven analysis of Singapore's premiumisation trend in health supplements, why consumers are upgrading from pharmacy brands to specialist products.</em></td>
+          <td>premium supplements singapore, health supplement spending singapore</td>
+          <td>Market insight unique to SG</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 32</span></td>
+          <td>63</td>
+          <td><strong>Growth Factors in Deer Placenta: EGF, FGF, and IGF Explained</strong><br><em>Scientific explanation of the growth factors found in deer placenta, how they support cell renewal, and their role in anti-aging.</em></td>
+          <td>deer placenta growth factors, EGF deer placenta</td>
+          <td>Science-depth content for E-E-A-T</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 32</span></td>
+          <td>64</td>
+          <td><strong>Stem Cell Therapy vs Deer Placenta Supplements: Understanding the Difference</strong><br><em>Clarifying the relationship between stem cell science and placenta supplements, addressing common misconceptions.</em></td>
+          <td>deer placenta stem cells, stem cell supplement</td>
+          <td>Common consumer confusion</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 33</span></td>
+          <td>65</td>
+          <td><strong>Deer Placenta Clinical Studies: A Review of Published Research</strong><br><em>Compilation and analysis of peer-reviewed clinical studies on deer placenta extract, covering methodology, findings, and limitations.</em></td>
+          <td>deer placenta clinical studies, deer placenta research</td>
+          <td>E-E-A-T authority content</td>
+          <td><span class="tag tag-science">Science</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 33</span></td>
+          <td>66</td>
+          <td><strong>Bioavailability of Deer Placenta: Why Absorption Matters More Than Dosage</strong><br><em>Technical explainer on supplement bioavailability, enteric coating, and why the delivery method determines effectiveness.</em></td>
+          <td>deer placenta bioavailability, supplement absorption</td>
+          <td>Links to enteric coating content</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 34</span></td>
+          <td>67</td>
+          <td><strong>Dendrobium for Digestive Health: What TCM Practitioners in Singapore Recommend</strong><br><em>TCM practitioner perspectives on dendrobium's digestive benefits, combined with modern gastroenterological research.</em></td>
+          <td>dendrobium digestive health, dendrobium TCM</td>
+          <td>382 imp for dendrobium benefits in SG</td>
+          <td><span class="tag tag-ingredient">Ingredient</span> <span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 34</span></td>
+          <td>68</td>
+          <td><strong>Collagen Production and Deer Placenta: The Science of Youthful Skin</strong><br><em>How deer placenta's growth factors stimulate natural collagen production, with comparison to topical collagen products.</em></td>
+          <td>deer placenta collagen, collagen production supplement</td>
+          <td>Skin/beauty science angle</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 35</span></td>
+          <td>69</td>
+          <td><strong>Freeze-Drying vs Heat Processing: How Manufacturing Affects Supplement Quality</strong><br><em>Technical comparison of supplement manufacturing methods and why freeze-drying preserves more bioactive compounds in deer placenta.</em></td>
+          <td>freeze dried supplements, supplement manufacturing quality</td>
+          <td>Quality differentiation content</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 35</span></td>
+          <td>70</td>
+          <td><strong>Singapore Haze Season and Immune Health: How Supplements Can Help</strong><br><em>Seasonal wellness guide for Singapore's annual haze period, covering how air quality affects health and which supplements support respiratory and immune wellness.</em></td>
+          <td>haze season supplements singapore, immune health haze singapore</td>
+          <td>Uniquely SG seasonal content</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 36</span></td>
+          <td>71</td>
+          <td><strong>Health Screening and Supplements: What to Ask Your Singapore GP Before Starting</strong><br><em>Practical guide for Singaporean consumers on discussing supplement use with their GP during health screening, including what tests to request and red flags to watch for.</em></td>
+          <td>health screening singapore supplements, ask GP about supplements</td>
+          <td>Trust-building SG healthcare content</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 36</span></td>
+          <td>72</td>
+          <td><strong>Deer Placenta Quality Certifications: GMP, ISO, and What Singapore Buyers Should Verify</strong><br><em>Guide to understanding quality certifications on supplement labels, what GMP and ISO mean, and how to check product authenticity for Singapore purchases.</em></td>
+          <td>GMP supplements singapore, supplement quality certification</td>
+          <td>Quality trust content for SG market</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 37</span></td>
+          <td>73</td>
+          <td><strong>The Role of Amino Acids in Deer Placenta: A Nutritional Breakdown</strong><br><em>Detailed amino acid profile of deer placenta extract and how each amino acid supports different bodily functions.</em></td>
+          <td>deer placenta amino acids, deer placenta nutrition</td>
+          <td>Nutritional science content</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 37</span></td>
+          <td>74</td>
+          <td><strong>Hormonal Balance and Deer Placenta: What Women Need to Know About Phytohormones</strong><br><em>Evidence-based overview of deer placenta's effect on hormonal balance, addressing oestrogen concerns and menopausal support.</em></td>
+          <td>deer placenta hormones, deer placenta hormonal balance</td>
+          <td>Women's health science angle</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 38</span></td>
+          <td>75</td>
+          <td><strong>How Long Does It Take for Deer Placenta Supplements to Work?</strong><br><em>Realistic timeline guide for deer placenta results based on clinical data and user experiences, covering skin, energy, immune, and overall wellness outcomes.</em></td>
+          <td>how long deer placenta to work, deer placenta results timeline</td>
+          <td>Common consumer question</td>
+          <td><span class="tag tag-science">Science</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 38</span></td>
+          <td>76</td>
+          <td><strong>Deer Placenta for Men: Benefits Beyond the Female-Focused Marketing</strong><br><em>Breaking down deer placenta benefits for men including energy, immunity, cellular repair, and athletic recovery.</em></td>
+          <td>deer placenta for men, deer placenta benefits men</td>
+          <td>Underserved audience in SG market</td>
+          <td><span class="tag tag-new">New</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ===== PHASE 5 ===== -->
+    <h3 class="page-break">Phase 5: Lifestyle &amp; AI Optimisation (Weeks 39-50, 24 posts)</h3>
+    <p>Lifestyle content, seasonal wellness posts, and AI/LLM-optimised FAQ articles designed for maximum visibility in Google AI Overviews, ChatGPT, and Perplexity responses.</p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th style="width:55px">Week</th>
+          <th style="width:30px">#</th>
+          <th>Blog Post Title</th>
+          <th>Target Keyword(s)</th>
+          <th>SG Data / Justification</th>
+          <th style="width:90px">Tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="6" class="phase-header">PHASE 5: Lifestyle &amp; AI Optimisation (Weeks 39-50)</td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 39</span></td>
+          <td>77</td>
+          <td><strong>Deer Placenta FAQ: 30 Most Asked Questions by Singapore Consumers</strong><br><em>Mega FAQ post with schema markup covering the most searched deer placenta questions in Singapore. Designed for Google AI Overviews and LLM citation.</em></td>
+          <td>deer placenta FAQ, deer placenta questions</td>
+          <td>Aggregate of 50+ question queries</td>
+          <td><span class="tag tag-ai">AI Target</span> <span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 39</span></td>
+          <td>78</td>
+          <td><strong>How to Take Deer Placenta Supplements: Complete Dosage and Timing Guide</strong><br><em>Practical guide covering optimal timing, dosage by age, with/without food, cycling recommendations, and combining with other supplements.</em></td>
+          <td>how to take deer placenta, deer placenta dosage guide</td>
+          <td>Practical "how to" queries</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 40</span></td>
+          <td>79</td>
+          <td><strong>Anti-Aging Skincare Routine for Singapore's Climate: Supplements That Work</strong><br><em>Climate-specific skincare and supplement guide for Singapore's tropical humidity, covering internal and external anti-aging strategies.</em></td>
+          <td>anti aging skincare singapore, anti aging supplements tropical climate</td>
+          <td>SG lifestyle content</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 40</span></td>
+          <td>80</td>
+          <td><strong>Deer Placenta and Pregnancy: Is It Safe During Conception, Pregnancy, or Breastfeeding?</strong><br><em>Evidence-based safety guide for women who are pregnant, trying to conceive, or breastfeeding and considering deer placenta supplements.</em></td>
+          <td>deer placenta pregnancy, deer placenta breastfeeding safe</td>
+          <td>Critical safety content for AI responses</td>
+          <td><span class="tag tag-ai">AI Target</span> <span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 41</span></td>
+          <td>81</td>
+          <td><strong>Immune-Boosting Supplements for Singapore: What Research Recommends</strong><br><em>Evidence-based guide to immune-supporting supplements for Singapore's climate, covering deer placenta, vitamin D, zinc, and probiotics.</em></td>
+          <td>immune boosting supplements singapore, immunity supplements</td>
+          <td>Post-COVID wellness trend in SG</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 41</span></td>
+          <td>82</td>
+          <td><strong>Can You Take Deer Placenta with Other Supplements? Interaction Guide</strong><br><em>Comprehensive guide to supplement combinations and interactions, covering which supplements pair well with deer placenta and which to avoid.</em></td>
+          <td>deer placenta interactions, deer placenta with other supplements</td>
+          <td>Safety/practical FAQ content</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 42</span></td>
+          <td>83</td>
+          <td><strong>Wellness Gifts for Parents in Singapore: Premium Health Supplements Guide</strong><br><em>Gift guide for Singaporean adults looking to give premium wellness supplements to ageing parents, featuring deer placenta as a premium option.</em></td>
+          <td>wellness gifts singapore, health supplement gifts parents</td>
+          <td>Seasonal/gifting SG content</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 42</span></td>
+          <td>84</td>
+          <td><strong>Deer Placenta for Hair Growth: Does It Actually Work?</strong><br><em>Review of evidence linking deer placenta's growth factors to hair health, covering clinical data and realistic expectations.</em></td>
+          <td>deer placenta hair growth, deer placenta for hair</td>
+          <td>Hair health query cluster</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 43</span></td>
+          <td>85</td>
+          <td><strong>The Singapore Woman's Guide to Supplements After 40</strong><br><em>Age-specific supplement guide for Singapore women over 40, covering hormonal support, bone density, skin health, and energy.</em></td>
+          <td>supplements for women over 40 singapore, women health supplements</td>
+          <td>Demographic-targeted SG content</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 43</span></td>
+          <td>86</td>
+          <td><strong>Deer Placenta and Sleep Quality: Can It Help You Rest Better?</strong><br><em>Exploring the connection between deer placenta supplementation and sleep quality improvement, with clinical evidence.</em></td>
+          <td>deer placenta sleep, supplements for better sleep</td>
+          <td>Lifestyle benefit content</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 44</span></td>
+          <td>87</td>
+          <td><strong>How Singapore's TCM Practitioners View Modern Deer Placenta Supplements</strong><br><em>Interviews and perspectives from Singapore TCM practitioners on how modern deer placenta supplements align with traditional practice.</em></td>
+          <td>TCM deer placenta singapore, traditional chinese medicine supplements</td>
+          <td>E-E-A-T + SG cultural relevance</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 44</span></td>
+          <td>88</td>
+          <td><strong>Deer Placenta for Energy and Stamina: What Active Adults Should Know</strong><br><em>Guide to deer placenta's energy-boosting properties for active adults, covering mitochondrial support and ATP production.</em></td>
+          <td>deer placenta energy, deer placenta stamina</td>
+          <td>Energy benefit cluster</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 45</span></td>
+          <td>89</td>
+          <td><strong>Supplement Myths in Singapore: 10 Common Misconceptions Debunked</strong><br><em>Myth-busting guide addressing the most common supplement misconceptions among Singapore consumers, from "natural means safe" to "more is better".</em></td>
+          <td>supplement myths singapore, health supplement misconceptions</td>
+          <td>Educational trust content</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 45</span></td>
+          <td>90</td>
+          <td><strong>Detox Culture in Singapore: Separating Evidence-Based Wellness from Marketing Hype</strong><br><em>Critical look at Singapore's detox supplement trend, examining which wellness claims are supported by evidence and which are pure marketing.</em></td>
+          <td>detox supplements singapore, detox culture evidence</td>
+          <td>Consumer education + SG wellness trend</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 46</span></td>
+          <td>91</td>
+          <td><strong>Halal and Vegetarian Supplement Options in Singapore: What to Look For</strong><br><em>Guide for Singapore's multi-cultural market on identifying halal-certified and vegetarian-friendly supplement options, including deer placenta capsule alternatives.</em></td>
+          <td>halal supplements singapore, vegetarian supplements singapore</td>
+          <td>Multi-cultural SG market need</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 46</span></td>
+          <td>92</td>
+          <td><strong>Best Time to Start Taking Anti-Aging Supplements: A Guide by Age Group</strong><br><em>Age-stratified guide to when and why to start anti-aging supplementation, from preventive care in your 30s to active support in your 50s+.</em></td>
+          <td>when to start anti aging supplements, anti aging by age</td>
+          <td>Lifestyle demographic targeting</td>
+          <td><span class="tag tag-new">New</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 47</span></td>
+          <td>93</td>
+          <td><strong>Understanding Singapore's Health Supplement Regulations: A Consumer Pocket Guide</strong><br><em>Practical guide to navigating HSA regulations, permitted health claims, and how to verify that your supplements meet Singapore's strict safety standards.</em></td>
+          <td>singapore supplement regulations, HSA health supplement rules</td>
+          <td>Trust + compliance content for SG</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 47</span></td>
+          <td>94</td>
+          <td><strong>Ethical Sourcing of Deer Placenta: Animal Welfare and Sustainability</strong><br><em>Addressing consumer concerns about deer placenta sourcing ethics, covering New Zealand farming standards, animal welfare, and sustainable practices.</em></td>
+          <td>deer placenta ethical, deer placenta animal welfare</td>
+          <td>Ethical consumer segment</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 48</span></td>
+          <td>95</td>
+          <td><strong>Active Ageing in Singapore: How Supplements Support the Silver Generation</strong><br><em>Guide for Singapore's growing senior population on nutritional supplementation for vitality, mobility, and daily wellness after 60.</em></td>
+          <td>active ageing singapore, supplements for seniors singapore</td>
+          <td>Silver generation is fastest-growing SG demographic</td>
+          <td><span class="tag tag-sg">SG Local</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 48</span></td>
+          <td>96</td>
+          <td><strong>The Complete Guide to Supplement Stacking: What Pairs Well with Deer Placenta</strong><br><em>Guide to combining deer placenta with complementary supplements like vitamin C, omega-3, probiotics, and collagen for maximum benefit.</em></td>
+          <td>supplement stacking deer placenta, deer placenta combination</td>
+          <td>Practical advanced user content</td>
+          <td><span class="tag tag-new">New</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 49</span></td>
+          <td>97</td>
+          <td><strong>Deer Placenta Across Southeast Asia: Why It Is Popular in Singapore, Malaysia, and Beyond</strong><br><em>Market overview of deer placenta's popularity across ASEAN countries, cultural factors driving demand, and why Singapore leads regional adoption.</em></td>
+          <td>deer placenta singapore malaysia, deer placenta southeast asia</td>
+          <td>Regional market context for SG</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 49</span></td>
+          <td>98</td>
+          <td><strong>Singapore's Supplement Industry in 2026: Trends, Regulations, and What Is Next</strong><br><em>Industry analysis of Singapore's supplement market covering regulatory changes, consumer trends, and emerging product categories.</em></td>
+          <td>singapore supplement industry, supplement market trends singapore</td>
+          <td>Thought leadership for SG market</td>
+          <td><span class="tag tag-sg">SG Local</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 50</span></td>
+          <td>99</td>
+          <td><strong>Deer Placenta Supplement Glossary: 50 Terms Every Consumer Should Know</strong><br><em>Comprehensive glossary of deer placenta and supplement terminology, from "bioavailability" to "enteric coating", designed for AI snippet capture.</em></td>
+          <td>deer placenta glossary, supplement terminology</td>
+          <td>AI-optimised reference content</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 50</span></td>
+          <td>100</td>
+          <td><strong>Your First 90 Days on Deer Placenta: What to Expect Week by Week</strong><br><em>Realistic 90-day timeline guide for new deer placenta users, covering what to expect each week from energy changes to skin improvements.</em></td>
+          <td>deer placenta results, deer placenta what to expect</td>
+          <td>Conversion-focused final post</td>
+          <td><span class="tag tag-new">New</span> <span class="tag tag-ai">AI Target</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 11. IMPLEMENTATION ROADMAP ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 11</span>Implementation Roadmap &amp; Priorities</h2>
+
+    <p>This roadmap outlines the execution plan for delivering all 100 blog posts across 50 weeks, with clear priorities, milestones, and expected outcomes for the Singapore market.</p>
+
+    <h3>Priority Matrix</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Action</th>
+          <th>Timeline</th>
+          <th>Expected Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><span class="cal-table"><span class="priority-high">P0 - CRITICAL</span></span></td>
+          <td>Implement 301 redirects for 8 old URLs</td>
+          <td>Week 1 (immediate)</td>
+          <td>Recover 4,220 SG impressions at risk of permanent loss</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><span class="cal-table"><span class="priority-high">P0 - CRITICAL</span></span></td>
+          <td>Create "Best Placenta Supplements in Singapore" page</td>
+          <td>Week 9</td>
+          <td>Capture "placenta supplement singapore" (119 imp, pos 72)</td>
+        </tr>
+        <tr>
+          <td><span class="cal-table"><span class="priority-high">P1 - HIGH</span></span></td>
+          <td>Phase 1: Redirect Recovery (16 posts)</td>
+          <td>Weeks 1-8</td>
+          <td>Recover old search equity + build content foundation</td>
+        </tr>
+        <tr>
+          <td><span class="cal-table"><span class="priority-high">P1 - HIGH</span></span></td>
+          <td>Phase 2: Singapore Localisation (20 posts)</td>
+          <td>Weeks 9-18</td>
+          <td>First-ever Singapore content = massive ranking potential</td>
+        </tr>
+        <tr>
+          <td><span class="cal-table"><span class="priority-med">P2 - MEDIUM</span></span></td>
+          <td>Phase 3: Competitor Battleground (20 posts)</td>
+          <td>Weeks 19-28</td>
+          <td>Capture comparison traffic (deer vs sheep, NMN, collagen, bird's nest)</td>
+        </tr>
+        <tr>
+          <td><span class="cal-table"><span class="priority-med">P2 - MEDIUM</span></span></td>
+          <td>Phase 4: Ingredient Science (20 posts)</td>
+          <td>Weeks 29-38</td>
+          <td>Build E-E-A-T and topical authority</td>
+        </tr>
+        <tr>
+          <td><span class="cal-table"><span class="priority-low">P3 - GROWTH</span></span></td>
+          <td>Phase 5: Lifestyle &amp; AI Optimisation (24 posts)</td>
+          <td>Weeks 39-50</td>
+          <td>AI/LLM visibility + lifestyle audience expansion</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Key Milestones</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Milestone</th>
+          <th>Target Date</th>
+          <th>Success Metric</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>All 301 redirects implemented</td>
+          <td>End of Week 1</td>
+          <td>GSC shows redirects processing, no more 404 errors</td>
+        </tr>
+        <tr>
+          <td>Phase 1 complete (16 posts live)</td>
+          <td>End of Week 8</td>
+          <td>Old URLs redirecting, SG impressions recovering</td>
+        </tr>
+        <tr>
+          <td>First Singapore-specific page ranking</td>
+          <td>End of Week 12</td>
+          <td>"placenta supplement singapore" enters top 30</td>
+        </tr>
+        <tr>
+          <td>Phase 2 complete (36 posts total)</td>
+          <td>End of Week 18</td>
+          <td>SG clicks double from 195 baseline</td>
+        </tr>
+        <tr>
+          <td>Competitor comparison pages live</td>
+          <td>End of Week 24</td>
+          <td>Ranking for "deer placenta vs" comparison queries</td>
+        </tr>
+        <tr>
+          <td>50 posts live</td>
+          <td>End of Week 28</td>
+          <td>SG impressions exceed 20,000 (16mo equivalent)</td>
+        </tr>
+        <tr>
+          <td>All 100 posts published</td>
+          <td>End of Week 50</td>
+          <td>SG monthly clicks exceed 100, position avg below 15</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Technical Requirements</h3>
+    <ol>
+      <li><strong>301 Redirects:</strong> Server-level permanent redirects from all old URLs to new equivalents. Must be implemented before or simultaneously with new content publication.</li>
+      <li><strong>Schema Markup:</strong> FAQ, Article, Product, HowTo, and BreadcrumbList schemas on every new blog post. Use JSON-LD format.</li>
+      <li><strong>hreflang Tags:</strong> Consider implementing hreflang tags for Singapore English (en-SG) to signal Google that content is targeted at Singapore.</li>
+      <li><strong>Internal Linking:</strong> Every new post must link to at least 3 other posts in the content ecosystem. Build hub-and-spoke architecture around pillar topics.</li>
+      <li><strong>Singapore Trust Signals:</strong> Add Singapore office address, SGD pricing, local delivery information, and HSA-compliant disclaimers to all Singapore-targeted content.</li>
+      <li><strong>Mobile Optimisation:</strong> All content must load in under 3 seconds on Singapore 4G connections. Images must be compressed and lazy-loaded.</li>
+    </ol>
+
+    <h3>Expected Outcomes (12-Month Projection)</h3>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="value">1,500+</div>
+        <div class="label">Projected SG Clicks/Year</div>
+        <div class="change up">670% increase from 195</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">50,000+</div>
+        <div class="label">Projected SG Impressions/Year</div>
+        <div class="change up">500% increase from 8,283</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">&lt;12</div>
+        <div class="label">Target Avg Position</div>
+        <div class="change up">Improved from 19.79</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">5%+</div>
+        <div class="label">Target CTR</div>
+        <div class="change up">Improved from 2.35%</div>
+      </div>
+    </div>
+
+    <div class="callout callout-success">
+      <strong>The Singapore Opportunity in Summary</strong>
+      EINNALAB is generating 195 clicks and 8,283 impressions from Singapore with zero localised content, no Singapore-specific pages, and an average position of 19.79 (page 2). By creating 100 targeted blog posts with Singapore-specific content, implementing 301 redirects, and building local trust signals, the projected outcome is a 5-7x increase in Singapore search visibility within 12 months. The single most impactful action is creating Singapore-specific content -- because none currently exists, the potential for growth is virtually unlimited.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>EINNALAB.com Singapore Market Blog Content Strategy &amp; 50-Week Calendar Report</p>
+    <p>Prepared by Reputifly Pte Ltd | April 9, 2026 | Confidential</p>
+    <p>Data Source: Google Search Console (Dec 8, 2024 - Apr 7, 2026) filtered to Singapore</p>
+  </div>
+
+</body>
+
+</html>
