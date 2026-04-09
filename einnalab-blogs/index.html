@@ -1,0 +1,3152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EINNALAB.com Blog Content Strategy & Calendar Report</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a2e;
+      line-height: 1.6;
+      background: #fff;
+      font-size: 11pt;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    /* COVER PAGE */
+    .cover {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(0, 206, 209, 0.1) 0%, transparent 50%);
+    }
+
+    .cover * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover .badge {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-size: 11pt;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .cover h1 {
+      font-size: 38pt;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff, #a8edea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover .subtitle {
+      font-size: 16pt;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 50px;
+      max-width: 600px;
+    }
+
+    .cover .meta-row {
+      display: flex;
+      gap: 40px;
+      font-size: 10pt;
+      opacity: 0.7;
+    }
+
+    .cover .meta-row span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cover .client-logo {
+      font-size: 24pt;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+      color: #a8edea;
+    }
+
+    .cover .data-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 36px 0 20px 0;
+      max-width: 720px;
+      width: 100%;
+    }
+
+    .cover .data-stat {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 14px 10px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .cover .data-stat .ds-val {
+      font-size: 22pt;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover .data-stat .ds-label {
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    .cover .prepared-by {
+      margin-top: 32px;
+      font-size: 9pt;
+      opacity: 0.55;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .cover .prepared-by strong {
+      opacity: 1;
+      font-size: 11pt;
+      display: block;
+      margin-top: 4px;
+      letter-spacing: 2px;
+      color: #a8edea;
+    }
+
+    @media (max-width: 900px) {
+      .cover .data-stats {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cover .data-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px;
+      }
+
+      .cover .data-stat .ds-val {
+        font-size: 16pt;
+      }
+
+      .cover .data-stat .ds-label {
+        font-size: 6.5pt;
+      }
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 50px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 22pt;
+      font-weight: 800;
+      color: #0f0c29;
+      margin-bottom: 8px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid #302b63;
+    }
+
+    h2 .num {
+      color: #302b63;
+      font-size: 14pt;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    h3 {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #302b63;
+      margin: 24px 0 10px 0;
+    }
+
+    h4 {
+      font-size: 12pt;
+      font-weight: 600;
+      color: #444;
+      margin: 16px 0 8px 0;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    /* KPI CARDS */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .kpi-card {
+      background: linear-gradient(135deg, #f8f9ff, #eef0ff);
+      border: 1px solid #d4d8f0;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .kpi-card .value {
+      font-size: 28pt;
+      font-weight: 800;
+      color: #302b63;
+      line-height: 1;
+    }
+
+    .kpi-card .label {
+      font-size: 9pt;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 6px;
+    }
+
+    .kpi-card .change {
+      font-size: 9pt;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .kpi-card .change.up {
+      color: #10b981;
+    }
+
+    .kpi-card .change.down {
+      color: #ef4444;
+    }
+
+    /* TABLES */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 9.5pt;
+    }
+
+    thead th {
+      background: #302b63;
+      color: white;
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    thead th:first-child {
+      border-radius: 8px 0 0 0;
+    }
+
+    thead th:last-child {
+      border-radius: 0 8px 0 0;
+    }
+
+    tbody td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f9f9fc;
+    }
+
+    tbody tr:hover {
+      background: #f0f0ff;
+    }
+
+    .highlight-row {
+      background: #fff3cd !important;
+      font-weight: 600;
+    }
+
+    /* CALLOUT BOXES */
+    .callout {
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .callout-insight {
+      background: #eef0ff;
+      border-left: 4px solid #302b63;
+    }
+
+    .callout-warning {
+      background: #fff3cd;
+      border-left: 4px solid #f59e0b;
+    }
+
+    .callout-success {
+      background: #d1fae5;
+      border-left: 4px solid #10b981;
+    }
+
+    .callout-critical {
+      background: #fee2e2;
+      border-left: 4px solid #ef4444;
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 10pt;
+    }
+
+    /* CONTENT CALENDAR TABLE */
+    .cal-table {
+      font-size: 8.5pt;
+    }
+
+    .cal-table thead th {
+      font-size: 7.5pt;
+      padding: 8px 6px;
+    }
+
+    .cal-table tbody td {
+      padding: 6px;
+      vertical-align: top;
+    }
+
+    .cal-table .week-num {
+      background: #302b63;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 8pt;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .cal-table .phase-header {
+      background: #24243e;
+      color: white;
+      font-weight: 700;
+      font-size: 10pt;
+      padding: 10px 12px;
+    }
+
+    .cal-table .priority-high {
+      color: #ef4444;
+      font-weight: 700;
+    }
+
+    .cal-table .priority-med {
+      color: #f59e0b;
+      font-weight: 600;
+    }
+
+    .cal-table .priority-low {
+      color: #10b981;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 7.5pt;
+      font-weight: 600;
+    }
+
+    .tag-redirect {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+
+    .tag-new {
+      background: #d1fae5;
+      color: #059669;
+    }
+
+    .tag-competitor {
+      background: #dbeafe;
+      color: #2563eb;
+    }
+
+    .tag-ingredient {
+      background: #fef3c7;
+      color: #d97706;
+    }
+
+    .tag-science {
+      background: #ede9fe;
+      color: #7c3aed;
+    }
+
+    .tag-ai {
+      background: #fce7f3;
+      color: #db2777;
+    }
+
+    /* LISTS */
+    ul,
+    ol {
+      margin: 8px 0 16px 24px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 30px;
+      color: #999;
+      font-size: 8pt;
+      border-top: 1px solid #eee;
+      margin-top: 40px;
+    }
+
+    /* OVERFLOW & WORD BREAK SAFETY */
+    html,
+    body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    code {
+      word-break: break-all;
+      font-size: 0.9em;
+      background: #f3f3f3;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    td,
+    th {
+      word-break: normal;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 900px) {
+      .section {
+        padding: 30px 20px;
+      }
+
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .kpi-card .value {
+        font-size: 22pt;
+      }
+
+      .cover h1 {
+        font-size: 24pt;
+      }
+
+      .cover .subtitle {
+        font-size: 13pt;
+      }
+
+      .cover .meta-row {
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+
+      .cover {
+        padding: 40px 20px;
+      }
+
+      h2 {
+        font-size: 18pt;
+      }
+
+      h3 {
+        font-size: 13pt;
+      }
+
+      /* Tables wrap on mobile */
+      table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      table td,
+      table th {
+        white-space: nowrap;
+      }
+
+      .cal-table td,
+      .cal-table th {
+        min-width: 60px;
+      }
+
+      .cal-table td:nth-child(3) {
+        min-width: 160px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section {
+        padding: 20px 14px;
+      }
+
+      .kpi-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .kpi-card {
+        padding: 14px 10px;
+      }
+
+      .kpi-card .value {
+        font-size: 18pt;
+      }
+
+      .kpi-card .label {
+        font-size: 8pt;
+      }
+
+      .cover h1 {
+        font-size: 20pt;
+      }
+
+      .cover .subtitle {
+        font-size: 11pt;
+      }
+
+      .cover .badge {
+        font-size: 9pt;
+        padding: 6px 16px;
+      }
+
+      h2 {
+        font-size: 16pt;
+      }
+
+      h3 {
+        font-size: 12pt;
+      }
+
+      body {
+        font-size: 10pt;
+      }
+
+      .callout {
+        padding: 14px 16px;
+      }
+
+      .callout strong {
+        font-size: 9.5pt;
+      }
+
+      ol,
+      ul {
+        margin-left: 32px;
+        padding-left: 8px;
+      }
+    }
+
+    @media print {
+      .cover {
+        min-height: auto;
+        padding: 120px 40px;
+      }
+
+      .section {
+        padding: 30px 40px;
+      }
+
+      .page-break {
+        page-break-before: always;
+      }
+
+      body {
+        font-size: 10pt;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== COVER PAGE ==================== -->
+  <div class="cover">
+    <div class="badge">Strategic Content Report</div>
+    <div class="client-logo">EINNALAB</div>
+    <h1>Blog Content Strategy<br>&amp; 50-Week Calendar</h1>
+    <p class="subtitle">Data-driven SEO blog strategy based on 16 months of Google Search Console data, competitor
+      analysis, and AI visibility optimization for the US deer placenta supplement market.</p>
+
+    <div class="data-stats" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="data-stat">
+        <div class="ds-val">60,700+</div>
+        <div class="ds-label">Impressions Analyzed</div>
+      </div>
+      <div class="data-stat">
+        <div class="ds-val">670+</div>
+        <div class="ds-label">Keywords Analyzed</div>
+      </div>
+      <div class="data-stat">
+        <div class="ds-val">185</div>
+        <div class="ds-label">Countries Tracked</div>
+      </div>
+      <div class="data-stat">
+        <div class="ds-val">487</div>
+        <div class="ds-label">Days of Search Data</div>
+      </div>
+      <div class="data-stat">
+        <div class="ds-val">100</div>
+        <div class="ds-label">Blog Posts Proposed</div>
+      </div>
+    </div>
+
+    <div class="meta-row">
+      <span>Date: April 9, 2026</span>
+      <span>Domain: EINNALAB.com</span>
+      <span>Target: USA Market</span>
+      <span>Posts Proposed: 100</span>
+    </div>
+
+    <div class="prepared-by">
+      Prepared by<br>
+      <strong>Reputifly Pte Ltd</strong>
+    </div>
+  </div>
+
+  <!-- ==================== TABLE OF CONTENTS ==================== -->
+  <div class="section">
+    <h2><span class="num">Contents</span>Table of Contents</h2>
+    <ol style="font-size: 11pt; line-height: 2.2;">
+      <li><strong>Executive Summary</strong></li>
+      <li><strong>GSC Data Analysis: 16-Month Overview</strong></li>
+      <li><strong>Top Performing Content (Old Site)</strong></li>
+      <li><strong>Keyword Opportunity Analysis</strong></li>
+      <li><strong>URL Redirect Strategy (Critical)</strong></li>
+      <li><strong>Country & Device Breakdown</strong></li>
+      <li><strong>Competitor Landscape</strong></li>
+      <li><strong>AI/LLM Visibility Strategy</strong></li>
+      <li><strong>Content Pillar Framework</strong></li>
+      <li><strong>50-Week Content Calendar (100 Blog Posts)</strong></li>
+      <li><strong>Implementation Roadmap & Priorities</strong></li>
+    </ol>
+  </div>
+
+  <!-- ==================== 1. EXECUTIVE SUMMARY ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 1</span>Executive Summary</h2>
+
+    <p>EINNALAB.com recently migrated from its old website to a newly designed platform. The old site had
+      <strong>significant organic search equity</strong> built over 16+ months, generating 1,500+ clicks and 60,700+
+      impressions across hundreds of deer placenta-related keywords. The new site currently has only <strong>3 blog
+        posts</strong>, leaving a massive content gap and orphaned ranking URLs.
+    </p>
+
+    <p>This report proposes a <strong>100-blog-post content calendar spanning 50 weeks (2 posts/week)</strong>, built
+      entirely on actual Google Search Console data, competitor analysis, and AI visibility optimization targeting the
+      US market.</p>
+
+    <div class="callout callout-critical">
+      <strong>URGENT: Redirect Recovery Needed</strong>
+      The old site's top-performing blog URLs (generating 500+ clicks and 45,000+ impressions) are currently losing
+      traffic because they don't redirect to equivalent new content. Phase 1 of this calendar prioritizes recreating
+      these pages and setting up 301 redirects.
+    </div>
+
+    <h3>Key Findings</h3>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="value">1,495</div>
+        <div class="label">Total Clicks (16mo)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">60.7K</div>
+        <div class="label">Total Impressions (16mo)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">2.5%</div>
+        <div class="label">Average CTR</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">14.5</div>
+        <div class="label">Average Position</div>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="value">834</div>
+        <div class="label">Clicks (Last 6mo)</div>
+        <div class="change up">55% of all-time clicks</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">32.2K</div>
+        <div class="label">Impressions (Last 6mo)</div>
+        <div class="change up">53% of all-time</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">12.5</div>
+        <div class="label">Recent Avg Position</div>
+        <div class="change up">Improved from 14.5</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value">670+</div>
+        <div class="label">Unique Keywords</div>
+        <div class="change">Ranking in Google</div>
+      </div>
+    </div>
+
+    <h3>Strategic Priorities</h3>
+    <ol>
+      <li><strong>Redirect Recovery (Weeks 1-8):</strong> Recreate 16 old high-performing blog posts on the new site and
+        set up 301 redirects to preserve search equity. These old URLs generated 500+ clicks and 45,000+ impressions.
+      </li>
+      <li><strong>High-Opportunity Keywords (Weeks 9-20):</strong> Target 24 blog posts at keywords with high
+        impressions but poor click-through or ranking position. Keywords like "deer placenta supplement" (1,081
+        impressions, position 24) represent massive untapped traffic.</li>
+      <li><strong>Ingredient & Comparison Content (Weeks 21-30):</strong> Deep dives on product ingredients (dendrobium,
+        borage oil, grape seed) and comparison content (vs sheep placenta, vs collagen) that historically generated
+        10,000+ impressions.</li>
+      <li><strong>Competitor Differentiation (Weeks 31-40):</strong> Target competitor brand keywords (Purtier,
+        Miracell, VMB) and geographic markets (Australia, Philippines, Malaysia) where EINNALAB already shows
+        impressions.</li>
+      <li><strong>AI Visibility & Trends (Weeks 41-50):</strong> FAQ-rich, schema-marked content designed to appear in
+        Google AI Overviews and LLM responses, plus trending health topics.</li>
+    </ol>
+  </div>
+
+  <!-- ==================== 2. GSC DATA ANALYSIS ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 2</span>GSC Data Analysis: 16-Month Overview</h2>
+
+    <p>Data spans from <strong>December 8, 2024 through April 7, 2026</strong>. A significant gap exists from
+      approximately <strong>January 20 to June 1, 2025</strong>, representing the website migration period where the old
+      site went offline and the new site had not yet been indexed.</p>
+
+    <h3>Traffic Timeline</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Period</th>
+          <th>Phase</th>
+          <th>Avg Daily Clicks</th>
+          <th>Avg Daily Impressions</th>
+          <th>Avg Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dec 2024</td>
+          <td>Old Site (final month)</td>
+          <td>1.4</td>
+          <td>21</td>
+          <td>42.1</td>
+        </tr>
+        <tr>
+          <td>Jan 1-20, 2025</td>
+          <td>Old Site (winding down)</td>
+          <td>1.3</td>
+          <td>37</td>
+          <td>31.6</td>
+        </tr>
+        <tr>
+          <td>Jan 21 - May 31, 2025</td>
+          <td>Migration Gap</td>
+          <td colspan="3" style="text-align:center;color:#999;">No data / Site offline</td>
+        </tr>
+        <tr>
+          <td>Jun 2025</td>
+          <td>New Site Launch</td>
+          <td>3.6</td>
+          <td>149</td>
+          <td>22.0</td>
+        </tr>
+        <tr>
+          <td>Jul 2025</td>
+          <td>Indexing Growth</td>
+          <td>4.1</td>
+          <td>173</td>
+          <td>19.5</td>
+        </tr>
+        <tr>
+          <td>Aug 2025</td>
+          <td>Rapid Growth</td>
+          <td>5.0</td>
+          <td>268</td>
+          <td>18.1</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>Sep 2025</td>
+          <td>Peak Performance</td>
+          <td>5.4</td>
+          <td>260</td>
+          <td>8.8</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>Oct 2025</td>
+          <td>Strong Performance</td>
+          <td>5.1</td>
+          <td>200</td>
+          <td>8.2</td>
+        </tr>
+        <tr>
+          <td>Nov 2025</td>
+          <td>Stable</td>
+          <td>4.6</td>
+          <td>233</td>
+          <td>8.5</td>
+        </tr>
+        <tr>
+          <td>Dec 2025</td>
+          <td>Migration Effect</td>
+          <td>5.5</td>
+          <td>171</td>
+          <td>14.5</td>
+        </tr>
+        <tr>
+          <td>Jan 2026</td>
+          <td>Recovery</td>
+          <td>4.5</td>
+          <td>155</td>
+          <td>17.0</td>
+        </tr>
+        <tr>
+          <td>Feb 2026</td>
+          <td>Stabilizing</td>
+          <td>3.6</td>
+          <td>156</td>
+          <td>14.3</td>
+        </tr>
+        <tr>
+          <td>Mar 2026</td>
+          <td>Current</td>
+          <td>3.4</td>
+          <td>174</td>
+          <td>14.3</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-insight">
+      <strong>Key Insight: Position Regression After Migration</strong>
+      The site achieved its best average position (~8) during Sep-Nov 2025 with the old content. Since the migration,
+      the average position has regressed to ~14. This is directly tied to losing the old blog content URLs. Recreating
+      this content and implementing 301 redirects is the single highest-impact action available.
+    </div>
+
+    <h3>Traffic Distribution</h3>
+    <p>The last 6 months (Oct 2025 - Apr 2026) account for <strong>55% of all clicks</strong> and <strong>53% of all
+        impressions</strong>, confirming the domain has strong growth momentum despite the migration setback.</p>
+  </div>
+
+  <!-- ==================== 3. TOP PERFORMING CONTENT ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 3</span>Top Performing Content (Old Site)</h2>
+
+    <p>These are the blog URLs from the old website that generated the most search visibility. Each needs an equivalent
+      new blog post with a 301 redirect from the old URL.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Old URL (Slug)</th>
+          <th>Clicks</th>
+          <th>Impressions</th>
+          <th>CTR</th>
+          <th>Avg Pos</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>/what-is-deer-placenta-supplement/</td>
+          <td>155</td>
+          <td>11,628</td>
+          <td>1.33%</td>
+          <td>11.57</td>
+          <td><span class="tag tag-new">New post exists</span></td>
+        </tr>
+        <tr class="highlight-row">
+          <td>/deer-placenta-supplement-side-effects/</td>
+          <td>151</td>
+          <td>10,983</td>
+          <td>1.37%</td>
+          <td>9.09</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr class="highlight-row">
+          <td>/sheep-placenta-vs-deer-placenta-supplement-review/</td>
+          <td>95</td>
+          <td>11,548</td>
+          <td>0.82%</td>
+          <td>14.39</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr class="highlight-row">
+          <td>/top-10-deer-placenta-benefits-for-women-you-didnt-know/</td>
+          <td>75</td>
+          <td>4,552</td>
+          <td>1.65%</td>
+          <td>10.38</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/EINNALAB-deer-placenta-to-redefine-the-wellness-supplements-experience/</td>
+          <td>23</td>
+          <td>1,317</td>
+          <td>1.75%</td>
+          <td>3.63</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/benefits-of-dendrobium/</td>
+          <td>14</td>
+          <td>2,598</td>
+          <td>0.54%</td>
+          <td>12.16</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/EINNALAB-deer-placenta-new-zealand-premium-immune-supplement/</td>
+          <td>9</td>
+          <td>1,863</td>
+          <td>0.48%</td>
+          <td>16.65</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/only-enteric-coating-deer-placenta-capsules-get-real-results/</td>
+          <td>8</td>
+          <td>666</td>
+          <td>1.20%</td>
+          <td>12.83</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/benefits-of-borage-oil/</td>
+          <td>5</td>
+          <td>2,181</td>
+          <td>0.23%</td>
+          <td>39.84</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/why-all-deer-placenta-is-not-created-equal-a-guide-to-the-best-supplement/</td>
+          <td>4</td>
+          <td>215</td>
+          <td>1.86%</td>
+          <td>5.55</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/benefits-of-lycopene-oil/</td>
+          <td>2</td>
+          <td>637</td>
+          <td>0.31%</td>
+          <td>14.25</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/benefits-of-aloe-vera/</td>
+          <td>2</td>
+          <td>507</td>
+          <td>0.39%</td>
+          <td>10.84</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/benefits-of-grape-seed/</td>
+          <td>1</td>
+          <td>1,846</td>
+          <td>0.05%</td>
+          <td>54.84</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/only-nanoemulsion-deer-placenta-capsules-get-real-results/</td>
+          <td>2</td>
+          <td>90</td>
+          <td>2.22%</td>
+          <td>6.27</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/deer-placenta-clinical-studies-and-human-research/</td>
+          <td>0</td>
+          <td>130</td>
+          <td>0%</td>
+          <td>7.79</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+        <tr>
+          <td>/how-dietary-food-supplements-help-in-anti-aging/</td>
+          <td>0</td>
+          <td>42</td>
+          <td>0%</td>
+          <td>114</td>
+          <td><span class="tag tag-redirect">NEEDS REDIRECT</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-critical">
+      <strong>Combined Lost Traffic from Old Blog Posts</strong>
+      Total clicks from old blog URLs (excluding homepage): <strong>546 clicks</strong> and <strong>49,804
+        impressions</strong>. Without 301 redirects, this search equity is being permanently lost. The new site's 3 blog
+      posts need to be supplemented immediately with equivalent content.
+    </div>
+
+    <h3>New Site: Current Blog Posts (3 only)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>URL</th>
+          <th>Published</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>What Is Deer Placenta? A Complete Guide</td>
+          <td>/what-is-deer-placenta-complete-guide/</td>
+          <td>Mar 15, 2026</td>
+        </tr>
+        <tr>
+          <td>Deer Placenta Benefits for Skin: What the Research Shows</td>
+          <td>/deer-placenta-benefits-for-skin/</td>
+          <td>Mar 10, 2026</td>
+        </tr>
+        <tr>
+          <td>Best Deer Placenta Supplement 2026: What to Look For</td>
+          <td>/best-deer-placenta-supplement-guide/</td>
+          <td>Mar 5, 2026</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-warning">
+      <strong>Immediate Redirect Action Required</strong>
+      Set up 301 redirect: <code>/what-is-deer-placenta-supplement/</code> &rarr;
+      <code>/what-is-deer-placenta-complete-guide/</code>. This alone recovers access to 11,628 impressions and 155
+      historic clicks worth of search equity.
+    </div>
+  </div>
+
+  <!-- ==================== 4. KEYWORD OPPORTUNITY ANALYSIS ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 4</span>Keyword Opportunity Analysis</h2>
+
+    <p>Analysis of 670+ unique keywords ranked in Google Search Console, organized by strategic clusters and opportunity
+      level.</p>
+
+    <h3>Cluster 1: Core Deer Placenta Keywords (Highest Priority)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Impressions</th>
+          <th>Clicks</th>
+          <th>CTR</th>
+          <th>Position</th>
+          <th>Opportunity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>deer placenta benefits</td>
+          <td>5,436</td>
+          <td>49</td>
+          <td>0.9%</td>
+          <td>13.26</td>
+          <td>Move to page 1 = 200+ clicks/mo potential</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>deer placenta</td>
+          <td>3,054</td>
+          <td>29</td>
+          <td>0.95%</td>
+          <td>26.64</td>
+          <td>Page 3 &rarr; Page 1 = massive traffic</td>
+        </tr>
+        <tr>
+          <td>deer placenta supplement</td>
+          <td>1,081</td>
+          <td>1</td>
+          <td>0.09%</td>
+          <td>23.98</td>
+          <td>Nearly invisible; dedicated post needed</td>
+        </tr>
+        <tr>
+          <td>deer placenta new zealand</td>
+          <td>1,129</td>
+          <td>13</td>
+          <td>1.15%</td>
+          <td>17.28</td>
+          <td>Page 2; NZ-focused content can push to page 1</td>
+        </tr>
+        <tr>
+          <td>deer placenta nz</td>
+          <td>792</td>
+          <td>6</td>
+          <td>0.76%</td>
+          <td>22.14</td>
+          <td>Related to above; consolidate with NZ post</td>
+        </tr>
+        <tr>
+          <td>best deer placenta supplement</td>
+          <td>909</td>
+          <td>40</td>
+          <td>4.4%</td>
+          <td>5.44</td>
+          <td>Already page 1! Existing post aligns well</td>
+        </tr>
+        <tr>
+          <td>deer placenta reviews</td>
+          <td>491</td>
+          <td>2</td>
+          <td>0.41%</td>
+          <td>7.87</td>
+          <td>Page 1 but low CTR; reviews post needed</td>
+        </tr>
+        <tr>
+          <td>deer placenta benefits for women</td>
+          <td>425</td>
+          <td>20</td>
+          <td>4.71%</td>
+          <td>6.39</td>
+          <td>Page 1, good CTR; expand with more content</td>
+        </tr>
+        <tr>
+          <td>benefits of deer placenta</td>
+          <td>330</td>
+          <td>2</td>
+          <td>0.61%</td>
+          <td>9.78</td>
+          <td>Page 1; CTR improvement via rich snippet</td>
+        </tr>
+        <tr>
+          <td>deer placenta benefits for skin</td>
+          <td>224</td>
+          <td>4</td>
+          <td>1.79%</td>
+          <td>8.09</td>
+          <td>New post exists; needs time to mature</td>
+        </tr>
+        <tr>
+          <td>what is deer placenta used for</td>
+          <td>210</td>
+          <td>3</td>
+          <td>1.43%</td>
+          <td>8.04</td>
+          <td>Page 1; new guide post should capture this</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Cluster 2: Comparison Keywords (High Engagement)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Impressions</th>
+          <th>Clicks</th>
+          <th>Position</th>
+          <th>Blog Post Opportunity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>deer placenta vs sheep placenta</td>
+          <td>278</td>
+          <td>8</td>
+          <td>3.91</td>
+          <td>Already ranking #4; old post did well</td>
+        </tr>
+        <tr>
+          <td>sheep placenta vs deer placenta</td>
+          <td>147</td>
+          <td>8</td>
+          <td>4.40</td>
+          <td>Same cluster; combined 425 imp</td>
+        </tr>
+        <tr>
+          <td>best placenta supplement</td>
+          <td>403</td>
+          <td>1</td>
+          <td>33.81</td>
+          <td>Broad comparison post needed</td>
+        </tr>
+        <tr>
+          <td>best sheep placenta supplement</td>
+          <td>278</td>
+          <td>1</td>
+          <td>27.94</td>
+          <td>Sheep vs deer angle captures this</td>
+        </tr>
+        <tr>
+          <td>deer placenta vs collagen</td>
+          <td>~1</td>
+          <td>1</td>
+          <td>3</td>
+          <td>Untapped high-potential comparison</td>
+        </tr>
+        <tr>
+          <td>sheep placenta supplement benefits</td>
+          <td>202</td>
+          <td>0</td>
+          <td>46.82</td>
+          <td>Sheep comparison post captures this</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Cluster 3: Ingredient Keywords (Content Gap)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Impressions</th>
+          <th>Clicks</th>
+          <th>Position</th>
+          <th>Old Page Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>dendrobium benefits</td>
+          <td>633</td>
+          <td>4</td>
+          <td>10.64</td>
+          <td>Old /benefits-of-dendrobium/ had traction</td>
+        </tr>
+        <tr>
+          <td>borage oil benefits</td>
+          <td>391</td>
+          <td>1</td>
+          <td>61.95</td>
+          <td>Old page existed, very low position</td>
+        </tr>
+        <tr>
+          <td>grape seed extract benefits</td>
+          <td>301</td>
+          <td>0</td>
+          <td>57.88</td>
+          <td>Old page, very low position</td>
+        </tr>
+        <tr>
+          <td>dendrobium supplement</td>
+          <td>148</td>
+          <td>0</td>
+          <td>13.02</td>
+          <td>Indexing but not clicking</td>
+        </tr>
+        <tr>
+          <td>dendrobium pre workout</td>
+          <td>87</td>
+          <td>0</td>
+          <td>9.28</td>
+          <td>Interesting crossover audience</td>
+        </tr>
+        <tr>
+          <td>benefits of grape seed</td>
+          <td>1,846</td>
+          <td>1</td>
+          <td>54.84</td>
+          <td>Huge impressions, terrible position</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-insight">
+      <strong>Ingredient Content Opportunity</strong>
+      The combined ingredient-related keywords generate <strong>3,400+ monthly impressions</strong> but barely any
+      clicks due to poor rankings (positions 50-60+). Dedicated, long-form ingredient blog posts with internal links to
+      the main product pages can capture this traffic and build topical authority.
+    </div>
+
+    <h3>Cluster 4: Competitor Brand Keywords</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Competitor Brand Query</th>
+          <th>Impressions</th>
+          <th>Position</th>
+          <th>Content Angle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>purtier placenta (all variants)</td>
+          <td>700+</td>
+          <td>2-7</td>
+          <td>Review/comparison posts; already showing</td>
+        </tr>
+        <tr>
+          <td>miracell deer placenta</td>
+          <td>86</td>
+          <td>3.7</td>
+          <td>Alternative review post</td>
+        </tr>
+        <tr>
+          <td>easy wellness deer placenta</td>
+          <td>186</td>
+          <td>8.12</td>
+          <td>Comparison/review post</td>
+        </tr>
+        <tr>
+          <td>vmb deer placenta</td>
+          <td>32</td>
+          <td>6.41</td>
+          <td>Review and comparison</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Cluster 5: Long-Tail Informational (AI Visibility Targets)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Imp</th>
+          <th>Pos</th>
+          <th>Why Target for AI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>what is deer placenta</td>
+          <td>153</td>
+          <td>11</td>
+          <td>Direct question = AI Overview trigger</td>
+        </tr>
+        <tr>
+          <td>deer placenta side effects</td>
+          <td>110</td>
+          <td>18</td>
+          <td>Safety question = high AI priority</td>
+        </tr>
+        <tr>
+          <td>deer placenta stem cell</td>
+          <td>50</td>
+          <td>19</td>
+          <td>Science query = AI Overview candidate</td>
+        </tr>
+        <tr>
+          <td>deer placenta for fertility</td>
+          <td>23</td>
+          <td>11</td>
+          <td>Specific health question</td>
+        </tr>
+        <tr>
+          <td>is deer placenta good for skin</td>
+          <td>21</td>
+          <td>8</td>
+          <td>Direct yes/no = AI snippet magnet</td>
+        </tr>
+        <tr>
+          <td>deer placenta before and after</td>
+          <td>124</td>
+          <td>12</td>
+          <td>Visual/evidence query</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 5. REDIRECT STRATEGY ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 5</span>URL Redirect Strategy (Critical First Step)</h2>
+
+    <p>The website migration created orphaned URLs that still appear in Google's index. Setting up 301 redirects is the
+      <strong>#1 priority</strong> before any new content is published. Here is the complete redirect map:
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Old URL</th>
+          <th>New URL (After Blog Post Created)</th>
+          <th>Imp Lost</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>/what-is-deer-placenta-supplement/</td>
+          <td>/what-is-deer-placenta-complete-guide/ <em>(exists)</em></td>
+          <td>11,628</td>
+          <td class="priority-high">IMMEDIATE</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>/deer-placenta-supplement-side-effects/</td>
+          <td>/deer-placenta-side-effects-safety-guide/</td>
+          <td>10,983</td>
+          <td class="priority-high">WEEK 1</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>/sheep-placenta-vs-deer-placenta-supplement-review/</td>
+          <td>/sheep-placenta-vs-deer-placenta-comparison/</td>
+          <td>11,548</td>
+          <td class="priority-high">WEEK 1</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>/top-10-deer-placenta-benefits-for-women-you-didnt-know/</td>
+          <td>/deer-placenta-benefits-for-women/</td>
+          <td>4,552</td>
+          <td class="priority-high">WEEK 2</td>
+        </tr>
+        <tr>
+          <td>/benefits-of-dendrobium/</td>
+          <td>/dendrobium-benefits-complete-guide/</td>
+          <td>2,598</td>
+          <td class="priority-high">WEEK 2</td>
+        </tr>
+        <tr>
+          <td>/benefits-of-borage-oil/</td>
+          <td>/borage-oil-benefits-health-guide/</td>
+          <td>2,181</td>
+          <td class="priority-med">WEEK 3</td>
+        </tr>
+        <tr>
+          <td>/benefits-of-grape-seed/</td>
+          <td>/grape-seed-extract-benefits-guide/</td>
+          <td>1,846</td>
+          <td class="priority-med">WEEK 3</td>
+        </tr>
+        <tr>
+          <td>/EINNALAB-deer-placenta-new-zealand-premium-immune-supplement/</td>
+          <td>/deer-placenta-new-zealand-premium-quality/</td>
+          <td>1,863</td>
+          <td class="priority-med">WEEK 5</td>
+        </tr>
+        <tr>
+          <td>/EINNALAB-deer-placenta-to-redefine-the-wellness-supplements-experience/</td>
+          <td>/EINNALAB-deer-placenta-wellness-experience/</td>
+          <td>1,317</td>
+          <td class="priority-med">WEEK 8</td>
+        </tr>
+        <tr>
+          <td>/only-enteric-coating-deer-placenta-capsules-get-real-results/</td>
+          <td>/enteric-coated-deer-placenta-capsules/</td>
+          <td>666</td>
+          <td class="priority-med">WEEK 6</td>
+        </tr>
+        <tr>
+          <td>/benefits-of-lycopene-oil/</td>
+          <td>/lycopene-oil-benefits-health-guide/</td>
+          <td>637</td>
+          <td class="priority-med">WEEK 4</td>
+        </tr>
+        <tr>
+          <td>/benefits-of-aloe-vera/</td>
+          <td>/aloe-vera-benefits-wellness-guide/</td>
+          <td>507</td>
+          <td class="priority-med">WEEK 5</td>
+        </tr>
+        <tr>
+          <td>/why-all-deer-placenta-is-not-created-equal-a-guide-to-the-best-supplement/</td>
+          <td>/deer-placenta-quality-buying-guide/</td>
+          <td>215</td>
+          <td class="priority-low">WEEK 7</td>
+        </tr>
+        <tr>
+          <td>/deer-placenta-clinical-studies-and-human-research/</td>
+          <td>/deer-placenta-clinical-studies-research/</td>
+          <td>130</td>
+          <td class="priority-low">WEEK 4</td>
+        </tr>
+        <tr>
+          <td>/only-nanoemulsion-deer-placenta-capsules-get-real-results/</td>
+          <td>/nanoemulsion-deer-placenta-technology/</td>
+          <td>90</td>
+          <td class="priority-low">WEEK 6</td>
+        </tr>
+        <tr>
+          <td>/how-dietary-food-supplements-help-in-anti-aging/</td>
+          <td>/anti-aging-supplements-science-guide/</td>
+          <td>42</td>
+          <td class="priority-low">WEEK 7</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-success">
+      <strong>Total Recoverable Impressions: ~50,803/16 months</strong>
+      Implementing these redirects as blog posts are published will recover the equivalent of ~3,175 monthly impressions
+      and an estimated 40-60 clicks/month based on historical CTR.
+    </div>
+  </div>
+
+  <!-- ==================== 6. COUNTRY & DEVICE ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 6</span>Country &amp; Device Breakdown</h2>
+
+    <h3>Top Countries by Traffic</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Clicks</th>
+          <th>Impressions</th>
+          <th>CTR</th>
+          <th>Avg Position</th>
+          <th>Strategy Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td>United States</td>
+          <td>229</td>
+          <td>15,394</td>
+          <td>1.49%</td>
+          <td>16.54</td>
+          <td>PRIMARY TARGET - Avg pos 16 means page 2; huge upside</td>
+        </tr>
+        <tr>
+          <td>Philippines</td>
+          <td>218</td>
+          <td>10,174</td>
+          <td>2.14%</td>
+          <td>7.53</td>
+          <td>Strong existing market; local content potential</td>
+        </tr>
+        <tr>
+          <td>Singapore</td>
+          <td>195</td>
+          <td>8,283</td>
+          <td>2.35%</td>
+          <td>19.79</td>
+          <td>Key APAC market; position improvement needed</td>
+        </tr>
+        <tr>
+          <td>Poland</td>
+          <td>114</td>
+          <td>880</td>
+          <td>12.95%</td>
+          <td>6.33</td>
+          <td>Surprisingly high CTR; brand searches likely</td>
+        </tr>
+        <tr>
+          <td>Malaysia</td>
+          <td>86</td>
+          <td>3,291</td>
+          <td>2.61%</td>
+          <td>8.79</td>
+          <td>Growth market for deer placenta</td>
+        </tr>
+        <tr>
+          <td>Hungary</td>
+          <td>72</td>
+          <td>1,469</td>
+          <td>4.9%</td>
+          <td>5.77</td>
+          <td>Niche European market</td>
+        </tr>
+        <tr>
+          <td>Australia</td>
+          <td>55</td>
+          <td>1,511</td>
+          <td>3.64%</td>
+          <td>18</td>
+          <td>Position improvement = more clicks</td>
+        </tr>
+        <tr>
+          <td>United Kingdom</td>
+          <td>49</td>
+          <td>1,820</td>
+          <td>2.69%</td>
+          <td>20.21</td>
+          <td>High impressions, needs page 1 ranking</td>
+        </tr>
+        <tr>
+          <td>New Zealand</td>
+          <td>45</td>
+          <td>3,268</td>
+          <td>1.38%</td>
+          <td>24.18</td>
+          <td>NZ-origin product; should rank much higher</td>
+        </tr>
+        <tr>
+          <td>Canada</td>
+          <td>27</td>
+          <td>1,695</td>
+          <td>1.59%</td>
+          <td>14.51</td>
+          <td>North American market growth potential</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-insight">
+      <strong>USA Market Focus</strong>
+      The US generates the most impressions (15,394) but only 229 clicks at a 1.49% CTR with an average position of
+      16.54 (page 2). Moving to page 1 across key deer placenta queries in the US market alone could yield <strong>500+
+        additional monthly clicks</strong>. All content should be written in American English with US-centric
+      references.
+    </div>
+
+    <h3>Device Distribution</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Device</th>
+          <th>Clicks</th>
+          <th>Impressions</th>
+          <th>CTR</th>
+          <th>Avg Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mobile</td>
+          <td>1,019 (68%)</td>
+          <td>28,351</td>
+          <td>3.59%</td>
+          <td>8.8</td>
+        </tr>
+        <tr>
+          <td>Desktop</td>
+          <td>455 (30%)</td>
+          <td>31,736</td>
+          <td>1.43%</td>
+          <td>19.8</td>
+        </tr>
+        <tr>
+          <td>Tablet</td>
+          <td>21 (2%)</td>
+          <td>601</td>
+          <td>3.49%</td>
+          <td>7.66</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-warning">
+      <strong>Desktop Position Gap</strong>
+      Mobile averages position 8.8 but desktop averages 19.8. Desktop has more impressions but far fewer clicks. Blog
+      content must be optimized for desktop reading experience (longer form, better formatting) while maintaining
+      mobile-first design.
+    </div>
+  </div>
+
+  <!-- ==================== 7. COMPETITOR LANDSCAPE ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 7</span>Competitor Landscape</h2>
+
+    <p>Based on keyword data and web research, here are the key competitors in the deer placenta supplement blog space
+      targeting the USA market:</p>
+
+    <h3>Direct Competitors (Deer Placenta Brands)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>GSC Impressions (brand queries)</th>
+          <th>Content Strategy</th>
+          <th>Threat Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Purtier / Riway</strong></td>
+          <td>700+ across all Purtier queries</td>
+          <td>MLM model, limited blog content, relies on distributor sites and review pages</td>
+          <td>High (brand awareness)</td>
+        </tr>
+        <tr>
+          <td><strong>Miracell</strong></td>
+          <td>86+ impressions</td>
+          <td>Product-focused, minimal educational blog content</td>
+          <td>Medium</td>
+        </tr>
+        <tr>
+          <td><strong>VMB Deer Placenta</strong></td>
+          <td>32+ impressions</td>
+          <td>Limited web presence, mainly product pages</td>
+          <td>Low-Medium</td>
+        </tr>
+        <tr>
+          <td><strong>Easy Wellness</strong></td>
+          <td>186 impressions</td>
+          <td>Some product content, limited blog strategy</td>
+          <td>Medium</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Content Gap: Where EINNALAB Can Win</h3>
+    <p>Most deer placenta competitors have <strong>weak or nonexistent blog strategies</strong>. They rely primarily on:
+    </p>
+    <ul>
+      <li>Product pages with basic descriptions</li>
+      <li>MLM distributor sites (Purtier/Riway) with inconsistent quality</li>
+      <li>Third-party review sites and forums</li>
+    </ul>
+
+    <p><strong>No competitor has a comprehensive, research-backed educational blog.</strong> This is EINNALAB's massive
+      competitive advantage. By creating 100 high-quality, well-researched blog posts, EINNALAB can become the
+      definitive authority for deer placenta information in the US market.</p>
+
+    <div class="callout callout-success">
+      <strong>Competitive Moat Strategy</strong>
+      Create content that competitors can't easily replicate: clinical study breakdowns, ingredient science deep dives,
+      manufacturing transparency content (NZ sourcing), and comprehensive FAQ resources. This positions EINNALAB as the
+      most trustworthy brand in the space.
+    </div>
+  </div>
+
+  <!-- ==================== 8. AI/LLM VISIBILITY ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 8</span>AI/LLM Visibility Strategy</h2>
+
+    <p>With the rise of Google AI Overviews, ChatGPT, Claude, and Perplexity as information sources, blog content must
+      be structured for AI citation. Here's the strategy for maximizing EINNALAB's visibility in AI responses:</p>
+
+    <h3>Why AI Visibility Matters for Deer Placenta</h3>
+    <ul>
+      <li>Users increasingly ask AI assistants about supplement safety, benefits, and recommendations</li>
+      <li>AI models cite authoritative, well-structured content with clear factual claims</li>
+      <li>Google AI Overviews now appear for most "what is", "benefits of", and "side effects" queries</li>
+      <li>Being cited by AI builds brand authority and drives high-intent traffic</li>
+    </ul>
+
+    <h3>Content Formatting for AI Visibility</h3>
+    <ol>
+      <li><strong>FAQ Schema Markup:</strong> Every blog post should include 5-10 FAQs with schema markup. AI models
+        heavily favor FAQ-formatted content.</li>
+      <li><strong>Clear Factual Statements:</strong> Lead paragraphs with definitive, citable statements (e.g., "Deer
+        placenta contains X bioactive compounds including...").</li>
+      <li><strong>Structured Data:</strong> Use proper H2/H3 heading hierarchy, bullet points, and tables. AI models
+        parse structured content better.</li>
+      <li><strong>Source Citations:</strong> Reference peer-reviewed studies with DOI links. AI models prefer content
+        that cites primary sources.</li>
+      <li><strong>Direct Answer Format:</strong> For question-based keywords, provide a clear 2-3 sentence answer
+        immediately, then expand with detail.</li>
+      <li><strong>"About the Author" Credentials:</strong> Include expert credentials/affiliations to signal E-E-A-T to
+        both Google and AI models.</li>
+    </ol>
+
+    <h3>AI-Targeted Blog Post Types</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Content Type</th>
+          <th>AI Visibility Reason</th>
+          <th>Example Posts in Calendar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>FAQ Mega-Posts</td>
+          <td>Direct Q&A format; highly citable</td>
+          <td>"Deer Placenta FAQ: 25 Questions Answered"</td>
+        </tr>
+        <tr>
+          <td>Side Effect / Safety Guides</td>
+          <td>Health safety = high AI priority</td>
+          <td>"Deer Placenta Side Effects" posts</td>
+        </tr>
+        <tr>
+          <td>"What Is" Explainers</td>
+          <td>Definition queries trigger AI Overviews</td>
+          <td>"What Is Deer Placenta Used For?"</td>
+        </tr>
+        <tr>
+          <td>Comparison Posts</td>
+          <td>"vs" queries = AI table generation</td>
+          <td>"Deer Placenta vs Collagen"</td>
+        </tr>
+        <tr>
+          <td>Clinical Study Reviews</td>
+          <td>Research content = authoritative citations</td>
+          <td>"Clinical Studies" posts</td>
+        </tr>
+        <tr>
+          <td>Dosage/How-To Guides</td>
+          <td>Practical queries = AI step-by-step</td>
+          <td>"How to Take Deer Placenta"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-insight">
+      <strong>AI Visibility KPI Recommendation</strong>
+      Track mentions of "EINNALAB" or "EINNALAB.com" in AI responses (ChatGPT, Claude, Perplexity) quarterly. The goal
+      is for EINNALAB to be cited when users ask AI about deer placenta supplements. This requires consistent,
+      authoritative content publication over 6-12 months.
+    </div>
+  </div>
+
+  <!-- ==================== 9. CONTENT PILLAR FRAMEWORK ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 9</span>Content Pillar Framework</h2>
+
+    <p>The 100 blog posts are organized across 10 strategic content pillars, each serving a specific SEO and business
+      objective:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pillar</th>
+          <th># Posts</th>
+          <th>Purpose</th>
+          <th>Target Keywords</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Redirect Recovery</strong></td>
+          <td>16</td>
+          <td>Recreate old high-performing blog posts with 301 redirects</td>
+          <td>All old ranking keywords</td>
+        </tr>
+        <tr>
+          <td><strong>2. Core Education</strong></td>
+          <td>12</td>
+          <td>Target high-volume "deer placenta" head terms</td>
+          <td>deer placenta benefits, supplement, extract, capsules</td>
+        </tr>
+        <tr>
+          <td><strong>3. Benefits by Health Goal</strong></td>
+          <td>14</td>
+          <td>Capture specific benefit queries + AI visibility</td>
+          <td>skin, fertility, immunity, anti-aging, hair, joints</td>
+        </tr>
+        <tr>
+          <td><strong>4. Comparisons</strong></td>
+          <td>12</td>
+          <td>Win "vs" queries; high purchase intent</td>
+          <td>vs sheep placenta, vs collagen, vs hyaluronic acid</td>
+        </tr>
+        <tr>
+          <td><strong>5. Ingredient Deep Dives</strong></td>
+          <td>10</td>
+          <td>Build topical authority on product ingredients</td>
+          <td>dendrobium, borage oil, grape seed, lycopene, aloe</td>
+        </tr>
+        <tr>
+          <td><strong>6. Science &amp; Research</strong></td>
+          <td>8</td>
+          <td>E-E-A-T signals; AI citation-worthy content</td>
+          <td>stem cells, clinical trials, bioactive peptides, EGF</td>
+        </tr>
+        <tr>
+          <td><strong>7. Buyer Guides &amp; Reviews</strong></td>
+          <td>8</td>
+          <td>Commercial intent; drive product page traffic</td>
+          <td>best supplement, reviews, how to choose, buying guide</td>
+        </tr>
+        <tr>
+          <td><strong>8. Competitor Alternatives</strong></td>
+          <td>10</td>
+          <td>Capture competitor brand search traffic</td>
+          <td>purtier, miracell, vmb, easy wellness reviews</td>
+        </tr>
+        <tr>
+          <td><strong>9. FAQ &amp; How-To</strong></td>
+          <td>6</td>
+          <td>AI Overview targets; schema-rich content</td>
+          <td>FAQ, dosage, how to take, when to take</td>
+        </tr>
+        <tr>
+          <td><strong>10. Lifestyle &amp; Trends</strong></td>
+          <td>4</td>
+          <td>Broader audience capture; brand awareness</td>
+          <td>anti-aging trends, wellness, cellular therapy</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 10. CONTENT CALENDAR ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 10</span>50-Week Content Calendar (100 Blog Posts)</h2>
+
+    <p>Each blog post is published twice per week. Posts are ordered by strategic priority: redirect recovery first,
+      then high-opportunity keywords, then expansion content.</p>
+
+    <!-- PHASE 1 -->
+    <h3>Phase 1: Redirect Recovery &amp; Core Content (Weeks 1-8)</h3>
+    <p><em>Priority: Recreate old performing content, set up 301 redirects, recover lost search equity.</em></p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th style="width:55px">Week</th>
+          <th style="width:30px">#</th>
+          <th>Blog Post Title</th>
+          <th>Target Keyword(s)</th>
+          <th>Old Slug Redirect</th>
+          <th style="width:70px">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="week-num">WK 1</span></td>
+          <td>1</td>
+          <td><strong>Deer Placenta Side Effects: What Research Actually Shows</strong><br><em>Comprehensive safety
+              guide covering all known side effects, contraindications, and drug interactions based on clinical
+              research. Addresses top safety concerns for US consumers.</em></td>
+          <td>deer placenta side effects, deer placenta supplement side effects</td>
+          <td>/deer-placenta-supplement-side-effects/</td>
+          <td><span class="tag tag-redirect">Redirect</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 1</span></td>
+          <td>2</td>
+          <td><strong>Sheep Placenta vs Deer Placenta: The Complete Comparison</strong><br><em>Side-by-side comparison
+              of sheep and deer placenta supplements covering bioactive content, absorption, sourcing, pricing, and
+              scientific evidence. Includes comparison table.</em></td>
+          <td>sheep placenta vs deer placenta, deer placenta vs sheep placenta</td>
+          <td>/sheep-placenta-vs-deer-placenta-supplement-review/</td>
+          <td><span class="tag tag-redirect">Redirect</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 2</span></td>
+          <td>3</td>
+          <td><strong>Deer Placenta Benefits for Women: 10 Science-Backed Advantages</strong><br><em>Targeted guide for
+              women covering skin health, hormonal balance, fertility support, menopause relief, and anti-aging benefits
+              with research citations.</em></td>
+          <td>deer placenta benefits for women, deer placenta benefits for skin</td>
+          <td>/top-10-deer-placenta-benefits-for-women-you-didnt-know/</td>
+          <td><span class="tag tag-redirect">Redirect</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 2</span></td>
+          <td>4</td>
+          <td><strong>Dendrobium Benefits: What Science Says About This Powerful Orchid Extract</strong><br><em>Deep
+              dive into Dendrobium officinale covering traditional use, modern research on immune support, anti-fatigue
+              effects, and why it's included in premium supplements.</em></td>
+          <td>dendrobium benefits, dendrobium supplement, dendrobium health benefits</td>
+          <td>/benefits-of-dendrobium/</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 3</span></td>
+          <td>5</td>
+          <td><strong>Borage Oil Benefits: The Complete Health Guide to GLA's Power</strong><br><em>Comprehensive guide
+              to borage oil's GLA content, anti-inflammatory properties, skin benefits, hormonal balance, and dosage
+              recommendations.</em></td>
+          <td>borage oil benefits, benefits of borage oil, borage seed oil benefits</td>
+          <td>/benefits-of-borage-oil/</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 3</span></td>
+          <td>6</td>
+          <td><strong>Grape Seed Extract Benefits: Antioxidant Powerhouse Explained</strong><br><em>Evidence-based guide
+              to grape seed extract's OPC content, cardiovascular benefits, skin protection, and why it complements deer
+              placenta supplements.</em></td>
+          <td>grape seed extract benefits, benefits of grape seed, grape seed benefits</td>
+          <td>/benefits-of-grape-seed/</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 4</span></td>
+          <td>7</td>
+          <td><strong>Deer Placenta Clinical Studies: What Human Research Reveals</strong><br><em>Review of published
+              clinical studies on deer placenta, including stem cell research, bioactive peptide analysis, and human
+              trial outcomes.</em></td>
+          <td>deer placenta clinical studies, deer placenta research, deer placenta supplement clinical trial</td>
+          <td>/deer-placenta-clinical-studies-and-human-research/</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 4</span></td>
+          <td>8</td>
+          <td><strong>Lycopene Oil Benefits: From Skin Protection to Heart Health</strong><br><em>Guide to lycopene's
+              antioxidant properties, UV protection, cardiovascular support, and synergistic effects with other
+              supplement ingredients.</em></td>
+          <td>lycopene benefits, lycopene oil, lycopene supplement</td>
+          <td>/benefits-of-lycopene-oil/</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 5</span></td>
+          <td>9</td>
+          <td><strong>Aloe Vera Benefits for Health and Anti-Aging</strong><br><em>Guide to aloe vera's bioactive
+              compounds, skin rejuvenation properties, gut health benefits, and role in anti-aging supplement
+              formulations.</em></td>
+          <td>aloe vera benefits, aloe vera anti-aging, benefits of aloe vera</td>
+          <td>/benefits-of-aloe-vera/</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 5</span></td>
+          <td>10</td>
+          <td><strong>New Zealand Deer Placenta: Why NZ Is the Gold Standard for Quality</strong><br><em>Explores why
+              New Zealand's deer farming practices, clean environment, and regulatory standards make NZ the premier
+              source for deer placenta supplements.</em></td>
+          <td>deer placenta new zealand, deer placenta nz, new zealand deer placenta</td>
+          <td>/EINNALAB-deer-placenta-new-zealand-premium-immune-supplement/</td>
+          <td><span class="tag tag-redirect">Redirect</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 6</span></td>
+          <td>11</td>
+          <td><strong>Why Enteric-Coated Deer Placenta Capsules Deliver Better Results</strong><br><em>Science-backed
+              explanation of enteric coating technology, bioavailability improvements, and why capsule delivery method
+              matters for supplement efficacy.</em></td>
+          <td>enteric coating supplements, deer placenta capsules, deer placenta absorption</td>
+          <td>/only-enteric-coating-deer-placenta-capsules-get-real-results/</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 6</span></td>
+          <td>12</td>
+          <td><strong>NanoEmulsion Technology in Deer Placenta: How It Maximizes Absorption</strong><br><em>Explains
+              nanoemulsion delivery systems, particle size reduction, and how this technology increases the
+              bioavailability of deer placenta bioactive compounds.</em></td>
+          <td>nanoemulsion supplements, deer placenta bioavailability, supplement absorption</td>
+          <td>/only-nanoemulsion-deer-placenta-capsules-get-real-results/</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 7</span></td>
+          <td>13</td>
+          <td><strong>Not All Deer Placenta Is Equal: A Quality Buyer's Guide</strong><br><em>Guide helping consumers
+              identify high-quality vs low-quality deer placenta supplements. Covers sourcing, processing methods,
+              certifications, and red flags.</em></td>
+          <td>best deer placenta, deer placenta quality, how to choose deer placenta supplement</td>
+          <td>/why-all-deer-placenta-is-not-created-equal-a-guide-to-the-best-supplement/</td>
+          <td><span class="tag tag-redirect">Redirect</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 7</span></td>
+          <td>14</td>
+          <td><strong>Anti-Aging Supplements That Work: The Science of Cellular Renewal</strong><br><em>Broad guide to
+              evidence-based anti-aging supplements, including placenta extracts, collagen, NAD+, and resveratrol.
+              Positions deer placenta within the anti-aging landscape.</em></td>
+          <td>anti-aging supplements, cellular renewal supplements, anti-aging food supplements</td>
+          <td>/how-dietary-food-supplements-help-in-anti-aging/</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 8</span></td>
+          <td>15</td>
+          <td><strong>The EINNALAB Difference: Redefining Premium Deer Placenta</strong><br><em>Brand story piece
+              covering EINNALAB's sourcing philosophy, manufacturing standards, quality control, and what sets the brand
+              apart from competitors.</em></td>
+          <td>EINNALAB deer placenta, EINNALAB review, premium deer placenta brand</td>
+          <td>/EINNALAB-deer-placenta-to-redefine-the-wellness-supplements-experience/</td>
+          <td><span class="tag tag-redirect">Redirect</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 8</span></td>
+          <td>16</td>
+          <td><strong>Deer Placenta Reviews 2026: What Real Users Are Saying</strong><br><em>Aggregated user experience
+              review covering common benefits reported, timeframes for results, and honest assessment of different deer
+              placenta products.</em></td>
+          <td>deer placenta reviews, deer placenta review, deer placenta supplement review</td>
+          <td>&mdash;</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- PHASE 2 -->
+    <div class="page-break"></div>
+    <h3>Phase 2: High-Opportunity Keyword Targeting (Weeks 9-20)</h3>
+    <p><em>Priority: Target keywords with high impressions but low clicks/poor position. These are proven search queries
+        where EINNALAB already shows but needs dedicated content to rank higher.</em></p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th style="width:55px">Week</th>
+          <th style="width:30px">#</th>
+          <th>Blog Post Title</th>
+          <th>Target Keyword(s)</th>
+          <th>GSC Data Justification</th>
+          <th style="width:70px">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="week-num">WK 9</span></td>
+          <td>17</td>
+          <td><strong>What Is Deer Placenta Used For? 12 Evidence-Based Applications</strong><br><em>Covers all
+              documented uses from immune support to skin care, with research citations for each application.</em></td>
+          <td>what is deer placenta used for</td>
+          <td>210 imp, 3 clicks, pos 8.04</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 9</span></td>
+          <td>18</td>
+          <td><strong>Benefits of Deer Placenta: The Definitive 2026 Guide</strong><br><em>Comprehensive guide covering
+              all benefits categories with scientific evidence, user experiences, and dosage recommendations.</em></td>
+          <td>benefits of deer placenta, deer placenta supplement benefits</td>
+          <td>330 imp, 2 clicks, pos 9.78 + 70 imp at pos 8.34</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 10</span></td>
+          <td>19</td>
+          <td><strong>Deer Placenta Extract: What It Is, How It's Made, and Why It Matters</strong><br><em>Educational
+              deep dive into deer placenta extract processing, concentration methods, and what makes a high-quality
+              extract.</em></td>
+          <td>deer placenta extract, deer placenta extract benefits</td>
+          <td>161 imp, 1 click, pos 9.89</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 10</span></td>
+          <td>20</td>
+          <td><strong>Deer Placenta Supplement: Your Complete Buyer's Guide for 2026</strong><br><em>Comprehensive
+              buyer's guide covering what to look for, dosage, forms, pricing, and top-rated products in the US
+              market.</em></td>
+          <td>deer placenta supplement</td>
+          <td>1,081 imp, 1 click, pos 23.98 - HUGE gap</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 11</span></td>
+          <td>21</td>
+          <td><strong>Deer Placenta Capsules: Forms, Dosage, and What to Expect</strong><br><em>Practical guide covering
+              capsule types, optimal dosage by age/need, when to take, and expected timeline for results.</em></td>
+          <td>deer placenta capsules, deer placenta capsule</td>
+          <td>178 imp, 1 click, pos 14.24</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 11</span></td>
+          <td>22</td>
+          <td><strong>Deer Placenta Before and After: Documented Results and Timelines</strong><br><em>Visual evidence
+              guide showing documented before/after outcomes, typical timelines, and what realistic results look
+              like.</em></td>
+          <td>deer placenta before and after</td>
+          <td>124 imp, 1 click, pos 12.48</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 12</span></td>
+          <td>23</td>
+          <td><strong>Deer Placenta for Fertility: What the Research Shows</strong><br><em>Evidence review of deer
+              placenta's potential effects on reproductive health, hormonal balance, and fertility support.</em></td>
+          <td>deer placenta for fertility, deer placenta hormonal balance</td>
+          <td>23 imp, pos 11 - growing niche query</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 12</span></td>
+          <td>24</td>
+          <td><strong>Best Placenta Supplement 2026: Deer, Sheep, Marine, and Plant
+              Compared</strong><br><em>Comprehensive comparison of all placenta supplement types available in the US
+              market with pros, cons, and pricing.</em></td>
+          <td>best placenta supplement, the best placenta supplement</td>
+          <td>403 + 264 imp at pos 30-34 - needs dedicated content</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 13</span></td>
+          <td>25</td>
+          <td><strong>Deer Placenta NZ: Why New Zealand Dominates the Supplement Industry</strong><br><em>Market
+              analysis of NZ's deer placenta industry, farming standards, export regulations, and how to verify
+              NZ-sourced products.</em></td>
+          <td>deer placenta nz, nz deer placenta</td>
+          <td>792 + 29 imp at pos 7-22 - NZ variant queries</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 13</span></td>
+          <td>26</td>
+          <td><strong>Deer Placenta Stem Cell Benefits: How Stem Cell Science Applies</strong><br><em>Explains stem cell
+              content in deer placenta, how growth factors work, and the difference between stem cell marketing claims
+              and real science.</em></td>
+          <td>deer placenta stem cell, deer placenta stem cell benefits</td>
+          <td>50 + 12 imp at pos 14-19 - science audience</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 14</span></td>
+          <td>27</td>
+          <td><strong>Deer Placenta vs Collagen: Which Anti-Aging Supplement Is Better?</strong><br><em>Head-to-head
+              comparison covering mechanisms, evidence, price, and which is better for specific goals (skin, joints,
+              overall).</em></td>
+          <td>deer placenta vs collagen, collagen vs placenta which is better</td>
+          <td>Untapped comparison; collagen is $4B market</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 14</span></td>
+          <td>28</td>
+          <td><strong>Deer Placenta Powder vs Capsules: Which Form Is More Effective?</strong><br><em>Comparison of
+              supplement delivery forms covering absorption, convenience, dosage accuracy, and shelf stability.</em>
+          </td>
+          <td>deer placenta powder, deer placenta pills</td>
+          <td>118 + 31 imp at pos 15-68 - form comparison</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 15</span></td>
+          <td>29</td>
+          <td><strong>Sheep Placenta Supplement Benefits: Everything You Need to Know</strong><br><em>Complete guide to
+              sheep/ovine placenta supplements, positioning it fairly while highlighting advantages of deer placenta
+              where research supports it.</em></td>
+          <td>sheep placenta supplement benefits, sheep placenta benefits</td>
+          <td>202 + 249 imp at pos 47-54 - high volume, poor rank</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 15</span></td>
+          <td>30</td>
+          <td><strong>Best Sheep Placenta Supplement 2026: Expert Rankings and Reviews</strong><br><em>Review guide for
+              sheep placenta supplements that naturally compares with deer placenta alternatives for readers considering
+              both.</em></td>
+          <td>best sheep placenta supplement, best sheep placenta</td>
+          <td>278 + 185 imp at pos 28-30</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 16</span></td>
+          <td>31</td>
+          <td><strong>Sheep Placenta Side Effects: Safety Guide for Supplement Users</strong><br><em>Comprehensive
+              safety overview for sheep/ovine placenta covering side effects, allergen risks, and
+              contraindications.</em></td>
+          <td>sheep placenta side effects, ovine placenta side effects</td>
+          <td>60 + 26 imp at pos 23-28</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 16</span></td>
+          <td>32</td>
+          <td><strong>Deer Placenta Manufacturer New Zealand: Quality Standards
+              Explained</strong><br><em>Behind-the-scenes look at NZ deer placenta manufacturing, GMP standards, testing
+              protocols, and what to verify on labels.</em></td>
+          <td>deer placenta manufacturer new zealand</td>
+          <td>95 imp, pos 4.52 - already page 1, strengthen</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 17</span></td>
+          <td>33</td>
+          <td><strong>Deer Placenta Supplement Clinical Trials: Latest 2026 Research</strong><br><em>Updated compilation
+              of clinical trial results, ongoing studies, and what the medical research community is investigating.</em>
+          </td>
+          <td>deer placenta supplement clinical trial, deer placenta research</td>
+          <td>16 imp at pos 10 - niche but high-value for authority</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 17</span></td>
+          <td>34</td>
+          <td><strong>Deer Placenta Health Benefits: From Immunity to Anti-Aging</strong><br><em>Broad benefits overview
+              organized by body system: immune, skin, hormonal, cognitive, musculoskeletal.</em></td>
+          <td>deer placenta health benefits</td>
+          <td>16 imp at pos 39.5 - needs major rank improvement</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 18</span></td>
+          <td>35</td>
+          <td><strong>Is Deer Placenta Good for Skin? Dermatological Evidence Review</strong><br><em>Focused review of
+              deer placenta's effects on skin specifically: collagen production, elasticity, pigmentation, and
+              aging.</em></td>
+          <td>is deer placenta good for skin</td>
+          <td>21 imp at pos 8 - answerable question, AI target</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 18</span></td>
+          <td>36</td>
+          <td><strong>What Is Deer Placenta? The Complete Beginner's Explanation</strong><br><em>Simple, accessible
+              explanation for newcomers covering what deer placenta is, where it comes from, and how it's used as a
+              supplement.</em></td>
+          <td>what is deer placenta, placenta of deer, placenta deer</td>
+          <td>153 + 160 + 154 imp at pos 11-46 - huge impression pool</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 19</span></td>
+          <td>37</td>
+          <td><strong>How Deer Placenta Stem Cells Support Immune Function</strong><br><em>Science-focused piece on
+              growth factors, cytokines, and immunomodulatory compounds found in deer placenta extract.</em></td>
+          <td>stem cells from deer placenta, deer placenta immune</td>
+          <td>27 imp - growing science query cluster</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 19</span></td>
+          <td>38</td>
+          <td><strong>Dendrobium Extract: The Pre-Workout Ingredient You Haven't Heard Of</strong><br><em>Crossover
+              content targeting fitness audience, covering dendrobium's stimulant-like effects, workout benefits, and
+              safety profile.</em></td>
+          <td>dendrobium pre workout, dendrobium extract, dendrobium stimulant</td>
+          <td>87 + 68 + 25 imp at pos 8-18 - fitness audience</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 20</span></td>
+          <td>39</td>
+          <td><strong>Dendrobium Supplement Guide: Dosage, Benefits, and Safety Profile</strong><br><em>Complete
+              supplement guide for dendrobium covering forms, dosages, interactions, and how it complements other
+              supplements.</em></td>
+          <td>dendrobium supplement, dendrobium extract benefits</td>
+          <td>148 + 96 imp at pos 10-13</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 20</span></td>
+          <td>40</td>
+          <td><strong>Deer Placenta for Menopause: Natural Hormonal Balance Support</strong><br><em>Explores deer
+              placenta's potential role in managing menopausal symptoms through growth factors and hormonal
+              support.</em></td>
+          <td>deer placenta menopause, deer placenta hormonal balance</td>
+          <td>New keyword opportunity; high demand topic</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- PHASE 3 -->
+    <div class="page-break"></div>
+    <h3>Phase 3: Ingredient Deep Dives &amp; Expanded Comparisons (Weeks 21-30)</h3>
+    <p><em>Priority: Build topical authority through ingredient content and capture high-value comparison search
+        traffic.</em></p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th style="width:55px">Week</th>
+          <th style="width:30px">#</th>
+          <th>Blog Post Title</th>
+          <th>Target Keyword(s)</th>
+          <th>Data Justification</th>
+          <th style="width:70px">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="week-num">WK 21</span></td>
+          <td>41</td>
+          <td><strong>Dendrobium Orchid in Traditional Chinese Medicine: History Meets Modern
+              Science</strong><br><em>Historical and cultural context of dendrobium use in TCM, with modern scientific
+              validation of traditional claims.</em></td>
+          <td>dendrobium orchid benefits, dendrobium health benefits</td>
+          <td>46 + 74 imp at pos 10-11</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 21</span></td>
+          <td>42</td>
+          <td><strong>Grape Seed Extract for Heart Health: What Cardiologists Want You to
+              Know</strong><br><em>Cardiology-focused deep dive into grape seed OPCs, blood pressure research, and
+              cardiovascular protection evidence.</em></td>
+          <td>grape seed extract benefits heart, grape seed health benefits</td>
+          <td>301 imp at pos 58 - needs dedicated authority content</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 22</span></td>
+          <td>43</td>
+          <td><strong>Borage Oil for Skin: GLA's Role in Fighting Inflammation and Aging</strong><br><em>Focused on
+              borage oil's skin-specific benefits including eczema, dryness, and anti-aging effects through GLA.</em>
+          </td>
+          <td>borage oil for skin, borage oil benefits skin, skin benefits of borage oil</td>
+          <td>23 + 20 imp at pos 49-57 - dermatology angle</td>
+          <td><span class="tag tag-ingredient">Ingredient</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 22</span></td>
+          <td>44</td>
+          <td><strong>Deer Placenta vs Marine Collagen: Which Anti-Aging Supplement Wins?</strong><br><em>Comparison
+              with marine collagen (a trending competitor supplement) covering mechanisms, evidence, and best use
+              cases.</em></td>
+          <td>deer placenta vs collagen, marine collagen vs placenta</td>
+          <td>New comparison targeting collagen market ($7B+)</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 23</span></td>
+          <td>45</td>
+          <td><strong>Deer Placenta vs Hyaluronic Acid: Anti-Aging Supplement Comparison</strong><br><em>Compares deer
+              placenta's growth factors with hyaluronic acid's hydration benefits for skin, joints, and overall
+              wellness.</em></td>
+          <td>deer placenta vs hyaluronic acid</td>
+          <td>New untapped comparison; HA is top-searched supplement</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 23</span></td>
+          <td>46</td>
+          <td><strong>Ovine Placenta Side Effects vs Deer Placenta: Safety Comparison</strong><br><em>Direct safety
+              comparison between ovine (sheep) and cervine (deer) placenta supplements.</em></td>
+          <td>ovine placenta side effects, sheep placenta benefits side effects</td>
+          <td>26 + 39 imp at pos 11-23</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 24</span></td>
+          <td>47</td>
+          <td><strong>Lamb Placenta vs Deer Placenta: Which Type Is Right for You?</strong><br><em>Comparison between
+              lamb and deer placenta covering bioactive profiles, sourcing, evidence base, and pricing.</em></td>
+          <td>lamb placenta benefits, lamb placenta</td>
+          <td>28 + 20 imp at pos 45-67</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 24</span></td>
+          <td>48</td>
+          <td><strong>Goat Placenta Benefits: How It Compares to Deer and Sheep Placenta</strong><br><em>Explores
+              goat/caprine placenta as an alternative, with fair comparison to deer and sheep variants.</em></td>
+          <td>goat placenta benefits, goat placenta</td>
+          <td>5 imp at pos 12 - niche but captures related searches</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 25</span></td>
+          <td>49</td>
+          <td><strong>Deer Placenta for Joint Health: Growth Factors and Cartilage Support</strong><br><em>Explores deer
+              placenta's potential role in joint health through collagen peptides, growth factors, and anti-inflammatory
+              compounds.</em></td>
+          <td>deer placenta joint health, deer placenta collagen</td>
+          <td>New topic targeting $5B joint supplement market</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 25</span></td>
+          <td>50</td>
+          <td><strong>Bioactive Peptides in Deer Placenta: What They Are and How They Work</strong><br><em>Scientific
+              deep dive into specific bioactive peptides, growth factors (EGF, FGF, IGF), and their biological
+              mechanisms.</em></td>
+          <td>bioactive peptides, deer placenta growth factors, EGF supplement</td>
+          <td>Targets science-interested audience + AI citations</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 26</span></td>
+          <td>51</td>
+          <td><strong>Deer Placenta for Hair Growth: Can Stem Cells Restore Your Hair?</strong><br><em>Reviews evidence
+              for deer placenta's effect on hair follicle health, hair growth stimulation, and thinning prevention.</em>
+          </td>
+          <td>deer placenta hair growth, deer placenta hair loss</td>
+          <td>New high-demand topic; hair loss market $3.6B</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 26</span></td>
+          <td>52</td>
+          <td><strong>Grape Seed Extract vs Deer Placenta: Antioxidant Power Compared</strong><br><em>Unique comparison
+              between two ingredients in EINNALAB's formula, showing synergistic benefits.</em></td>
+          <td>grape seed extract benefits, deer placenta antioxidant</td>
+          <td>Builds internal link structure between ingredient posts</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 27</span></td>
+          <td>53</td>
+          <td><strong>Placenta Supplements: A Complete Guide to Every Type Available</strong><br><em>Mega-guide covering
+              deer, sheep, goat, marine, and plant placenta supplements with evidence for each.</em></td>
+          <td>placenta supplement, placenta capsules, placenta supplement benefits</td>
+          <td>12 + 25 imp - broad category capture</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 27</span></td>
+          <td>54</td>
+          <td><strong>Deer Placenta Cream vs Capsules: Which Delivers Better Results?</strong><br><em>Topical vs oral
+              deer placenta comparison covering absorption, convenience, evidence, and cost-effectiveness.</em></td>
+          <td>deer placenta cream, deer placenta topical</td>
+          <td>53 imp "deer placenta cream brand recommendation" pos 9.62</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 28</span></td>
+          <td>55</td>
+          <td><strong>Deer Placenta for Sleep Quality: Surprising Wellness Benefits</strong><br><em>Explores the
+              connection between deer placenta supplementation, stress reduction, and improved sleep quality.</em></td>
+          <td>deer placenta sleep, deer placenta stress relief</td>
+          <td>New lifestyle angle; sleep supplements $2B market</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 28</span></td>
+          <td>56</td>
+          <td><strong>New Zealand Deer Farms: How Ethical Placenta Sourcing Works</strong><br><em>Transparency piece
+              showing NZ deer farming practices, humane collection methods, and sustainability standards.</em></td>
+          <td>deer placenta sourcing, ethical deer placenta, deer placenta new zealand</td>
+          <td>Trust-building content; supports NZ keyword cluster</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 29</span></td>
+          <td>57</td>
+          <td><strong>Placenta Supplement Singapore Market: Guide for Asian Consumers</strong><br><em>Market guide for
+              Singapore shoppers covering available brands, pricing, where to buy, and what to verify.</em></td>
+          <td>placenta supplement singapore</td>
+          <td>119 imp at pos 73 - needs position improvement</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 29</span></td>
+          <td>58</td>
+          <td><strong>Epidermal Growth Factor (EGF) in Supplements: What Science Says</strong><br><em>Deep dive into EGF
+              found in deer placenta, its role in skin renewal, and how it compares to topical EGF products.</em></td>
+          <td>epidermal growth factor, EGF supplement, EGF skin benefits</td>
+          <td>Targets science/beauty crossover audience</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 30</span></td>
+          <td>59</td>
+          <td><strong>Deer Placenta and Gut Health: The Microbiome Connection</strong><br><em>Explores how deer placenta
+              compounds may support gut lining integrity, microbiome balance, and digestive health.</em></td>
+          <td>deer placenta gut health, deer placenta digestion</td>
+          <td>Trending health topic; gut health $75B market by 2027</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 30</span></td>
+          <td>60</td>
+          <td><strong>Deer Placenta vs NAD+ Supplements: Anti-Aging Approaches Compared</strong><br><em>Comparison with
+              NAD+/NMN supplements, another trending anti-aging category, covering mechanisms and evidence.</em></td>
+          <td>deer placenta vs nad, anti-aging supplement comparison</td>
+          <td>NAD+ is a hot search topic; captures comparison traffic</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- PHASE 4 -->
+    <div class="page-break"></div>
+    <h3>Phase 4: Competitor Differentiation &amp; Geographic Expansion (Weeks 31-40)</h3>
+    <p><em>Priority: Capture competitor brand search traffic, expand into geographic market queries, and build trust
+        through transparency.</em></p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th style="width:55px">Week</th>
+          <th style="width:30px">#</th>
+          <th>Blog Post Title</th>
+          <th>Target Keyword(s)</th>
+          <th>Data Justification</th>
+          <th style="width:70px">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="week-num">WK 31</span></td>
+          <td>61</td>
+          <td><strong>Purtier Placenta Review: Ingredients, Price, and How It Compares</strong><br><em>Fair, factual
+              review of Purtier/Riway's deer placenta product covering ingredients, MLM pricing model, and comparison
+              with alternatives.</em></td>
+          <td>purtier placenta review, purtier placenta, purtier placenta ingredients</td>
+          <td>700+ combined impressions across Purtier queries at pos 2-7</td>
+          <td><span class="tag tag-competitor">Competitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 31</span></td>
+          <td>62</td>
+          <td><strong>Purtier Placenta Ingredients Breakdown: What's Actually Inside?</strong><br><em>Detailed
+              ingredient analysis of Purtier's formula with comparison to EINNALAB's transparent labeling approach.</em>
+          </td>
+          <td>purtier placenta ingredients, purtier ingredients</td>
+          <td>40 + 14 imp at pos 2-3 - already ranking</td>
+          <td><span class="tag tag-competitor">Competitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 32</span></td>
+          <td>63</td>
+          <td><strong>Miracell Deer Placenta Review: Benefits, Price, and Alternatives</strong><br><em>Honest review of
+              Miracell's deer placenta product line with ingredient analysis and value comparison.</em></td>
+          <td>miracell deer placenta, miracell deer placenta review</td>
+          <td>86 + 28 imp at pos 3-6</td>
+          <td><span class="tag tag-competitor">Competitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 32</span></td>
+          <td>64</td>
+          <td><strong>VMB Deer Placenta Review 2026: Is It Worth the Investment?</strong><br><em>Review of VMB's deer
+              placenta supplement covering FDA status, ingredient transparency, and value assessment.</em></td>
+          <td>vmb deer placenta, vmb deer placenta review, vmb deer placenta benefits</td>
+          <td>32 + 24 + 48 imp at pos 3-6</td>
+          <td><span class="tag tag-competitor">Competitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 33</span></td>
+          <td>65</td>
+          <td><strong>Easy Wellness Deer Placenta vs EINNALAB: Detailed Head-to-Head</strong><br><em>Side-by-side
+              comparison with Easy Wellness covering sourcing, ingredients, technology, pricing, and results.</em></td>
+          <td>easy wellness deer placenta</td>
+          <td>186 imp at pos 8 - significant competitor query</td>
+          <td><span class="tag tag-competitor">Competitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 33</span></td>
+          <td>66</td>
+          <td><strong>Top 5 Deer Placenta Brands 2026: Expert Comparison and Rankings</strong><br><em>Ranked comparison
+              of the top 5 deer placenta brands available to US consumers with scoring criteria.</em></td>
+          <td>best deer placenta brand, top deer placenta supplement</td>
+          <td>Commercial intent; captures all brand comparison searches</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 34</span></td>
+          <td>67</td>
+          <td><strong>How to Spot Fake Deer Placenta Supplements: 10 Red Flags</strong><br><em>Consumer protection guide
+              covering counterfeit products, misleading labels, and what certifications to verify.</em></td>
+          <td>fake deer placenta, deer placenta scam, how to verify supplements</td>
+          <td>Trust-building; addresses consumer anxiety in supplement market</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 34</span></td>
+          <td>68</td>
+          <td><strong>Deer Placenta Australia: Best Supplements for Aussie Consumers</strong><br><em>Market guide for
+              Australian buyers covering available products, TGA regulations, and recommended options.</em></td>
+          <td>deer placenta australia, deer placenta chemist warehouse</td>
+          <td>18 + 16 imp - Australian market content gap</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 35</span></td>
+          <td>69</td>
+          <td><strong>Deer Placenta Philippines: Where to Buy and What to Know</strong><br><em>Market guide for
+              Philippine consumers covering brands, pricing, shipping, and regulatory considerations.</em></td>
+          <td>deer placenta philippines, purtier placenta philippines</td>
+          <td>24 imp + Philippines is 2nd highest traffic country</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 35</span></td>
+          <td>70</td>
+          <td><strong>Deer Placenta Malaysia: Premium Supplements Guide for Malaysian Market</strong><br><em>Guide for
+              Malaysian consumers covering Halal considerations, popular brands, and where to purchase.</em></td>
+          <td>deer placenta malaysia</td>
+          <td>7 imp + Malaysia is 5th highest traffic country</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 36</span></td>
+          <td>71</td>
+          <td><strong>Is Deer Placenta FDA Approved? Understanding US Supplement Regulations</strong><br><em>Explains
+              FDA's role in supplement regulation, what "FDA approved" means for supplements, and EINNALAB's compliance
+              approach.</em></td>
+          <td>deer placenta fda, is deer placenta safe, supplement fda approval</td>
+          <td>3 imp at pos 16 + critical trust/safety query</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 36</span></td>
+          <td>72</td>
+          <td><strong>Purtier Placenta Price: Is It Worth the Premium? Cost Analysis</strong><br><em>Price comparison of
+              Purtier vs alternatives, analyzing MLM markup, ingredient value, and cost per effective dose.</em></td>
+          <td>purtier placenta price, purtier price, how much is purtier placenta</td>
+          <td>52 + 6 + 2 imp at pos 2-24 - price-conscious buyers</td>
+          <td><span class="tag tag-competitor">Competitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 37</span></td>
+          <td>73</td>
+          <td><strong>Deer Placenta for Men: Benefits Beyond Anti-Aging</strong><br><em>Targeted guide for male
+              consumers covering testosterone support, prostate health, energy, and athletic recovery.</em></td>
+          <td>deer placenta benefits for men, deer placenta testosterone</td>
+          <td>New untapped demographic; most content targets women only</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 37</span></td>
+          <td>74</td>
+          <td><strong>Deer Placenta During Pregnancy: Safety Guide and Expert Advice</strong><br><em>Important safety
+              content addressing whether deer placenta is safe during pregnancy and breastfeeding.</em></td>
+          <td>deer placenta pregnancy, deer placenta breastfeeding, is deer placenta safe</td>
+          <td>Critical safety content; high AI visibility potential</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 38</span></td>
+          <td>75</td>
+          <td><strong>Purtier Placenta Benefits and Side Effects: Complete Analysis</strong><br><em>Balanced review of
+              reported Purtier benefits and potential side effects based on user reports and ingredient analysis.</em>
+          </td>
+          <td>purtier placenta benefits, purtier placenta side effects</td>
+          <td>25 + 10 imp at pos 18-41 - buyer research queries</td>
+          <td><span class="tag tag-competitor">Competitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 38</span></td>
+          <td>76</td>
+          <td><strong>Deer Placenta vs Resveratrol: Which Anti-Aging Compound Is Better?</strong><br><em>Comparison with
+              resveratrol supplements covering longevity mechanisms, Sirtuin activation, and complementary use.</em>
+          </td>
+          <td>deer placenta vs resveratrol, anti-aging supplement comparison</td>
+          <td>Resveratrol is high-volume keyword; captures comparison traffic</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 39</span></td>
+          <td>77</td>
+          <td><strong>Deer Placenta for Athletes: Performance, Recovery, and Growth Factors</strong><br><em>Targets
+              fitness audience covering recovery acceleration, growth factor benefits, and sport supplement
+              compliance.</em></td>
+          <td>deer placenta athletes, deer placenta recovery, deer placenta performance</td>
+          <td>New audience expansion; sports supplement is $15B market</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 39</span></td>
+          <td>78</td>
+          <td><strong>Deer Placenta for Post-Surgery Recovery: What Research Supports</strong><br><em>Reviews evidence
+              for deer placenta aiding surgical recovery through tissue regeneration and growth factors.</em></td>
+          <td>deer placenta recovery, deer placenta healing, post surgery supplements</td>
+          <td>Niche high-value medical query</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 40</span></td>
+          <td>79</td>
+          <td><strong>Deer Placenta for Energy and Vitality: What Users Report</strong><br><em>Lifestyle-focused content
+              covering energy benefits, daily vitality improvement, and comparison with other energy supplements.</em>
+          </td>
+          <td>deer placenta energy, deer placenta vitality</td>
+          <td>Energy/vitality is top-reported benefit in reviews</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 40</span></td>
+          <td>80</td>
+          <td><strong>Deer Placenta for Weight Management: Metabolic Support Research</strong><br><em>Explores potential
+              metabolic benefits of deer placenta including thermogenesis, insulin sensitivity, and body
+              composition.</em></td>
+          <td>deer placenta weight loss, deer placenta metabolism</td>
+          <td>Weight management is high search volume; untapped angle</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- PHASE 5 -->
+    <div class="page-break"></div>
+    <h3>Phase 5: AI Visibility, FAQ, Trends &amp; Authority Building (Weeks 41-50)</h3>
+    <p><em>Priority: Maximize AI/LLM visibility, capture long-tail FAQ traffic, and establish EINNALAB as the definitive
+        authority in the deer placenta space.</em></p>
+
+    <table class="cal-table">
+      <thead>
+        <tr>
+          <th style="width:55px">Week</th>
+          <th style="width:30px">#</th>
+          <th>Blog Post Title</th>
+          <th>Target Keyword(s)</th>
+          <th>Data Justification</th>
+          <th style="width:70px">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="week-num">WK 41</span></td>
+          <td>81</td>
+          <td><strong>Deer Placenta FAQ: 30 Most Asked Questions Answered</strong><br><em>Mega FAQ post with schema
+              markup covering the most searched deer placenta questions. Designed for Google AI Overviews and LLM
+              citation.</em></td>
+          <td>All question-type queries (what, how, why, is, can)</td>
+          <td>Aggregate of 50+ question queries in GSC data</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 41</span></td>
+          <td>82</td>
+          <td><strong>How to Take Deer Placenta Supplements: Complete Dosage Guide</strong><br><em>Practical guide
+              covering optimal timing, dosage by age, with/without food, cycling recommendations, and combining with
+              other supplements.</em></td>
+          <td>how to take deer placenta, deer placenta dosage, when to take deer placenta</td>
+          <td>Multiple "how to take" queries in GSC at pos 2-15</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 42</span></td>
+          <td>83</td>
+          <td><strong>Cellular Therapy Supplements: The Future of Anti-Aging Science</strong><br><em>Broad industry
+              overview positioning deer placenta within the cellular therapy movement, covering stem cells, exosomes,
+              and growth factors.</em></td>
+          <td>cellular therapy supplements, stem cell supplements</td>
+          <td>Broader topic for authority building and trending terms</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 42</span></td>
+          <td>84</td>
+          <td><strong>Deer Placenta Stem Cell Research: 2026 Breakthroughs and Future Outlook</strong><br><em>Updated
+              research roundup covering latest published studies, clinical trials, and what researchers are
+              investigating next.</em></td>
+          <td>deer placenta stem cell research, deer placenta clinical trials 2026</td>
+          <td>2 imp "deer placenta stem cells ocular stroke clinical trials 2026"</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 43</span></td>
+          <td>85</td>
+          <td><strong>Deer Placenta for Brain Health: Cognitive Benefits and Neuroprotection</strong><br><em>Explores
+              neurotrophic factors in deer placenta and potential benefits for cognitive function, memory, and
+              neuroprotection.</em></td>
+          <td>deer placenta brain health, deer placenta cognitive</td>
+          <td>Brain health supplements are fastest-growing category</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 43</span></td>
+          <td>86</td>
+          <td><strong>Deer Placenta Myths Debunked: Separating Fact from Fiction</strong><br><em>Addresses common
+              misconceptions, unverified claims, and what the science actually supports vs marketing hype.</em></td>
+          <td>deer placenta myths, is deer placenta real, deer placenta truth</td>
+          <td>Trust content; AI models favor balanced, myth-busting pieces</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 44</span></td>
+          <td>87</td>
+          <td><strong>Deer Placenta and Diabetes: Can It Help Blood Sugar Control?</strong><br><em>Reviews emerging
+              research on deer placenta's potential effects on insulin sensitivity and blood sugar regulation.</em></td>
+          <td>deer placenta diabetes, deer placenta blood sugar</td>
+          <td>Diabetes supplements $10B market; emerging research topic</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 44</span></td>
+          <td>88</td>
+          <td><strong>Deer Placenta for Immune System: How It Strengthens Your Body's
+              Defense</strong><br><em>Immune-focused guide covering immunomodulatory compounds, cytokine balance, and
+              seasonal immune support.</em></td>
+          <td>deer placenta immune system, deer placenta immunity</td>
+          <td>Immune health is #1 supplement purchase driver post-COVID</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 45</span></td>
+          <td>89</td>
+          <td><strong>How Deer Placenta Supports Natural Collagen Production</strong><br><em>Explains the mechanism by
+              which deer placenta's growth factors stimulate the body's own collagen synthesis.</em></td>
+          <td>deer placenta collagen, natural collagen production</td>
+          <td>Connects to massive "collagen" search volume</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 45</span></td>
+          <td>90</td>
+          <td><strong>Deer Placenta Long-Term Use: Safety, Benefits, and What to Expect</strong><br><em>Addresses
+              long-term supplementation questions, sustained benefits, potential tolerance, and cycling strategies.</em>
+          </td>
+          <td>deer placenta long term, deer placenta how long to take</td>
+          <td>Common question from existing customers and prospects</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 46</span></td>
+          <td>91</td>
+          <td><strong>Deer Placenta vs Placenta Injections: Oral vs Injectable Compared</strong><br><em>Compares oral
+              deer placenta supplements with clinical placenta injections covering efficacy, cost, accessibility, and
+              safety.</em></td>
+          <td>deer placenta injections, placenta injection vs supplement</td>
+          <td>Differentiator content; addresses clinical curiosity</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 46</span></td>
+          <td>92</td>
+          <td><strong>Deer Placenta for Wound Healing: Growth Factors in Tissue Repair</strong><br><em>Reviews evidence
+              for deer placenta's growth factors (EGF, FGF) in accelerating wound healing and tissue repair.</em></td>
+          <td>deer placenta wound healing, deer placenta tissue repair</td>
+          <td>Niche medical application; high authority content</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 47</span></td>
+          <td>93</td>
+          <td><strong>The Complete Guide to Placenta Extract Benefits: All Types Ranked</strong><br><em>Comprehensive
+              ranking of all placenta extract types (deer, sheep, goat, marine, plant) by evidence level and
+              application.</em></td>
+          <td>placenta extract benefits, placenta supplement types</td>
+          <td>Broad category capture; internal linking hub</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 47</span></td>
+          <td>94</td>
+          <td><strong>How to Choose the Right Deer Placenta Dosage by Age and Health Goal</strong><br><em>Personalized
+              dosage guide with recommendations by age group (30s, 40s, 50s+), health goal, and lifestyle.</em></td>
+          <td>deer placenta dosage, how much deer placenta to take</td>
+          <td>Practical guide; high search intent and AI citation potential</td>
+          <td><span class="tag tag-ai">AI Target</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 48</span></td>
+          <td>95</td>
+          <td><strong>Deer Placenta and Skin Aging: A Dermatology Perspective</strong><br><em>In-depth dermatological
+              review of how deer placenta compounds interact with aging skin at the cellular level.</em></td>
+          <td>deer placenta skin aging, deer placenta dermatology</td>
+          <td>Deeper angle on the top-performing skin keyword cluster</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 48</span></td>
+          <td>96</td>
+          <td><strong>Deer Placenta Supplement Buyer's Checklist: 15 Things to Verify</strong><br><em>Actionable
+              checklist format covering sourcing, certifications, lab testing, ingredient transparency, and value
+              indicators.</em></td>
+          <td>deer placenta buying guide, how to choose deer placenta</td>
+          <td>Decision-stage content; drives product page conversions</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 49</span></td>
+          <td>97</td>
+          <td><strong>Anti-Aging Supplement Trends 2026-2027: What's Coming Next</strong><br><em>Forward-looking
+              industry analysis covering exosome therapy, AI-personalized supplements, and next-gen placenta
+              technology.</em></td>
+          <td>anti-aging supplement trends, supplement industry 2027</td>
+          <td>Thought leadership; positions EINNALAB as industry expert</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 49</span></td>
+          <td>98</td>
+          <td><strong>Deer Placenta for Eye Health: Can Growth Factors Protect Your Vision?</strong><br><em>Reviews
+              emerging research on deer placenta's ocular benefits including macular protection and eye aging.</em></td>
+          <td>deer placenta eye health, deer placenta vision</td>
+          <td>"deer placenta stem cells ocular stroke clinical trials 2026" - 2 imp</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 50</span></td>
+          <td>99</td>
+          <td><strong>Deer Placenta User Guide: Everything from Purchase to Results</strong><br><em>Ultimate
+              beginner-to-advanced guide covering selection, purchase, dosage, storage, expected timeline, and
+              maximizing results.</em></td>
+          <td>deer placenta guide, deer placenta for beginners</td>
+          <td>Pillar content; internal linking hub for all blog posts</td>
+          <td><span class="tag tag-new">New</span></td>
+        </tr>
+        <tr>
+          <td><span class="week-num">WK 50</span></td>
+          <td>100</td>
+          <td><strong>The Science of Deer Placenta: A Research-Based Encyclopedia</strong><br><em>Comprehensive science
+              reference covering every known bioactive compound, mechanism of action, and published research on deer
+              placenta.</em></td>
+          <td>deer placenta science, deer placenta compounds, deer placenta research</td>
+          <td>Authority cornerstone; designed for academic/AI citation</td>
+          <td><span class="tag tag-science">Science</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 11. IMPLEMENTATION ROADMAP ==================== -->
+  <div class="section page-break">
+    <h2><span class="num">Section 11</span>Implementation Roadmap &amp; Priorities</h2>
+
+    <h3>Immediate Actions (Before Week 1 Content Begins)</h3>
+    <ol>
+      <li><strong>Set up 301 redirect:</strong> <code>/what-is-deer-placenta-supplement/</code> &rarr;
+        <code>/what-is-deer-placenta-complete-guide/</code> (this redirect can be done TODAY as the new post already
+        exists)
+      </li>
+      <li><strong>Prepare blog post template:</strong> Ensure all blog posts include FAQ schema markup, author bio,
+        internal linking structure, and social sharing</li>
+      <li><strong>Set up Google Search Console:</strong> Verify the new site's blog section is properly indexed and
+        submittable</li>
+    </ol>
+
+    <h3>Content Production Schedule</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Weeks</th>
+          <th>Posts</th>
+          <th>Focus</th>
+          <th>Expected Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Phase 1: Recovery</td>
+          <td>1-8</td>
+          <td>16</td>
+          <td>Redirect recovery + core content</td>
+          <td>Recover ~50K lost impressions; restore ranking equity</td>
+        </tr>
+        <tr>
+          <td>Phase 2: Growth</td>
+          <td>9-20</td>
+          <td>24</td>
+          <td>High-opportunity keywords</td>
+          <td>Target 15K+ new monthly impressions</td>
+        </tr>
+        <tr>
+          <td>Phase 3: Authority</td>
+          <td>21-30</td>
+          <td>20</td>
+          <td>Ingredients + comparisons</td>
+          <td>Build topical authority; 10K+ new impressions</td>
+        </tr>
+        <tr>
+          <td>Phase 4: Compete</td>
+          <td>31-40</td>
+          <td>20</td>
+          <td>Competitor + geographic</td>
+          <td>Capture competitor brand traffic; geo expansion</td>
+        </tr>
+        <tr>
+          <td>Phase 5: Dominate</td>
+          <td>41-50</td>
+          <td>20</td>
+          <td>AI visibility + trends</td>
+          <td>AI/LLM citation; long-tail dominance</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Blog Post Specifications (Per Post)</h3>
+    <ul>
+      <li><strong>Word count:</strong> 1,500-3,000 words (varies by topic complexity)</li>
+      <li><strong>Structure:</strong> H1 title, intro paragraph with target keyword, H2/H3 subheadings, bullet points,
+        comparison tables where applicable</li>
+      <li><strong>Schema:</strong> FAQ schema (5-10 questions per post), Article schema, BreadcrumbList</li>
+      <li><strong>Internal linking:</strong> Minimum 3-5 internal links per post to other blog posts and product pages
+      </li>
+      <li><strong>Images:</strong> 2-4 relevant images per post with alt text containing target keywords</li>
+      <li><strong>Meta description:</strong> 150-160 characters including primary keyword</li>
+      <li><strong>Language:</strong> American English targeting US audience</li>
+    </ul>
+
+    <h3>Redirect Implementation Checklist</h3>
+    <p>For each Phase 1 blog post published, set up a 301 redirect from the old URL to the new URL via WordPress
+      (Reputifly plugin or Redirection plugin). Verify each redirect in Google Search Console URL Inspection tool.</p>
+
+    <h3>KPIs and Measurement</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Current (Baseline)</th>
+          <th>6-Month Target</th>
+          <th>12-Month Target</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monthly Organic Clicks</td>
+          <td>~140</td>
+          <td>500+</td>
+          <td>1,500+</td>
+        </tr>
+        <tr>
+          <td>Monthly Impressions</td>
+          <td>~5,300</td>
+          <td>20,000+</td>
+          <td>60,000+</td>
+        </tr>
+        <tr>
+          <td>Average CTR</td>
+          <td>2.6%</td>
+          <td>3.5%+</td>
+          <td>4.5%+</td>
+        </tr>
+        <tr>
+          <td>Average Position (US)</td>
+          <td>16.54</td>
+          <td>10</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>Keywords on Page 1</td>
+          <td>~15</td>
+          <td>50+</td>
+          <td>150+</td>
+        </tr>
+        <tr>
+          <td>Blog Posts Published</td>
+          <td>3</td>
+          <td>50+</td>
+          <td>100+</td>
+        </tr>
+        <tr>
+          <td>AI/LLM Mentions</td>
+          <td>Unknown</td>
+          <td>Baseline</td>
+          <td>Top 3 cited brand</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-success">
+      <strong>Expected ROI Summary</strong>
+      Based on current GSC data showing 1,495 clicks over 16 months with only ~20 old blog posts, scaling to 100
+      high-quality, keyword-targeted posts should yield a <strong>5-10x increase in organic traffic</strong> within 12
+      months. For a supplement with a lifetime customer value in the hundreds of dollars, even modest conversion rates
+      from blog traffic make this content investment highly profitable.
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>This report was prepared for EINNALAB (EINNALAB.com) based on actual Google Search Console data exported on April
+      9, 2026.<br>
+      Data period: December 8, 2024 - April 7, 2026 (16 months). All keyword data, impressions, clicks, and positions
+      are from Google Search Console.<br>
+      &copy; 2026 | Prepared by Reputifly Pte Ltd</p>
+  </div>
+
+</body>
+
+</html>
