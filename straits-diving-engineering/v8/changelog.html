@@ -1,0 +1,316 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog | Straits Diving &amp; Engineering Pte Ltd</title>
+    <meta name="description" content="Version history and changelog for the Straits Diving &amp; Engineering website.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #45baba;
+            --accent: #fae227;
+            --text: #0b0a14;
+            --bg-light: #ffffff;
+            --bg-offwhite: #f8f9fa;
+            --bg-dark: #0f172a;
+            --surface: #f5dd26;
+            --border: #e1cb23;
+            --muted-text: rgba(8, 7, 14, 0.7);
+            --primary-hover: #000000;
+            --on-primary: #ffffff;
+            --focus-ring: #a0ce71;
+            --radius: 24px;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --glass-blur: blur(12px);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --font-main: 'Inter', sans-serif;
+            --container-width: 1200px;
+            --section-padding: 100px 20px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-main); color: var(--text); background: var(--bg-light); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        img { image-orientation: from-image; }
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-bottom: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.3s; }
+        .header.scrolled { box-shadow: var(--shadow); }
+        .header .container { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+        .logo img { height: 65px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text); transition: color 0.2s; position: relative; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--primary); border-radius: 2px; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: var(--primary); color: var(--on-primary); border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; transition: background 0.3s, transform 0.2s; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 5px; }
+        .hamburger span { width: 28px; height: 3px; background: var(--text); border-radius: 3px; transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+        .mobile-menu { display: none; position: fixed; top: 80px; left: 0; right: 0; bottom: 0; background: var(--bg-light); z-index: 999; padding: 40px 20px; }
+        .mobile-menu.active { display: flex; flex-direction: column; gap: 24px; align-items: center; }
+        .mobile-menu a { font-size: 1.2rem; font-weight: 500; color: var(--text); }
+        .mobile-menu a.active { color: var(--primary); }
+
+        .page-hero { position: relative; height: 300px; display: flex; align-items: center; background: var(--bg-dark); padding-top: 80px; }
+        .page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(69,186,186,0.15)); }
+        .page-hero-content { position: relative; z-index: 1; }
+        .page-hero-content h1 { font-size: 2.5rem; font-weight: 800; color: var(--on-primary); margin-bottom: 12px; }
+        .breadcrumb { display: flex; gap: 8px; align-items: center; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+        .breadcrumb a { color: var(--primary); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+
+        .section-label { display: inline-block; font-size: 0.85rem; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+
+        /* CHANGELOG */
+        .changelog-section { padding: var(--section-padding); background: var(--bg-light); }
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; padding-left: 40px; }
+        .timeline::before { content: ''; position: absolute; left: 16px; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--primary), rgba(69,186,186,0.2)); border-radius: 3px; }
+        .version-card { position: relative; margin-bottom: 48px; background: var(--bg-offwhite); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); transition: transform 0.3s; }
+        .version-card:hover { transform: translateX(4px); }
+        .version-card::before { content: ''; position: absolute; left: -32px; top: 36px; width: 14px; height: 14px; background: var(--primary); border-radius: 50%; border: 3px solid var(--bg-light); box-shadow: 0 0 0 3px var(--primary); z-index: 1; }
+        .version-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+        .version-tag { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; background: var(--primary); color: var(--on-primary); border-radius: 20px; font-weight: 700; font-size: 0.9rem; }
+        .version-tag.override { background: var(--accent); color: var(--text); }
+        .version-date { font-size: 0.88rem; color: var(--muted-text); font-weight: 500; }
+        .version-agent { font-size: 0.78rem; color: var(--muted-text); background: rgba(0,0,0,0.04); padding: 3px 10px; border-radius: 12px; }
+        .change-list { list-style: none; }
+        .change-list li { position: relative; padding: 8px 0 8px 24px; font-size: 0.95rem; color: var(--text); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .change-list li:last-child { border-bottom: none; }
+        .change-list li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; top: 10px; font-size: 0.7rem; color: var(--primary); }
+        .change-list li.pending::before { content: '\f017'; color: var(--accent); }
+        .files-changed { margin-top: 14px; font-size: 0.82rem; color: var(--muted-text); background: rgba(0,0,0,0.03); padding: 8px 14px; border-radius: 10px; }
+        .files-changed code { background: rgba(69,186,186,0.12); padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; color: var(--primary); }
+        .pending-section { margin-top: 16px; padding: 14px 18px; background: rgba(250,226,39,0.08); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; }
+        .pending-section h4 { font-size: 0.85rem; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* FOOTER */
+        .footer { background: var(--bg-dark); padding: 80px 20px 0; color: rgba(255,255,255,0.7); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; max-width: var(--container-width); margin: 0 auto; }
+        .footer-brand img { height: 55px; margin-bottom: 16px; }
+        .footer-brand p { font-size: 0.95rem; line-height: 1.7; }
+        .footer h4 { color: var(--on-primary); font-size: 1rem; margin-bottom: 20px; font-weight: 600; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 10px; }
+        .footer ul a { font-size: 0.9rem; transition: color 0.2s; }
+        .footer ul a:hover { color: var(--primary); }
+        .footer-contact-item { display: flex; gap: 10px; margin-bottom: 14px; font-size: 0.9rem; }
+        .footer-contact-item i { color: var(--primary); margin-top: 3px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; max-width: var(--container-width); margin-left: auto; margin-right: auto; }
+        .footer-bottom p { font-size: 0.85rem; }
+        .footer-bottom a { color: var(--primary); }
+
+        .whatsapp-float { position: fixed; bottom: 28px; right: 28px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.7rem; z-index: 999; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .page-hero-content h1 { font-size: 1.8rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .version-card { padding: 24px 20px; }
+            .version-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .timeline { padding-left: 32px; }
+            .version-card::before { left: -24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header scrolled" id="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-3-2026-03-24-41-PM-mmaa8seeyovq.webp" alt="Straits Diving Engineering"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="showcase.html">Showcase</a></li>
+                    <li><a href="contact.html" class="btn-primary">Get a Quote</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="showcase.html">Showcase</a>
+        <a href="contact.html" class="btn-primary">Get a Quote</a>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>Changelog</h1>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right" style="font-size:0.7rem;"></i>
+                    <span>Changelog</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHANGELOG -->
+    <section class="changelog-section fade-in visible">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:60px;">
+                <span class="section-label">Version History</span>
+                <h2 style="font-size:2.2rem;font-weight:700;margin-bottom:16px;">Site Changelog</h2>
+                <p style="color:var(--muted-text);max-width:600px;margin:0 auto;font-size:1.05rem;">A record of all updates and improvements made to the Straits Diving &amp; Engineering website.</p>
+            </div>
+
+            <div class="timeline">
+
+                <!-- v7 -->
+                <div class="version-card">
+                    <div class="version-header">
+                        <span class="version-tag"><i class="fas fa-rocket"></i> v7</span>
+                        <span class="version-date">08 Apr 2026</span>
+                        <span class="version-agent">Agent: Claude Opus 4.6</span>
+                    </div>
+                    <ul class="change-list">
+                        <li>Replaced hero background with responsive images (portrait 9:16 for mobile, landscape 16:9 for desktop)</li>
+                        <li>Replaced About Us Snippet photo with responsive portrait/landscape versions from client-supplied images</li>
+                        <li>Overhauled Service Overview section: reordered all 4 cards to match Services page order</li>
+                        <li>Replaced all 4 service card photos with responsive portrait/landscape versions</li>
+                        <li>Updated Inspection &amp; Maintenance description with new client-supplied copy</li>
+                        <li>Updated Consulting &amp; Project Management description with new client-supplied copy</li>
+                        <li>Replaced all 4 Services page detail section photos with responsive portrait/landscape versions</li>
+                        <li>Removed word "offshore" from Underwater Construction &amp; Engineering text per client request</li>
+                        <li>Improved Google Maps embed with search-query pin marker at 1092 Lower Delta Road</li>
+                        <li>Created changelog.html page with full version history</li>
+                    </ul>
+                    <div class="files-changed"><i class="fas fa-file-code" style="margin-right:6px;"></i> Files: <code>index.html</code> <code>services.html</code> <code>contact.html</code> <code>changelog.html</code> <code>CHANGELOG.md</code></div>
+                </div>
+
+                <!-- v6 override -->
+                <div class="version-card">
+                    <div class="version-header">
+                        <span class="version-tag override"><i class="fas fa-pen"></i> v6 override</span>
+                        <span class="version-date">07 Apr 2026</span>
+                        <span class="version-agent">Agent: Claude Opus 4.6</span>
+                    </div>
+                    <ul class="change-list">
+                        <li>Cropped Pile Repair showcase image (img21.jpg) to remove worker and blue machine logo as per client request</li>
+                    </ul>
+                    <div class="files-changed"><i class="fas fa-file-code" style="margin-right:6px;"></i> Files: <code>images/img21.jpg</code> <code>CHANGELOG.md</code></div>
+                </div>
+
+                <!-- v6 -->
+                <div class="version-card">
+                    <div class="version-header">
+                        <span class="version-tag"><i class="fas fa-wrench"></i> v6</span>
+                        <span class="version-date">07 Apr 2026</span>
+                        <span class="version-agent">Agent: Claude Opus 4.6</span>
+                    </div>
+                    <ul class="change-list">
+                        <li>Enlarged company logo across all pages (header: 50px to 65px, footer: 45px to 55px)</li>
+                        <li>Fixed footer copyright encoding (removed garbled character before &copy;) across all pages</li>
+                        <li>Updated floating WhatsApp button number to +65 9001 1619 across all pages</li>
+                        <li>Fixed browser tab titles to "Straits Diving &amp; Engineering Pte Ltd" across all pages</li>
+                        <li>Changed testimonial name from "Kang Lim" / "KL" to "Tan Weng Soon" / "TWS" on Home page</li>
+                        <li>Lifted service card icons higher so they are no longer clipped on Home page</li>
+                        <li>Fixed Our Values bullet points with proper Unicode symbols on About page</li>
+                        <li>Fixed Mission text garbled em dash on About page</li>
+                        <li>Updated Google Maps embed with precise coordinates for 1092 Lower Delta Road on Contact page</li>
+                        <li>Added image orientation CSS to all pages for proper rotation display</li>
+                    </ul>
+                    <div class="files-changed"><i class="fas fa-file-code" style="margin-right:6px;"></i> Files: <code>index.html</code> <code>about.html</code> <code>services.html</code> <code>contact.html</code> <code>showcase.html</code> <code>CHANGELOG.md</code></div>
+                </div>
+
+                <!-- v5 override -->
+                <div class="version-card">
+                    <div class="version-header">
+                        <span class="version-tag override"><i class="fas fa-pen"></i> v5 override</span>
+                        <span class="version-date">01 Apr 2026</span>
+                        <span class="version-agent">Agent: Claude Opus 4.6</span>
+                    </div>
+                    <ul class="change-list">
+                        <li>Restructured showcase from 9 cards to 5 distinct project cards matching PowerPoint presentation</li>
+                        <li>Added full lightbox gallery popup with prev/next navigation, thumbnails, and swipe support</li>
+                        <li>All 26 images from PowerPoint now included (was 9 previously), organized per project</li>
+                        <li>Lightbox features: keyboard navigation, touch swipe on mobile, thumbnail strip, image counter</li>
+                        <li>Full mobile optimization: responsive grid, scrollable filters, touch-friendly lightbox</li>
+                        <li>Fixed copyright symbol encoding in footer</li>
+                    </ul>
+                    <div class="files-changed"><i class="fas fa-file-code" style="margin-right:6px;"></i> Files: <code>showcase.html</code> <code>images/img1-26.jpg</code> <code>CHANGELOG.md</code></div>
+                </div>
+
+                <!-- v5 -->
+                <div class="version-card">
+                    <div class="version-header">
+                        <span class="version-tag"><i class="fas fa-flag"></i> v5</span>
+                        <span class="version-date">01 Apr 2026</span>
+                        <span class="version-agent">Agent: Claude Opus 4.6</span>
+                    </div>
+                    <ul class="change-list">
+                        <li>Initial v5 deploy with 9 project cards and real images from PowerPoint</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-3-2026-03-24-41-PM-mmaa8seeyovq.webp" alt="Straits Diving Engineering">
+                <p>Singapore's trusted partner for underwater construction and marine engineering. Delivering safe, reliable solutions across Singapore, West Malaysia, Vietnam, Bangladesh and Africa (Mozambique) with operational excellence.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Underwater Construction &amp; Engineering</a></li>
+                    <li><a href="services.html">Small to Mid-sized Vessel &amp; Cargo Salvage</a></li>
+                    <li><a href="services.html">Inspection &amp; Maintenance</a></li>
+                    <li><a href="services.html">Consulting &amp; Project Management</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="showcase.html">Project Showcase</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <div class="footer-contact-item"><i class="fas fa-phone"></i><span><a href="tel:+6590011619">+65 9001 1619</a></span></div>
+                <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span><a href="https://wa.me/6590011619">WhatsApp Us</a></span></div>
+                <div class="footer-contact-item"><i class="fas fa-envelope"></i><span><a href="mailto:technical@straits-diving.com.sg">technical@straits-diving.com.sg</a></span></div>
+                <div class="footer-contact-item"><i class="fas fa-location-dot"></i><span>Singapore (Headquarters)<br>Malaysia (Johor) (Branch)</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Straits Diving &amp; Engineering Pte Ltd. All rights reserved.</p>
+            <p>Website designed by <a href="#">Reputifly</a></p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6590011619" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        window.addEventListener('scroll', () => { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50); });
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active'); document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : ''; });
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body></html>
