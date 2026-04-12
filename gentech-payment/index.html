@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSS Banking Particulars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #eff6ff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --success-bg: #d1fae5;
+            --success-text: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .brand-badge {
+            display: inline-block;
+            background-color: var(--text-main);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.25rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .currency-badge {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 99px;
+            font-size: 0.875rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .detail-value-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            max-width: 65%;
+        }
+
+        .detail-value {
+            font-weight: 500;
+            text-align: right;
+            word-break: break-word;
+        }
+
+        .copy-btn {
+            background-color: var(--bg-page);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--border);
+            color: var(--text-main);
+        }
+
+        .reference-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .reference-icon {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .reference-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-main);
+        }
+
+        .reference-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .footer-company {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .detail-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .detail-value-group {
+                max-width: 100%;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .detail-value {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <div class="brand-badge">GSS</div>
+        <h1>Banking Particulars</h1>
+        <p>Make GSS Yours</p>
+    </header>
+
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <span class="currency-badge">SGD</span>
+                <h2 class="card-title">Local Currency</h2>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Account Name</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">GENTECH Service and Supplies Pte Ltd</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Bank Name</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">OCBC Bank</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Account Number</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">701-492142-001</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Bank Code</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">7339</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Branch Code</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">701</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">SWIFT Code</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">OCBCSGSGXXX</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="currency-badge">USD / EUR / GBP</span>
+                <h2 class="card-title">Foreign Currency</h2>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Account Name</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">GENTECH Service and Supplies Pte Ltd</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Bank Name</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">OCBC Bank</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Account Number</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">687-420430-201</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Bank Code</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">7339</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Branch Code</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">687</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">SWIFT Code</div>
+                <div class="detail-value-group">
+                    <span class="detail-value copy-text">OCBCSGSGXXX</span>
+                    <button class="copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reference-box">
+        <div class="reference-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        </div>
+        <div class="reference-content">
+            <h3>Payment Reference</h3>
+            <p>Please indicate your <strong>Invoice Number</strong> in the payment remarks to ensure prompt processing.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-company">GENTECH Service and Supplies Pte Ltd (Reg. No.202553884H)</div>
+        <p>60 Kaki Bukit Place #10-05 Eunos Techpark Singapore 415979</p>
+        <p>(065) 8522 3232 | support@gentech-sg.com | www.gentech-sg.com</p>
+    </footer>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const copyButtons = document.querySelectorAll('.copy-btn');
+        
+        const copyIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+        const checkIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+
+        copyButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Find the associated text span
+                const textSpan = btn.previousElementSibling;
+                const textToCopy = textSpan.innerText.trim();
+
+                // Write to clipboard
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    // Visual feedback
+                    btn.innerHTML = checkIcon;
+                    btn.style.backgroundColor = 'var(--success-bg)';
+                    btn.style.color = 'var(--success-text)';
+                    btn.style.borderColor = 'var(--success-bg)';
+
+                    // Revert back after 2 seconds
+                    setTimeout(() => {
+                        btn.innerHTML = copyIcon;
+                        btn.style.backgroundColor = '';
+                        btn.style.color = '';
+                        btn.style.borderColor = '';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
