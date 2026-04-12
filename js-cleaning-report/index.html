@@ -1,0 +1,710 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J &amp; S Cleaning — Google Ads Audit Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #f8fafc; --surface: #ffffff; --text: #0f172a; --muted: #64748b;
+            --border: #e2e8f0; --accent: #0071e3; --red: #ef4444; --green: #22c55e;
+            --amber: #f59e0b; --teal: #14b8a6;
+        }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        /* Header */
+        .report-header { text-align: center; margin-bottom: 56px; }
+        .report-header .badge { display: inline-flex; align-items: center; gap: 6px; background: #fef3c7; color: #92400e; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 50px; margin-bottom: 16px; }
+        .report-header h1 { font-size: 40px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 8px; }
+        .report-header .subtitle { font-size: 18px; color: var(--muted); font-weight: 500; }
+        .report-header .meta { display: flex; justify-content: center; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
+        .report-header .meta span { font-size: 14px; color: var(--muted); font-weight: 500; }
+        .report-header .meta strong { color: var(--text); }
+
+        /* Sections */
+        .section { margin-bottom: 48px; }
+        .section-title { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+        .section-desc { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
+
+        /* Critical Alert */
+        .critical-alert { background: linear-gradient(135deg, #fef2f2, #fff1f2); border: 2px solid #fecaca; border-radius: 16px; padding: 28px 32px; margin-bottom: 48px; }
+        .critical-alert .alert-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .critical-alert .alert-header h2 { font-size: 22px; font-weight: 800; color: #dc2626; }
+        .critical-alert p { font-size: 15px; color: #7f1d1d; line-height: 1.7; }
+        .critical-alert .conv-breakdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px; }
+        .critical-alert .conv-item { background: rgba(255,255,255,0.8); border-radius: 12px; padding: 16px; border: 1px solid #fecaca; }
+        .critical-alert .conv-item .label { font-size: 13px; font-weight: 600; color: #991b1b; margin-bottom: 4px; }
+        .critical-alert .conv-item .value { font-size: 28px; font-weight: 800; color: #dc2626; }
+        .critical-alert .conv-item .sub { font-size: 12px; color: #b91c1c; margin-top: 2px; }
+
+        /* KPI Cards */
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 48px; }
+        .kpi-card { background: var(--surface); border-radius: 16px; padding: 24px; border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; }
+        .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.06); }
+        .kpi-card .kpi-label { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+        .kpi-card .kpi-value { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
+        .kpi-card .kpi-note { font-size: 13px; color: var(--muted); margin-top: 4px; }
+        .kpi-card.red .kpi-value { color: var(--red); }
+        .kpi-card.green .kpi-value { color: var(--green); }
+        .kpi-card.blue .kpi-value { color: var(--accent); }
+        .kpi-card.amber .kpi-value { color: var(--amber); }
+
+        /* Tables */
+        .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        thead { background: #f1f5f9; }
+        th { padding: 12px 16px; text-align: left; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+        td { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; white-space: nowrap; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #f8fafc; }
+        .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+        .highlight-row td { background: #f0fdf4 !important; font-weight: 600; }
+        .warn-row td { background: #fffbeb !important; }
+        .bad-row td { background: #fef2f2 !important; }
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 50px; font-size: 11px; font-weight: 700; }
+        .tag-exact { background: #dbeafe; color: #1e40af; }
+        .tag-phrase { background: #f3e8ff; color: #6b21a8; }
+
+        /* Corrected vs Reported */
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 48px; }
+        .comparison-card { border-radius: 16px; padding: 28px; }
+        .comparison-card.reported { background: #fef2f2; border: 2px solid #fecaca; }
+        .comparison-card.corrected { background: #f0fdf4; border: 2px solid #bbf7d0; }
+        .comparison-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+        .comparison-card .stat { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .comparison-card .stat:last-child { border-bottom: none; }
+        .comparison-card .stat-label { font-size: 14px; color: var(--muted); }
+        .comparison-card .stat-value { font-size: 14px; font-weight: 700; }
+
+        /* Device Bar */
+        .device-bar { display: flex; height: 40px; border-radius: 10px; overflow: hidden; margin: 16px 0; }
+        .device-bar .segment { display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: white; }
+        .device-bar .mobile { background: var(--accent); }
+        .device-bar .desktop { background: #6366f1; }
+        .device-bar .tablet { background: #a78bfa; }
+
+        /* Recommendations */
+        .rec-list { display: grid; gap: 12px; }
+        .rec-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; }
+        .rec-item .rec-num { min-width: 32px; height: 32px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; }
+        .rec-item .rec-content h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+        .rec-item .rec-content p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+        .rec-item.urgent .rec-num { background: var(--red); }
+        .rec-item.success .rec-num { background: var(--green); }
+
+        /* Footer */
+        .report-footer { text-align: center; padding-top: 40px; border-top: 1px solid var(--border); margin-top: 48px; }
+        .report-footer p { font-size: 13px; color: var(--muted); }
+
+        @media (max-width: 768px) {
+            .report-header h1 { font-size: 28px; }
+            .kpi-grid { grid-template-columns: 1fr 1fr; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .kpi-card .kpi-value { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Header -->
+    <header class="report-header">
+        <div class="badge">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#92400e" stroke-width="2.5"><path d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Audit Report
+        </div>
+        <h1>J &amp; S Cleaning &mdash; Google Ads Audit</h1>
+        <p class="subtitle">Domestic Conversion Campaign SG &middot; Full Performance Analysis</p>
+        <div class="meta">
+            <span>Account: <strong>621-790-8694</strong></span>
+            <span>Period: <strong>20 Aug 2025 &ndash; 12 Apr 2026</strong></span>
+            <span>Market: <strong>Singapore Only</strong></span>
+            <span>Report Date: <strong>12 Apr 2026</strong></span>
+        </div>
+    </header>
+
+    <!-- CRITICAL: Triple-Count Alert -->
+    <div class="critical-alert">
+        <div class="alert-header">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#dc2626" stroke-width="2.5"><path d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+            <h2>CRITICAL: Conversion Triple-Counting Confirmed</h2>
+        </div>
+        <p>Three separate conversion actions are ALL tracking the same form submission event, ALL set to "Primary" optimization and "Included" in account-level goals. Every single lead is being counted three times, corrupting the Maximize Conversions bidding algorithm.</p>
+        <div class="conv-breakdown">
+            <div class="conv-item">
+                <div class="label">Submit lead form</div>
+                <div class="value">417</div>
+                <div class="sub">30-day window &middot; Needs attention</div>
+            </div>
+            <div class="conv-item">
+                <div class="label">Lead Form Submission</div>
+                <div class="value">418</div>
+                <div class="sub">90-day window &middot; Active</div>
+            </div>
+            <div class="conv-item">
+                <div class="label">Domestic After Form Submit (OCT)</div>
+                <div class="value">417</div>
+                <div class="sub">90-day window &middot; Active</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Corrected vs Reported -->
+    <div class="section">
+        <h2 class="section-title">Reported vs. Corrected Performance</h2>
+        <p class="section-desc">What Google shows versus what's actually happening after removing triple-count inflation.</p>
+    </div>
+    <div class="comparison-grid">
+        <div class="comparison-card reported">
+            <h3 style="color:#dc2626;">Reported (Inflated 3x)</h3>
+            <div class="stat"><span class="stat-label">Conversions</span><span class="stat-value" style="color:#dc2626;">1,128</span></div>
+            <div class="stat"><span class="stat-label">Cost / Conversion</span><span class="stat-value" style="color:#dc2626;">SGD 6.29</span></div>
+            <div class="stat"><span class="stat-label">Conversion Rate</span><span class="stat-value" style="color:#dc2626;">47.2%</span></div>
+            <div class="stat"><span class="stat-label">Algorithm Behavior</span><span class="stat-value" style="color:#dc2626;">Over-bidding</span></div>
+        </div>
+        <div class="comparison-card corrected">
+            <h3 style="color:#16a34a;">Corrected (Real)</h3>
+            <div class="stat"><span class="stat-label">Conversions</span><span class="stat-value" style="color:#16a34a;">~417</span></div>
+            <div class="stat"><span class="stat-label">Cost / Conversion</span><span class="stat-value" style="color:#16a34a;">SGD 17.01</span></div>
+            <div class="stat"><span class="stat-label">Conversion Rate</span><span class="stat-value" style="color:#16a34a;">17.4%</span></div>
+            <div class="stat"><span class="stat-label">Algorithm Behavior</span><span class="stat-value" style="color:#16a34a;">Needs re-learning</span></div>
+        </div>
+    </div>
+
+    <!-- KPI Overview -->
+    <div class="section">
+        <h2 class="section-title">Account Overview</h2>
+    </div>
+    <div class="kpi-grid">
+        <div class="kpi-card blue">
+            <div class="kpi-label">Total Spend</div>
+            <div class="kpi-value">SGD 7,094</div>
+            <div class="kpi-note">~8 months of data</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Total Clicks</div>
+            <div class="kpi-value">2,390</div>
+            <div class="kpi-note">27,833 impressions</div>
+        </div>
+        <div class="kpi-card green">
+            <div class="kpi-label">CTR</div>
+            <div class="kpi-value">8.59%</div>
+            <div class="kpi-note">Benchmark: 9.01%</div>
+        </div>
+        <div class="kpi-card green">
+            <div class="kpi-label">Avg. CPC</div>
+            <div class="kpi-value">SGD 2.97</div>
+            <div class="kpi-note">Below SG avg of SGD 3-6</div>
+        </div>
+        <div class="kpi-card amber">
+            <div class="kpi-label">Real CPA</div>
+            <div class="kpi-value">SGD 17.01</div>
+            <div class="kpi-note">Good for SG domestic cleaning</div>
+        </div>
+        <div class="kpi-card green">
+            <div class="kpi-label">Real Conv. Rate</div>
+            <div class="kpi-value">17.4%</div>
+            <div class="kpi-note">Benchmark: 17.65%</div>
+        </div>
+    </div>
+
+    <!-- Keyword Performance -->
+    <div class="section">
+        <h2 class="section-title">Keyword Performance</h2>
+        <p class="section-desc">8 keywords driving all traffic. Conversions shown are reported (triple-counted). Divide by 3 for real numbers.</p>
+    </div>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Keyword</th>
+                    <th>Match</th>
+                    <th class="num">Clicks</th>
+                    <th class="num">Impr.</th>
+                    <th class="num">CTR</th>
+                    <th class="num">Avg CPC</th>
+                    <th class="num">Cost</th>
+                    <th class="num">Conv (3x)</th>
+                    <th class="num">Real Conv</th>
+                    <th class="num">Real CPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-row">
+                    <td>"house cleaning services"</td>
+                    <td><span class="tag tag-phrase">Phrase</span></td>
+                    <td class="num">1,019</td>
+                    <td class="num">13,386</td>
+                    <td class="num">7.61%</td>
+                    <td class="num">SGD 2.95</td>
+                    <td class="num">SGD 3,001</td>
+                    <td class="num">492</td>
+                    <td class="num">~164</td>
+                    <td class="num">SGD 18.30</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>[house cleaning singapore]</td>
+                    <td><span class="tag tag-exact">Exact</span></td>
+                    <td class="num">530</td>
+                    <td class="num">4,887</td>
+                    <td class="num">10.85%</td>
+                    <td class="num">SGD 2.97</td>
+                    <td class="num">SGD 1,576</td>
+                    <td class="num">276</td>
+                    <td class="num">~92</td>
+                    <td class="num">SGD 17.13</td>
+                </tr>
+                <tr>
+                    <td>[domestic cleaning singapore]</td>
+                    <td><span class="tag tag-exact">Exact</span></td>
+                    <td class="num">187</td>
+                    <td class="num">1,776</td>
+                    <td class="num">10.53%</td>
+                    <td class="num">SGD 3.37</td>
+                    <td class="num">SGD 629</td>
+                    <td class="num">99</td>
+                    <td class="num">~33</td>
+                    <td class="num">SGD 19.06</td>
+                </tr>
+                <tr>
+                    <td>[domestic cleaning]</td>
+                    <td><span class="tag tag-exact">Exact</span></td>
+                    <td class="num">111</td>
+                    <td class="num">1,232</td>
+                    <td class="num">9.01%</td>
+                    <td class="num">SGD 3.56</td>
+                    <td class="num">SGD 394</td>
+                    <td class="num">60</td>
+                    <td class="num">~20</td>
+                    <td class="num">SGD 19.70</td>
+                </tr>
+                <tr>
+                    <td>"home cleaning services"</td>
+                    <td><span class="tag tag-phrase">Phrase</span></td>
+                    <td class="num">110</td>
+                    <td class="num">1,460</td>
+                    <td class="num">7.53%</td>
+                    <td class="num">SGD 3.03</td>
+                    <td class="num">SGD 333</td>
+                    <td class="num">57</td>
+                    <td class="num">~19</td>
+                    <td class="num">SGD 17.53</td>
+                </tr>
+                <tr>
+                    <td>[home cleaning singapore]</td>
+                    <td><span class="tag tag-exact">Exact</span></td>
+                    <td class="num">119</td>
+                    <td class="num">1,502</td>
+                    <td class="num">7.92%</td>
+                    <td class="num">SGD 2.96</td>
+                    <td class="num">SGD 352</td>
+                    <td class="num">54</td>
+                    <td class="num">~18</td>
+                    <td class="num">SGD 19.56</td>
+                </tr>
+                <tr>
+                    <td>"spring cleaning service"</td>
+                    <td><span class="tag tag-phrase">Phrase</span></td>
+                    <td class="num">74</td>
+                    <td class="num">674</td>
+                    <td class="num">10.98%</td>
+                    <td class="num">SGD 2.22</td>
+                    <td class="num">SGD 164</td>
+                    <td class="num">27</td>
+                    <td class="num">~9</td>
+                    <td class="num">SGD 18.22</td>
+                </tr>
+                <tr class="warn-row">
+                    <td>[deep cleaning singapore]</td>
+                    <td><span class="tag tag-exact">Exact</span></td>
+                    <td class="num">86</td>
+                    <td class="num">760</td>
+                    <td class="num">11.32%</td>
+                    <td class="num">SGD 3.01</td>
+                    <td class="num">SGD 259</td>
+                    <td class="num">16</td>
+                    <td class="num">~5</td>
+                    <td class="num">SGD 51.80</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Search Terms -->
+    <div class="section" style="margin-top:48px;">
+        <h2 class="section-title">Top Search Terms</h2>
+        <p class="section-desc">Actual queries typed by users. All terms are highly relevant &mdash; no significant wasted spend found.</p>
+    </div>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Search Term</th>
+                    <th class="num">Clicks</th>
+                    <th class="num">Impr.</th>
+                    <th class="num">CTR</th>
+                    <th class="num">Avg CPC</th>
+                    <th class="num">Cost</th>
+                    <th class="num">Conv (3x)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-row">
+                    <td>cleaning services singapore</td>
+                    <td class="num">232</td>
+                    <td class="num">2,306</td>
+                    <td class="num">10.06%</td>
+                    <td class="num">SGD 3.43</td>
+                    <td class="num">SGD 795</td>
+                    <td class="num">129</td>
+                </tr>
+                <tr>
+                    <td>house cleaning service</td>
+                    <td class="num">75</td>
+                    <td class="num">607</td>
+                    <td class="num">12.36%</td>
+                    <td class="num">SGD 3.24</td>
+                    <td class="num">SGD 243</td>
+                    <td class="num">42</td>
+                </tr>
+                <tr>
+                    <td>house cleaning service singapore</td>
+                    <td class="num">70</td>
+                    <td class="num">476</td>
+                    <td class="num">14.71%</td>
+                    <td class="num">SGD 2.94</td>
+                    <td class="num">SGD 206</td>
+                    <td class="num">27</td>
+                </tr>
+                <tr>
+                    <td>cleaning service singapore</td>
+                    <td class="num">60</td>
+                    <td class="num">496</td>
+                    <td class="num">12.10%</td>
+                    <td class="num">SGD 3.35</td>
+                    <td class="num">SGD 201</td>
+                    <td class="num">36</td>
+                </tr>
+                <tr>
+                    <td>spring cleaning services</td>
+                    <td class="num">58</td>
+                    <td class="num">528</td>
+                    <td class="num">10.98%</td>
+                    <td class="num">SGD 2.14</td>
+                    <td class="num">SGD 124</td>
+                    <td class="num">21</td>
+                </tr>
+                <tr>
+                    <td>deep cleaning services singapore</td>
+                    <td class="num">54</td>
+                    <td class="num">411</td>
+                    <td class="num">13.14%</td>
+                    <td class="num">SGD 3.34</td>
+                    <td class="num">SGD 180</td>
+                    <td class="num">18</td>
+                </tr>
+                <tr>
+                    <td>home cleaning services singapore</td>
+                    <td class="num">41</td>
+                    <td class="num">422</td>
+                    <td class="num">9.72%</td>
+                    <td class="num">SGD 3.37</td>
+                    <td class="num">SGD 138</td>
+                    <td class="num">22</td>
+                </tr>
+                <tr>
+                    <td>cleaning services</td>
+                    <td class="num">29</td>
+                    <td class="num">324</td>
+                    <td class="num">8.95%</td>
+                    <td class="num">SGD 4.24</td>
+                    <td class="num">SGD 123</td>
+                    <td class="num">15</td>
+                </tr>
+                <tr class="warn-row">
+                    <td>spring cleaning singapore <span style="font-size:11px;color:var(--amber);">(0 conversions)</span></td>
+                    <td class="num">25</td>
+                    <td class="num">171</td>
+                    <td class="num">14.62%</td>
+                    <td class="num">SGD 2.30</td>
+                    <td class="num">SGD 58</td>
+                    <td class="num">0</td>
+                </tr>
+                <tr style="background:#f1f5f9;">
+                    <td style="font-weight:700;">Other search terms (hidden)</td>
+                    <td class="num" style="font-weight:700;">529</td>
+                    <td class="num">6,566</td>
+                    <td class="num">8.06%</td>
+                    <td class="num">SGD 2.72</td>
+                    <td class="num" style="font-weight:700;">SGD 1,438</td>
+                    <td class="num">214</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Device Breakdown -->
+    <div class="section" style="margin-top:48px;">
+        <h2 class="section-title">Device Breakdown</h2>
+        <p class="section-desc">86.8% of traffic comes from mobile. Landing page must be mobile-first.</p>
+    </div>
+    <div class="device-bar">
+        <div class="segment mobile" style="width:86.8%;">Mobile 86.8%</div>
+        <div class="segment desktop" style="width:12.3%;">12.3%</div>
+        <div class="segment tablet" style="width:0.9%;font-size:0;"></div>
+    </div>
+    <div class="table-wrap" style="margin-top:12px;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Device</th>
+                    <th class="num">Clicks</th>
+                    <th class="num">% Traffic</th>
+                    <th class="num">CTR</th>
+                    <th class="num">Avg CPC</th>
+                    <th class="num">Cost</th>
+                    <th class="num">Real Conv</th>
+                    <th class="num">Real CPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-row">
+                    <td>Mobile Phones</td>
+                    <td class="num">2,075</td>
+                    <td class="num">86.8%</td>
+                    <td class="num">9.11%</td>
+                    <td class="num">SGD 2.97</td>
+                    <td class="num">SGD 6,170</td>
+                    <td class="num">~335</td>
+                    <td class="num">SGD 18.42</td>
+                </tr>
+                <tr>
+                    <td>Computers</td>
+                    <td class="num">293</td>
+                    <td class="num">12.3%</td>
+                    <td class="num">5.99%</td>
+                    <td class="num">SGD 2.94</td>
+                    <td class="num">SGD 861</td>
+                    <td class="num">~37</td>
+                    <td class="num">SGD 23.27</td>
+                </tr>
+                <tr>
+                    <td>Tablets</td>
+                    <td class="num">22</td>
+                    <td class="num">0.9%</td>
+                    <td class="num">13.50%</td>
+                    <td class="num">SGD 2.92</td>
+                    <td class="num">SGD 64</td>
+                    <td class="num">~4</td>
+                    <td class="num">SGD 16.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Current Landing Page Issues -->
+    <div class="section" style="margin-top:48px;">
+        <h2 class="section-title">Current Landing Page Assessment</h2>
+        <p class="section-desc">The current Elementor-based page has structural issues impacting conversion rates and page speed.</p>
+    </div>
+    <div class="kpi-grid">
+        <div class="kpi-card red">
+            <div class="kpi-label">Page Technology</div>
+            <div class="kpi-value" style="font-size:20px;">Elementor</div>
+            <div class="kpi-note">Heavy plugins, slow load, excess CSS/JS</div>
+        </div>
+        <div class="kpi-card green">
+            <div class="kpi-label">Hero Section</div>
+            <div class="kpi-value" style="font-size:20px;">Polished</div>
+            <div class="kpi-note">Custom HTML already built &mdash; KEEP</div>
+        </div>
+        <div class="kpi-card amber">
+            <div class="kpi-label">Conversion Tracking</div>
+            <div class="kpi-value" style="font-size:20px;">3x Tags</div>
+            <div class="kpi-note">Must consolidate to single Reputifly API</div>
+        </div>
+        <div class="kpi-card blue">
+            <div class="kpi-label">Form Destination</div>
+            <div class="kpi-value" style="font-size:20px;">Reputifly API</div>
+            <div class="kpi-note">Hero form already uses own API &mdash; GOOD</div>
+        </div>
+    </div>
+
+    <!-- Conversion Tracking Plan -->
+    <div class="section" style="margin-top:48px;">
+        <h2 class="section-title">Conversion Tracking Plan</h2>
+        <p class="section-desc">What we will count as conversions on the new landing page, tracked via Reputifly API.</p>
+    </div>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Conversion Event</th>
+                    <th>Type</th>
+                    <th>Tracking Method</th>
+                    <th>Google Ads Counting</th>
+                    <th>Priority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-row">
+                    <td>Quote Form Submit</td>
+                    <td>Primary Lead</td>
+                    <td>Reputifly API &rarr; redirect to /thank-you with transaction ID</td>
+                    <td>Primary &middot; Count: One &middot; 30-day window</td>
+                    <td><span class="tag" style="background:#dcfce7;color:#166534;">Primary</span></td>
+                </tr>
+                <tr>
+                    <td>WhatsApp Button Click (Hero)</td>
+                    <td>Micro-conversion</td>
+                    <td>gtag event on click: <code>conversion_whatsapp_hero</code></td>
+                    <td>Secondary &middot; Count: One &middot; 30-day window</td>
+                    <td><span class="tag" style="background:#dbeafe;color:#1e40af;">Secondary</span></td>
+                </tr>
+                <tr>
+                    <td>Floating WhatsApp Click</td>
+                    <td>Micro-conversion</td>
+                    <td>gtag event on click: <code>conversion_whatsapp_float</code></td>
+                    <td>Secondary &middot; Count: One &middot; 30-day window</td>
+                    <td><span class="tag" style="background:#dbeafe;color:#1e40af;">Secondary</span></td>
+                </tr>
+                <tr>
+                    <td>Click-to-Call</td>
+                    <td>Micro-conversion</td>
+                    <td>gtag event on click: <code>conversion_phone_call</code></td>
+                    <td>Secondary &middot; Count: One &middot; 30-day window</td>
+                    <td><span class="tag" style="background:#dbeafe;color:#1e40af;">Secondary</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:20px 24px;margin-top:16px;">
+        <p style="font-size:14px;color:#166534;line-height:1.7;"><strong>Key rule:</strong> Only the Quote Form Submit counts as a PRIMARY conversion for bidding optimization. WhatsApp and call clicks are tracked as SECONDARY (visible in reports but do NOT influence Smart Bidding). This ensures 1 real lead = 1 counted conversion. No more triple-counting.</p>
+    </div>
+
+    <!-- Target Metrics -->
+    <div class="section" style="margin-top:48px;">
+        <h2 class="section-title">Target Metrics &mdash; What We're Aiming For</h2>
+        <p class="section-desc">Benchmarks and goals for the optimized landing page and campaign.</p>
+    </div>
+    <div class="kpi-grid">
+        <div class="kpi-card green">
+            <div class="kpi-label">Target Conv. Rate</div>
+            <div class="kpi-value">18-22%</div>
+            <div class="kpi-note">Current real: 17.4% &middot; Benchmark: 17.65%</div>
+        </div>
+        <div class="kpi-card green">
+            <div class="kpi-label">Target CPA</div>
+            <div class="kpi-value">&lt; SGD 15</div>
+            <div class="kpi-note">Current real: SGD 17.01 &middot; 12% improvement</div>
+        </div>
+        <div class="kpi-card blue">
+            <div class="kpi-label">Target Page Speed (Mobile)</div>
+            <div class="kpi-value">&lt; 2s</div>
+            <div class="kpi-note">Current Elementor: likely 5-8s &middot; Raw HTML will fix</div>
+        </div>
+        <div class="kpi-card blue">
+            <div class="kpi-label">Target Bounce Rate</div>
+            <div class="kpi-value">&lt; 35%</div>
+            <div class="kpi-note">Faster page + better UX = lower bounce</div>
+        </div>
+        <div class="kpi-card amber">
+            <div class="kpi-label">Target Monthly Real Leads</div>
+            <div class="kpi-value">50-60</div>
+            <div class="kpi-note">Current real: ~52/month avg over 8 months</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Target CTR</div>
+            <div class="kpi-value">&gt; 10%</div>
+            <div class="kpi-note">Current: 8.59% &middot; Better ad copy + extensions</div>
+        </div>
+    </div>
+    <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:20px 24px;margin-top:16px;">
+        <p style="font-size:14px;color:#1e40af;line-height:1.7;"><strong>How we'll get there:</strong> Faster landing page (raw HTML, no Elementor bloat) improves Quality Score &rarr; lower CPC &rarr; lower CPA. Clean conversion tracking lets Smart Bidding optimize correctly. Better above-fold CTA and mobile UX lift conversion rate. Combined, we aim to reduce CPA from SGD 17 to under SGD 15 while increasing lead volume.</p>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="section" style="margin-top:48px;">
+        <h2 class="section-title">Recommended Actions</h2>
+        <p class="section-desc">Priority-ordered implementation plan.</p>
+    </div>
+    <div class="rec-list">
+        <div class="rec-item urgent">
+            <div class="rec-num">1</div>
+            <div class="rec-content">
+                <h4>Fix Conversion Triple-Counting (Immediate)</h4>
+                <p>Keep only ONE conversion action as Primary/Included. Recommend keeping "Lead Form Submission" (Active, cleanest tracking). Set the other two to Secondary and "Not included in account-level goals." This is the single highest-impact fix.</p>
+            </div>
+        </div>
+        <div class="rec-item urgent">
+            <div class="rec-num">2</div>
+            <div class="rec-content">
+                <h4>Rebuild Landing Page as Lightweight Raw HTML</h4>
+                <p>Replace the Elementor page with a fast, custom-coded landing page. Keep the polished hero section (already done). Add: header with logo, trust section, services breakdown, FAQ, WhatsApp CTA, and footer. Deploy via Reputifly API as raw HTML. Target: under 3 seconds mobile load.</p>
+            </div>
+        </div>
+        <div class="rec-item">
+            <div class="rec-num">3</div>
+            <div class="rec-content">
+                <h4>Implement Single Clean Conversion Tracking</h4>
+                <p>Use only the Reputifly API form submission as the conversion event. Remove duplicate Google Ads tags, GTM tags, and OCT tags. Implement a unique transaction ID per submission to prevent any recount.</p>
+            </div>
+        </div>
+        <div class="rec-item">
+            <div class="rec-num">4</div>
+            <div class="rec-content">
+                <h4>Allow 30 Days of Clean Data</h4>
+                <p>After fixing tracking, let the Maximize Conversions algorithm re-learn on real data. Do NOT change bids, budgets, or keywords during this period. Reported conversions will drop to ~1/3 &mdash; this is expected and correct.</p>
+            </div>
+        </div>
+        <div class="rec-item">
+            <div class="rec-num">5</div>
+            <div class="rec-content">
+                <h4>Evaluate Campaign Structure After Clean Data</h4>
+                <p>With 30 days of clean data: if 30+ real conversions/month, switch to Target CPA (set 10-20% above real average CPA). Consider adding broad match versions of top performers. Evaluate if new campaign needed or current can be optimized.</p>
+            </div>
+        </div>
+        <div class="rec-item success">
+            <div class="rec-num">+</div>
+            <div class="rec-content">
+                <h4>What's Already Working Well</h4>
+                <p>All search terms are highly relevant (zero wasted spend on irrelevant queries). CTR of 8.59% is near benchmark. CPC of SGD 2.97 is excellent for Singapore. Real conversion rate of 17.4% matches industry top performers. Keyword selection is clean &mdash; no restructuring needed.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Info -->
+    <div class="section" style="margin-top:48px;">
+        <h2 class="section-title">Site &amp; Deployment Info</h2>
+    </div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Property</th><th>Value</th></tr></thead>
+            <tbody>
+                <tr><td>Site URL</td><td><strong>jscleaningsg.com</strong></td></tr>
+                <tr><td>Landing Page</td><td>/domestic-cleaning-services/ (Page ID: 188)</td></tr>
+                <tr><td>Thank You Page</td><td>/thank-you/ (Page ID: 708)</td></tr>
+                <tr><td>API Base</td><td>jscleaningsg.com/wp-json/reputifly/v1/agent</td></tr>
+                <tr><td>Plugin Version</td><td>1.56.0 (all capabilities enabled)</td></tr>
+                <tr><td>Google Ads ID</td><td>AW-17494515748</td></tr>
+                <tr><td>WhatsApp</td><td>+65 8227 1726</td></tr>
+                <tr><td>Email Recipients</td><td>admin@js-mgt.com, jaden@JS-Mgt.com, SandyHo@Js-Mgt.com, Contact@JS-Mgt.com</td></tr>
+                <tr><td>Logo</td><td>jscleaningsg.com/wp-content/uploads/2025/08/JS-Logo.png</td></tr>
+                <tr><td>Hero Image</td><td>jscleaningsg.com/wp-content/uploads/2025/08/Asset-0011.png</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="report-footer">
+        <p>Generated by Claude &middot; Reputifly Pte Ltd &middot; 12 April 2026</p>
+    </footer>
+
+</div>
+</body>
+</html>
