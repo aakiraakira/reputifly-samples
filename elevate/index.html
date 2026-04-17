@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELEVATE | Rhythmic Gymnastics Academy</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Raleway:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. CSS VARIABLES & BRAND TOKENS
+           ========================================================================== */
+        :root {
+            --color-primary: #d25593;
+            --color-background: #0b0a14;
+            --color-text: #ffffff;
+            
+            --grad-primary: linear-gradient(135deg, #d25593 0%, #8d1b37 100%);
+            --grad-bg: linear-gradient(135deg, #0b0a14 0%, #0b0712 100%);
+            
+            --surface: #171620;
+            --border: #23232c;
+            --muted-text: #a1a1aa; 
+            --focus-ring: #6f3054;
+            --primary-hover: rgba(255, 110, 191, 0.15); 
+            
+            --radius-ui: 24px;
+            --shadow-ui: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            --font-heading: 'Raleway', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --transition: all 0.3s ease;
+        }
+
+        /* ==========================================================================
+           2. GLOBAL RESET & BASE STYLES
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--grad-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--color-text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: var(--radius-ui);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* ==========================================================================
+           3. UI COMPONENTS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: var(--radius-ui);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        .btn:focus-visible {
+            box-shadow: 0 0 0 4px var(--focus-ring);
+        }
+
+        .btn-primary {
+            background: var(--grad-primary);
+            color: var(--color-text);
+            box-shadow: var(--shadow-ui);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--color-text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-hover);
+            border-color: var(--color-primary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        .section-header p {
+            color: var(--muted-text);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+           4. HEADER & NAVIGATION
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background: rgba(23, 22, 32, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: var(--shadow-ui);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+            border-radius: 0; /* Reset for logo */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--color-text);
+        }
+
+        .hamburger svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        /* ==========================================================================
+           5. HERO SECTION (POLISHED & SPLIT LAYOUT)
+           ========================================================================== */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 0% 50%, rgba(210, 85, 147, 0.15) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            background: var(--grad-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+            color: var(--muted-text);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--color-primary);
+            border-radius: var(--radius-ui);
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        /* ==========================================================================
+           6. WHY CHOOSE US (ENHANCED)
+           ========================================================================== */
+        .why-elevate {
+            padding: 100px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-ui);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-ui);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-hover);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .card-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: currentColor;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--muted-text);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .section-cta-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* ==========================================================================
+           7. PROGRAMS (WITH IMAGES)
+           ========================================================================== */
+        .programs {
+            padding: 100px 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(23, 22, 32, 0.5) 100%);
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .program-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-ui);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 450px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .program-card-1 {
+            background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=800&auto=format&fit=crop');
+        }
+
+        .program-card-2 {
+            background-image: url('https://images.unsplash.com/photo-1574316071802-0d684efa7ab5?q=80&w=800&auto=format&fit=crop');
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(11, 10, 20, 0.95) 0%, rgba(11, 10, 20, 0.2) 100%);
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .program-card:hover::before {
+            background: linear-gradient(to top, rgba(210, 85, 147, 0.9) 0%, rgba(11, 10, 20, 0.4) 100%);
+        }
+
+        .program-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+        }
+
+        .program-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .program-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .program-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .program-card p {
+            color: #f4f4f5;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* ==========================================================================
+           8. TESTIMONIALS (DOUBLE DIRECTION MARQUEE)
+           ========================================================================== */
+        .testimonials {
+            padding: 100px 0;
+            overflow: hidden;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .marquee-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%); /* Full bleed trick */
+            position: relative;
+        }
+
+        .marquee-wrapper::before,
+        .marquee-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .marquee-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, var(--surface) 0%, transparent 100%);
+        }
+
+        .marquee-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, var(--surface) 0%, transparent 100%);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            gap: 2rem;
+            animation: scroll-left 40s linear infinite;
+        }
+
+        .marquee-track.reverse {
+            animation: scroll-right 40s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes scroll-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .testimonial-card {
+            background: var(--color-background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-ui);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 400px;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-ui);
+        }
+
+        .quote-icon {
+            color: var(--color-primary);
+            opacity: 0.5;
+        }
+
+        .quote-text {
+            font-size: 1.125rem;
+            font-style: italic;
+            flex-grow: 1;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .client-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--grad-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        .client-details h4 {
+            margin: 0;
+            font-size: 1rem;
+        }
+        .client-details span {
+            font-size: 0.875rem;
+            color: var(--muted-text);
+        }
+
+        /* ==========================================================================
+           9. FAQ SECTION
+           ========================================================================== */
+        .faq-section {
+            padding: 100px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-ui);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: var(--color-primary);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--color-text);
+            transition: var(--transition);
+        }
+
+        .faq-question svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+            color: var(--muted-text);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 2rem;
+            color: var(--muted-text);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active {
+            border-color: var(--color-primary);
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--color-primary);
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+            color: var(--color-primary);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px; /* Arbitrary large height to allow content */
+            padding-bottom: 1.5rem;
+        }
+
+        /* ==========================================================================
+           10. FINAL CTA (LEAD GEN)
+           ========================================================================== */
+        .cta-section {
+            padding: 100px 0;
+        }
+
+        .cta-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-ui);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-ui);
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(210, 85, 147, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .input-group {
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--muted-text);
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            background: var(--color-background);
+            border: 1px solid var(--border);
+            color: var(--color-text);
+            padding: 16px 24px;
+            border-radius: var(--radius-ui);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px var(--focus-ring);
+        }
+
+        .cta-form .btn {
+            width: 100%;
+            margin-top: 1rem;
+            padding: 18px;
+            font-size: 1.125rem;
+        }
+
+        /* ==========================================================================
+           11. FOOTER
+           ========================================================================== */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand .logo img {
+            height: 40px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand p {
+            color: var(--muted-text);
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--muted-text);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: var(--muted-text);
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom a {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           12. MEDIA QUERIES (MOBILE OPTIMIZATION)
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-image-wrapper {
+                order: -1;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 76px; 
+                left: 0;
+                width: 100%;
+                background: var(--surface);
+                flex-direction: column;
+                padding: 2rem 5%;
+                gap: 2rem;
+                border-bottom: 1px solid var(--border);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links .btn {
+                width: 100%;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            .grid-3, .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .testimonial-card {
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/04/Logo-black-full.JPG-mo2jtr58dhve.webp" alt="Elevate Rhythmic Gymnastics Academy Logo">
+            </a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="#why-elevate">Why Us</a>
+                <a href="#programs">Programs</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#faq">FAQ</a>
+                <a href="#cta" class="btn btn-primary">Join Academy</a>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Grace, Strength, <br><span>Elevate Your Potential.</span></h1>
+                    <p>Cultivating discipline, artistry, and elite athleticism in a premier facility designed to help every rhythmic gymnast shine on and off the floor.</p>
+                    <div class="hero-btns">
+                        <a href="#cta" class="btn btn-primary">
+                            Enroll Today
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="#programs" class="btn btn-secondary">Explore Programs</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518622358385-8ea7d0794bf6?q=80&w=1000&auto=format&fit=crop" alt="Rhythmic Gymnast in Motion">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-elevate" class="why-elevate">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Elevate?</h2>
+                <p>We provide a holistic approach to rhythmic gymnastics, prioritizing both athletic excellence and personal growth.</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <h3>Elite Coaching</h3>
+                    <p>Train with internationally recognized instructors who bring decades of competitive experience to every routine, ensuring flawless technique.</p>
+                    <a href="#cta" class="btn btn-secondary" style="width: 100%;">Meet Coaches</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                    </div>
+                    <h3>Premium Facility</h3>
+                    <p>Practice in a pristine, safe environment equipped with Olympic-grade sprung mats, high ceilings, and advanced safety tools.</p>
+                    <a href="#cta" class="btn btn-secondary" style="width: 100%;">Book a Tour</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                    </div>
+                    <h3>Proven Methodology</h3>
+                    <p>Our structured curriculum ensures progressive skill development while actively preventing injury and fostering a love for the sport.</p>
+                    <a href="#programs" class="btn btn-secondary" style="width: 100%;">View Curriculum</a>
+                </div>
+            </div>
+            
+            <div class="section-cta-container">
+                <a href="#cta" class="btn btn-primary">Start Your Journey Today</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="programs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Programs</h2>
+                <p>From absolute beginners to elite competitors, we have a class meticulously tailored to your goals.</p>
+            </div>
+
+            <div class="program-grid">
+                <div class="program-card program-card-1">
+                    <div class="program-content">
+                        <span class="program-tag">Ages 4-12</span>
+                        <h3>Recreational Path</h3>
+                        <p>A fun, engaging introduction to flexibility, apparatus handling, and basic acrobatic elements.</p>
+                        <a href="#cta" class="btn btn-primary">Register for Rec</a>
+                    </div>
+                </div>
+                <div class="program-card program-card-2">
+                    <div class="program-content">
+                        <span class="program-tag">Invite Only</span>
+                        <h3>Competitive Team</h3>
+                        <p>Rigorous training focused on routine perfection, artistry, and preparation for national competitions.</p>
+                        <a href="#cta" class="btn btn-secondary">Apply for Team</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-cta-container">
+                <a href="#cta" class="btn btn-secondary">
+                    View Full Schedule 
+                    <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container" style="max-width: 100%;">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2>Hear From Our Families</h2>
+                <p>Trusted by hundreds of aspiring gymnasts and their parents.</p>
+            </div>
+            
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"The transformation in my daughter's confidence is incredible. The coaches truly care."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">S</div>
+                            <div class="client-details"><h4>Sarah Jenkins</h4><span>Parent</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"Moving to Elevate's competitive team was the best decision. The choreography is unmatched."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">M</div>
+                            <div class="client-details"><h4>Marcus T.</h4><span>Parent</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"A pristine facility with an inspiring atmosphere. I feel safe pushing my limits here."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">E</div>
+                            <div class="client-details"><h4>Elena R.</h4><span>Senior Gymnast</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"My 5-year-old absolutely loves the recreational classes. Beautiful facility!"</p>
+                        <div class="client-info">
+                            <div class="client-avatar">J</div>
+                            <div class="client-details"><h4>Jessica W.</h4><span>Parent</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"The transformation in my daughter's confidence is incredible. The coaches truly care."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">S</div>
+                            <div class="client-details"><h4>Sarah Jenkins</h4><span>Parent</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"Moving to Elevate's competitive team was the best decision. The choreography is unmatched."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">M</div>
+                            <div class="client-details"><h4>Marcus T.</h4><span>Parent</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="marquee-track reverse">
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"The apparatus training is phenomenal. The coaches break down every ribbon technique perfectly."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">A</div>
+                            <div class="client-details"><h4>Anna V.</h4><span>Elite Gymnast</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"Highly organized, professional, and the communication from management is top tier."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">D</div>
+                            <div class="client-details"><h4>David L.</h4><span>Parent</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"It's rare to find an academy that balances strict discipline with genuine warmth and care."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">K</div>
+                            <div class="client-details"><h4>Karen P.</h4><span>Parent</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"The end-of-year showcases are spectacular. The kids perform like true professionals."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">R</div>
+                            <div class="client-details"><h4>Rachel B.</h4><span>Parent</span></div>
+                        </div>
+                    </div>
+                     <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"The apparatus training is phenomenal. The coaches break down every ribbon technique perfectly."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">A</div>
+                            <div class="client-details"><h4>Anna V.</h4><span>Elite Gymnast</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+                        <p class="quote-text">"Highly organized, professional, and the communication from management is top tier."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">D</div>
+                            <div class="client-details"><h4>David L.</h4><span>Parent</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-cta-container">
+                <a href="#cta" class="btn btn-primary">Join Our Community</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about getting started at Elevate.</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What age can my child start rhythmic gymnastics?
+                        <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We welcome students starting at age 4 for our recreational introductory classes. At this age, the focus is on developing coordination, basic flexibility, and a love for movement in a fun environment.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do we need to buy apparatus (ribbons, hoops) immediately?
+                        <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, the academy provides all necessary apparatus for beginners and recreational classes. If your child progresses to the competitive team, coaches will advise you on purchasing personalized, competition-grade equipment.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I know if my child is ready for the competitive team?
+                        <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Competitive team placement is by invitation or evaluation only. Our coaches conduct regular assessments during recreational classes. If you are transferring from another gym, you can schedule a private evaluation via our contact form.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What should my child wear to class?
+                        <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Gymnasts should wear form-fitting athletic wear, such as a leotard or a tight tank top and leggings, so coaches can properly observe body alignment. Hair must be tied back securely, and bare feet or rhythmic half-shoes are required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to Elevate Your Routine?</h2>
+                <p style="color: var(--muted-text);">Fill out the form below to register for a trial class or get more information.</p>
+                
+                <form class="cta-form" onsubmit="event.preventDefault(); alert('Form submitted successfully!');">
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Jane Doe" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="user@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="program">Program of Interest</label>
+                        <select id="program" class="form-control" required>
+                            <option value="" disabled selected>Select a program...</option>
+                            <option value="recreational">Recreational (Ages 4-12)</option>
+                            <option value="competitive">Competitive Team</option>
+                            <option value="private">Private Lessons</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Submit Application
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <p style="font-size: 0.875rem; color: var(--color-primary); margin-top: 1rem; display: none;" id="form-success">Changes Saved</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/04/Logo-black-full.JPG-mo2jtr58dhve.webp" alt="Elevate Logo">
+                    </a>
+                    <p>Fostering discipline, strength, and grace through elite rhythmic gymnastics training.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#why-elevate">Why Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@elevateacademy.com">hello@elevateacademy.com</a></li>
+                        <li><a href="#">123 Gymnastics Way, Suite 100</a></li>
+                        <li><a href="#">(555) 123-4567</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Elevate Rhythmic Gymnastics Academy. All rights reserved.</p>
+                <p>Website Design by <a href="https://reputifly.com" target="_blank" rel="noopener noreferrer">Reputifly</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Header Script
+        const header = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // FAQ Accordion Script
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
