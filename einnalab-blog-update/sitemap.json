@@ -1,0 +1,37 @@
+{
+  "name": "einnalab-blog-update",
+  "description": "EINNALAB compliance audit & rewrite report for the 5 latest published posts.",
+  "brandColors": {
+    "accent": "#b51b27",
+    "foreground": "#0b1220",
+    "muted": "#5b6472",
+    "background": "#ffffff"
+  },
+  "typeface": "Inter",
+  "pages": [
+    {
+      "path": "index.html",
+      "title": "Compliance Audit \u2014 Overview"
+    },
+    {
+      "path": "post-2503.html",
+      "title": "Top 10 Deer Placenta Benefits for Women You Didn\u2019t Know"
+    },
+    {
+      "path": "post-2502.html",
+      "title": "EINNALAB Deer Placenta: Redefining the Wellness Supplement Experience"
+    },
+    {
+      "path": "post-2499.html",
+      "title": "Benefits of Dendrobium: The Complete Guide to This Powerful Orchid"
+    },
+    {
+      "path": "post-2498.html",
+      "title": "Why Enteric-Coated Deer Placenta Capsules Get Real Results"
+    },
+    {
+      "path": "post-2497.html",
+      "title": "What Is Deer Placenta Supplement? Everything You Need to Know"
+    }
+  ]
+}

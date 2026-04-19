@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EINNALAB — Compliance Audit &amp; Rewrite Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="site-nav">
+    <div class="brand">EINNALAB<span class="pill">Compliance Audit</span></div>
+    <div>
+        <a href="#framework">Framework</a>
+        <a href="#posts">Posts</a>
+    </div>
+</nav>
+<div class="wrap">
+    <h1>Compliance Audit &amp; Rewrite Report</h1>
+    <p class="lede">Swiss-neutral rewrite of the five most recently published EINNALAB posts. Every change is traceable to a named rule in the client compliance document and the overlaid regulatory frameworks (HSA Singapore, US FDA DSHEA, EU food-supplement, Google Ads Health, YMYL).</p>
+
+    <div class="meta-row">
+        <span><strong>Posts audited:</strong> 5</span>
+        <span><strong>Status:</strong> <span class="tag ok">Live on einnalab.com</span></span>
+        <span><strong>Titles changed:</strong> 0 (preserved this pass)</span>
+        <span><strong>Deterministic gate:</strong> <span class="tag ok">5 / 5 PASS</span></span>
+    </div>
+
+    <div class="summary-grid">
+        <div class="card"><div class="n">154</div><div class="l">Violations identified</div></div>
+        <div class="card"><div class="n">74</div><div class="l">Claims deleted outright</div></div>
+        <div class="card"><div class="n">23</div><div class="l">Fabricated citations stripped</div></div>
+        <div class="card"><div class="n">11308 → 5067</div><div class="l">Total words (before → after)</div></div>
+    </div>
+
+    <h2 id="framework">Framework used</h2>
+    
+<div class="framework-card">
+<ol>
+<li><strong>Source of truth = client's "All content must remain" document.</strong> Every edit cites the specific rule from the doc it enforces. No personal judgment; every change has a paper trail.</li>
+<li><strong>Regulatory overlay:</strong> HSA Singapore Health Supplement Guidelines · US FDA DSHEA structure/function claim rules · EU food-supplement framework · Google Ads Health policy · YMYL content standards.</li>
+<li><strong>Four hard constraints.</strong> (a) Educational, reference-style, neutral tone only — no promotional voice, no sales, no superiority over competitors, no product pitch. (b) Zero invention — if a claim cannot be verified against a real primary source, it is deleted, not softened. (c) No therapeutic / disease / repair / cure / anti-aging / guaranteed-outcome language; no disease names; no invented "therapy" terms. (d) No overstated scientific certainty — cautious, evidence-aware phrasing only.</li>
+<li><strong>All external citations removed.</strong> Fake citations are a bigger compliance and SEO risk than no citations. The Reputifly template only auto-generates the Sources & Citations box if external <code>&lt;a&gt;</code> tags exist — once removed, the fabricated-source surface is eliminated entirely.</li>
+<li><strong>Keyword discipline:</strong> stay within <em>deer placenta</em>, <em>deer placenta supplement</em>, <em>health supplements</em>. No cross-post cannibalization.</li>
+<li><strong>Deterministic regex gate.</strong> Every rewritten post was scanned against a banned-phrase regex list before it was written live. Zero hits on all five.</li>
+<li><strong>Titles preserved this pass.</strong> Per client direction, the existing post titles were not modified. Any title-level issues are noted in the per-post audit pages and left for a future pass.</li>
+</ol>
+</div>
+
+
+    <h2 id="posts">Audited posts</h2>
+    <p>Click any title to open the full per-post audit page: violations found (quoted verbatim), the rule each violation broke, the exact claims deleted, external fake-citation domains stripped, and the final Swiss-neutral body as it now appears live on einnalab.com.</p>
+    <div class="post-index">
+        <div class="row"><div>ID</div><div>Title</div><div class="n">Violations</div><div class="n">Removed</div><div class="n">Δ words</div></div><div class="row"><div>2503</div><div class="title"><a href="post-2503.html">Top 10 Deer Placenta Benefits for Women You Didn’t Know</a></div><div class="n">36</div><div class="n">19</div><div class="n">2236 → 989</div></div><div class="row"><div>2502</div><div class="title"><a href="post-2502.html">EINNALAB Deer Placenta: Redefining the Wellness Supplement Experience</a></div><div class="n">22</div><div class="n">13</div><div class="n">1803 → 711</div></div><div class="row"><div>2499</div><div class="title"><a href="post-2499.html">Benefits of Dendrobium: The Complete Guide to This Powerful Orchid</a></div><div class="n">34</div><div class="n">15</div><div class="n">2157 → 921</div></div><div class="row"><div>2498</div><div class="title"><a href="post-2498.html">Why Enteric-Coated Deer Placenta Capsules Get Real Results</a></div><div class="n">21</div><div class="n">12</div><div class="n">2385 → 987</div></div><div class="row"><div>2497</div><div class="title"><a href="post-2497.html">What Is Deer Placenta Supplement? Everything You Need to Know</a></div><div class="n">41</div><div class="n">15</div><div class="n">2727 → 1459</div></div>
+    </div>
+
+    <h2 id="method">Method</h2>
+    <p>Each post was pulled live from the Reputifly agent API (<code>GET /posts/&lt;id&gt;</code>), passed to a dedicated Opus-class audit agent, rewritten against the framework above, scanned with a deterministic banned-phrase regex gate, and only then published back via <code>PUT /posts/&lt;id&gt;</code>. Post slugs, publish dates, categories, and tags were preserved unchanged. Every <code>PUT</code> returns a rollback-capable change ID in the Reputifly changelog — every edit in this report is fully reversible.</p>
+
+    <h2 id="what-not">What this pass deliberately did not do</h2>
+    <ul>
+        <li>Did not invent any citation, study, DOI, researcher, or institution.</li>
+        <li>Did not replace removed external links with other external links — they stay removed.</li>
+        <li>Did not soften fabricated claims; fabrications were deleted.</li>
+        <li>Did not change post slugs, publish dates, or post IDs.</li>
+        <li>Did not alter categories or tags automatically.</li>
+        <li>Did not modify titles. Any title-level compliance issue is flagged in the per-post page for a future pass.</li>
+    </ul>
+
+    <footer>
+        Prepared by the EINNALAB compliance pipeline · Framework bounded by the client <em>All content must remain</em> document · Inter typeface.
+    </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
