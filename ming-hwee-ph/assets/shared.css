@@ -82,7 +82,9 @@ h1,h2,h3,h4,h5,h6{
   transition:box-shadow .3s ease;
 }
 .site-header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.2)}
-.sh-inner{
+
+/* Legacy .sh- class names (kept for compat) */
+.sh-inner,.site-header-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -91,7 +93,7 @@ h1,h2,h3,h4,h5,h6{
   margin:0 auto;
   gap:16px;
 }
-.sh-logo{
+.sh-logo,.site-logo{
   display:flex;
   align-items:center;
   gap:10px;
@@ -99,8 +101,9 @@ h1,h2,h3,h4,h5,h6{
   font-weight:800;
   font-size:18px;
   letter-spacing:-0.01em;
+  flex-shrink:0;
 }
-.sh-logo img{height:32px;width:auto}
+.sh-logo img,.site-logo img{height:36px;width:auto;display:block}
 .sh-nav{
   display:flex;
   align-items:center;
@@ -113,7 +116,45 @@ h1,h2,h3,h4,h5,h6{
   transition:color .2s;
 }
 .sh-nav a:hover{color:var(--white)}
-.sh-cta{display:flex;align-items:center;gap:12px}
+.sh-cta,.site-header-right{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.header-phone{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:#ffffff;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:-.005em;
+  transition:opacity .2s;
+}
+.header-phone:hover{opacity:.75;color:#ffffff}
+.header-phone svg{width:18px;height:18px;stroke:#ffffff;flex-shrink:0}
+.header-phone .ph-text{color:#ffffff}
+@media(max-width:640px){
+  .header-phone .ph-text{display:none}
+}
+.header-license-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(201,152,58,.15);
+  color:#f5c96a;
+  padding:6px 12px;
+  border-radius:980px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.3px;
+  border:1px solid rgba(245,201,106,.25);
+  white-space:nowrap;
+}
+.header-license-badge svg{width:14px;height:14px;stroke:#f5c96a;flex-shrink:0}
+@media(max-width:640px){
+  .header-license-badge{display:none}
+}
 
 /* ============================================================
    3. SECTION HELPERS
