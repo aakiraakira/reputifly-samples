@@ -1,0 +1,31 @@
+{
+  "site_name": "Ming Hwee Singapore",
+  "market": "Singapore",
+  "brand_colors": {
+    "primary": "#0c7cd4",
+    "accent": "#dc0404",
+    "dark": "#0b0a14"
+  },
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter"
+  },
+  "pages": [
+    {
+      "path": "/",
+      "file": "index.html"
+    }
+  ],
+  "images": [
+    "logo.png",
+    "favicon.ico",
+    "hero-sg-new.jpg",
+    "helper-filipino.jpg",
+    "helper-indonesian.jpg",
+    "helper-myanmar.jpg",
+    "testimonial-tan.jpg",
+    "testimonial-sarah.jpg",
+    "testimonial-3.jpg",
+    "testimonial-4.jpg"
+  ]
+}
