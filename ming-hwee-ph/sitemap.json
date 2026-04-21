@@ -1,0 +1,59 @@
+{
+  "site_name": "Ming Hwee Philippines Landing",
+  "market": "Philippines",
+  "brand_colors": {
+    "primary": "#0c7cd4",
+    "accent": "#dc0404",
+    "dark": "#0b0a14",
+    "text": "#0f172a",
+    "background": "#ffffff"
+  },
+  "typography": {
+    "heading": "Inter",
+    "body": "Inter"
+  },
+  "pages": [
+    {
+      "path": "/",
+      "file": "index.html",
+      "title": "Ming Hwee | DMW Licensed Overseas Employment Agency",
+      "sections": [
+        "hero",
+        "trust-bar",
+        "choose-your-path",
+        "countries-served",
+        "why-choose",
+        "how-it-works",
+        "success-stories",
+        "for-employers",
+        "faq",
+        "office-locations"
+      ]
+    }
+  ],
+  "assets": {
+    "css": [
+      "assets/shared.css",
+      "assets/ph.css"
+    ],
+    "js": [
+      "assets/shared.js",
+      "assets/ph.js"
+    ]
+  },
+  "images": [
+    "logo.png",
+    "favicon.ico",
+    "hero-ph-new.jpg",
+    "country-hk.jpg",
+    "country-sg.jpg",
+    "country-my.jpg",
+    "country-dubai.jpg",
+    "office-manila.jpg",
+    "office-iloilo.jpg",
+    "office-davao.jpg",
+    "success-maria.jpg",
+    "success-juan.jpg",
+    "success-anna.jpg"
+  ]
+}
