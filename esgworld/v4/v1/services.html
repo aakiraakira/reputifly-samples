@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESG World | Our Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================================================
+           CSS VARIABLES & BRAND KIT
+           ========================================================================== */
+        :root {
+            /* Core Brand Colors */
+            --primary: #163a23;
+            --primary-hover: #1a452a;
+            --accent: #c79e58;
+            --accent-hover: #d4ae6d;
+            
+            /* Background & Text */
+            --bg-body: #f9f9f8; 
+            --bg-dark: #2e443c; 
+            --bg-surface: #ffffff;
+            --text-main: #333333; 
+            --text-muted: #555555;
+            --text-light: #f2f3f0; 
+            
+            /* Gradients */
+            --grad-primary: linear-gradient(135deg, #163a23 0%, #06140e 100%);
+            --grad-bg: linear-gradient(135deg, #6d8476 0%, #2e443c 100%);
+            
+            /* UI Elements */
+            --radius-main: 24px;
+            --radius-small: 12px;
+            --shadow-main: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 25px 30px -5px rgba(0, 0, 0, 0.15), 0 15px 15px -5px rgba(0, 0, 0, 0.08);
+            
+            /* Layout */
+            --container-width: 1200px;
+            --section-padding: 5rem 2rem;
+        }
+
+        /* ==========================================================================
+           RESET & TYPOGRAPHY
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius-small);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ==========================================================================
+           BUTTONS & UTILITIES
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 50px; 
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #ffffff;
+            box-shadow: 0 4px 6px rgba(199, 158, 88, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(199, 158, 88, 0.4);
+            color: #ffffff;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .placeholder-image {
+            background: var(--grad-bg);
+            border-radius: var(--radius-main);
+            width: 100%;
+            height: 400px;
+            box-shadow: var(--shadow-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* ==========================================================================
+           HEADER & NAVIGATION
+           ========================================================================== */
+        header {
+            background-color: var(--bg-surface);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            border-radius: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           PAGE HERO
+           ========================================================================== */
+        #page-hero {
+            background: var(--grad-primary);
+            color: var(--text-light);
+            padding: 12rem 2rem 8rem;
+            text-align: center;
+        }
+
+        #page-hero h1 {
+            color: var(--text-light);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #d1d5d2;
+        }
+
+        /* ==========================================================================
+           METHODOLOGY SECTION
+           ========================================================================== */
+        #methodology {
+            padding: var(--section-padding);
+            background-color: var(--bg-surface);
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .method-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .method-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ==========================================================================
+           SERVICES DETAIL SECTIONS
+           ========================================================================== */
+        .service-detail-section {
+            padding: var(--section-padding);
+        }
+
+        .service-detail-section:nth-child(even) {
+            background-color: #f2f3f0;
+        }
+
+        .service-detail-section:nth-child(odd) {
+            background-color: var(--bg-body);
+        }
+
+        .service-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Alternate layout for even rows */
+        .service-detail-section:nth-child(even) .service-row {
+            direction: rtl; /* Flips the grid visually */
+        }
+        
+        .service-detail-section:nth-child(even) .service-info {
+            direction: ltr; /* Keeps text reading left-to-right */
+        }
+
+        .service-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Keeps button left-aligned */
+        }
+
+        .service-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+            align-self: flex-start;
+        }
+
+        .service-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .service-info p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            width: 100%;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .service-features li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Micro CTA Button spacing within service blocks */
+        .service-info .btn {
+            margin-top: 0.5rem;
+        }
+
+        /* ==========================================================================
+           MAIN CALL TO ACTION SECTION
+           ========================================================================== */
+        #cta {
+            padding: 6rem 2rem;
+            text-align: center;
+            background-color: var(--primary);
+            color: var(--text-light);
+        }
+
+        #cta h2 {
+            color: var(--text-light);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #cta p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            color: #d1d5d2;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: #0a1b10; 
+            color: var(--text-light);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 3rem;
+        }
+
+        .footer-about img {
+            height: 50px;
+            margin-bottom: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 8px 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-about p {
+            color: #a0aab2;
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: #a0aab2;
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #a0aab2;
+        }
+
+        .footer-bottom a {
+            color: var(--accent);
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           MOBILE OPTIMIZATION (ENHANCED)
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .methodology-grid, .service-row, .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem;
+            }
+            
+            .service-detail-section:nth-child(even) .service-row {
+                direction: ltr; /* Reset flip on mobile */
+            }
+
+            .placeholder-image {
+                height: 300px;
+            }
+
+            /* Ensure image always drops below text on mobile for better reading flow */
+            .service-info {
+                order: 1;
+            }
+            .placeholder-image {
+                order: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 4rem 1.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-surface);
+                flex-direction: column;
+                gap: 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.3s ease-in-out;
+            }
+
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1.5rem;
+                border-top: 1px solid #eee;
+            }
+
+            #page-hero {
+                padding-top: 10rem;
+                padding-bottom: 5rem;
+            }
+
+            #page-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .service-info h2 {
+                font-size: 2rem;
+            }
+
+            /* Make buttons full width on small mobile screens */
+            .service-info .btn, #cta .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ESG-World-Logo-mmltwdct7szg.webp" alt="ESG World Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                ☰
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="page-hero">
+            <div class="container">
+                <h1>Our Comprehensive ESG Solutions</h1>
+                <p>We provide end-to-end sustainability services designed to align your corporate goals with global environmental and social standards, driving long-term value and positive impact.</p>
+            </div>
+        </section>
+
+        <section id="methodology">
+            <div class="container methodology-grid">
+                <div class="method-content">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Our Methodology</h2>
+                    <p>At ESG World, we don't just provide data; we translate complex sustainability metrics into actionable, compelling narratives. Our approach utilizes engaging infographics, transparent reporting, and strategic storytelling to clearly present your ESG impact to stakeholders, investors, and the public.</p>
+                    <p>We ensure that your sustainability journey is easily understood, measurable, and perfectly aligned with recognized global frameworks.</p>
+                </div>
+                <div class="placeholder-image">
+                    <div>
+                        Data-Driven <br><span style="color: var(--accent);">Storytelling</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="training" class="service-detail-section">
+            <div class="container service-row">
+                <div class="service-info">
+                    <h2>ESG Training</h2>
+                    <p>Transform your corporate culture from the inside out. Our ESG awareness and sustainability training programs are designed to educate executives, managers, and frontline employees on the critical importance of Environmental, Social, and Governance principles.</p>
+                    <p>We equip your team with the knowledge required to implement sustainable practices in their daily roles, ensuring company-wide compliance and a unified vision for the future.</p>
+                    <ul class="service-features">
+                        <li>Executive ESG Leadership Workshops</li>
+                        <li>Corporate Sustainability Awareness Programs</li>
+                        <li>Compliance & Regulatory Training</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Schedule Training</a>
+                </div>
+                <div class="placeholder-image">
+                    <div>Corporate <br>Training Solutions</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="service-detail-section">
+            <div class="container service-row">
+                <div class="service-info">
+                    <h2>Education Services</h2>
+                    <p>Instilling sustainable values starts early. ESG World offers specialized educational programs and training initiatives specifically tailored for childcare centres, schools, and educational institutions.</p>
+                    <p>Our curriculum is designed to be highly engaging and age-appropriate, fostering a deep understanding of environmental stewardship, resource conservation, and social responsibility in the next generation.</p>
+                    <ul class="service-features">
+                        <li>Interactive Sustainability Curriculums</li>
+                        <li>School Infrastructure Green Audits</li>
+                        <li>Educator Certification Programs</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Learn About Our Curriculum</a>
+                </div>
+                <div class="placeholder-image">
+                    <div>Empowering the <br>Next Generation</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="waste" class="service-detail-section">
+            <div class="container service-row">
+                <div class="service-info">
+                    <h2>Packaging & Waste Management</h2>
+                    <p>Transition toward a circular economy with our comprehensive waste management strategies. We analyze your entire supply chain to identify critical areas for waste reduction, efficient recycling, and responsible disposal.</p>
+                    <p>Our solutions focus specifically on optimizing packaging materials, minimizing single-use plastics, and establishing zero-waste-to-landfill protocols to drastically cut your environmental footprint.</p>
+                    <ul class="service-features">
+                        <li>Packaging Lifecycle Assessments</li>
+                        <li>Circular Economy Integration</li>
+                        <li>Responsible Disposal & Recycling Protocols</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Optimize Your Waste</a>
+                </div>
+                <div class="placeholder-image">
+                    <div>Circular Economy <br>Solutions</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="transport" class="service-detail-section">
+            <div class="container service-row">
+                <div class="service-info">
+                    <h2>Transport & Logistics</h2>
+                    <p>Transportation is one of the largest contributors to corporate carbon emissions. We help you redesign your logistics network to prioritize fuel efficiency, route optimization, and the integration of alternative energy vehicles.</p>
+                    <p>From fleet electrification strategies to selecting eco-conscious freight partners, our transport solutions reduce your Scope 3 emissions while maintaining operational efficiency.</p>
+                    <ul class="service-features">
+                        <li>Fleet Electrification Roadmaps</li>
+                        <li>Supply Chain Route Optimization</li>
+                        <li>Scope 3 Emission Reduction Strategies</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Audit Your Logistics</a>
+                </div>
+                <div class="placeholder-image">
+                    <div>Sustainable <br>Mobility</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="building" class="service-detail-section">
+            <div class="container service-row">
+                <div class="service-info">
+                    <h2>Building & Maintenance</h2>
+                    <p>Create spaces that harmonize with the environment. Our building and maintenance services provide expert guidance on sustainable building practices, eco-friendly infrastructure design, and energy-efficient retrofitting.</p>
+                    <p>Whether you are developing new facilities or upgrading existing ones, we ensure your physical assets meet stringent green building certifications (such as LEED or BREEAM) and operate at peak energy and water efficiency.</p>
+                    <ul class="service-features">
+                        <li>Green Building Certification Consulting</li>
+                        <li>Energy & Water Efficiency Retrofits</li>
+                        <li>Sustainable Infrastructure Maintenance</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Upgrade Your Infrastructure</a>
+                </div>
+                <div class="placeholder-image">
+                    <div>Green Building <br>Infrastructure</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta">
+            <div class="container">
+                <h2>Ready to Elevate Your ESG Strategy?</h2>
+                <p>Connect with our specialists today to schedule a consultation and take the first step toward a more sustainable and profitable future.</p>
+                <a href="contact.html" class="btn btn-primary" style="background-color: #fff; color: var(--primary);">Get in Touch Now</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ESG-World-Logo-mmltwdct7szg.webp" alt="ESG World Logo">
+                <p>Your dedicated partner in navigating the complexities of Environmental, Social, and Governance frameworks. Building a sustainable world, together.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="services.html#education">Education</a></li>
+                    <li><a href="services.html#waste">Waste Management</a></li>
+                    <li><a href="services.html#transport">Transport</a></li>
+                    <li><a href="services.html#building">Building</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@esgworlds.com">info@esgworlds.com</a></li>
+                    <li><a href="contact.html">Corporate Office</a></li>
+                    <li><a href="contact.html">Support Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 ESG World. All rights reserved.</div>
+            <div class="footer-credits">
+                Website Design by <a href="https://reputifly.com/web-development" target="_blank">Reputifly</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                
+                // Toggle icon from hamburger to close
+                if (navLinks.classList.contains('active')) {
+                    mobileBtn.innerHTML = '✕';
+                } else {
+                    mobileBtn.innerHTML = '☰';
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileBtn.innerHTML = '☰';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
