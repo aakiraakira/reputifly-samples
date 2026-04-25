@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v11 - 2026-04-25
+- Replaced PH office images: previous photos were random Unsplash stock (Bali temple for Manila, jewelry/heels for Iloilo, Toronto skyline for Davao). Generated 3 proper Filipino mid-rise office building photos via Gemini Nano Banana - tropical setting, palm trees, professional commercial buildings appropriate for a recruitment agency branch.
+- Iloilo image now correctly shows a Filipino commercial street with the agency building, palm trees, jeepney, and 'Recruitment Agency Branch Iloilo Office' signage
+
 ## v10 - 2026-04-25
 - PH: Fixed broken </li> closures in success-state prep list (5 items had </div> instead of </li>) which was causing the 'View Office Locations' button to leak out of the modal and render at the bottom of the live page
 - Added defensive CSS rule forcing .success-state hidden whenever modal is not active
