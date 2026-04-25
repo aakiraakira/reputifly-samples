@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v10 - 2026-04-25
+- PH: Fixed broken </li> closures in success-state prep list (5 items had </div> instead of </li>) which was causing the 'View Office Locations' button to leak out of the modal and render at the bottom of the live page
+- Added defensive CSS rule forcing .success-state hidden whenever modal is not active
+
 ## v9 - 2026-04-25
 - SG Testimonials redesigned: replaced broken portrait images with elegant letter avatars (gradient blue circles + initial)
 - Added decorative quote mark to testimonial cards, premium shadow + border-top author divider
