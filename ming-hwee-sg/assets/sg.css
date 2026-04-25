@@ -827,6 +827,78 @@
 }
 
 /* ==========================================================================
+   STATS / BY-THE-NUMBERS SECTION
+   ========================================================================== */
+.sg-stats-section{
+  background:linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:24px;
+}
+.stat-card{
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  border-radius:24px;
+  padding:36px 28px;
+  text-align:center;
+  transition:transform .3s cubic-bezier(.25,.8,.25,1), box-shadow .3s, border-color .3s;
+  position:relative;
+  overflow:hidden;
+}
+.stat-card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg, #0c7cd4 0%, #0fa1ff 100%);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .4s ease;
+}
+.stat-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(12,124,212,.12);
+  border-color:#0c7cd4;
+}
+.stat-card:hover::before{transform:scaleX(1)}
+.stat-num{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:48px;
+  font-weight:800;
+  letter-spacing:-0.04em;
+  color:#0c7cd4;
+  line-height:1;
+  margin-bottom:10px;
+  background:linear-gradient(135deg, #0c7cd4 0%, #0fa1ff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.stat-label{
+  font-size:15px;
+  font-weight:700;
+  color:#0f172a;
+  margin-bottom:6px;
+  letter-spacing:-0.005em;
+}
+.stat-sub{
+  font-size:13px;
+  color:#64748b;
+  line-height:1.5;
+}
+@media(max-width:900px){
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+  .stat-card{padding:28px 20px}
+  .stat-num{font-size:40px}
+}
+@media(max-width:480px){
+  .stat-num{font-size:36px}
+  .stat-card{padding:24px 16px}
+}
+
+/* ==========================================================================
    FOOTER - page-specific layout
    ========================================================================== */
 .footer-inner {
