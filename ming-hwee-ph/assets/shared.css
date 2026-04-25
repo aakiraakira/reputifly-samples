@@ -1087,10 +1087,14 @@ h1,h2,h3,h4,h5,h6{
 
 /* ============================================================
    18. FLOATING WHATSAPP (.fwa) - bigger + label on hover
+   Anchored to bottom-right corner with safe-area inset support
    ============================================================ */
 .fwa{
   position:fixed;
-  bottom:28px;right:28px;
+  bottom:16px;
+  right:16px;
+  bottom:max(16px, env(safe-area-inset-bottom, 16px));
+  right:max(16px, env(safe-area-inset-right, 16px));
   z-index:9999;
   width:72px;height:72px;
   background:#25D366;
@@ -1144,10 +1148,10 @@ h1,h2,h3,h4,h5,h6{
   100%{box-shadow:0 8px 28px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,0)}
 }
 
-/* Larger on mobile to make it the dominant CTA */
+/* Slightly larger on mobile to make it the dominant CTA */
 @media(max-width:768px){
-  .fwa{width:72px;height:72px;bottom:20px;right:20px}
-  .fwa svg{width:36px;height:36px}
+  .fwa{width:68px;height:68px;bottom:14px;right:14px;bottom:max(14px, env(safe-area-inset-bottom, 14px));right:max(14px, env(safe-area-inset-right, 14px))}
+  .fwa svg{width:34px;height:34px}
   .fwa-label{display:none}
 }
 
