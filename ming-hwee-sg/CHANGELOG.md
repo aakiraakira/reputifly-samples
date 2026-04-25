@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v9 - 2026-04-25
+- SG Testimonials redesigned: replaced broken portrait images with elegant letter avatars (gradient blue circles + initial)
+- Added decorative quote mark to testimonial cards, premium shadow + border-top author divider
+- Quote text now properly sized 17px and not italic for cleaner read
+- Cards have subtle gradient bg + 24px radius
+
 ## v8 - 2026-04-25 (surgical fixes after broken Gemini deploy)
 - Fixed timeline "How It Works" step circles - were rendering as ovals on mobile, now true 56px circles with !important constraints (aspect-ratio + flex 0 0 + min/max width/height)
 - Fixed PH success stories section - photos were forced to 72x72 avatar inside aspect-ratio:1/1 container leaving huge empty space; now photos fill full card-top properly with object-fit cover
