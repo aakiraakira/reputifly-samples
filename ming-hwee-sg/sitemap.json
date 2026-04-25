@@ -1,10 +1,8 @@
 {
   "site_name": "Ming Hwee Singapore",
-  "market": "Singapore",
   "brand_colors": {
     "primary": "#0c7cd4",
-    "accent": "#dc0404",
-    "dark": "#0b0a14"
+    "accent": "#dc0404"
   },
   "typography": {
     "heading": "Inter",

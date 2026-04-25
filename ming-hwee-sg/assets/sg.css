@@ -8,10 +8,10 @@
    ========================================================================== */
 #apple-style-hero-wrap {
   background:
-    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(12,124,212,.18), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 85% 20%, rgba(220,4,4,.08), transparent 55%),
-    radial-gradient(ellipse 90% 70% at 50% 110%, rgba(245,225,200,.35), transparent 65%),
-    linear-gradient(180deg, #f7fbfd 0%, #eff6fb 45%, #ffffff 100%) !important;
+    radial-gradient(ellipse 90% 70% at 18% 5%, rgba(12,124,212,.42), transparent 55%),
+    radial-gradient(ellipse 70% 55% at 88% 12%, rgba(15,161,255,.32), transparent 55%),
+    radial-gradient(ellipse 100% 80% at 50% 115%, rgba(255,255,255,.6), transparent 60%),
+    linear-gradient(165deg, #cfe6f5 0%, #d6e9f4 40%, #e9f2f9 75%, #f8fbfd 100%) !important;
   padding: 140px 24px 0 !important;
   text-align: center !important;
   display: flex !important;
@@ -20,16 +20,17 @@
   width: 100% !important;
   overflow: hidden !important;
   position: relative !important;
+  border-bottom: 1px solid rgba(12,124,212,.08) !important;
 }
 #apple-style-hero-wrap::before{
   content:"";
   position:absolute;
   inset:0;
-  background-image:linear-gradient(90deg, rgba(15,23,42,.03) 1px, transparent 1px),
-                   linear-gradient(0deg, rgba(15,23,42,.03) 1px, transparent 1px);
+  background-image:linear-gradient(90deg, rgba(12,40,90,.06) 1px, transparent 1px),
+                   linear-gradient(0deg, rgba(12,40,90,.06) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 75%);
+  mask-image: radial-gradient(ellipse 75% 60% at 50% 40%, #000 35%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 40%, #000 35%, transparent 75%);
   pointer-events:none;
   z-index:0 !important;
 }

@@ -1,16 +1,16 @@
 # CHANGELOG
 
-## v3 - 2026-04-21 (mobile UX overhaul)
-- Removed mobile-only sticky bar (Book Consultation + WhatsApp)
-- Floating WhatsApp button is now the only persistent mobile CTA
-- WhatsApp button enlarged: 72x72px with hover tooltip "Chat on WhatsApp"
-- Application/consultation popup is now TRUE fullscreen (100vw x 100vh, no padding gap)
-- New modal-header-bar with Ming Hwee logo + close button (sticky top while scrolling)
-- Modal-scroll wrapper for smooth iOS-touch scrolling on long forms
-- Modal title bumped to 32px on desktop, 26px on mobile
-- Stats / By-The-Numbers section added before pricing
+## v4 - 2026-04-21
+- FWA repositioned: dead bottom-right with safe-area inset support (16px desktop, 14px mobile)
+- Hero gradients amplified for stronger visual contrast against page sections:
+  - SG: deeper blue gradient (#cfe6f5 to #f8fbfd) with stronger radial blue glows
+  - PH: stronger peach/gold gradient (#fde8c8 to #fdf6ec) with warm sunrise glow
+- Hero now has subtle bottom border to create clear separation from next section
 
-## base - 2026-04-21
-- Initial sample for Ming Hwee Singapore landing page
+## v3 - mobile UX overhaul
+- Removed mobile-cta bar; FWA is the only persistent mobile CTA
+- FWA enlarged to 72px desktop, 68px mobile
+- Modal is now true fullscreen with sticky header bar (logo + close)
+- Added stats by-the-numbers section
 
 Agent: Claude Code (taskweb skill)
