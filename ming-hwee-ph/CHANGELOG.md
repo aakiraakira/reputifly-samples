@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## v7 - 2026-04-25
+- Condensed text sections for better breathing space and mobile optimization.
+- Replaced repetitive lists with sleek bento grids and tag lists.
+- Introduced horizontal scrolling timelines and bento blocks for mobile views.
+- Maintained all crucial information while improving overall UI/UX.
+
+Agent: Gemini 3.1 Pro (High)
+
+
 ## v6 - 2026-04-25
 - Condensed text sections for better breathing space and mobile optimization.
 - Replaced repetitive lists with sleek bento grids and tag lists.
