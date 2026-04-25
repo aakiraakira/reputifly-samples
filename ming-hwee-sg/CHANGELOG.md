@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## v8 - 2026-04-25 (surgical fixes after broken Gemini deploy)
+- Fixed timeline "How It Works" step circles - were rendering as ovals on mobile, now true 56px circles with !important constraints (aspect-ratio + flex 0 0 + min/max width/height)
+- Fixed PH success stories section - photos were forced to 72x72 avatar inside aspect-ratio:1/1 container leaving huge empty space; now photos fill full card-top properly with object-fit cover
+- Fixed PH employers benefits list - HTML had broken </li> closing tags (was </div>); items 02-04 are now proper list items aligned in flex row
+- Fixed SG/PH testimonial-person layout - photo + name are now centered inline, not offset
+- Fixed trust bar - never horizontal scrolls on mobile; uses grid 4-col desktop, 2-col mobile, 1-col on tiny screens
+- Restored only testimonial-person <img> as 56px circular avatar; story-photo <img> now correctly fills its container
+- Hero images constrained to max-width 720px to prevent over-zoom
+
+Agent: Claude Code (recovery from previous Gemini deploy)
+
+
+# CHANGELOG
+
 ## v7 - 2026-04-25
 - Condensed text sections for better breathing space and mobile optimization.
 - Replaced repetitive lists with sleek bento grids and tag lists.
