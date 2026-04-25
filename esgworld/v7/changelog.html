@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog | ESG World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #163a23;
+            --accent: #c79e58;
+            --brand-green: #6BBE53;
+            --bg-white: #ffffff;
+            --bg-light: #f9f9f8;
+            --text-dark: #163a23;
+            --text-light: #ffffff;
+            --radius-main: 12px;
+            --shadow-main: 0 10px 25px rgba(22, 58, 35, 0.1);
+            --transition: all 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); background-color: var(--bg-white); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; color: var(--primary); line-height: 1.2; margin-bottom: 1rem; }
+        p { margin-bottom: 1rem; }
+        a { text-decoration: none; color: var(--accent); transition: var(--transition); }
+        a:hover { color: var(--primary); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        header { background-color: var(--bg-white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; min-height: 170px; padding: 10px 1rem; }
+        .logo img { height: 160px; object-fit: contain; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: var(--primary); font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
+        .mobile-menu-btn { display: none; font-size: 2rem; padding: 0.75rem; color: var(--primary); cursor: pointer; background: none; border: none; z-index: 1001; }
+
+        .page-hero { padding: 12rem 0 6rem; text-align: center; color: var(--text-light); background-color: var(--primary); min-height: 40vh; display: flex; align-items: center; }
+        .page-hero h1 { color: var(--accent); font-size: 3.5rem; margin-bottom: 1rem; }
+        .page-hero p { font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--bg-white); }
+
+        .changelog-section { padding: 4rem 0; }
+
+        .revision-entry {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(199, 158, 88, 0.2);
+        }
+        .revision-entry:last-child { border-bottom: none; }
+        .revision-entry h3 { font-size: 1.6rem; margin-bottom: 0.3rem; font-family: 'Playfair Display', serif; }
+        .revision-date { color: var(--accent); font-weight: 600; font-size: 0.85rem; margin-bottom: 2rem; display: block; font-family: 'Inter', sans-serif; letter-spacing: 0.5px; }
+
+        .feedback-block {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .feedback-block .client-said {
+            font-style: italic;
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+        .feedback-block .client-said::before { content: 'Client: '; font-weight: 700; color: var(--accent); font-style: normal; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .feedback-block .action-taken { font-size: 0.95rem; line-height: 1.6; color: var(--text-dark); }
+        .feedback-block .action-taken::before { content: 'Done: '; font-weight: 700; color: var(--brand-green); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .feedback-block .interpretation {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 0.4rem;
+            line-height: 1.5;
+        }
+        .feedback-block .interpretation::before { content: 'Note: '; font-weight: 700; color: #bbb; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .page-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .tag-home { background: rgba(107, 190, 83, 0.12); color: var(--brand-green); }
+        .tag-about { background: rgba(199, 158, 88, 0.12); color: var(--accent); }
+        .tag-services { background: rgba(22, 58, 35, 0.08); color: var(--primary); }
+        .tag-contact { background: rgba(107, 190, 83, 0.08); color: #2a7d2e; }
+
+        .files-changed {
+            margin-top: 1.5rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed rgba(199, 158, 88, 0.3);
+            font-size: 0.8rem;
+            color: #aaa;
+            font-family: 'Inter', sans-serif;
+        }
+        .files-changed strong { color: var(--text-dark); font-weight: 600; }
+
+        footer { background-color: #0d2214; color: var(--bg-white); padding: 4rem 0 2rem; border-top: 2px solid var(--accent); }
+        .footer-bottom { padding-top: 2rem; display: flex; justify-content: space-between; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: flex; align-items: center; justify-content: center; padding: 0.75rem; margin-right: 0.5rem; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-white); flex-direction: column; padding: 1rem 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+            .nav-container { min-height: 140px; padding: 10px 1rem; }
+            .logo img { height: 130px; }
+            .page-hero h1 { font-size: 2.5rem; }
+            .changelog-section { padding: 2rem 0; }
+            .container { padding: 0 1rem; }
+            .revision-entry h3 { font-size: 1.3rem; }
+            .feedback-block { padding-left: 0.75rem; margin-bottom: 1.2rem; }
+            .feedback-block .client-said { font-size: 0.85rem; }
+            .feedback-block .action-taken { font-size: 0.9rem; }
+            .page-tag { margin-top: 1rem; }
+        }
+    
+        /* ==========================================================================
+           FLOATING WHATSAPP BUTTON + MOBILE POLISH
+           ========================================================================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 62px;
+            height: 62px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 3px 10px rgba(0, 0, 0, 0.18);
+            z-index: 9999;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+            color: #fff;
+            text-decoration: none;
+            animation: whatsapp-bob 3.2s ease-in-out infinite;
+        }
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            border: 2px solid #25D366;
+            opacity: 0;
+            animation: whatsapp-pulse 2.2s ease-out infinite;
+            pointer-events: none;
+        }
+        .whatsapp-float::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.22), transparent 55%);
+            pointer-events: none;
+        }
+        @keyframes whatsapp-pulse {
+            0% { transform: scale(0.92); opacity: 0.65; }
+            100% { transform: scale(1.45); opacity: 0; }
+        }
+        @keyframes whatsapp-bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            background: #1ebe5d;
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.55), 0 5px 14px rgba(0, 0, 0, 0.22);
+            animation-play-state: paused;
+        }
+        .whatsapp-float svg {
+            width: 34px;
+            height: 34px;
+            display: block;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+        }
+        .whatsapp-tooltip {
+            position: absolute;
+            right: calc(100% + 14px);
+            top: 50%;
+            transform: translateY(-50%) translateX(6px);
+            background: #163a23;
+            color: #fff;
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.22s ease, transform 0.22s ease;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+        }
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 6px solid transparent;
+            border-left-color: #163a23;
+        }
+        .whatsapp-float:hover .whatsapp-tooltip,
+        .whatsapp-float:focus-visible .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+        .whatsapp-float:focus-visible {
+            outline: 3px solid #163a23;
+            outline-offset: 3px;
+        }
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 18px;
+                right: 18px;
+                width: 56px;
+                height: 56px;
+            }
+            .whatsapp-float svg { width: 30px; height: 30px; }
+            .whatsapp-tooltip { display: none; }
+        }
+
+        /* Extra mobile safeguards */
+        @media (max-width: 768px) {
+            html, body { overflow-x: hidden; max-width: 100%; }
+            img, iframe { max-width: 100%; height: auto; }
+            .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .section-padding { padding: 3.5rem 0; }
+            .section-header { margin-bottom: 2.5rem; }
+            .section-header h2 { font-size: 1.9rem; }
+            .page-hero { padding: 9rem 0 4rem; min-height: auto; }
+            .page-hero h1 { font-size: 2.2rem; }
+            .page-hero p { font-size: 1rem; }
+            .btn { padding: 0.85rem 1.75rem; font-size: 0.8rem; }
+            #hero { padding: 11rem 0 5rem; min-height: auto; }
+            #hero h1 { font-size: 2.3rem; }
+            #hero p { font-size: 1rem; }
+            .carousel-item { width: 180px; height: 115px; padding: 1.25rem; }
+        }
+        @media (max-width: 480px) {
+            .hero-buttons { flex-direction: column; align-items: stretch; }
+            .hero-buttons .btn { width: 100%; }
+        }
+
+    
+        /* Services dropdown menu */
+        .nav-links { align-items: center; }
+        .nav-links li.has-dropdown { position: relative; }
+        .nav-links li.has-dropdown > a::after {
+            content: '';
+            display: inline-block;
+            width: 0; height: 0;
+            margin-left: 6px;
+            vertical-align: 2px;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid currentColor;
+            transition: transform 0.2s ease;
+        }
+        .nav-links li.has-dropdown:hover > a::after,
+        .nav-links li.has-dropdown:focus-within > a::after { transform: rotate(180deg); }
+        .nav-links .dropdown {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: var(--bg-white);
+            min-width: 260px;
+            list-style: none;
+            padding: 0.5rem 0;
+            margin: 0;
+            box-shadow: 0 12px 28px rgba(22, 58, 35, 0.15);
+            border-radius: 10px;
+            border-top: 3px solid var(--accent);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+            z-index: 1100;
+        }
+        .nav-links li.has-dropdown:hover > .dropdown,
+        .nav-links li.has-dropdown:focus-within > .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-links .dropdown::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 0; right: 0;
+            height: 12px;
+        }
+        .nav-links .dropdown li { display: block; margin: 0; }
+        .nav-links .dropdown a {
+            display: block;
+            padding: 0.7rem 1.5rem;
+            color: var(--primary);
+            white-space: nowrap;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .nav-links .dropdown a:hover,
+        .nav-links .dropdown a:focus-visible { background: var(--bg-light); color: var(--accent); }
+        @media (max-width: 768px) {
+            .nav-links .dropdown {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+                border-top: none;
+                background: transparent;
+                padding: 0 0 0.5rem 1rem;
+                min-width: 0;
+            }
+            .nav-links li.has-dropdown > a::after { display: none; }
+            .nav-links .dropdown a { color: var(--primary); padding: 0.45rem 0; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ESG-World-Logo-mmltwdct7szg.webp" alt="ESG World Logo">
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="has-dropdown"><a href="services.html">Services</a>
+                    <ul class="dropdown">
+                        <li><a href="services.html#training">Education &amp; Training</a></li>
+                        <li><a href="services.html#waste">Waste Management</a></li>
+                        <li><a href="services.html#transport">Transport &amp; Logistics</a></li>
+                        <li><a href="services.html#building">Building &amp; Maintenance</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Revision Changelog</h1>
+                <p>A transparent record of all client-requested changes, what was asked, and how we interpreted and executed each request.</p>
+            </div>
+        </section>
+
+        <section class="changelog-section">
+            <div class="container">
+
+                <div class="revision-entry">
+                    <h3>Amendment v2 — SG Eco Fund Integration</h3>
+                    <span class="revision-date">April 6, 2026 | Version: v3 (Override)</span>
+
+                    <span class="page-tag tag-services">Services Page</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Below 'Education Initiatives' include the 'SG Eco Fund' logo with the following write-up: ESG World LLP is honoured to be tasked to create a Playbook called 'Little Green Steps', This is a sustainability program for the early childhood centres. It is supported by the SG Eco Fund, aligned with MOE's priorities."</div>
+                        <div class="action-taken">Added a dedicated "Little Green Steps" section directly below the Education Initiatives service block. Section includes the full-color SG Eco Fund logo (extracted from the client's docx file), the exact write-up text provided, and a description of the programme.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Click on below link to register for the 'Little Green Steps Playbook' Programme. ** please create a icon link to the google form — https://forms.gle/cHfuvBvAqE3h6wUs8"</div>
+                        <div class="action-taken">Created a styled "Register Now" button with a form/pen icon (fa-file-pen) linking to the provided Google Form URL. Button opens in a new tab. Styled consistently with the site's existing button design system.</div>
+                    </div>
+
+                    <br>
+                    <span class="page-tag tag-home">Home Page</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Add the attached 'SG Eco Fund' logo" (uploaded as a new asset via the revision platform)</div>
+                        <div class="action-taken">Added the SG Eco Fund logo to the "Recognized Industry Standards" certification carousel on the home page. Logo appears in both the original and duplicate track sets to maintain the infinite scroll animation.</div>
+                    </div>
+
+                    <div class="files-changed">
+                        <strong>Files changed:</strong> services.html, index.html, images/sg-eco-fund.png (new asset), CHANGELOG.md, changelog.html
+                    </div>
+                </div>
+
+                <div class="revision-entry">
+                    <h3>Revision Round 1 — Client Feedback Implementation</h3>
+                    <span class="revision-date">April 6, 2026 | Version: v3</span>
+
+                    <!-- HOME PAGE CHANGES -->
+                    <span class="page-tag tag-home">Home Page</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"The Company logo at the top left still looks too small."</div>
+                        <div class="action-taken">Increased logo height from 130px to 160px across all pages. Navigation bar height adjusted proportionally from 140px to 170px. Mobile logo also increased from 110px to 130px.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"The 'picture of leaves' is not preferred; can we have a better picture eg which includes human and depict Sustainability?"</div>
+                        <div class="action-taken">Replaced the hero background image with a photograph of a diverse group of people in a natural outdoor setting, depicting human connection and sustainability. The previous image was a generic plant/nature stock photo.</div>
+                        <div class="interpretation">We selected a people-focused sustainability image since the feedback specifically requested "human" elements. If a different type of image is preferred, please provide a specific image or a more detailed description of the desired scene.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Overall, the font colour 'Blue' is not preferred. Let's have light green colour as what is shown in our current website."</div>
+                        <div class="action-taken">Added the client's brand green (#6BBE53) from their existing website as a new CSS variable. Applied it to all heading elements (h1-h6) and navigation links across all 4 pages.</div>
+                        <div class="interpretation">The existing dark green (#163a23) can appear blue-ish on certain displays. We matched the exact green (#6BBE53) from the client's current Google Sites website. Body text remains dark for accessibility and readability.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Under 'Our Core Solutions', for each of the category, can you add a 'picture background' relevant for that category?"</div>
+                        <div class="action-taken">Added relevant background images to all 4 service cards (ESG Training, Waste Management, Transport &amp; Logistics, Building &amp; Maintenance) with a dark overlay for text readability. Each image matches the category's subject matter.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"When I click 'Waste Management' &amp; 'Transport Logistics', it does not go to the specific location of that next page for that category."</div>
+                        <div class="action-taken">Fixed the anchor link target. The Waste Management section in services.html previously had id="packaging" which didn't match the link href="#waste". Updated the section ID to "waste" so the navigation works correctly. Also added scroll-margin-top (180px) to all anchored sections across all pages to account for the fixed header.</div>
+                        <div class="interpretation">The Transport link was already working correctly (id="transport" matched). The Waste Management link was simply pointing to a non-existent anchor ID. This was a code-side mismatch, not a design issue.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"The logo for ISSB and SASB are too small. Can you make bigger?"</div>
+                        <div class="action-taken">Increased all carousel item dimensions from 220x120px to 280x160px. This affects all logos in the certification carousel, including ISSB and SASB, giving them significantly more visual presence.</div>
+                        <div class="interpretation">Since the carousel uses uniform sizing, all certification logos were enlarged equally. If only specific logos need to be larger, individual logo images would need to be resized at the source, which would require specific assets to be provided.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"The background - blue for 'Ready to elevate your ESG Strategy' is not preferred; can we use the same light green colour from our existing website?"</div>
+                        <div class="action-taken">Changed the CTA section background from the gold accent color to the client's brand green (#6BBE53). Updated all text within the section to white for proper contrast and readability.</div>
+                        <div class="interpretation">The CTA section was actually using a gold/tan color (#c79e58), not blue. We applied the same light green the client referenced from their current website.</div>
+                    </div>
+
+                    <div class="files-changed">
+                        <strong>Files changed:</strong> index.html
+                    </div>
+
+                    <!-- ABOUT PAGE CHANGES -->
+                    <br>
+                    <span class="page-tag tag-about">About Us Page</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Can you take out the 2 photos? Can you refer to our website? there is another team member called Annette..."</div>
+                        <div class="action-taken">Removed both team member photos (David Leong and Kelvin Tan). Replaced photo elements with styled icon placeholders using a gradient background. Added third team member: Dr. Annette S Vincent, PhD — Lead Consultant &amp; Certified ILO Gender Audit Facilitator. Updated grid from 2-column to 3-column layout to accommodate all three members.</div>
+                        <div class="interpretation">We cross-referenced the client's live website (esgworlds.com/about-us) and found three team members listed: David Leong, Kelvin Tan, and Dr. Annette S Vincent, PhD. Since the instruction was to "take out the photos" but keep the members, we replaced images with styled placeholders. If actual replacement photos are available, please provide them and we will swap them in.</div>
+                    </div>
+
+                    <div class="files-changed">
+                        <strong>Files changed:</strong> about.html
+                    </div>
+
+                    <!-- SERVICES PAGE CHANGES -->
+                    <br>
+                    <span class="page-tag tag-services">Services Page</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Can you go to our website and add on the relevant info?" (repeated for all 4 service sections: Services Introduction, Service Methodology, ESG Training, and Education)</div>
+                        <div class="action-taken">Visited the client's live website (esgworlds.com) and extracted all relevant service information. Updated the Methodology &amp; Introduction section with their actual service offerings (Strategy Consulting, Grant Proposals, Implementation, Reporting Advisory, Training Programs, Assessment). Updated ESG Training with their 5 specific programs. Updated Education with their early childhood and school-focused initiatives. Updated Transport &amp; Logistics and Building &amp; Maintenance with enhanced descriptions aligned to their actual offerings.</div>
+                        <div class="interpretation">The instruction "go to our website and add on the relevant info" was applied uniformly across all service sections. We pulled real content from the client's live Google Sites pages under /what-we-do/ and adapted it to fit the existing design structure. The scope of content added was kept proportional to the existing section sizes — we did not restructure the page layout or add new sections, as the brief specified that the number of pages and sections stays the same.</div>
+                    </div>
+
+                    <div class="files-changed">
+                        <strong>Files changed:</strong> services.html
+                    </div>
+
+                    <!-- CONTACT PAGE CHANGES -->
+                    <br>
+                    <span class="page-tag tag-contact">Contact Us Page</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Address: 60 Paya Lebar Road, #06-28, Paya Lebar Square, S(409051)"</div>
+                        <div class="action-taken">Updated the Corporate Office address from the placeholder (123 Eco Plaza, Green District, Innovation City) to the correct address: 60 Paya Lebar Road, #06-28, Paya Lebar Square, S(409051).</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Please take out the phone no"</div>
+                        <div class="action-taken">Completely removed the Phone Numbers contact info block (Main and Support numbers). The contact card now shows: Address, Email, and Business Hours only.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Email: enquiry@esgworlds.com"</div>
+                        <div class="action-taken">Updated the email from the previous dual listing (info@esgworlds.com / consults@esgworlds.com) to the single address: enquiry@esgworlds.com. Also updated the footer email across all 4 pages to match.</div>
+                    </div>
+
+                    <div class="feedback-block">
+                        <div class="client-said">"Address: 60 Paya Lebar Road, #06-28, Paya Lebar Square, S(409051); pls update map"</div>
+                        <div class="action-taken">Updated the embedded Google Maps iframe from the previous placeholder (showing India) to Paya Lebar Square, Singapore.</div>
+                        <div class="interpretation">The previous map was showing the entire country of India as a placeholder — clearly not the intended location. The new embed centers on Paya Lebar Square at the specified address in Singapore.</div>
+                    </div>
+
+                    <div class="files-changed">
+                        <strong>Files changed:</strong> contact.html
+                    </div>
+
+                    <!-- GLOBAL CHANGES -->
+                    <br>
+                    <span class="page-tag tag-home">All Pages</span>
+
+                    <div class="feedback-block">
+                        <div class="client-said">(Applied globally based on individual page feedback)</div>
+                        <div class="action-taken">The following changes were applied consistently to all 4 pages (index.html, about.html, services.html, contact.html): brand green (#6BBE53) added as CSS variable, heading colors updated, navigation link colors updated, logo size increased, mobile-responsive sizes adjusted, scroll-margin-top added for anchor navigation, and footer contact email updated to enquiry@esgworlds.com.</div>
+                    </div>
+
+                    <div class="files-changed">
+                        <strong>Files changed:</strong> index.html, about.html, services.html, contact.html, changelog.html (new)
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;border-bottom:1px solid rgba(199,158,88,0.2);padding-bottom:3rem;">
+            <div class="footer-about" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+                <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/ESG-World-Logo-mmltwdct7szg.webp" alt="ESG World Logo" style="height:110px;margin-bottom:1.5rem;background-color:#fff;padding:8px;border-radius:8px;object-fit:contain;">
+                <p>Your dedicated partner in navigating Environmental, Social, and Governance frameworks. Building a sustainable world, together.</p>
+                <div class="social-icons" style="display:flex;gap:0.8rem;margin-top:1.5rem;">
+                    <a href="https://www.linkedin.com/company/esgworld-llp/about/?viewAsMember=true" target="_blank" aria-label="LinkedIn" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background-color:var(--accent);color:var(--primary);font-size:1rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61579618170072" target="_blank" aria-label="Facebook" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background-color:var(--accent);color:var(--primary);font-size:1rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://x.com/esgworldllp" target="_blank" aria-label="X (Twitter)" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background-color:var(--accent);color:var(--primary);font-size:1rem;"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/esgworlds" target="_blank" aria-label="Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background-color:var(--accent);color:var(--primary);font-size:1rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@esgworlds?lang=en-gb" target="_blank" aria-label="TikTok" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background-color:var(--accent);color:var(--primary);font-size:1rem;"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div style="color:#fff;"><h4 style="color:var(--accent);font-size:1.2rem;">Company</h4><ul style="list-style:none;"><li style="margin-bottom:0.8rem;"><a href="index.html" style="color:#fff;">Home</a></li><li style="margin-bottom:0.8rem;"><a href="about.html" style="color:#fff;">About Us</a></li><li style="margin-bottom:0.8rem;"><a href="services.html" style="color:#fff;">Services</a></li><li style="margin-bottom:0.8rem;"><a href="contact.html" style="color:#fff;">Contact Us</a></li></ul></div>
+            <div style="color:#fff;"><h4 style="color:var(--accent);font-size:1.2rem;">Solutions</h4><ul style="list-style:none;"><li style="margin-bottom:0.8rem;"><a href="services.html#training" style="color:#fff;">Education &amp; Training</a></li><li style="margin-bottom:0.8rem;"><a href="services.html#waste" style="color:#fff;">Waste Management</a></li><li style="margin-bottom:0.8rem;"><a href="services.html#transport" style="color:#fff;">Transport &amp; Logistics</a></li><li style="margin-bottom:0.8rem;"><a href="services.html#building" style="color:#fff;">Building &amp; Maintenance</a></li></ul></div>
+            <div style="color:#fff;"><h4 style="color:var(--accent);font-size:1.2rem;">Contact</h4><ul style="list-style:none;"><li style="margin-bottom:0.8rem;"><a href="mailto:enquiry@esgworlds.com" style="color:#fff;">enquiry@esgworlds.com</a></li><li style="margin-bottom:0.8rem;"><a href="contact.html" style="color:#fff;">Corporate Office</a></li><li style="margin-bottom:0.8rem;"><a href="contact.html" style="color:#fff;">Support Center</a></li></ul></div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 ESG Worlds. All rights reserved.</div>
+            <div>Website Design by <a href="https://reputifly.com/web-development" target="_blank" rel="dofollow noopener" style="color: var(--accent);">Reputifly</a></div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btn = document.querySelector('.mobile-menu-btn');
+            var nav = document.querySelector('.nav-links');
+            if (btn) { btn.addEventListener('click', function() { if (nav) { nav.classList.toggle('active'); } }); }
+            document.addEventListener('click', function(e) {
+                if (!nav || !btn) return;
+                if (!nav.contains(e.target) && !btn.contains(e.target)) { nav.classList.remove('active'); }
+            });
+        });
+    </script>
+
+    <!-- Floating WhatsApp Button (replace phone number in href with client's WhatsApp) -->
+    <a href="https://wa.me/6512345678?text=Hi%20ESG%20World%2C%20I%27d%20like%20to%20enquire%20about%20your%20ESG%20services" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+    </a>
+
+</body>
+</html>
