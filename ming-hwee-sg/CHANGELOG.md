@@ -1,16 +1,12 @@
 # CHANGELOG
 
-## v4 - 2026-04-21
-- FWA repositioned: dead bottom-right with safe-area inset support (16px desktop, 14px mobile)
-- Hero gradients amplified for stronger visual contrast against page sections:
-  - SG: deeper blue gradient (#cfe6f5 to #f8fbfd) with stronger radial blue glows
-  - PH: stronger peach/gold gradient (#fde8c8 to #fdf6ec) with warm sunrise glow
-- Hero now has subtle bottom border to create clear separation from next section
+## v5 - 2026-04-21
+- Brand strict pass: removed all green, orange, gold, peach, amber from rest of UI
+- All non-FWA elements now use brand blue #0c7cd4 / #0fa1ff or accent red #dc0404
+- License pill, header license badge, success checks, why-choose icons all on-brand
+- Border radii unified: cards 24px, inputs 16px, pills 980px (no more 14/18/20/50px)
+- PH hero changed from peach/orange to brand-blue gradient with red accent (distinct from SG, both on-brand)
+- FWA reverted to ORIGINAL WhatsApp green #25D366 (the ONE exception, since users recognize green for WhatsApp)
+- FWA size reduced 25% smaller: 80px desktop (was 108), 72px mobile (was 96)
 
-## v3 - mobile UX overhaul
-- Removed mobile-cta bar; FWA is the only persistent mobile CTA
-- FWA enlarged to 72px desktop, 68px mobile
-- Modal is now true fullscreen with sticky header bar (logo + close)
-- Added stats by-the-numbers section
-
-Agent: Claude Code (taskweb skill)
+Agent: Claude Code

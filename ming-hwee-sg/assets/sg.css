@@ -55,7 +55,7 @@
 }
 
 .hero-rating .stars {
-  color: #FBBC05;
+  color: #0c7cd4;
   letter-spacing: 1px;
 }
 
@@ -165,7 +165,7 @@
   display: block !important;
   width: 10px !important;
   height: 10px !important;
-  background: #25D366 !important;
+  background: #0c7cd4 !important;
   border-radius: 50% !important;
   animation: pulse-green 2s infinite !important;
 }
@@ -208,7 +208,7 @@
     width: 100% !important;
   }
   .hero-image-container img {
-    border-radius: 18px !important;
+    border-radius: 24px !important;
   }
 }
 
@@ -289,8 +289,8 @@
 }
 
 .why-icon.bg-blue  { background: linear-gradient(135deg, #0c7cd4, #0fa1ff); }
-.why-icon.bg-green { background: linear-gradient(135deg, #16a34a, #22c55e); }
-.why-icon.bg-amber { background: linear-gradient(135deg, #d97706, #f59e0b); }
+.why-icon.bg-green { background: linear-gradient(135deg, #0a5fa3, #0c7cd4); }
+.why-icon.bg-amber { background: linear-gradient(135deg, #0c7cd4, #0fa1ff); }
 .why-icon.bg-red   { background: linear-gradient(135deg, #b91c1c, #dc0404); }
 
 .why-card h3 {
@@ -397,7 +397,7 @@
   flex-shrink: 0;
   width: 18px;
   height: 18px;
-  color: #22c55e;
+  color: #0c7cd4;
   margin-top: 2px;
 }
 
@@ -524,7 +524,7 @@
 .service-icon {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
+  border-radius: 16px;
   background: #e0f2fe;
   color: #0c7cd4;
   display: inline-flex;
@@ -761,7 +761,7 @@
   gap: 10px;
   width: 100%;
   padding: 14px 20px;
-  background: #25D366;
+  background: #0c7cd4;
   color: #fff;
   border: none;
   border-radius: 980px;
