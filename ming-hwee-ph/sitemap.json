@@ -2,7 +2,8 @@
   "site_name": "Ming Hwee Philippines",
   "brand_colors": {
     "primary": "#0c7cd4",
-    "accent": "#dc0404"
+    "accent": "#dc0404",
+    "dark": "#0b0a14"
   },
   "typography": {
     "heading": "Inter",

@@ -3,13 +3,13 @@
    Loaded AFTER css/shared.css
    ========================================================================== */
 
-/* ---------- PH HERO - Strong warm sunrise gradient ---------- */
+/* ---------- PH HERO - Bold brand-blue gradient with red accent (distinct from SG) ---------- */
 #apple-style-hero-wrap{
   background:
-    radial-gradient(ellipse 90% 65% at 82% 8%, rgba(245,175,80,.55), transparent 55%),
-    radial-gradient(ellipse 75% 55% at 18% 20%, rgba(12,124,212,.32), transparent 55%),
-    radial-gradient(ellipse 100% 75% at 50% 110%, rgba(255,255,255,.55), transparent 65%),
-    linear-gradient(165deg, #fde8c8 0%, #fbd9b0 35%, #f5e9d4 70%, #fdf6ec 100%) !important;
+    radial-gradient(ellipse 90% 70% at 80% 5%, rgba(220,4,4,.18), transparent 50%),
+    radial-gradient(ellipse 100% 75% at 25% 0%, rgba(12,124,212,.5), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% 110%, rgba(255,255,255,.5), transparent 65%),
+    linear-gradient(155deg, #b6d8ee 0%, #c8e1f1 30%, #dde9f5 65%, #f0f6fb 100%) !important;
   padding:140px 24px 0 !important;
   text-align:center !important;
   display:flex !important;
@@ -19,15 +19,15 @@
   overflow:hidden !important;
   box-sizing:border-box !important;
   position:relative !important;
-  border-bottom:1px solid rgba(220,4,4,.05) !important;
+  border-bottom:1px solid rgba(12,124,212,.12) !important;
 }
 #apple-style-hero-wrap::before{
   content:"";
   position:absolute;
   inset:0;
   background-image:
-    linear-gradient(90deg, rgba(180,80,30,.08) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(180,80,30,.08) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(12,40,90,.07) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(12,40,90,.07) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, #000 35%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, #000 35%, transparent 75%);
@@ -41,14 +41,15 @@
   align-items:center !important;
   gap:6px !important;
   background:#0b0a14 !important;
-  color:#c9983a !important;
-  padding:6px 14px !important;
-  border-radius:50px !important;
+  color:#0fa1ff !important;
+  padding:8px 16px !important;
+  border-radius:980px !important;
   font-size:13px !important;
   font-weight:700 !important;
   letter-spacing:.5px !important;
   margin-bottom:16px !important;
   font-family:"SF Mono",SFMono-Regular,Consolas,Menlo,monospace !important;
+  border:1px solid rgba(15,161,255,.3) !important;
 }
 
 .hero-rating{
@@ -56,7 +57,7 @@
   backdrop-filter:blur(8px) !important;
   -webkit-backdrop-filter:blur(8px) !important;
   padding:8px 16px !important;
-  border-radius:50px !important;
+  border-radius:980px !important;
   box-shadow:0 4px 12px rgba(0,0,0,.05) !important;
   border:1px solid rgba(255,255,255,.5) !important;
   margin-bottom:24px !important;
@@ -156,7 +157,7 @@
   margin-bottom:40px !important;
   background:rgba(255,255,255,.6) !important;
   padding:6px 14px !important;
-  border-radius:50px !important;
+  border-radius:980px !important;
   border:1px solid rgba(255,255,255,.5) !important;
 }
 
@@ -164,7 +165,7 @@
   display:block !important;
   width:10px !important;
   height:10px !important;
-  background:#22c55e !important;
+  background:#0c7cd4 !important;
   border-radius:50% !important;
   animation:pulse-green 2s infinite !important;
 }
@@ -254,11 +255,11 @@
   box-shadow:0 12px 32px rgba(15,23,42,.08);
 }
 .path-card-domestic{border-top:6px solid #0b0a14;}
-.path-card-skilled{border-top:6px solid #c9983a;}
+.path-card-skilled{border-top:6px solid #0c7cd4;}
 .path-card-icon{
   width:72px;
   height:72px;
-  border-radius:20px;
+  border-radius:24px;
   background:#eff6ff;
   color:#0c7cd4;
   display:flex;
@@ -266,7 +267,7 @@
   justify-content:center;
   margin-bottom:20px;
 }
-.path-card-skilled .path-card-icon{background:#fef3c7;color:#c9983a;}
+.path-card-skilled .path-card-icon{background:#e0f2fe;color:#0c7cd4;}
 .path-card h3{
   font-size:28px;
   font-weight:800;
@@ -299,7 +300,7 @@
   line-height:1.5;
 }
 .path-card-list svg{
-  color:#22c55e;
+  color:#0c7cd4;
   flex-shrink:0;
   margin-top:2px;
 }
@@ -313,7 +314,7 @@
 }
 .country-card{
   background:#fff;
-  border-radius:20px;
+  border-radius:24px;
   overflow:hidden;
   border:1px solid #e2e8f0;
   box-shadow:0 4px 16px rgba(15,23,42,.04);
@@ -371,7 +372,7 @@
 }
 .why-pillar{
   background:#fff;
-  border-radius:20px;
+  border-radius:24px;
   padding:32px 28px;
   border:1px solid #e2e8f0;
   box-shadow:0 4px 16px rgba(15,23,42,.04);
@@ -382,7 +383,7 @@
 .why-pillar-icon{
   width:64px;
   height:64px;
-  border-radius:18px;
+  border-radius:24px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -390,8 +391,8 @@
 }
 .why-pillar-icon-blue{background:#eff6ff;color:#0c7cd4;}
 .why-pillar-icon-red{background:#fef2f2;color:#dc0404;}
-.why-pillar-icon-green{background:#f0fdf4;color:#22c55e;}
-.why-pillar-icon-gold{background:#fef3c7;color:#c9983a;}
+.why-pillar-icon-green{background:#e0f2fe;color:#0c7cd4;}
+.why-pillar-icon-gold{background:#e0f2fe;color:#0c7cd4;}
 .why-pillar h3{
   font-size:18px;
   font-weight:800;
@@ -470,7 +471,7 @@
 }
 .story-card{
   background:#fff;
-  border-radius:20px;
+  border-radius:24px;
   overflow:hidden;
   border:1px solid #e2e8f0;
   box-shadow:0 4px 16px rgba(15,23,42,.04);
@@ -506,7 +507,7 @@
 .story-body blockquote{
   margin:0;
   padding:12px 0 0 16px;
-  border-left:3px solid #c9983a;
+  border-left:3px solid #0c7cd4;
   font-size:15px;
   color:#334155;
   line-height:1.6;
@@ -556,9 +557,9 @@
   justify-content:center;
   min-width:56px;
   height:56px;
-  border-radius:14px;
+  border-radius:16px;
   background:rgba(201,152,58,.12);
-  color:#c9983a;
+  color:#0c7cd4;
   font-size:20px;
   font-weight:800;
   letter-spacing:.5px;
@@ -598,7 +599,7 @@
   font-family:"SF Mono",SFMono-Regular,Consolas,Menlo,monospace;
   font-size:20px;
   font-weight:800;
-  color:#c9983a;
+  color:#0c7cd4;
   margin:0 0 20px;
   letter-spacing:.5px;
 }
@@ -614,7 +615,7 @@
   color:#94a3b8;
   margin:0;
 }
-.employers-cta-note a{color:#c9983a;text-decoration:none;font-weight:700;}
+.employers-cta-note a{color:#0c7cd4;text-decoration:none;font-weight:700;}
 .employers-cta-note a:hover{text-decoration:underline;}
 
 /* ---------- OFFICES ---------- */
@@ -625,7 +626,7 @@
 }
 .office-card{
   background:#fff;
-  border-radius:20px;
+  border-radius:24px;
   overflow:hidden;
   border:1px solid #e2e8f0;
   box-shadow:0 4px 16px rgba(15,23,42,.04);
@@ -649,7 +650,7 @@
 .office-body{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1;}
 .hq-badge{
   display:inline-block;
-  background:linear-gradient(135deg,#c9983a 0%,#e5b76b 100%);
+  background:linear-gradient(135deg,#0c7cd4 0%,#0fa1ff 100%);
   color:#0b0a14;
   font-size:11px;
   font-weight:800;
@@ -705,9 +706,9 @@
   font-weight:500;
   line-height:1.5;
 }
-.success-prep-list svg{color:#22c55e;flex-shrink:0;margin-top:2px;}
+.success-prep-list svg{color:#0c7cd4;flex-shrink:0;margin-top:2px;}
 .success-icon{
-  color:#22c55e;
+  color:#0c7cd4;
   margin-bottom:16px;
   display:flex;
   justify-content:center;
@@ -781,7 +782,7 @@
 .included-card{
   background:#ffffff;
   border:1px solid #e2e8f0;
-  border-radius:20px;
+  border-radius:24px;
   padding:28px 24px;
   transition:transform .3s cubic-bezier(.25,.8,.25,1), box-shadow .3s, border-color .3s;
   position:relative;
@@ -794,7 +795,7 @@
 .included-icon{
   width:48px;
   height:48px;
-  border-radius:14px;
+  border-radius:16px;
   background:linear-gradient(135deg, rgba(12,124,212,.12) 0%, rgba(15,161,255,.18) 100%);
   color:#0c7cd4;
   display:flex;
@@ -857,7 +858,7 @@
 .footer-license-display {
   display: inline-block;
   background: rgba(201, 152, 58, 0.15);
-  color: #f5c96a;
+  color: #0fa1ff;
   padding: 6px 12px;
   border-radius: 980px;
   font-size: 12px;
