@@ -1900,3 +1900,16 @@ body:has(.modal.active) .fwa {
   .testimonial::before { font-size: 70px !important; left: 18px !important; }
   .testimonial blockquote p { font-size: 16px !important; }
 }
+
+/* v10 - Make absolutely sure success-state stays hidden until form is submitted */
+.success-state[hidden],
+.modal:not(.active) .success-state {
+  display: none !important;
+}
+.success-state {
+  display: none;
+}
+.success-state.active,
+.modal.active .success-state.active {
+  display: block;
+}
