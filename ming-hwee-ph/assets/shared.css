@@ -1805,3 +1805,98 @@ body:has(.modal.active) .fwa {
   height: auto !important;
   object-fit: contain !important;
 }
+
+/* =========================================================================
+   v9 - Testimonial section redesign (no broken photos)
+   ========================================================================= */
+
+/* Hide broken photos in testimonial-person, replace with letter avatar */
+.testimonial-person img {
+  display: none !important;
+}
+
+/* Stylized letter avatar before name */
+.testimonial-person::before {
+  content: attr(data-initial);
+  display: grid !important;
+  place-items: center !important;
+  width: 56px !important;
+  height: 56px !important;
+  min-width: 56px !important;
+  flex: 0 0 56px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #0c7cd4, #0fa1ff) !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 22px !important;
+  letter-spacing: -.01em !important;
+  box-shadow: 0 4px 12px rgba(12,124,212,0.25) !important;
+}
+
+/* Premium quote card - elevate testimonial card */
+.testimonial {
+  background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%) !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 24px !important;
+  padding: 44px 36px 32px !important;
+  position: relative !important;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.06) !important;
+}
+.testimonial::before {
+  content: "\201C" !important;
+  position: absolute !important;
+  top: -12px !important;
+  left: 24px !important;
+  font-family: Georgia, serif !important;
+  font-size: 88px !important;
+  line-height: 1 !important;
+  color: #0c7cd4 !important;
+  opacity: 0.18 !important;
+  font-weight: 700 !important;
+}
+.testimonial blockquote {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+.testimonial blockquote p {
+  font-size: 17px !important;
+  line-height: 1.6 !important;
+  color: #0f172a !important;
+  margin: 0 !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  letter-spacing: -.005em !important;
+}
+
+/* Author block under quote */
+.testimonial-person {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 14px !important;
+  margin-top: 28px !important;
+  padding-top: 24px !important;
+  border-top: 1px solid #e2e8f0 !important;
+  text-align: left !important;
+}
+.testimonial-name {
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  font-size: 15px !important;
+  line-height: 1.3 !important;
+}
+.testimonial-role {
+  font-size: 13px !important;
+  color: #0c7cd4 !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  margin-top: 2px !important;
+}
+
+@media (max-width: 640px) {
+  .testimonial { padding: 36px 24px 24px !important; }
+  .testimonial::before { font-size: 70px !important; left: 18px !important; }
+  .testimonial blockquote p { font-size: 16px !important; }
+}
