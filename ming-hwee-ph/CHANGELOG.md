@@ -1,16 +1,16 @@
 # CHANGELOG
 
+## v3 - 2026-04-21 (mobile UX overhaul)
+- Removed mobile-only sticky bar (Book Consultation + WhatsApp)
+- Floating WhatsApp button is now the only persistent mobile CTA
+- WhatsApp button enlarged: 72x72px with hover tooltip "Chat on WhatsApp"
+- Application/consultation popup is now TRUE fullscreen (100vw x 100vh, no padding gap)
+- New modal-header-bar with Ming Hwee logo + close button (sticky top while scrolling)
+- Modal-scroll wrapper for smooth iOS-touch scrolling on long forms
+- Modal title bumped to 32px on desktop, 26px on mobile
+- What's Included transparency panel added between Why and How sections
+
 ## base - 2026-04-21
 - Initial sample for Ming Hwee Philippines landing page
-- Pages: index.html (10 sections + popup modal + mobile sticky CTA)
-- Brand: Inter font, 980px pill buttons, 24px card radius, brand blue #0c7cd4
-- Hero: warm sunrise gradient (peachy-gold + blue hints + soft grid overlay)
-- Footer: 4-col layout (brand + offices + apply + contact) with gold license pill
-- Target: Filipino overseas job seekers + employers/agencies
-- Conversion tracking: GTM + Google Ads + Meta Pixel placeholders, UTM capture
-- Agent: Claude Code (taskweb skill)
 
-## Fix 2026-04-21 (unnamed revision)
-- Ported SG footer styles to ph.css (was unstyled)
-- Added .footer-license-display styling (gold pill on dark)
-- 4-col responsive grid (collapses 4->3->2->1 cols)
+Agent: Claude Code (taskweb skill)
