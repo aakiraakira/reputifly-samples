@@ -1,593 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Everyday Milla Removal — The Everyday Skin</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* =========================================================
-   GLOBAL OVERRIDES — force Inter on header/footer CSS vars
-   ========================================================= */
-:root {
-  --tes-linen: #F6F5EF;
-  --tes-nude:  #FFF6ED;
-  --tes-stone: #D6CCC2;
-  --tes-sage:  #D6D6BF;
-  --tes-forest:#7E8961;
-  --tes-latte: #4F483F;
-  --tes-dark-green: #39451c;
-
-  /* Override every font var the header/footer uses */
-  --tes-font-brand: 'Inter', sans-serif;
-  --tes-font-ui:    'Inter', sans-serif;
-  --tes-font-head:  'Inter', sans-serif;
-  --tes-font-body:  'Inter', sans-serif;
-  --tes-font-tech:  'Inter', sans-serif;
-}
-
-/* Force Inter everywhere, win specificity battles with header/footer */
-*, *::before, *::after { font-family: 'Inter', sans-serif !important; }
-
-html { box-sizing: border-box; -webkit-text-size-adjust: 100%; }
-*, *::before, *::after { box-sizing: inherit; }
-
-body {
-  margin: 0;
-  padding: 0;
-  background: var(--tes-nude);
-  color: var(--tes-latte);
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
-
-img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; }
-
-/* =========================================================
-   PAGE WRAPPER — narrow centered column
-   ========================================================= */
-.tes-min-main {
-  background: var(--tes-nude);
-  width: 100%;
-  padding: 5rem 1.5rem 4rem 1.5rem;
-}
-.tes-min-col {
-  max-width: 740px;
-  margin: 0 auto;
-  width: 100%;
-  text-align: center;
-}
-
-/* small reusable elements */
-.tes-eyebrow {
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--tes-forest);
-  display: inline-block;
-}
-
-.tes-section {
-  padding: 6rem 0;
-}
-.tes-section:first-child { padding-top: 3rem; }
-
-.tes-section-eyebrow {
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--tes-forest);
-  margin-bottom: 1.75rem;
-  display: block;
-}
-
-/* =========================================================
-   HERO — square framed image, centered eyebrow / h1 / tagline
-   ========================================================= */
-.tes-hero-frame {
-  width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
-  border: 1px solid var(--tes-stone);
-  padding: 1rem;
-  background: var(--tes-nude);
-  box-sizing: border-box;
-}
-.tes-hero-frame .tes-hero-img-wrap {
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background: var(--tes-linen);
-}
-.tes-hero-frame .tes-hero-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.tes-hero-text {
-  margin-top: 3rem;
-}
-
-.tes-hero-text .tes-eyebrow {
-  margin-bottom: 1.25rem;
-}
-
-.tes-h1 {
-  font-family: 'Inter', sans-serif !important;
-  font-size: clamp(32px, 6vw, 48px);
-  font-weight: 300;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--tes-dark-green);
-  margin: 0 0 1.5rem 0;
-}
-
-.tes-tagline {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--tes-latte);
-  max-width: 560px;
-  margin: 0 auto;
-  font-weight: 400;
-}
-
-/* small thin divider */
-.tes-divider {
-  width: 40px;
-  height: 1px;
-  background: var(--tes-stone);
-  margin: 4rem auto;
-  border: 0;
-}
-
-/* =========================================================
-   LONG DESCRIPTION
-   ========================================================= */
-.tes-long-desc {
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--tes-latte);
-  font-weight: 400;
-  letter-spacing: 0.005em;
-}
-
-/* =========================================================
-   PRICING — calm hairline list
-   ========================================================= */
-.tes-pricing-intro {
-  font-size: 14px;
-  color: var(--tes-latte);
-  max-width: 480px;
-  margin: 0 auto 3rem auto;
-  line-height: 1.7;
-  font-style: italic;
-}
-
-.tes-pricing-list {
-  max-width: 520px;
-  margin: 0 auto;
-  text-align: left;
-  border-top: 1px solid var(--tes-stone);
-}
-
-.tes-pricing-row {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--tes-stone);
-}
-
-.tes-pricing-row-top {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.tes-pricing-name {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--tes-latte);
-  letter-spacing: 0;
-}
-
-.tes-pricing-price {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--tes-dark-green);
-  letter-spacing: -0.005em;
-  white-space: nowrap;
-}
-
-.tes-pricing-meta {
-  font-size: 12px;
-  color: var(--tes-stone);
-  margin-top: 0.4rem;
-  letter-spacing: 0.04em;
-  font-weight: 400;
-  /* Make stone text legible — slightly darker for readability */
-  color: #b3a99c;
-}
-
-/* =========================================================
-   PROCESS — vertical numbered circles connected by line
-   ========================================================= */
-.tes-process {
-  max-width: 480px;
-  margin: 0 auto;
-  position: relative;
-  padding: 0 0 0 0;
-}
-
-.tes-step {
-  position: relative;
-  text-align: center;
-  padding: 0 0 3rem 0;
-}
-.tes-step:last-child { padding-bottom: 0; }
-
-.tes-step-circle {
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--tes-forest);
-  background: transparent;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  color: var(--tes-forest);
-  font-weight: 500;
-  letter-spacing: 0;
-  margin-bottom: 0.85rem;
-  position: relative;
-  z-index: 2;
-  background-color: var(--tes-nude);
-}
-
-.tes-step-label {
-  display: block;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--tes-forest);
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.tes-step-desc {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--tes-latte);
-  max-width: 360px;
-  margin: 0 auto;
-}
-
-/* connecting hairline */
-.tes-step:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 36px;
-  bottom: 0;
-  width: 1px;
-  background: var(--tes-sage);
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-/* =========================================================
-   WHAT WE REMOVE — 2x2 image grid, no borders
-   ========================================================= */
-.tes-remove-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem 2.5rem;
-  max-width: 640px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.tes-remove-card .tes-remove-img-wrap {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  background: var(--tes-linen);
-  margin-bottom: 1.25rem;
-}
-.tes-remove-card .tes-remove-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.tes-remove-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--tes-forest);
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-.tes-remove-desc {
-  font-size: 13px;
-  line-height: 1.65;
-  color: #908577;
-  font-weight: 400;
-  max-width: 240px;
-  margin: 0 auto;
-}
-
-/* =========================================================
-   INCLUSIONS — minimal checkmark list
-   ========================================================= */
-.tes-inclusion-list {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  max-width: 520px;
-  text-align: left;
-}
-
-.tes-inclusion-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.85rem;
-  padding: 0.65rem 0;
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--tes-latte);
-}
-
-.tes-check {
-  flex: 0 0 14px;
-  margin-top: 0.5rem;
-  width: 14px;
-  height: 14px;
-  display: inline-block;
-}
-.tes-check svg { display: block; }
-
-/* =========================================================
-   PREREQUISITES — small italic note, sage left-border
-   ========================================================= */
-.tes-prereq {
-  max-width: 520px;
-  margin: 0 auto;
-  text-align: left;
-  border-left: 3px solid var(--tes-sage);
-  padding: 0.5rem 0 0.5rem 1.25rem;
-  font-style: italic;
-  font-size: 14px;
-  line-height: 1.8;
-  color: #b3a99c;
-}
-.tes-prereq strong {
-  font-style: normal;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 11px;
-  display: block;
-  margin-bottom: 0.35rem;
-  color: var(--tes-forest);
-}
-
-/* =========================================================
-   FAQS — minimalist accordion
-   ========================================================= */
-.tes-faq-list {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.tes-faq-item {
-  border-top: 1px solid var(--tes-stone);
-  padding: 0;
-}
-.tes-faq-item:last-child {
-  border-bottom: 1px solid var(--tes-stone);
-}
-
-.tes-faq-q {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.5rem 0;
-  background: none;
-  border: none;
-  width: 100%;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 500;
-  color: var(--tes-latte);
-  text-align: left;
-  transition: color 0.25s ease;
-}
-.tes-faq-q:hover { color: var(--tes-dark-green); }
-
-.tes-faq-icon {
-  flex: 0 0 14px;
-  width: 14px;
-  height: 14px;
-  position: relative;
-  display: inline-block;
-}
-.tes-faq-icon::before,
-.tes-faq-icon::after {
-  content: '';
-  position: absolute;
-  background: var(--tes-forest);
-  transition: transform 0.3s ease;
-}
-.tes-faq-icon::before {
-  /* horizontal */
-  left: 0; right: 0; top: 50%;
-  height: 1px;
-  transform: translateY(-50%);
-}
-.tes-faq-icon::after {
-  /* vertical */
-  top: 0; bottom: 0; left: 50%;
-  width: 1px;
-  transform: translateX(-50%);
-}
-.tes-faq-item.is-open .tes-faq-icon::after {
-  transform: translateX(-50%) scaleY(0);
-}
-
-.tes-faq-a {
-  font-size: 14px;
-  line-height: 1.8;
-  color: var(--tes-latte);
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  padding: 0 0 0 0;
-}
-.tes-faq-item.is-open .tes-faq-a {
-  max-height: 800px;
-  padding: 0 0 1.5rem 0;
-}
-
-/* =========================================================
-   CTAs — minimal text-buttons
-   ========================================================= */
-.tes-cta-pair {
-  text-align: center;
-  margin: 0 auto;
-}
-
-.tes-cta-primary {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--tes-dark-green);
-  text-decoration: none;
-  border-bottom: 1px solid var(--tes-dark-green);
-  padding: 0.35rem 0;
-  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-}
-.tes-cta-primary:hover {
-  color: var(--tes-forest);
-  border-bottom-color: var(--tes-forest);
-  transform: translateY(-1px);
-}
-
-.tes-cta-or {
-  display: block;
-  margin-top: 1.5rem;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: var(--tes-latte);
-}
-.tes-cta-or a {
-  color: var(--tes-forest);
-  text-decoration: none;
-  font-weight: 500;
-  border-bottom: 1px dashed transparent;
-  padding-bottom: 1px;
-  transition: border-color 0.25s ease;
-}
-.tes-cta-or a:hover {
-  border-bottom-color: var(--tes-forest);
-}
-
-/* =========================================================
-   FOOTER OF SECTION (closing image / quiet image)
-   ========================================================= */
-.tes-quiet-img {
-  width: 100%;
-  max-width: 640px;
-  margin: 4rem auto 0 auto;
-  aspect-ratio: 16 / 7;
-  overflow: hidden;
-  border: 1px solid var(--tes-stone);
-  padding: 1rem;
-  background: var(--tes-nude);
-  box-sizing: border-box;
-}
-.tes-quiet-img .tes-quiet-inner {
-  width: 100%;
-  height: 100%;
-  background: var(--tes-linen);
-  overflow: hidden;
-}
-.tes-quiet-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 40%;
-}
-
-/* =========================================================
-   MOBILE TUNING
-   ========================================================= */
-@media (max-width: 600px) {
-  .tes-min-main {
-    padding: 3rem 1.25rem 3rem 1.25rem;
+  /* ============================================================
+     GLOBAL FONT OVERRIDE - force Inter everywhere
+     ============================================================ */
+  :root {
+    --tes-linen: #F6F5EF !important;
+    --tes-nude: #FFF6ED !important;
+    --tes-stone: #D6CCC2 !important;
+    --tes-sage: #D6D6BF !important;
+    --tes-forest: #7E8961 !important;
+    --tes-latte: #4F483F !important;
+    --tes-dark-green: #39451c !important;
+    --tes-font-brand: 'Inter', sans-serif !important;
+    --tes-font-ui: 'Inter', sans-serif !important;
+    --tes-font-head: 'Inter', sans-serif !important;
+    --tes-font-body: 'Inter', sans-serif !important;
+    --tes-font-tech: 'Inter', sans-serif !important;
   }
-  .tes-section { padding: 4rem 0; }
-  .tes-section:first-child { padding-top: 1.5rem; }
 
-  .tes-h1 {
-    font-size: 32px;
-    line-height: 1.18;
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #FFF6ED;
+    color: #4F483F;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-  .tes-hero-frame { padding: 0.65rem; }
-
-  .tes-divider { margin: 3rem auto; }
-
-  .tes-remove-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    max-width: 420px;
+  *, *::before, *::after {
+    font-family: 'Inter', sans-serif !important;
+    box-sizing: border-box;
   }
-  .tes-remove-card .tes-remove-img-wrap { aspect-ratio: 3/2; }
 
-  .tes-pricing-list { max-width: 100%; }
-  .tes-pricing-row-top { gap: 0.75rem; }
+  /* Page container */
+  .ms-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 24px 24px;
+  }
 
-  .tes-step-desc { max-width: 320px; padding: 0 0.5rem; }
+  /* ===== GALLERY ===== */
+  .ms-gallery { margin-bottom: 36px; }
+  .ms-main-img-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 480px;
+    margin: 0 auto 12px auto;
+    overflow: hidden;
+    background: #F6F5EF;
+    position: relative;
+  }
+  .ms-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.4s ease;
+  }
+  .ms-caption {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7E8961;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .ms-thumbs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .ms-thumb {
+    flex: 1 1 0;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: #F6F5EF;
+    transition: border-color 0.3s ease, opacity 0.3s ease;
+    opacity: 0.75;
+    padding: 0;
+  }
+  .ms-thumb:hover { opacity: 1; }
+  .ms-thumb.active {
+    border-color: #D6D6BF;
+    opacity: 1;
+  }
+  .ms-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
-  .tes-faq-q { font-size: 15px; }
-  .tes-faq-a { font-size: 14px; }
+  /* ===== HEADLINE BLOCK ===== */
+  .ms-headline {
+    text-align: center;
+    margin: 48px auto 0 auto;
+  }
+  .ms-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #7E8961;
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  .ms-h1 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: #39451c;
+    margin: 0 0 24px 0;
+  }
+  .ms-tagline {
+    max-width: 580px;
+    margin: 0 auto;
+    color: #4F483F;
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 400;
+  }
 
-  .tes-quiet-img { padding: 0.5rem; aspect-ratio: 16/9; }
-}
+  /* ===== SECTION DIVIDER ===== */
+  .ms-rule {
+    width: 32px;
+    height: 1px;
+    background: #D6D6BF;
+    margin: 56px auto 36px auto;
+    border: none;
+  }
 
-/* =========================================================
-   PRINT (gentle)
-   ========================================================= */
-@media print {
-  body { background: white; color: black; }
-}
+  /* ===== PRICING ===== */
+  .ms-section-heading {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #4F483F;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+  }
+  .ms-section-sub {
+    text-align: center;
+    font-size: 13px;
+    color: #7E8961;
+    font-style: italic;
+    max-width: 540px;
+    margin: 0 auto 28px auto;
+    line-height: 1.6;
+  }
+  .ms-tiers {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .ms-tier {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid #D6D6BF;
+    gap: 16px;
+  }
+  .ms-tier:first-child {
+    border-top: 1px solid #D6D6BF;
+  }
+  .ms-tier-name {
+    color: #4F483F;
+    font-size: 14px;
+    font-weight: 500;
+    flex: 1 1 auto;
+  }
+  .ms-tier-meta {
+    display: block;
+    font-size: 11px;
+    color: #7E8961;
+    font-weight: 400;
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+  .ms-tier-price {
+    color: #39451c;
+    font-size: 18px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  /* ===== DESCRIPTION ===== */
+  .ms-description {
+    max-width: 580px;
+    margin: 0 auto;
+    text-align: center;
+    color: #4F483F;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* ===== ADD-ONS ===== */
+  .ms-addons-note {
+    text-align: center;
+    font-size: 12px;
+    color: #7E8961;
+    font-style: italic;
+    margin: 0;
+  }
+  /*
+    Note: For treatments WITH add-ons, render a row of small chips like:
+    <div class="ms-addons-row">
+      <span class="ms-addon-chip">Heated Warm Oil <em>+$18</em></span>
+      <span class="ms-addon-chip">Hot Stone <em>+$24</em></span>
+    </div>
+    Chip = nude bg, sage hairline border, 11px caps name, latte price
+  */
+
+  /* ===== FAQ ===== */
+  .ms-faqs {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .ms-faq {
+    border-bottom: 1px solid #D6D6BF;
+  }
+  .ms-faq:first-child {
+    border-top: 1px solid #D6D6BF;
+  }
+  .ms-faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 18px 0;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #39451c;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Inter', sans-serif;
+  }
+  .ms-faq-icon {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .ms-faq-icon::before,
+  .ms-faq-icon::after {
+    content: '';
+    position: absolute;
+    background: #7E8961;
+    transition: transform 0.3s ease;
+  }
+  .ms-faq-icon::before {
+    top: 50%;
+    left: 0;
+    width: 12px;
+    height: 1px;
+    transform: translateY(-50%);
+  }
+  .ms-faq-icon::after {
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 12px;
+    transform: translateX(-50%);
+  }
+  .ms-faq.active .ms-faq-icon::after {
+    transform: translateX(-50%) scaleY(0);
+  }
+  .ms-faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0;
+    color: #4F483F;
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+  .ms-faq.active .ms-faq-a {
+    max-height: 300px;
+    padding: 0 0 18px 0;
+  }
+
+  /* ===== PREREQUISITES ===== */
+  .ms-prereq {
+    text-align: center;
+    font-size: 12px;
+    color: #7E8961;
+    font-style: italic;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ===== CTAs ===== */
+  .ms-ctas {
+    text-align: center;
+    margin: 56px auto 24px auto;
+  }
+  .ms-cta-primary {
+    display: inline-block;
+    color: #39451c;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 0;
+    border-bottom: 1px solid #39451c;
+    transition: opacity 0.3s ease;
+  }
+  .ms-cta-primary:hover { opacity: 0.6; }
+  .ms-cta-secondary {
+    display: block;
+    margin-top: 18px;
+    color: #7E8961;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .ms-cta-secondary:hover { color: #39451c; }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 768px) {
+    .ms-page {
+      padding: 32px 18px 16px 18px;
+    }
+    .ms-main-img-wrap {
+      max-width: 100%;
+    }
+    .ms-thumbs {
+      max-width: 100%;
+      gap: 6px;
+    }
+    .ms-headline {
+      margin-top: 36px;
+    }
+    .ms-h1 {
+      font-size: 30px;
+    }
+    .ms-rule {
+      margin: 40px auto 28px auto;
+    }
+    .ms-tier {
+      padding: 14px 0;
+    }
+    .ms-tier-name { font-size: 13.5px; }
+    .ms-tier-price { font-size: 17px; }
+    .ms-tier-meta { font-size: 10.5px; }
+    .ms-description, .ms-tagline { font-size: 13.5px; }
+    .ms-faq-q { font-size: 13.5px; padding: 14px 0; }
+    .ms-faq-a { font-size: 13px; }
+    .ms-faq.active .ms-faq-a { padding: 0 0 14px 0; }
+    .ms-ctas { margin: 40px auto 16px auto; }
+  }
+  @media (max-width: 380px) {
+    .ms-h1 { font-size: 26px; }
+    .ms-page { padding: 28px 14px 12px 14px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- =========================================================
-     SITE HEADER — pasted 1:1 from header-global.html
-     ========================================================= -->
+<!-- ====================================================================
+     HEADER (1:1 from header-global.html)
+     ==================================================================== -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1053,22 +844,16 @@ a { color: inherit; }
             const isActive = mobileMenu.classList.contains('active');
             if (isActive) {
                 mobileMenu.classList.remove('active');
-                // burger.classList.remove('active'); // Optional: animate burger back
                 document.body.style.overflow = '';
             } else {
                 mobileMenu.classList.add('active');
-                // burger.classList.add('active'); // Optional
                 document.body.style.overflow = 'hidden';
             }
         }
 
-        // Open
         burger.addEventListener('click', toggleMenu);
-
-        // Close
         closeBtn.addEventListener('click', toggleMenu);
 
-        // Close on Link Click
         links.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
@@ -1076,7 +861,6 @@ a { color: inherit; }
             });
         });
 
-        // Add shadow on scroll
         window.addEventListener('scroll', () => {
             if (window.scrollY > 10) {
                 header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.05)";
@@ -1087,296 +871,208 @@ a { color: inherit; }
     });
 </script>
 
-<!-- =========================================================
-     ENFORCE INTER ON HEADER FONT VARS (overrides last-loaded :root above)
-     ========================================================= -->
+<!-- ====================================================================
+     FORCE INTER OVERRIDE for header/footer (after their CSS loads)
+     ==================================================================== -->
 <style>
-:root {
-  --tes-font-brand: 'Inter', sans-serif !important;
-  --tes-font-ui:    'Inter', sans-serif !important;
-  --tes-font-head:  'Inter', sans-serif !important;
-  --tes-font-body:  'Inter', sans-serif !important;
-  --tes-font-tech:  'Inter', sans-serif !important;
-}
-#tes-smart-header *,
-.tes-mobile-menu *,
-#tes-promo-bar,
-#tes-promo-bar * { font-family: 'Inter', sans-serif !important; }
+  #tes-smart-header *, #tes-promo-bar *, .tes-mobile-menu *, #tes-footer * {
+    font-family: 'Inter', sans-serif !important;
+  }
+  .tes-footer-decor { font-family: 'Inter', sans-serif !important; }
+  body { font-family: 'Inter', sans-serif !important; }
 </style>
 
-<!-- =========================================================
-     MAIN PAGE BODY
-     ========================================================= -->
-<main class="tes-min-main">
+<!-- ====================================================================
+     PRODUCT PAGE BODY
+     ==================================================================== -->
+<main class="ms-page">
 
-  <!-- HERO -->
-  <section class="tes-section tes-min-col" aria-label="Hero">
-    <div class="tes-hero-frame">
-      <div class="tes-hero-img-wrap">
-        <img src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg" alt="Clear Skin Texture" loading="eager" />
-      </div>
+  <!-- 2. IMAGE GALLERY -->
+  <section class="ms-gallery" aria-label="Treatment gallery">
+    <div class="ms-main-img-wrap">
+      <img id="msMainImg" class="ms-main-img"
+           src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg"
+           alt="Hero">
     </div>
+    <div class="ms-caption" id="msCaption">Hero</div>
 
-    <div class="tes-hero-text">
-      <span class="tes-eyebrow">Everyday Milla Removal</span>
-      <h1 class="tes-h1">Reclaim Your<br />Smooth Texture.</h1>
-      <p class="tes-tagline">
-        Precise extraction of Milia seeds, oil clogs, and skin tags using advanced Electrocautery. Minimal downtime, maximum clarity. Safe, hygienic, and designed for sensitive skin.
-      </p>
+    <div class="ms-thumbs" id="msThumbs">
+      <button class="ms-thumb active" data-caption="Hero"
+        data-src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg">
+        <img src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg" alt="Hero">
+      </button>
+      <button class="ms-thumb" data-caption="Milia Seeds"
+        data-src="https://static.wixstatic.com/media/3bb09c_c9f86bb313234a5d839440c43f8eba17~mv2.jpg/v1/fill/w_606,h_406,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Milia%20Seeds.jpg">
+        <img src="https://static.wixstatic.com/media/3bb09c_c9f86bb313234a5d839440c43f8eba17~mv2.jpg/v1/fill/w_606,h_406,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Milia%20Seeds.jpg" alt="Milia Seeds">
+      </button>
+      <button class="ms-thumb" data-caption="Skin Tags"
+        data-src="https://static.wixstatic.com/media/3bb09c_1dff421599df4fcbb8bbdd581e2f7ce1~mv2.jpeg/v1/crop/x_3,y_0,w_1915,h_1080/fill/w_606,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Skin%20Tags.jpeg">
+        <img src="https://static.wixstatic.com/media/3bb09c_1dff421599df4fcbb8bbdd581e2f7ce1~mv2.jpeg/v1/crop/x_3,y_0,w_1915,h_1080/fill/w_606,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Skin%20Tags.jpeg" alt="Skin Tags">
+      </button>
+      <button class="ms-thumb" data-caption="Oil Clogs"
+        data-src="https://static.wixstatic.com/media/3bb09c_dfd4e3c05cea4443b5b18c47c2b4224e~mv2.png/v1/crop/x_0,y_349,w_4250,h_2398/fill/w_606,h_406,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3383_HEIC.png">
+        <img src="https://static.wixstatic.com/media/3bb09c_dfd4e3c05cea4443b5b18c47c2b4224e~mv2.png/v1/crop/x_0,y_349,w_4250,h_2398/fill/w_606,h_406,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3383_HEIC.png" alt="Oil Clogs">
+      </button>
+      <button class="ms-thumb" data-caption="Warts"
+        data-src="https://static.wixstatic.com/media/3bb09c_26bb3c2a29fa4de484cd9440693f697a~mv2.jpg/v1/crop/x_38,y_72,w_374,h_211/fill/w_441,h_295,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Age%20Warts.jpg">
+        <img src="https://static.wixstatic.com/media/3bb09c_26bb3c2a29fa4de484cd9440693f697a~mv2.jpg/v1/crop/x_38,y_72,w_374,h_211/fill/w_441,h_295,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Age%20Warts.jpg" alt="Warts">
+      </button>
     </div>
   </section>
 
-  <hr class="tes-divider" />
+  <!-- 3. EYEBROW + H1 + TAGLINE -->
+  <section class="ms-headline">
+    <div class="ms-eyebrow">Everyday Milla Removal</div>
+    <h1 class="ms-h1">Reclaim Your<br>Smooth Texture.</h1>
+    <p class="ms-tagline">
+      Precise extraction of Milia seeds, oil clogs, and skin tags using advanced Electrocautery. Minimal downtime, maximum clarity. Safe, hygienic, and designed for sensitive skin.
+    </p>
+  </section>
 
-  <!-- LONG DESCRIPTION -->
-  <section class="tes-section tes-min-col" aria-label="About">
-    <span class="tes-section-eyebrow">A Quiet Promise</span>
-    <p class="tes-long-desc">
+  <hr class="ms-rule">
+
+  <!-- 4. PRICING -->
+  <section aria-labelledby="ms-pricing-heading">
+    <h2 id="ms-pricing-heading" class="ms-section-heading">Service Menu</h2>
+    <p class="ms-section-sub">
+      Quantity-tiered Electrocautery Removal &middot; Select the tier based on the number of spots you need removed.
+    </p>
+    <div class="ms-tiers">
+      <div class="ms-tier">
+        <div class="ms-tier-name">
+          Light Removal &middot; 1&ndash;15 spots
+          <span class="ms-tier-meta">45 Mins &middot; Milia / Skin Tags / Clogs</span>
+        </div>
+        <div class="ms-tier-price">$88</div>
+      </div>
+      <div class="ms-tier">
+        <div class="ms-tier-name">
+          Medium Removal &middot; 16&ndash;30 spots
+          <span class="ms-tier-meta">60 Mins</span>
+        </div>
+        <div class="ms-tier-price">$158</div>
+      </div>
+      <div class="ms-tier">
+        <div class="ms-tier-name">
+          Heavy Removal &middot; 31&ndash;60 spots
+          <span class="ms-tier-meta">90 Mins</span>
+        </div>
+        <div class="ms-tier-price">$198</div>
+      </div>
+      <div class="ms-tier">
+        <div class="ms-tier-name">
+          Extra Heavy &middot; 60+ spots
+          <span class="ms-tier-meta">120 Mins &middot; Full Face/Neck Clearance</span>
+        </div>
+        <div class="ms-tier-price">$298</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="ms-rule">
+
+  <!-- 5. DESCRIPTION -->
+  <section>
+    <p class="ms-description">
       Safe. Hygienic. Precise. We prioritize your comfort and safety. Every session includes numbing cream and sterile equipment. Treats Milia Seeds, Skin Tags, Oil Clogs, and Warts.
     </p>
   </section>
 
-  <hr class="tes-divider" />
+  <hr class="ms-rule">
 
-  <!-- PRICING -->
-  <section class="tes-section tes-min-col" aria-label="Service Menu">
-    <span class="tes-section-eyebrow">Service Menu</span>
-    <p class="tes-pricing-intro">Select the tier based on the number of spots you need removed.</p>
+  <!-- 6. ADD-ONS (none for this treatment) -->
+  <section>
+    <p class="ms-addons-note">No add-ons for this treatment.</p>
+  </section>
 
-    <div class="tes-pricing-list">
-      <div class="tes-pricing-row">
-        <div class="tes-pricing-row-top">
-          <div class="tes-pricing-name">Light Removal</div>
-          <div class="tes-pricing-price">$88</div>
-        </div>
-        <div class="tes-pricing-meta">45 Mins &middot; 1&ndash;15 spots &middot; Milia / Skin Tags / Clogs</div>
+  <hr class="ms-rule">
+
+  <!-- 7. FAQs -->
+  <section class="ms-faqs" aria-label="Frequently asked questions">
+    <div class="ms-faq">
+      <button class="ms-faq-q" aria-expanded="false">
+        <span>Is the procedure painful?</span>
+        <span class="ms-faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="ms-faq-a">
+        Most clients find it very tolerable. We apply a strong numbing cream beforehand, so you will likely only feel a slight &ldquo;ant-bite&rdquo; sensation or heat. It is much less painful than manual extraction.
       </div>
-
-      <div class="tes-pricing-row">
-        <div class="tes-pricing-row-top">
-          <div class="tes-pricing-name">Medium Removal</div>
-          <div class="tes-pricing-price">$158</div>
-        </div>
-        <div class="tes-pricing-meta">60 Mins &middot; 16&ndash;30 spots</div>
+    </div>
+    <div class="ms-faq">
+      <button class="ms-faq-q" aria-expanded="false">
+        <span>Will it leave scars?</span>
+        <span class="ms-faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="ms-faq-a">
+        Scarring is extremely rare with our technique. You will have small scabs for a few days&mdash;this is normal! As long as you do not pick the scabs and let them fall off naturally, your skin will heal smoothly.
       </div>
-
-      <div class="tes-pricing-row">
-        <div class="tes-pricing-row-top">
-          <div class="tes-pricing-name">Heavy Removal</div>
-          <div class="tes-pricing-price">$198</div>
-        </div>
-        <div class="tes-pricing-meta">90 Mins &middot; 31&ndash;60 spots</div>
-      </div>
-
-      <div class="tes-pricing-row">
-        <div class="tes-pricing-row-top">
-          <div class="tes-pricing-name">Extra Heavy</div>
-          <div class="tes-pricing-price">$298</div>
-        </div>
-        <div class="tes-pricing-meta">120 Mins &middot; 60+ spots &middot; Full Face/Neck Clearance</div>
+    </div>
+    <div class="ms-faq">
+      <button class="ms-faq-q" aria-expanded="false">
+        <span>How long is the downtime?</span>
+        <span class="ms-faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="ms-faq-a">
+        You can return to work immediately. The treated spots will look like tiny brown dots (scabs) which fall off in 3 to 7 days. We recommend avoiding makeup on the area for 24 hours.
       </div>
     </div>
   </section>
 
-  <hr class="tes-divider" />
+  <hr class="ms-rule">
 
-  <!-- PROCESS -->
-  <section class="tes-section tes-min-col" aria-label="Process">
-    <span class="tes-section-eyebrow">The Process</span>
-
-    <div class="tes-process">
-      <div class="tes-step">
-        <div class="tes-step-circle">1</div>
-        <div class="tes-step-label">Consultation</div>
-        <div class="tes-step-desc">We count your spots and advise on the best tier.</div>
-      </div>
-      <div class="tes-step">
-        <div class="tes-step-circle">2</div>
-        <div class="tes-step-label">Numbing</div>
-        <div class="tes-step-desc">Medical-grade numbing cream is applied for 15-20 mins.</div>
-      </div>
-      <div class="tes-step">
-        <div class="tes-step-circle">3</div>
-        <div class="tes-step-label">Removal</div>
-        <div class="tes-step-desc">We use a sterile probe to vaporize the bump instantly.</div>
-      </div>
-      <div class="tes-step">
-        <div class="tes-step-circle">4</div>
-        <div class="tes-step-label">Recovery</div>
-        <div class="tes-step-desc">Tiny scabs form and naturally fall off in 3-7 days.</div>
-      </div>
-    </div>
+  <!-- 8. PREREQUISITES -->
+  <section>
+    <p class="ms-prereq">Avoid makeup on treated area for 24 hours; do not pick scabs.</p>
   </section>
 
-  <hr class="tes-divider" />
-
-  <!-- WHAT WE REMOVE -->
-  <section class="tes-section tes-min-col" aria-label="What We Remove">
-    <span class="tes-section-eyebrow">What We Remove</span>
-
-    <div class="tes-remove-grid">
-      <div class="tes-remove-card">
-        <div class="tes-remove-img-wrap">
-          <img src="https://static.wixstatic.com/media/3bb09c_c9f86bb313234a5d839440c43f8eba17~mv2.jpg/v1/fill/w_606,h_406,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Milia%20Seeds.jpg" alt="Milia Seeds" loading="lazy" />
-        </div>
-        <div class="tes-remove-label">Milia Seeds</div>
-        <div class="tes-remove-desc">Hard, white keratin cysts often found around eyes/cheeks.</div>
-      </div>
-
-      <div class="tes-remove-card">
-        <div class="tes-remove-img-wrap">
-          <img src="https://static.wixstatic.com/media/3bb09c_1dff421599df4fcbb8bbdd581e2f7ce1~mv2.jpeg/v1/crop/x_3,y_0,w_1915,h_1080/fill/w_606,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Skin%20Tags.jpeg" alt="Skin Tags" loading="lazy" />
-        </div>
-        <div class="tes-remove-label">Skin Tags</div>
-        <div class="tes-remove-desc">Soft, flesh-colored growths common on neck and underarms.</div>
-      </div>
-
-      <div class="tes-remove-card">
-        <div class="tes-remove-img-wrap">
-          <img src="https://static.wixstatic.com/media/3bb09c_dfd4e3c05cea4443b5b18c47c2b4224e~mv2.png/v1/crop/x_0,y_349,w_4250,h_2398/fill/w_606,h_406,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3383_HEIC.png" alt="Oil Clogs" loading="lazy" />
-        </div>
-        <div class="tes-remove-label">Oil Clogs</div>
-        <div class="tes-remove-desc">Trapped sebum that creates bumps but lacks a &ldquo;head&rdquo;.</div>
-      </div>
-
-      <div class="tes-remove-card">
-        <div class="tes-remove-img-wrap">
-          <img src="https://static.wixstatic.com/media/3bb09c_26bb3c2a29fa4de484cd9440693f697a~mv2.jpg/v1/crop/x_38,y_72,w_374,h_211/fill/w_441,h_295,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Age%20Warts.jpg" alt="Warts" loading="lazy" />
-        </div>
-        <div class="tes-remove-label">Warts</div>
-        <div class="tes-remove-desc">Viral or age-related raised bumps on face or body.</div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="tes-divider" />
-
-  <!-- INCLUSIONS -->
-  <section class="tes-section tes-min-col" aria-label="Inclusions">
-    <span class="tes-section-eyebrow">What&rsquo;s Included</span>
-
-    <ul class="tes-inclusion-list">
-      <li class="tes-inclusion-item">
-        <span class="tes-check">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 7.5L5.5 11L12 3.5" stroke="#7E8961" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <span><strong style="font-weight:500;color:var(--tes-dark-green);">Consultation</strong> &mdash; We count your spots and advise on the best tier</span>
-      </li>
-      <li class="tes-inclusion-item">
-        <span class="tes-check">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 7.5L5.5 11L12 3.5" stroke="#7E8961" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <span><strong style="font-weight:500;color:var(--tes-dark-green);">Numbing</strong> &mdash; Medical-grade numbing cream applied for 15-20 mins</span>
-      </li>
-      <li class="tes-inclusion-item">
-        <span class="tes-check">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 7.5L5.5 11L12 3.5" stroke="#7E8961" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <span><strong style="font-weight:500;color:var(--tes-dark-green);">Removal</strong> &mdash; Sterile probe to vaporize the bump instantly</span>
-      </li>
-      <li class="tes-inclusion-item">
-        <span class="tes-check">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 7.5L5.5 11L12 3.5" stroke="#7E8961" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <span><strong style="font-weight:500;color:var(--tes-dark-green);">Recovery</strong> &mdash; Tiny scabs form and naturally fall off in 3-7 days</span>
-      </li>
-    </ul>
-  </section>
-
-  <hr class="tes-divider" />
-
-  <!-- PREREQUISITES -->
-  <section class="tes-section tes-min-col" aria-label="Before You Visit">
-    <span class="tes-section-eyebrow">Before You Visit</span>
-    <div class="tes-prereq">
-      <strong>Aftercare Note</strong>
-      Avoid makeup on treated area for 24 hours; do not pick scabs.
-    </div>
-  </section>
-
-  <hr class="tes-divider" />
-
-  <!-- FAQS -->
-  <section class="tes-section tes-min-col" aria-label="Frequently Asked Questions">
-    <span class="tes-section-eyebrow">Questions</span>
-
-    <div class="tes-faq-list">
-      <div class="tes-faq-item">
-        <button class="tes-faq-q" type="button" aria-expanded="false">
-          <span>Is the procedure painful?</span>
-          <span class="tes-faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="tes-faq-a">
-          Most clients find it very tolerable. We apply a strong numbing cream beforehand, so you will likely only feel a slight &ldquo;ant-bite&rdquo; sensation or heat. It is much less painful than manual extraction.
-        </div>
-      </div>
-
-      <div class="tes-faq-item">
-        <button class="tes-faq-q" type="button" aria-expanded="false">
-          <span>Will it leave scars?</span>
-          <span class="tes-faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="tes-faq-a">
-          Scarring is extremely rare with our technique. You will have small scabs for a few days&mdash;this is normal! As long as you do not pick the scabs and let them fall off naturally, your skin will heal smoothly.
-        </div>
-      </div>
-
-      <div class="tes-faq-item">
-        <button class="tes-faq-q" type="button" aria-expanded="false">
-          <span>How long is the downtime?</span>
-          <span class="tes-faq-icon" aria-hidden="true"></span>
-        </button>
-        <div class="tes-faq-a">
-          You can return to work immediately. The treated spots will look like tiny brown dots (scabs) which fall off in 3 to 7 days. We recommend avoiding makeup on the area for 24 hours.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="tes-divider" />
-
-  <!-- CTAs -->
-  <section class="tes-section tes-min-col" aria-label="Book">
-    <span class="tes-section-eyebrow">Begin</span>
-    <h2 class="tes-h1" style="font-size: clamp(28px, 4vw, 36px); margin-bottom: 2.5rem;">Ready when you are.</h2>
-
-    <div class="tes-cta-pair">
-      <a class="tes-cta-primary" href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" target="_blank" rel="noopener">Book Now</a>
-      <span class="tes-cta-or">Or message us on <a href="https://wa.me/6589549277" target="_blank" rel="noopener">WhatsApp</a></span>
-    </div>
-
-    <!-- Closing image — wide quiet capstone -->
-    <div class="tes-quiet-img" aria-hidden="true">
-      <div class="tes-quiet-inner">
-        <img src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg" alt="" />
-      </div>
-    </div>
+  <!-- 9. CTAs -->
+  <section class="ms-ctas">
+    <a class="ms-cta-primary" href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" target="_blank">Book Now</a>
+    <a class="ms-cta-secondary" href="https://wa.me/6589549277" target="_blank">Or message us on WhatsApp</a>
   </section>
 
 </main>
 
 <script>
-  // FAQ accordion
-  document.querySelectorAll('.tes-faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.tes-faq-item');
-      const isOpen = item.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  // Gallery thumb swap + FAQ accordion
+  document.addEventListener('DOMContentLoaded', () => {
+    const mainImg = document.getElementById('msMainImg');
+    const caption = document.getElementById('msCaption');
+    const thumbs = document.querySelectorAll('.ms-thumb');
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const src = thumb.getAttribute('data-src');
+        const cap = thumb.getAttribute('data-caption');
+        mainImg.style.opacity = '0';
+        setTimeout(() => {
+          mainImg.src = src;
+          mainImg.alt = cap;
+          caption.textContent = cap;
+          mainImg.style.opacity = '1';
+        }, 200);
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+    });
+
+    const faqs = document.querySelectorAll('.ms-faq');
+    faqs.forEach(faq => {
+      const btn = faq.querySelector('.ms-faq-q');
+      btn.addEventListener('click', () => {
+        const open = faq.classList.contains('active');
+        faqs.forEach(f => { f.classList.remove('active'); f.querySelector('.ms-faq-q').setAttribute('aria-expanded','false'); });
+        if (!open) {
+          faq.classList.add('active');
+          btn.setAttribute('aria-expanded','true');
+        }
+      });
     });
   });
 </script>
 
-<!-- =========================================================
-     SITE FOOTER — pasted 1:1 from footer-global.html
-     ========================================================= -->
+<!-- ====================================================================
+     FOOTER (1:1 from footer-global.html)
+     ==================================================================== -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -1730,7 +1426,6 @@ a { color: inherit; }
     document.addEventListener("DOMContentLoaded", (event) => {
         gsap.registerPlugin(ScrollTrigger);
 
-        // 1. STAGGERED REVEAL ANIMATION
         gsap.from(".tes-footer-col", {
             y: 40,
             opacity: 0,
@@ -1743,7 +1438,6 @@ a { color: inherit; }
             }
         });
 
-        // 2. LIVE TIME CLOCK
         function updateTime() {
             const now = new Date();
             const options = { timeZone: 'Asia/Singapore', hour: '2-digit', minute: '2-digit', hour12: true };
@@ -1756,27 +1450,6 @@ a { color: inherit; }
 
     });
 </script>
-
-<!-- =========================================================
-     ENFORCE INTER ON FOOTER FONT VARS (overrides last-loaded :root above)
-     ========================================================= -->
-<style>
-:root {
-  --tes-font-brand: 'Inter', sans-serif !important;
-  --tes-font-ui:    'Inter', sans-serif !important;
-  --tes-font-head:  'Inter', sans-serif !important;
-  --tes-font-body:  'Inter', sans-serif !important;
-  --tes-font-tech:  'Inter', sans-serif !important;
-}
-#tes-footer,
-#tes-footer * { font-family: 'Inter', sans-serif !important; }
-.tes-footer-decor {
-  /* Keep big decor type, but in Inter weight 700 with very low opacity to maintain Inter-only rule */
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.04em !important;
-}
-</style>
 
 </body>
 </html>
