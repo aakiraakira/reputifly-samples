@@ -735,12 +735,31 @@
             /* Revert grid for mobile header row */
         }
     }
+
+    /* ============================================================
+       HEADER CORNER GAP FIX — fills the page-bg sliver exposed by
+       the header's bottom-corner inward curve (border-radius: 0 0 40px 40px).
+       The fill is a flat rectangle that sits BEHIND the green header at exactly
+       the header's vertical extent, so the curved corners reveal green (not page bg).
+       Does NOT cover the cream promo bar.
+       ============================================================ */
+    .tes-header-bg-fill {
+        position: sticky !important;
+        top: 0 !important;
+        height: var(--tes-header-height, 80px) !important;
+        margin-bottom: calc(-1 * var(--tes-header-height, 80px)) !important; /* zero footprint, sits where header sits */
+        background: var(--tes-dark-green, #39451c) !important;
+        z-index: 99998 !important;
+        pointer-events: none !important;
+        width: 100% !important;
+    }
 </style>
 
 <div id="tes-promo-bar">
     For Available Promotions WhatsApp: <a href="https://wa.me/6589549277" target="_blank">+65 8954 9277</a>
 </div>
 
+<div class="tes-header-bg-fill" aria-hidden="true"></div>
 <header id="tes-smart-header">
     <div class="tes-header-container">
 
