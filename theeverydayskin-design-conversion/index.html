@@ -1,1979 +1,1894 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Everyday Milla Removal — The Everyday Skin</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-/* ---------------------------------------------------------
-   GLOBAL TOKEN OVERRIDE — force Inter everywhere, including
-   header/footer's Playfair, Bodoni, Anonymous Pro variables.
-   --------------------------------------------------------- */
-:root {
-  --tes-linen: #F6F5EF;
-  --tes-nude: #FFF6ED;
-  --tes-stone: #D6CCC2;
-  --tes-sage: #D6D6BF;
-  --tes-forest: #7E8961;
-  --tes-latte: #4F483F;
-  --tes-dark-green: #39451c;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everyday Milla Removal · The Everyday Skin</title>
 
-  --tes-font-brand: 'Inter', sans-serif;
-  --tes-font-ui:    'Inter', sans-serif;
-  --tes-font-head:  'Inter', sans-serif;
-  --tes-font-body:  'Inter', sans-serif;
-  --tes-font-tech:  'Inter', sans-serif;
-}
+    <!-- Inter ONLY (override header/footer brand fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-* { box-sizing: border-box; }
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif !important;
-  background: var(--tes-linen);
-  color: var(--tes-latte);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
+    <style>
+        /* ===========================
+           BRAND TOKENS (CONVERSION VAR)
+           =========================== */
+        :root {
+            --tes-linen: #F6F5EF;
+            --tes-nude: #FFF6ED;
+            --tes-stone: #D6CCC2;
+            --tes-sage: #D6D6BF;
+            --tes-forest: #7E8961;
+            --tes-latte: #4F483F;
+            --tes-dark-green: #39451c;
 
-/* Force Inter onto every header/footer element regardless of source overrides */
-#tes-promo-bar,
-#tes-smart-header,
-#tes-smart-header *,
-#tesMobileMenu,
-#tesMobileMenu *,
-#tes-footer,
-#tes-footer *,
-.tes-footer-decor,
-.tes-footer-link,
-.tes-footer-label,
-.tes-newsletter-text,
-.tes-credit,
-.tes-mob-link,
-.tes-mob-sub,
-.tes-nav-link,
-.tes-book-btn {
-  font-family: 'Inter', sans-serif !important;
-}
+            /* OVERRIDE header/footer brand fonts → ALL Inter */
+            --tes-font-brand: 'Inter', sans-serif;
+            --tes-font-ui: 'Inter', sans-serif;
+            --tes-font-head: 'Inter', sans-serif;
+            --tes-font-body: 'Inter', sans-serif;
+            --tes-font-tech: 'Inter', sans-serif;
+        }
 
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; display: block; }
+        * {
+            box-sizing: border-box;
+        }
 
-/* ===========================================================
-   PAGE LAYOUT
-   =========================================================== */
-.svc-wrap {
-  background: var(--tes-linen);
-}
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--tes-linen);
+            color: var(--tes-latte);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
 
-.svc-container {
-  width: 92%;
-  max-width: 1280px;
-  margin: 0 auto;
-}
+        body {
+            font-size: 16px;
+            line-height: 1.55;
+        }
 
-/* Breadcrumb */
-.svc-breadcrumb {
-  padding: 28px 0 12px;
-  font-size: 13px;
-  color: var(--tes-latte);
-  opacity: 0.75;
-  letter-spacing: 0.3px;
-}
-.svc-breadcrumb a { color: var(--tes-forest); font-weight: 500; }
-.svc-breadcrumb .sep { margin: 0 8px; opacity: 0.5; }
-.svc-breadcrumb .current { color: var(--tes-latte); font-weight: 500; }
+        a { color: inherit; }
 
-/* Hero block — image + heading underneath (NOT overlay) */
-.svc-hero {
-  margin-top: 8px;
-}
-.svc-hero-media {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 18px;
-  overflow: hidden;
-  background: var(--tes-stone);
-  box-shadow: 0 24px 60px -28px rgba(57, 69, 28, 0.25);
-}
-.svc-hero-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.svc-hero-caption {
-  position: absolute;
-  bottom: 18px;
-  left: 18px;
-  padding: 8px 14px;
-  background: rgba(57, 69, 28, 0.78);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: var(--tes-nude);
-  font-size: 12px;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  font-weight: 500;
-  border-radius: 999px;
-}
+        /* Force ALL header & footer text to Inter */
+        #tes-promo-bar, #tes-promo-bar *,
+        #tes-smart-header, #tes-smart-header *,
+        .tes-mobile-menu, .tes-mobile-menu *,
+        #tes-footer, #tes-footer * {
+            font-family: 'Inter', sans-serif !important;
+        }
 
-.svc-eyebrow {
-  display: inline-block;
-  margin-top: 32px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2.4px;
-  text-transform: uppercase;
-  color: var(--tes-forest);
-  padding: 6px 14px;
-  background: var(--tes-sage);
-  border-radius: 999px;
-}
+        .tes-mob-link, .tes-footer-decor {
+            font-family: 'Inter', sans-serif !important;
+        }
 
-.svc-h1 {
-  font-family: 'Inter', sans-serif;
-  font-size: 56px;
-  line-height: 1.05;
-  font-weight: 600;
-  letter-spacing: -1.5px;
-  color: var(--tes-dark-green);
-  margin: 18px 0 18px;
-  max-width: 820px;
-}
-.svc-tagline {
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--tes-latte);
-  line-height: 1.6;
-  max-width: 720px;
-  margin: 0 0 12px;
-}
+        /* ===========================
+           PRODUCT PAGE WRAPPER
+           =========================== */
+        .pp-page {
+            background: var(--tes-linen);
+            padding: 32px 0 64px;
+        }
 
-/* ===========================================================
-   PROCESS BAR — horizontal desktop, vertical mobile
-   =========================================================== */
-.svc-process {
-  margin: 56px 0 48px;
-  padding: 36px 32px;
-  background: #ffffff;
-  border: 1px solid var(--tes-stone);
-  border-radius: 16px;
-  box-shadow: 0 8px 26px -18px rgba(57, 69, 28, 0.18);
-}
-.svc-process-title {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--tes-forest);
-  margin: 0 0 22px;
-}
-.svc-process-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  position: relative;
-}
-.svc-process-row::before {
-  content: '';
-  position: absolute;
-  top: 22px;
-  left: 12%;
-  right: 12%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--tes-sage) 0%, var(--tes-forest) 100%);
-  z-index: 0;
-  opacity: 0.55;
-}
-.svc-step {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 0 8px;
-}
-.svc-step-num {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--tes-dark-green);
-  color: var(--tes-nude);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0 auto 14px;
-  border: 4px solid #ffffff;
-  box-shadow: 0 0 0 1px var(--tes-stone);
-}
-.svc-step-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--tes-dark-green);
-  margin-bottom: 6px;
-}
-.svc-step-desc {
-  font-size: 13.5px;
-  color: var(--tes-latte);
-  line-height: 1.55;
-  opacity: 0.85;
-}
+        .pp-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
 
-/* ===========================================================
-   TWO-COLUMN GRID — main + sticky sidebar
-   =========================================================== */
-.svc-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
-  gap: 56px;
-  align-items: flex-start;
-  padding-bottom: 80px;
-}
+        /* Breadcrumbs */
+        .pp-crumbs {
+            font-size: 12px;
+            color: var(--tes-latte);
+            opacity: 0.6;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
 
-/* MAIN (LEFT) */
-.svc-main {
-  min-width: 0;
-}
-.svc-section {
-  margin-bottom: 56px;
-}
-.svc-h2 {
-  font-size: 28px;
-  font-weight: 500;
-  letter-spacing: -0.5px;
-  color: var(--tes-dark-green);
-  margin: 0 0 18px;
-}
-.svc-h2 .pin {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--tes-forest);
-  margin-right: 12px;
-  vertical-align: middle;
-  transform: translateY(-3px);
-}
-.svc-intro {
-  font-size: 17px;
-  line-height: 1.75;
-  color: var(--tes-latte);
-  margin: 0 0 20px;
-}
+        .pp-crumbs a { text-decoration: none; }
+        .pp-crumbs a:hover { color: var(--tes-forest); opacity: 1; }
 
-/* What We Remove — 2x2 grid */
-.svc-remove-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
-}
-.svc-remove-card {
-  background: #ffffff;
-  border: 1px solid var(--tes-stone);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-.svc-remove-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 38px -22px rgba(57, 69, 28, 0.35);
-}
-.svc-remove-img {
-  aspect-ratio: 3 / 2;
-  width: 100%;
-  background: var(--tes-stone);
-}
-.svc-remove-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.svc-remove-body {
-  padding: 18px 20px 22px;
-}
-.svc-remove-label {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--tes-dark-green);
-  margin: 0 0 6px;
-  letter-spacing: -0.2px;
-}
-.svc-remove-desc {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--tes-latte);
-  margin: 0;
-  opacity: 0.9;
-}
+        /* ===========================
+           TOP 2-COL GRID
+           =========================== */
+        .pp-top {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 56px;
+            align-items: start;
+        }
 
-/* Inclusions — checklist */
-.svc-checklist {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px 28px;
-}
-.svc-checklist li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--tes-latte);
-}
-.svc-check-icon {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--tes-sage);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1px;
-}
-.svc-check-icon svg {
-  width: 13px;
-  height: 13px;
-  stroke: var(--tes-dark-green);
-  stroke-width: 3;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+        /* ----- LEFT COL: GALLERY ----- */
+        .pp-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            position: relative;
+        }
 
-/* Prerequisites callout */
-.svc-callout {
-  display: flex;
-  gap: 14px;
-  background: var(--tes-nude);
-  border: 1px solid var(--tes-stone);
-  border-radius: 12px;
-  padding: 18px 20px;
-  margin-top: 28px;
-}
-.svc-callout-icon {
-  flex-shrink: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: var(--tes-dark-green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--tes-nude);
-  font-weight: 700;
-  font-size: 15px;
-  font-family: 'Inter', sans-serif;
-}
-.svc-callout-body {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--tes-latte);
-}
-.svc-callout-body strong {
-  color: var(--tes-dark-green);
-  display: block;
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
+        .pp-main-img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--tes-stone);
+            position: relative;
+        }
 
-/* FAQs */
-.svc-faqs {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.svc-faq {
-  background: #ffffff;
-  border: 1px solid var(--tes-stone);
-  border-radius: 8px;
-  box-shadow: 0 4px 16px -10px rgba(57, 69, 28, 0.18);
-  overflow: hidden;
-  transition: box-shadow 0.3s ease;
-}
-.svc-faq:hover {
-  box-shadow: 0 10px 28px -16px rgba(57, 69, 28, 0.3);
-}
-.svc-faq summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 18px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  font-size: 15.5px;
-  font-weight: 500;
-  color: var(--tes-dark-green);
-}
-.svc-faq summary::-webkit-details-marker { display: none; }
-.svc-faq-icon {
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--tes-linen);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: var(--tes-forest);
-  transition: transform 0.3s ease, background 0.3s ease;
-  font-weight: 400;
-}
-.svc-faq[open] .svc-faq-icon {
-  transform: rotate(45deg);
-  background: var(--tes-sage);
-}
-.svc-faq-body {
-  padding: 0 22px 20px;
-  font-size: 14.5px;
-  line-height: 1.7;
-  color: var(--tes-latte);
-}
+        .pp-main-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.4s ease;
+        }
 
-/* ===========================================================
-   STICKY SIDEBAR (RIGHT)
-   =========================================================== */
-.svc-aside {
-  position: sticky;
-  top: 100px;
-  align-self: flex-start;
-}
-.svc-card {
-  background: #ffffff;
-  border: 1px solid var(--tes-stone);
-  border-radius: 18px;
-  box-shadow: 0 24px 60px -28px rgba(57, 69, 28, 0.28);
-  overflow: hidden;
-}
-.svc-card-head {
-  background: var(--tes-dark-green);
-  color: var(--tes-nude);
-  padding: 20px 22px;
-}
-.svc-card-eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  opacity: 0.7;
-}
-.svc-card-title {
-  font-size: 22px;
-  font-weight: 500;
-  margin: 4px 0 0;
-  letter-spacing: -0.3px;
-}
-.svc-card-sub {
-  font-size: 13px;
-  font-weight: 400;
-  margin-top: 4px;
-  opacity: 0.85;
-  line-height: 1.5;
-}
+        .pp-caption {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            background: rgba(57, 69, 28, 0.92);
+            color: #fff;
+            padding: 7px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
 
-.svc-tier-list {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: var(--tes-linen);
-}
-.svc-tier {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 16px;
-  background: #ffffff;
-  border: 1.5px solid var(--tes-stone);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-.svc-tier:hover {
-  border-color: var(--tes-forest);
-  transform: translateY(-1px);
-}
-.svc-tier.is-selected {
-  border-color: var(--tes-dark-green);
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(57, 69, 28, 0.08);
-}
-.svc-tier-radio {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 2px solid var(--tes-stone);
-  background: #fff;
-  position: relative;
-  transition: all 0.2s ease;
-}
-.svc-tier.is-selected .svc-tier-radio {
-  border-color: var(--tes-dark-green);
-}
-.svc-tier.is-selected .svc-tier-radio::after {
-  content: '';
-  position: absolute;
-  inset: 3px;
-  border-radius: 50%;
-  background: var(--tes-dark-green);
-}
-.svc-tier-info {
-  flex: 1;
-  min-width: 0;
-}
-.svc-tier-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--tes-dark-green);
-  margin: 0;
-  line-height: 1.3;
-}
-.svc-tier-meta {
-  font-size: 12px;
-  color: var(--tes-latte);
-  opacity: 0.78;
-  margin-top: 2px;
-  line-height: 1.4;
-}
-.svc-tier-price {
-  flex-shrink: 0;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--tes-dark-green);
-  letter-spacing: -0.5px;
-  font-variant-numeric: tabular-nums;
-  font-family: 'Inter', sans-serif;
-}
-.svc-tier-badge {
-  position: absolute;
-  top: -9px;
-  right: 12px;
-  background: var(--tes-sage);
-  color: var(--tes-dark-green);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 4px 9px;
-  border-radius: 999px;
-  border: 1px solid #ffffff;
-}
+        .pp-thumbs {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
 
-.svc-card-cta {
-  padding: 18px 18px 22px;
-  background: #ffffff;
-}
-.svc-cta-primary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  background: var(--tes-dark-green);
-  color: var(--tes-nude);
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  padding: 16px 18px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-decoration: none;
-}
-.svc-cta-primary:hover {
-  background: var(--tes-latte);
-  transform: translateY(-1px);
-  box-shadow: 0 12px 28px -14px rgba(57, 69, 28, 0.5);
-}
-.svc-cta-secondary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  background: transparent;
-  color: var(--tes-forest);
-  border: 1.5px solid var(--tes-forest);
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  padding: 13px 18px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-decoration: none;
-  margin-top: 10px;
-}
-.svc-cta-secondary:hover {
-  background: var(--tes-forest);
-  color: #ffffff;
-}
-.svc-cta-trust {
-  margin: 14px 4px 0;
-  font-size: 11.5px;
-  text-align: center;
-  color: var(--tes-latte);
-  opacity: 0.7;
-  letter-spacing: 0.3px;
-  line-height: 1.5;
-}
+        .pp-thumb {
+            aspect-ratio: 1 / 1;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background: #fff;
+            transition: border-color 0.25s ease, transform 0.25s ease;
+            padding: 0;
+            display: block;
+        }
 
-/* ===========================================================
-   FLOATING MOBILE BOOK CTA
-   =========================================================== */
-.svc-float-cta {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9000;
-  display: none;
-  align-items: center;
-  gap: 10px;
-  padding: 0 22px;
-  height: 56px;
-  background: var(--tes-forest);
-  color: var(--tes-nude);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  border-radius: 999px;
-  text-decoration: none;
-  box-shadow: 0 14px 30px -8px rgba(57, 69, 28, 0.45);
-  transform: translateY(120px);
-  opacity: 0;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  cursor: pointer;
-  border: none;
-  font-family: 'Inter', sans-serif;
-}
-.svc-float-cta.is-visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-.svc-float-cta svg {
-  width: 18px;
-  height: 18px;
-  stroke: var(--tes-nude);
-  stroke-width: 2;
-  fill: none;
-}
+        .pp-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
-/* ===========================================================
-   RESPONSIVE
-   =========================================================== */
-@media (max-width: 992px) {
-  .svc-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding-bottom: 100px;
-  }
-  .svc-aside {
-    position: static;
-    top: auto;
-  }
-  .svc-h1 {
-    font-size: 36px;
-    letter-spacing: -0.8px;
-  }
-  .svc-tagline {
-    font-size: 16px;
-  }
-  .svc-h2 {
-    font-size: 24px;
-  }
-  .svc-process {
-    padding: 28px 22px;
-  }
-  .svc-process-row {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-  .svc-process-row::before {
-    top: 0;
-    bottom: 0;
-    left: 22px;
-    right: auto;
-    width: 2px;
-    height: auto;
-    background: linear-gradient(180deg, var(--tes-sage) 0%, var(--tes-forest) 100%);
-  }
-  .svc-step {
-    text-align: left;
-    display: grid;
-    grid-template-columns: 44px 1fr;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  .svc-step-num {
-    margin: 0;
-  }
-  .svc-step-text {
-    padding-top: 6px;
-  }
-  .svc-remove-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .svc-checklist {
-    grid-template-columns: 1fr;
-  }
-  .svc-float-cta {
-    display: inline-flex;
-  }
-  .svc-eyebrow {
-    margin-top: 24px;
-  }
-}
+        .pp-thumb:hover { transform: translateY(-2px); }
+        .pp-thumb.active { border-color: var(--tes-forest); }
 
-@media (max-width: 480px) {
-  .svc-container { width: 92%; }
-  .svc-h1 { font-size: 32px; }
-  .svc-hero-caption {
-    bottom: 12px;
-    left: 12px;
-    font-size: 10px;
-    padding: 6px 12px;
-  }
-  .svc-tier {
-    flex-wrap: wrap;
-  }
-  .svc-tier-price {
-    margin-left: auto;
-  }
-  .svc-process {
-    margin: 36px 0 32px;
-  }
-}
+        /* ----- RIGHT COL: STICKY BUY-BOX ----- */
+        .pp-buybox {
+            position: sticky;
+            top: 110px;
+            background: #fff;
+            border: 1px solid var(--tes-stone);
+            border-radius: 18px;
+            padding: 32px;
+        }
 
-/* extra safety against horizontal overflow */
-.svc-wrap, .svc-container, .svc-grid, .svc-main, .svc-aside { max-width: 100%; }
-</style>
+        .pp-eyebrow {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2.4px;
+            font-weight: 600;
+            color: var(--tes-forest);
+            margin-bottom: 14px;
+        }
+
+        .pp-h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.05;
+            color: var(--tes-dark-green);
+            letter-spacing: -1.2px;
+            margin: 0 0 18px;
+        }
+
+        .pp-tagline {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--tes-latte);
+            opacity: 0.85;
+            margin: 0 0 28px;
+        }
+
+        .pp-menu-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--tes-latte);
+            opacity: 0.7;
+            margin-bottom: 14px;
+        }
+
+        /* TIER CARDS (radio-style) */
+        .pp-tiers {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .pp-tier {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 18px;
+            background: var(--tes-nude);
+            border: 1.5px solid var(--tes-stone);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.22s ease;
+            position: relative;
+            gap: 12px;
+            font-family: 'Inter', sans-serif;
+            text-align: left;
+        }
+
+        .pp-tier:hover {
+            border-color: var(--tes-forest);
+        }
+
+        .pp-tier.active {
+            border-color: var(--tes-dark-green);
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(57, 69, 28, 0.08);
+        }
+
+        .pp-tier-radio {
+            width: 18px;
+            height: 18px;
+            border: 1.5px solid var(--tes-stone);
+            border-radius: 50%;
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .pp-tier.active .pp-tier-radio {
+            border-color: var(--tes-dark-green);
+        }
+
+        .pp-tier.active .pp-tier-radio::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 8px;
+            height: 8px;
+            background: var(--tes-dark-green);
+            border-radius: 50%;
+        }
+
+        .pp-tier-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .pp-tier-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--tes-dark-green);
+            line-height: 1.3;
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .pp-tier-meta {
+            font-size: 12px;
+            color: var(--tes-latte);
+            opacity: 0.7;
+            display: block;
+        }
+
+        .pp-tier-price {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .pp-tier-price strong {
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--tes-dark-green);
+            line-height: 1.1;
+        }
+
+        .pp-tier-price span {
+            font-size: 11px;
+            color: var(--tes-latte);
+            opacity: 0.7;
+        }
+
+        .pp-badge {
+            position: absolute;
+            top: -9px;
+            right: 14px;
+            background: var(--tes-forest);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* CTA BUTTONS */
+        .pp-cta-primary {
+            width: 100%;
+            background: var(--tes-dark-green);
+            color: #fff;
+            padding: 18px 24px;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pp-cta-primary:hover {
+            background: var(--tes-forest);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(57, 69, 28, 0.25);
+        }
+
+        .pp-cta-secondary {
+            width: 100%;
+            background: transparent;
+            color: var(--tes-forest);
+            padding: 14px 24px;
+            border: 1.5px solid var(--tes-forest);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pp-cta-secondary:hover {
+            background: var(--tes-forest);
+            color: #fff;
+        }
+
+        .pp-trust {
+            margin-top: 18px;
+            font-size: 12px;
+            color: var(--tes-latte);
+            opacity: 0.65;
+            text-align: center;
+            letter-spacing: 0.3px;
+            line-height: 1.6;
+        }
+
+        /* ===========================
+           FULL-WIDTH SECTIONS BELOW
+           =========================== */
+        .pp-below {
+            margin-top: 72px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            max-width: 820px;
+        }
+
+        .pp-section h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--tes-dark-green);
+            letter-spacing: -0.3px;
+            margin: 0 0 16px;
+        }
+
+        .pp-section p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--tes-latte);
+            margin: 0;
+        }
+
+        .pp-description {
+            background: #fff;
+            border: 1px solid var(--tes-stone);
+            border-radius: 14px;
+            padding: 28px 30px;
+        }
+
+        /* ADD-ONS */
+        .pp-addons-empty {
+            background: var(--tes-nude);
+            border: 1px dashed var(--tes-stone);
+            border-radius: 12px;
+            padding: 18px 22px;
+            font-size: 14px;
+            color: var(--tes-latte);
+            opacity: 0.75;
+        }
+
+        /* FAQs */
+        .pp-faqs {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .pp-faq {
+            background: #fff;
+            border: 1px solid var(--tes-stone);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .pp-faq-q {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 18px 22px;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--tes-dark-green);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pp-faq-q:hover { background: var(--tes-nude); }
+
+        .pp-faq-icon {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--tes-forest);
+            transition: transform 0.3s ease;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .pp-faq.open .pp-faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .pp-faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .pp-faq.open .pp-faq-a {
+            max-height: 280px;
+        }
+
+        .pp-faq-a-inner {
+            padding: 0 22px 20px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--tes-latte);
+            opacity: 0.85;
+        }
+
+        /* PREREQUISITES */
+        .pp-prereq {
+            background: var(--tes-nude);
+            border-left: 3px solid var(--tes-forest);
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 13px;
+            color: var(--tes-latte);
+            line-height: 1.55;
+        }
+
+        .pp-prereq strong {
+            color: var(--tes-dark-green);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ===========================
+           MOBILE FLOATING CTA
+           =========================== */
+        .pp-floating-cta {
+            position: fixed;
+            bottom: 18px;
+            right: 18px;
+            background: var(--tes-forest);
+            color: var(--tes-nude);
+            padding: 14px 22px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(57, 69, 28, 0.35);
+            z-index: 9000;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transform: translateY(80px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            min-height: 56px;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pp-floating-cta.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pp-floating-cta:hover {
+            background: var(--tes-dark-green);
+        }
+
+        /* ===========================
+           RESPONSIVE
+           =========================== */
+        @media (max-width: 960px) {
+            .pp-page {
+                padding: 20px 0 48px;
+            }
+
+            .pp-container {
+                padding: 0 18px;
+            }
+
+            .pp-crumbs {
+                font-size: 11px;
+                margin-bottom: 16px;
+                letter-spacing: 1.2px;
+            }
+
+            .pp-top {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .pp-buybox {
+                position: static;
+                padding: 24px 22px;
+                border-radius: 14px;
+            }
+
+            .pp-h1 {
+                font-size: 32px;
+                letter-spacing: -0.7px;
+                margin-bottom: 14px;
+            }
+
+            .pp-tagline {
+                font-size: 14px;
+                margin-bottom: 22px;
+            }
+
+            .pp-thumbs {
+                gap: 8px;
+            }
+
+            .pp-tier {
+                padding: 14px 14px;
+                gap: 10px;
+            }
+
+            .pp-tier-title {
+                font-size: 13px;
+            }
+
+            .pp-tier-meta {
+                font-size: 11px;
+            }
+
+            .pp-tier-price strong {
+                font-size: 16px;
+            }
+
+            .pp-cta-primary {
+                padding: 16px 24px;
+                font-size: 14px;
+            }
+
+            .pp-cta-secondary {
+                padding: 13px 24px;
+                font-size: 13px;
+            }
+
+            .pp-below {
+                margin-top: 44px;
+                gap: 32px;
+            }
+
+            .pp-section h2 {
+                font-size: 19px;
+            }
+
+            .pp-description {
+                padding: 22px 22px;
+            }
+
+            .pp-faq-q {
+                padding: 16px 18px;
+                font-size: 14px;
+            }
+
+            .pp-floating-cta {
+                display: inline-flex;
+            }
+
+            .pp-caption {
+                bottom: 10px;
+                left: 10px;
+                font-size: 11px;
+                padding: 5px 11px;
+            }
+
+            .pp-main-img {
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .pp-h1 {
+                font-size: 28px;
+            }
+
+            .pp-tier-title {
+                font-size: 12.5px;
+            }
+
+            .pp-tier-meta {
+                font-size: 10.5px;
+            }
+
+            .pp-floating-cta {
+                bottom: 14px;
+                right: 14px;
+                padding: 12px 18px;
+                font-size: 13px;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <!-- ===========================
+         HEADER (1:1 verbatim)
+         =========================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
 
-<!-- ============================================================
-     GLOBAL HEADER (verbatim from header-global.html)
-     ============================================================ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
-    rel="stylesheet">
-
-<style>
-    /* --- 1. CONFIGURATION --- */
-    :root {
-        --tes-linen: #F6F5EF;
-        --tes-nude: #FFF6ED;
-        --tes-forest: #7E8961;
-        --tes-latte: #4F483F;
-        --tes-dark-green: #39451c;
-        --tes-font-brand: 'Playfair Display', serif;
-        --tes-font-ui: 'Inter', sans-serif;
-        --tes-header-height: 80px;
-    }
-
-    /* --- 2. LAYOUT & POSITIONING --- */
-    body {
-        margin: 0;
-    }
-
-    #tes-smart-header {
-        position: -webkit-sticky !important;
-        position: sticky !important;
-        top: 0 !important;
-        width: 100% !important;
-        height: var(--tes-header-height) !important;
-        z-index: 99999 !important;
-
-        /* DARK GREEN BACKGROUND - CSV #29 */
-        background: var(--tes-dark-green) !important;
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        border-radius: 0 0 40px 40px !important;
-
-        display: flex !important;
-        align-items: center !important;
-        transition: box-shadow 0.3s ease !important;
-    }
-
-    /* PROMO BAR */
-    #tes-promo-bar {
-        background-color: var(--tes-nude) !important;
-        color: var(--tes-latte) !important;
-        text-align: center !important;
-        font-family: var(--tes-font-ui) !important;
-        font-size: 0.8rem !important;
-        font-weight: 500 !important;
-        padding: 8px 15px !important;
-        letter-spacing: 0.5px !important;
-        position: relative !important;
-        z-index: 100000 !important;
-        border-bottom: 1px solid rgba(79, 72, 63, 0.1) !important;
-    }
-
-    #tes-promo-bar a {
-        color: var(--tes-forest) !important;
-        text-decoration: none !important;
-        font-weight: 600 !important;
-    }
-
-    /* CENTRALIZED HEADER GRID */
-    .tes-header-container {
-        width: 92% !important;
-        max-width: 1400px !important;
-        margin: 0 auto !important;
-        display: grid !important;
-        grid-template-columns: 1fr auto 1fr !important;
-        /* Left, Center, Right */
-        align-items: center !important;
-    }
-
-    /* --- 3. LOGO (Left) --- */
-    .tes-header-logo {
-        display: flex !important;
-        align-items: center !important;
-        height: 70px !important;
-        text-decoration: none !important;
-        justify-self: start !important;
-        /* Grid Alignment */
-        transition: opacity 0.3s !important;
-    }
-
-    .tes-header-logo:hover {
-        opacity: 0.7 !important;
-    }
-
-    .tes-header-logo img {
-        height: 100% !important;
-        width: auto !important;
-        display: block !important;
-        transform: scale(1.35) !important;
-        transform-origin: left center !important;
-    }
-
-    /* --- 4. DESKTOP NAVIGATION (Center) --- */
-    .tes-desktop-nav {
-        display: flex !important;
-        gap: 35px !important;
-        align-items: center !important;
-        height: 100% !important;
-        justify-self: center !important;
-        /* Grid Alignment */
-    }
-
-    .tes-nav-item {
-        position: relative !important;
-        display: flex !important;
-        align-items: center !important;
-        height: var(--tes-header-height) !important;
-    }
-
-    .tes-nav-link {
-        text-decoration: none !important;
-        font-family: var(--tes-font-ui) !important;
-        font-size: 0.9rem !important;
-        font-weight: 500 !important;
-        color: rgba(255, 255, 255, 0.85) !important;
-        position: relative !important;
-        cursor: pointer !important;
-        transition: color 0.3s !important;
-    }
-
-    .tes-nav-link:hover {
-        color: #fff !important;
-    }
-
-    /* --- 5. DROPDOWN MENU --- */
-    .tes-dropdown {
-        position: absolute !important;
-        top: 100% !important;
-        left: 50% !important;
-        transform: translateX(-50%) translateY(10px) !important;
-        background: #ffffff !important;
-        min-width: 240px !important;
-        border-radius: 12px !important;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-        padding: 10px 0 !important;
-        z-index: 1000005 !important;
-        border: 1px solid rgba(0, 0, 0, 0.04) !important;
-    }
-
-    .tes-nav-item:hover .tes-dropdown {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: translateX(-50%) translateY(0px) !important;
-    }
-
-    .tes-dropdown a {
-        text-decoration: none !important;
-        font-family: var(--tes-font-ui) !important;
-        color: var(--tes-latte) !important;
-        font-size: 0.9rem !important;
-        padding: 10px 25px !important;
-        display: block !important;
-        transition: background 0.2s !important;
-    }
-
-    .tes-dropdown a:hover {
-        background-color: var(--tes-linen) !important;
-        color: var(--tes-forest) !important;
-    }
-
-    /* --- 6. ACTIONS (Right) --- */
-    .tes-header-actions {
-        display: flex !important;
-        align-items: center !important;
-        gap: 15px !important;
-        justify-self: end !important;
-        /* Grid Alignment */
-    }
-
-    .tes-cart-btn {
-        color: rgba(255, 255, 255, 0.85) !important;
-        transition: 0.3s !important;
-        display: flex !important;
-    }
-
-    .tes-cart-btn:hover {
-        color: #fff !important;
-        transform: translateY(-2px) !important;
-    }
-
-    .tes-book-btn {
-        background-color: var(--tes-forest) !important;
-        color: #fff !important;
-        font-family: var(--tes-font-ui) !important;
-        font-size: 0.85rem !important;
-        font-weight: 500 !important;
-        padding: 12px 28px !important;
-        border-radius: 50px !important;
-        text-decoration: none !important;
-        transition: all 0.3s ease !important;
-    }
-
-    .tes-book-btn:hover {
-        background-color: var(--tes-latte) !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 5px 15px rgba(126, 137, 97, 0.3) !important;
-    }
-
-    /* --- 7. MOBILE BURGER --- */
-    #tesBurgerBtn {
-        display: none !important;
-        background: none !important;
-        border: none !important;
-        padding: 0 !important;
-        width: 28px !important;
-        height: 20px !important;
-        position: relative !important;
-        z-index: 1000010 !important;
-        cursor: pointer !important;
-    }
-
-    #tesBurgerBtn span {
-        position: absolute !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 2px !important;
-        background-color: #fff !important;
-        transition: 0.3s !important;
-        border-radius: 4px !important;
-    }
-
-    #tesBurgerBtn span:nth-child(1) {
-        top: 0 !important;
-    }
-
-    #tesBurgerBtn span:nth-child(2) {
-        top: 9px !important;
-    }
-
-    #tesBurgerBtn span:nth-child(3) {
-        top: 18px !important;
-    }
-
-    /* --- 8. MOBILE MENU OVERLAY --- */
-    .tes-mobile-menu {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100vh !important;
-        background: #FFFFFF !important;
-        /* Polished White Background */
-        z-index: 10000000 !important;
-        /* Extremely high to cover everything */
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        /* Start from top */
-        align-items: center !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-        transition: 0.4s ease !important;
-        padding-top: 100px !important;
-        /* Space for content */
-    }
-
-    .tes-mobile-menu.active {
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-    }
-
-    /* Close Button inside Menu */
-    .tes-mobile-close {
-        position: absolute !important;
-        top: 30px !important;
-        right: 30px !important;
-        font-size: 2rem !important;
-        color: var(--tes-latte) !important;
-        cursor: pointer !important;
-        background: none !important;
-        border: none !important;
-        padding: 10px !important;
-        line-height: 1 !important;
-        transition: transform 0.3s !important;
-    }
-
-    .tes-mobile-close:hover {
-        transform: rotate(90deg) !important;
-        color: var(--tes-forest) !important;
-    }
-
-    .tes-mob-link {
-        font-family: var(--tes-font-brand) !important;
-        font-size: 2rem !important;
-        color: var(--tes-latte) !important;
-        text-decoration: none !important;
-        margin: 12px 0 !important;
-        transform: translateY(20px) !important;
-        opacity: 0 !important;
-        transition: 0.4s !important;
-    }
-
-    /* Mobile Sub-links (Treatments) */
-    .tes-mob-sub-group {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        margin: 20px 0 !important;
-        padding: 20px 0 !important;
-        border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-        max-height: 35vh !important;
-        overflow-y: auto !important;
-        width: 85% !important;
-    }
-
-    .tes-mob-sub {
-        font-family: var(--tes-font-ui) !important;
-        font-size: 1.1rem !important;
-        color: var(--tes-forest) !important;
-        text-decoration: none !important;
-        margin: 8px 0 !important;
-        transform: translateY(10px) !important;
-        opacity: 0 !important;
-        transition: 0.4s !important;
-    }
-
-    .tes-mobile-menu.active .tes-mob-link,
-    .tes-mobile-menu.active .tes-mob-sub {
-        transform: translateY(0) !important;
-        opacity: 1 !important;
-    }
-
-    /* --- RESPONSIVE BREAKPOINTS --- */
-    @media (max-width: 992px) {
-
-        .tes-desktop-nav,
-        .tes-book-btn {
-            display: none !important;
+    <style>
+        /* --- 1. CONFIGURATION --- */
+        :root {
+            --tes-linen: #F6F5EF;
+            --tes-nude: #FFF6ED;
+            --tes-forest: #7E8961;
+            --tes-latte: #4F483F;
+            --tes-dark-green: #39451c;
+            --tes-font-brand: 'Playfair Display', serif;
+            --tes-font-ui: 'Inter', sans-serif;
+            --tes-header-height: 80px;
         }
 
-        #tesBurgerBtn {
-            display: block !important;
-            margin-left: 20px !important;
+        /* --- 2. LAYOUT & POSITIONING --- */
+        body {
+            margin: 0;
         }
 
-        .tes-header-container {
-            width: 90% !important;
+        #tes-smart-header {
+            position: -webkit-sticky !important;
+            position: sticky !important;
+            top: 0 !important;
+            width: 100% !important;
+            height: var(--tes-header-height) !important;
+            z-index: 99999 !important;
+
+            /* DARK GREEN BACKGROUND - CSV #29 */
+            background: var(--tes-dark-green) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: 0 0 40px 40px !important;
+
             display: flex !important;
-            justify-content: space-between !important;
-            /* Revert grid for mobile header row */
-        }
-    }
-</style>
-
-<div id="tes-promo-bar">
-    For Available Promotions WhatsApp: <a href="https://wa.me/6589549277" target="_blank">+65 8954 9277</a>
-</div>
-
-<header id="tes-smart-header">
-    <div class="tes-header-container">
-
-        <a href="/" class="tes-header-logo">
-            <img src="https://img.myshopline.com/image/store/2004910940/1677509944976/Main-Logo-Brand-Colour_440x.png?w=3175&h=1745"
-                alt="The Everyday Skin" style="filter: brightness(0) invert(1);">
-        </a>
-
-        <!-- Desktop Nav: Grid Column 2 -->
-        <nav class="tes-desktop-nav">
-            <div class="tes-nav-item"><a href="/about/" class="tes-nav-link">Our Story</a></div>
-            <div class="tes-nav-item"><a href="/shop/" class="tes-nav-link">Shop</a></div>
-
-            <div class="tes-nav-item">
-                <span class="tes-nav-link">Treatments</span>
-                <div class="tes-dropdown">
-                    <a href="/everyday-massages/">Everyday Thai Massages</a>
-                    <a href="/everyday-facial/">Everyday Facials</a>
-                    <a href="/everyday-head-therapy/">Everyday Head Therapy</a>
-                    <a href="/everyday-milla-removal/">Everyday Milla/Skin Tag Removal</a>
-                    <a href="/everyday-hair/">Everyday Hair Removal</a>
-                    <a href="/everyday-back/">Everyday Body</a>
-                    <a href="/everyday-eyes/">Everyday Eyes</a>
-                    <a href="/everyday-lash/">Everyday Lash &amp; Brows</a>
-                </div>
-            </div>
-
-            <div class="tes-nav-item"><a href="/blog-archive/" class="tes-nav-link">Journal</a></div>
-            <div class="tes-nav-item"><a href="/contact-us/" class="tes-nav-link">Contact</a></div>
-        </nav>
-
-        <!-- Actions: Grid Column 3 (Right) -->
-        <div class="tes-header-actions">
-            <a href="/cart/" class="tes-cart-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path
-                        d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" />
-                    <path d="M3 6H21" />
-                    <path
-                        d="M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10" />
-                </svg>
-            </a>
-
-            <a href="https://www.fresha.com/a/the-everyday-skin-and-massage-singapore-157-upper-paya-lebar-road-xl0g5bpe/all-offer?menu=true&pId=2710539"
-                target="_blank" class="tes-book-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    style="vertical-align:middle;margin-right:5px;">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                </svg>
-                Book a Treatment
-            </a>
-
-            <button id="tesBurgerBtn"><span></span><span></span><span></span></button>
-        </div>
-
-    </div>
-</header>
-
-<div class="tes-mobile-menu" id="tesMobileMenu">
-    <!-- DEDICATED CLOSE BUTTON -->
-    <button class="tes-mobile-close" id="tesMenuClose">&times;</button>
-
-    <a href="/about/" class="tes-mob-link" style="transition-delay: 0.02s;">Our Story</a>
-    <a href="/shop/" class="tes-mob-link" style="transition-delay: 0.05s;">Shop</a>
-
-    <div class="tes-mob-sub-group">
-        <span
-            style="font-family: 'Playfair Display'; margin-bottom: 15px; opacity: 0.6; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Treatments</span>
-        <a href="/everyday-massages/" class="tes-mob-sub" style="transition-delay: 0.1s;">Everyday Thai Massages</a>
-        <a href="/everyday-facial/" class="tes-mob-sub" style="transition-delay: 0.15s;">Everyday Facials</a>
-        <a href="/everyday-head-therapy/" class="tes-mob-sub" style="transition-delay: 0.2s;">Everyday Head Therapy</a>
-        <a href="/everyday-milla-removal/" class="tes-mob-sub" style="transition-delay: 0.25s;">Everyday Milla/Skin Tag
-            Removal</a>
-        <a href="/everyday-hair/" class="tes-mob-sub" style="transition-delay: 0.3s;">Everyday Hair Removal</a>
-        <a href="/everyday-back/" class="tes-mob-sub" style="transition-delay: 0.35s;">Everyday Body</a>
-        <a href="/everyday-eyes/" class="tes-mob-sub" style="transition-delay: 0.4s;">Everyday Eyes</a>
-        <a href="/everyday-lash/" class="tes-mob-sub" style="transition-delay: 0.45s;">Everyday Lash &amp; Brows</a>
-    </div>
-
-    <a href="/blog-archive/" class="tes-mob-link" style="transition-delay: 0.48s;">Journal</a>
-    <a href="/contact-us/" class="tes-mob-link" style="transition-delay: 0.5s;">Contact</a>
-    <a href="https://www.fresha.com/a/the-everyday-skin-and-massage-singapore-157-upper-paya-lebar-road-xl0g5bpe/all-offer?menu=true&pId=2710539"
-        class="tes-mob-link" target="_blank"
-        style="font-size: 1.2rem; color: var(--tes-forest); margin-top: 25px; transition-delay: 0.55s; border-bottom: 2px solid var(--tes-forest);">
-        Book a Treatment
-    </a>
-</div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const header = document.getElementById('tes-smart-header');
-        const burger = document.getElementById('tesBurgerBtn');
-        const closeBtn = document.getElementById('tesMenuClose');
-        const mobileMenu = document.getElementById('tesMobileMenu');
-        const links = document.querySelectorAll('.tes-mob-link, .tes-mob-sub');
-
-        function toggleMenu() {
-            const isActive = mobileMenu.classList.contains('active');
-            if (isActive) {
-                mobileMenu.classList.remove('active');
-                // burger.classList.remove('active'); // Optional: animate burger back
-                document.body.style.overflow = '';
-            } else {
-                mobileMenu.classList.add('active');
-                // burger.classList.add('active'); // Optional
-                document.body.style.overflow = 'hidden';
-            }
+            align-items: center !important;
+            transition: box-shadow 0.3s ease !important;
         }
 
-        // Open
-        burger.addEventListener('click', toggleMenu);
-
-        // Close
-        closeBtn.addEventListener('click', toggleMenu);
-
-        // Close on Link Click
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Add shadow on scroll
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.05)";
-            } else {
-                header.style.boxShadow = "none";
-            }
-        });
-    });
-</script>
-<!-- ============================================================
-     END HEADER
-     ============================================================ -->
-
-
-<!-- ============================================================
-     MAIN PAGE
-     ============================================================ -->
-<main class="svc-wrap">
-  <div class="svc-container">
-
-    <!-- BREADCRUMB -->
-    <nav class="svc-breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a>
-      <span class="sep">/</span>
-      <a href="/treatments/">Services</a>
-      <span class="sep">/</span>
-      <span class="current">Milla Removal</span>
-    </nav>
-
-    <!-- HERO -->
-    <section class="svc-hero">
-      <div class="svc-hero-media">
-        <img src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg" alt="Clear Skin Texture" loading="eager">
-        <span class="svc-hero-caption">Clear Skin Texture</span>
-      </div>
-
-      <span class="svc-eyebrow">Everyday Milla Removal</span>
-      <h1 class="svc-h1">Reclaim Your <br>Smooth Texture.</h1>
-      <p class="svc-tagline">Precise extraction of Milia seeds, oil clogs, and skin tags using advanced Electrocautery. Minimal downtime, maximum clarity. Safe, hygienic, and designed for sensitive skin.</p>
-    </section>
-
-    <!-- TWO COLUMN -->
-    <div class="svc-grid">
-
-      <!-- ===========================================================
-           MAIN CONTENT (LEFT)
-           =========================================================== -->
-      <div class="svc-main">
-
-        <!-- PROCESS BAR -->
-        <section class="svc-process" id="process">
-          <p class="svc-process-title">The 4-step process</p>
-          <div class="svc-process-row">
-            <div class="svc-step">
-              <div class="svc-step-num">1</div>
-              <div class="svc-step-text">
-                <div class="svc-step-label">Consultation</div>
-                <div class="svc-step-desc">We count your spots and advise on the best tier.</div>
-              </div>
-            </div>
-            <div class="svc-step">
-              <div class="svc-step-num">2</div>
-              <div class="svc-step-text">
-                <div class="svc-step-label">Numbing</div>
-                <div class="svc-step-desc">Medical-grade numbing cream is applied for 15-20 mins.</div>
-              </div>
-            </div>
-            <div class="svc-step">
-              <div class="svc-step-num">3</div>
-              <div class="svc-step-text">
-                <div class="svc-step-label">Removal</div>
-                <div class="svc-step-desc">We use a sterile probe to vaporize the bump instantly.</div>
-              </div>
-            </div>
-            <div class="svc-step">
-              <div class="svc-step-num">4</div>
-              <div class="svc-step-text">
-                <div class="svc-step-label">Recovery</div>
-                <div class="svc-step-desc">Tiny scabs form and naturally fall off in 3-7 days.</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- LONG DESCRIPTION -->
-        <section class="svc-section">
-          <h2 class="svc-h2"><span class="pin"></span>About this treatment</h2>
-          <p class="svc-intro">Safe. Hygienic. Precise. We prioritize your comfort and safety. Every session includes numbing cream and sterile equipment. Treats Milia Seeds, Skin Tags, Oil Clogs, and Warts.</p>
-        </section>
-
-        <!-- WHAT WE REMOVE -->
-        <section class="svc-section">
-          <h2 class="svc-h2"><span class="pin"></span>What we remove</h2>
-          <div class="svc-remove-grid">
-            <article class="svc-remove-card">
-              <div class="svc-remove-img">
-                <img src="https://static.wixstatic.com/media/3bb09c_c9f86bb313234a5d839440c43f8eba17~mv2.jpg/v1/fill/w_606,h_406,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Milia%20Seeds.jpg" alt="Milia Seeds" loading="lazy">
-              </div>
-              <div class="svc-remove-body">
-                <h3 class="svc-remove-label">Milia Seeds</h3>
-                <p class="svc-remove-desc">Hard, white keratin cysts often found around eyes/cheeks.</p>
-              </div>
-            </article>
-            <article class="svc-remove-card">
-              <div class="svc-remove-img">
-                <img src="https://static.wixstatic.com/media/3bb09c_1dff421599df4fcbb8bbdd581e2f7ce1~mv2.jpeg/v1/crop/x_3,y_0,w_1915,h_1080/fill/w_606,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Skin%20Tags.jpeg" alt="Skin Tags" loading="lazy">
-              </div>
-              <div class="svc-remove-body">
-                <h3 class="svc-remove-label">Skin Tags</h3>
-                <p class="svc-remove-desc">Soft, flesh-colored growths common on neck and underarms.</p>
-              </div>
-            </article>
-            <article class="svc-remove-card">
-              <div class="svc-remove-img">
-                <img src="https://static.wixstatic.com/media/3bb09c_dfd4e3c05cea4443b5b18c47c2b4224e~mv2.png/v1/crop/x_0,y_349,w_4250,h_2398/fill/w_606,h_406,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3383_HEIC.png" alt="Oil Clogs" loading="lazy">
-              </div>
-              <div class="svc-remove-body">
-                <h3 class="svc-remove-label">Oil Clogs</h3>
-                <p class="svc-remove-desc">Trapped sebum that creates bumps but lacks a "head".</p>
-              </div>
-            </article>
-            <article class="svc-remove-card">
-              <div class="svc-remove-img">
-                <img src="https://static.wixstatic.com/media/3bb09c_26bb3c2a29fa4de484cd9440693f697a~mv2.jpg/v1/crop/x_38,y_72,w_374,h_211/fill/w_441,h_295,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Age%20Warts.jpg" alt="Warts" loading="lazy">
-              </div>
-              <div class="svc-remove-body">
-                <h3 class="svc-remove-label">Warts</h3>
-                <p class="svc-remove-desc">Viral or age-related raised bumps on face or body.</p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- INCLUSIONS -->
-        <section class="svc-section">
-          <h2 class="svc-h2"><span class="pin"></span>What's included</h2>
-          <ul class="svc-checklist">
-            <li>
-              <span class="svc-check-icon">
-                <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
-              </span>
-              <span>Consultation: We count your spots and advise on the best tier</span>
-            </li>
-            <li>
-              <span class="svc-check-icon">
-                <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
-              </span>
-              <span>Numbing: Medical-grade numbing cream applied for 15-20 mins</span>
-            </li>
-            <li>
-              <span class="svc-check-icon">
-                <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
-              </span>
-              <span>Removal: Sterile probe to vaporize the bump instantly</span>
-            </li>
-            <li>
-              <span class="svc-check-icon">
-                <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
-              </span>
-              <span>Recovery: Tiny scabs form and naturally fall off in 3-7 days</span>
-            </li>
-          </ul>
-
-          <!-- PREREQUISITES CALLOUT -->
-          <div class="svc-callout">
-            <div class="svc-callout-icon">i</div>
-            <div class="svc-callout-body">
-              <strong>Aftercare</strong>
-              Avoid makeup on treated area for 24 hours; do not pick scabs.
-            </div>
-          </div>
-        </section>
-
-        <!-- FAQs -->
-        <section class="svc-section" id="faqs">
-          <h2 class="svc-h2"><span class="pin"></span>Frequently asked questions</h2>
-          <div class="svc-faqs">
-            <details class="svc-faq">
-              <summary>
-                <span>Is the procedure painful?</span>
-                <span class="svc-faq-icon">+</span>
-              </summary>
-              <div class="svc-faq-body">Most clients find it very tolerable. We apply a strong numbing cream beforehand, so you will likely only feel a slight "ant-bite" sensation or heat. It is much less painful than manual extraction.</div>
-            </details>
-            <details class="svc-faq">
-              <summary>
-                <span>Will it leave scars?</span>
-                <span class="svc-faq-icon">+</span>
-              </summary>
-              <div class="svc-faq-body">Scarring is extremely rare with our technique. You will have small scabs for a few days—this is normal! As long as you do not pick the scabs and let them fall off naturally, your skin will heal smoothly.</div>
-            </details>
-            <details class="svc-faq">
-              <summary>
-                <span>How long is the downtime?</span>
-                <span class="svc-faq-icon">+</span>
-              </summary>
-              <div class="svc-faq-body">You can return to work immediately. The treated spots will look like tiny brown dots (scabs) which fall off in 3 to 7 days. We recommend avoiding makeup on the area for 24 hours.</div>
-            </details>
-          </div>
-        </section>
-
-      </div><!-- /.svc-main -->
-
-
-      <!-- ===========================================================
-           STICKY SIDEBAR (RIGHT)
-           =========================================================== -->
-      <aside class="svc-aside" id="pricing">
-        <div class="svc-card">
-          <div class="svc-card-head">
-            <div class="svc-card-eyebrow">Service Menu</div>
-            <h2 class="svc-card-title">Quantity-tiered Removal</h2>
-            <div class="svc-card-sub">Select the tier based on the number of spots you need removed.</div>
-          </div>
-
-          <div class="svc-tier-list">
-
-            <!-- Tier 1 — preselected, "Most chosen" -->
-            <label class="svc-tier is-selected" data-tier="1">
-              <span class="svc-tier-badge">Most chosen</span>
-              <span class="svc-tier-radio"></span>
-              <div class="svc-tier-info">
-                <p class="svc-tier-name">Light Removal</p>
-                <div class="svc-tier-meta">1–15 spots · 45 min<br>Milia / Skin Tags / Clogs</div>
-              </div>
-              <div class="svc-tier-price">$88</div>
-            </label>
-
-            <!-- Tier 2 -->
-            <label class="svc-tier" data-tier="2">
-              <span class="svc-tier-radio"></span>
-              <div class="svc-tier-info">
-                <p class="svc-tier-name">Medium Removal</p>
-                <div class="svc-tier-meta">16–30 spots · 60 min</div>
-              </div>
-              <div class="svc-tier-price">$158</div>
-            </label>
-
-            <!-- Tier 3 -->
-            <label class="svc-tier" data-tier="3">
-              <span class="svc-tier-radio"></span>
-              <div class="svc-tier-info">
-                <p class="svc-tier-name">Heavy Removal</p>
-                <div class="svc-tier-meta">31–60 spots · 90 min</div>
-              </div>
-              <div class="svc-tier-price">$198</div>
-            </label>
-
-            <!-- Tier 4 -->
-            <label class="svc-tier" data-tier="4">
-              <span class="svc-tier-radio"></span>
-              <div class="svc-tier-info">
-                <p class="svc-tier-name">Extra Heavy</p>
-                <div class="svc-tier-meta">60+ spots · 120 min<br>Full Face/Neck Clearance</div>
-              </div>
-              <div class="svc-tier-price">$298</div>
-            </label>
-          </div>
-
-          <div class="svc-card-cta">
-            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" target="_blank" rel="noopener" class="svc-cta-primary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Book Now
-            </a>
-            <a href="https://wa.me/6589549277" target="_blank" rel="noopener" class="svc-cta-secondary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              Enquire on WhatsApp
-            </a>
-            <p class="svc-cta-trust">Singapore boutique · 4-step process · sterile equipment</p>
-          </div>
-        </div>
-      </aside>
-
-    </div><!-- /.svc-grid -->
-  </div><!-- /.svc-container -->
-</main>
-
-<!-- Floating mobile Book Now CTA -->
-<a href="#pricing" id="svcFloatBook" class="svc-float-cta" aria-label="Book Now">
-  <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-  Book Now
-</a>
-
-<script>
-  // Pricing tier selection
-  document.addEventListener('DOMContentLoaded', () => {
-    const tiers = document.querySelectorAll('.svc-tier');
-    tiers.forEach(t => {
-      t.addEventListener('click', (e) => {
-        e.preventDefault();
-        tiers.forEach(x => x.classList.remove('is-selected'));
-        t.classList.add('is-selected');
-      });
-    });
-
-    // Floating mobile CTA: appears after user scrolls past hero
-    const floatBtn = document.getElementById('svcFloatBook');
-    const showAfter = 600; // px scroll
-    function onScroll() {
-      if (window.innerWidth > 992) {
-        floatBtn.classList.remove('is-visible');
-        return;
-      }
-      if (window.scrollY > showAfter) {
-        floatBtn.classList.add('is-visible');
-      } else {
-        floatBtn.classList.remove('is-visible');
-      }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    onScroll();
-
-    // Smooth scroll for the floating CTA
-    floatBtn.addEventListener('click', (e) => {
-      const target = document.getElementById('pricing');
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
-
-
-<!-- ============================================================
-     GLOBAL FOOTER (verbatim from footer-global.html)
-     ============================================================ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-<style>
-    /* * BRAND VARIABLES */
-    :root {
-        --tes-linen: #F6F5EF;
-        --tes-nude: #FFF6ED;
-        --tes-stone: #D6CCC2;
-        --tes-sage: #D6D6BF;
-        --tes-forest: #7E8961;
-        --tes-latte: #4F483F;
-        --tes-font-head: 'Playfair Display', serif;
-        --tes-font-body: 'Bodoni Moda', serif;
-        --tes-font-tech: 'Anonymous Pro', monospace;
-    }
-
-    /* CONTAINER */
-    #tes-footer {
-        background-color: var(--tes-linen) !important;
-        color: var(--tes-latte) !important;
-        font-family: var(--tes-font-body) !important;
-        width: 100% !important;
-        position: relative !important;
-        padding: 80px 5vw 40px 5vw !important;
-        box-sizing: border-box !important;
-        overflow: hidden !important;
-        border-top: 1px solid rgba(79, 72, 63, 0.1) !important;
-    }
-
-    /* GRID LAYOUT */
-    .tes-footer-grid {
-        display: grid !important;
-        grid-template-columns: 1.2fr 0.8fr 0.8fr 1fr !important;
-        gap: 50px !important;
-        margin-bottom: 80px !important;
-        align-items: start !important;
-    }
-
-    /* COLUMN STYLES */
-    .tes-footer-col {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 18px !important;
-    }
-
-    .tes-footer-label {
-        font-family: var(--tes-font-tech) !important;
-        color: var(--tes-forest) !important;
-        text-transform: uppercase !important;
-        letter-spacing: 2px !important;
-        font-size: 0.85rem !important;
-        margin-bottom: 15px !important;
-        display: block !important;
-        font-weight: 700 !important;
-    }
-
-    .tes-footer-link {
-        text-decoration: none !important;
-        color: var(--tes-latte) !important;
-        font-size: 1.1rem !important;
-        opacity: 0.8 !important;
-        transition: all 0.3s ease !important;
-        display: inline-block !important;
-        width: max-content !important;
-        position: relative !important;
-    }
-
-    .tes-footer-link::after {
-        content: '' !important;
-        position: absolute !important;
-        bottom: -2px !important;
-        left: 0 !important;
-        width: 0% !important;
-        height: 1px !important;
-        background-color: var(--tes-forest) !important;
-        transition: width 0.3s ease !important;
-    }
-
-    .tes-footer-link:hover {
-        opacity: 1 !important;
-        color: var(--tes-forest) !important;
-    }
-
-    .tes-footer-link:hover::after {
-        width: 100% !important;
-    }
-
-    /* NEWSLETTER COLUMN */
-    .tes-newsletter-box {
-        padding-right: 20px !important;
-    }
-
-    .tes-newsletter-text {
-        font-size: 1.1rem !important;
-        line-height: 1.6 !important;
-        opacity: 0.8 !important;
-        margin-bottom: 0 !important;
-        max-width: 90% !important;
-    }
-
-    /* SOCIAL ICONS ROW */
-    .tes-social-icons-row {
-        display: flex !important;
-        gap: 15px !important;
-        margin-top: 5px !important;
-    }
-
-    .tes-social-icon {
-        width: 36px !important;
-        height: 36px !important;
-        border-radius: 50% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        transition: transform 0.3s, box-shadow 0.3s !important;
-        text-decoration: none !important;
-    }
-
-    .tes-social-icon:hover {
-        transform: translateY(-3px) !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-    }
-
-    .tes-social-icon svg {
-        width: 18px !important;
-        height: 18px !important;
-    }
-
-    .tes-social-icon.tes-ig {
-        background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
-    }
-
-    .tes-social-icon.tes-tt {
-        background: #000 !important;
-    }
-
-    .tes-social-icon.tes-fb {
-        background: #1877F2 !important;
-    }
-
-    /* BOTTOM BAR */
-    .tes-footer-bottom {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: flex-end !important;
-        font-family: var(--tes-font-tech) !important;
-        font-size: 0.75rem !important;
-        opacity: 0.6 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 1px !important;
-        border-top: 1px solid rgba(79, 72, 63, 0.1) !important;
-        padding-top: 30px !important;
-    }
-
-    .tes-footer-bottom a {
-        color: inherit !important;
-        text-decoration: none !important;
-    }
-
-    .tes-footer-bottom a:hover {
-        opacity: 1 !important;
-        color: var(--tes-forest) !important;
-    }
-
-    .tes-social-row {
-        display: flex !important;
-        gap: 25px !important;
-    }
-
-    /* REPUTIFLY CREDIT */
-    .tes-credit {
-        text-align: center !important;
-        margin-top: 25px !important;
-        font-family: var(--tes-font-tech) !important;
-        font-size: 0.7rem !important;
-        opacity: 0.45 !important;
-        letter-spacing: 1px !important;
-        text-transform: uppercase !important;
-    }
-
-    .tes-credit a {
-        color: var(--tes-forest) !important;
-        text-decoration: none !important;
-        transition: opacity 0.3s !important;
-    }
-
-    .tes-credit a:hover {
-        opacity: 1 !important;
-    }
-
-    /* BIG DECORATIVE TYPE */
-    .tes-footer-decor {
-        position: absolute !important;
-        bottom: -10px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        font-family: var(--tes-font-head) !important;
-        font-size: 12vw !important;
-        color: var(--tes-latte) !important;
-        opacity: 0.03 !important;
-        white-space: nowrap !important;
-        pointer-events: none !important;
-        user-select: none !important;
-        z-index: 0 !important;
-    }
-
-    /* --- MOBILE OPTIMIZATION --- */
-    @media (max-width: 900px) {
-        #tes-footer {
-            padding: 60px 5vw 30px 5vw !important;
-        }
-
-        .tes-footer-grid {
-            grid-template-columns: 1fr !important;
-            gap: 50px !important;
+        /* PROMO BAR */
+        #tes-promo-bar {
+            background-color: var(--tes-nude) !important;
+            color: var(--tes-latte) !important;
             text-align: center !important;
-            margin-bottom: 50px !important;
+            font-family: var(--tes-font-ui) !important;
+            font-size: 0.8rem !important;
+            font-weight: 500 !important;
+            padding: 8px 15px !important;
+            letter-spacing: 0.5px !important;
+            position: relative !important;
+            z-index: 100000 !important;
+            border-bottom: 1px solid rgba(79, 72, 63, 0.1) !important;
         }
 
-        .tes-footer-col {
+        #tes-promo-bar a {
+            color: var(--tes-forest) !important;
+            text-decoration: none !important;
+            font-weight: 600 !important;
+        }
+
+        /* CENTRALIZED HEADER GRID */
+        .tes-header-container {
+            width: 92% !important;
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+            display: grid !important;
+            grid-template-columns: 1fr auto 1fr !important;
+            /* Left, Center, Right */
+            align-items: center !important;
+        }
+
+        /* --- 3. LOGO (Left) --- */
+        .tes-header-logo {
+            display: flex !important;
+            align-items: center !important;
+            height: 70px !important;
+            text-decoration: none !important;
+            justify-self: start !important;
+            /* Grid Alignment */
+            transition: opacity 0.3s !important;
+        }
+
+        .tes-header-logo:hover {
+            opacity: 0.7 !important;
+        }
+
+        .tes-header-logo img {
+            height: 100% !important;
+            width: auto !important;
+            display: block !important;
+            transform: scale(1.35) !important;
+            transform-origin: left center !important;
+        }
+
+        /* --- 4. DESKTOP NAVIGATION (Center) --- */
+        .tes-desktop-nav {
+            display: flex !important;
+            gap: 35px !important;
+            align-items: center !important;
+            height: 100% !important;
+            justify-self: center !important;
+            /* Grid Alignment */
+        }
+
+        .tes-nav-item {
+            position: relative !important;
+            display: flex !important;
+            align-items: center !important;
+            height: var(--tes-header-height) !important;
+        }
+
+        .tes-nav-link {
+            text-decoration: none !important;
+            font-family: var(--tes-font-ui) !important;
+            font-size: 0.9rem !important;
+            font-weight: 500 !important;
+            color: rgba(255, 255, 255, 0.85) !important;
+            position: relative !important;
+            cursor: pointer !important;
+            transition: color 0.3s !important;
+        }
+
+        .tes-nav-link:hover {
+            color: #fff !important;
+        }
+
+        /* --- 5. DROPDOWN MENU --- */
+        .tes-dropdown {
+            position: absolute !important;
+            top: 100% !important;
+            left: 50% !important;
+            transform: translateX(-50%) translateY(10px) !important;
+            background: #ffffff !important;
+            min-width: 240px !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+            padding: 10px 0 !important;
+            z-index: 1000005 !important;
+            border: 1px solid rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .tes-nav-item:hover .tes-dropdown {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateX(-50%) translateY(0px) !important;
+        }
+
+        .tes-dropdown a {
+            text-decoration: none !important;
+            font-family: var(--tes-font-ui) !important;
+            color: var(--tes-latte) !important;
+            font-size: 0.9rem !important;
+            padding: 10px 25px !important;
+            display: block !important;
+            transition: background 0.2s !important;
+        }
+
+        .tes-dropdown a:hover {
+            background-color: var(--tes-linen) !important;
+            color: var(--tes-forest) !important;
+        }
+
+        /* --- 6. ACTIONS (Right) --- */
+        .tes-header-actions {
+            display: flex !important;
             align-items: center !important;
             gap: 15px !important;
+            justify-self: end !important;
+            /* Grid Alignment */
         }
 
-        .tes-newsletter-box {
-            padding-right: 0 !important;
+        .tes-cart-btn {
+            color: rgba(255, 255, 255, 0.85) !important;
+            transition: 0.3s !important;
+            display: flex !important;
         }
 
-        .tes-newsletter-text {
-            max-width: 100% !important;
+        .tes-cart-btn:hover {
+            color: #fff !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .tes-book-btn {
+            background-color: var(--tes-forest) !important;
+            color: #fff !important;
+            font-family: var(--tes-font-ui) !important;
+            font-size: 0.85rem !important;
+            font-weight: 500 !important;
+            padding: 12px 28px !important;
+            border-radius: 50px !important;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .tes-book-btn:hover {
+            background-color: var(--tes-latte) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 5px 15px rgba(126, 137, 97, 0.3) !important;
+        }
+
+        /* --- 7. MOBILE BURGER --- */
+        #tesBurgerBtn {
+            display: none !important;
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            width: 28px !important;
+            height: 20px !important;
+            position: relative !important;
+            z-index: 1000010 !important;
+            cursor: pointer !important;
+        }
+
+        #tesBurgerBtn span {
+            position: absolute !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 2px !important;
+            background-color: #fff !important;
+            transition: 0.3s !important;
+            border-radius: 4px !important;
+        }
+
+        #tesBurgerBtn span:nth-child(1) {
+            top: 0 !important;
+        }
+
+        #tesBurgerBtn span:nth-child(2) {
+            top: 9px !important;
+        }
+
+        #tesBurgerBtn span:nth-child(3) {
+            top: 18px !important;
+        }
+
+        /* --- 8. MOBILE MENU OVERLAY --- */
+        .tes-mobile-menu {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100vh !important;
+            background: #FFFFFF !important;
+            /* Polished White Background */
+            z-index: 10000000 !important;
+            /* Extremely high to cover everything */
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-start !important;
+            /* Start from top */
+            align-items: center !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transition: 0.4s ease !important;
+            padding-top: 100px !important;
+            /* Space for content */
+        }
+
+        .tes-mobile-menu.active {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+        }
+
+        /* Close Button inside Menu */
+        .tes-mobile-close {
+            position: absolute !important;
+            top: 30px !important;
+            right: 30px !important;
+            font-size: 2rem !important;
+            color: var(--tes-latte) !important;
+            cursor: pointer !important;
+            background: none !important;
+            border: none !important;
+            padding: 10px !important;
+            line-height: 1 !important;
+            transition: transform 0.3s !important;
+        }
+
+        .tes-mobile-close:hover {
+            transform: rotate(90deg) !important;
+            color: var(--tes-forest) !important;
+        }
+
+        .tes-mob-link {
+            font-family: var(--tes-font-brand) !important;
+            font-size: 2rem !important;
+            color: var(--tes-latte) !important;
+            text-decoration: none !important;
+            margin: 12px 0 !important;
+            transform: translateY(20px) !important;
+            opacity: 0 !important;
+            transition: 0.4s !important;
+        }
+
+        /* Mobile Sub-links (Treatments) */
+        .tes-mob-sub-group {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            margin: 20px 0 !important;
+            padding: 20px 0 !important;
+            border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+            max-height: 35vh !important;
+            overflow-y: auto !important;
+            width: 85% !important;
+        }
+
+        .tes-mob-sub {
+            font-family: var(--tes-font-ui) !important;
+            font-size: 1.1rem !important;
+            color: var(--tes-forest) !important;
+            text-decoration: none !important;
+            margin: 8px 0 !important;
+            transform: translateY(10px) !important;
+            opacity: 0 !important;
+            transition: 0.4s !important;
+        }
+
+        .tes-mobile-menu.active .tes-mob-link,
+        .tes-mobile-menu.active .tes-mob-sub {
+            transform: translateY(0) !important;
+            opacity: 1 !important;
+        }
+
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        @media (max-width: 992px) {
+
+            .tes-desktop-nav,
+            .tes-book-btn {
+                display: none !important;
+            }
+
+            #tesBurgerBtn {
+                display: block !important;
+                margin-left: 20px !important;
+            }
+
+            .tes-header-container {
+                width: 90% !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                /* Revert grid for mobile header row */
+            }
+        }
+    </style>
+
+    <div id="tes-promo-bar">
+        For Available Promotions WhatsApp: <a href="https://wa.me/6589549277" target="_blank">+65 8954 9277</a>
+    </div>
+
+    <header id="tes-smart-header">
+        <div class="tes-header-container">
+
+            <a href="/" class="tes-header-logo">
+                <img src="https://img.myshopline.com/image/store/2004910940/1677509944976/Main-Logo-Brand-Colour_440x.png?w=3175&h=1745"
+                    alt="The Everyday Skin" style="filter: brightness(0) invert(1);">
+            </a>
+
+            <!-- Desktop Nav: Grid Column 2 -->
+            <nav class="tes-desktop-nav">
+                <div class="tes-nav-item"><a href="/about/" class="tes-nav-link">Our Story</a></div>
+                <div class="tes-nav-item"><a href="/shop/" class="tes-nav-link">Shop</a></div>
+
+                <div class="tes-nav-item">
+                    <span class="tes-nav-link">Treatments</span>
+                    <div class="tes-dropdown">
+                        <a href="/everyday-massages/">Everyday Thai Massages</a>
+                        <a href="/everyday-facial/">Everyday Facials</a>
+                        <a href="/everyday-head-therapy/">Everyday Head Therapy</a>
+                        <a href="/everyday-milla-removal/">Everyday Milla/Skin Tag Removal</a>
+                        <a href="/everyday-hair/">Everyday Hair Removal</a>
+                        <a href="/everyday-back/">Everyday Body</a>
+                        <a href="/everyday-eyes/">Everyday Eyes</a>
+                        <a href="/everyday-lash/">Everyday Lash &amp; Brows</a>
+                    </div>
+                </div>
+
+                <div class="tes-nav-item"><a href="/blog-archive/" class="tes-nav-link">Journal</a></div>
+                <div class="tes-nav-item"><a href="/contact-us/" class="tes-nav-link">Contact</a></div>
+            </nav>
+
+            <!-- Actions: Grid Column 3 (Right) -->
+            <div class="tes-header-actions">
+                <a href="/cart/" class="tes-cart-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" />
+                        <path d="M3 6H21" />
+                        <path
+                            d="M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10" />
+                    </svg>
+                </a>
+
+                <a href="https://www.fresha.com/a/the-everyday-skin-and-massage-singapore-157-upper-paya-lebar-road-xl0g5bpe/all-offer?menu=true&pId=2710539"
+                    target="_blank" class="tes-book-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        style="vertical-align:middle;margin-right:5px;">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    Book a Treatment
+                </a>
+
+                <button id="tesBurgerBtn"><span></span><span></span><span></span></button>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="tes-mobile-menu" id="tesMobileMenu">
+        <!-- DEDICATED CLOSE BUTTON -->
+        <button class="tes-mobile-close" id="tesMenuClose">&times;</button>
+
+        <a href="/about/" class="tes-mob-link" style="transition-delay: 0.02s;">Our Story</a>
+        <a href="/shop/" class="tes-mob-link" style="transition-delay: 0.05s;">Shop</a>
+
+        <div class="tes-mob-sub-group">
+            <span
+                style="font-family: 'Playfair Display'; margin-bottom: 15px; opacity: 0.6; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Treatments</span>
+            <a href="/everyday-massages/" class="tes-mob-sub" style="transition-delay: 0.1s;">Everyday Thai Massages</a>
+            <a href="/everyday-facial/" class="tes-mob-sub" style="transition-delay: 0.15s;">Everyday Facials</a>
+            <a href="/everyday-head-therapy/" class="tes-mob-sub" style="transition-delay: 0.2s;">Everyday Head Therapy</a>
+            <a href="/everyday-milla-removal/" class="tes-mob-sub" style="transition-delay: 0.25s;">Everyday Milla/Skin Tag
+                Removal</a>
+            <a href="/everyday-hair/" class="tes-mob-sub" style="transition-delay: 0.3s;">Everyday Hair Removal</a>
+            <a href="/everyday-back/" class="tes-mob-sub" style="transition-delay: 0.35s;">Everyday Body</a>
+            <a href="/everyday-eyes/" class="tes-mob-sub" style="transition-delay: 0.4s;">Everyday Eyes</a>
+            <a href="/everyday-lash/" class="tes-mob-sub" style="transition-delay: 0.45s;">Everyday Lash &amp; Brows</a>
+        </div>
+
+        <a href="/blog-archive/" class="tes-mob-link" style="transition-delay: 0.48s;">Journal</a>
+        <a href="/contact-us/" class="tes-mob-link" style="transition-delay: 0.5s;">Contact</a>
+        <a href="https://www.fresha.com/a/the-everyday-skin-and-massage-singapore-157-upper-paya-lebar-road-xl0g5bpe/all-offer?menu=true&pId=2710539"
+            class="tes-mob-link" target="_blank"
+            style="font-size: 1.2rem; color: var(--tes-forest); margin-top: 25px; transition-delay: 0.55s; border-bottom: 2px solid var(--tes-forest);">
+            Book a Treatment
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.getElementById('tes-smart-header');
+            const burger = document.getElementById('tesBurgerBtn');
+            const closeBtn = document.getElementById('tesMenuClose');
+            const mobileMenu = document.getElementById('tesMobileMenu');
+            const links = document.querySelectorAll('.tes-mob-link, .tes-mob-sub');
+
+            function toggleMenu() {
+                const isActive = mobileMenu.classList.contains('active');
+                if (isActive) {
+                    mobileMenu.classList.remove('active');
+                    // burger.classList.remove('active'); // Optional: animate burger back
+                    document.body.style.overflow = '';
+                } else {
+                    mobileMenu.classList.add('active');
+                    // burger.classList.add('active'); // Optional
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            // Open
+            burger.addEventListener('click', toggleMenu);
+
+            // Close
+            closeBtn.addEventListener('click', toggleMenu);
+
+            // Close on Link Click
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Add shadow on scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.05)";
+                } else {
+                    header.style.boxShadow = "none";
+                }
+            });
+        });
+    </script>
+
+    <!-- ===========================
+         PRODUCT PAGE
+         =========================== -->
+    <main class="pp-page">
+        <div class="pp-container">
+
+            <div class="pp-crumbs">
+                <a href="/">Home</a> &nbsp;/&nbsp; <a href="/everyday-milla-removal/">Treatments</a> &nbsp;/&nbsp; Everyday Milla Removal
+            </div>
+
+            <!-- TOP 2-COL: GALLERY + STICKY BUY-BOX -->
+            <div class="pp-top">
+
+                <!-- LEFT: GALLERY -->
+                <div class="pp-gallery">
+                    <div class="pp-main-img">
+                        <img id="ppMainImg"
+                            src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg"
+                            alt="Everyday Milla Removal — clear skin texture">
+                        <div class="pp-caption" id="ppCaption">Hero</div>
+                    </div>
+
+                    <div class="pp-thumbs">
+                        <button class="pp-thumb active" type="button"
+                            data-img="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg"
+                            data-caption="Hero">
+                            <img src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg"
+                                alt="Hero">
+                        </button>
+                        <button class="pp-thumb" type="button"
+                            data-img="https://static.wixstatic.com/media/3bb09c_c9f86bb313234a5d839440c43f8eba17~mv2.jpg/v1/fill/w_606,h_406,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Milia%20Seeds.jpg"
+                            data-caption="Milia Seeds">
+                            <img src="https://static.wixstatic.com/media/3bb09c_c9f86bb313234a5d839440c43f8eba17~mv2.jpg/v1/fill/w_606,h_406,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Milia%20Seeds.jpg"
+                                alt="Milia Seeds">
+                        </button>
+                        <button class="pp-thumb" type="button"
+                            data-img="https://static.wixstatic.com/media/3bb09c_1dff421599df4fcbb8bbdd581e2f7ce1~mv2.jpeg/v1/crop/x_3,y_0,w_1915,h_1080/fill/w_606,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Skin%20Tags.jpeg"
+                            data-caption="Skin Tags">
+                            <img src="https://static.wixstatic.com/media/3bb09c_1dff421599df4fcbb8bbdd581e2f7ce1~mv2.jpeg/v1/crop/x_3,y_0,w_1915,h_1080/fill/w_606,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Skin%20Tags.jpeg"
+                                alt="Skin Tags">
+                        </button>
+                        <button class="pp-thumb" type="button"
+                            data-img="https://static.wixstatic.com/media/3bb09c_dfd4e3c05cea4443b5b18c47c2b4224e~mv2.png/v1/crop/x_0,y_349,w_4250,h_2398/fill/w_606,h_406,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3383_HEIC.png"
+                            data-caption="Oil Clogs">
+                            <img src="https://static.wixstatic.com/media/3bb09c_dfd4e3c05cea4443b5b18c47c2b4224e~mv2.png/v1/crop/x_0,y_349,w_4250,h_2398/fill/w_606,h_406,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3383_HEIC.png"
+                                alt="Oil Clogs">
+                        </button>
+                        <button class="pp-thumb" type="button"
+                            data-img="https://static.wixstatic.com/media/3bb09c_26bb3c2a29fa4de484cd9440693f697a~mv2.jpg/v1/crop/x_38,y_72,w_374,h_211/fill/w_441,h_295,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Age%20Warts.jpg"
+                            data-caption="Warts">
+                            <img src="https://static.wixstatic.com/media/3bb09c_26bb3c2a29fa4de484cd9440693f697a~mv2.jpg/v1/crop/x_38,y_72,w_374,h_211/fill/w_441,h_295,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Age%20Warts.jpg"
+                                alt="Warts">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- RIGHT: STICKY BUY-BOX -->
+                <aside class="pp-buybox" id="ppBuybox">
+                    <div class="pp-eyebrow">Everyday Milla Removal</div>
+                    <h1 class="pp-h1">Reclaim Your<br>Smooth Texture.</h1>
+                    <p class="pp-tagline">Precise extraction of Milia seeds, oil clogs, and skin tags using advanced Electrocautery. Minimal downtime, maximum clarity. Safe, hygienic, and designed for sensitive skin.</p>
+
+                    <div class="pp-menu-label">Service Menu</div>
+
+                    <div class="pp-tiers" id="ppTiers">
+                        <button class="pp-tier active" type="button" data-tier="0">
+                            <span class="pp-badge">Most chosen</span>
+                            <span class="pp-tier-radio"></span>
+                            <span class="pp-tier-info">
+                                <span class="pp-tier-title">Light Removal</span>
+                                <span class="pp-tier-meta">1&ndash;15 spots</span>
+                            </span>
+                            <span class="pp-tier-price">
+                                <strong>$88</strong>
+                                <span>45 Mins</span>
+                            </span>
+                        </button>
+
+                        <button class="pp-tier" type="button" data-tier="1">
+                            <span class="pp-tier-radio"></span>
+                            <span class="pp-tier-info">
+                                <span class="pp-tier-title">Medium Removal</span>
+                                <span class="pp-tier-meta">16&ndash;30 spots</span>
+                            </span>
+                            <span class="pp-tier-price">
+                                <strong>$158</strong>
+                                <span>60 Mins</span>
+                            </span>
+                        </button>
+
+                        <button class="pp-tier" type="button" data-tier="2">
+                            <span class="pp-tier-radio"></span>
+                            <span class="pp-tier-info">
+                                <span class="pp-tier-title">Heavy Removal</span>
+                                <span class="pp-tier-meta">31&ndash;60 spots</span>
+                            </span>
+                            <span class="pp-tier-price">
+                                <strong>$198</strong>
+                                <span>90 Mins</span>
+                            </span>
+                        </button>
+
+                        <button class="pp-tier" type="button" data-tier="3">
+                            <span class="pp-tier-radio"></span>
+                            <span class="pp-tier-info">
+                                <span class="pp-tier-title">Extra Heavy</span>
+                                <span class="pp-tier-meta">60+ spots</span>
+                            </span>
+                            <span class="pp-tier-price">
+                                <strong>$298</strong>
+                                <span>120 Mins</span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539"
+                        target="_blank" class="pp-cta-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                        Book Now
+                    </a>
+
+                    <a href="https://wa.me/6589549277" target="_blank" class="pp-cta-secondary">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.1 3 .1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4z"/>
+                            <path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.8.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6 0-4.5 3.7-8.3 8.3-8.3 4.5 0 8.3 3.7 8.3 8.3 0 4.5-3.7 8.3-8.3 8.3z"/>
+                        </svg>
+                        Enquire on WhatsApp
+                    </a>
+
+                    <div class="pp-trust">
+                        Sterile equipment &middot; Numbing included &middot; Boutique studio
+                    </div>
+                </aside>
+
+            </div>
+
+            <!-- BELOW THE FOLD -->
+            <div class="pp-below">
+
+                <!-- DESCRIPTION -->
+                <section class="pp-section">
+                    <h2>About this treatment</h2>
+                    <div class="pp-description">
+                        <p>Safe. Hygienic. Precise. We prioritize your comfort and safety. Every session includes numbing cream and sterile equipment. Treats Milia Seeds, Skin Tags, Oil Clogs, and Warts.</p>
+                    </div>
+                </section>
+
+                <!-- ADD-ONS (empty state for this treatment) -->
+                <section class="pp-section">
+                    <h2>Add-ons</h2>
+                    <div class="pp-addons-empty">
+                        No add-ons available for this treatment.
+                    </div>
+                    <!--
+                        TEMPLATE: when add-ons exist for a treatment, render cards like this:
+                        <div class="pp-addons-grid">
+                            <div class="pp-addon-card">
+                                <div class="pp-addon-name">{{name}}</div>
+                                <div class="pp-addon-meta">
+                                    <span class="pp-addon-price">${{price}}</span>
+                                    <span class="pp-addon-duration">{{duration}} min</span>
+                                </div>
+                            </div>
+                            ...
+                        </div>
+                    -->
+                </section>
+
+                <!-- FAQS -->
+                <section class="pp-section">
+                    <h2>Frequently asked</h2>
+                    <div class="pp-faqs" id="ppFaqs">
+                        <div class="pp-faq">
+                            <button class="pp-faq-q" type="button">
+                                Is the procedure painful?
+                                <span class="pp-faq-icon">+</span>
+                            </button>
+                            <div class="pp-faq-a">
+                                <div class="pp-faq-a-inner">
+                                    Most clients find it very tolerable. We apply a strong numbing cream beforehand, so you will likely only feel a slight "ant-bite" sensation or heat. It is much less painful than manual extraction.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pp-faq">
+                            <button class="pp-faq-q" type="button">
+                                Will it leave scars?
+                                <span class="pp-faq-icon">+</span>
+                            </button>
+                            <div class="pp-faq-a">
+                                <div class="pp-faq-a-inner">
+                                    Scarring is extremely rare with our technique. You will have small scabs for a few days&mdash;this is normal! As long as you do not pick the scabs and let them fall off naturally, your skin will heal smoothly.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pp-faq">
+                            <button class="pp-faq-q" type="button">
+                                How long is the downtime?
+                                <span class="pp-faq-icon">+</span>
+                            </button>
+                            <div class="pp-faq-a">
+                                <div class="pp-faq-a-inner">
+                                    You can return to work immediately. The treated spots will look like tiny brown dots (scabs) which fall off in 3 to 7 days. We recommend avoiding makeup on the area for 24 hours.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PREREQUISITES -->
+                <section class="pp-section">
+                    <div class="pp-prereq">
+                        <strong>Prerequisites</strong>
+                        Avoid makeup on treated area for 24 hours; do not pick scabs
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- MOBILE FLOATING CTA -->
+    <a href="#" class="pp-floating-cta" id="ppFloatingCta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+        </svg>
+        Book Now
+    </a>
+
+    <!-- ===========================
+         FOOTER (1:1 verbatim)
+         =========================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* * BRAND VARIABLES */
+        :root {
+            --tes-linen: #F6F5EF;
+            --tes-nude: #FFF6ED;
+            --tes-stone: #D6CCC2;
+            --tes-sage: #D6D6BF;
+            --tes-forest: #7E8961;
+            --tes-latte: #4F483F;
+            --tes-font-head: 'Playfair Display', serif;
+            --tes-font-body: 'Bodoni Moda', serif;
+            --tes-font-tech: 'Anonymous Pro', monospace;
+        }
+
+        /* CONTAINER */
+        #tes-footer {
+            background-color: var(--tes-linen) !important;
+            color: var(--tes-latte) !important;
+            font-family: var(--tes-font-body) !important;
+            width: 100% !important;
+            position: relative !important;
+            padding: 80px 5vw 40px 5vw !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
+            border-top: 1px solid rgba(79, 72, 63, 0.1) !important;
+        }
+
+        /* GRID LAYOUT */
+        .tes-footer-grid {
+            display: grid !important;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr 1fr !important;
+            gap: 50px !important;
+            margin-bottom: 80px !important;
+            align-items: start !important;
+        }
+
+        /* COLUMN STYLES */
+        .tes-footer-col {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 18px !important;
+        }
+
+        .tes-footer-label {
+            font-family: var(--tes-font-tech) !important;
+            color: var(--tes-forest) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            font-size: 0.85rem !important;
+            margin-bottom: 15px !important;
+            display: block !important;
+            font-weight: 700 !important;
         }
 
         .tes-footer-link {
-            width: auto !important;
-            font-size: 1.2rem !important;
+            text-decoration: none !important;
+            color: var(--tes-latte) !important;
+            font-size: 1.1rem !important;
+            opacity: 0.8 !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+            width: max-content !important;
+            position: relative !important;
         }
 
-        .tes-footer-bottom {
-            flex-direction: column-reverse !important;
+        .tes-footer-link::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -2px !important;
+            left: 0 !important;
+            width: 0% !important;
+            height: 1px !important;
+            background-color: var(--tes-forest) !important;
+            transition: width 0.3s ease !important;
+        }
+
+        .tes-footer-link:hover {
+            opacity: 1 !important;
+            color: var(--tes-forest) !important;
+        }
+
+        .tes-footer-link:hover::after {
+            width: 100% !important;
+        }
+
+        /* NEWSLETTER COLUMN */
+        .tes-newsletter-box {
+            padding-right: 20px !important;
+        }
+
+        .tes-newsletter-text {
+            font-size: 1.1rem !important;
+            line-height: 1.6 !important;
+            opacity: 0.8 !important;
+            margin-bottom: 0 !important;
+            max-width: 90% !important;
+        }
+
+        /* SOCIAL ICONS ROW */
+        .tes-social-icons-row {
+            display: flex !important;
+            gap: 15px !important;
+            margin-top: 5px !important;
+        }
+
+        .tes-social-icon {
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 50% !important;
+            display: flex !important;
             align-items: center !important;
-            gap: 20px !important;
-            text-align: center !important;
+            justify-content: center !important;
+            transition: transform 0.3s, box-shadow 0.3s !important;
+            text-decoration: none !important;
+        }
+
+        .tes-social-icon:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .tes-social-icon svg {
+            width: 18px !important;
+            height: 18px !important;
+        }
+
+        .tes-social-icon.tes-ig {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
+        }
+
+        .tes-social-icon.tes-tt {
+            background: #000 !important;
+        }
+
+        .tes-social-icon.tes-fb {
+            background: #1877F2 !important;
+        }
+
+        /* BOTTOM BAR */
+        .tes-footer-bottom {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: flex-end !important;
+            font-family: var(--tes-font-tech) !important;
+            font-size: 0.75rem !important;
+            opacity: 0.6 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            border-top: 1px solid rgba(79, 72, 63, 0.1) !important;
+            padding-top: 30px !important;
+        }
+
+        .tes-footer-bottom a {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+
+        .tes-footer-bottom a:hover {
+            opacity: 1 !important;
+            color: var(--tes-forest) !important;
         }
 
         .tes-social-row {
-            gap: 30px !important;
-            margin-bottom: 10px !important;
+            display: flex !important;
+            gap: 25px !important;
         }
 
-        .tes-social-icons-row {
-            justify-content: center !important;
+        /* REPUTIFLY CREDIT */
+        .tes-credit {
+            text-align: center !important;
+            margin-top: 25px !important;
+            font-family: var(--tes-font-tech) !important;
+            font-size: 0.7rem !important;
+            opacity: 0.45 !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
         }
-    }
-</style>
 
-<footer id="tes-footer">
-    <div class="tes-footer-decor">The Everyday Skin</div>
+        .tes-credit a {
+            color: var(--tes-forest) !important;
+            text-decoration: none !important;
+            transition: opacity 0.3s !important;
+        }
 
-    <div class="tes-footer-grid">
+        .tes-credit a:hover {
+            opacity: 1 !important;
+        }
 
-        <div class="tes-footer-col tes-newsletter-box">
-            <span class="tes-footer-label">Be Part of Our Everyday Community</span>
-            <p class="tes-newsletter-text">
-                Join our mailing list for gentle reminders to rest, exclusive member offers, and first access to new
-                treatments and seasonal promotions.<br><br>
-                No spam. No noise.<br>
-                Just little updates from our cozy boutique space.<br><br>
-                And if you'd like more daily calm, follow us on Instagram for behind-the-scenes moments and wellness
-                tips.
-            </p>
+        /* BIG DECORATIVE TYPE */
+        .tes-footer-decor {
+            position: absolute !important;
+            bottom: -10px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            font-family: var(--tes-font-head) !important;
+            font-size: 12vw !important;
+            color: var(--tes-latte) !important;
+            opacity: 0.03 !important;
+            white-space: nowrap !important;
+            pointer-events: none !important;
+            user-select: none !important;
+            z-index: 0 !important;
+        }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 900px) {
+            #tes-footer {
+                padding: 60px 5vw 30px 5vw !important;
+            }
+
+            .tes-footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 50px !important;
+                text-align: center !important;
+                margin-bottom: 50px !important;
+            }
+
+            .tes-footer-col {
+                align-items: center !important;
+                gap: 15px !important;
+            }
+
+            .tes-newsletter-box {
+                padding-right: 0 !important;
+            }
+
+            .tes-newsletter-text {
+                max-width: 100% !important;
+            }
+
+            .tes-footer-link {
+                width: auto !important;
+                font-size: 1.2rem !important;
+            }
+
+            .tes-footer-bottom {
+                flex-direction: column-reverse !important;
+                align-items: center !important;
+                gap: 20px !important;
+                text-align: center !important;
+            }
+
+            .tes-social-row {
+                gap: 30px !important;
+                margin-bottom: 10px !important;
+            }
+
+            .tes-social-icons-row {
+                justify-content: center !important;
+            }
+        }
+    </style>
+
+    <footer id="tes-footer">
+        <div class="tes-footer-decor">The Everyday Skin</div>
+
+        <div class="tes-footer-grid">
+
+            <div class="tes-footer-col tes-newsletter-box">
+                <span class="tes-footer-label">Be Part of Our Everyday Community</span>
+                <p class="tes-newsletter-text">
+                    Join our mailing list for gentle reminders to rest, exclusive member offers, and first access to new
+                    treatments and seasonal promotions.<br><br>
+                    No spam. No noise.<br>
+                    Just little updates from our cozy boutique space.<br><br>
+                    And if you'd like more daily calm, follow us on Instagram for behind-the-scenes moments and wellness
+                    tips.
+                </p>
+            </div>
+
+            <div class="tes-footer-col">
+                <span class="tes-footer-label">Services</span>
+
+                <a href="/everyday-massages/" class="tes-footer-link">Everyday Thai Massages</a>
+                <a href="/everyday-facial/" class="tes-footer-link">Everyday Facials</a>
+                <a href="/everyday-head-therapy/" class="tes-footer-link">Everyday Head Therapy</a>
+                <a href="/everyday-milla-removal/" class="tes-footer-link">Everyday Milla/Skin Tag Removal</a>
+                <a href="/everyday-hair/" class="tes-footer-link">Everyday Hair Removal</a>
+                <a href="/everyday-back/" class="tes-footer-link">Everyday Body</a>
+                <a href="/everyday-eyes/" class="tes-footer-link">Everyday Eyes</a>
+                <a href="/everyday-lash/" class="tes-footer-link">Everyday Lash &amp; Brows</a>
+
+                <div style="height: 10px;"></div>
+
+                <a href="/shop" class="tes-footer-link">Shop Our Products</a>
+                <a href="/policies/" class="tes-footer-link">Everyday Policies</a>
+            </div>
+
+            <div class="tes-footer-col">
+                <span class="tes-footer-label">Visit</span>
+                <a href="https://maps.app.goo.gl/theeverydayskin" target="_blank" class="tes-footer-link">157 Upper Paya
+                    Lebar Rd</a>
+                <span class="tes-footer-link" style="pointer-events: none; opacity: 0.6;">Singapore 534854</span>
+                <a href="mailto:theeverydayskin@gmail.com" class="tes-footer-link">theeverydayskin@gmail.com</a>
+                <a href="tel:+6589549277" class="tes-footer-link">+65 8954 9277</a>
+            </div>
+
+            <div class="tes-footer-col">
+                <span class="tes-footer-label">Follow</span>
+                <div class="tes-social-icons-row">
+                    <!-- Instagram - gradient -->
+                    <a href="https://www.instagram.com/theeverydayskin/?hl=en" target="_blank"
+                        class="tes-social-icon tes-ig" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="white">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                    </a>
+                    <!-- TikTok - black -->
+                    <a href="https://www.tiktok.com/@theeverydayskin" target="_blank" class="tes-social-icon tes-tt"
+                        aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" fill="white">
+                            <path
+                                d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.42a8.16 8.16 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.85z" />
+                        </svg>
+                    </a>
+                    <!-- Facebook - blue -->
+                    <a href="https://www.facebook.com/TheEverydaySkin/" target="_blank" class="tes-social-icon tes-fb"
+                        aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="white">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
         </div>
 
-        <div class="tes-footer-col">
-            <span class="tes-footer-label">Services</span>
+        <div class="tes-footer-bottom">
+            <div>&copy; 2026 The Everyday Skin. All Rights Reserved.</div>
 
-            <a href="/everyday-massages/" class="tes-footer-link">Everyday Thai Massages</a>
-            <a href="/everyday-facial/" class="tes-footer-link">Everyday Facials</a>
-            <a href="/everyday-head-therapy/" class="tes-footer-link">Everyday Head Therapy</a>
-            <a href="/everyday-milla-removal/" class="tes-footer-link">Everyday Milla/Skin Tag Removal</a>
-            <a href="/everyday-hair/" class="tes-footer-link">Everyday Hair Removal</a>
-            <a href="/everyday-back/" class="tes-footer-link">Everyday Body</a>
-            <a href="/everyday-eyes/" class="tes-footer-link">Everyday Eyes</a>
-            <a href="/everyday-lash/" class="tes-footer-link">Everyday Lash &amp; Brows</a>
+            <div id="tes-time-display">SG TIME: 00:00 AM</div>
 
-            <div style="height: 10px;"></div>
-
-            <a href="/shop" class="tes-footer-link">Shop Our Products</a>
-            <a href="/policies/" class="tes-footer-link">Everyday Policies</a>
-        </div>
-
-        <div class="tes-footer-col">
-            <span class="tes-footer-label">Visit</span>
-            <a href="https://maps.app.goo.gl/theeverydayskin" target="_blank" class="tes-footer-link">157 Upper Paya
-                Lebar Rd</a>
-            <span class="tes-footer-link" style="pointer-events: none; opacity: 0.6;">Singapore 534854</span>
-            <a href="mailto:theeverydayskin@gmail.com" class="tes-footer-link">theeverydayskin@gmail.com</a>
-            <a href="tel:+6589549277" class="tes-footer-link">+65 8954 9277</a>
-        </div>
-
-        <div class="tes-footer-col">
-            <span class="tes-footer-label">Follow</span>
-            <div class="tes-social-icons-row">
-                <!-- Instagram - gradient -->
-                <a href="https://www.instagram.com/theeverydayskin/?hl=en" target="_blank"
-                    class="tes-social-icon tes-ig" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="white">
-                        <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                    </svg>
-                </a>
-                <!-- TikTok - black -->
-                <a href="https://www.tiktok.com/@theeverydayskin" target="_blank" class="tes-social-icon tes-tt"
-                    aria-label="TikTok">
-                    <svg viewBox="0 0 24 24" fill="white">
-                        <path
-                            d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.42a8.16 8.16 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.85z" />
-                    </svg>
-                </a>
-                <!-- Facebook - blue -->
-                <a href="https://www.facebook.com/TheEverydaySkin/" target="_blank" class="tes-social-icon tes-fb"
-                    aria-label="Facebook">
-                    <svg viewBox="0 0 24 24" fill="white">
-                        <path
-                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                    </svg>
-                </a>
+            <div class="tes-social-row">
+                <a href="/policies/">Privacy</a>
+                <a href="/policies/">Terms</a>
             </div>
         </div>
 
-    </div>
-
-    <div class="tes-footer-bottom">
-        <div>&copy; 2026 The Everyday Skin. All Rights Reserved.</div>
-
-        <div id="tes-time-display">SG TIME: 00:00 AM</div>
-
-        <div class="tes-social-row">
-            <a href="/policies/">Privacy</a>
-            <a href="/policies/">Terms</a>
+        <div class="tes-credit">
+            Website Designed by <a href="https://reputifly.com/web-development" target="_blank" rel="dofollow">Reputifly</a>
         </div>
-    </div>
 
-    <div class="tes-credit">
-        Website Designed by <a href="https://reputifly.com/web-development" target="_blank" rel="dofollow">Reputifly</a>
-    </div>
+    </footer>
 
-</footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
 
-<script>
-    document.addEventListener("DOMContentLoaded", (event) => {
-        gsap.registerPlugin(ScrollTrigger);
+            // 1. STAGGERED REVEAL ANIMATION
+            gsap.from(".tes-footer-col", {
+                y: 40,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.1,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: "#tes-footer",
+                    start: "top 85%"
+                }
+            });
 
-        // 1. STAGGERED REVEAL ANIMATION
-        gsap.from(".tes-footer-col", {
-            y: 40,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: "#tes-footer",
-                start: "top 85%"
+            // 2. LIVE TIME CLOCK
+            function updateTime() {
+                const now = new Date();
+                const options = { timeZone: 'Asia/Singapore', hour: '2-digit', minute: '2-digit', hour12: true };
+                const timeString = now.toLocaleTimeString('en-US', options);
+                const el = document.getElementById('tes-time-display');
+                if (el) el.textContent = `SG TIME: ${timeString}`;
             }
+            setInterval(updateTime, 1000);
+            updateTime();
+
         });
+    </script>
 
-        // 2. LIVE TIME CLOCK
-        function updateTime() {
-            const now = new Date();
-            const options = { timeZone: 'Asia/Singapore', hour: '2-digit', minute: '2-digit', hour12: true };
-            const timeString = now.toLocaleTimeString('en-US', options);
-            const el = document.getElementById('tes-time-display');
-            if (el) el.textContent = `SG TIME: ${timeString}`;
-        }
-        setInterval(updateTime, 1000);
-        updateTime();
+    <!-- ===========================
+         PRODUCT-PAGE INTERACTIVITY
+         =========================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Gallery thumb-click swap
+            const thumbs = document.querySelectorAll('.pp-thumb');
+            const mainImg = document.getElementById('ppMainImg');
+            const caption = document.getElementById('ppCaption');
 
-    });
-</script>
-<!-- ============================================================
-     END FOOTER
-     ============================================================ -->
+            thumbs.forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    thumbs.forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
 
+                    const newSrc = thumb.dataset.img;
+                    const newCap = thumb.dataset.caption;
+
+                    mainImg.style.opacity = '0';
+                    setTimeout(() => {
+                        mainImg.src = newSrc;
+                        caption.textContent = newCap;
+                        mainImg.style.opacity = '1';
+                    }, 180);
+                });
+            });
+
+            // Tier card selection
+            const tiers = document.querySelectorAll('.pp-tier');
+            tiers.forEach(t => {
+                t.addEventListener('click', () => {
+                    tiers.forEach(x => x.classList.remove('active'));
+                    t.classList.add('active');
+                });
+            });
+
+            // FAQ accordion
+            const faqs = document.querySelectorAll('.pp-faq');
+            faqs.forEach(faq => {
+                const q = faq.querySelector('.pp-faq-q');
+                q.addEventListener('click', () => {
+                    faq.classList.toggle('open');
+                });
+            });
+
+            // Mobile floating CTA — show after 600px scroll
+            const cta = document.getElementById('ppFloatingCta');
+            const buybox = document.getElementById('ppBuybox');
+
+            function handleScroll() {
+                if (window.scrollY > 600) {
+                    cta.classList.add('visible');
+                } else {
+                    cta.classList.remove('visible');
+                }
+            }
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll();
+
+            // Floating CTA → scroll to pricing section (the buybox)
+            cta.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (buybox) {
+                    buybox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
