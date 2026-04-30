@@ -3,836 +3,627 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Electrocautery Milia / Skin Tag Removal — The Everyday Skin</title>
+<title>Everyday Milla Removal — The Everyday Skin</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ============================================================
-   EDITORIAL MAGAZINE — single treatment page
-   Inter font everywhere. Brand palette only.
-   Override header/footer font variables at root.
-   ============================================================ */
+/* ========== EDITORIAL PRODUCT PAGE — INTER ONLY ========== */
 
 :root {
-  /* Brand palette */
-  --tes-linen: #F6F5EF;
-  --tes-nude: #FFF6ED;
-  --tes-stone: #D6CCC2;
-  --tes-sage: #D6D6BF;
-  --tes-forest: #7E8961;
-  --tes-latte: #4F483F;
-  --tes-dark-green: #39451c;
+    /* Brand */
+    --tes-linen: #F6F5EF;
+    --tes-nude: #FFF6ED;
+    --tes-stone: #D6CCC2;
+    --tes-sage: #D6D6BF;
+    --tes-forest: #7E8961;
+    --tes-latte: #4F483F;
+    --tes-dark-green: #39451c;
 
-  /* OVERRIDE all font vars used by header + footer */
-  --tes-font-brand: 'Inter', sans-serif;
-  --tes-font-ui: 'Inter', sans-serif;
-  --tes-font-head: 'Inter', sans-serif;
-  --tes-font-body: 'Inter', sans-serif;
-  --tes-font-tech: 'Inter', sans-serif;
+    /* Override header/footer brand fonts to Inter only */
+    --tes-font-brand: 'Inter', sans-serif;
+    --tes-font-ui: 'Inter', sans-serif;
+    --tes-font-head: 'Inter', sans-serif;
+    --tes-font-body: 'Inter', sans-serif;
+    --tes-font-tech: 'Inter', sans-serif;
 }
 
 * { box-sizing: border-box; }
 
 html, body {
-  margin: 0;
-  padding: 0;
-  background: var(--tes-linen);
-  color: var(--tes-latte);
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
-
-/* Force Inter on header/footer text — extra safety */
-#tes-promo-bar,
-#tes-smart-header,
-#tes-smart-header *,
-#tes-footer,
-#tes-footer *,
-.tes-mob-link,
-.tes-mob-sub {
-  font-family: 'Inter', sans-serif !important;
-}
-
-/* Footer decorative typography re-styled */
-.tes-footer-decor {
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 200 !important;
-  letter-spacing: -0.04em !important;
+    margin: 0;
+    padding: 0;
+    background: var(--tes-linen);
+    color: var(--tes-latte);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 img { max-width: 100%; display: block; }
-a { color: inherit; }
 
-/* ============================================================
-   PAGE WRAPPER
-   ============================================================ */
-.ed-page {
-  background: var(--tes-linen);
-  color: var(--tes-latte);
-  width: 100%;
-  overflow-x: hidden;
+/* GLOBAL FONT OVERRIDE — kill Playfair / Bodoni / Anonymous Pro */
+body, body *,
+#tes-promo-bar, #tes-promo-bar *,
+#tes-smart-header, #tes-smart-header *,
+.tes-mobile-menu, .tes-mobile-menu *,
+#tes-footer, #tes-footer *,
+.tes-footer-decor, .tes-footer-label, .tes-footer-link,
+.tes-mob-link, .tes-mob-sub,
+.tes-newsletter-text, .tes-footer-bottom, .tes-credit {
+    font-family: 'Inter', sans-serif !important;
 }
 
-/* ============================================================
-   ISSUE BAR — magazine masthead strip
-   ============================================================ */
-.ed-issue {
-  border-bottom: 1px solid rgba(79, 72, 63, 0.15);
-  padding: 18px 5vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--tes-latte);
-  font-weight: 500;
-  background: var(--tes-linen);
-}
-.ed-issue span { opacity: 0.7; }
-.ed-issue .ed-issue-mid { font-weight: 600; opacity: 1; color: var(--tes-dark-green); }
-
-@media (max-width: 768px) {
-  .ed-issue { font-size: 9px; padding: 14px 5vw; gap: 10px; }
-  .ed-issue span { display: inline-block; }
+/* Make footer decorative type more refined in Inter */
+.tes-footer-decor {
+    font-weight: 200 !important;
+    letter-spacing: -0.02em !important;
 }
 
-/* ============================================================
-   HERO — asymmetric editorial spread
-   ============================================================ */
-.ed-hero {
-  padding: 60px 5vw 80px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 30px;
-  align-items: end;
-  position: relative;
+/* ========== EDITORIAL PRODUCT LAYOUT ========== */
+
+.ed-wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 64px 5vw 96px;
 }
 
-.ed-hero-meta {
-  grid-column: 1 / span 5;
-  position: relative;
-  z-index: 2;
+/* TOP: Gallery + Headline (2-col asymmetric) */
+.ed-top {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 72px;
+    align-items: start;
 }
+
+/* GALLERY */
+.ed-gallery { width: 100%; }
+
+.ed-main-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--tes-nude);
+    border-radius: 2px;
+}
+
+.ed-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.35s ease;
+}
+
+.ed-main-caption {
+    margin-top: 16px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--tes-forest);
+    font-weight: 500;
+}
+
+.ed-main-caption .ed-main-caption-num {
+    color: var(--tes-stone);
+    margin-right: 12px;
+}
+
+.ed-thumbs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.ed-thumb {
+    cursor: pointer;
+    background: none;
+    border: 0;
+    padding: 0;
+    text-align: center;
+    font-family: inherit;
+}
+
+.ed-thumb-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 1px solid var(--tes-stone);
+    transition: border-color 0.25s ease, transform 0.25s ease;
+    background: var(--tes-nude);
+    display: block;
+}
+
+.ed-thumb-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ed-thumb.is-active .ed-thumb-img {
+    border-color: var(--tes-forest);
+    border-width: 2px;
+}
+
+.ed-thumb:hover .ed-thumb-img {
+    border-color: var(--tes-forest);
+}
+
+.ed-thumb-label {
+    margin-top: 8px;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--tes-latte);
+    opacity: 0.7;
+    font-weight: 500;
+    display: block;
+}
+
+.ed-thumb.is-active .ed-thumb-label {
+    color: var(--tes-forest);
+    opacity: 1;
+    font-weight: 600;
+}
+
+/* HEADLINE COLUMN */
+.ed-head { padding-top: 8px; }
 
 .ed-eyebrow {
-  display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--tes-forest);
-  font-weight: 600;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--tes-forest);
-  margin-bottom: 30px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--tes-forest);
+    font-weight: 500;
+    margin-bottom: 28px;
+    display: block;
 }
 
 .ed-h1 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 200;
-  font-size: clamp(44px, 6.4vw, 92px);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-  color: var(--tes-dark-green);
-  margin: 0 0 32px 0;
-}
-.ed-h1 em {
-  font-style: italic;
-  font-weight: 200;
+    font-size: 4rem;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--tes-dark-green);
+    font-weight: 200;
+    margin: 0 0 32px;
 }
 
 .ed-tagline {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--tes-latte);
-  max-width: 460px;
-  margin: 0 0 36px 0;
-  font-weight: 400;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--tes-latte);
+    font-weight: 400;
+    max-width: 480px;
+    margin: 0 0 36px;
+    opacity: 0.88;
 }
 
-.ed-hero-cta-row {
-  display: flex;
-  gap: 26px;
-  align-items: center;
-  flex-wrap: wrap;
+.ed-meta {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    border-top: 1px solid var(--tes-stone);
+    border-bottom: 1px solid var(--tes-stone);
+    margin-bottom: 36px;
 }
 
-.ed-link {
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--tes-dark-green);
-  position: relative;
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--tes-dark-green);
-  transition: color 0.3s ease, border-color 0.3s ease, padding-bottom 0.3s ease;
-}
-.ed-link.ghost {
-  color: var(--tes-forest);
-  border-color: var(--tes-stone);
-}
-.ed-link:hover {
-  color: var(--tes-forest);
-  border-color: var(--tes-forest);
-  padding-bottom: 8px;
+.ed-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.ed-hero-img {
-  grid-column: 6 / span 7;
-  position: relative;
-  aspect-ratio: 5 / 6;
-  overflow: hidden;
-  background: var(--tes-stone);
-}
-.ed-hero-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: contrast(1.02) saturate(1.02);
+.ed-meta-label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--tes-forest);
+    font-weight: 500;
 }
 
-.ed-hero-caption {
-  position: absolute;
-  bottom: -34px;
-  left: 12px;
-  font-size: 10px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--tes-latte);
-  opacity: 0.6;
-  font-weight: 500;
+.ed-meta-value {
+    font-size: 0.92rem;
+    color: var(--tes-latte);
+    font-weight: 500;
 }
 
-@media (max-width: 900px) {
-  .ed-hero {
-    grid-template-columns: 1fr;
-    padding: 36px 5vw 60px;
-    gap: 36px;
-  }
-  .ed-hero-meta, .ed-hero-img { grid-column: 1 / -1; }
-  .ed-hero-img { aspect-ratio: 4 / 5; }
-  .ed-h1 { margin-bottom: 24px; }
-  .ed-tagline { font-size: 15px; }
+/* PRICING */
+.ed-section {
+    margin-top: 0;
 }
 
-/* ============================================================
-   OPENING — drop cap paragraph
-   ============================================================ */
-.ed-opening {
-  padding: 100px 5vw 80px;
-  background: var(--tes-linen);
-  border-top: 1px solid rgba(79, 72, 63, 0.12);
-}
-.ed-opening-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 30px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.ed-opening-label {
-  grid-column: 1 / span 3;
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--tes-forest);
-  font-weight: 600;
-  padding-top: 12px;
-}
-.ed-opening-body {
-  grid-column: 5 / span 7;
-}
-.ed-opening-body p {
-  font-size: clamp(20px, 1.6vw, 26px);
-  line-height: 1.5;
-  font-weight: 300;
-  letter-spacing: -0.005em;
-  color: var(--tes-latte);
-  margin: 0 0 28px 0;
-}
-.ed-opening-body p:first-of-type::first-letter {
-  font-family: 'Inter', sans-serif;
-  font-weight: 200;
-  font-size: 5em;
-  line-height: 0.85;
-  float: left;
-  padding: 8px 14px 0 0;
-  color: var(--tes-dark-green);
-}
-.ed-opening-prereq {
-  margin-top: 30px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(79, 72, 63, 0.18);
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--tes-latte);
-  opacity: 0.75;
-  font-weight: 500;
-}
-.ed-opening-prereq strong {
-  color: var(--tes-forest);
-  margin-right: 10px;
-}
-
-@media (max-width: 900px) {
-  .ed-opening { padding: 64px 5vw 50px; }
-  .ed-opening-grid { gap: 18px; }
-  .ed-opening-label, .ed-opening-body { grid-column: 1 / -1; }
-  .ed-opening-label { margin-bottom: 6px; }
-  .ed-opening-body p { font-size: 18px; }
-}
-
-/* ============================================================
-   PRICING — refined editorial price list
-   ============================================================ */
-.ed-pricing {
-  padding: 100px 5vw;
-  background: var(--tes-linen);
-  border-top: 1px solid rgba(79, 72, 63, 0.12);
-}
-.ed-pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 30px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
 .ed-section-head {
-  grid-column: 1 / span 4;
-  position: sticky;
-  top: 110px;
-  align-self: start;
+    margin-bottom: 28px;
 }
-.ed-section-num {
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--tes-forest);
-  font-weight: 600;
-  margin-bottom: 22px;
-  display: block;
+
+.ed-section-eyebrow {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--tes-forest);
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: block;
 }
+
 .ed-section-title {
-  font-family: 'Inter', sans-serif;
-  font-weight: 200;
-  font-size: clamp(32px, 3.6vw, 52px);
-  line-height: 1;
-  letter-spacing: -0.025em;
-  color: var(--tes-dark-green);
-  margin: 0 0 16px 0;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--tes-dark-green);
+    font-weight: 300;
+    margin: 0 0 6px;
 }
+
 .ed-section-sub {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--tes-forest);
-  font-weight: 500;
-  margin-bottom: 22px;
-}
-.ed-section-intro {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--tes-latte);
-  font-weight: 400;
-  max-width: 280px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--tes-latte);
+    opacity: 0.78;
+    margin: 0;
+    font-weight: 400;
 }
 
-.ed-price-list {
-  grid-column: 6 / span 7;
-  display: flex;
-  flex-direction: column;
-}
-.ed-price-row {
-  display: grid;
-  grid-template-columns: 36px 1fr auto;
-  align-items: baseline;
-  gap: 24px;
-  padding: 32px 0 28px;
-  border-top: 1px solid rgba(79, 72, 63, 0.18);
-}
-.ed-price-row:last-of-type { border-bottom: 1px solid rgba(79, 72, 63, 0.18); }
-.ed-price-num {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--tes-forest);
-  font-weight: 600;
-}
-.ed-price-mid {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.ed-price-label {
-  font-size: clamp(20px, 1.6vw, 26px);
-  font-weight: 400;
-  color: var(--tes-dark-green);
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-.ed-price-note {
-  font-size: 13px;
-  font-style: italic;
-  color: var(--tes-latte);
-  opacity: 0.75;
-  font-weight: 300;
-}
-.ed-price-amount {
-  font-size: clamp(28px, 2.4vw, 38px);
-  font-weight: 700;
-  color: var(--tes-dark-green);
-  letter-spacing: -0.02em;
-  line-height: 1;
-  font-feature-settings: "tnum";
-}
-.ed-price-amount sup {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--tes-forest);
-  margin-right: 3px;
-  vertical-align: 8px;
+.ed-tiers {
+    list-style: none;
+    margin: 28px 0 0;
+    padding: 0;
+    border-top: 1px solid var(--tes-stone);
 }
 
-.ed-price-cta {
-  margin-top: 40px;
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
+.ed-tier {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--tes-stone);
+    align-items: baseline;
+    cursor: pointer;
+    transition: padding-left 0.25s ease;
 }
 
-@media (max-width: 900px) {
-  .ed-pricing { padding: 64px 5vw; }
-  .ed-section-head, .ed-price-list { grid-column: 1 / -1; position: static; }
-  .ed-section-head { margin-bottom: 32px; }
-  .ed-section-intro { max-width: 100%; }
-  .ed-price-row {
-    grid-template-columns: 28px 1fr;
-    gap: 14px;
-    padding: 22px 0 20px;
-  }
-  .ed-price-amount {
-    grid-column: 2;
-    margin-top: 8px;
-  }
-  .ed-price-label { font-size: 17px; }
+.ed-tier:hover {
+    padding-left: 8px;
 }
 
-/* ============================================================
-   PROCESS — vertical timeline with connecting lines
-   ============================================================ */
-.ed-process {
-  padding: 100px 5vw;
-  background: var(--tes-nude);
-  border-top: 1px solid rgba(79, 72, 63, 0.12);
-}
-.ed-process-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 30px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.ed-process-head {
-  grid-column: 1 / span 4;
-  position: sticky;
-  top: 110px;
-  align-self: start;
+.ed-tier-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.ed-timeline {
-  grid-column: 6 / span 7;
-  position: relative;
-  padding-left: 0;
-}
-.ed-step {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 30px;
-  position: relative;
-  padding: 30px 0 50px;
-  border-bottom: 1px solid rgba(79, 72, 63, 0.15);
-}
-.ed-step:last-child { border-bottom: none; padding-bottom: 0; }
-.ed-step-num {
-  font-size: clamp(50px, 5vw, 76px);
-  font-weight: 800;
-  line-height: 0.85;
-  color: var(--tes-forest);
-  letter-spacing: -0.04em;
-  font-feature-settings: "tnum";
-}
-.ed-step-num small {
-  display: block;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--tes-latte);
-  opacity: 0.55;
-  margin-top: 12px;
-}
-.ed-step-body {
-  padding-top: 14px;
-}
-.ed-step-label {
-  font-size: 13px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--tes-dark-green);
-  margin-bottom: 12px;
-}
-.ed-step-desc {
-  font-size: clamp(17px, 1.4vw, 22px);
-  line-height: 1.55;
-  font-weight: 300;
-  color: var(--tes-latte);
-  margin: 0;
+.ed-tier-name {
+    font-size: 1.05rem;
+    color: var(--tes-dark-green);
+    font-weight: 500;
+    letter-spacing: -0.005em;
 }
 
-@media (max-width: 900px) {
-  .ed-process { padding: 64px 5vw; }
-  .ed-process-head, .ed-timeline { grid-column: 1 / -1; position: static; }
-  .ed-process-head { margin-bottom: 28px; }
-  .ed-step { grid-template-columns: 70px 1fr; gap: 18px; padding: 22px 0 30px; }
-  .ed-step-num { font-size: 46px; }
-  .ed-step-body { padding-top: 6px; }
-  .ed-step-desc { font-size: 16px; }
+.ed-tier-name .ed-tier-range {
+    color: var(--tes-forest);
+    font-weight: 400;
 }
 
-/* ============================================================
-   WHAT WE REMOVE — 2x2 magazine card grid
-   ============================================================ */
-.ed-remove {
-  padding: 100px 5vw;
-  background: var(--tes-linen);
-  border-top: 1px solid rgba(79, 72, 63, 0.12);
-}
-.ed-remove-head {
-  max-width: 1400px;
-  margin: 0 auto 70px auto;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 30px;
-  align-items: end;
-}
-.ed-remove-head-left {
-  grid-column: 1 / span 6;
-}
-.ed-remove-head-right {
-  grid-column: 8 / span 5;
-  font-size: 15px;
-  line-height: 1.6;
-  font-weight: 400;
-  color: var(--tes-latte);
-  padding-bottom: 6px;
+.ed-tier-note {
+    font-size: 0.78rem;
+    color: var(--tes-latte);
+    opacity: 0.7;
+    font-weight: 400;
+    letter-spacing: 0.02em;
 }
 
-.ed-remove-grid {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px 60px;
+.ed-tier-price {
+    font-size: 1.4rem;
+    color: var(--tes-dark-green);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
 }
 
-.ed-card {
-  display: flex;
-  flex-direction: column;
-}
-.ed-card-img-wrap {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  background: var(--tes-stone);
-  margin-bottom: 22px;
-}
-.ed-card-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-.ed-card:hover .ed-card-img-wrap img {
-  transform: scale(1.04);
-}
-.ed-card-divider {
-  width: 100%;
-  height: 1px;
-  background: var(--tes-latte);
-  opacity: 0.25;
-  margin-bottom: 14px;
-}
-.ed-card-eyebrow {
-  font-size: 10px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--tes-forest);
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.ed-card-label {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: clamp(24px, 2vw, 32px);
-  letter-spacing: -0.02em;
-  color: var(--tes-dark-green);
-  margin: 0 0 10px 0;
-  line-height: 1.1;
-}
-.ed-card-desc {
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--tes-latte);
-  font-weight: 400;
-  margin: 0;
-  font-style: italic;
-  opacity: 0.85;
+.ed-tier-price .ed-tier-price-currency {
+    font-size: 0.78rem;
+    color: var(--tes-forest);
+    font-weight: 500;
+    margin-right: 2px;
+    vertical-align: 2px;
 }
 
-@media (max-width: 900px) {
-  .ed-remove { padding: 64px 5vw; }
-  .ed-remove-head { margin-bottom: 40px; gap: 18px; }
-  .ed-remove-head-left, .ed-remove-head-right { grid-column: 1 / -1; }
-  .ed-remove-grid { grid-template-columns: 1fr; gap: 50px; }
+/* DESCRIPTION */
+.ed-desc {
+    margin-top: 56px;
 }
 
-/* ============================================================
-   BENEFITS / INCLUSIONS PULLOUT
-   ============================================================ */
-.ed-pull {
-  padding: 100px 5vw;
-  background: var(--tes-nude);
-  border-top: 1px solid rgba(79, 72, 63, 0.12);
-}
-.ed-pull-grid {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 30px;
-  align-items: start;
-}
-.ed-pull-quote {
-  grid-column: 1 / span 6;
-}
-.ed-pull-quote-mark {
-  font-size: 90px;
-  line-height: 0.6;
-  font-weight: 200;
-  color: var(--tes-forest);
-  letter-spacing: -0.05em;
-  display: block;
-  margin-bottom: 16px;
-}
-.ed-pull-text {
-  font-size: clamp(22px, 2.2vw, 32px);
-  line-height: 1.35;
-  font-weight: 200;
-  letter-spacing: -0.015em;
-  color: var(--tes-dark-green);
-  margin: 0;
-  max-width: 540px;
+.ed-desc-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--tes-latte);
+    font-weight: 400;
+    max-width: 720px;
+    margin: 0;
+    opacity: 0.88;
 }
 
-.ed-pull-list {
-  grid-column: 8 / span 5;
-}
-.ed-pull-list-head {
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--tes-forest);
-  font-weight: 600;
-  margin-bottom: 28px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--tes-forest);
-}
-.ed-incl {
-  display: flex;
-  gap: 18px;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(79, 72, 63, 0.18);
-}
-.ed-incl:last-child { border-bottom: none; }
-.ed-incl-num {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  font-weight: 600;
-  color: var(--tes-forest);
-  flex-shrink: 0;
-  padding-top: 3px;
-  width: 22px;
-}
-.ed-incl-text {
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--tes-latte);
-  font-weight: 400;
+/* ADD-ONS (placeholder/sample) */
+.ed-addons {
+    margin-top: 48px;
+    padding: 24px 28px;
+    background: var(--tes-nude);
+    border: 1px dashed var(--tes-stone);
+    border-radius: 2px;
 }
 
-@media (max-width: 900px) {
-  .ed-pull { padding: 64px 5vw; }
-  .ed-pull-grid { gap: 36px; }
-  .ed-pull-quote, .ed-pull-list { grid-column: 1 / -1; }
+.ed-addons-empty {
+    text-align: center;
+    color: var(--tes-latte);
+    opacity: 0.7;
+    font-size: 0.85rem;
+    font-style: italic;
+    margin: 0;
+    line-height: 1.6;
 }
 
-/* ============================================================
-   FAQ — minimal accordion with thin underlines
-   ============================================================ */
-.ed-faq {
-  padding: 100px 5vw;
-  background: var(--tes-linen);
-  border-top: 1px solid rgba(79, 72, 63, 0.12);
+.ed-addons-empty strong {
+    display: block;
+    color: var(--tes-forest);
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    margin-bottom: 8px;
 }
-.ed-faq-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 30px;
-  max-width: 1400px;
-  margin: 0 auto;
+
+/* FAQS */
+.ed-faqs {
+    margin-top: 64px;
 }
-.ed-faq-head {
-  grid-column: 1 / span 4;
-  position: sticky;
-  top: 110px;
-  align-self: start;
-}
+
 .ed-faq-list {
-  grid-column: 6 / span 7;
+    list-style: none;
+    margin: 28px 0 0;
+    padding: 0;
+    border-top: 1px solid var(--tes-stone);
 }
 
-.ed-q {
-  border-top: 1px solid rgba(79, 72, 63, 0.2);
-}
-.ed-q:last-child { border-bottom: 1px solid rgba(79, 72, 63, 0.2); }
-.ed-q-summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 28px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
-  font-size: clamp(17px, 1.5vw, 22px);
-  font-weight: 400;
-  color: var(--tes-dark-green);
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-  transition: color 0.3s ease;
-}
-.ed-q-summary::-webkit-details-marker { display: none; }
-.ed-q-summary:hover { color: var(--tes-forest); }
-.ed-q-icon {
-  flex-shrink: 0;
-  font-size: 22px;
-  font-weight: 200;
-  color: var(--tes-forest);
-  line-height: 1;
-  transition: transform 0.3s ease;
-  margin-top: 4px;
-}
-.ed-q[open] .ed-q-icon { transform: rotate(45deg); }
-.ed-q-answer {
-  padding: 0 60px 36px 0;
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--tes-latte);
-  font-weight: 400;
-  max-width: 720px;
-  animation: edFade 0.4s ease;
-}
-@keyframes edFade {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
+.ed-faq {
+    border-bottom: 1px solid var(--tes-stone);
 }
 
-@media (max-width: 900px) {
-  .ed-faq { padding: 64px 5vw; }
-  .ed-faq-head, .ed-faq-list { grid-column: 1 / -1; position: static; }
-  .ed-faq-head { margin-bottom: 24px; }
-  .ed-q-summary { font-size: 16px; padding: 22px 0; }
-  .ed-q-answer { font-size: 14px; padding-right: 30px; }
+.ed-faq-q {
+    width: 100%;
+    background: none;
+    border: 0;
+    padding: 22px 36px 22px 0;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--tes-dark-green);
+    letter-spacing: -0.005em;
+    position: relative;
+    transition: color 0.25s ease;
+    line-height: 1.4;
 }
 
-/* ============================================================
-   CLOSING CTA — magazine outro
-   ============================================================ */
-.ed-outro {
-  padding: 140px 5vw 160px;
-  background: var(--tes-dark-green);
-  color: var(--tes-linen);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.ed-outro-eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--tes-sage);
-  margin-bottom: 30px;
-}
-.ed-outro h2 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 200;
-  font-size: clamp(40px, 6vw, 88px);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-  color: var(--tes-linen);
-  margin: 0 auto 36px auto;
-  max-width: 900px;
-}
-.ed-outro-tag {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--tes-sage);
-  max-width: 540px;
-  margin: 0 auto 50px auto;
-  font-weight: 400;
-}
-.ed-outro-row {
-  display: flex;
-  gap: 36px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.ed-link.invert {
-  color: var(--tes-linen);
-  border-color: var(--tes-linen);
-}
-.ed-link.invert:hover {
-  color: var(--tes-sage);
-  border-color: var(--tes-sage);
+.ed-faq-q:hover { color: var(--tes-forest); }
+
+.ed-faq-q::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    font-weight: 200;
+    color: var(--tes-forest);
+    transition: transform 0.3s ease;
 }
 
-@media (max-width: 900px) {
-  .ed-outro { padding: 80px 5vw 90px; }
-  .ed-outro-tag { font-size: 14px; }
-  .ed-outro-row { gap: 22px; }
+.ed-faq.is-open .ed-faq-q::after {
+    transform: translateY(-50%) rotate(45deg);
 }
 
-/* ============================================================
-   GENERIC — selection
-   ============================================================ */
-::selection { background: var(--tes-sage); color: var(--tes-dark-green); }
+.ed-faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
 
+.ed-faq.is-open .ed-faq-a {
+    max-height: 500px;
+}
+
+.ed-faq-a-inner {
+    padding: 0 0 22px;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--tes-latte);
+    opacity: 0.85;
+    max-width: 680px;
+    font-weight: 400;
+}
+
+/* PREREQ */
+.ed-prereq {
+    margin-top: 36px;
+    padding: 18px 22px;
+    background: rgba(126, 137, 97, 0.08);
+    border-left: 2px solid var(--tes-forest);
+    border-radius: 0 2px 2px 0;
+}
+
+.ed-prereq-label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--tes-forest);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.ed-prereq-text {
+    font-size: 0.88rem;
+    color: var(--tes-latte);
+    line-height: 1.5;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* CTAs */
+.ed-cta {
+    margin-top: 40px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.ed-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 32px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.ed-btn-primary {
+    background: var(--tes-dark-green);
+    color: #fff;
+}
+
+.ed-btn-primary:hover {
+    background: var(--tes-forest);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(57, 69, 28, 0.18);
+}
+
+.ed-btn-secondary {
+    background: transparent;
+    color: var(--tes-dark-green);
+    border-color: var(--tes-dark-green);
+}
+
+.ed-btn-secondary:hover {
+    background: var(--tes-dark-green);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 880px) {
+    .ed-wrap { padding: 32px 5vw 56px; }
+
+    .ed-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .ed-h1 {
+        font-size: 2.4rem;
+        margin-bottom: 20px;
+    }
+
+    .ed-tagline {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+    }
+
+    .ed-eyebrow {
+        margin-bottom: 16px;
+    }
+
+    .ed-meta {
+        gap: 16px;
+        padding: 14px 0;
+        margin-bottom: 24px;
+    }
+
+    .ed-section-title { font-size: 1.3rem; }
+
+    .ed-thumbs {
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .ed-thumb-label {
+        font-size: 0.52rem;
+        letter-spacing: 0.1em;
+    }
+
+    .ed-tier {
+        padding: 16px 0;
+    }
+
+    .ed-tier-name {
+        font-size: 0.94rem;
+    }
+
+    .ed-tier-note {
+        font-size: 0.72rem;
+    }
+
+    .ed-tier-price {
+        font-size: 1.15rem;
+    }
+
+    .ed-desc { margin-top: 36px; }
+
+    .ed-desc-text {
+        font-size: 0.94rem;
+    }
+
+    .ed-addons {
+        margin-top: 32px;
+        padding: 20px;
+    }
+
+    .ed-faqs { margin-top: 44px; }
+
+    .ed-faq-q {
+        font-size: 0.92rem;
+        padding: 16px 32px 16px 0;
+    }
+
+    .ed-cta {
+        margin-top: 32px;
+        flex-direction: column;
+    }
+
+    .ed-btn {
+        width: 100%;
+        padding: 14px 24px;
+    }
+}
+
+@media (max-width: 380px) {
+    .ed-h1 { font-size: 2.05rem; }
+    .ed-thumbs { grid-template-columns: repeat(5, 1fr); gap: 5px; }
+    .ed-thumb-label { font-size: 0.46rem; letter-spacing: 0.08em; }
+    .ed-main-caption { font-size: 0.62rem; }
+}
 </style>
 </head>
 <body>
 
-<!-- ============================================================
-     HEADER (1:1 from header-global.html)
-     ============================================================ -->
+<!-- ============================================================ -->
+<!-- ============= HEADER (PASTED 1:1 FROM SOURCE) ============= -->
+<!-- ============================================================ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1332,283 +1123,166 @@ a { color: inherit; }
     });
 </script>
 
-<!-- Re-assert Inter override AFTER header inline styles have set Playfair vars -->
-<style>
-:root {
-  --tes-font-brand: 'Inter', sans-serif !important;
-  --tes-font-ui: 'Inter', sans-serif !important;
-  --tes-font-head: 'Inter', sans-serif !important;
-  --tes-font-body: 'Inter', sans-serif !important;
-  --tes-font-tech: 'Inter', sans-serif !important;
-}
-.tes-mob-link, .tes-mob-sub, #tes-promo-bar, .tes-nav-link, .tes-dropdown a, .tes-book-btn, .tes-mob-sub-group span {
-  font-family: 'Inter', sans-serif !important;
-}
-</style>
+<!-- ============================================================ -->
+<!-- ============= EDITORIAL PRODUCT PAGE BODY ============= -->
+<!-- ============================================================ -->
 
-<!-- ============================================================
-     EDITORIAL PAGE BODY
-     ============================================================ -->
-<main class="ed-page">
+<main class="ed-wrap">
 
-  <!-- HERO -->
-  <section class="ed-hero">
-    <div class="ed-hero-meta">
-      <span class="ed-eyebrow">Everyday Milla Removal</span>
-      <h1 class="ed-h1">Reclaim Your<br>Smooth Texture.</h1>
-      <p class="ed-tagline">Precise extraction of Milia seeds, oil clogs, and skin tags using advanced Electrocautery. Minimal downtime, maximum clarity. Safe, hygienic, and designed for sensitive skin.</p>
-      <div class="ed-hero-cta-row">
-        <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" target="_blank" class="ed-link">Book Now</a>
-        <a href="https://wa.me/6589549277" target="_blank" class="ed-link ghost">Enquire on WhatsApp</a>
-      </div>
-    </div>
-    <div class="ed-hero-img">
-      <img src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg" alt="Clear Skin Texture">
-      <span class="ed-hero-caption">Clear Skin Texture</span>
-    </div>
-  </section>
+    <!-- TOP: GALLERY + HEADLINE -->
+    <section class="ed-top">
 
-  <!-- OPENING — drop cap -->
-  <section class="ed-opening">
-    <div class="ed-opening-grid">
-      <div class="ed-opening-label">Overview</div>
-      <div class="ed-opening-body">
-        <p>Safe. Hygienic. Precise. We prioritize your comfort and safety. Every session includes numbing cream and sterile equipment. Treats Milia Seeds, Skin Tags, Oil Clogs, and Warts.</p>
-        <div class="ed-opening-prereq">
-          <strong>Aftercare —</strong> Avoid makeup on treated area for 24 hours; do not pick scabs.
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- GALLERY -->
+        <div class="ed-gallery">
+            <div class="ed-main-image">
+                <img id="edMainImg" src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg" alt="Clear Skin Texture">
+            </div>
+            <div class="ed-main-caption">
+                <span class="ed-main-caption-num" id="edMainNum">01 / 05</span>
+                <span id="edMainCap">Hero</span>
+            </div>
 
-  <!-- PRICING -->
-  <section class="ed-pricing">
-    <div class="ed-pricing-grid">
-      <div class="ed-section-head">
-        <span class="ed-section-num">01 — Pricing</span>
-        <h2 class="ed-section-title">Service Menu</h2>
-        <div class="ed-section-sub">Quantity-tiered Electrocautery Removal</div>
-        <p class="ed-section-intro">Select the tier based on the number of spots you need removed.</p>
-      </div>
-
-      <div class="ed-price-list">
-        <div class="ed-price-row">
-          <div class="ed-price-num">I</div>
-          <div class="ed-price-mid">
-            <div class="ed-price-label">Light Removal &middot; 1&ndash;15 spots</div>
-            <div class="ed-price-note">45 Mins. Milia / Skin Tags / Clogs</div>
-          </div>
-          <div class="ed-price-amount"><sup>$</sup>88</div>
+            <div class="ed-thumbs" id="edThumbs">
+                <button class="ed-thumb is-active" data-src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg" data-cap="Hero" data-num="01">
+                    <span class="ed-thumb-img"><img src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg" alt="Hero"></span>
+                    <span class="ed-thumb-label">Hero</span>
+                </button>
+                <button class="ed-thumb" data-src="https://static.wixstatic.com/media/3bb09c_c9f86bb313234a5d839440c43f8eba17~mv2.jpg/v1/fill/w_606,h_406,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Milia%20Seeds.jpg" data-cap="Milia Seeds" data-num="02">
+                    <span class="ed-thumb-img"><img src="https://static.wixstatic.com/media/3bb09c_c9f86bb313234a5d839440c43f8eba17~mv2.jpg/v1/fill/w_606,h_406,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Milia%20Seeds.jpg" alt="Milia Seeds"></span>
+                    <span class="ed-thumb-label">Milia</span>
+                </button>
+                <button class="ed-thumb" data-src="https://static.wixstatic.com/media/3bb09c_1dff421599df4fcbb8bbdd581e2f7ce1~mv2.jpeg/v1/crop/x_3,y_0,w_1915,h_1080/fill/w_606,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Skin%20Tags.jpeg" data-cap="Skin Tags" data-num="03">
+                    <span class="ed-thumb-img"><img src="https://static.wixstatic.com/media/3bb09c_1dff421599df4fcbb8bbdd581e2f7ce1~mv2.jpeg/v1/crop/x_3,y_0,w_1915,h_1080/fill/w_606,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Skin%20Tags.jpeg" alt="Skin Tags"></span>
+                    <span class="ed-thumb-label">Skin Tags</span>
+                </button>
+                <button class="ed-thumb" data-src="https://static.wixstatic.com/media/3bb09c_dfd4e3c05cea4443b5b18c47c2b4224e~mv2.png/v1/crop/x_0,y_349,w_4250,h_2398/fill/w_606,h_406,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3383_HEIC.png" data-cap="Oil Clogs" data-num="04">
+                    <span class="ed-thumb-img"><img src="https://static.wixstatic.com/media/3bb09c_dfd4e3c05cea4443b5b18c47c2b4224e~mv2.png/v1/crop/x_0,y_349,w_4250,h_2398/fill/w_606,h_406,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3383_HEIC.png" alt="Oil Clogs"></span>
+                    <span class="ed-thumb-label">Oil Clogs</span>
+                </button>
+                <button class="ed-thumb" data-src="https://static.wixstatic.com/media/3bb09c_26bb3c2a29fa4de484cd9440693f697a~mv2.jpg/v1/crop/x_38,y_72,w_374,h_211/fill/w_441,h_295,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Age%20Warts.jpg" data-cap="Warts" data-num="05">
+                    <span class="ed-thumb-img"><img src="https://static.wixstatic.com/media/3bb09c_26bb3c2a29fa4de484cd9440693f697a~mv2.jpg/v1/crop/x_38,y_72,w_374,h_211/fill/w_441,h_295,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Age%20Warts.jpg" alt="Warts"></span>
+                    <span class="ed-thumb-label">Warts</span>
+                </button>
+            </div>
         </div>
 
-        <div class="ed-price-row">
-          <div class="ed-price-num">II</div>
-          <div class="ed-price-mid">
-            <div class="ed-price-label">Medium Removal &middot; 16&ndash;30 spots</div>
-            <div class="ed-price-note">60 Mins</div>
-          </div>
-          <div class="ed-price-amount"><sup>$</sup>158</div>
+        <!-- HEAD -->
+        <div class="ed-head">
+            <span class="ed-eyebrow">Everyday Milla Removal</span>
+            <h1 class="ed-h1">Reclaim Your<br>Smooth Texture.</h1>
+            <p class="ed-tagline">Precise extraction of Milia seeds, oil clogs, and skin tags using advanced Electrocautery. Minimal downtime, maximum clarity. Safe, hygienic, and designed for sensitive skin.</p>
+
+            <div class="ed-meta">
+                <div class="ed-meta-item">
+                    <span class="ed-meta-label">From</span>
+                    <span class="ed-meta-value">SGD $88</span>
+                </div>
+                <div class="ed-meta-item">
+                    <span class="ed-meta-label">Duration</span>
+                    <span class="ed-meta-value">45 &ndash; 120 min</span>
+                </div>
+                <div class="ed-meta-item">
+                    <span class="ed-meta-label">Treats</span>
+                    <span class="ed-meta-value">Milia &middot; Tags &middot; Clogs &middot; Warts</span>
+                </div>
+            </div>
+
+            <!-- PRICING / SERVICE MENU -->
+            <section class="ed-section">
+                <div class="ed-section-head">
+                    <span class="ed-section-eyebrow">Service Menu</span>
+                    <h2 class="ed-section-title">Quantity-tiered Electrocautery Removal</h2>
+                    <p class="ed-section-sub">Select the tier based on the number of spots you need removed.</p>
+                </div>
+
+                <ul class="ed-tiers">
+                    <li class="ed-tier">
+                        <div class="ed-tier-label">
+                            <span class="ed-tier-name">Light Removal <span class="ed-tier-range">&middot; 1&ndash;15 spots</span></span>
+                            <span class="ed-tier-note">45 Mins &middot; Milia / Skin Tags / Clogs</span>
+                        </div>
+                        <div class="ed-tier-price"><span class="ed-tier-price-currency">SGD</span>88</div>
+                    </li>
+                    <li class="ed-tier">
+                        <div class="ed-tier-label">
+                            <span class="ed-tier-name">Medium Removal <span class="ed-tier-range">&middot; 16&ndash;30 spots</span></span>
+                            <span class="ed-tier-note">60 Mins</span>
+                        </div>
+                        <div class="ed-tier-price"><span class="ed-tier-price-currency">SGD</span>158</div>
+                    </li>
+                    <li class="ed-tier">
+                        <div class="ed-tier-label">
+                            <span class="ed-tier-name">Heavy Removal <span class="ed-tier-range">&middot; 31&ndash;60 spots</span></span>
+                            <span class="ed-tier-note">90 Mins</span>
+                        </div>
+                        <div class="ed-tier-price"><span class="ed-tier-price-currency">SGD</span>198</div>
+                    </li>
+                    <li class="ed-tier">
+                        <div class="ed-tier-label">
+                            <span class="ed-tier-name">Extra Heavy <span class="ed-tier-range">&middot; 60+ spots</span></span>
+                            <span class="ed-tier-note">120 Mins &middot; Full Face/Neck Clearance</span>
+                        </div>
+                        <div class="ed-tier-price"><span class="ed-tier-price-currency">SGD</span>298</div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <!-- DESCRIPTION -->
+    <section class="ed-desc">
+        <p class="ed-desc-text">Safe. Hygienic. Precise. We prioritize your comfort and safety. Every session includes numbing cream and sterile equipment. Treats Milia Seeds, Skin Tags, Oil Clogs, and Warts.</p>
+    </section>
+
+    <!-- ADD-ONS (conditional placeholder) -->
+    <section class="ed-addons">
+        <p class="ed-addons-empty">
+            <strong>Add-ons</strong>
+            No add-ons available for this treatment.<br>
+            <span style="font-size:0.78rem; opacity:0.85;">(This section is conditional &mdash; populated when a treatment has add-ons such as Heated Oil $18 or Hot Stone $24.)</span>
+        </p>
+    </section>
+
+    <!-- FAQS -->
+    <section class="ed-faqs">
+        <div class="ed-section-head">
+            <span class="ed-section-eyebrow">Frequently Asked</span>
+            <h2 class="ed-section-title">Questions, answered.</h2>
         </div>
 
-        <div class="ed-price-row">
-          <div class="ed-price-num">III</div>
-          <div class="ed-price-mid">
-            <div class="ed-price-label">Heavy Removal &middot; 31&ndash;60 spots</div>
-            <div class="ed-price-note">90 Mins</div>
-          </div>
-          <div class="ed-price-amount"><sup>$</sup>198</div>
+        <ul class="ed-faq-list">
+            <li class="ed-faq">
+                <button class="ed-faq-q" type="button">Is the procedure painful?</button>
+                <div class="ed-faq-a"><div class="ed-faq-a-inner">Most clients find it very tolerable. We apply a strong numbing cream beforehand, so you will likely only feel a slight "ant-bite" sensation or heat. It is much less painful than manual extraction.</div></div>
+            </li>
+            <li class="ed-faq">
+                <button class="ed-faq-q" type="button">Will it leave scars?</button>
+                <div class="ed-faq-a"><div class="ed-faq-a-inner">Scarring is extremely rare with our technique. You will have small scabs for a few days&mdash;this is normal! As long as you do not pick the scabs and let them fall off naturally, your skin will heal smoothly.</div></div>
+            </li>
+            <li class="ed-faq">
+                <button class="ed-faq-q" type="button">How long is the downtime?</button>
+                <div class="ed-faq-a"><div class="ed-faq-a-inner">You can return to work immediately. The treated spots will look like tiny brown dots (scabs) which fall off in 3 to 7 days. We recommend avoiding makeup on the area for 24 hours.</div></div>
+            </li>
+        </ul>
+
+        <!-- PREREQ -->
+        <div class="ed-prereq">
+            <span class="ed-prereq-label">Before you book</span>
+            <p class="ed-prereq-text">Avoid makeup on treated area for 24 hours; do not pick scabs</p>
         </div>
 
-        <div class="ed-price-row">
-          <div class="ed-price-num">IV</div>
-          <div class="ed-price-mid">
-            <div class="ed-price-label">Extra Heavy &middot; 60+ spots</div>
-            <div class="ed-price-note">120 Mins. Full Face/Neck Clearance</div>
-          </div>
-          <div class="ed-price-amount"><sup>$</sup>298</div>
+        <!-- CTA -->
+        <div class="ed-cta">
+            <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" target="_blank" class="ed-btn ed-btn-primary">Book Now</a>
+            <a href="https://wa.me/6589549277" target="_blank" class="ed-btn ed-btn-secondary">Enquire on WhatsApp</a>
         </div>
-
-        <div class="ed-price-cta">
-          <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" target="_blank" class="ed-link">Book Now</a>
-          <a href="https://wa.me/6589549277" target="_blank" class="ed-link ghost">Enquire on WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="ed-process">
-    <div class="ed-process-grid">
-      <div class="ed-process-head">
-        <span class="ed-section-num">02 — Process</span>
-        <h2 class="ed-section-title">The Process</h2>
-      </div>
-
-      <div class="ed-timeline">
-        <div class="ed-step">
-          <div class="ed-step-num">01<small>Step</small></div>
-          <div class="ed-step-body">
-            <div class="ed-step-label">Consultation</div>
-            <p class="ed-step-desc">We count your spots and advise on the best tier.</p>
-          </div>
-        </div>
-
-        <div class="ed-step">
-          <div class="ed-step-num">02<small>Step</small></div>
-          <div class="ed-step-body">
-            <div class="ed-step-label">Numbing</div>
-            <p class="ed-step-desc">Medical-grade numbing cream is applied for 15-20 mins.</p>
-          </div>
-        </div>
-
-        <div class="ed-step">
-          <div class="ed-step-num">03<small>Step</small></div>
-          <div class="ed-step-body">
-            <div class="ed-step-label">Removal</div>
-            <p class="ed-step-desc">We use a sterile probe to vaporize the bump instantly.</p>
-          </div>
-        </div>
-
-        <div class="ed-step">
-          <div class="ed-step-num">04<small>Step</small></div>
-          <div class="ed-step-body">
-            <div class="ed-step-label">Recovery</div>
-            <p class="ed-step-desc">Tiny scabs form and naturally fall off in 3-7 days.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT WE REMOVE -->
-  <section class="ed-remove">
-    <div class="ed-remove-head">
-      <div class="ed-remove-head-left">
-        <span class="ed-section-num">03 — What We Remove</span>
-        <h2 class="ed-section-title">What We Remove</h2>
-      </div>
-    </div>
-
-    <div class="ed-remove-grid">
-      <article class="ed-card">
-        <div class="ed-card-img-wrap">
-          <img src="https://static.wixstatic.com/media/3bb09c_c9f86bb313234a5d839440c43f8eba17~mv2.jpg/v1/fill/w_606,h_406,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Milia%20Seeds.jpg" alt="Milia Seeds">
-        </div>
-        <div class="ed-card-divider"></div>
-        <h3 class="ed-card-label">Milia Seeds</h3>
-        <p class="ed-card-desc">Hard, white keratin cysts often found around eyes/cheeks.</p>
-      </article>
-
-      <article class="ed-card">
-        <div class="ed-card-img-wrap">
-          <img src="https://static.wixstatic.com/media/3bb09c_1dff421599df4fcbb8bbdd581e2f7ce1~mv2.jpeg/v1/crop/x_3,y_0,w_1915,h_1080/fill/w_606,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Skin%20Tags.jpeg" alt="Skin Tags">
-        </div>
-        <div class="ed-card-divider"></div>
-        <h3 class="ed-card-label">Skin Tags</h3>
-        <p class="ed-card-desc">Soft, flesh-colored growths common on neck and underarms.</p>
-      </article>
-
-      <article class="ed-card">
-        <div class="ed-card-img-wrap">
-          <img src="https://static.wixstatic.com/media/3bb09c_dfd4e3c05cea4443b5b18c47c2b4224e~mv2.png/v1/crop/x_0,y_349,w_4250,h_2398/fill/w_606,h_406,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3383_HEIC.png" alt="Oil Clogs">
-        </div>
-        <div class="ed-card-divider"></div>
-        <h3 class="ed-card-label">Oil Clogs</h3>
-        <p class="ed-card-desc">Trapped sebum that creates bumps but lacks a "head".</p>
-      </article>
-
-      <article class="ed-card">
-        <div class="ed-card-img-wrap">
-          <img src="https://static.wixstatic.com/media/3bb09c_26bb3c2a29fa4de484cd9440693f697a~mv2.jpg/v1/crop/x_38,y_72,w_374,h_211/fill/w_441,h_295,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Age%20Warts.jpg" alt="Warts">
-        </div>
-        <div class="ed-card-divider"></div>
-        <h3 class="ed-card-label">Warts</h3>
-        <p class="ed-card-desc">Viral or age-related raised bumps on face or body.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- PULL QUOTE + INCLUSIONS -->
-  <section class="ed-pull">
-    <div class="ed-pull-grid">
-      <div class="ed-pull-quote">
-        <span class="ed-pull-quote-mark">&ldquo;</span>
-        <p class="ed-pull-text">Safe. Hygienic. Precise. We prioritize your comfort and safety. Every session includes numbing cream and sterile equipment. Treats Milia Seeds, Skin Tags, Oil Clogs, and Warts.</p>
-      </div>
-
-      <div class="ed-pull-list">
-        <div class="ed-pull-list-head">What's Included</div>
-        <div class="ed-incl">
-          <div class="ed-incl-num">I</div>
-          <div class="ed-incl-text">Consultation: We count your spots and advise on the best tier</div>
-        </div>
-        <div class="ed-incl">
-          <div class="ed-incl-num">II</div>
-          <div class="ed-incl-text">Numbing: Medical-grade numbing cream applied for 15-20 mins</div>
-        </div>
-        <div class="ed-incl">
-          <div class="ed-incl-num">III</div>
-          <div class="ed-incl-text">Removal: Sterile probe to vaporize the bump instantly</div>
-        </div>
-        <div class="ed-incl">
-          <div class="ed-incl-num">IV</div>
-          <div class="ed-incl-text">Recovery: Tiny scabs form and naturally fall off in 3-7 days</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="ed-faq">
-    <div class="ed-faq-grid">
-      <div class="ed-faq-head">
-        <span class="ed-section-num">04 — Questions</span>
-        <h2 class="ed-section-title">Questions</h2>
-      </div>
-
-      <div class="ed-faq-list">
-        <details class="ed-q">
-          <summary class="ed-q-summary">
-            Is the procedure painful?
-            <span class="ed-q-icon">+</span>
-          </summary>
-          <div class="ed-q-answer">Most clients find it very tolerable. We apply a strong numbing cream beforehand, so you will likely only feel a slight "ant-bite" sensation or heat. It is much less painful than manual extraction.</div>
-        </details>
-
-        <details class="ed-q">
-          <summary class="ed-q-summary">
-            Will it leave scars?
-            <span class="ed-q-icon">+</span>
-          </summary>
-          <div class="ed-q-answer">Scarring is extremely rare with our technique. You will have small scabs for a few days&mdash;this is normal! As long as you do not pick the scabs and let them fall off naturally, your skin will heal smoothly.</div>
-        </details>
-
-        <details class="ed-q">
-          <summary class="ed-q-summary">
-            How long is the downtime?
-            <span class="ed-q-icon">+</span>
-          </summary>
-          <div class="ed-q-answer">You can return to work immediately. The treated spots will look like tiny brown dots (scabs) which fall off in 3 to 7 days. We recommend avoiding makeup on the area for 24 hours.</div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- OUTRO -->
-  <section class="ed-outro">
-    <h2>Reclaim Your<br>Smooth Texture.</h2>
-    <p class="ed-outro-tag">Precise extraction of Milia seeds, oil clogs, and skin tags using advanced Electrocautery. Minimal downtime, maximum clarity. Safe, hygienic, and designed for sensitive skin.</p>
-    <div class="ed-outro-row">
-      <a href="https://www.fresha.com/book-now/the-everyday-skin-and-massage-ac7a9nxk/all-offer?share=true&pId=2710539" target="_blank" class="ed-link invert">Book Now</a>
-      <a href="https://wa.me/6589549277" target="_blank" class="ed-link invert">Enquire on WhatsApp</a>
-    </div>
-  </section>
+    </section>
 
 </main>
 
-<!-- ============================================================
-     FOOTER (1:1 from footer-global.html)
-     ============================================================ -->
+<!-- ============================================================ -->
+<!-- ============= FOOTER (PASTED 1:1 FROM SOURCE) ============= -->
+<!-- ============================================================ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -1989,18 +1663,45 @@ a { color: inherit; }
     });
 </script>
 
-<!-- Final Inter override AFTER footer styles -->
-<style>
-:root {
-  --tes-font-brand: 'Inter', sans-serif !important;
-  --tes-font-ui: 'Inter', sans-serif !important;
-  --tes-font-head: 'Inter', sans-serif !important;
-  --tes-font-body: 'Inter', sans-serif !important;
-  --tes-font-tech: 'Inter', sans-serif !important;
-}
-#tes-footer, #tes-footer * { font-family: 'Inter', sans-serif !important; }
-.tes-footer-decor { font-weight: 200 !important; letter-spacing: -0.04em !important; }
-</style>
+<!-- ============================================================ -->
+<!-- ============= EDITORIAL PAGE INTERACTIONS ============= -->
+<!-- ============================================================ -->
+<script>
+(function(){
+    // GALLERY: thumb click swaps main image
+    var thumbs = document.querySelectorAll('.ed-thumb');
+    var mainImg = document.getElementById('edMainImg');
+    var mainCap = document.getElementById('edMainCap');
+    var mainNum = document.getElementById('edMainNum');
+
+    thumbs.forEach(function(t){
+        t.addEventListener('click', function(){
+            thumbs.forEach(function(x){ x.classList.remove('is-active'); });
+            t.classList.add('is-active');
+            var src = t.getAttribute('data-src');
+            var cap = t.getAttribute('data-cap');
+            var num = t.getAttribute('data-num');
+            mainImg.style.opacity = '0';
+            setTimeout(function(){
+                mainImg.src = src;
+                mainImg.alt = cap;
+                mainCap.textContent = cap;
+                mainNum.textContent = num + ' / 05';
+                mainImg.style.opacity = '1';
+            }, 180);
+        });
+    });
+
+    // FAQ: accordion toggle
+    var faqs = document.querySelectorAll('.ed-faq');
+    faqs.forEach(function(f){
+        var btn = f.querySelector('.ed-faq-q');
+        btn.addEventListener('click', function(){
+            f.classList.toggle('is-open');
+        });
+    });
+})();
+</script>
 
 </body>
 </html>
