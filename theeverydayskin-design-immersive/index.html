@@ -334,6 +334,24 @@
             justify-content: space-between !important;
         }
     }
+
+    /* ============================================================
+       HEADER CORNER GAP FIX — fills the page-bg sliver exposed by
+       the header's bottom-corner inward curve (border-radius: 0 0 40px 40px).
+       The fill is a flat rectangle that sits BEHIND the green header at exactly
+       the header's vertical extent, so the curved corners reveal green (not page bg).
+       Does NOT cover the cream promo bar.
+       ============================================================ */
+    .tes-header-bg-fill {
+        position: sticky !important;
+        top: 0 !important;
+        height: var(--tes-header-height, 80px) !important;
+        margin-bottom: calc(-1 * var(--tes-header-height, 80px)) !important; /* zero footprint, sits where header sits */
+        background: var(--tes-dark-green, #39451c) !important;
+        z-index: 99998 !important;
+        pointer-events: none !important;
+        width: 100% !important;
+    }
 </style>
 
 <!-- ============================================================
@@ -571,7 +589,7 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 18px;
         max-width: 1300px;
-        margin: 0 auto;
+        margin: 16px auto 0;
     }
 
     .pp-tier {
@@ -583,16 +601,19 @@
         transition: all 0.3s ease;
         display: flex;
         flex-direction: column;
+        z-index: 1;
     }
 
     .pp-tier:hover {
         background: rgba(255, 255, 255, 0.10);
         transform: translateY(-3px);
+        z-index: 3;
     }
 
     .pp-tier.pp-tier-featured {
         background: rgba(214, 214, 191, 0.15);
         border: 1.5px solid var(--tes-sage);
+        z-index: 2;
     }
 
     .pp-tier-badge {
@@ -609,6 +630,7 @@
         text-transform: uppercase;
         border-radius: 20px;
         white-space: nowrap;
+        z-index: 4;
     }
 
     .pp-tier-name {
@@ -1012,7 +1034,7 @@
 
         .pp-tier-grid {
             grid-template-columns: 1fr;
-            gap: 14px;
+            gap: 28px; /* extra room so featured-tier badge does not overlap card above */
         }
 
         .pp-tier {
@@ -1141,6 +1163,7 @@
     @media (max-width: 992px) and (min-width: 769px) {
         .pp-tier-grid {
             grid-template-columns: repeat(2, 1fr);
+            row-gap: 28px; /* extra room so featured-tier badge does not overlap card above */
         }
     }
 
@@ -1402,6 +1425,7 @@
     For Available Promotions WhatsApp: <a href="https://wa.me/6589549277" target="_blank">+65 8954 9277</a>
 </div>
 
+<div class="tes-header-bg-fill" aria-hidden="true"></div>
 <header id="tes-smart-header">
     <div class="tes-header-container">
         <a href="/" class="tes-header-logo">
@@ -1479,7 +1503,7 @@
 
 <!-- 1. HERO -->
 <section class="pp-hero">
-    <img class="pp-hero-img" src="https://uploads.eu.naffy.io/66224dbd4f3603e11cbfcf03/Py33nHnapGH58jnSH0jkM.jpg" alt="Clear Skin Texture">
+    <img class="pp-hero-img" src="https://static.wixstatic.com/media/3bb09c_1dff421599df4fcbb8bbdd581e2f7ce1~mv2.jpeg/v1/crop/x_3,y_0,w_1915,h_1080/fill/w_606,h_406,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Eurolab%20Aesthetic%20Singapore%20Skin%20Tags.jpeg" alt="Clear Skin Texture" style="object-position: center;">
     <div class="pp-hero-overlay">
         <div class="pp-hero-text">
             <span class="pp-eyebrow">Everyday Milla Removal</span>
@@ -1492,7 +1516,6 @@
 <!-- 2. GALLERY -->
 <section class="pp-gallery-section">
     <span class="pp-section-label">What We Treat</span>
-    <h2 class="pp-gallery-heading">Four conditions, one precise technique.</h2>
     <div class="pp-gallery-grid">
         <div class="pp-gallery-item">
             <img src="https://static.wixstatic.com/media/3bb09c_c9f86bb313234a5d839440c43f8eba17~mv2.jpg/v1/fill/w_606,h_406,al_c,lg_1,q_80,enc_avif,quality_auto/Eurolab%20Aesthetic%20Milia%20Seeds.jpg" alt="Milia Seeds">
@@ -1625,7 +1648,6 @@
     <div class="pp-faq-inner">
         <div class="pp-faq-header">
             <span class="pp-section-label">Frequently Asked</span>
-            <h3>Common questions, answered.</h3>
         </div>
         <div class="pp-faq-item">
             <div class="pp-faq-question">
