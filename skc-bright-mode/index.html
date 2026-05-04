@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Wine Product - Bright Mode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Bright Mode Brand DNA */
+            --primary: #7c7c7c;
+            --accent: #7c7c7c;
+            --bg-start: #fdfdfd;
+            --bg-end: #f4f4f5;
+            --text: #1a1a1a;
+            --surface: #ffffff;
+            --border: #e2e2e5;
+            --muted-text: #6b6b70; 
+            --primary-hover: #5c5c5c;
+            --on-primary: #ffffff;
+            --focus-ring: #d1d1d6;
+            
+            /* UI Specs */
+            --radius: 24px;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Rating */
+            --star-color: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            color: var(--text);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        /* --- Global Elements --- */
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-bottom: 32px;
+            color: var(--text);
+            text-align: center;
+        }
+
+        /* --- Product Hero Section --- */
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        /* Image Gallery */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .main-image-wrapper {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+        }
+
+        .main-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            border-radius: calc(var(--radius) - 8px);
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnail-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .thumb-btn {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 8px;
+            cursor: pointer;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .thumb-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .thumb-btn.active {
+            border-color: var(--primary);
+        }
+
+        .thumb-btn:hover:not(.active) {
+            border-color: var(--focus-ring);
+        }
+
+        /* Product Details */
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .product-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .quick-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--muted-text);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .quick-rating:hover {
+            opacity: 0.8;
+        }
+
+        .stars {
+            color: var(--star-color);
+            letter-spacing: 2px;
+        }
+
+        .product-title {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--text);
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .product-description {
+            color: var(--muted-text);
+            font-size: 1.05rem;
+        }
+
+        /* Variables Selection */
+        .variables-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .variables-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted-text);
+        }
+
+        .variables-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .variable-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .variable-btn:hover {
+            border-color: var(--primary);
+            background: #fcfcfc;
+        }
+
+        .variable-btn.active {
+            background: var(--primary);
+            color: var(--on-primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(124, 124, 124, 0.15);
+        }
+
+        /* Add to Cart */
+        .add-to-cart-wrapper {
+            margin-top: 8px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            background: transparent;
+            border: none;
+            color: var(--text);
+            padding: 16px 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .quantity-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .quantity-input {
+            background: transparent;
+            border: none;
+            color: var(--text);
+            text-align: center;
+            width: 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            -moz-appearance: textfield;
+        }
+        
+        .quantity-input::-webkit-outer-spin-button,
+        .quantity-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .add-to-cart-btn {
+            flex-grow: 1; 
+            background: var(--primary);
+            color: var(--on-primary);
+            border: none;
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 16px;
+            transition: background 0.3s ease, transform 0.1s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--primary-hover);
+        }
+        
+        .add-to-cart-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            gap: 24px;
+            margin-top: 16px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--muted-text);
+            font-size: 0.9rem;
+        }
+
+        .badge svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        /* --- Polished Additional Info (Grid Layout) --- */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .spec-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--focus-ring);
+            box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.08), 0 15px 15px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .spec-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .spec-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .spec-desc {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* --- Polished FAQ Accordions --- */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .accordion-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .accordion-item:hover {
+            border-color: var(--focus-ring);
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.05);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+            background: var(--primary);
+            color: var(--on-primary);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accordion-inner {
+            padding: 0 24px 24px 24px;
+            color: var(--muted-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* --- Reviews Display --- */
+        .reviews-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 48px;
+            box-shadow: var(--shadow);
+        }
+
+        .reviews-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+        }
+
+        .reviews-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .rating-huge {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .rating-subtitle {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+        }
+
+        .rating-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .rating-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--muted-text);
+        }
+
+        .bar-bg {
+            flex-grow: 1;
+            height: 6px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .review-card {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .review-card:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--muted-text);
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .verified-badge {
+            font-size: 0.75rem;
+            color: #2e7d32;
+            background: rgba(76, 175, 80, 0.15);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .review-date {
+            font-size: 0.85rem;
+            color: var(--muted-text);
+        }
+
+        .review-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .review-text {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* --- Related Products --- */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .product-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.08), 0 15px 15px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-image {
+            width: 100%;
+            border-radius: calc(var(--radius) - 8px);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 0 12px 12px 12px;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--text);
+        }
+
+        .card-price {
+            font-family: var(--font-body);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* --- Mobile Optimization --- */
+        @media (max-width: 992px) {
+            .product-hero, .reviews-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .reviews-section {
+                padding: 32px 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 16px;
+                gap: 60px;
+            }
+
+            .product-title {
+                font-size: 2.2rem;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .add-to-cart-wrapper {
+                flex-direction: column;
+            }
+
+            .quantity-selector {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .quantity-input {
+                flex-grow: 1;
+            }
+            
+            .trust-badges {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Product Main Section -->
+        <main class="product-hero">
+            
+            <!-- Gallery Section -->
+            <div class="gallery-container">
+                <div class="main-image-wrapper">
+                    <img id="main-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/142df012003319.56255d06358b3.jpg" alt="Premium Wine Bottle - Main">
+                </div>
+                <div class="thumbnail-row">
+                    <button class="thumb-btn active" data-src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/142df012003319.56255d06358b3.jpg" aria-label="View Bottle">
+                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/142df012003319.56255d06358b3.jpg" alt="Thumbnail 1">
+                    </button>
+                    <button class="thumb-btn" data-src="https://upload.wikimedia.org/wikipedia/commons/a/af/Red_and_white_wine_in_glass.jpg" aria-label="View Glasses Pour">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Red_and_white_wine_in_glass.jpg" alt="Thumbnail 2">
+                    </button>
+                    <button class="thumb-btn" data-src="https://upload.wikimedia.org/wikipedia/commons/a/af/Red_and_white_wine_in_glass.jpg" aria-label="View Details">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Red_and_white_wine_in_glass.jpg" alt="Thumbnail 3">
+                    </button>
+                    <button class="thumb-btn" data-src="https://upload.wikimedia.org/wikipedia/commons/a/af/Red_and_white_wine_in_glass.jpg" aria-label="View Lifestyle">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Red_and_white_wine_in_glass.jpg" alt="Thumbnail 4">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Details Section -->
+            <div class="product-details">
+                <div class="product-meta">
+                    <a href="#reviews" class="quick-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.9 (128 Reviews)</span>
+                    </a>
+                    <h1 class="product-title">Château Éclipse Reserve</h1>
+                    <div class="product-price">$125.00</div>
+                </div>
+                
+                <p class="product-description">
+                    A masterclass in tension and elegance. This full-bodied red offers layered aromas of dark cherry, crushed blackberry, and subtle hints of smoked vanilla and graphite. The palate is rich yet intensely focused, structured by velvety tannins and a lingering, vibrant finish.
+                </p>
+
+                <!-- Variables -->
+                <div class="variables-group">
+                    <span class="variables-label">Select Vintage</span>
+                    <div class="variables-options" id="vintage-options">
+                        <button class="variable-btn active" data-value="2018">2018</button>
+                        <button class="variable-btn" data-value="2019">2019</button>
+                        <button class="variable-btn" data-value="2020">2020</button>
+                    </div>
+                </div>
+
+                <div class="variables-group">
+                    <span class="variables-label">Bottle Size</span>
+                    <div class="variables-options" id="size-options">
+                        <button class="variable-btn active" data-value="750ml">Standard (750ml)</button>
+                        <button class="variable-btn" data-value="1.5L">Magnum (1.5L)</button>
+                    </div>
+                </div>
+
+                <!-- Action Area -->
+                <div class="add-to-cart-wrapper">
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
+                        <input type="number" class="quantity-input" id="qty-input" value="1" min="1" aria-label="Quantity">
+                        <button class="quantity-btn" id="qty-plus" aria-label="Increase quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" id="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="trust-badges">
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                        Secure Checkout
+                    </div>
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15.5v-2H9v-2h2v-2H9V9h2V7h2v2h2v2h-2v2h2v2h-2v2h-2z"/></svg>
+                        Estate Grown
+                    </div>
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                        Free Shipping (6+ Btls)
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Polished Specs Grid -->
+        <section>
+            <h2 class="section-title">Wine Profile</h2>
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <span class="spec-icon">🍷</span>
+                    <h3 class="spec-title">Tasting Notes</h3>
+                    <p class="spec-desc">An intoxicating bouquet of blackcurrant, dark plum, and violets, underpinned by cedar and crushed rock. The palate delivers a cascade of dark fruit, fine-grained tannins, and a complex finish.</p>
+                </div>
+                <div class="spec-card">
+                    <span class="spec-icon">⛰️</span>
+                    <h3 class="spec-title">Terroir & Soil</h3>
+                    <p class="spec-desc">Sourced from our high-elevation estate blocks. The rocky, volcanic soils provide exceptional drainage, forcing vines to dig deep. This results in remarkably concentrated grapes with distinct mineral character.</p>
+                </div>
+                <div class="spec-card">
+                    <span class="spec-icon">🥩</span>
+                    <h3 class="spec-title">Food Pairing</h3>
+                    <p class="spec-desc">An ideal companion for rich, savory dishes. Pair this robust red with a dry-aged ribeye steak, braised short ribs, wild mushroom risotto, or aged hard cheeses like Parmigiano-Reggiano.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Polished FAQ -->
+        <section>
+            <h2 class="section-title">Common Questions</h2>
+            <div class="faq-container">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        How should I store this wine?
+                        <span class="accordion-icon">↓</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            For optimal aging, store your bottles horizontally in a cool, dark place with a consistent temperature between 55°F and 59°F (12°C - 15°C) and moderate humidity. Avoid direct sunlight and vibrations.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Does this wine need to be decanted?
+                        <span class="accordion-icon">↓</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            Yes, we highly recommend decanting this vintage for at least 60 to 90 minutes before serving. This allows the wine to breathe, softening the tannins and fully releasing its complex aromatic profile.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        What is the aging potential?
+                        <span class="accordion-icon">↓</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            This reserve is built to last. While it is beautifully expressive now with proper decanting, it will continue to evolve and develop greater complexity in the cellar over the next 15 to 20 years.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Realistic Review Section -->
+        <section id="reviews" class="reviews-section">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 40px;">Customer Reviews</h2>
+            <div class="reviews-layout">
+                
+                <!-- Left Summary -->
+                <div class="reviews-summary">
+                    <div>
+                        <div class="rating-huge">4.9</div>
+                        <div class="stars" style="font-size: 1.2rem; margin: 8px 0;">★★★★★</div>
+                        <div class="rating-subtitle">Based on 128 verified reviews</div>
+                    </div>
+                    
+                    <div class="rating-bars">
+                        <div class="rating-bar-row">
+                            <span>5 Star</span>
+                            <div class="bar-bg"><div class="bar-fill" style="width: 90%;"></div></div>
+                            <span>90%</span>
+                        </div>
+                        <div class="rating-bar-row">
+                            <span>4 Star</span>
+                            <div class="bar-bg"><div class="bar-fill" style="width: 8%;"></div></div>
+                            <span>8%</span>
+                        </div>
+                        <div class="rating-bar-row">
+                            <span>3 Star</span>
+                            <div class="bar-bg"><div class="bar-fill" style="width: 2%;"></div></div>
+                            <span>2%</span>
+                        </div>
+                        <div class="rating-bar-row">
+                            <span>2 Star</span>
+                            <div class="bar-bg"><div class="bar-fill" style="width: 0%;"></div></div>
+                            <span>0%</span>
+                        </div>
+                        <div class="rating-bar-row">
+                            <span>1 Star</span>
+                            <div class="bar-bg"><div class="bar-fill" style="width: 0%;"></div></div>
+                            <span>0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Reviews List -->
+                <div class="reviews-list">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">JD</div>
+                                <div>
+                                    <div class="reviewer-name">James D. <span class="verified-badge">Verified Buyer</span></div>
+                                    <div class="stars" style="font-size: 0.9rem;">★★★★★</div>
+                                </div>
+                            </div>
+                            <div class="review-date">Oct 12, 2025</div>
+                        </div>
+                        <div class="review-title">Absolutely Phenomenal</div>
+                        <div class="review-text">I bought a case of the 2018 vintage to lay down, but I had to open one just to test it out. Even in its youth, the structure is incredible. Decanted for 2 hours, and it opened up beautifully alongside a prime rib. Will be buying more.</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">SL</div>
+                                <div>
+                                    <div class="reviewer-name">Sarah L. <span class="verified-badge">Verified Buyer</span></div>
+                                    <div class="stars" style="font-size: 0.9rem;">★★★★★</div>
+                                </div>
+                            </div>
+                            <div class="review-date">Sep 28, 2025</div>
+                        </div>
+                        <div class="review-title">A new favorite for special occasions</div>
+                        <div class="review-text">The depth of flavor here is unmatched at this price point. You get dark fruit, a bit of leather, and a very smooth, lingering finish. The presentation and shipping were also flawless. Highly recommend.</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">MR</div>
+                                <div>
+                                    <div class="reviewer-name">Michael R. <span class="verified-badge">Verified Buyer</span></div>
+                                    <div class="stars" style="font-size: 0.9rem;">★★★★☆</div>
+                                </div>
+                            </div>
+                            <div class="review-date">Aug 14, 2025</div>
+                        </div>
+                        <div class="review-title">Great, but needs time</div>
+                        <div class="review-text">Excellent wine, very bold and tannic right out of the bottle. Do not skip the decanting step! After 90 minutes it was fantastic, but straight out of the bottle it was a bit tight. Great potential for aging.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section>
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="related-grid">
+                <a href="#" class="product-card">
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/142df012003319.56255d06358b3.jpg" alt="Related Wine 1" class="card-image">
+                    <div class="card-info">
+                        <h3 class="card-title">Midnight Syrah</h3>
+                        <div class="card-price">$85.00</div>
+                    </div>
+                </a>
+                <a href="#" class="product-card">
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/142df012003319.56255d06358b3.jpg" alt="Related Wine 2" class="card-image">
+                    <div class="card-info">
+                        <h3 class="card-title">Estate Cabernet</h3>
+                        <div class="card-price">$110.00</div>
+                    </div>
+                </a>
+                <a href="#" class="product-card">
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/142df012003319.56255d06358b3.jpg" alt="Related Wine 3" class="card-image">
+                    <div class="card-info">
+                        <h3 class="card-title">Valley Pinot Noir</h3>
+                        <div class="card-price">$95.00</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Gallery Logic
+            const mainImage = document.getElementById('main-image');
+            const thumbBtns = document.querySelectorAll('.thumb-btn');
+
+            thumbBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active state
+                    thumbBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Swap image with fade effect
+                    mainImage.style.opacity = 0;
+                    setTimeout(() => {
+                        mainImage.src = this.getAttribute('data-src');
+                        mainImage.style.opacity = 1;
+                    }, 150);
+                });
+            });
+
+            // Variable Selection Logic
+            const setupVariables = (containerId) => {
+                const container = document.getElementById(containerId);
+                const buttons = container.querySelectorAll('.variable-btn');
+                
+                buttons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        buttons.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                    });
+                });
+            };
+
+            setupVariables('vintage-options');
+            setupVariables('size-options');
+
+            // Quantity Logic
+            const qtyInput = document.getElementById('qty-input');
+            const btnMinus = document.getElementById('qty-minus');
+            const btnPlus = document.getElementById('qty-plus');
+
+            btnMinus.addEventListener('click', () => {
+                let currentVal = parseInt(qtyInput.value);
+                if (currentVal > 1) {
+                    qtyInput.value = currentVal - 1;
+                }
+            });
+
+            btnPlus.addEventListener('click', () => {
+                let currentVal = parseInt(qtyInput.value);
+                qtyInput.value = currentVal + 1;
+            });
+
+            qtyInput.addEventListener('change', () => {
+                if (parseInt(qtyInput.value) < 1 || isNaN(qtyInput.value)) {
+                    qtyInput.value = 1;
+                }
+            });
+
+            // FAQ Accordion Logic
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    const content = item.querySelector('.accordion-content');
+                    
+                    // Close all other accordions
+                    document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle current item
+                    if (item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        content.style.maxHeight = null;
+                    } else {
+                        item.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+
+            // Add to Cart Simulation
+            const addToCartBtn = document.getElementById('add-to-cart');
+            addToCartBtn.addEventListener('click', () => {
+                const originalText = addToCartBtn.innerText;
+                addToCartBtn.innerText = 'Added to Cart!';
+                addToCartBtn.style.background = '#4CAF50';
+                addToCartBtn.style.color = '#ffffff';
+                addToCartBtn.style.borderColor = '#4CAF50';
+                
+                setTimeout(() => {
+                    addToCartBtn.innerText = originalText;
+                    addToCartBtn.style.background = 'var(--primary)';
+                    addToCartBtn.style.borderColor = 'transparent';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
