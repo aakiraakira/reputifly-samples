@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Wine Product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7c7c7c;
+            --accent: #7c7c7c;
+            --bg-start: #0b0a14;
+            --bg-end: #0b0712;
+            --text: #ffffff;
+            --surface: #171620;
+            --border: #23232c;
+            --muted-text: rgba(255, 255, 255, 0.7); /* Using pure white with opacity for muted effect */
+            --primary-hover: #a1a1a1;
+            --on-primary: #ffffff;
+            --focus-ring: #444348;
+            --radius: 24px;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            color: var(--text);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        /* --- Product Hero Section --- */
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .product-image-container {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .product-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: calc(var(--radius) - 8px);
+            object-fit: cover;
+            aspect-ratio: 4/5;
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .product-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .product-description {
+            color: var(--muted-text);
+            font-size: 1rem;
+        }
+
+        /* Variables Selection */
+        .variables-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .variables-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+        }
+
+        .variables-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .variable-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .variable-btn:hover {
+            border-color: var(--primary);
+        }
+
+        .variable-btn.active {
+            background: var(--primary);
+            color: var(--on-primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--focus-ring);
+        }
+
+        /* Add to Cart */
+        .add-to-cart-wrapper {
+            margin-top: 16px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            background: transparent;
+            border: none;
+            color: var(--text);
+            padding: 16px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .quantity-btn:hover {
+            background: var(--border);
+        }
+
+        .quantity-input {
+            background: transparent;
+            border: none;
+            color: var(--text);
+            text-align: center;
+            width: 50px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            -moz-appearance: textfield;
+        }
+        
+        .quantity-input::-webkit-outer-spin-button,
+        .quantity-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .add-to-cart-btn {
+            flex-grow: 1; /* Justified / Full width filler */
+            background: var(--primary);
+            color: var(--on-primary);
+            border: none;
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 16px;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        /* --- Accordions (Additional Info & FAQ) --- */
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .accordion {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-inner {
+            padding: 0 24px 24px 24px;
+            color: var(--muted-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* --- Related Products --- */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card-image {
+            width: 100%;
+            border-radius: calc(var(--radius) - 8px);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 0 8px 8px 8px;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        .card-price {
+            font-family: var(--font-body);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* --- Mobile Optimization --- */
+        @media (max-width: 768px) {
+            .product-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .product-title {
+                font-size: 2rem;
+            }
+
+            .add-to-cart-wrapper {
+                flex-direction: column;
+            }
+
+            .quantity-selector {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .quantity-input {
+                flex-grow: 1;
+            }
+            
+            .container {
+                padding: 20px 16px;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Product Main Section -->
+        <main class="product-hero">
+            <div class="product-image-container">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/142df012003319.56255d06358b3.jpg" alt="Premium Wine Bottle">
+            </div>
+
+            <div class="product-details">
+                <h1 class="product-title">Château Éclipse Reserve</h1>
+                <div class="product-price">$125.00</div>
+                <p class="product-description">
+                    A masterclass in tension and elegance. This full-bodied red offers layered aromas of dark cherry, crushed blackberry, and subtle hints of smoked vanilla and graphite. The palate is rich yet intensely focused, structured by velvety tannins and a lingering, vibrant finish.
+                </p>
+
+                <!-- Wine Specific Variables -->
+                <div class="variables-group">
+                    <span class="variables-label">Vintage</span>
+                    <div class="variables-options" id="vintage-options">
+                        <button class="variable-btn active" data-value="2018">2018</button>
+                        <button class="variable-btn" data-value="2019">2019</button>
+                        <button class="variable-btn" data-value="2020">2020</button>
+                    </div>
+                </div>
+
+                <div class="variables-group">
+                    <span class="variables-label">Bottle Size</span>
+                    <div class="variables-options" id="size-options">
+                        <button class="variable-btn active" data-value="750ml">Standard (750ml)</button>
+                        <button class="variable-btn" data-value="1.5L">Magnum (1.5L)</button>
+                    </div>
+                </div>
+
+                <!-- Add to Cart -->
+                <div class="add-to-cart-wrapper">
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
+                        <input type="number" class="quantity-input" id="qty-input" value="1" min="1" aria-label="Quantity">
+                        <button class="quantity-btn" id="qty-plus" aria-label="Increase quantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" id="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Additional Info Accordion -->
+        <section>
+            <h2 class="section-title">Wine Profile</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Tasting Notes
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            On the nose, expect an intoxicating bouquet of blackcurrant, dark plum, and violets, underpinned by subtle notes of cedar and crushed rock. The palate delivers a cascade of dark fruit flavors, seamlessly integrated with fine-grained tannins and a bright core of acidity, leading to a complex, savory finish.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Vineyard & Terroir
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            Sourced exclusively from our high-elevation estate blocks. The rocky, volcanic soils provide exceptional drainage, forcing the vines to dig deep for nutrients. This struggle results in remarkably concentrated grapes with a distinct mineral character that defines our signature style.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Food Pairing
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            An ideal companion for rich, savory dishes. Pair this robust red with a dry-aged ribeye steak, braised short ribs, wild mushroom risotto, or aged hard cheeses like Parmigiano-Reggiano and sharp Cheddar.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        How should I store this wine?
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            For optimal aging, store your bottles horizontally in a cool, dark place with a consistent temperature between 55°F and 59°F (12°C - 15°C) and moderate humidity. Avoid direct sunlight and vibrations.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Does this wine need to be decanted?
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            Yes, we highly recommend decanting this vintage for at least 60 to 90 minutes before serving. This allows the wine to breathe, softening the tannins and fully releasing its complex aromatic profile.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        What is the aging potential?
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            This reserve is built to last. While it is beautifully expressive now with proper decanting, it will continue to evolve and develop greater complexity in the cellar over the next 15 to 20 years.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Do you ship internationally?
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            Currently, we ship to select countries. Please enter your address at checkout to see if delivery is available in your region. Note that international shipments may be subject to local customs duties and taxes.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section>
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="related-grid">
+                <a href="#" class="product-card">
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/142df012003319.56255d06358b3.jpg" alt="Related Wine 1" class="card-image">
+                    <div class="card-info">
+                        <h3 class="card-title">Midnight Syrah</h3>
+                        <div class="card-price">$85.00</div>
+                    </div>
+                </a>
+                <a href="#" class="product-card">
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/142df012003319.56255d06358b3.jpg" alt="Related Wine 2" class="card-image">
+                    <div class="card-info">
+                        <h3 class="card-title">Estate Cabernet</h3>
+                        <div class="card-price">$110.00</div>
+                    </div>
+                </a>
+                <a href="#" class="product-card">
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/142df012003319.56255d06358b3.jpg" alt="Related Wine 3" class="card-image">
+                    <div class="card-info">
+                        <h3 class="card-title">Valley Pinot Noir</h3>
+                        <div class="card-price">$95.00</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Variable Selection Logic
+            const setupVariables = (containerId) => {
+                const container = document.getElementById(containerId);
+                const buttons = container.querySelectorAll('.variable-btn');
+                
+                buttons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        // Remove active class from all
+                        buttons.forEach(b => b.classList.remove('active'));
+                        // Add active class to clicked
+                        btn.classList.add('active');
+                    });
+                });
+            };
+
+            setupVariables('vintage-options');
+            setupVariables('size-options');
+
+            // Quantity Logic
+            const qtyInput = document.getElementById('qty-input');
+            const btnMinus = document.getElementById('qty-minus');
+            const btnPlus = document.getElementById('qty-plus');
+
+            btnMinus.addEventListener('click', () => {
+                let currentVal = parseInt(qtyInput.value);
+                if (currentVal > 1) {
+                    qtyInput.value = currentVal - 1;
+                }
+            });
+
+            btnPlus.addEventListener('click', () => {
+                let currentVal = parseInt(qtyInput.value);
+                qtyInput.value = currentVal + 1;
+            });
+
+            qtyInput.addEventListener('change', () => {
+                if (parseInt(qtyInput.value) < 1 || isNaN(qtyInput.value)) {
+                    qtyInput.value = 1;
+                }
+            });
+
+            // Accordion Logic
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    const content = item.querySelector('.accordion-content');
+                    const icon = this.querySelector('.accordion-icon');
+                    
+                    // Toggle current item
+                    if (item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        content.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        item.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.style.transform = 'rotate(45deg)';
+                    }
+                });
+            });
+
+            // Add to Cart Simulation
+            const addToCartBtn = document.getElementById('add-to-cart');
+            addToCartBtn.addEventListener('click', () => {
+                const qty = qtyInput.value;
+                const vintage = document.querySelector('#vintage-options .active').dataset.value;
+                const size = document.querySelector('#size-options .active').dataset.value;
+                
+                // Visual feedback
+                const originalText = addToCartBtn.innerText;
+                addToCartBtn.innerText = 'Added to Cart!';
+                addToCartBtn.style.background = '#4CAF50';
+                addToCartBtn.style.color = '#ffffff';
+                
+                setTimeout(() => {
+                    addToCartBtn.innerText = originalText;
+                    addToCartBtn.style.background = 'var(--primary)';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
