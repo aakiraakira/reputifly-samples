@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Service Pages - The Everyday Skin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+    --tes-linen:#F6F5EF; --tes-nude:#FFF6ED; --tes-stone:#D6CCC2; --tes-sage:#D6D6BF;
+    --tes-forest:#7E8961; --tes-latte:#4F483F; --tes-dark-green:#39451c;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;font-family:'Inter',sans-serif;background:var(--tes-linen);color:var(--tes-latte);-webkit-font-smoothing:antialiased;}
+.ldg-hero{padding:80px 8vw 60px;background:var(--tes-dark-green);color:#fff;text-align:center;}
+.ldg-hero .ldg-eyebrow{font-size:0.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--tes-sage);margin-bottom:14px;display:block;}
+.ldg-hero h1{font-size:clamp(34px,5vw,58px);font-weight:800;line-height:1.05;margin:0 0 18px;letter-spacing:-0.02em;color:#fff;}
+.ldg-hero p{font-size:clamp(15px,1.3vw,18px);line-height:1.55;max-width:720px;margin:0 auto;opacity:0.9;}
+.ldg-grid{max-width:1280px;margin:-40px auto 0;padding:0 32px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:2;}
+.ldg-card{background:#fff;border:1px solid var(--tes-stone);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--tes-latte);display:flex;flex-direction:column;transition:transform 0.3s ease,box-shadow 0.3s ease;}
+.ldg-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(57,69,28,0.15);}
+.ldg-card-img{width:100%;aspect-ratio:4/3;background-size:cover;background-position:center;}
+.ldg-card-body{padding:24px;flex:1;display:flex;flex-direction:column;}
+.ldg-card-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--tes-forest);font-weight:600;margin-bottom:10px;}
+.ldg-card h3{font-size:22px;font-weight:600;color:var(--tes-dark-green);margin:0 0 10px;letter-spacing:-0.5px;}
+.ldg-card p{font-size:14px;line-height:1.55;margin:0 0 18px;flex:1;}
+.ldg-card-cta{color:var(--tes-forest);font-weight:600;font-size:14px;}
+.ldg-note{max-width:1280px;margin:0 auto 60px;padding:0 32px;font-size:13px;color:var(--tes-latte);opacity:0.7;text-align:center;}
+@media(max-width:900px){
+    .ldg-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<section class="ldg-hero">
+    <span class="ldg-eyebrow">For The Everyday Skin - sample preview</span>
+    <h1>3 Service Page Samples</h1>
+    <p>Same template, three different pricing structures. Click any card to see how the page would look for your real treatments. Built on top of the v5-signature-flow layout.</p>
+</section>
+<div class="ldg-grid">
+
+            <a class="ldg-card" href="bespoke-90mins-facial.html">
+                <div class="ldg-card-img" style="background-image:url(https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-56.webp);"></div>
+                <div class="ldg-card-body">
+                    <span class="ldg-card-tag">single price</span>
+                    <h3>90 Minutes of Skin.</h3>
+                    <p>Our signature 90-minute facial, fully tailored to your skin's current condition. Targeted serums, extended massage and a customised mask - paced for results, not rush.</p>
+                    <span class="ldg-card-cta">View sample &rarr;</span>
+                </div>
+            </a>
+        
+            <a class="ldg-card" href="signature-thai-massage.html">
+                <div class="ldg-card-img" style="background-image:url(https://theeverydayskin.com.sg/wp-content/uploads/2026/01/theeverydayskin-243.jpg);"></div>
+                <div class="ldg-card-body">
+                    <span class="ldg-card-tag">duration tiered (4 tiers)</span>
+                    <h3>Choose Your Length.</h3>
+                    <p>A traditional Thai full-body massage with locally sourced aroma oils, herbal balms and warm compress balls. Light to firm pressure, paced to your body.</p>
+                    <span class="ldg-card-cta">View sample &rarr;</span>
+                </div>
+            </a>
+        
+            <a class="ldg-card" href="small-areas-hair-removal.html">
+                <div class="ldg-card-img" style="background-image:url(https://theeverydayskin.com.sg/wp-content/uploads/2026/01/9.jpg);"></div>
+                <div class="ldg-card-body">
+                    <span class="ldg-card-tag">package tiered (a-la-carte / 6+1 / 10+2)</span>
+                    <h3>Pick a Package.</h3>
+                    <p>Targeted small-area hair reduction - upper lips, chin, brows, fingers and toes. Buy by session, or commit to a package and bank free sessions.</p>
+                    <span class="ldg-card-cta">View sample &rarr;</span>
+                </div>
+            </a>
+        
+</div>
+<p class="ldg-note">Internal sample build for client preview. Live site is unaffected.</p>
+</body>
+</html>
