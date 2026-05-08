@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Oriental System Interior Pte Ltd</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body { margin: 0; padding: 0; background: #0a1f14; }
+#oriental-optimized-landing {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a1f14;
+            color: #f0ebe3;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #oriental-optimized-landing img { max-width: 100%; display: block; }
+        #oriental-optimized-landing a { text-decoration: none; color: inherit; }
+        #oriental-optimized-landing ul { list-style: none; }
+
+        /* ─── HEADER ─── */
+        #oriental-optimized-landing .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 31, 20, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+            transition: background 0.3s;
+        }
+        #oriental-optimized-landing .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        #oriental-optimized-landing .header-logo img {
+            height: 44px;
+            width: auto;
+        }
+        #oriental-optimized-landing .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        #oriental-optimized-landing .header-nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(240, 235, 227, 0.7);
+            transition: color 0.3s;
+            position: relative;
+        }
+        #oriental-optimized-landing .header-nav a:hover,
+        #oriental-optimized-landing .header-nav a.active {
+            color: #c9a96e;
+        }
+        #oriental-optimized-landing .header-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #c9a96e;
+            border-radius: 1px;
+        }
+        #oriental-optimized-landing .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+        #oriental-optimized-landing .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #f0ebe3;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        #oriental-optimized-landing .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 31, 20, 0.97);
+            backdrop-filter: blur(20px);
+            padding: 24px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+        }
+        #oriental-optimized-landing .mobile-nav.open { display: block; }
+        #oriental-optimized-landing .mobile-nav a {
+            display: block;
+            padding: 14px 0;
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgba(240, 235, 227, 0.7);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+            transition: color 0.3s;
+        }
+        #oriental-optimized-landing .mobile-nav a:hover,
+        #oriental-optimized-landing .mobile-nav a.active { color: #c9a96e; }
+
+        /* ─── HERO ─── */
+        #oriental-optimized-landing .about-hero {
+            padding: 160px 24px 100px;
+            text-align: center;
+            background: #0a1f14;
+            position: relative;
+            overflow: hidden;
+        }
+        #oriental-optimized-landing .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        #oriental-optimized-landing .hero-gold-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+            margin: 0 auto 28px;
+            border-radius: 2px;
+        }
+        #oriental-optimized-landing .about-hero .hero-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #c9a96e;
+            margin-bottom: 16px;
+        }
+        #oriental-optimized-landing .about-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            color: #f0ebe3;
+        }
+        #oriental-optimized-landing .about-hero h1 span {
+            color: #c9a96e;
+        }
+        #oriental-optimized-landing .about-hero .hero-sub {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(240, 235, 227, 0.6);
+        }
+        #oriental-optimized-landing .hero-gold-accent {
+            width: 40px;
+            height: 2px;
+            background: #c9a96e;
+            margin: 32px auto 0;
+            border-radius: 1px;
+        }
+
+        /* ─── SECTION COMMON ─── */
+        #oriental-optimized-landing .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        #oriental-optimized-landing section {
+            padding: 100px 0;
+        }
+
+        /* ─── OUR STORY ─── */
+        #oriental-optimized-landing .story-section {
+            background: #0d2818;
+        }
+        #oriental-optimized-landing .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        #oriental-optimized-landing .story-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #c9a96e;
+            margin-bottom: 12px;
+        }
+        #oriental-optimized-landing .story-grid h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #f0ebe3;
+            line-height: 1.2;
+        }
+        #oriental-optimized-landing .story-grid p {
+            color: rgba(240, 235, 227, 0.65);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        #oriental-optimized-landing .story-image-wrap {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(201, 169, 110, 0.08);
+        }
+        #oriental-optimized-landing .story-image-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            box-shadow: inset 0 0 60px rgba(201, 169, 110, 0.06);
+            pointer-events: none;
+        }
+        #oriental-optimized-landing .story-image-wrap img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+        }
+
+        /* ─── PHILOSOPHY ─── */
+        #oriental-optimized-landing .philosophy-section {
+            background: #132f1e;
+        }
+        #oriental-optimized-landing .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        #oriental-optimized-landing .section-header .label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #c9a96e;
+            margin-bottom: 12px;
+        }
+        #oriental-optimized-landing .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f0ebe3;
+            margin-bottom: 16px;
+        }
+        #oriental-optimized-landing .section-header p {
+            color: rgba(240, 235, 227, 0.55);
+            max-width: 560px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+        #oriental-optimized-landing .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        #oriental-optimized-landing .philosophy-card {
+            background: #0d2818;
+            border: 1px solid rgba(201, 169, 110, 0.12);
+            border-radius: 24px;
+            padding: 40px 32px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        #oriental-optimized-landing .philosophy-card:hover {
+            border-color: rgba(201, 169, 110, 0.35);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        #oriental-optimized-landing .philosophy-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(201, 169, 110, 0.1);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        #oriental-optimized-landing .philosophy-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: #c9a96e;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        #oriental-optimized-landing .philosophy-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #f0ebe3;
+        }
+        #oriental-optimized-landing .philosophy-card p {
+            color: rgba(240, 235, 227, 0.55);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ─── TEAM ─── */
+        #oriental-optimized-landing .team-section {
+            background: #0a1f14;
+        }
+        #oriental-optimized-landing .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+        #oriental-optimized-landing .team-card {
+            background: #0d2818;
+            border: 1px solid rgba(201, 169, 110, 0.12);
+            border-radius: 24px;
+            padding: 40px 24px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        #oriental-optimized-landing .team-card:hover {
+            border-color: rgba(201, 169, 110, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+        }
+        #oriental-optimized-landing .team-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(201, 169, 110, 0.08);
+            border: 2px solid rgba(201, 169, 110, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        #oriental-optimized-landing .team-avatar svg {
+            width: 38px;
+            height: 38px;
+            stroke: rgba(201, 169, 110, 0.5);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        #oriental-optimized-landing .team-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #f0ebe3;
+            margin-bottom: 6px;
+        }
+        #oriental-optimized-landing .team-card .role {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #c9a96e;
+            margin-bottom: 14px;
+        }
+        #oriental-optimized-landing .team-card .bio {
+            font-size: 0.88rem;
+            color: rgba(240, 235, 227, 0.5);
+            line-height: 1.6;
+        }
+
+        /* ─── ACCREDITATIONS ─── */
+        #oriental-optimized-landing .accreditations-section {
+            background: #0d2818;
+        }
+        #oriental-optimized-landing .accreditations-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+        #oriental-optimized-landing .accred-card {
+            background: #132f1e;
+            border: 1px solid rgba(201, 169, 110, 0.1);
+            border-radius: 24px;
+            padding: 36px 24px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        #oriental-optimized-landing .accred-card:hover {
+            border-color: rgba(201, 169, 110, 0.25);
+            transform: translateY(-3px);
+        }
+        #oriental-optimized-landing .accred-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(201, 169, 110, 0.08);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+        }
+        #oriental-optimized-landing .accred-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #c9a96e;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        #oriental-optimized-landing .accred-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #f0ebe3;
+            margin-bottom: 8px;
+        }
+        #oriental-optimized-landing .accred-card p {
+            font-size: 0.85rem;
+            color: rgba(240, 235, 227, 0.5);
+            line-height: 1.6;
+        }
+
+        /* ─── CTA ─── */
+        #oriental-optimized-landing .cta-section {
+            background: #0a1f14;
+            position: relative;
+            overflow: hidden;
+        }
+        #oriental-optimized-landing .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(201, 169, 110, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        #oriental-optimized-landing .cta-inner {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        #oriental-optimized-landing .cta-badge {
+            display: inline-block;
+            background: rgba(201, 169, 110, 0.1);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            border-radius: 100px;
+            padding: 8px 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #c9a96e;
+            margin-bottom: 24px;
+        }
+        #oriental-optimized-landing .cta-inner h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #f0ebe3;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        #oriental-optimized-landing .cta-inner h2 span {
+            color: #c9a96e;
+        }
+        #oriental-optimized-landing .cta-inner .cta-sub {
+            font-size: 1.05rem;
+            color: rgba(240, 235, 227, 0.55);
+            max-width: 520px;
+            margin: 0 auto 36px;
+        }
+        #oriental-optimized-landing .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #c9a96e, #a8884f);
+            color: #0a1f14;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(201, 169, 110, 0.25);
+        }
+        #oriental-optimized-landing .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(201, 169, 110, 0.35);
+        }
+
+        /* ─── FOOTER ─── */
+        #oriental-optimized-landing .site-footer {
+            background: #071a0f;
+            border-top: 1px solid rgba(201, 169, 110, 0.08);
+            padding: 48px 24px;
+        }
+        #oriental-optimized-landing .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        #oriental-optimized-landing .footer-copy {
+            font-size: 0.85rem;
+            color: rgba(240, 235, 227, 0.4);
+        }
+        #oriental-optimized-landing .footer-copy a {
+            color: #c9a96e;
+            transition: color 0.3s;
+        }
+        #oriental-optimized-landing .footer-copy a:hover {
+            color: #dfc28e;
+        }
+
+        /* ─── WHATSAPP ─── */
+        #oriental-optimized-landing .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        #oriental-optimized-landing .whatsapp-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.45);
+        }
+        #oriental-optimized-landing .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+
+        /* ─── RESPONSIVE 900px ─── */
+        @media (max-width: 900px) {
+            #oriental-optimized-landing .header-nav { display: none; }
+            #oriental-optimized-landing .mobile-toggle { display: flex; }
+            #oriental-optimized-landing .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            #oriental-optimized-landing .story-image-wrap { order: -1; }
+            #oriental-optimized-landing .philosophy-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            #oriental-optimized-landing .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            #oriental-optimized-landing .accreditations-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            #oriental-optimized-landing .about-hero h1 { font-size: 2.2rem; }
+            #oriental-optimized-landing .cta-inner h2 { font-size: 1.8rem; }
+        }
+
+        /* ─── RESPONSIVE 600px ─── */
+        @media (max-width: 600px) {
+            #oriental-optimized-landing .about-hero {
+                padding: 130px 20px 70px;
+            }
+            #oriental-optimized-landing .about-hero h1 { font-size: 1.8rem; }
+            #oriental-optimized-landing .about-hero .hero-sub { font-size: 0.95rem; }
+            #oriental-optimized-landing section { padding: 70px 0; }
+            #oriental-optimized-landing .section-header h2 { font-size: 1.7rem; }
+            #oriental-optimized-landing .story-grid h2 { font-size: 1.7rem; }
+            #oriental-optimized-landing .team-grid {
+                grid-template-columns: 1fr;
+            }
+            #oriental-optimized-landing .accreditations-grid {
+                grid-template-columns: 1fr;
+            }
+            #oriental-optimized-landing .philosophy-card { padding: 32px 24px; }
+            #oriental-optimized-landing .cta-inner h2 { font-size: 1.5rem; }
+            #oriental-optimized-landing .cta-btn {
+                padding: 14px 32px;
+                font-size: 0.95rem;
+            }
+            #oriental-optimized-landing .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            #oriental-optimized-landing .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 54px;
+                height: 54px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="oriental-optimized-landing">
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="header-logo" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;">
+        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior">
+        <span style="font-size: 10px; color: #c9a96e; font-weight: 600; letter-spacing: 0.05em; line-height: 1;">UEN:198200002G</span>
+      </a>
+            <nav class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <!-- ═══ ABOUT HERO ═══ -->
+    <section class="about-hero">
+        <div class="hero-gold-line"></div>
+        <div class="hero-label">About Oriental System Interior</div>
+        <h1>Crafting Spaces That<br>Reflect <span>Who You Are</span></h1>
+        <p class="hero-sub">We are a Singapore-based interior design and renovation firm dedicated to transforming homes with craftsmanship you can trust, transparency you can count on, and quality that stands the test of time.</p>
+        <div class="hero-gold-accent"></div>
+    </section>
+
+    <!-- ═══ OUR STORY ═══ -->
+    <section class="story-section">
+        <div class="section-container">
+            <div class="story-grid">
+                <div class="story-text">
+                    <div class="story-label">Our Story</div>
+                    <h2>Built on Honesty, Driven by Craft</h2>
+                    <p>Oriental System Interior was founded with a clear mission: to offer homeowners in Singapore an interior design experience rooted in trust, accountability, and exceptional workmanship. From the very beginning, we set out to do things differently.</p>
+                    <p>Unlike most firms that outsource to subcontractors, we operate our own in-house carpentry workshop and employ a dedicated team of designers, carpenters, and project managers. This means every detail, from initial concept to final installation, stays under our watchful eye.</p>
+                    <p>Our in-house fabrication process ensures tighter quality control, faster turnaround times, and a level of consistency that outsourced work simply cannot match. Every joint, every finish, every edge is built to our exacting standards.</p>
+                </div>
+                <div class="story-image-wrap">
+                    <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/612575552-122198694554561872-6890434456760943563-n-mmdb9kehozl3.webp" alt="Oriental System Interior Workshop">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PHILOSOPHY ═══ -->
+    <section class="philosophy-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="label">Our Core Philosophy</div>
+                <h2>The Principles That Guide Every Project</h2>
+                <p>Three foundational values shape every decision we make and every space we create.</p>
+            </div>
+            <div class="philosophy-grid">
+                <!-- Card 1 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                    </div>
+                    <h3>Absolute Transparency</h3>
+                    <p>No hidden costs, no surprise charges. We provide fully itemised quotations so you know exactly where every dollar goes. Our clients are partners, not transactions, and trust is the foundation of every relationship we build.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Direct Accountability</h3>
+                    <p>Because we don't outsource, there's no finger-pointing and no runaround. Our in-house team handles every phase of your project, from design to carpentry to installation. One team, one standard, one point of responsibility.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Enduring Quality</h3>
+                    <p>We use premium materials and proven construction techniques to deliver interiors that last. Our own carpentry workshop allows us to maintain exacting standards on every cut, joint, and finish, ensuring nothing leaves our facility unless it's perfect.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ MEET THE TEAM ═══ -->
+    <section class="team-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="label">Meet the Team</div>
+                <h2>The People Behind Your Dream Home</h2>
+                <p>Our dedicated in-house team brings decades of combined experience to every project.</p>
+            </div>
+            <div class="team-grid">
+                <!-- Member 1 -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>Marcus Tan</h3>
+                    <div class="role">Head of Design</div>
+                    <div class="bio">Leads the creative vision for every project, blending modern aesthetics with functional living.</div>
+                </div>
+                <!-- Member 2 -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>David Lee</h3>
+                    <div class="role">Master Carpenter</div>
+                    <div class="bio">Oversees all carpentry fabrication in our in-house workshop, ensuring precision in every piece.</div>
+                </div>
+                <!-- Member 3 -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>Sarah Wong</h3>
+                    <div class="role">Project Manager</div>
+                    <div class="bio">Keeps every renovation on schedule and on budget, coordinating all moving parts seamlessly.</div>
+                </div>
+                <!-- Member 4 -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>Kenji Ng</h3>
+                    <div class="role">Site Supervisor</div>
+                    <div class="bio">Manages on-site execution and quality control, ensuring every installation meets our exacting standards.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ACCREDITATIONS ═══ -->
+    <section class="accreditations-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="label">Accreditations &amp; Awards</div>
+                <h2>Trusted &amp; Recognised</h2>
+                <p>Our commitment to excellence is backed by industry accreditations and consistent 5-star reviews.</p>
+            </div>
+            <div class="accreditations-grid">
+                <!-- HDB -->
+                <div class="accred-card">
+                    <div class="accred-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <h3>HDB Registered</h3>
+                    <p>Officially registered renovation contractor with HDB Singapore.</p>
+                </div>
+
+                <!-- BCA -->
+                <div class="accred-card">
+                    <div class="accred-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <h3>BCA Registered</h3>
+                    <p>Registered with the Building and Construction Authority of Singapore.</p>
+                </div>
+                <!-- 5-Star -->
+                <div class="accred-card">
+                    <div class="accred-icon">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <h3>5-Star Rated</h3>
+                    <p>Consistently rated 5 stars by homeowners across Google and Facebook reviews.</p>
+                </div>
+                <!-- Trusted Logo 1 -->
+                <div class="accred-card" style="display: flex; align-items: center; justify-content: center; padding: 20px;">
+                    <img src="https://th.bing.com/th/id/OIP.jdyN3mpltwsnAS9ljm0VbAHaFj?w=220&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Trusted Partner 1" style="max-height: 80px; width: auto; object-fit: contain;">
+                </div>
+                <!-- Trusted Logo 2 -->
+                <div class="accred-card" style="display: flex; align-items: center; justify-content: center; padding: 20px;">
+                    <img src="https://th.bing.com/th/id/OIP.fUU5JeDIJx4YmO4xk-E8XwHaD4?w=274&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Trusted Partner 2" style="max-height: 80px; width: auto; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-copy">&copy; 2026 Oriental System Interior Pte Ltd. All rights reserved.</div>
+            <div class="footer-copy">Powered by <a href="https://reputifly.com" target="_blank" rel="noopener">Reputifly</a></div>
+        </div>
+    </footer>
+
+    <!-- ═══ WHATSAPP FLOAT ═══ -->
+    <a href="https://wa.me/6588097017" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.132 6.738 3.052 9.372L1.056 31.2l6.044-1.94a15.9 15.9 0 0 0 8.904 2.74C24.828 31.996 32 24.82 32 16.004 32 7.176 24.828 0 16.004 0zm9.316 22.594c-.392 1.1-1.94 2.016-3.156 2.28-.832.18-1.916.324-5.572-1.196-4.676-1.944-7.688-6.7-7.924-7.012-.228-.312-1.868-2.488-1.868-4.748 0-2.26 1.184-3.372 1.604-3.832.392-.42 1.04-.608 1.66-.608.2 0 .38.012.54.02.46.02.692.048 1 .772.384.9 1.32 3.22 1.436 3.456.116.236.232.552.072.864-.148.32-.276.52-.512.8-.236.28-.496.624-.708.836-.236.24-.484.5-.208.98.276.472 1.228 2.028 2.636 3.284 1.812 1.616 3.34 2.116 3.816 2.352.476.236.756.196 1.036-.12.284-.316 1.208-1.404 1.528-1.884.316-.48.636-.4 1.072-.24.44.16 2.784 1.312 3.26 1.552.476.236.796.356.912.556.116.196.116 1.148-.276 2.252z"/></svg>
+    </a>
+
+</div>
+</body>
+</html>
