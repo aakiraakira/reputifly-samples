@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Oriental System Interior</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+#oriental-optimized-landing *,
+#oriental-optimized-landing *::before,
+#oriental-optimized-landing *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body { margin: 0; padding: 0; background: #0a1f14; }
+#oriental-optimized-landing {
+  font-family: 'Inter', sans-serif;
+  background: #0a1f14;
+  color: #f0ebe3;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#oriental-optimized-landing a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Header ── */
+#oriental-optimized-landing .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 31, 20, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,169,110,0.12);
+  transition: background 0.3s;
+}
+
+#oriental-optimized-landing .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#oriental-optimized-landing .header-logo img {
+  height: 44px;
+  width: auto;
+}
+
+#oriental-optimized-landing .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#oriental-optimized-landing .header-nav a {
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(240,235,227,0.6);
+  border-radius: 24px;
+  transition: color 0.3s, background 0.3s;
+}
+
+#oriental-optimized-landing .header-nav a:hover {
+  color: #f0ebe3;
+  background: rgba(201,169,110,0.08);
+}
+
+#oriental-optimized-landing .header-nav a.active {
+  color: #0a1f14;
+  background: #c9a96e;
+  font-weight: 600;
+}
+
+#oriental-optimized-landing .mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+#oriental-optimized-landing .mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #c9a96e;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ── Hero Section ── */
+#oriental-optimized-landing .contact-hero {
+  padding: 100px 32px 50px;
+  text-align: center;
+  background: #0a1f14;
+  position: relative;
+  overflow: hidden;
+}
+
+#oriental-optimized-landing .contact-hero::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+#oriental-optimized-landing .hero-badge {
+  display: inline-block;
+  padding: 6px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c9a96e;
+  border: 1px solid rgba(201,169,110,0.3);
+  border-radius: 24px;
+  margin-bottom: 24px;
+}
+
+#oriental-optimized-landing .contact-hero h1 {
+  font-size: 52px;
+  font-weight: 700;
+  color: #f0ebe3;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+#oriental-optimized-landing .contact-hero h1 span {
+  color: #c9a96e;
+}
+
+#oriental-optimized-landing .contact-hero p {
+  font-size: 17px;
+  color: rgba(240,235,227,0.6);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Contact Main ── */
+#oriental-optimized-landing .contact-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 32px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ── Info Cards ── */
+#oriental-optimized-landing .info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#oriental-optimized-landing .info-card {
+  background: #0d2818;
+  border: 1px solid rgba(201,169,110,0.15);
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+#oriental-optimized-landing .info-card:hover {
+  border-color: rgba(201,169,110,0.4);
+  box-shadow: 0 0 24px rgba(201,169,110,0.06);
+}
+
+#oriental-optimized-landing .info-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(201,169,110,0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#oriental-optimized-landing .info-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: #c9a96e;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#oriental-optimized-landing .info-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f0ebe3;
+  margin-bottom: 6px;
+}
+
+#oriental-optimized-landing .info-content p,
+#oriental-optimized-landing .info-content a {
+  font-size: 14px;
+  color: rgba(240,235,227,0.6);
+  line-height: 1.6;
+  transition: color 0.3s;
+}
+
+#oriental-optimized-landing .info-content a:hover {
+  color: #c9a96e;
+}
+
+#oriental-optimized-landing .info-content .hours-closed {
+  color: rgba(240,120,120,0.7);
+}
+
+/* Social Links */
+#oriental-optimized-landing .social-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+#oriental-optimized-landing .social-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #132f1e;
+  border: 1px solid rgba(201,169,110,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+#oriental-optimized-landing .social-circle:hover {
+  background: rgba(201,169,110,0.12);
+  border-color: rgba(201,169,110,0.4);
+  transform: translateY(-2px);
+}
+
+#oriental-optimized-landing .social-circle svg {
+  width: 18px;
+  height: 18px;
+  fill: #c9a96e;
+}
+
+/* ── Form Card ── */
+#oriental-optimized-landing .form-card {
+  background: #0d2818;
+  border: 1px solid rgba(201,169,110,0.15);
+  border-radius: 24px;
+  padding: 40px;
+}
+
+#oriental-optimized-landing .form-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f0ebe3;
+  margin-bottom: 6px;
+}
+
+#oriental-optimized-landing .form-card .form-subtitle {
+  font-size: 14px;
+  color: rgba(240,235,227,0.5);
+  margin-bottom: 28px;
+}
+
+#oriental-optimized-landing .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+#oriental-optimized-landing .form-group {
+  margin-bottom: 16px;
+}
+
+#oriental-optimized-landing .form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(240,235,227,0.7);
+  margin-bottom: 8px;
+}
+
+#oriental-optimized-landing .form-group input,
+#oriental-optimized-landing .form-group textarea,
+#oriental-optimized-landing .form-group select {
+  width: 100%;
+  padding: 14px 18px;
+  background: #132f1e;
+  border: 1px solid rgba(201,169,110,0.12);
+  border-radius: 14px;
+  color: #f0ebe3;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+
+#oriental-optimized-landing .form-group input::placeholder,
+#oriental-optimized-landing .form-group textarea::placeholder {
+  color: rgba(240,235,227,0.3);
+}
+
+#oriental-optimized-landing .form-group input:focus,
+#oriental-optimized-landing .form-group textarea:focus,
+#oriental-optimized-landing .form-group select:focus {
+  border-color: rgba(201,169,110,0.5);
+  box-shadow: 0 0 0 3px rgba(201,169,110,0.1);
+}
+
+#oriental-optimized-landing .form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+#oriental-optimized-landing .form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c9a96e' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+
+#oriental-optimized-landing .form-group select option {
+  background: #132f1e;
+  color: #f0ebe3;
+}
+
+#oriental-optimized-landing .submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #c9a96e, #b8944f);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s, opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+#oriental-optimized-landing .submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,169,110,0.25);
+}
+
+#oriental-optimized-landing .submit-btn:active {
+  transform: translateY(0);
+}
+
+#oriental-optimized-landing .submit-btn .spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: orientalSpin 0.6s linear infinite;
+}
+
+@keyframes orientalSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Map Section ── */
+#oriental-optimized-landing .map-section {
+  background: #132f1e;
+  padding: 0;
+}
+
+#oriental-optimized-landing .map-section iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  display: block;
+  filter: grayscale(0.3) brightness(0.85);
+}
+
+/* ── Footer ── */
+#oriental-optimized-landing .site-footer {
+  background: #0d2818;
+  border-top: 1px solid rgba(201,169,110,0.1);
+  padding: 32px;
+  text-align: center;
+}
+
+#oriental-optimized-landing .site-footer p {
+  font-size: 13px;
+  color: rgba(240,235,227,0.4);
+}
+
+#oriental-optimized-landing .site-footer a {
+  color: #c9a96e;
+  transition: opacity 0.3s;
+}
+
+#oriental-optimized-landing .site-footer a:hover {
+  opacity: 0.8;
+}
+
+/* ── Floating WhatsApp ── */
+#oriental-optimized-landing .whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+#oriental-optimized-landing .whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+}
+
+#oriental-optimized-landing .whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  #oriental-optimized-landing .header-nav {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 31, 20, 0.97);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    padding: 16px;
+    gap: 4px;
+    border-bottom: 1px solid rgba(201,169,110,0.12);
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: transform 0.35s, opacity 0.35s;
+    pointer-events: none;
+  }
+
+  #oriental-optimized-landing .header-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  #oriental-optimized-landing .header-nav a {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+  }
+
+  #oriental-optimized-landing .mobile-toggle {
+    display: block;
+  }
+
+  #oriental-optimized-landing .contact-hero h1 {
+    font-size: 34px;
+  }
+
+  #oriental-optimized-landing .contact-main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 24px 20px 60px;
+  }
+
+  #oriental-optimized-landing .form-card {
+    padding: 28px 24px;
+  }
+
+  #oriental-optimized-landing .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  #oriental-optimized-landing .contact-hero {
+    padding: 120px 20px 40px;
+  }
+
+  #oriental-optimized-landing .map-section iframe {
+    height: 280px;
+  }
+}
+</style>
+</head>
+<body>
+<div id="oriental-optimized-landing">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;">
+        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior">
+        <span style="font-size: 10px; color: #c9a96e; font-weight: 600; letter-spacing: 0.05em; line-height: 1;">UEN:198200002G</span>
+      </a>
+      <button class="mobile-toggle" onclick="document.querySelector('#oriental-optimized-landing .header-nav').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <div class="hero-badge">Contact Us</div>
+    <h1>Get in <span>Touch</span></h1>
+    <p>Have a project in mind or need expert advice? We'd love to hear from you. Reach out and let's create something beautiful together.</p>
+  </section>
+
+  <!-- Contact Main -->
+  <section class="contact-main">
+
+    <!-- Left: Info Cards -->
+    <div class="info-column">
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="info-content">
+          <h3>Phone / WhatsApp</h3>
+          <p><a href="tel:+6588097017">+65 8809 7017</a></p>
+          <p><a href="https://wa.me/6588097017" target="_blank">Chat on WhatsApp</a></p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+        </div>
+        <div class="info-content">
+          <h3>Email</h3>
+          <p><a href="mailto:askoriental1982@gmail.com">askoriental1982@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="info-content">
+          <h3>Business Hours</h3>
+          <p>9am to 9pm everyday including Sat,Sun &amp; Public Holiday</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="info-content">
+          <h3>Location</h3>
+          <p>Singapore</p>
+          <div class="social-row">
+            <a href="#" class="social-circle" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-circle" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="#c9a96e" stroke-width="1.8"/><circle cx="12" cy="12" r="5" fill="none" stroke="#c9a96e" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.5" fill="#c9a96e" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: Contact Form -->
+    <div class="form-card">
+      <h2>Send Us a Message</h2>
+      <p class="form-subtitle">Fill in the details below and we'll get back to you shortly.</p>
+      <form id="orientalContactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+65 xxxx xxxx">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>Select a subject</option>
+            <option value="Interior Design Consultation">Interior Design Consultation</option>
+            <option value="Renovation Enquiry">Renovation Enquiry</option>
+            <option value="General Enquiry">General Enquiry</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          <span class="btn-text">Send Message</span>
+          <span class="spinner"></span>
+        </button>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- Google Maps -->
+  <section class="map-section">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.19036281522!2d103.7041651817544!3d1.314339396328227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da11238a8b9375%3A0x887869cf52abf5c4!2sSingapore!5e0!3m2!1sen!2ssg!4v1700000000000!5m2!1sen!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Oriental System Interior Location"></iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Oriental System Interior. Powered by <a href="https://reputifly.com" target="_blank" rel="noopener">Reputifly</a></p>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/6588097017" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32"><path d="M16.004 2.002c-7.732 0-14.002 6.27-14.002 14.002 0 2.468.657 4.876 1.904 6.988L2 30l7.195-1.887A13.946 13.946 0 0016.004 30c7.732 0 14.002-6.27 14.002-14.002S23.736 2.002 16.004 2.002zm0 25.61a11.59 11.59 0 01-5.912-1.617l-.424-.252-4.395 1.153 1.174-4.29-.277-.44A11.56 11.56 0 014.4 16.004c0-6.41 5.196-11.606 11.604-11.606 6.41 0 11.604 5.196 11.604 11.606 0 6.41-5.194 11.608-11.604 11.608zm6.363-8.696c-.348-.174-2.063-1.02-2.383-1.137-.32-.117-.553-.174-.785.174-.232.348-.9 1.137-1.104 1.37-.203.233-.406.26-.754.087-.348-.174-1.47-.542-2.8-1.728-1.035-.922-1.733-2.062-1.937-2.41-.203-.348-.022-.536.153-.71.157-.155.348-.406.522-.61.174-.203.232-.347.348-.58.116-.232.058-.435-.03-.61-.087-.174-.785-1.893-1.075-2.592-.283-.68-.57-.588-.785-.6-.203-.01-.435-.012-.668-.012s-.61.087-.93.435c-.32.348-1.22 1.194-1.22 2.912s1.25 3.377 1.424 3.61c.174.233 2.46 3.753 5.96 5.264.833.36 1.483.575 1.99.736.836.265 1.596.228 2.197.138.67-.1 2.063-.844 2.354-1.66.29-.815.29-1.515.203-1.66-.087-.146-.32-.233-.668-.406z"/></svg>
+  </a>
+
+</div>
+
+<!-- Google Ads Conversion -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17764512398"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17764512398');
+
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17764512398/OuX8CPuy9swbEI7l5ZC',
+      'event_callback': callback
+    });
+    return false;
+  }
+</script>
+
+<!-- Form Submission -->
+<script>
+  document.getElementById('orientalContactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var btn = this.querySelector('.submit-btn');
+    var btnText = btn.querySelector('.btn-text');
+    var spinner = btn.querySelector('.spinner');
+
+    btnText.textContent = 'Sending...';
+    spinner.style.display = 'inline-block';
+    btn.disabled = true;
+
+    var firstName = document.getElementById('firstName').value.trim();
+    var lastName = document.getElementById('lastName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var subject = document.getElementById('subject').value;
+    var message = document.getElementById('message').value.trim();
+
+    var formData = {
+      _to: 'askoriental1982@gmail.com',
+      _subject: 'New Contact Page Lead',
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phone: phone,
+      subject: subject,
+      message: message
+    };
+
+    fetch('https://asia-southeast1-b2b-software.cloudfunctions.net/reputifly', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+    .then(function(response) {
+      gtag_report_conversion();
+
+      var waMessage = 'Hi, I just submitted a contact form on your website.%0A%0A'
+        + 'Name: ' + encodeURIComponent(firstName + ' ' + lastName) + '%0A'
+        + 'Email: ' + encodeURIComponent(email) + '%0A'
+        + 'Phone: ' + encodeURIComponent(phone) + '%0A'
+        + 'Subject: ' + encodeURIComponent(subject) + '%0A'
+        + 'Message: ' + encodeURIComponent(message);
+
+      window.open('https://wa.me/6588097017?text=' + waMessage, '_blank');
+
+      btnText.textContent = 'Message Sent!';
+      spinner.style.display = 'none';
+
+      setTimeout(function() {
+        btnText.textContent = 'Send Message';
+        btn.disabled = false;
+        document.getElementById('orientalContactForm').reset();
+      }, 2500);
+    })
+    .catch(function(err) {
+      btnText.textContent = 'Send Message';
+      spinner.style.display = 'none';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or contact us via WhatsApp.');
+    });
+  });
+</script>
+
+</body>
+</html>
