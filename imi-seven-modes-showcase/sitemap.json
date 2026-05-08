@@ -1,0 +1,31 @@
+{
+  "client": "Imi (sample upsell prototype)",
+  "name": "imi-seven-modes-showcase",
+  "description": "Pinned scroll showcase of the Imi Air Smart IntelliSense hair dryer's 7 modes. Stack-of-discs visual, mode-tinted halo + glass panel, color theme + display image transitions in lockstep with scroll.",
+  "version": "base",
+  "tech": ["html", "css", "js", "GSAP ScrollTrigger"],
+  "brand_colours": {
+    "bg":            "#0a0913",
+    "bg_2":          "#15101e",
+    "text":          "#f6eded",
+    "muted":         "rgba(246,237,237,.62)",
+    "imi_pink":      "#f9c8c5",
+    "imi_rose":      "#c29894",
+    "modes": {
+      "intellisense":  "#ffd86b",
+      "short_hair":    "#6fb2ff",
+      "long_hair":     "#c879ff",
+      "kids":          "#f4e4d0",
+      "pets":          "#d4c896",
+      "constant_temp": "#7ce0b4",
+      "hot_cold":      "#ff8aa3"
+    }
+  },
+  "fonts": ["Inter (400-800)", "Fraunces (400-700)"],
+  "media_source": "https://imi.reputifly.cloud/wp-content/uploads/2026/05/ (uploaded via Reputifly /media)",
+  "structure": [
+    { "path": "index.html", "purpose": "Single-page scroll showcase" },
+    { "path": "sitemap.json", "purpose": "Site metadata" },
+    { "path": "CHANGELOG.md", "purpose": "Version history" }
+  ]
+}
