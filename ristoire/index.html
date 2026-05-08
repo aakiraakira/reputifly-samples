@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ristoire | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --beige-dark: #c3a687;
+      --beige-light: #fffef8;
+      --text-dark: #3b3b3b;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--beige-light);
+      color: var(--text-dark);
+    }
+    /* Liquid Glass / Glassmorphism Utilities */
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    }
+    .glass-dark {
+      background: rgba(59, 59, 59, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    /* Custom Scrollbar for elegance */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--beige-light);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--beige-dark);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body id="top" class="antialiased selection:bg-[#c3a687] selection:text-white overflow-x-hidden">
+
+  <header class="fixed w-full top-0 z-50 glass transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#home" class="transform transition hover:scale-105 duration-300">
+        <img src="https://i.postimg.cc/8C9XmrGN/temp-Imagehbvx-Wd.avif" alt="Ristoire Logo" class="h-10 drop-shadow-sm">
+      </a>
+      <nav class="space-x-8 text-sm font-medium hidden md:flex items-center">
+        <a href="#about" class="hover:text-[--beige-dark] transition-colors" id="nav-about">About</a>
+        <a href="#products" class="hover:text-[--beige-dark] transition-colors" id="nav-products">Products</a>
+        <a href="#portfolio" class="hover:text-[--beige-dark] transition-colors" id="nav-portfolio">Portfolio</a>
+        <a href="#testimonial" class="hover:text-[--beige-dark] transition-colors" id="nav-testimonial">Testimonial</a>
+        <a href="#FAQ" class="hover:text-[--beige-dark] transition-colors" id="nav-FAQ">FAQ</a>
+        <a href="#contact" class="bg-[--text-dark] text-white px-5 py-2 rounded-full hover:bg-[--beige-dark] shadow-lg hover:shadow-xl transition-all" id="nav-contact">Contact</a>
+      </nav>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const navLinks = document.querySelectorAll('nav a:not(#nav-contact)');
+          function updateActiveLink() {
+            const scrollY = window.scrollY;
+            const sections = ['about', 'products', 'portfolio', 'testimonial', 'FAQ'];
+            let activeId = '';
+            for (let id of sections) {
+              const section = document.getElementById(id);
+              if (section && section.offsetTop - 100 <= scrollY) {
+                activeId = id;
+              }
+            }
+            navLinks.forEach(link => {
+              link.classList.remove('text-[--beige-dark]', 'font-bold');
+            });
+            if (activeId) {
+              const activeLink = document.querySelector(`#nav-${activeId}`);
+              if (activeLink) activeLink.classList.add('text-[--beige-dark]', 'font-bold');
+            }
+          }
+          updateActiveLink();
+          window.addEventListener('scroll', updateActiveLink);
+        });
+      </script>
+    </div>
+  </header>
+
+  <section id="home" class="relative h-[650px] bg-cover bg-center flex items-center justify-center text-center text-white mt-0" style="background-image: url('https://i.postimg.cc/brM0fJfz/temp-Imaged2pz1q.avif');">
+    <div class="absolute inset-0 bg-black/30 z-0"></div>
+    <div class="relative z-10 px-8 py-14 md:py-20 md:px-16 mx-4 rounded-[2.5rem] bg-black/40 backdrop-blur-md border border-white/20 shadow-2xl max-w-4xl transform transition duration-700 hover:scale-[1.01]">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">Transform Your Home into a Safe, Serene Sanctuary</h1>
+      <p class="text-lg md:text-xl font-light max-w-2xl mx-auto mb-10 text-gray-100">Elegant window mesh and blackout solutions designed for comfort and protection.</p>
+      <div class="flex flex-col md:flex-row justify-center gap-5">
+        <a href="https://api.whatsapp.com/send/?phone=%2B6588784383&text=Hello%20Ristoire!" target="_blank" rel="noopener" class="bg-[#c3a687] hover:bg-[#b49572] text-white px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-semibold text-sm">Request a Site Visit</a>
+        <a href="#products" class="bg-white/10 backdrop-blur-sm text-white px-8 py-3.5 rounded-full border border-white/40 hover:bg-white hover:text-[#a07c54] shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-semibold text-sm">Explore Our Products</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-24 px-6 relative">
+    <div class="max-w-3xl mx-auto text-center glass-panel p-10 md:p-16 rounded-[2.5rem] shadow-xl">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-6 tracking-tight">Our Story</h2>
+      <div class="w-16 h-1 bg-[--beige-dark] mx-auto mb-8 rounded-full"></div>
+      <p class="text-lg leading-relaxed text-gray-700 text-balance font-light">
+        At Ristoire, our story began with a simple but important mission: to create safer, more comfortable homes for families in Singapore. Inspired by a personal need—my partner’s fear of lizards—we discovered a gap in the market. A trip to Korea revealed innovative retractable window meshes, and later, dual-function mesh-blind systems that allow airflow and blackout control. We brought these high-quality, bespoke solutions to Singapore to elevate urban family living.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-b from-[#f8f3ec] to-[--beige-light] py-24">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-16 tracking-tight">Why Choose Ristoire?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-sm text-[--text-dark]">
+        
+        <div class="glass flex flex-col items-center space-y-4 p-8 rounded-[2rem] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+          <div class="bg-white p-4 rounded-full shadow-md mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="h-8 w-8 text-[--beige-dark]" fill="currentColor">
+              <path d="M27.313 21.677l-6.531-6.531c.146-.708.219-1.438.219-2.188 0-5.188-4.219-9.406-9.406-9.406-1.146 0-2.25.208-3.281.563l5.031 5.031-4.188 4.188-5.031-5.031c-.355 1.031-.563 2.135-.563 3.281 0 5.188 4.219 9.406 9.406 9.406.75 0 1.479-.073 2.188-.219l6.531 6.531 5.625-5.625z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-base">Fast & Reliable Support</h3>
+          <p class="text-gray-600 font-light">(Quick Responses, minimal delays)</p>
+        </div>
+
+        <div class="glass flex flex-col items-center space-y-4 p-8 rounded-[2rem] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+          <div class="bg-white p-4 rounded-full shadow-md mb-2">
+            <img src="https://i.postimg.cc/13LHfNrK/affordable.png" class="h-8 w-8 object-contain" alt="Cost Effective"/>
+          </div>
+          <h3 class="font-bold text-base">Cost Effective</h3>
+          <p class="text-gray-600 font-light">(Quality products within budget)</p>
+        </div>
+
+        <div class="glass flex flex-col items-center space-y-4 p-8 rounded-[2rem] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+          <div class="bg-white p-4 rounded-full shadow-md mb-2">
+            <img src="https://i.postimg.cc/qRwg6hP5/price-analysis-18305411.png" alt="Transparent Pricing" class="h-8 w-8 object-contain">
+          </div>
+          <h3 class="font-bold text-base">Transparent Pricing</h3>
+          <p class="text-gray-600 font-light">(No Hidden Charges)</p>
+        </div>
+
+        <div class="glass flex flex-col items-center space-y-4 p-8 rounded-[2rem] hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+          <div class="bg-white p-4 rounded-full shadow-md mb-2">
+            <img src="https://i.postimg.cc/ZR1SsTzx/focus-5663127.png" alt="Customer Focused" class="h-8 w-8 object-contain">
+          </div>
+          <h3 class="font-bold text-base">Customer Focused</h3>
+          <p class="text-gray-600 font-light">(We listen, personalise, deliver)</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="py-24 px-6 bg-[--beige-light] text-[--text-dark] relative overflow-hidden">
+    <div class="max-w-6xl mx-auto relative z-10">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-16 tracking-tight">Our Core Products</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="glass-dark text-white rounded-[2rem] shadow-2xl overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-500 flex flex-col group">
+          <div class="overflow-hidden h-60">
+            <img src="https://i.postimg.cc/yN24rhkx/temp-Imagez1dfx9.avif" alt="Retractable Window Mesh" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          </div>
+          <div class="p-8 flex flex-col flex-grow bg-gradient-to-t from-black/60 to-transparent">
+            <h3 class="text-xl font-bold mb-3">Retractable Window Mesh</h3>
+            <p class="text-sm text-gray-300 mb-6 font-light leading-relaxed flex-grow">Retract the mesh in a single motion for fast, effortless access to your windows.</p>
+            <a href="#retractable-details" class="self-start px-6 py-2.5 bg-[--beige-dark] text-white rounded-full text-sm font-semibold hover:bg-[#b49572] transition-colors shadow-lg">Learn More</a>
+          </div>
+        </div>
+
+        <div class="glass-dark text-white rounded-[2rem] shadow-2xl overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-500 flex flex-col group">
+          <div class="overflow-hidden h-60">
+            <img src="https://i.postimg.cc/JhXRN7Q9/IMG-2134.avif" alt="Dual-function Meshblind" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          </div>
+          <div class="p-8 flex flex-col flex-grow bg-gradient-to-t from-black/60 to-transparent">
+            <h3 class="text-xl font-bold mb-3">Dual-function Meshblind</h3>
+            <p class="text-sm text-gray-300 mb-6 font-light leading-relaxed flex-grow">The best of both worlds—mesh and blackout in one sleek system.</p>
+            <a href="#meshblind-details" class="self-start px-6 py-2.5 bg-[--beige-dark] text-white rounded-full text-sm font-semibold hover:bg-[#b49572] transition-colors shadow-lg">Learn More</a>
+          </div>
+        </div>
+
+        <div class="glass-dark text-white rounded-[2rem] shadow-2xl overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-500 flex flex-col group">
+          <div class="overflow-hidden h-60">
+            <img src="https://i.postimg.cc/rydZfVWL/IMG-5239-2.jpg" alt="Lux Model Removable Mesh" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          </div>
+          <div class="p-8 flex flex-col flex-grow bg-gradient-to-t from-black/60 to-transparent">
+            <h3 class="text-xl font-bold mb-3">Lux Model: Mesh</h3>
+            <p class="text-sm text-gray-300 mb-6 font-light leading-relaxed flex-grow">Premium mesh system with locking feature for added flexibility and safety.</p>
+            <a href="#luxmodel-details" class="self-start px-6 py-2.5 bg-[--beige-dark] text-white rounded-full text-sm font-semibold hover:bg-[#b49572] transition-colors shadow-lg">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="px-6">
+    <section id="retractable-details" class="py-16 px-8 md:px-12 mb-20 max-w-6xl mx-auto glass-dark text-white rounded-[2.5rem] hidden shadow-2xl relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[--beige-dark] to-transparent"></div>
+      <div class="relative z-10">
+        <h2 class="text-3xl font-extrabold mb-6 tracking-tight">Retractable Window Mesh</h2>
+        <p class="text-base font-light mb-12 text-gray-200 leading-relaxed max-w-4xl">
+          Discreet and functional, our retractable mesh system enhances your window’s usability without sacrificing design. 
+          When not in use, it smoothly retracts into the side casing, giving you an unobstructed view. Designed to fit modern 
+          living spaces, this solution offers convenience, airflow, and elegance—all in one.
+        </p>
+        
+        <div class="mb-14">
+          <h3 class="text-xl font-semibold mb-8 text-[--beige-dark] flex items-center gap-3"><span class="w-8 h-[1px] bg-[--beige-dark]"></span>Meshes Available</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white/5 p-4 rounded-[1.5rem] border border-white/10 hover:bg-white/10 transition-colors">
+              <img src="https://i.postimg.cc/5t9hp4pt/temp-Imageh-HWWTX.avif" alt="Highest Density Mesh" class="w-full h-64 object-cover rounded-[1rem] mb-5 shadow-lg">
+              <p class="text-sm font-light text-gray-300"><strong class="text-white text-base">Highest Density</strong><br><br>Seamless view with maximum protection.<br><span class="text-[--beige-dark]">Hole size: 0.5mm</span></p>
+            </div>
+            <div class="bg-white/5 p-4 rounded-[1.5rem] border border-white/10 hover:bg-white/10 transition-colors">
+              <img src="https://i.postimg.cc/mgLpWd9X/temp-Image-Aug-Uga.avif" alt="Medium Density Mesh" class="w-full h-64 object-cover rounded-[1rem] mb-5 shadow-lg">
+              <p class="text-sm font-light text-gray-300"><strong class="text-white text-base">Medium Density</strong><br><br>Clear view with balanced airflow.<br><span class="text-[--beige-dark]">Hole size: 1.0mm</span></p>
+            </div>
+            <div class="bg-white/5 p-4 rounded-[1.5rem] border border-white/10 hover:bg-white/10 transition-colors">
+              <img src="https://i.postimg.cc/4yGbbdbL/temp-Imagetn-CMRo.avif" alt="Low Density Mesh" class="w-full h-64 object-cover rounded-[1rem] mb-5 shadow-lg">
+              <p class="text-sm font-light text-gray-300"><strong class="text-white text-base">Low Density</strong><br><br>Maximum airflow, keeps insects out.<br><span class="text-[--beige-dark]">Hole size: 1.5mm</span></p>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold mb-8 text-[--beige-dark] flex items-center gap-3"><span class="w-8 h-[1px] bg-[--beige-dark]"></span>Colors Available for Frames</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center font-medium">
+            <div class="w-full h-24 bg-[#111] rounded-[1.5rem] flex items-center justify-center text-sm border border-white/10 shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,255,255,0.15)]">Black</div>
+            <div class="w-full h-24 bg-gray-500 rounded-[1.5rem] flex items-center justify-center text-sm border border-white/20 shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)]">Grey</div>
+            <div class="w-full h-24 bg-white text-black rounded-[1.5rem] flex items-center justify-center text-sm border border-gray-200 shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,255,255,0.4)]">White</div>
+            <div class="w-full h-24 rounded-[1.5rem] flex items-center justify-center text-sm shadow-lg border border-white/10 transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(75,54,33,0.6)]" style="background-color:#4B3621;">Coffee Brown</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="meshblind-details" class="py-16 px-8 md:px-12 mb-20 max-w-6xl mx-auto glass-dark text-white rounded-[2.5rem] hidden shadow-2xl relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[--beige-dark] to-transparent"></div>
+      <div class="relative z-10">
+        <h2 class="text-3xl font-extrabold mb-6 tracking-tight">Dual-function Meshblind</h2>
+        <p class="text-base font-light mb-12 text-gray-200 leading-relaxed max-w-4xl">
+          Experience both ventilation and privacy with our dual-function meshblind system—perfect for Singapore’s modern homes.
+          Use mesh for airflow, blinds for light control & privacy, or both together to suit the moment.
+        </p>
+
+        <div class="mb-14">
+          <h3 class="text-xl font-semibold mb-8 text-[--beige-dark] flex items-center gap-3"><span class="w-8 h-[1px] bg-[--beige-dark]"></span>Orientations</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="bg-white/5 p-4 rounded-[1.5rem] border border-white/10">
+              <img src="https://i.postimg.cc/pLwG722v/temp-Imagesi-X9-CS.avif" alt="Blinds fully opened" class="w-full h-48 object-cover rounded-[1rem] mb-4 shadow-md">
+              <p class="text-sm font-light"><strong class="text-white">Orientation 1:</strong><br>Blinds fully opened.</p>
+            </div>
+            <div class="bg-white/5 p-4 rounded-[1.5rem] border border-white/10">
+              <img src="https://i.postimg.cc/hPbthG5y/temp-Image-B5mr-Un.avif" alt="Mesh fully opened" class="w-full h-48 object-cover rounded-[1rem] mb-4 shadow-md">
+              <p class="text-sm font-light"><strong class="text-white">Orientation 2:</strong><br>Mesh fully opened.</p>
+            </div>
+            <div class="bg-white/5 p-4 rounded-[1.5rem] border border-white/10">
+              <img src="https://i.postimg.cc/CMRvFBz0/temp-Imager-GUcov.avif" alt="Blinds/Mesh half opened" class="w-full h-48 object-cover rounded-[1rem] mb-4 shadow-md">
+              <p class="text-sm font-light"><strong class="text-white">Orientation 3:</strong><br>Blinds/Mesh half opened.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-14">
+          <h3 class="text-xl font-semibold mb-8 text-[--beige-dark] flex items-center gap-3"><span class="w-8 h-[1px] bg-[--beige-dark]"></span>Meshes Available</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="bg-white/5 p-4 rounded-[1.5rem] border border-white/10">
+              <img src="https://i.postimg.cc/gk0vHfbK/temp-Image-Cg5-Ya-W.avif" alt="Single Fold - Black" class="w-full h-40 object-cover rounded-[1rem] mb-4 shadow-md">
+              <p class="text-sm font-light text-gray-300"><strong class="text-white text-base">Single Fold – Black</strong><br><br>Durable netting material with a single layer, ensuring that the chosen layer does not affect airflow.</p>
+            </div>
+            <div class="bg-white/5 p-4 rounded-[1.5rem] border border-white/10">
+              <img src="https://i.postimg.cc/T2Nyf1Br/temp-Image6-VBJLs.avif" alt="Single Fold - White" class="w-full h-40 object-cover rounded-[1rem] mb-4 shadow-md">
+              <p class="text-sm font-light text-gray-300"><strong class="text-white text-base">Single Fold – White</strong><br><br>Durable netting material with a single layer, ensuring that the chosen layer does not affect airflow.</p>
+            </div>
+            <div class="bg-white/5 p-4 rounded-[1.5rem] border border-white/10">
+              <img src="https://i.postimg.cc/sgYDQgHH/temp-Image-W2-PGPh.avif" alt="Double Fold - White" class="w-full h-40 object-cover rounded-[1rem] mb-4 shadow-md">
+              <p class="text-sm font-light text-gray-300"><strong class="text-white text-base">Double Fold – White</strong><br><br>The double-layer netting offers a sleek and elegant design, though it may slightly reduce airflow.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-14">
+          <h3 class="text-xl font-semibold mb-8 text-[--beige-dark] flex items-center gap-3"><span class="w-8 h-[1px] bg-[--beige-dark]"></span>Blinds Available</h3>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div class="bg-white/5 p-8 rounded-[1.5rem] border border-white/10">
+              <h4 class="text-lg font-semibold mb-6">Fully Blackout <span class="text-gray-400 font-light text-sm ml-2">— popular choices (9)</span></h4>
+              <div class="grid grid-cols-3 gap-4">
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-white/20 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-gray-800" style="background-color:#dcdcdc;">White-grey</div>
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-white/20 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-black" style="background-color:#f5f5dc;">Beige</div>
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-white/20 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-white" style="background-color:#a67b5b;">Light Brown</div>
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-white/20 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-white" style="background-color:#4b3621;">Dark Brown</div>
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-white/20 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-gray-800" style="background-color:#add8e6;">Light Blue</div>
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-white/20 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-gray-800" style="background-color:#90ee90;">Light Green</div>
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-white/20 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-gray-800" style="background-color:#d3d3d3;">Light Grey</div>
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-white/20 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-white" style="background-color:#555555;">Dark Grey</div>
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-white/20 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-white" style="background-color:#000000;">Black</div>
+              </div>
+            </div>
+            
+            <div class="bg-white/5 p-8 rounded-[1.5rem] border border-white/10 h-fit">
+              <h4 class="text-lg font-semibold mb-6">Partial Blackout <span class="text-gray-400 font-light text-sm ml-2">— popular choices (3)</span></h4>
+              <div class="grid grid-cols-3 gap-4">
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-gray-300 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-black bg-white">White</div>
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-white/20 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-black" style="background-color:#f5f5dc;">Beige</div>
+                <div class="aspect-square rounded-2xl flex items-center justify-center text-xs font-medium border border-white/20 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl text-gray-800" style="background-color:#d3d3d3;">Light Grey</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full">
+          <h3 class="text-xl font-semibold mb-8 text-[--beige-dark] flex items-center gap-3"><span class="w-8 h-[1px] bg-[--beige-dark]"></span>Colors Available for Frames</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-center font-medium">
+            <div class="h-24 bg-gray-500 rounded-[1.5rem] flex items-center justify-center text-sm border border-white/20 shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)]">Grey</div>
+            <div class="h-24 bg-white text-black rounded-[1.5rem] flex items-center justify-center text-sm border border-gray-200 shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,255,255,0.4)]">White</div>
+            <div class="h-24 rounded-[1.5rem] flex items-center justify-center text-sm shadow-lg border border-white/10 transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(75,54,33,0.6)]" style="background-color:#4B3621;">Coffee Brown</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="luxmodel-details" class="py-16 px-8 md:px-12 mb-20 max-w-6xl mx-auto glass-dark text-white rounded-[2.5rem] hidden shadow-2xl relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[--beige-dark] to-transparent"></div>
+      <div class="relative z-10">
+        <h2 class="text-3xl font-extrabold mb-6 tracking-tight">Lux Model: Mesh</h2>
+        <p class="text-base font-light mb-14 text-gray-200 leading-relaxed max-w-4xl">
+          Our premium mesh model with a locking feature that enhances both safety and flexibility. 
+          Perfect for households looking for a sturdier mesh solution while keeping insects out.
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16 bg-white/5 p-8 rounded-[2rem] border border-white/10">
+          <img src="https://i.postimg.cc/BZFkSyzD/IMG-5428.jpg" alt="Airflow" class="rounded-[1.5rem] shadow-xl w-full h-64 object-cover">
+          <div>
+            <h4 class="text-2xl font-bold text-[--beige-dark] mb-4">Sturdier & Safer Material</h4>
+            <p class="text-sm font-light leading-relaxed text-gray-300">Made with sturdy polyester fibre mesh, designed to provide extra flexibility and durability while keeping your pets safe.</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16 bg-white/5 p-8 rounded-[2rem] border border-white/10">
+          <div class="order-2 md:order-1">
+            <h4 class="text-2xl font-bold text-[--beige-dark] mb-4">Locking Mechanism</h4>
+            <p class="text-sm font-light leading-relaxed text-gray-300">Simple number lock to prevent accidental openings by children or pets.</p>
+          </div>
+          <img src="https://i.postimg.cc/DyqcNzQZ/IMG-5505-2.jpg" alt="Locking mechanism safety feature" class="rounded-[1.5rem] shadow-xl order-1 md:order-2 w-full h-64 object-cover" loading="lazy">
+        </div>
+
+        <div class="mb-14">
+          <h3 class="text-xl font-semibold mb-6 text-[--beige-dark] flex items-center gap-3"><span class="w-8 h-[1px] bg-[--beige-dark]"></span>Mesh Variation</h3>
+          <div class="w-full h-20 bg-gray-500/80 backdrop-blur-md rounded-[1.5rem] font-medium flex items-center justify-center border border-white/20 shadow-inner">1.0mm Mesh (Single Option)</div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-8 text-[--beige-dark] flex items-center gap-3"><span class="w-8 h-[1px] bg-[--beige-dark]"></span>Colors Available for Frames</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-center font-medium">
+            <div class="h-24 bg-gray-500 rounded-[1.5rem] flex items-center justify-center text-sm border border-white/20 shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)]">Grey</div>
+            <div class="h-24 bg-white text-black rounded-[1.5rem] flex items-center justify-center text-sm border border-gray-200 shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,255,255,0.4)]">White</div>
+            <div class="h-24 rounded-[1.5rem] flex items-center justify-center text-sm shadow-lg border border-white/10 transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(75,54,33,0.6)]" style="background-color:#4B3621;">Coffee Brown</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>  
+    document.addEventListener('DOMContentLoaded', function () {
+      const retractable = document.getElementById('retractable-details');
+      const meshblind = document.getElementById('meshblind-details');
+      const luxmodel = document.getElementById('luxmodel-details');
+
+      const retractableLink = document.querySelector("a[href='#retractable-details']");
+      const meshblindLink = document.querySelector("a[href='#meshblind-details']");
+      const luxmodelLink = document.querySelector("a[href='#luxmodel-details']");
+
+      function smoothScrollTo(element) {
+        const yOffset = -120; // offset for the sticky header
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({top: y, behavior: 'smooth'});
+      }
+
+      if (retractableLink) {
+        retractableLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          retractable.classList.remove('hidden');
+          meshblind.classList.add('hidden');
+          luxmodel.classList.add('hidden');
+          smoothScrollTo(retractable);
+        });
+      }
+      if (meshblindLink) {
+        meshblindLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          meshblind.classList.remove('hidden');
+          retractable.classList.add('hidden');
+          luxmodel.classList.add('hidden');
+          smoothScrollTo(meshblind);
+        });
+      }
+      if (luxmodelLink) {
+        luxmodelLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          luxmodel.classList.remove('hidden');
+          retractable.classList.add('hidden');
+          meshblind.classList.add('hidden');
+          smoothScrollTo(luxmodel);
+        });
+      }
+    });
+  </script>
+
+  <section class="bg-gradient-to-b from-[--beige-light] to-[#f8f3ec] py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl md:text-4xl font-extrabold text-center mb-20 tracking-tight">Benefits of Ristoire Products</h3>
+      <div class="space-y-24">
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="relative group">
+            <div class="absolute -inset-2 bg-gradient-to-r from-[--beige-dark] to-transparent opacity-20 rounded-[2.5rem] blur-xl group-hover:opacity-40 transition duration-700"></div>
+            <img src="https://i.postimg.cc/hGgRF8nt/temp-Image-TB2-EMj.avif" alt="Airflow" class="relative rounded-[2rem] shadow-2xl border border-white/50 w-full h-[350px] object-cover">
+          </div>
+          <div class="glass-panel p-10 rounded-[2.5rem] shadow-xl border border-white/60">
+            <h4 class="text-2xl font-bold text-[--text-dark] mb-4">Enhanced Airflow</h4>
+            <div class="w-12 h-1 bg-[--beige-dark] mb-6 rounded-full"></div>
+            <p class="text-base text-gray-700 leading-relaxed font-light">Let fresh air flow freely through your home while keeping out unwanted bugs and dust. Perfect for creating breezy, comfortable interiors in Singapore’s tropical climate.</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="order-2 md:order-1 glass-panel p-10 rounded-[2.5rem] shadow-xl border border-white/60">
+            <h4 class="text-2xl font-bold text-[--text-dark] mb-4">Keeping Insects Out</h4>
+            <div class="w-12 h-1 bg-[--beige-dark] mb-6 rounded-full"></div>
+            <p class="text-base text-gray-700 leading-relaxed font-light">Our high-density mesh effectively blocks insects from entering your home while allowing airflow, ensuring a safe and comfortable living environment.</p>
+          </div>
+          <div class="relative group order-1 md:order-2">
+            <div class="absolute -inset-2 bg-gradient-to-l from-[--beige-dark] to-transparent opacity-20 rounded-[2.5rem] blur-xl group-hover:opacity-40 transition duration-700"></div>
+            <img src="https://i.postimg.cc/XvtTJ5GT/temp-Imagen-TOd-ID.avif" alt="Child and Pet Safety" class="relative rounded-[2rem] shadow-2xl border border-white/50 w-full h-[350px] object-cover">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="relative group">
+            <div class="absolute -inset-2 bg-gradient-to-r from-[--beige-dark] to-transparent opacity-20 rounded-[2.5rem] blur-xl group-hover:opacity-40 transition duration-700"></div>
+            <img src="https://i.postimg.cc/FH8SnFJ9/temp-Imageb4-VTk2.avif" alt="Design Harmony" class="relative rounded-[2rem] shadow-2xl border border-white/50 w-full h-[350px] object-cover">
+          </div>
+          <div class="glass-panel p-10 rounded-[2.5rem] shadow-xl border border-white/60">
+            <h4 class="text-2xl font-bold text-[--text-dark] mb-4">Elegant Minimalism</h4>
+            <div class="w-12 h-1 bg-[--beige-dark] mb-6 rounded-full"></div>
+            <p class="text-base text-gray-700 leading-relaxed font-light">Ristoire’s mesh systems are crafted to complement contemporary interiors with subtlety. Available in customizable tones to match any window frame, they add polish to your living space.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="py-24 px-6 relative">
+    <div class="max-w-6xl mx-auto relative z-10">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-16 tracking-tight">Customer Portfolio</h2>
+
+      <div class="glass-panel p-8 md:p-12 rounded-[3rem] shadow-2xl mb-12 border border-white/60">
+        <h3 class="text-2xl font-bold mb-8 flex items-center gap-4"><span class="w-8 h-1 bg-[--beige-dark] rounded-full"></span>Retractable Window Mesh</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <img src="https://i.postimg.cc/d0c1yhyT/temp-Image-CIJiv2.avif" alt="Retractable Example 1" class="w-full h-64 object-cover rounded-[1.5rem] shadow-md cursor-pointer enlarge-img transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl border border-white/50">
+          <img src="https://i.postimg.cc/7PtZNsz4/temp-Imageb-Cy-Ye-J.avif" alt="Retractable Example 2" class="w-full h-64 object-cover rounded-[1.5rem] shadow-md cursor-pointer enlarge-img transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl border border-white/50">
+          <img src="https://i.postimg.cc/nL1H90x6/temp-Imagei6-R5f5.avif" alt="Retractable Example 3" class="w-full h-64 object-cover rounded-[1.5rem] shadow-md cursor-pointer enlarge-img transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl border border-white/50">
+        </div>
+      </div>
+
+      <div class="glass-panel p-8 md:p-12 rounded-[3rem] shadow-2xl mb-12 border border-white/60">
+        <h3 class="text-2xl font-bold mb-8 flex items-center gap-4"><span class="w-8 h-1 bg-[--beige-dark] rounded-full"></span>Dual-function Meshblind</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <img src="https://i.postimg.cc/mgfRd02v/temp-Imagek-Dx-OXf.avif" alt="Meshblind Example 1" class="w-full h-64 object-cover rounded-[1.5rem] shadow-md cursor-pointer enlarge-img transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl border border-white/50">
+          <img src="https://i.postimg.cc/9XsrhgQp/temp-Image-Jdy7q5.avif" alt="Meshblind Example 2" class="w-full h-64 object-cover rounded-[1.5rem] shadow-md cursor-pointer enlarge-img transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl border border-white/50">
+          <img src="https://i.postimg.cc/rphwYQH5/temp-Imager-Ddtw-O.avif" alt="Meshblind Example 3" class="w-full h-64 object-cover rounded-[1.5rem] shadow-md cursor-pointer enlarge-img transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl border border-white/50">
+        </div>
+      </div>
+
+      <div class="glass-panel p-8 md:p-12 rounded-[3rem] shadow-2xl border border-white/60">
+        <h3 class="text-2xl font-bold mb-8 flex items-center gap-4"><span class="w-8 h-1 bg-[--beige-dark] rounded-full"></span>Lux Model: Mesh</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <img src="https://i.postimg.cc/HxdvSXws/IMG-4809-2.jpg" alt="Lux Model Example 1" class="w-full h-64 object-cover rounded-[1.5rem] shadow-md cursor-pointer enlarge-img transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl border border-white/50">
+          <img src="https://i.postimg.cc/rydZfVWL/IMG-5239-2.jpg" alt="Lux Model Example 2" class="w-full h-64 object-cover rounded-[1.5rem] shadow-md cursor-pointer enlarge-img transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl border border-white/50">
+          <img src="https://i.postimg.cc/4ND5LpG1/IMG-4810-2.jpg" alt="Lux Model Example 3" class="w-full h-64 object-cover rounded-[1.5rem] shadow-md cursor-pointer enlarge-img transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl border border-white/50">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="imgModal" class="fixed inset-0 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 z-[60] transition-opacity duration-300">
+    <span id="closeModal" class="absolute top-6 right-8 text-white/70 hover:text-white text-5xl cursor-pointer transition-colors">&times;</span>
+    <button id="prevImg" class="absolute left-4 md:left-10 text-white/70 hover:text-white text-6xl font-light px-3 cursor-pointer select-none transition-transform hover:-translate-x-1">&#10094;</button>
+    <img id="modalImage" class="max-w-[90vw] max-h-[85vh] rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] object-contain">
+    <button id="nextImg" class="absolute right-4 md:right-10 text-white/70 hover:text-white text-6xl font-light px-3 cursor-pointer select-none transition-transform hover:translate-x-1">&#10095;</button>
+  </div>
+  
+  <script>
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.getElementById("closeModal");
+    const prevBtn = document.getElementById("prevImg");
+    const nextBtn = document.getElementById("nextImg");
+
+    const images = Array.from(document.querySelectorAll(".enlarge-img"));
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        currentIndex = index;
+        modalImg.src = images[currentIndex].src;
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.style.overflow = 'hidden'; 
+      });
+    });
+
+    function closeModalAction() {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener("click", closeModalAction);
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModalAction();
+    });
+
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      modalImg.src = images[currentIndex].src;
+    });
+
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % images.length;
+      modalImg.src = images[currentIndex].src;
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (modal.classList.contains("hidden")) return;
+      if (e.key === "ArrowLeft") {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        modalImg.src = images[currentIndex].src;
+      }
+      if (e.key === "ArrowRight") {
+        currentIndex = (currentIndex + 1) % images.length;
+        modalImg.src = images[currentIndex].src;
+      }
+      if (e.key === "Escape") closeModalAction();
+    });
+  </script>
+
+  <section id="testimonial" class="py-24 px-6 bg-gradient-to-t from-[#f8f3ec] to-[--beige-light]">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:60px;">
+        <div class="inline-block bg-[--text-dark] text-[--beige-light] px-5 py-1.5 rounded-full font-semibold text-xs tracking-wider uppercase shadow-md mb-6">Customer Testimonials</div>
+        <h2 id="wall-of-love" class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">Our wall of love</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg font-light">Read what our amazing customers are saying about our retractable mesh solutions.</p>
+      </div>
+          
+      <div id="testimonial-grid" class="testimonial-grid" style="display:grid; gap:32px;"></div>
+    </div>
+    
+    <style>
+      @media (min-width: 768px) {
+        .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      .testimonial-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex;
+        flex-direction: column;
+        min-height: 180px;
+      }
+      .testimonial-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.9);
+      }
+      .testimonial-text {
+        color: #4a4a4a;
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+        font-weight: 300;
+        flex: 1;
+        font-style: italic;
+      }
+      .testimonial-meta {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        padding-top: 16px;
+      }
+      .testimonial-avatar {
+        width: 52px;
+        height: 52px;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        background: #F3F4F6;
+      }
+      .testimonial-name { font-weight: 700; color: #111827; font-size: 15px; }
+      .testimonial-role { color: #6B7280; font-size: 13px; font-weight: 400; }
+      
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 800ms cubic-bezier(0.2, 0.9, 0.2, 1), transform 800ms cubic-bezier(0.2, 0.9, 0.2, 1);
+      }
+      .fade-up.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+    
+    <script>
+      const TESTIMONIALS = [
+        { "name": "Alex, Yishun", "role": "BTO Homeowner", "photo": "https://i.postimg.cc/HkCNL6gh/egyptian-7675462.png", "text": "The best investment I got for my BTO is definitely this retractable mesh. I get to enjoy the airflow without fear of insects entering" },
+        { "name": "Vivian, Serangoon", "role": "Resale Homeowner", "photo": "https://i.postimg.cc/wjx21Z1B/avatar.png", "text": "Very satisfied with the mesh. Now I am able to open my windows without fear of mosquitoes entering." },
+        { "name": "Koh, Pasir Ris", "role": "HDB Homeowner", "photo": "https://i.postimg.cc/DfjLC00W/cancan.png", "text": "No more issues of birds flying into our house! Meshblind is the best investment for kitchen if you have birds issue. " },
+        { "name": "Faris, Yishun", "role": "BTO Homeowner", "photo": "https://i.postimg.cc/qMCfqtCB/boy-6596167.png", "text": "The team catered to our request of installing on weekends, to meet our reno deadline. Really appreciate their dedication to service. Highly Recommended!" },
+        { "name": "Ibrahim, Tampines", "role": "Resale Homeowner", "photo": "https://i.postimg.cc/zv89cpGM/chulapo-2130232.png", "text": "Meshblind is really effective in keeping the lights out. Previously, I had curtains installed, but sunlight was still coming in. Now, it is completely blackout, and I can enjoy a great rest every day. I’m very satisfied with the purchase!" },
+        { "name": "Kelvin, Tampines", "role": "BTO Homeowner", "photo": "https://i.postimg.cc/266hSPGP/model.png", "text": "Very impressed with the transparency of the meshes. My relative came over and did not even realised that there were any meshes attached. Good buy!" },
+        { "name": "Weiting, MacPherson", "role": "Resale Owner", "photo": "https://i.postimg.cc/Pfg1zV2r/dealer.png", "text": "They are transparent with their pricing, and there are no hidden costs. I have compared with a few vendors and Ristoire provides one of the more cost-effective solutions. Recommended!" },
+        { "name": "Desiree, Sengkang", "role": "HDB Homeowner", "photo": "https://i.postimg.cc/x8CpvxR4/people.png", "text": "Very glad that I have installed the insect mesh. Lizards are no longer able to enter the house. Definitely a great investment for people that dislike insects." }
+      ];
+
+      (function () {
+        const grid = document.getElementById('testimonial-grid');
+        function escapeHtml(s) {
+          return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+        }
+        TESTIMONIALS.forEach((t, i) => {
+          const card = document.createElement('article');
+          card.className = 'testimonial-card fade-up';
+          card.style.transitionDelay = (i * 80) + 'ms';
+          card.innerHTML = `
+            <p class="testimonial-text">"${escapeHtml(t.text)}"</p>
+            <div class="testimonial-meta">
+              <img src="${t.photo}" alt="${escapeHtml(t.name)}" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">${escapeHtml(t.name)}</p>
+                <p class="testimonial-role">${escapeHtml(t.role)}</p>
+              </div>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+
+        const observer = new IntersectionObserver((entries)=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){
+              entry.target.classList.add('show');
+              observer.unobserve(entry.target);
+            }
+          });
+        },{threshold:0.1});
+
+        setTimeout(() => {
+           document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        }, 100);
+      })();
+    </script>
+  </section>
+
+  <section id="FAQ" class="py-24 px-6 relative">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full border border-gray-300 text-xs font-bold tracking-widest text-gray-500 mb-4 bg-white/50 backdrop-blur-sm">F A Q</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Frequently Asked Questions</h2>
+      </div>
+
+      <div id="faq-wrapper" class="space-y-6">
+        <div class="glass-panel rounded-[1.5rem] border border-white/80 shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+          <button class="faq-btn w-full flex justify-between items-center px-8 py-5 text-left transition-colors font-semibold text-gray-800 text-lg rounded-[1.5rem]">
+            <span>What is the typical process like, if I would like to engage with you?</span>
+            <span class="faq-icon text-2xl font-light text-gray-400 ml-4">+</span>
+          </button>
+          <div class="faq-content px-8 pb-6 pt-2 text-gray-600 text-base font-light leading-relaxed hidden">
+            <p class="mb-2">1) Normally, you can arrange a site visit with us for us to inspect and measure the dimensions of the windows.</p>
+            <p class="mb-2">2) A quotation of the pricing and details will be provided. If all is good, proceed with 50% downpayment for us to lock in the order.</p>
+            <p class="mb-2">3) A lead time of 3-4 weeks will be expected for fabrication. We will arrange for installation date closer to the date.</p>
+            <p>4) After successful installation, you will make the remaining 50% of the payment.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel rounded-[1.5rem] border border-white/80 shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+          <button class="faq-btn w-full flex justify-between items-center px-8 py-5 text-left transition-colors font-semibold text-gray-800 text-lg rounded-[1.5rem]">
+            <span>How much are your products?</span>
+            <span class="faq-icon text-2xl font-light text-gray-400 ml-4">+</span>
+          </button>
+          <div class="faq-content px-8 pb-6 pt-2 text-gray-600 text-base font-light leading-relaxed hidden">
+            Our products are priced according to the dimensions of the coverage. To get a quote for your needs, you can contact us on our WhatsApp 8878 4383, or you can click the 'Request a site visit' found at the top of the page.
+          </div>
+        </div>
+
+        <div class="glass-panel rounded-[1.5rem] border border-white/80 shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+          <button class="faq-btn w-full flex justify-between items-center px-8 py-5 text-left transition-colors font-semibold text-gray-800 text-lg rounded-[1.5rem]">
+            <span>When is a good time for us to engage with your company?</span>
+            <span class="faq-icon text-2xl font-light text-gray-400 ml-4">+</span>
+          </button>
+          <div class="faq-content px-8 pb-6 pt-2 text-gray-600 text-base font-light leading-relaxed hidden">
+            <p class="mb-3">Generally, a good rule of thumb is roughly 3-4 weeks before the end of your renovation. This is because our leadtime is around that duration.</p>
+            <p>Additionally, it will be advisable for us to head down post-cleaning, as you do not want the dust from renovation to get trapped in the meshes.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel rounded-[1.5rem] border border-white/80 shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+          <button class="faq-btn w-full flex justify-between items-center px-8 py-5 text-left transition-colors font-semibold text-gray-800 text-lg rounded-[1.5rem]">
+            <span>How do you maintain the meshes and the blinds?</span>
+            <span class="faq-icon text-2xl font-light text-gray-400 ml-4">+</span>
+          </button>
+          <div class="faq-content px-8 pb-6 pt-2 text-gray-600 text-base font-light leading-relaxed hidden">
+            <p class="mb-3">To maintain the mesh, you can simply use either lint brushes, magicwipe cleaning cloth, vacuum cleaner with brush head. Ideally will be good to maintain every 3-4 weeks.</p>
+            <p>To maintain the blinds, you can use a wet cloth to gently wipe the surface.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel rounded-[1.5rem] border border-white/80 shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+          <button class="faq-btn w-full flex justify-between items-center px-8 py-5 text-left transition-colors font-semibold text-gray-800 text-lg rounded-[1.5rem]">
+            <span>Do you have a showroom at this moment for us to view the products?</span>
+            <span class="faq-icon text-2xl font-light text-gray-400 ml-4">+</span>
+          </button>
+          <div class="faq-content px-8 pb-6 pt-2 text-gray-600 text-base font-light leading-relaxed hidden">
+            <p>Not at this moment, as we prioritise bringing the samples to our clients to let them feel and customise to their windows instead of the traditional showroom. We can bring samples during site visit to let u feel our products. This can help you save the trouble of heading down to us.</p>
+          </div>
+        </div>      
+
+        <div class="glass-panel rounded-[1.5rem] border border-white/80 shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+          <button class="faq-btn w-full flex justify-between items-center px-8 py-5 text-left transition-colors font-semibold text-gray-800 text-lg rounded-[1.5rem]">
+            <span>Do you offer any warranty on your products?</span>
+            <span class="faq-icon text-2xl font-light text-gray-400 ml-4">+</span>
+          </button>
+          <div class="faq-content px-8 pb-6 pt-2 text-gray-600 text-base font-light leading-relaxed hidden">
+            <p>Yes, we do have a 6 months warranty for all our products, which will start on the day of successful installation.</p>
+          </div>
+        </div>                 
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const faqButtons = document.querySelectorAll(".faq-btn");
+    faqButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector(".faq-icon");
+
+        faqButtons.forEach((b) => {
+          if (b !== btn) {
+            b.classList.remove("bg-[--beige-dark]", "text-white");
+            b.classList.add("text-gray-800");
+            b.querySelector(".faq-icon").textContent = "+";
+            b.querySelector(".faq-icon").classList.remove("text-white");
+            b.querySelector(".faq-icon").classList.add("text-gray-400");
+          }
+        });
+
+        document.querySelectorAll(".faq-content").forEach((item) => {
+          if (item !== content) item.classList.add("hidden");
+        });
+
+        const isOpen = !content.classList.contains("hidden");
+        content.classList.toggle("hidden");
+
+        if (!content.classList.contains("hidden")) {
+          icon.textContent = "−";
+          btn.classList.add("bg-[--beige-dark]", "text-white");
+          btn.classList.remove("text-gray-800");
+          icon.classList.remove("text-gray-400");
+          icon.classList.add("text-white");
+        } else {
+          icon.textContent = "+";
+          btn.classList.remove("bg-[--beige-dark]", "text-white");
+          btn.classList.add("text-gray-800");
+          icon.classList.remove("text-white");
+          icon.classList.add("text-gray-400");
+        }
+      });
+    });
+  </script>
+
+  <section id="contact" class="py-24 px-6 bg-[--beige-light]">
+    <div class="max-w-6xl mx-auto glass-panel border border-white/80 shadow-2xl rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row gap-16 items-center">
+      
+      <div class="w-full md:w-5/12 flex flex-col space-y-8 text-center md:text-left">
+        <img src="https://i.postimg.cc/8C9XmrGN/temp-Imagehbvx-Wd.avif" alt="Ristoire Logo" class="h-20 object-contain self-center md:self-start drop-shadow-md">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">[ CONTACT US ]</h2>
+        <p class="text-gray-600 font-light leading-relaxed text-lg">Have a question or want to schedule a site visit? Fill out the form or reach us directly.</p>
+        
+        <div class="space-y-5 text-lg pt-4 border-t border-[--beige-dark]/20">
+          <p class="flex items-center justify-center md:justify-start gap-3">
+            <span class="font-bold text-gray-500 w-24">Phone:</span> 
+            <a href="https://api.whatsapp.com/send/?phone=%2B6588784383&text&type=phone_number&app_absent=0" target="_blank" class="text-[--beige-dark] font-bold hover:underline transition">+65 8878 4383</a>
+          </p>
+          <p class="flex items-center justify-center md:justify-start gap-3">
+            <span class="font-bold text-gray-500 w-24">TikTok:</span> 
+            <a href="https://www.tiktok.com/@ristoirecollections" target="_blank" class="text-[--text-dark] font-medium hover:text-[--beige-dark] transition">@ristoirecollections</a>
+          </p>
+          <p class="flex items-center justify-center md:justify-start gap-3">
+            <span class="font-bold text-gray-500 w-24">Instagram:</span> 
+            <a href="https://www.instagram.com/ristoirecollections" target="_blank" class="text-[--text-dark] font-medium hover:text-[--beige-dark] transition">@ristoirecollections</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="w-full md:w-7/12">
+        <form class="space-y-6 bg-white/40 p-8 md:p-10 rounded-[2.5rem] border border-white/60 shadow-inner backdrop-blur-sm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input type="text" placeholder="Your Name" required class="w-full bg-white/60 border border-white/80 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-[--beige-dark] transition-all placeholder-gray-400 text-[--text-dark] shadow-sm">
+            <input type="email" placeholder="Your Email" required class="w-full bg-white/60 border border-white/80 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-[--beige-dark] transition-all placeholder-gray-400 text-[--text-dark] shadow-sm">
+          </div>
+          <input type="tel" placeholder="Your Phone Number" class="w-full bg-white/60 border border-white/80 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-[--beige-dark] transition-all placeholder-gray-400 text-[--text-dark] shadow-sm">
+          <textarea rows="4" placeholder="How can we help you?" required class="w-full bg-white/60 border border-white/80 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-[--beige-dark] transition-all placeholder-gray-400 text-[--text-dark] resize-none shadow-sm"></textarea>
+          <button type="submit" class="w-full bg-[--text-dark] text-white rounded-2xl py-4 font-semibold hover:bg-[--beige-dark] shadow-lg hover:shadow-xl transition-all duration-300 text-lg">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-[#f5f1ea] text-[#4a4a4a] py-14 border-t border-white/50">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center space-y-6">
+      <img src="https://i.postimg.cc/8C9XmrGN/temp-Imagehbvx-Wd.avif" alt="Ristoire Logo" class="h-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+      <p class="font-medium tracking-wide text-sm text-center">Copyright © 2026 Ristoire. All rights reserved.</p>
+      <p class="text-xs text-gray-500 text-center font-light">
+        Website Design by <a href="https://reputifly.com" target="_blank" rel="noopener noreferrer" class="text-[--beige-dark] font-semibold hover:underline">Reputifly</a>
+      </p>
+    </div>
+  </footer>
+
+  <div class="fixed bottom-6 right-6 z-[100] flex flex-col items-center gap-4">
+    
+    <a href="https://www.tiktok.com/@ristoirecollections" target="_blank" class="bg-black hover:bg-[#222] text-white w-14 h-14 flex items-center justify-center rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl border border-white/10">
+      <img src="https://cliply.co/wp-content/uploads/2021/02/372102780_TIKTOK_ICON_1080.png" alt="TikTok" class="h-7 w-7 object-contain">
+    </a>
+
+    <a href="https://www.instagram.com/ristoirecollections" target="_blank" class="bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white w-14 h-14 flex items-center justify-center rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl border border-white/20">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
+      </svg>
+    </a>
+
+    <a href="https://api.whatsapp.com/send?phone=6588784383&text=Hello%20Ristoire%21" target="_blank" rel="noopener" class="bg-[#25D366] hover:bg-[#1ebd5a] text-white w-14 h-14 flex items-center justify-center rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl border border-white/20" aria-label="Chat with Ristoire on WhatsApp">
+      <svg viewBox="0 0 32 32" class="w-8 h-8" fill="currentColor" aria-hidden="true">
+        <path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z" fill-rule="evenodd"/>
+      </svg>
+    </a>
+
+    <a href="#top" class="bg-white/80 backdrop-blur-md text-gray-800 hover:bg-white w-14 h-14 flex items-center justify-center rounded-full shadow-xl border border-gray-200 transition-all duration-300 hover:-translate-y-1 mt-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />
+      </svg>
+    </a>
+
+  </div>
+
+</body>
+</html>
