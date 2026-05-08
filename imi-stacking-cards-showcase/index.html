@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Imi Air Straightener — Hair doesn't need more steps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf2f2;
+  --surface:#ffffff;
+  --text:#0b0a14;
+  --muted:#5a5560;
+  --line:#e2dada;
+  --accent:#c29894;
+  --accent-2:#f9c8c5;
+  --font-serif:'Fraunces',serif;
+  --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --shadow-card: 0 24px 56px -12px rgba(11,10,20,.16), 0 8px 18px -8px rgba(11,10,20,.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-sans);
+  font-weight:500;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  letter-spacing:-.005em;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* PROGRESS BAR (matches einnalab pattern, IMI styled) */
+.progress{
+  position:fixed;top:0;left:0;width:100%;height:2px;
+  background:rgba(11,10,20,.06);
+  z-index:1001;
+}
+.progress__bar{
+  height:100%;width:0;
+  background:linear-gradient(90deg,var(--accent) 0%,var(--accent-2) 100%);
+  transition:width .1s linear;
+  box-shadow:0 0 12px rgba(194,152,148,.4);
+}
+
+/* HERO INTRO (lead into the section) */
+.intro{
+  text-align:center;padding:96px 24px 0;max-width:760px;margin:0 auto;
+}
+.intro__eye{
+  display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
+  color:var(--accent);margin-bottom:18px;
+}
+.intro h1{
+  font-family:var(--font-serif);font-weight:500;
+  font-size:clamp(38px,5.6vw,72px);letter-spacing:-.025em;line-height:1.04;color:var(--text);
+  margin-bottom:18px;
+}
+.intro h1 em{font-style:italic;color:var(--accent);font-weight:600;padding-inline:.04em}
+.intro p{
+  font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:var(--muted);max-width:56ch;margin:0 auto;font-weight:500;
+}
+
+/* MAIN STACK CONTAINER */
+.stack{
+  position:relative;
+  padding-top:6vh;
+  padding-bottom:0;
+}
+
+/* CARD WRAPPER (sticky runway) */
+.card-wrap{
+  position:sticky;
+  top:18vh;                  /* drop the stack point lower so cards land sub-middle */
+  height:auto;
+  padding-bottom:32vh;       /* scroll runway between cards */
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  perspective:1200px;
+}
+.card-wrap:last-child{ padding-bottom:6vh }
+
+/* CARD INNER (the visible glass tile) */
+.card{
+  width:90%;
+  max-width:1080px;
+  background:var(--surface);
+  border:1px solid rgba(11,10,20,.04);
+  border-radius:28px;
+  padding:56px 64px;
+  box-shadow:var(--shadow-card);
+  display:grid;
+  grid-template-columns:60px 1fr;
+  gap:48px;
+  transform-origin:center top;
+  transition:transform .12s linear, filter .12s linear;
+  will-change:transform,filter;
+  overflow:hidden;
+  position:relative;
+  /* Force every card to the same height so a shorter one never reveals
+     ugly stacking against a taller one underneath. */
+  height:min(60vh, 560px);
+  min-height:480px;
+  align-items:center;        /* vertical-centre the inner content row */
+}
+
+/* per-card tinted wash (subtle, IMI palette) */
+.card::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 0% 0%, var(--card-tint-a, rgba(249,200,197,.45)) 0%, transparent 55%),
+    radial-gradient(110% 90% at 100% 100%, var(--card-tint-b, rgba(194,152,148,.18)) 0%, transparent 60%);
+  opacity:.85;
+  z-index:0;
+}
+.card > *{position:relative;z-index:1}
+
+/* vertical card number on the left */
+.card__num{
+  font-family:var(--font-serif);font-weight:500;font-style:italic;
+  font-size:1.5rem;color:var(--accent);
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  transform:rotate(180deg);
+  align-self:start;
+  letter-spacing:.06em;
+  display:flex;align-items:flex-start;
+  padding-top:2px;
+  opacity:.85;
+}
+.card__num span{font-style:normal;font-family:var(--font-sans);font-weight:600;font-size:.7em;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+
+.card__content{display:flex;flex-direction:column;gap:18px;justify-content:center;height:100%;max-height:100%;overflow:hidden}
+.card__eye{
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.card__eye::before{content:"";width:24px;height:1px;background:currentColor}
+.card__title{
+  font-family:var(--font-serif);font-weight:500;
+  font-size:clamp(28px,3.2vw,46px);letter-spacing:-.022em;line-height:1.06;color:var(--text);
+  padding-right:.18em;
+}
+.card__title em{font-style:italic;color:var(--accent);font-weight:600;padding-inline:.04em}
+.card__lead{
+  font-size:clamp(15px,1.15vw,16.5px);line-height:1.7;color:var(--muted);font-weight:500;
+}
+.card__lead strong{color:var(--text);font-weight:700}
+
+/* lists inside card */
+.card ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.card ul li{
+  display:flex;align-items:flex-start;gap:14px;
+  font-size:15.5px;line-height:1.6;color:var(--muted);font-weight:500;
+}
+.card ul li::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);
+  margin-top:9px;flex-shrink:0;
+}
+.card ul li strong{color:var(--text);font-weight:700}
+
+/* sub-headline mid-card */
+.card__sub{
+  font-family:var(--font-serif);font-weight:500;font-size:1.25rem;
+  letter-spacing:-.01em;line-height:1.25;color:var(--text);
+  margin-top:8px;
+}
+
+/* divider */
+.card__divider{
+  height:1px;background:var(--line);margin:6px 0;
+}
+
+/* DUO LISTS (For you / Not for you) */
+.duo{
+  display:grid;grid-template-columns:1fr 1fr;gap:36px;
+  margin-top:8px;
+}
+.duo__col h4{
+  font-family:var(--font-sans);font-weight:700;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--text);
+  margin-bottom:14px;display:flex;align-items:center;gap:10px;
+}
+.duo__col h4::before{content:"";width:18px;height:1px;background:var(--accent)}
+.duo__col--not h4::before{background:var(--muted)}
+.duo__col--not ul li::before{background:var(--muted);opacity:.6}
+
+/* End summary line */
+.card__finish{
+  font-family:var(--font-serif);font-style:italic;font-weight:500;
+  color:var(--text);font-size:1.05rem;line-height:1.5;
+  margin-top:6px;
+}
+
+/* OUTRO */
+.outro{
+  position:relative;text-align:center;padding:120px 24px 140px;background:var(--bg);
+}
+.outro h2{font-family:var(--font-serif);font-weight:500;font-size:clamp(34px,5vw,60px);letter-spacing:-.02em;line-height:1.04;max-width:18ch;margin:0 auto 22px}
+.outro h2 em{font-style:italic;color:var(--accent);font-weight:600;padding-inline:.04em}
+.outro p{color:var(--muted);max-width:42ch;margin:0 auto 36px;font-weight:500}
+.cta{
+  display:inline-flex;align-items:center;gap:12px;
+  background:var(--text);color:#fff;
+  font-size:14px;font-weight:700;letter-spacing:.04em;
+  padding:16px 30px;border-radius:999px;
+  transition:transform .25s,box-shadow .25s,background .25s;
+}
+.cta::after{content:"→";font-weight:500;transition:transform .25s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(11,10,20,.18);background:#1f1c2c}
+.cta:hover::after{transform:translateX(5px)}
+
+/* MOBILE */
+@media (max-width:900px){
+  .stack{padding-top:4vh}
+  .card-wrap{ top:14vh; padding-bottom:18vh }
+  .card-wrap:last-child{ padding-bottom:6vh }
+  .card{
+    width:92%;
+    padding:30px 24px;
+    grid-template-columns:1fr;
+    gap:18px;
+    /* equal mobile height too — keep stacking clean across all 6 cards */
+    height:min(72vh, 600px);
+    min-height:520px;
+    border-radius:22px;
+    align-items:flex-start;  /* mobile: top-align so vertical-italic label sits cleanly */
+  }
+  .card__content{justify-content:center}
+  .card__num{
+    writing-mode:horizontal-tb;
+    transform:none;
+    flex-direction:row;align-items:center;gap:14px;
+    border-bottom:1px solid var(--line);padding-bottom:10px;
+    font-size:1.3rem;
+  }
+  .card__num span{margin-bottom:0}
+  .card__title{font-size:clamp(24px,5.4vw,32px)}
+  .duo{grid-template-columns:1fr;gap:24px}
+  .intro{padding:64px 18px 0}
+  .intro h1{font-size:clamp(32px,8vw,42px)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition-duration:.05s !important}
+  .card{transform:none !important;filter:none !important}
+}
+</style>
+</head>
+<body>
+
+<div class="progress"><div class="progress__bar" id="progress-bar"></div></div>
+
+<header class="intro">
+  <span class="intro__eye">Air Straightener · The Approach</span>
+  <h1>Hair doesn't need more steps. It needs <em>better control.</em></h1>
+  <p>Six things to know before you switch — how the Imi Air Straightener works in real routines, what changes after a few uses, and who it's actually for.</p>
+</header>
+
+<main class="stack">
+
+  <!-- CARD 1 — slide 49 -->
+  <div class="card-wrap" data-index="1">
+    <article class="card" style="--card-tint-a:rgba(249,200,197,.55);--card-tint-b:rgba(194,152,148,.20)">
+      <div class="card__num"><span>01 / 06</span>The Approach</div>
+      <div class="card__content">
+        <span class="card__eye">Hair Doesn't Need More Steps</span>
+        <h2 class="card__title">It needs <em>better</em> control.</h2>
+        <p class="card__lead">We develop around balance, not extremes. Airflow, intelligent heat, and plasma technology work together to:</p>
+        <ul>
+          <li><strong>Retain moisture</strong> instead of stripping it from the strand</li>
+          <li><strong>Reduce frizz</strong>, especially in humidity</li>
+          <li><strong>Improve shine</strong> over time, not just for the day</li>
+        </ul>
+        <p class="card__finish">Because how your hair feels tomorrow matters too.</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- CARD 2 — slide 50 -->
+  <div class="card-wrap" data-index="2">
+    <article class="card" style="--card-tint-a:rgba(242,210,200,.55);--card-tint-b:rgba(255,225,215,.30)">
+      <div class="card__num"><span>02 / 06</span>How To Use</div>
+      <div class="card__content">
+        <span class="card__eye">Made For Real Routines</span>
+        <h2 class="card__title">From damp to <em>smooth</em>, in one continuous flow.</h2>
+        <ul>
+          <li><strong>Start with hair about 70-80% dry</strong> using the Wet function. Begin at the lowest range, especially if your hair is bleached or damaged.</li>
+          <li><strong>Work in small, clean sections</strong>, slowly, with one steady pass.</li>
+          <li><strong>Finish with the cool shot</strong> to lock in the shine and shape.</li>
+        </ul>
+        <p class="card__finish">No switching tools. No repeating steps. Just one continuous flow.</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- CARD 3 — slide 51 -->
+  <div class="card-wrap" data-index="3">
+    <article class="card" style="--card-tint-a:rgba(255,239,232,.55);--card-tint-b:rgba(225,207,200,.30)">
+      <div class="card__num"><span>03 / 06</span>What You'll Notice</div>
+      <div class="card__content">
+        <span class="card__eye">After The First Use</span>
+        <h2 class="card__title">A different kind of <em>finish.</em></h2>
+        <p class="card__lead"><strong>What you may notice first</strong></p>
+        <ul>
+          <li>Hair feels softer, even as it dries</li>
+          <li>Ends look smoother, not overworked</li>
+          <li>Less time spent styling</li>
+        </ul>
+        <div class="card__divider"></div>
+        <p class="card__lead"><strong>What builds over time</strong></p>
+        <ul>
+          <li>Hair feels less stressed after repeated use</li>
+          <li>Smoothness holds more naturally through the day</li>
+          <li>Less need to restyle between washes</li>
+        </ul>
+        <p class="card__finish">Not perfection. Just better consistency.</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- CARD 4 — slide 52 -->
+  <div class="card-wrap" data-index="4">
+    <article class="card" style="--card-tint-a:rgba(231,217,209,.55);--card-tint-b:rgba(212,200,192,.28)">
+      <div class="card__num"><span>04 / 06</span>What To Expect</div>
+      <div class="card__content">
+        <span class="card__eye">The First Few Uses</span>
+        <h2 class="card__title">A new rhythm, almost <em>immediately.</em></h2>
+        <ul>
+          <li>It may feel different from traditional straighteners</li>
+          <li>You may instinctively go slower, this is normal</li>
+          <li>Results improve as your routine adjusts</li>
+        </ul>
+        <p class="card__finish">Most people find their rhythm within a few uses.</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- CARD 5 — slides 53-54 -->
+  <div class="card-wrap" data-index="5">
+    <article class="card" style="--card-tint-a:rgba(241,199,194,.55);--card-tint-b:rgba(200,148,142,.22)">
+      <div class="card__num"><span>05 / 06</span>For Coloured Hair</div>
+      <div class="card__content">
+        <span class="card__eye">Impact On Colour-Treated Hair</span>
+        <h2 class="card__title">Especially gentle on <em>processed</em> hair.</h2>
+        <p class="card__lead">Processed hair is more sensitive to repeated heat. A single, controlled step helps maintain:</p>
+        <ul>
+          <li><strong>Colour vibrancy</strong> through fewer fade cycles</li>
+          <li><strong>Softness</strong> through the ends</li>
+          <li><strong>Overall hair condition</strong> over time</li>
+        </ul>
+        <p class="card__finish">So you're not undoing the care you've already put in.</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- CARD 6 — slide 55 -->
+  <div class="card-wrap" data-index="6">
+    <article class="card" style="--card-tint-a:rgba(252,228,224,.55);--card-tint-b:rgba(233,217,213,.28)">
+      <div class="card__num"><span>06 / 06</span>Who It's For</div>
+      <div class="card__content">
+        <span class="card__eye">Who This Is For</span>
+        <h2 class="card__title">A simpler, more <em>consistent</em> routine.</h2>
+        <div class="duo">
+          <div class="duo__col duo__col--for">
+            <h4>This is for you if</h4>
+            <ul>
+              <li>You want to dry and smooth in one step</li>
+              <li>You want to reduce overall heat exposure</li>
+              <li>You notice your ends getting drier over time</li>
+              <li>You prefer a simpler, more consistent routine</li>
+            </ul>
+          </div>
+          <div class="duo__col duo__col--not">
+            <h4>This may not be for you if</h4>
+            <ul>
+              <li>You prefer multi-step styling routines</li>
+              <li>You want instant, high-heat straightening</li>
+              <li>You prefer a pin-straight, pressed finish</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+</main>
+
+<section class="outro">
+  <h2>Hair that builds <em>better</em>, every wash.</h2>
+  <p>The Imi Air Straightener simplifies the routine without simplifying the result. One step, one tool, less stress on every strand.</p>
+  <a class="cta" href="#">Discover the straightener</a>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.card-wrap');
+  const progressBar = document.getElementById('progress-bar');
+  let ticking = false;
+
+  function update() {
+    const scrollY = window.scrollY;
+    const winH = window.innerHeight;
+    const totalH = document.body.scrollHeight - winH;
+    const progress = Math.min(100, Math.max(0, (scrollY / totalH) * 100));
+    if (progressBar) progressBar.style.width = progress + '%';
+
+    cards.forEach((wrap, i) => {
+      const inner = wrap.querySelector('.card');
+      const next = cards[i + 1];
+      if (!inner || !next) {
+        // last card stays at scale 1
+        if (inner) {
+          inner.style.transform = 'scale(1)';
+          inner.style.filter = 'brightness(1)';
+        }
+        return;
+      }
+      const nextRect = next.getBoundingClientRect();
+      const distance = nextRect.top;
+      const pinPoint = parseFloat(getComputedStyle(wrap).top) || 0;
+      const effective = distance - pinPoint;
+      const range = winH - pinPoint;
+
+      if (effective < range && effective > 0) {
+        // partial — interpolate
+        const t = effective / range;
+        const scale = 0.9 + 0.1 * t;
+        const brightness = 0.55 + 0.45 * t;
+        inner.style.transform = `scale(${scale})`;
+        inner.style.filter = `brightness(${brightness})`;
+      } else if (effective <= 0) {
+        // fully covered
+        inner.style.transform = 'scale(0.9)';
+        inner.style.filter = 'brightness(0.55)';
+      } else {
+        // not yet engaged
+        inner.style.transform = 'scale(1)';
+        inner.style.filter = 'brightness(1)';
+      }
+    });
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+});
+</script>
+</body>
+</html>

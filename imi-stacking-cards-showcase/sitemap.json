@@ -1,0 +1,22 @@
+{
+  "client": "Imi (sample upsell prototype)",
+  "name": "imi-stacking-cards-showcase",
+  "description": "Air Straightener product-page accordion as a stacking-card scroll experience (sticky-pin + scale/brightness ramp). Six fixed-height cards each describe a separate aspect of the straightener: approach, how-to-use, after first use, what to expect, colour-treated hair, who it's for.",
+  "version": "base",
+  "tech": ["html", "css", "js"],
+  "brand_colours": {
+    "bg":     "#fbf2f2",
+    "surface":"#ffffff",
+    "text":   "#0b0a14",
+    "muted":  "#5a5560",
+    "line":   "#e2dada",
+    "accent": "#c29894",
+    "accent_2":"#f9c8c5"
+  },
+  "fonts": ["Inter (400-700)", "Fraunces (400-700)"],
+  "structure": [
+    { "path": "index.html", "purpose": "Single-page accordion-as-stacking-cards showcase" },
+    { "path": "sitemap.json", "purpose": "Site metadata" },
+    { "path": "CHANGELOG.md", "purpose": "Version history" }
+  ]
+}
