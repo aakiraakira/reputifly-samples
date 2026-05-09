@@ -948,6 +948,9 @@ html, body {
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 0;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 #oriental-optimized-landing .header-certs {
   display: flex;
@@ -957,7 +960,7 @@ html, body {
   border-left: 1px solid rgba(201, 169, 110, 0.2);
 }
 #oriental-optimized-landing .cert-badge {
-  height: 40px !important;
+  height: 38px !important;
   width: auto !important;
   object-fit: contain;
   filter: brightness(0) invert(1);
@@ -968,7 +971,8 @@ html, body {
   opacity: 1;
 }
 @media (max-width: 900px) {
-  #oriental-optimized-landing .header-certs { display: none; }
+  #oriental-optimized-landing .header-certs { display: none !important; }
+  #oriental-optimized-landing .header-logo img { height: 40px !important; }
 }
 /* ===== END HEADER BRAND / CERT BADGES ===== */
 
