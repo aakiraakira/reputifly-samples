@@ -204,7 +204,7 @@ a{color:inherit;text-decoration:none}
     padding:64px 16px 110px;
     align-items:start;
   }
-  .stack{ width:min(280px, 64vw); align-self:center }
+  .stack{ width:min(220px, 58vw); align-self:center }
   .stack::before{ inset:-8%; filter:blur(40px) }
   .stack__ring{ box-shadow:
     0 0 0 1px rgba(var(--m-color-rgb),0.55),
@@ -239,6 +239,14 @@ a{color:inherit;text-decoration:none}
     transform:translate3d(0,0,0) scale(.94);
     opacity:0;z-index:5;filter:none;
   }
+  /* MOBILE COMPACTION — fit everything in iPhone 17 Pro Max viewport without scrolling */
+  .mode__num{ display:none }                                  /* drop the giant italic 01/02/03 to claw back vertical room */
+  .panel__inner{ padding:22px 22px;min-height:auto }
+  .panel__slide{ padding:22px 22px }
+  .mode__title{ font-size:clamp(22px,5.6vw,30px);margin-bottom:12px }
+  .mode__lead{ font-size:14.5px;line-height:1.55;margin-bottom:18px }
+  .mode__eye{ margin-bottom:10px }
+  .show__pin{ grid-template-rows:minmax(220px, 32vh) 1fr;padding:60px 14px 16px;gap:10px }
 }
 
 /* GLASS PANEL */
@@ -324,9 +332,12 @@ a{color:inherit;text-decoration:none}
 .temp__val{font-family:'Fraunces',serif;font-weight:500;font-size:22px;color:var(--text);letter-spacing:-.02em}
 .temp__unit{font-size:13px;color:var(--text-muted);margin-left:2px;font-weight:600}
 @media (max-width:520px){
-  .temps{grid-template-columns:1fr 1fr}
-  .temp{padding:12px}
-  .temp__val{font-size:20px}
+  /* keep all 3 temp pills on one row (Warm / Hot / Cool) — tighter padding so they fit */
+  .temps{grid-template-columns:repeat(3,1fr);gap:6px}
+  .temp{padding:10px 8px;border-radius:11px}
+  .temp__label{font-size:9px;letter-spacing:.14em;margin-bottom:3px}
+  .temp__val{font-size:16px}
+  .temp__unit{font-size:11px}
 }
 
 /* DOTS */
@@ -354,13 +365,9 @@ a{color:inherit;text-decoration:none}
 }
 .dot:hover .dot__label{opacity:1}
 @media (max-width:900px){
-  .dots{
-    flex-direction:row;left:50%;top:auto;bottom:18px;right:auto;transform:translateX(-50%);
-    gap:10px;background:rgba(255,255,255,.65);padding:10px 14px;border-radius:999px;border:1px solid var(--line-soft);
-    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    box-shadow:0 8px 24px rgba(11,10,20,.08);
-  }
-  .dot__label{display:none}
+  /* Hide the dot pagination entirely on mobile — frees up bottom-of-viewport space.
+     Scroll-driven mode change still works; users navigate by scrolling, not clicking dots. */
+  .dots{ display:none }
 }
 
 /* OUTRO */

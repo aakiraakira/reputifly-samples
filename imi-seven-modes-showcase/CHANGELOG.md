@@ -29,3 +29,15 @@
   - No backdrop-filter on transformed cards, no 3D rotation — kills flicker on iOS Safari
 - Title em-dash removed (brand voice rule)
 - Agent: Claude Opus 4.7
+
+## v3 — 2026-05-09 (mobile compaction for iPhone 17 Pro Max)
+- Goal: fit the full mode card (image + eyebrow + title + body + temps) inside one mobile viewport without scrolling. Tested target: iPhone 17 Pro Max viewport.
+- Changes (all mobile only — desktop unchanged):
+  - Hidden the giant italic mode number `01 / 02 / 03 …` on mobile (`.mode__num{ display:none }`) — reclaims ~60–80px vertical
+  - Stack circle reduced from `min(280px, 64vw)` → `min(220px, 58vw)` — smaller image, more room below
+  - Temp pills (Warm / Hot / Cool) forced to a single row of 3 columns on small mobile (was 2 columns at ≤520px) — tighter padding, smaller font, stays legible
+  - Dot pagination pill (bottom of viewport) hidden entirely on mobile — scroll-driven mode change still works
+  - Panel padding tightened to 22px, title font tightened to clamp(22px,5.6vw,30px), body line-height 1.55 + smaller margins
+  - show__pin grid-template-rows tightened from 40vh → 32vh for the stack column
+- Agent: Claude Opus 4.7
+
