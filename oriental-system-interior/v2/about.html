@@ -612,6 +612,9 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 0;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 #oriental-optimized-landing .header-certs {
   display: flex;
@@ -632,7 +635,8 @@
   opacity: 1;
 }
 @media (max-width: 900px) {
-  #oriental-optimized-landing .header-certs { display: none; }
+  #oriental-optimized-landing .header-certs { display: none !important; }
+  #oriental-optimized-landing .header-logo img { height: 40px !important; }
 }
 /* ===== END HEADER BRAND / CERT BADGES ===== */
 /* ===== STANDARDIZED HEADER CSS ===== */
@@ -951,13 +955,21 @@
                     <h3>5-Star Rated</h3>
                     <p>Consistently rated 5 stars by homeowners across Google and Facebook reviews.</p>
                 </div>
-                <!-- Trusted Logo 1 -->
-                <div class="accred-card" style="display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="https://th.bing.com/th/id/OIP.jdyN3mpltwsnAS9ljm0VbAHaFj?w=220&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Trusted Partner 1" style="max-height: 80px; width: auto; object-fit: contain;">
+                <!-- BCA Registered -->
+                <div class="accred-card">
+                    <div class="accred-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <h3>BCA Registered</h3>
+                    <p>Registered with the Building and Construction Authority of Singapore.</p>
                 </div>
-                <!-- Trusted Logo 2 -->
-                <div class="accred-card" style="display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="https://th.bing.com/th/id/OIP.fUU5JeDIJx4YmO4xk-E8XwHaD4?w=274&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Trusted Partner 2" style="max-height: 80px; width: auto; object-fit: contain;">
+                <!-- CaseTrust -->
+                <div class="accred-card">
+                    <div class="accred-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>CaseTrust Accredited</h3>
+                    <p>CaseTrust accredited for fair trading and consumer protection standards.</p>
                 </div>
             </div>
         </div>
