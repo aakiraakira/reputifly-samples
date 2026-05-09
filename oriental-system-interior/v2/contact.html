@@ -78,9 +78,36 @@ html, body { margin: 0; padding: 0; background: #0a1f14; }
 }
 
 #oriental-optimized-landing .header-nav a.active {
-  color: #0a1f14;
-  background: #c9a96e;
+  color: #c9a96e;
+  background: rgba(201,169,110,0.15);
   font-weight: 600;
+}
+
+#oriental-optimized-landing .mobile-nav {
+  display: none;
+  background: rgba(10,31,20,0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,169,110,0.12);
+}
+
+#oriental-optimized-landing .mobile-nav.open {
+  display: block;
+}
+
+#oriental-optimized-landing .mobile-nav a {
+  display: block;
+  padding: 16px 24px;
+  color: rgba(240,235,227,0.7);
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(201,169,110,0.08);
+  transition: color 0.3s;
+}
+
+#oriental-optimized-landing .mobile-nav a:hover,
+#oriental-optimized-landing .mobile-nav a.active {
+  color: #c9a96e;
 }
 
 #oriental-optimized-landing .mobile-toggle {
@@ -89,6 +116,8 @@ html, body { margin: 0; padding: 0; background: #0a1f14; }
   border: none;
   cursor: pointer;
   padding: 8px;
+  flex-direction: column;
+  gap: 5px;
 }
 
 #oriental-optimized-landing .mobile-toggle span {
@@ -96,12 +125,17 @@ html, body { margin: 0; padding: 0; background: #0a1f14; }
   width: 24px;
   height: 2px;
   background: #c9a96e;
-  margin: 5px 0;
   border-radius: 2px;
   transition: 0.3s;
 }
 
+@media (max-width: 768px) {
+  #oriental-optimized-landing .header-nav { display: none; }
+  #oriental-optimized-landing .mobile-toggle { display: flex; }
+}
+
 /* ── Hero Section ── */
+
 #oriental-optimized-landing .contact-hero {
   padding: 100px 32px 50px;
   text-align: center;
@@ -518,28 +552,208 @@ html, body { margin: 0; padding: 0; background: #0a1f14; }
     height: 280px;
   }
 }
+/* ===== HEADER BRAND / CERT BADGES ===== */
+#oriental-optimized-landing .header-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+#oriental-optimized-landing .header-certs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 16px;
+  border-left: 1px solid rgba(201, 169, 110, 0.2);
+}
+#oriental-optimized-landing .cert-badge {
+  height: 40px !important;
+  width: auto !important;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+#oriental-optimized-landing .cert-badge:hover {
+  opacity: 1;
+}
+@media (max-width: 900px) {
+  #oriental-optimized-landing .header-certs { display: none; }
+}
+/* ===== END HEADER BRAND / CERT BADGES ===== */
+/* ===== STANDARDIZED HEADER CSS ===== */
+#oriental-optimized-landing .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10,31,20,0.92) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(201,169,110,0.15) !important;
+  transition: background 0.3s;
+}
+
+#oriental-optimized-landing .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 72px !important;
+}
+
+#oriental-optimized-landing .header-logo img {
+  height: 50px !important;
+  width: auto;
+  display: block;
+}
+
+#oriental-optimized-landing .header-nav {
+  display: flex !important;
+  align-items: center;
+  gap: 8px !important;
+  position: static !important;
+  transform: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  background: transparent !important;
+  flex-direction: row !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+#oriental-optimized-landing .header-nav a {
+  color: #f0ebe3 !important;
+  text-decoration: none;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  padding: 8px 20px !important;
+  border-radius: 100px !important;
+  transition: all 0.3s ease;
+  border: none !important;
+  width: auto !important;
+  text-align: left !important;
+}
+
+#oriental-optimized-landing .header-nav a:hover {
+  color: #c9a96e !important;
+  background: rgba(201,169,110,0.08) !important;
+}
+
+#oriental-optimized-landing .header-nav a.active {
+  background: rgba(201,169,110,0.15) !important;
+  color: #c9a96e !important;
+}
+#oriental-optimized-landing .header-nav a.active::after {
+  display: none !important;
+}
+
+#oriental-optimized-landing .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+
+#oriental-optimized-landing .hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #c9a96e;
+  transition: all 0.3s ease;
+  border-radius: 0 !important;
+}
+
+#oriental-optimized-landing .hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#oriental-optimized-landing .hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+#oriental-optimized-landing .hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+#oriental-optimized-landing .mobile-nav {
+  display: none;
+  background: rgba(10,31,20,0.97) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(201,169,110,0.15) !important;
+  position: static !important;
+  padding: 0 !important;
+}
+
+#oriental-optimized-landing .mobile-nav.open {
+  display: block !important;
+}
+
+#oriental-optimized-landing .mobile-nav a {
+  display: block !important;
+  padding: 16px 24px !important;
+  color: #f0ebe3 !important;
+  text-decoration: none !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  border-bottom: 1px solid rgba(201,169,110,0.15) !important;
+  transition: all 0.3s ease;
+  text-align: left !important;
+}
+
+#oriental-optimized-landing .mobile-nav a:hover,
+#oriental-optimized-landing .mobile-nav a.active {
+  color: #c9a96e !important;
+  background: rgba(201,169,110,0.05) !important;
+}
+
+@media (max-width: 900px) {
+  #oriental-optimized-landing .header-nav { display: none !important; }
+  #oriental-optimized-landing .hamburger { display: flex !important; }
+}
+/* ===== END STANDARDIZED HEADER CSS ===== */
 </style>
 </head>
 <body>
 <div id="oriental-optimized-landing">
 
-  <!-- Header -->
+  <!-- ═══ HEADER ═══ -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="header-logo" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;">
-        <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior">
-        <span style="font-size: 10px; color: #c9a96e; font-weight: 600; letter-spacing: 0.05em; line-height: 1;">UEN:198200002G</span>
-      </a>
-      <button class="mobile-toggle" onclick="document.querySelector('#oriental-optimized-landing .header-nav').classList.toggle('open')" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header-brand">
+        <a href="index.html" class="header-logo" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;">
+          <img src="https://reputifly3.sg-host.com/wp-content/uploads/2026/03/461830294-2007434786343475-4771983523972772082-n-mmdb5itwrxgv.webp" alt="Oriental System Interior" loading="eager">
+          <span style="font-size: 10px; color: #c9a96e; font-weight: 600; letter-spacing: 0.05em; line-height: 1;">UEN:198200002G</span>
+        </a>
+        <div class="header-certs">
+          <img src="images/bca-registered-contractor.png" alt="BCA Registered Contractor" class="cert-badge">
+          <img src="images/bizsafe3.png" alt="bizSAFE 3" class="cert-badge">
+        </div>
+      </div>
       <nav class="header-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="contact.html" class="active">Contact</a>
       </nav>
+      <button class="hamburger" onclick="this.classList.toggle('open'); document.getElementById('mobileNav').classList.toggle('open')" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
   </header>
 
   <!-- Hero -->
