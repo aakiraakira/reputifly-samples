@@ -1,0 +1,37 @@
+## [v3] — 2026-05-12
+- Complete site rebuild per Caroline Dawson International (CDI) revision document (https://docs.google.com/document/d/1_zgxnOpHdst9voFpYG76M5u5BqAvwxfAeG2GQY39Jug)
+- Expanded sitemap from 4 to 27 pages with the IA from the revision doc (Home, About, Courses + 11 detail, Profiling + 4 detail, Coaching + 3 detail, Consultancy, Keynotes, Contact, Changelog)
+- New navigation: dropdown menus for Courses, Profiling, and Coaching with all detail pages cross-linked; mobile tap-to-expand behavior
+- Home rebuilt around the client's "Turn Communication Breakdowns into Measurable Business Results" positioning — new hero, CDI's Solution (4 root causes), How CDI Works (4 process pills), Outcomes (5 expectations), Core Solutions (4 catalog blocks), National Alignment (Skills-First infographic), Who We Partner With (chip list), Credibility (CDI global map), Proven by Results, Awards marquee, Brands marquee, 18 client testimonials, lead magnet block, contact form
+- About page rebuilt with founder bio (Dr Caroline Josephine Dawson, full credentials and global footprint), 4 trainer cards (Herjeet Singh, Praga R., Moses Tan, Lilian Lee), S.M.A.R.T. Framework, Executive Value Propositions (4 quadrants), Return on Investment (5 stats: 30%/25%/40%/15%/20%)
+- 11 new individual course detail pages (Strategic Communication x4, Leadership & EI x4, Adaptive Thinking x3) — each with hero, Learning Outcomes grid, Workshop Format tiles, value statement, 5-FAQ accordion, dual CTA
+- New Psychometric Profiling section: hub page + 4 individual workshop pages (MBTI, DISC, Enneagram, Lumina Spark) each with tool graphic, CDI Approach, Learning Outcomes, Why CDI, FAQs
+- New Executive Coaching section: hub page + 3 individual coaching detail pages (Leadership Blueprint, Decision Advantage, EQ Edge)
+- New Workplace Learning Consultancy page integrating GROW, OSKAR, CLEAR, and SMART coaching methodology graphics in a 4-up grid
+- New Keynotes page with 5 Strategic Pillars (Behavioral Intelligence, EQ & Soft Power, Personal Branding, Future of Work, Strategic Leadership), 15 keynote topics, pull-quote, dual keynote photos
+- Contact page rebuilt: strategic FAQ accordion (5 questions), embedded lead magnet block, restored Reputifly enquiry form with all section 1-4 fields
+- Lead magnet PDF integrated across site: "5 Communication Breakdowns That Cost Organisations Time and Money (And How to Fix Them)" — downloadable from home, courses hub, all course detail pages, profiling hub, contact, footer
+- 104 new client-provided images added under assets/images/ (founder portrait, Brunei training group photo, 4 trainer portraits, infographics for Skills-First/Business-Impact/ROI/Proven-Results/Global-Map/S.M.A.R.T./MBTI/DISC/Enneagram/Lumina-Spark/GROW/OSKAR/CLEAR/SMART models, 2 keynote photos)
+- New CSS components in components.css: dropdown navigation, course-hero/course-body/course-section layouts, outcome-grid, format-grid, faq-list accordion, pillar-grid, coaching-models-grid, profile-feature alternating split, trainer-grid/trainer-card, lead-magnet-block + lead-magnet-cover, industries-chip-list, process-pills, outcomes-list, region-map-wrap, solution-grid/solution-card
+- Removed legacy services.html (replaced by courses.html catalog + 11 dedicated course detail pages)
+- Updated footer with 3 columns (Explore, Capabilities, brand block), additional contact emails (carol@carolinedawson.org and carolinedawson73@yahoo.com.sg), and free guide link
+- Global fallback added to components.js: ensures all .hidden-section elements receive .show-section after 200ms regardless of IntersectionObserver, plus delegated FAQ-toggle handler that works across all pages
+- All deployed JS audited for `&&` and `||` operators (none present in deployed code paths, per Reputifly platform deploy mangling quirk)
+- Files changed: index.html, about.html, contact.html, courses.html, profiling.html, executive-coaching.html, consultancy.html, keynotes.html, changelog.html, components.js, components.css, CHANGELOG.md
+- Files added: course-presentation-masterclass.html, course-authority-stage.html, course-writing-for-results.html, course-connection-edge.html, course-leadership-edge.html, course-eq-edge.html, course-lead-every-generation.html, course-negotiate-precision.html, course-change-masterclass.html, course-precision-problem-solving.html, course-decision-shield.html, profiling-mbti.html, profiling-disc.html, profiling-enneagram.html, profiling-lumina-spark.html, coaching-leadership-blueprint.html, coaching-decision-advantage.html, coaching-eq-edge.html, plus assets/lead-magnet/5-communication-breakdowns.pdf and 104 images under assets/images/
+- Files removed: services.html
+- Agent: Claude Opus 4.7 (1M context) — orchestrating 6 parallel Opus subagents
+
+## [v2] — 2026-04-07
+- Removed "Featured Highlights" section from homepage
+- Added "About Dr. Caroline Josephine Dawson" bio section with full credentials
+- Added description paragraph to Awards & Accolades section with increased font size
+- Added white/light-grey tiles with rounded corners to all brand logos for visibility
+- Updated all testimonials to include Country (Singapore) in Name, Company | Country format
+- Added new S.M.A.R.T. Framework section (Skills-Based, Mentally-Challenging, Active-Learning Oriented, Realistic, Training with Fun)
+- Professional Services section retained as-is (original site down for cross-reference)
+- Fixed dead #portfolio hero link to point to #about-bio
+- Created changelog.html page documenting all client revision requests and actions taken
+- Added CSS styles: brand-tile, smart-grid/card/letter, awards-description, testi-country
+- Files changed: index.html, components.css, changelog.html, CHANGELOG.md
+- Agent: Claude Opus 4.6
