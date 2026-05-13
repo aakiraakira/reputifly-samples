@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Caroline Dawson International</title>
+    <meta name="description" content="Caroline Dawson International (CDI) is a Trusted Advisor to Organisations — practical training in communication, leadership, management, and personal development. Led by Dr. Caroline Josephine Dawson.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="components.css">
+    <style>
+        /* About page local styles */
+        .text-highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About hero override — taller, centered, full text visible */
+        #about-hero .section-subtitle {
+            margin-bottom: 20px;
+        }
+
+        #about-hero p.about-hero-sub {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            line-height: 1.65;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        /* About CDI intro block */
+        #about-cdi {
+            background-color: var(--bg-dark);
+        }
+
+        .about-cdi-copy {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .about-cdi-copy p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.75;
+            margin-bottom: 22px;
+        }
+
+        /* Founder section */
+        #founder {
+            background-color: #131314;
+        }
+
+        #founder .split-layout {
+            gap: 60px;
+        }
+
+        #founder .story-img-wrapper img {
+            filter: none;
+            /* Keep portrait in full colour, override .story-img-wrapper grayscale */
+            width: 100%;
+            border-radius: 24px;
+        }
+
+        #founder .story-content p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .founder-strip {
+            margin: 70px auto 0;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .founder-strip img {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+        }
+
+        .founder-strip .caption {
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* Trainers */
+        #trainers {
+            background-color: var(--bg-dark);
+        }
+
+        /* S.M.A.R.T. */
+        #smart {
+            background-color: #131314;
+        }
+
+        .smart-infographic {
+            max-width: 1000px;
+            margin: 40px auto 50px;
+        }
+
+        .smart-infographic img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .smart-lede {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 880px;
+            margin: 16px auto 0;
+        }
+
+        /* Executive Value Propositions */
+        #evp {
+            background-color: var(--bg-dark);
+        }
+
+        .evp-image-wrap {
+            max-width: 1100px;
+            margin: 40px auto 50px;
+        }
+
+        .evp-image-wrap img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .evp-closing {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 50px auto 0;
+            text-align: center;
+            padding: 30px 32px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* ROI */
+        #roi {
+            background-color: #131314;
+        }
+
+        .roi-layout {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .roi-image-wrap img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .roi-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .roi-stat {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 24px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-left: 3px solid var(--accent-gold);
+            border-radius: 16px;
+            padding: 24px 28px;
+            transition: var(--transition);
+        }
+
+        .roi-stat:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(4px);
+        }
+
+        .roi-stat .stat-num {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .roi-stat .stat-body h4 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .roi-stat .stat-body p {
+            color: var(--text-muted);
+            font-size: 14.5px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Closing CTA */
+        #cta-band {
+            background: radial-gradient(circle at 50% 30%, #1f1f20 0%, #0a0a0a 70%);
+            padding: 120px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        #cta-band h2 {
+            font-size: 44px;
+            margin-bottom: 16px;
+            color: #fff;
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.15;
+        }
+
+        #cta-band p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .roi-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .roi-image-wrap {
+                max-width: 360px;
+                margin: 0 auto;
+            }
+
+            .roi-stat {
+                grid-template-columns: 100px 1fr;
+                gap: 16px;
+                padding: 20px;
+            }
+
+            .roi-stat .stat-num {
+                font-size: 1.9rem;
+            }
+
+            #founder .split-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            #cta-band h2 {
+                font-size: 32px;
+            }
+
+            .about-cdi-copy p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="universal-header"></div>
+
+    <section id="about-hero" class="hidden-section">
+        <div class="container">
+            <div class="about-hero-content">
+                <span class="section-subtitle">Who We Are</span>
+                <h1>More Than a Coach. <span class="text-highlight">A Strategic Partner.</span></h1>
+                <div class="hero-line"></div>
+                <p class="about-hero-sub">
+                    At Caroline Dawson International (CDI), we provide practical training solutions that address the real challenges professionals face in communication, leadership, management, and personal development. We are a Trusted Advisor to Organisations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-cdi" class="section-padding hidden-section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 50px;">
+                <span class="section-subtitle">About CDI</span>
+                <h2 class="section-title">About Caroline Dawson International Pte Ltd</h2>
+            </div>
+            <div class="about-cdi-copy">
+                <p>At Caroline Dawson International (CDI), we provide practical training solutions that address the real challenges professionals face in communication, leadership, management, and personal development. We are a Trusted Advisor to Organisation.</p>
+                <p>Guided by our vision to empower individuals and organizations to thrive with confidence, and our mission to deliver skills-based, engaging, and future-ready learning experiences, we design every program to be highly interactive and outcome-oriented.</p>
+                <p>Whether it&rsquo;s improving business writing, mastering presentation skills, or enhancing problem-solving and leadership capabilities, our courses are tailored to build resilience, clarity, and effectiveness &mdash; creating long-lasting impact for both individuals and organizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="founder" class="section-padding hidden-section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 60px;">
+                <span class="section-subtitle">Meet Our Founder &amp; CEO</span>
+                <h2 class="section-title">Dr Caroline Josephine Dawson</h2>
+            </div>
+            <div class="split-layout">
+                <div class="story-img-wrapper">
+                    <img src="assets/images/image32.png" alt="Dr Caroline Josephine Dawson, Founder and CEO of Caroline Dawson International">
+                </div>
+                <div class="story-content">
+                    <p>Dr. Caroline Josephine Dawson is the Founder and Director of Caroline Dawson International, a premier consultancy specializing in high-impact communication, leadership, and human-centric development. With a Doctorate in Business Administration (DBA) from Teesside University, UK, and a Master of Arts in Mass Communications from Nanyang Technological University, Singapore, Dr. Dawson bridges the gap between academic rigor and real-world corporate strategy.</p>
+                    <p>Drawing on over 25 years of expertise in business management and 20 years in editorial leadership, she is renowned for an experiential and highly interactive methodology that empowers multicultural teams to excel. As an ACTA-certified trainer and former journalist, she has collaborated with the Workforce Development Agency of Singapore to design robust competency-based frameworks.</p>
+                    <p>A versatile practitioner, Dr. Dawson is a certified expert in MBTI&reg;, DISC, Enneagram, and Lumina Spark, as well as a qualified Life Coach and TESOL instructor. Notably, she was honored as one of Singapore&rsquo;s Most Influential Trainers in the prestigious SG60 Showcase, cementing her legacy as a leader in the global training landscape.</p>
+                    <p>Dr. Caroline Josephine Dawson has established a truly global footprint as a corporate trainer and learning consultant, delivering high-impact programs across an extensive array of international markets. Her expertise has been sought after throughout Southeast Asia and the wider Asia-Pacific region, including Singapore, Malaysia, Indonesia, Vietnam, Thailand, Brunei, Japan, and Taiwan. Beyond Asia, Dr. Dawson has conducted training in Australia, India, and the United States of America, while also making significant professional contributions in the Middle East across Dubai and Bahrain. Her reach further extends to the African continent with engagements in Nigeria, Ethiopia, and Sierra Leone, as well as into Europe with professional work in Germany, demonstrating her remarkable ability to adapt and deliver excellence across diverse cultural and corporate landscapes.</p>
+                </div>
+            </div>
+            <div class="founder-strip">
+                <img src="assets/images/image62.jpg" alt="Dr Caroline Dawson with the graduating cohort of BIBF 15 in Brunei">
+                <div class="caption">Training cohort in Brunei &mdash; BIBF 15</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trainers" class="section-padding hidden-section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 20px;">
+                <span class="section-subtitle">Our Faculty</span>
+                <h2 class="section-title">Meet Our Trainers</h2>
+                <p style="color: var(--text-muted); max-width: 720px; margin: 16px auto 0; font-size: 1.05rem; line-height: 1.65;">Faculty of practitioners delivering CDI&rsquo;s frameworks across the region.</p>
+            </div>
+            <div class="trainer-grid">
+                <div class="trainer-card stagger-1">
+                    <div class="trainer-photo">
+                        <img src="assets/images/image52.jpg" alt="Herjeet Singh, Career Coach and Corporate Trainer">
+                    </div>
+                    <div class="trainer-body">
+                        <h3>Herjeet Singh</h3>
+                        <div class="trainer-creds">MBA, BSc., GDip HRM, ICF-PCC, CBCC, GCDF, ACTA</div>
+                        <p>Career coach and trainer with 15+ years in HR, career development, and adult learning. ICF-PCC, GCDF, CBCC, ACTA certified. Has empowered 1,500+ professionals across APAC. Delivers soft-skills workshops for American, European, Japanese and local MNCs and government agencies across banking, logistics, manufacturing, healthcare, education and tech.</p>
+                    </div>
+                </div>
+
+                <div class="trainer-card stagger-2">
+                    <div class="trainer-photo">
+                        <img src="assets/images/image28.png" alt="Praga R., International Trainer and L&amp;D Leader">
+                    </div>
+                    <div class="trainer-body">
+                        <h3>Praga R.</h3>
+                        <div class="trainer-creds">International Trainer &amp; L&amp;D Leader</div>
+                        <p>Highly interactive international trainer with 20+ years in training &amp; development. His proprietary Accelerated Training Approach is built on the Learning Design Re-patterning Model&trade;. A practitioner of organisational psychology, Praga creates effective learning experiences that translate research into actionable insights.</p>
+                    </div>
+                </div>
+
+                <div class="trainer-card stagger-3">
+                    <div class="trainer-photo">
+                        <img src="assets/images/image94.jpg" alt="Moses Tan, Corporate Trainer">
+                    </div>
+                    <div class="trainer-body">
+                        <h3>Moses Tan</h3>
+                        <div class="trainer-creds">Corporate Trainer &mdash; HP, BP, Spencer Stuart, Abacus</div>
+                        <p>Career began as an in-house trainer at Abacus International, HP, BP and Spencer Stuart. Conducted technical training for retail travel agents across APAC, trained C-suite leaders in Japan and Hong Kong, and led BP&rsquo;s SAP cutover training for Asia Pacific as part of the change management team.</p>
+                    </div>
+                </div>
+
+                <div class="trainer-card stagger-1">
+                    <div class="trainer-photo">
+                        <img src="assets/images/image75.jpg" alt="Lilian Lee, Image Consultant and Etiquette Coach">
+                    </div>
+                    <div class="trainer-body">
+                        <h3>Lilian Lee</h3>
+                        <div class="trainer-creds">Image Consultant &bull; Etiquette Coach &bull; Lumina Practitioner</div>
+                        <p>Over 14 years as Image Consultant and Etiquette Coach. Trained as an Optometrist; spent a decade as a Singapore Airlines Leading Stewardess. Miss Singapore World 1st Runner-Up and Mrs Singapore 2019. Lumina Learning Practitioner helping individuals build presence, confidence, and personal branding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="smart" class="section-padding hidden-section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 30px;">
+                <span class="section-subtitle">Our Unique Strategy</span>
+                <h2 class="section-title">The S.M.A.R.T. Framework</h2>
+                <p class="smart-lede">The S.M.A.R.T. Framework is our blueprint for high-impact professional development, designed to bridge the gap between theory and real-world execution. By blending cognitive depth with hands-on engagement, this methodology ensures that every training session is strategically relevant, emotionally engaging, and immediately actionable. Our approach moves beyond passive learning to foster resilient, future-ready leaders through these five core pillars:</p>
+            </div>
+
+            <div class="smart-infographic">
+                <img src="assets/images/image76.png" alt="The S.M.A.R.T. Framework — Skills-Based, Mentally-Challenging, Active-Learning Oriented, Realistic, Training with Fun">
+            </div>
+
+            <div class="smart-grid">
+                <div class="smart-card stagger-1">
+                    <div class="smart-letter">S</div>
+                    <h3>Skills-Based</h3>
+                    <p>We focus on developing practical, high-impact competencies that translate directly to measurable workplace success.</p>
+                </div>
+                <div class="smart-card stagger-2">
+                    <div class="smart-letter">M</div>
+                    <h3>Mentally-Challenging</h3>
+                    <p>Our programs push boundaries by encouraging deep critical thinking and cognitive growth to navigate complex challenges.</p>
+                </div>
+                <div class="smart-card stagger-3">
+                    <div class="smart-letter">A</div>
+                    <h3>Active-Learning Oriented</h3>
+                    <p>We move beyond passive lectures with hands-on, experiential methods that ensure high engagement and long-term retention.</p>
+                </div>
+                <div class="smart-card stagger-1">
+                    <div class="smart-letter">R</div>
+                    <h3>Realistic</h3>
+                    <p>Every strategy is grounded in real-world corporate scenarios, ensuring that lessons are immediately applicable to the current business landscape.</p>
+                </div>
+                <div class="smart-card stagger-2">
+                    <div class="smart-letter">T</div>
+                    <h3>Training with Fun</h3>
+                    <p>We believe engagement peaks when learners enjoy the process; our high-energy sessions foster a positive and memorable environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="evp" class="section-padding hidden-section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 30px;">
+                <span class="section-subtitle">Business Impact</span>
+                <h2 class="section-title">Executive Value Propositions</h2>
+                <p class="smart-lede">Our Executive Value Propositions turn professional development into measurable business impact by improving profitability, productivity, and workforce performance. We help organisations achieve stronger market standing, immediate ROI, and long-term growth.</p>
+            </div>
+
+            <div class="evp-image-wrap">
+                <img src="assets/images/image102.png" alt="We Drive Measurable Business Impact — Maximise Fiscal Vitality, Streamline Workforce Productivity, Enhance Market Standing, Targeted Financial Wins">
+            </div>
+
+            <div class="outcome-grid">
+                <div class="outcome-card">
+                    <h4>Maximise Fiscal Vitality</h4>
+                    <p>Our interventions are engineered to enhance cash flow and net profit gain, ensuring professional development is treated as a strategic investment.</p>
+                </div>
+                <div class="outcome-card">
+                    <h4>Streamline Workforce Productivity</h4>
+                    <p>We focus on the effort-hour metric, implementing training programs that reduce manual friction and optimise the time required to perform critical business functions.</p>
+                </div>
+                <div class="outcome-card">
+                    <h4>Enhance Market Standing</h4>
+                    <p>By improving customer satisfaction rates and employee engagement, we help your organisation secure a larger market share and a premium brand reputation.</p>
+                </div>
+                <div class="outcome-card">
+                    <h4>Targeted Financial Wins</h4>
+                    <p>We identify specific one-time benefits, such as immediate cost reductions or revenue spikes, to provide your organisation with an instant ROI during the transition period.</p>
+                </div>
+            </div>
+
+            <p class="evp-closing">We believe that a high-performing workforce is the ultimate driver of profit. By focusing on both tangible cash flow improvements and the intangible strength of your culture, we deliver a 360-degree ROI for your organization.</p>
+        </div>
+    </section>
+
+    <section id="roi" class="section-padding hidden-section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 20px;">
+                <span class="section-subtitle">Return on Investment</span>
+                <h2 class="section-title">What Results Can You Expect?</h2>
+                <p class="smart-lede">Five measurable outcomes our partner organisations consistently see after deploying CDI&rsquo;s frameworks.</p>
+            </div>
+
+            <div class="roi-layout">
+                <div class="roi-image-wrap">
+                    <img src="assets/images/image11.png" alt="5 Impacts. Stronger Leadership. Better Results.">
+                </div>
+                <div class="roi-stats">
+                    <div class="roi-stat">
+                        <div class="stat-num">30% &uarr;</div>
+                        <div class="stat-body">
+                            <h4>Increase in Stakeholder Approval Ratings</h4>
+                            <p>Streamline reporting and engagement protocols to ensure project alignment and faster buy-in.</p>
+                        </div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="stat-num">25%</div>
+                        <div class="stat-body">
+                            <h4>Faster Decision-Making Cycles</h4>
+                            <p>Eliminate analysis paralysis and communication bottlenecks, reducing time from proposal to execution.</p>
+                        </div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="stat-num">40% &darr;</div>
+                        <div class="stat-body">
+                            <h4>Reduction in Workplace Conflict Cases</h4>
+                            <p>Implement proven de-escalation and negotiation frameworks that resolve internal friction before it requires HR intervention.</p>
+                        </div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="stat-num">15%</div>
+                        <div class="stat-body">
+                            <h4>Improvement in Leadership Bench Strength</h4>
+                            <p>Accelerate the readiness of mid-level managers to step into senior roles, reducing external hiring costs.</p>
+                        </div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="stat-num">20%</div>
+                        <div class="stat-body">
+                            <h4>Surge in Team Productivity</h4>
+                            <p>Recalibrate time-management and delegation strategies to recapture lost hours and focus on high-value output.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta-band" class="hidden-section">
+        <div class="container">
+            <span class="section-subtitle">Let&rsquo;s Talk</span>
+            <h2>Ready to bridge strategy and human potential?</h2>
+            <p>Book a 15-minute consultation with our team to design your high-impact learning roadmap.</p>
+            <a href="contact.html" class="btn">Book a Consultation</a>
+        </div>
+    </section>
+
+    <div id="universal-footer"></div>
+
+    <script src="components.js"></script>
+    <script>
+        // Reveal hero immediately on load
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                var hero = document.getElementById('about-hero');
+                if (hero) {
+                    hero.classList.add('show-section');
+                }
+            }, 100);
+        });
+
+        // IntersectionObserver for all hidden sections
+        var revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-section');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.hidden-section').forEach(function (el) {
+            revealObserver.observe(el);
+        });
+    </script>
+
+</body>
+
+</html>
