@@ -89,13 +89,14 @@ p{margin:0}
   linear-gradient(180deg, rgba(14,42,71,.55) 0%, rgba(14,42,71,.35) 40%, rgba(14,42,71,.7) 100%),
   linear-gradient(95deg, rgba(14,42,71,.85) 0%, rgba(14,42,71,.55) 38%, rgba(14,42,71,.15) 65%);
 }
-.hero-inner{position:relative;z-index:1;padding:80px 0 88px;width:100%}
-.hero h1{color:#fff;max-width:760px}
+.hero-inner{position:relative;z-index:1;padding:96px 0 104px;width:100%;display:flex;flex-direction:column;gap:0}
+.hero .eyebrow{margin-bottom:24px}
+.hero h1{color:#fff;max-width:760px;line-height:1.18}
 .hero h1 .accent{background:linear-gradient(90deg,#9DCBEC,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-sub{margin:20px 0 32px;max-width:580px;color:#DCEEFB;font-size:1.05rem;line-height:1.6}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
-.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#DCEEFB;font-size:.82rem;font-weight:500;backdrop-filter:blur(6px)}
+.hero-sub{margin:28px 0 40px;max-width:580px;color:#DCEEFB;font-size:1.05rem;line-height:1.65}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:48px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#DCEEFB;font-size:.84rem;font-weight:500;backdrop-filter:blur(6px)}
 .hero-tag .dot{width:6px;height:6px;border-radius:50%;background:#7ECDFB}
 
 /* trust strip */
@@ -234,8 +235,13 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 @media (max-width:680px){
   section{padding:56px 0}
   section.compact{padding:40px 0}
-  .hero{min-height:520px}
-  .hero-inner{padding:64px 0 72px}
+  .hero{min-height:auto}
+  .hero-inner{padding:72px 0 88px}
+  .hero .eyebrow{margin-bottom:20px}
+  .hero h1{line-height:1.18}
+  .hero-sub{margin:24px 0 36px;font-size:1rem;line-height:1.7}
+  .hero-cta{gap:14px}
+  .hero-tags{margin-top:44px;gap:10px}
   .split-text{padding:36px 24px}
   .cta-block{padding:40px 24px}
   body{padding-bottom:84px}
