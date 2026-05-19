@@ -1,3 +1,12 @@
+## base.2 — 2026-05-19 (mobile image polish)
+- Mobile service cards: object-fit:contain on tinted bg so the whole shot is visible (no aggressive crop on portrait sources)
+- Mobile project cards: 4:3 aspect (was 4:5) so vessels/cabins/welding read clearly
+- Mobile hero: object-position 22% 65% on small viewports to keep the rig fully in frame behind the headline
+- Mobile HVAC split: object-fit:contain on tinted bg so all 9 component shots stay legible
+- Re-mapped cabin.jpg to the actual accommodation cabin (img-492 — bed, dresser, desk) — previous build had a galley shot mis-labelled
+- Re-mapped hvac.jpg to the screw-compressor overhaul shot (img-202) instead of deck-machineries collage
+- Agent: Claude Opus 4.7 (1M context)
+
 ## base.1 — 2026-05-19 (post-audit polish)
 - Bumped form input font-size to 16px (kills iOS zoom-on-focus)
 - Sticky mobile CTA now hides when footer enters viewport (no overlap)
