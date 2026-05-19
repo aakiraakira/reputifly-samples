@@ -69,7 +69,7 @@ p{margin:0}
 }
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:var(--r-md);font-weight:600;font-size:.95rem;transition:transform .12s ease, box-shadow .2s ease, background .2s ease;line-height:1}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:var(--r-md);font-weight:600;font-size:.95rem;transition:transform .12s ease, box-shadow .2s ease, background .2s ease;line-height:1;min-height:44px;box-sizing:border-box}
 .btn-primary{background:linear-gradient(180deg,var(--blue-500),var(--navy-800));color:#fff;box-shadow:0 6px 18px rgba(44,124,184,.35), inset 0 1px 0 rgba(255,255,255,.18)}
 .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(44,124,184,.4), inset 0 1px 0 rgba(255,255,255,.18)}
 .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.32)}
@@ -214,6 +214,21 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .divider{height:1px;background:var(--line);margin:0}
 .center{text-align:center}
 
+/* mobile section padding compression + body padding so the sticky CTA never covers footer */
+@media (max-width:680px){
+  section{padding:56px 0}
+  section.compact{padding:40px 0}
+  .hero{min-height:520px}
+  .hero-inner{padding:64px 0 72px}
+  .split-text{padding:36px 24px}
+  .cta-block{padding:40px 24px}
+  body{padding-bottom:84px}
+  footer{padding:48px 0 24px}
+}
+@media (min-width:769px){
+  body{padding-bottom:0}
+}
+
 /* fade-in on scroll */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease, transform .55s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
@@ -233,7 +248,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 /* form */
 .form{display:grid;gap:14px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:26px}
 .form label{font-weight:600;font-size:.86rem;color:var(--navy-800)}
-.form input,.form select,.form textarea{padding:12px 14px;border:1px solid var(--line);border-radius:var(--r-md);font-family:inherit;font-size:.95rem;color:var(--ink);background:#fff;transition:border-color .15s, box-shadow .15s}
+.form input,.form select,.form textarea{padding:12px 14px;border:1px solid var(--line);border-radius:var(--r-md);font-family:inherit;font-size:1rem;color:var(--ink);background:#fff;transition:border-color .15s, box-shadow .15s}
 .form input:focus,.form select:focus,.form textarea:focus{outline:0;border-color:var(--blue-500);box-shadow:0 0 0 3px rgba(44,124,184,.15)}
 .form textarea{min-height:120px;resize:vertical}
 .form .row{display:grid;gap:14px;grid-template-columns:1fr}

@@ -1,3 +1,13 @@
+## base.1 — 2026-05-19 (post-audit polish)
+- Bumped form input font-size to 16px (kills iOS zoom-on-focus)
+- Sticky mobile CTA now hides when footer enters viewport (no overlap)
+- Standardised primary nav across all 5 pages (Capabilities · Services · Projects · Industries · Contact + Quote CTA in drawer)
+- nav-toggle aria-expanded now toggles in JS
+- .btn min-height 44px (touch-target safe)
+- Mobile section padding compressed (80px → 56px) under 680px viewport
+- body padding-bottom 84px on mobile so footer clears the sticky CTA
+- Agent: Claude Opus 4.7 (1M context)
+
 ## base — 2026-05-19
 - Initial sample build for Accomm Systems Offshore & Marine Pte Ltd
 - Pages: index.html (polished home), about.html, capabilities.html, projects.html, contact.html
