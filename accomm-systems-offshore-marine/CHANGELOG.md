@@ -1,0 +1,19 @@
+## base — 2026-05-19
+- Initial sample build for Accomm Systems Offshore & Marine Pte Ltd
+- Pages: index.html (polished home), about.html, capabilities.html, projects.html, contact.html
+- Custom SVG logo (full lockup + monogram mark) — navy → cobalt blue gradient
+- Imagery curated and color-graded from the client's 2025 company profile
+- Hero image auto-cropped to remove PDF decorative bars
+- Mobile-first responsive layout — 375 / 768 / 1280px breakpoints
+- Inter typography (400/500/600/700/800)
+- Rounded borders, soft elevation shadows, glassmorphic sticky nav
+- Sticky mobile CTA bar appears after hero exit
+- Reveal-on-scroll animations via IntersectionObserver
+- Accessible HTML — semantic landmarks, aria-current, alt text
+- Vessel-grade trust strip (SBM FPSO Lisa · INGENIUM II · Shelf Drilling Adriatic 1 · Saipem Castrone · West Polaris · EMAS Lewis Constellation)
+- 6-service vertical grid with hover lift
+- Deep-dive split section on HVAC capability
+- 6-project showcase grid (4:5 cinematic cards)
+- Brand partner strip (Staco · Norac · Joywell · Sungmi · Hailu · Hock Seng · Bn)
+- Contact form with vessel + scope selection
+- Agent: Claude Opus 4.7 (1M context) via Reputifly Web Taskforce

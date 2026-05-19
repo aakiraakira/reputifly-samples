@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="64" viewBox="0 0 260 64" role="img" aria-label="Accomm Systems Offshore and Marine">
+  <defs>
+    <linearGradient id="asGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2C7CB8"/>
+      <stop offset="1" stop-color="#0E2A47"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <rect x="2" y="6" width="54" height="52" rx="10" fill="url(#asGrad)"/>
+    <text x="29" y="40" text-anchor="middle" font-family="Inter, system-ui, sans-serif"
+          font-size="26" font-weight="800" fill="#fff" letter-spacing="-0.5">A</text>
+    <line x1="14" y1="50" x2="44" y2="14" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".55"/>
+    <text x="29" y="56" text-anchor="middle" font-family="Inter, system-ui, sans-serif"
+          font-size="13" font-weight="700" fill="#9DCBEC" letter-spacing="0.5">S</text>
+  </g>
+  <g font-family="Inter, system-ui, sans-serif" fill="#0E2A47">
+    <text x="68" y="30" font-size="16" font-weight="800" letter-spacing="0.4">ACCOMM SYSTEMS</text>
+    <text x="68" y="46" font-size="9" font-weight="600" fill="#5A6B82" letter-spacing="1.6">OFFSHORE &amp; MARINE</text>
+    <text x="68" y="58" font-size="7" font-weight="500" fill="#9AAAC0" letter-spacing="0.6">REG&#160;NO&#160;202446403E</text>
+  </g>
+</svg>

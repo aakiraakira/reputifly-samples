@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Contact — Accomm Systems Offshore &amp; Marine</title>
+<meta name="description" content="Contact Accomm Systems Offshore &amp; Marine — start a project enquiry for offshore LQ, HVAC, fabrication or chandelling.">
+<meta name="theme-color" content="#0E2A47">
+<link rel="icon" type="image/svg+xml" href="assets/img/logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html"><img src="assets/img/logo.svg" alt="Accomm Systems Offshore &amp; Marine" class="nav-logo"></a>
+    <nav class="nav-links">
+      <a href="capabilities.html">Capabilities</a>
+      <a href="index.html#services">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="index.html#industries">Industries</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+    <a href="#form" class="btn btn-primary nav-cta">Send Enquiry</a>
+    <button class="nav-toggle" aria-label="Open menu"><span></span></button>
+  </div>
+  <div class="nav-drawer">
+    <a href="capabilities.html">Capabilities</a>
+    <a href="index.html#services">Services</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow" style="color:#9DCBEC">Start a project</span>
+    <h1>Talk to our project team.</h1>
+    <p>Tell us the vessel, the scope and your shipyard window — we'll come back with a structured proposal.</p>
+  </div>
+</section>
+
+<section class="page-body">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr;gap:32px" id="form">
+      <div style="display:grid;grid-template-columns:1fr;gap:28px" class="contact-layout">
+        <form class="form">
+          <div class="row">
+            <div style="display:grid;gap:6px"><label for="name">Your name</label><input type="text" id="name" name="name" required></div>
+            <div style="display:grid;gap:6px"><label for="company">Company</label><input type="text" id="company" name="company"></div>
+          </div>
+          <div class="row">
+            <div style="display:grid;gap:6px"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
+            <div style="display:grid;gap:6px"><label for="phone">Phone / WhatsApp</label><input type="tel" id="phone" name="phone"></div>
+          </div>
+          <div style="display:grid;gap:6px">
+            <label for="vessel">Vessel / Project name</label>
+            <input type="text" id="vessel" name="vessel" placeholder="e.g. FPSO Lisa, AHTS new-build, drill ship refurb">
+          </div>
+          <div style="display:grid;gap:6px">
+            <label for="scope">Scope of works</label>
+            <select id="scope" name="scope">
+              <option>Turnkey LQ / Accommodation outfitting</option>
+              <option>HVAC &amp; Refrigeration</option>
+              <option>Modular cabins / wet units</option>
+              <option>Structural fabrication</option>
+              <option>Piping &amp; pipe modification</option>
+              <option>Ship chandelling / provisions</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div style="display:grid;gap:6px">
+            <label for="msg">Project brief</label>
+            <textarea id="msg" name="msg" placeholder="Vessel details, scope, shipyard window, deadlines..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="justify-self:start">Send enquiry <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+
+        <aside class="reveal" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;display:grid;gap:18px;align-self:start">
+          <div>
+            <span class="eyebrow">Direct lines</span>
+            <h3 style="margin-top:10px;font-size:1.05rem">Sree K Raghu</h3>
+            <p class="muted">Director, Project Engineering</p>
+          </div>
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:.94rem">
+            <li><strong>Mobile</strong> · <a href="tel:+6588084379" style="color:var(--blue-500);font-weight:600">+65 8808 4379</a></li>
+            <li><strong>Email</strong> · <a href="mailto:sree@accomsys.com" style="color:var(--blue-500);font-weight:600">sree@accomsys.com</a></li>
+            <li><strong>Office</strong> · 40 Tech Park Crescent, Singapore 638094</li>
+            <li><strong>Reg No</strong> · 202446403E</li>
+          </ul>
+          <div style="border-top:1px solid var(--line);padding-top:16px">
+            <span class="eyebrow">Service coverage</span>
+            <p style="margin-top:10px" class="muted">Singapore · Indonesia · Malaysia · Thailand · India</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+  <style>
+    @media (min-width:880px){
+      .contact-layout{grid-template-columns:1.5fr 1fr!important;gap:36px}
+    }
+  </style>
+</section>
+
+<footer>
+  <div class="container foot-grid">
+    <div>
+      <img src="assets/img/logo.svg" class="foot-logo" alt="Accomm Systems Offshore &amp; Marine">
+      <p>A Singapore-based specialist in offshore &amp; marine living quarter solutions.</p>
+    </div>
+    <div><h4>Company</h4><ul><li><a href="capabilities.html">Capabilities</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Get in touch</h4><ul><li><a href="tel:+6588084379">+65 8808 4379</a></li><li><a href="mailto:sree@accomsys.com">sree@accomsys.com</a></li></ul></div>
+    <div><h4>Address</h4><ul><li>40 Tech Park Crescent</li><li>Singapore 638094</li></ul></div>
+  </div>
+  <div class="container foot-bot"><span>© 2026 Accomm Systems Offshore &amp; Marine Pte Ltd</span><span>Sample build — Reputifly</span></div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

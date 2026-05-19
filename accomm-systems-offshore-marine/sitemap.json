@@ -1,0 +1,46 @@
+{
+  "site": {
+    "name": "Accomm Systems Offshore & Marine Pte Ltd",
+    "short": "Accomm Systems",
+    "tagline": "A total solution for offshore accommodation quarters",
+    "country": "SG",
+    "industry": "offshore & marine accommodation, turnkey living-quarter solutions, HVAC, modular cabins and ship chandelling",
+    "languages": ["en"]
+  },
+  "brand": {
+    "colors": {
+      "primary": "#0E2A47",
+      "primary_dark": "#13355A",
+      "accent": "#2C7CB8",
+      "accent_light": "#9DCBEC",
+      "blue_100": "#DCEEFB",
+      "surface": "#F6F9FC",
+      "text": "#0F1E33",
+      "muted": "#5A6B82",
+      "line": "#E2E8F0",
+      "gold": "#E0A50C"
+    },
+    "fonts": {
+      "primary": "Inter",
+      "weights": [400, 500, 600, 700, 800]
+    },
+    "radius": {
+      "sm": 10,
+      "md": 14,
+      "lg": 20,
+      "xl": 28
+    }
+  },
+  "pages": [
+    {"path": "index.html", "title": "Home", "role": "Primary entry — positions ASOM, surfaces capabilities and routes to enquiry"},
+    {"path": "about.html", "title": "About", "role": "Trust anchor — vision, mission, principles, affiliations"},
+    {"path": "capabilities.html", "title": "Capabilities", "role": "Technical depth across six service lines"},
+    {"path": "projects.html", "title": "Projects", "role": "Vessel & platform track record across Asia"},
+    {"path": "contact.html", "title": "Contact", "role": "Conversion endpoint — project enquiry form and direct lines"}
+  ],
+  "assets": {
+    "logo": "assets/img/logo.svg",
+    "logo_mark": "assets/img/logo-mark.svg",
+    "hero": "assets/img/hero.jpg"
+  }
+}
