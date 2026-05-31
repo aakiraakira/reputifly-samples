@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Ming Hwee — Proposed Website Blueprint</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Refined, premium color palette */
+      --blue: #1D4ED8;
+      --blue-d: #1E3A8A;
+      --blue-l: #DBEAFE;
+      --red: #E11D48;
+      --red-l: #FFE4E6;
+      --navy: #0F172A;
+      --baby: #93C5FD;
+      
+      --ink: #1E293B;
+      --mut: #475569;
+      --mut2: #64748B;
+      --line: #E2E8F0;
+      --line2: #CBD5E1;
+      
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --soft: #F1F5F9;
+      --soft2: #E2E8F0;
+      
+      /* Smooth, modern shadows */
+      --shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(15 23 42 / 0.06), 0 2px 4px -2px rgb(15 23 42 / 0.04);
+      --shadow-h: 0 12px 24px -4px rgb(15 23 42 / 0.1), 0 8px 10px -6px rgb(15 23 42 / 0.08);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+    ::selection { background: var(--blue-l); color: var(--blue-d); }
+
+    /* Progress bar */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0;
+      background: linear-gradient(90deg, var(--blue), var(--baby));
+      z-index: 99; transition: width 0.1s ease-out;
+    }
+
+    /* Premium Header */
+    header.top {
+      position: sticky; top: 0; z-index: 60;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 32px;
+      display: flex; align-items: center; gap: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .glb {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 2.5px solid var(--blue); position: relative;
+      background: linear-gradient(var(--blue), var(--blue)) center/100% 2.5px no-repeat,
+                  linear-gradient(var(--blue), var(--blue)) center/2.5px 100% no-repeat;
+    }
+    .glb::after {
+      content: ""; position: absolute; inset: 0; border-radius: 50%;
+      background: radial-gradient(circle at 50% 40%, var(--red) 0 4.5px, transparent 5.5px);
+    }
+    .wm { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; }
+    .wm b { color: var(--blue); }
+    .wm i { color: var(--red); font-style: normal; }
+    
+    .htitle {
+      border-left: 2px solid var(--line);
+      padding-left: 20px; line-height: 1.3;
+    }
+    .htitle .t { font-weight: 800; font-size: 15px; color: var(--navy); letter-spacing: -0.2px; }
+    .htitle .s { font-size: 12px; color: var(--mut); font-weight: 500; }
+    
+    .htools { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+    
+    /* Search Input */
+    .search {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--card); border: 1px solid var(--line2);
+      border-radius: 10px; padding: 8px 14px; min-width: 240px;
+      box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.02);
+      transition: all 0.2s ease;
+    }
+    .search:focus-within {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px var(--blue-l);
+    }
+    .search input {
+      border: none; background: none; outline: none; font: inherit;
+      font-size: 13.5px; width: 100%; color: var(--ink); font-weight: 500;
+    }
+    .search input::placeholder { color: var(--mut2); font-weight: 400; }
+    .search svg { flex-shrink: 0; color: var(--mut2); transition: color 0.2s; }
+    .search:focus-within svg { color: var(--blue); }
+    
+    .btn {
+      font: inherit; font-size: 13px; font-weight: 600; color: var(--navy);
+      background: var(--card); border: 1px solid var(--line2);
+      border-radius: 10px; padding: 8px 16px; cursor: pointer;
+      white-space: nowrap; transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn:hover { background: var(--soft); border-color: var(--mut2); color: var(--ink); }
+    .btn:active { transform: scale(0.97); }
+    
+    .count-chip {
+      font-size: 12px; font-weight: 700; color: var(--blue-d);
+      background: var(--blue-l); border-radius: 20px;
+      padding: 6px 14px; white-space: nowrap;
+      border: 1px solid #BFDBFE;
+    }
+
+    /* Layout */
+    .wrap {
+      display: grid; grid-template-columns: 260px 1fr; gap: 48px;
+      max-width: 1180px; margin: 0 auto; padding: 40px 32px 100px; align-items: start;
+    }
+
+    /* Sidebar Navigation */
+    nav.side {
+      position: sticky; top: 100px; align-self: start;
+      max-height: calc(100vh - 140px); overflow-y: auto; padding-right: 12px;
+    }
+    nav.side::-webkit-scrollbar { width: 4px; }
+    nav.side::-webkit-scrollbar-thumb { background: var(--line2); border-radius: 4px; }
+    
+    .nav-grp {
+      font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--mut2);
+      margin: 24px 0 8px; padding-left: 12px;
+    }
+    .nav-grp:first-child { margin-top: 0; }
+    
+    nav.side a {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13.5px; font-weight: 500; color: var(--mut);
+      text-decoration: none; padding: 8px 12px; border-radius: 8px;
+      transition: all 0.15s ease; line-height: 1.3;
+      margin-bottom: 2px;
+    }
+    nav.side a:hover { background: var(--soft); color: var(--navy); }
+    nav.side a.active {
+      background: var(--blue-l); color: var(--blue-d);
+      font-weight: 600; box-shadow: inset 2px 0 0 var(--blue);
+    }
+    nav.side a .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--line2); flex-shrink: 0; transition: background 0.2s;
+    }
+    nav.side a.active .dot { background: var(--blue); }
+    nav.side a .st { color: var(--red); font-size: 11px; margin-left: auto; }
+
+    /* Main Content Intro */
+    .intro { margin-bottom: 40px; }
+    .intro h1 { font-size: 34px; font-weight: 900; letter-spacing: -1px; color: var(--navy); line-height: 1.15; }
+    .intro h1 .u { color: var(--blue); position: relative; }
+    .intro p { font-size: 15px; color: var(--mut); margin-top: 12px; max-width: 680px; line-height: 1.6; }
+
+    /* Included Strip */
+    .incl {
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+      margin-top: 24px; padding: 14px 20px;
+      background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 12px;
+    }
+    .incl .lab { font-size: 11.5px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: #166534; }
+    .incl .chip {
+      display: flex; align-items: center; gap: 8px;
+      background: #FFFFFF; border: 1px solid #DCFCE7; border-radius: 8px;
+      padding: 6px 12px; font-size: 13px; font-weight: 600; color: #15803D;
+      box-shadow: 0 1px 2px rgba(21,128,61,0.05);
+    }
+    .incl .chip .tick {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: #22C55E; color: #fff; display: flex; align-items: center;
+      justify-content: center; font-size: 10px; flex-shrink: 0; font-weight: 800;
+    }
+    .incl .chip span { color: var(--mut); font-weight: 500; }
+
+    /* Legend */
+    .legend {
+      display: flex; gap: 24px; flex-wrap: wrap; margin-top: 24px;
+      padding-top: 20px; border-top: 1px solid var(--line);
+    }
+    .legend span { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--mut); font-weight: 600; }
+    .legend .star { color: var(--red); font-size: 16px; }
+    .legend .sq { width: 14px; height: 14px; border-radius: 4px; }
+
+    /* Clusters */
+    .cluster { margin-top: 48px; }
+    .cluster-h { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .cluster-h .ix {
+      font-size: 12px; font-weight: 800; color: #fff;
+      background: var(--navy); border-radius: 8px;
+      width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .cluster-h .nm { font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; color: var(--navy); }
+    .cluster-h .ln { flex: 1; height: 1px; background: var(--line2); }
+    .cluster-h .ct { font-size: 12px; color: var(--mut2); font-weight: 600; }
+
+    /* Cards */
+    .pcard {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 24px;
+      overflow: hidden; scroll-margin-top: 100px;
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+    }
+    .pcard:hover { box-shadow: var(--shadow-h); border-color: var(--line2); transform: translateY(-2px); }
+    
+    .pc-head {
+      display: flex; align-items: center; gap: 14px; padding: 18px 24px;
+      cursor: pointer; user-select: none; position: relative; background: var(--card);
+    }
+    .pc-head::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue);
+    }
+    .pcard.star .pc-head::before { background: linear-gradient(180deg, var(--red), var(--blue)); }
+    
+    .pnum {
+      font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600;
+      color: var(--blue-d); background: var(--blue-l);
+      border: 1px solid #BFDBFE; border-radius: 8px; padding: 6px 10px; flex-shrink: 0;
+    }
+    .pc-head .nm { font-size: 18px; font-weight: 800; color: var(--navy); letter-spacing: -0.3px; flex-shrink: 0; }
+    
+    .slug {
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: var(--mut);
+      background: var(--soft); border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px;
+    }
+    .startag {
+      font-size: 11px; font-weight: 700; color: var(--red); background: var(--red-l);
+      border: 1px solid #FECDD3; border-radius: 20px; padding: 4px 10px;
+      display: flex; align-items: center; gap: 4px; white-space: nowrap;
+    }
+    
+    .pc-head .why {
+      color: var(--mut); font-size: 14px; font-weight: 500; margin-left: auto;
+      flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: right;
+    }
+    
+    .chev {
+      margin-left: 12px; flex-shrink: 0; width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--mut2); transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      background: var(--soft); border-radius: 50%;
+    }
+    .pc-head:hover .chev { color: var(--navy); background: var(--line); }
+    .pcard.collapsed .chev { transform: rotate(-90deg); }
+
+    /* Card Body & Timeline */
+    .pc-body { padding: 8px 24px 24px 24px; }
+    .pcard.collapsed .pc-body { display: none; }
+    
+    .secs { position: relative; padding-left: 40px; margin-top: 4px; }
+    
+    /* The connecting vertical line */
+    .secs::before {
+      content: ""; position: absolute;
+      left: 17px; /* 40px padding - 28px dot offset = 12px left edge of dot. Center is 12 + 6 = 18px. Line is 2px, so left 17px sets center at 18px */
+      top: 32px; bottom: 32px; /* Starts and ends exactly at center of first/last dots */
+      width: 2px; background: var(--line); border-radius: 2px; z-index: 1;
+    }
+    
+    /* Individual Section Items */
+    .sec { position: relative; padding: 20px 0; border-bottom: 1px solid var(--soft); }
+    .sec:last-child { border-bottom: none; }
+    
+    /* Perfect Dot Alignment */
+    .sec::before {
+      content: ""; position: absolute;
+      left: -28px; /* Offset from the 40px padding */
+      top: 32px; /* 20px padding-top + 12px (half of 24px title line-height) */
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--card); border: 3px solid var(--line2);
+      transform: translateY(-50%); z-index: 2;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+    
+    .pcard:hover .sec::before { border-color: var(--mut2); }
+    
+    .sec.key::before { border-color: var(--blue); background: var(--blue-l); }
+    .pcard:hover .sec.key::before { border-color: var(--blue); }
+
+    /* Typography inside timeline */
+    .sec .sn {
+      display: block; font-size: 15px; font-weight: 700;
+      color: var(--navy); line-height: 24px; letter-spacing: -0.2px;
+    }
+    .sec .sd {
+      display: block; font-size: 14.5px; color: var(--mut);
+      line-height: 1.6; margin-top: 6px; max-width: 720px;
+    }
+
+    .nohit {
+      display: none; text-align: center; color: var(--mut); font-size: 15px;
+      padding: 60px 20px; background: var(--card); border: 1px dashed var(--line2);
+      border-radius: 12px; font-weight: 500;
+    }
+
+    @media (max-width: 960px) {
+      .wrap { grid-template-columns: 1fr; gap: 0; padding: 24px 20px 80px; }
+      nav.side { display: none; }
+      .htitle { display: none; }
+      header.top { padding: 12px 20px; gap: 12px; }
+      .search { min-width: 0; width: 160px; }
+      .intro h1 { font-size: 28px; }
+      .pc-head .why { display: none; }
+      .pc-head { padding: 16px 20px; flex-wrap: wrap; gap: 10px; }
+      .pc-head .slug { margin-right: auto; }
+      .pc-head .chev { margin-left: auto; }
+      .chev { width: 28px; height: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="prog"></div>
+  
+  <header class="top">
+    <div class="brand">
+      <span class="glb"></span>
+      <span class="wm"><b>Ming</b><i>Hwee</i></span>
+    </div>
+    <div class="htitle">
+      <div class="t">Proposed Website Blueprint</div>
+      <div class="s">Every page · every section · what each one achieves</div>
+    </div>
+    <div class="htools">
+      <div class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="filter" type="text" placeholder="Filter pages / sections…" autocomplete="off">
+      </div>
+      <button class="btn" id="toggleAll">Collapse all</button>
+      <span class="count-chip" id="chip">—</span>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <nav class="side" id="sidenav"></nav>
+    <main>
+      <div class="intro">
+        <h1>The new <span class="u">minghwee.com</span>, page by page.</h1>
+        <p>A focused map of the front-end pages we'd build — each one broken into its on-page sections, with a note on what every section is there to <em>achieve</em>. Lean and SEO-led: only pages that earn their place, no filler.</p>
+        
+        <div class="incl">
+          <span class="lab">Already covered</span>
+          <span class="chip"><span class="tick">✓</span>Home <span>— your new landing page, already built &amp; live</span></span>
+          <span class="chip"><span class="tick">✓</span>Blog / Guides <span>— already included</span></span>
+        </div>
+        
+        <div class="legend">
+          <span><span class="star">★</span> Priority conversion page</span>
+          <span><span class="sq" style="background:var(--blue)"></span> Key / hero section</span>
+          <span><span class="sq" style="background:var(--card);border:2px solid var(--line2)"></span> Supporting section</span>
+          <span style="color:var(--mut2)">Tip: click a page to collapse · search to filter</span>
+        </div>
+      </div>
+      
+      <div id="root"></div>
+      <div class="nohit" id="nohit">No pages or sections match that search.</div>
+      
+      <!-- The requested text / endnote block has been strictly removed per instructions. -->
+    </main>
+  </div>
+
+  <script>
+    const KEY="key";
+    const DATA=[ 
+      { ix:"01", group:"Core", pages:[   
+        { n:"Hire a Helper — Guide", slug:"/hire", why:"Section hub + the complete first-timer hiring guide", secs:[     
+          ["Hero","“Your Complete Guide to Hiring a Helper in Singapore” — owns the “how to hire a maid” search.",KEY],     
+          ["The 4 Ways to Hire","Overseas · transfer · direct hire · by nationality — routes visitors to every sub-page."],     
+          ["Hiring Timeline","Consultation → shortlist → interview → MOM → arrival — sets clear expectations."],     
+          ["Eligibility &amp; Employer Duties","EOP, who can hire, what to budget — qualifies the lead before consultation."],     
+          ["Choose a Nationality","A quick comparison snapshot — funnels to the three nationality pages."],     
+          ["Free Consultation CTA","A calm, consultative next step — converts the researcher."]   
+        ]},   
+        { n:"Contact", slug:"/contact", star:true, why:"The conversion page — book a free consultation", secs:[     
+          ["Hero","“Book Your Free 30-Minute Consultation” — a clear, low-pressure promise.",KEY],     
+          ["Enquiry Form","A simple front-end enquiry form — the primary lead capture."],     
+          ["What Happens Next","Assess needs → 3–5 profiles in 48h → zero obligation — lowers friction."],     
+          ["Direct Channels","WhatsApp · call · email — instant, low-friction contact."],     
+          ["Visit Us","Office address, map &amp; opening hours — trust + walk-ins."],     
+          ["Mini-FAQ","A few booking questions — removes the last objection."]   
+        ]} 
+      ]}, 
+      { ix:"02", group:"Hire a Helper", pages:[   
+        { n:"Filipino Maids", slug:"/hire/filipino-maid", star:true, why:"Owns “filipino maid singapore”", secs:[     
+          ["Hero","“Hire a Filipino Helper in Singapore” — owns the nationality keyword.",KEY],     
+          ["Why Filipino Helpers","Fluent English &amp; mandatory TESDA certification — the preference case."],     
+          ["Best Suited For","Childcare &amp; English-speaking households — matches the need."],     
+          ["Timeline &amp; Process","4–8 weeks overseas / 2–3 weeks transfer — sets expectations."],     
+          ["Salary &amp; Cost Snapshot","Transparent ranges — no surprises."],     
+          ["Request a Shortlist CTA","A nationality-specific enquiry — conversion."]   
+        ]},   
+        { n:"Indonesian Maids", slug:"/hire/indonesian-maid", star:true, why:"Owns “indonesian maid singapore” — most-requested", secs:[     
+          ["Hero","“Hire an Indonesian Helper in Singapore” — owns the keyword.",KEY],     
+          ["Why Indonesian Helpers","Cultural fit, Malay-Bahasa bridge, the most popular choice — the preference case."],     
+          ["Best Suited For","Local cuisine &amp; cultural compatibility — matches the need."],     
+          ["Timeline &amp; Process","3–6 weeks — sets expectations."],     
+          ["Salary &amp; Cost Snapshot","Transparent ranges."],     
+          ["Request a Shortlist CTA","A nationality-specific enquiry — conversion."]   
+        ]},   
+        { n:"Myanmar Maids", slug:"/hire/myanmar-maid", star:true, why:"Owns “myanmar maid singapore” — fastest &amp; best value", secs:[     
+          ["Hero","“Hire a Myanmar Helper in Singapore” — owns the keyword.",KEY],     
+          ["Why Myanmar Helpers","Fastest placement, great value, gentle demeanour, Mandarin advantage."],     
+          ["Best Suited For","Fast placement, budget-conscious &amp; Mandarin-speaking households."],     
+          ["Timeline &amp; Process","2–3 weeks — the fastest option."],     
+          ["Salary &amp; Cost Snapshot","Transparent ranges — the value angle."],     
+          ["Request a Shortlist CTA","A nationality-specific enquiry — conversion."]   
+        ]},   
+        { n:"Transfer Maids", slug:"/hire/transfer-maid", star:true, why:"Highest-intent term — ready-now, in-Singapore helpers", secs:[     
+          ["Hero","“Transfer &amp; Ex-Singapore Maids — Available Now” — the highest-intent term in the niche.",KEY],     
+          ["Why a Transfer Helper","Faster, interview in person, already SG-experienced — the benefits."],     
+          ["The Transfer Process","For employers hiring a transfer helper — educates."],     
+          ["Releasing Your Current Helper","For existing employers — covers both sides of the intent."],     
+          ["What to Ask a Transfer Maid","A due-diligence checklist — value-add &amp; trust."],     
+          ["See Available Helpers CTA","Browse-now action — conversion."]   
+        ]},   
+        { n:"Direct Hire", slug:"/hire/direct-hire", star:true, why:"Intercepts “hire without agency” cost-shoppers", secs:[     
+          ["Hero","“Direct Hire — You Found Her, We Handle MOM” — owns the keyword.",KEY],     
+          ["What We Handle","Work permit, SIP, 6ME, insurance &amp; contract — clarifies the service."],     
+          ["When Direct Hire Makes Sense","Qualifies the visitor."],     
+          ["Our Assisted Direct-Hire Package","The value vs going it alone."],     
+          ["Cost vs Full Placement","A transparent comparison."],     
+          ["Start Direct Hire CTA","Conversion."]   
+        ]} 
+      ]}, 
+      { ix:"03", group:"Helper Services", pages:[   
+        { n:"Work Permit Renewal", slug:"/services/renewal", star:true, why:"Huge recurring term — existing-employer conversions", secs:[     
+          ["Hero","“Renew Your Helper’s Work Permit — Stress-Free” — owns the keyword.",KEY],     
+          ["Start 60+ Days Before Expiry","Why timing matters — creates urgency."],     
+          ["What We Handle","Documents, insurance, medical &amp; MOM submission — the value."],     
+          ["Your Renewal Checklist","Educates &amp; reassures."],     
+          ["Pricing Snapshot","Transparency."],     
+          ["Start My Renewal CTA","Conversion."]   
+        ]},   
+        { n:"Insurance · Bond · Medical", slug:"/services/maid-insurance", star:true, why:"Transactional buyers — insurance + bond + 6ME", secs:[     
+          ["Hero","“Maid Insurance, Security Bond &amp; 6-Monthly Medical” — owns the keyword.",KEY],     
+          ["Maid Insurance Explained","$15k medical + $60k personal accident — educates."],     
+          ["The $5,000 Security Bond","Why you don’t pay cash — clears a common worry."],     
+          ["6-Monthly Medical (6ME)","What’s screened &amp; when — compliance."],     
+          ["Our Bundled Package","One annual policy — the value."],     
+          ["Get Covered CTA","Conversion."]   
+        ]},   
+        { n:"Home Leave", slug:"/services/home-leave", why:"Low-competition admin term", secs:[     
+          ["Hero","“Home Leave, Handled” — owns the keyword.",KEY],     
+          ["What’s Involved","Embassy endorsement, flights &amp; levy waiver — educates."],     
+          ["Planning Home Leave","When &amp; how to plan — guidance."],     
+          ["What We Handle","End-to-end — the value."],     
+          ["Arrange Home Leave CTA","Conversion."]   
+        ]},   
+        { n:"Temporary Accommodation", slug:"/services/accommodation", why:"A differentiator few competitors rank for", secs:[     
+          ["Hero","“MOM-Approved Temporary Accommodation” — owns the keyword.",KEY],     
+          ["When You Need It","Transfer gaps &amp; between contracts — the use case."],     
+          ["What’s Included","24/7 supervision, all-inclusive — the value."],     
+          ["Standards &amp; Compliance","MOM-approved — trust."],     
+          ["Enquire About Boarding CTA","Conversion."]   
+        ]} 
+      ]}, 
+      { ix:"04", group:"Specialised Care", pages:[   
+        { n:"Maid for Elderly Care", slug:"/care/elderly-care", star:true, why:"High-value, emotional intent + levy-concession hook", secs:[     
+          ["Hero","“Helpers Trained for Elderly Care” — owns the keyword.",KEY],     
+          ["Caregiving Capabilities","Mobility, medication reminders &amp; companionship — matches the need."],     
+          ["The $60 Levy Concession","Who qualifies — the cost hook for eligible households."],     
+          ["How We Match for Elder Care","The value of curated matching."],     
+          ["Elder-Care Family Stories","Proof."],     
+          ["Find an Elder-Care Helper CTA","Conversion."]   
+        ]},   
+        { n:"Infant &amp; Child Care", slug:"/care/child-care", star:true, why:"New-parent demand + confinement-nanny capture", secs:[     
+          ["Hero","“Helpers Experienced with Infants &amp; Children” — owns the keyword.",KEY],     
+          ["Childcare Capabilities","Newborn, toddler &amp; school-run support — matches the need."],     
+          ["Maid vs Confinement Nanny","A quick comparison — captures new-parent searchers."],     
+          ["How We Match for Childcare","The value of curated matching."],     
+          ["New-Parent Stories","Proof."],     
+          ["Find a Childcare Helper CTA","Conversion."]   
+        ]} 
+      ]}, 
+      { ix:"05", group:"Pricing · FAQ · About", pages:[   
+        { n:"Pricing / Fees", slug:"/pricing", star:true, why:"Transparency = a real competitor gap", secs:[     
+          ["Hero","“Transparent Pricing — No Surprises” — owns the keyword &amp; differentiates.",KEY],     
+          ["Placement Package Fees","By nationality — transparency upfront."],     
+          ["First-Year Cost Breakdown","Levy, insurance, salary, SIP &amp; medical — full education."],     
+          ["What’s Included vs Government Costs","Clarity on what’s ours vs third-party."],     
+          ["Get Your Quote CTA","Routes to WhatsApp / enquiry — conversion."]   
+        ]},   
+        { n:"FAQ", slug:"/faq", why:"Your 55+ Q asset — question SERPs + FAQ schema", secs:[     
+          ["Hero","“Hiring a Maid in Singapore — 55+ Questions Answered” — owns the keyword.",KEY],     
+          ["Category Navigation","Jump to Costs, Process, Compliance, etc. — UX."],     
+          ["Accordion Q&amp;A","11 categories with FAQ schema — SEO + objection handling."],     
+          ["Still Have Questions? CTA","Routes to a consultation — conversion."]   
+        ]},   
+        { n:"About — Our Story", slug:"/about", why:"Your E-E-A-T page: since 1983, family-run, MOM-licensed", secs:[     
+          ["Hero","“Four Decades of Bringing the Right Person Home” — the brand statement.",KEY],     
+          ["Our Story","Shirley, 1983, own Philippines office since 1991, second generation — the E-E-A-T narrative."],     
+          ["Vision &amp; Mission","A harmonious home built on mutual respect — the values frame."],     
+          ["Our Values","Gratitude · Reliability · Excellence · Care — character."],     
+          ["Our Journey","1982 → 1983 → 1991 → today timeline — heritage made tangible."],     
+          ["Peace-of-Mind Guarantee","6-month free replacement — de-risks (lives here, not a separate page)."],     
+          ["Reviews &amp; Testimonials","Families &amp; helpers — social proof (folded into About)."],     
+          ["Licence &amp; Credentials","MOM Licence 12C6072 — verifiable trust."],     
+          ["Start Your Journey CTA","Conversion."]   
+        ]} 
+      ]}
+    ];
+
+    const root=document.getElementById('root');
+    const sidenav=document.getElementById('sidenav');
+    let pageCount=0, secCount=0;
+    const navLinks=[];
+
+    DATA.forEach((cl)=>{
+      const g=document.createElement('div'); g.className='nav-grp'; g.innerHTML=cl.group; sidenav.appendChild(g);
+      const ch=document.createElement('div'); ch.className='cluster-h';
+      const csc=cl.pages.reduce((a,p)=>a+p.secs.length,0);
+      ch.innerHTML='<span class="ix">'+cl.ix+'</span><span class="nm">'+cl.group+'</span><span class="ln"></span><span class="ct">'+cl.pages.length+' page'+(cl.pages.length>1?'s':'')+' · '+csc+' sections</span>';
+      const clusterEl=document.createElement('section'); clusterEl.className='cluster'; clusterEl.appendChild(ch);
+
+      cl.pages.forEach((p)=>{
+        pageCount++; secCount+=p.secs.length;
+        const id='p-'+pageCount;
+        const card=document.createElement('div'); card.className='pcard'+(p.star?' star':''); card.id=id;
+        card.dataset.search=(p.n+' '+p.slug+' '+p.secs.map(s=>s[0]+' '+s[1]).join(' ')).toLowerCase();
+        const star=p.star?'<span class="startag">★ Priority</span>':'';
+        let secHTML='';
+        p.secs.forEach(s=>{
+          secHTML+='<div class="sec'+(s[2]===KEY?' key':'')+'"><span class="sn">'+s[0]+'</span><span class="sd">'+s[1]+'</span></div>';
+        });
+        card.innerHTML=
+          '<div class="pc-head">'+
+            '<span class="pnum">'+String(pageCount).padStart(2,'0')+'</span>'+
+            '<span class="nm">'+p.n+'</span>'+
+            '<span class="slug">'+p.slug+'</span>'+star+
+            '<span class="why">'+p.why+'</span>'+
+            '<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>'+
+          '</div>'+
+          '<div class="pc-body"><div class="secs">'+secHTML+'</div></div>';
+        clusterEl.appendChild(card);
+        const a=document.createElement('a'); a.href='#'+id;
+        a.innerHTML='<span class="dot"></span>'+p.n+(p.star?'<span class="st">★</span>':'');
+        a.dataset.target=id; sidenav.appendChild(a); navLinks.push(a);
+      });
+      root.appendChild(clusterEl);
+    });
+
+    document.getElementById('chip').textContent=pageCount+' pages · '+secCount+' sections';
+
+    document.querySelectorAll('.pc-head').forEach(h=>{
+      h.addEventListener('click',()=>h.parentElement.classList.toggle('collapsed'));
+    });
+
+    const tBtn=document.getElementById('toggleAll');
+    let allCollapsed=false;
+    tBtn.addEventListener('click',()=>{
+      allCollapsed=!allCollapsed;
+      document.querySelectorAll('.pcard').forEach(c=>c.classList.toggle('collapsed',allCollapsed));
+      tBtn.textContent=allCollapsed?'Expand all':'Collapse all';
+    });
+
+    const prog=document.getElementById('prog');
+    function onScroll(){
+      const h=document.documentElement;
+      const sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
+      prog.style.width=Math.min(100,Math.max(0,sc))+'%';
+    }
+    document.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+    const byId={}; navLinks.forEach(a=>byId[a.dataset.target]=a);
+    const obs=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          navLinks.forEach(a=>a.classList.remove('active'));
+          const a=byId[e.target.id]; if(a){a.classList.add('active'); a.scrollIntoView({block:'nearest'});}
+        }
+      });
+    },{rootMargin:'-72px 0px -65% 0px',threshold:0});
+    document.querySelectorAll('.pcard').forEach(c=>obs.observe(c));
+
+    navLinks.forEach(a=>a.addEventListener('click',e=>{
+      e.preventDefault();
+      const t=document.getElementById(a.dataset.target);
+      if(t.classList.contains('collapsed'))t.classList.remove('collapsed');
+      t.scrollIntoView({behavior:'smooth',block:'start'});
+    }));
+
+    const filter=document.getElementById('filter');
+    const nohit=document.getElementById('nohit');
+    filter.addEventListener('input',()=>{
+      const q=filter.value.trim().toLowerCase();
+      let any=false;
+      document.querySelectorAll('.cluster').forEach(cl=>{
+        let hit=false;
+        cl.querySelectorAll('.pcard').forEach(card=>{
+          if(!q){card.style.display='';hit=true;any=true;return;}
+          const m=card.dataset.search.indexOf(q)>-1;
+          card.style.display=m?'':'none';
+          if(m){hit=true;any=true;card.classList.remove('collapsed');}
+        });
+        cl.style.display=hit?'':'none';
+      });
+      nohit.style.display=any?'none':'block';
+    });
+  </script>
+</body>
+</html>
